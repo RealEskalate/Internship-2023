@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const colors = require('tailwindcss/colors')
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
@@ -7,6 +8,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: '#264FAD',
+        accent: '#FF9F43',
+        danger: '#b91c1c',
+        'primary-text': '#353535',
+        'secondary-text': '#717171',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
