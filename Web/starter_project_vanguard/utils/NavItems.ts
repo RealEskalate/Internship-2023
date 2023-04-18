@@ -1,6 +1,6 @@
-import { NavType } from "@/types/NavTypes";
+import { NavItem } from "@/types/NavItem";
 
-export   const navItems: NavType[] = [
+export   const navItems: NavItem[] = [
     { name: 'Home', href: '/' },
     { name: 'Teams', href: '/team' },
     { name: 'Success stories', href: '/story' },
