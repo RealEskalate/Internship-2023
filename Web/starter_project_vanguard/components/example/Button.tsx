@@ -17,6 +17,7 @@ export interface ButtonProps extends React.ComponentProps<'button'> {
    * Optional click handler
    */
   onClick?: () => void
+ 
 }
 
 /**
@@ -25,6 +26,7 @@ export interface ButtonProps extends React.ComponentProps<'button'> {
 export const Button = ({
   label = 'Click Me',
   shape = 'circle',
+
   className,
   ...props
 }: ButtonProps) => {
@@ -33,7 +35,7 @@ export const Button = ({
       {...props}
       className={clsx(
         shape === 'square' ? 'rounded-md' : 'rounded-full',
-        'bg-blue-700 text-white p-8',
+        `bg-blue-700 text-white px-2 py-1 h-[36px] w-[78px]`,
         className
       )}
     >
