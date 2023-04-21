@@ -1,15 +1,16 @@
-import React from "react"
+import React, { useState } from "react"
 
 interface PaginationItemProps {
 	pageNumber: number
-	isCurrentPage: boolean
+	isCurrentPage: boolean,
+	onClick: React.Dispatch<React.SetStateAction<number>>
 }
 
 interface PaginationProps {
 	numberOfPages: number
 }
 
-const PaginationItem: React.FC<PaginationItemProps> = ({pageNumber, isCurrentPage}) => {
+const PaginationItem: React.FC<PaginationItemProps> = ({pageNumber, isCurrentPage, onClick}) => {
   return (
     <button
       className={`
@@ -17,6 +18,7 @@ const PaginationItem: React.FC<PaginationItemProps> = ({pageNumber, isCurrentPag
 						"rounded bg-blue-600 h-8 w-8 text-center leading-8 text-white"
             : "rounded bg-gray-200 h-8 w-8 text-center leading-8 text-black"}
       `}
+			onClick={() => {onClick(pageNumber)}}
     >
       {pageNumber}
     </button>
@@ -24,12 +26,11 @@ const PaginationItem: React.FC<PaginationItemProps> = ({pageNumber, isCurrentPag
 }
 
 export const Pagination: React.FC<PaginationProps> = ({numberOfPages}) => {
-	{/* Hardcoded to be on the first page */}
-	let currentPage = 1
+	const [currentPage, setCurrentPage] = useState(1)
 
 	let paginationItems = []
 	for (let i = 1; i <= numberOfPages; i++) {
-		let paginationItem = <PaginationItem pageNumber={i} isCurrentPage={i == currentPage} />
+		let paginationItem = <PaginationItem pageNumber={i} isCurrentPage={i == currentPage} onClick={setCurrentPage} />
 		paginationItems.push(paginationItem)
 	}
 	
