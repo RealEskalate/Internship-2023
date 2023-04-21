@@ -1,0 +1,110 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+class Introduction extends StatefulWidget {
+  late String topic;
+  late String content;
+  late int currPage;
+  late int totalPages;
+  Introduction(this.topic, this.content, this.currPage, this.totalPages,
+      {super.key});
+
+  @override
+  State<Introduction> createState() => _IntroductionState();
+}
+
+class _IntroductionState extends State<Introduction> {
+  @override
+  Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    return Container(
+      width: size.width,
+      padding: const EdgeInsets.only(top: 25, left: 50, right: 50),
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Color.fromARGB(166, 11, 59, 104),
+            spreadRadius: 1,
+            blurRadius: 30,
+            offset: Offset(-5, 5),
+          ),
+        ],
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(50),
+          topRight: Radius.circular(50),
+        ),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Text(
+            widget.topic,
+            style: GoogleFonts.urbanist(
+              textStyle: const TextStyle(
+                color: Color.fromARGB(255, 16, 27, 65),
+                fontSize: 30,
+                fontWeight: FontWeight.w100,
+                decoration: TextDecoration.none,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: Text(
+              widget.content,
+              style: GoogleFonts.poppins(
+                textStyle: const TextStyle(
+                  color: Color.fromARGB(255, 16, 27, 65),
+                  fontSize: 15,
+                  decoration: TextDecoration.none,
+                ),
+              ),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(
+                width: 100,
+                height: 10,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: widget.totalPages,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      width: index + 1 == widget.currPage ? 25 : 10,
+                      height: 10,
+                      margin: const EdgeInsets.all(1),
+                      decoration: BoxDecoration(
+                        color: index + 1 == widget.currPage
+                            ? Colors.blue
+                            : const Color.fromARGB(141, 33, 149, 243),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                    );
+                  },
+                ),
+              ),
+              Container(
+                width: 100,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: TextButton(
+                  onPressed: () {},
+                  child: const Icon(
+                    Icons.arrow_forward,
+                    color: Colors.white,
+                  ),
+                ),
+              )
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
