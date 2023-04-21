@@ -35,7 +35,7 @@ export const Button = ({
       {...props}
       className={clsx(
         shape === 'square' ? 'rounded-md' : 'rounded-full',
-        `bg-blue-700 text-white p-8`,
+        'bg-blue-700 text-white p-8',
         className
       )}
     >

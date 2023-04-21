@@ -14,12 +14,18 @@ module.exports = {
         danger: '#b91c1c',
         'primary-text': '#353535',
         'secondary-text': '#717171',
-        'navColor':'#565656'
+        'tertiary-text': '#565656',
+        
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
+      fontFamily: {
+        poppins: ["Poppins"],
+        montserrat: ["Montserrat"],
+        DMSans: ["DM Sans"],
       },
     },
   },
