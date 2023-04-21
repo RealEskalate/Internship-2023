@@ -3,22 +3,22 @@ import React, { useState } from "react"
 interface PaginationItemProps {
 	pageNumber: number
 	isCurrentPage: boolean,
-	onClick: React.Dispatch<React.SetStateAction<number>>
+	onPageClick: React.Dispatch<React.SetStateAction<number>>
 }
 
 interface PaginationProps {
 	numberOfPages: number
 }
 
-const PaginationItem: React.FC<PaginationItemProps> = ({pageNumber, isCurrentPage, onClick}) => {
+const PaginationItem: React.FC<PaginationItemProps> = ({pageNumber, isCurrentPage, onPageClick}) => {
   return (
     <button
       className={`
         ${isCurrentPage ?
-						"rounded bg-blue-600 h-8 w-8 text-center leading-8 text-white"
-            : "rounded bg-gray-200 h-8 w-8 text-center leading-8 text-black"}
+					"rounded bg-blue-600 h-8 w-8 text-center leading-8 text-white"
+					: "rounded bg-gray-200 h-8 w-8 text-center leading-8 text-black"}
       `}
-			onClick={() => {onClick(pageNumber)}}
+			onClick={() => {onPageClick(pageNumber)}}
     >
       {pageNumber}
     </button>
@@ -30,7 +30,7 @@ export const Pagination: React.FC<PaginationProps> = ({numberOfPages}) => {
 
 	let paginationItems = []
 	for (let i = 1; i <= numberOfPages; i++) {
-		let paginationItem = <PaginationItem pageNumber={i} isCurrentPage={i == currentPage} onClick={setCurrentPage} />
+		let paginationItem = <PaginationItem pageNumber={i} isCurrentPage={i == currentPage} onPageClick={setCurrentPage} />
 		paginationItems.push(paginationItem)
 	}
 	
