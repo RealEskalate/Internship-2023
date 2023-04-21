@@ -1,19 +1,23 @@
-import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Blog } from '@/types/blog//Blog';
-import {formatDate} from "@/utils/dateFormatter";
+import { Blog } from '@/types/blog';
 import LikeButton from './LikeButton';
+import moment from "moment";
 
 
-type BlogProps = {
+// date formatter function using moment.js
+const formatDate = (dateString: string): string => {
+  const date = moment(dateString);
+  return date.format('MMM DD, YYYY');
+}
+
+type BlogCardProps = {
   blog: Blog;
 };
 
-const BlogCard: React.FC<BlogProps> = ({ blog }) => {
-  // formate date 
-  const date = new Date(blog.date);
-  const formattedDate = formatDate(date);
+const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
+  // format date 
+  const formattedDate = formatDate(blog.date);
 
   return (
     <div>
@@ -30,14 +34,14 @@ const BlogCard: React.FC<BlogProps> = ({ blog }) => {
           {/* Title part */}
           <h2 className="text-xl font-semibold mb-2">{blog.title}</h2>
 
-          {/* profileImg,Author Name and Date */}
+          {/* profileImg,Author Name,and Date */}
           <div className="flex items-center space-x-1 mb-2">
             <Image src={blog.author.image} alt={blog.author.name} width={32} height={32} className="rounded-full" />
             <p className="text-gray-600 font-medium">By {blog.author.name}</p>
             <p className="text-gray-500 text-sm">| {formattedDate}</p>
           </div>
 
-          {/* Blog Contente here */}
+          {/* Blog Content here */}
           <p className="text-gray-700 mb-4 line-clamp-2">{blog.content}</p>
 
           {/* Tags */}
@@ -55,16 +59,12 @@ const BlogCard: React.FC<BlogProps> = ({ blog }) => {
           {/* Pending/Likes and Read More buttons */}
           <div className="flex justify-between items-center mt-4">
             <LikeButton />
-            <Link className="text-indigo-500 hover:text-blue-800" href={`blog/${blog.blogID}`}>
+            <Link className="text-indigo-500" href={`blog/${blog.blogID}`}>
               Read more
             </Link>
           </div>
-          
         </div>
-
       </div>
-
-
     </div>
   );
 };
