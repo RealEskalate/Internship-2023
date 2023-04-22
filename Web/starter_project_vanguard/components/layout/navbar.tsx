@@ -19,7 +19,7 @@ const Navbar = () => {
   const currSegment = router.pathname.split('/')[1] || ''
 
   return (
-    <div className="sticky top-0 bg-white bg-opacity-100 flex justify-between font-montserrat">
+    <div className="sticky top-0 bg-white bg-opacity-100 flex justify-between font-montserrat p-10">
       <Link href="/">
         <Image src={logo} alt="A2SV Logo" />
       </Link>
@@ -29,7 +29,7 @@ const Navbar = () => {
             href={navItem.href}
             key={index}
             className={clsx(
-              'font-semibold ',
+              'font-semibold',
               currSegment === navItem.href.split('/')[1]
                 ? 'border-b-4 border-primary text-primary'
                 : 'text-tertiary-text'

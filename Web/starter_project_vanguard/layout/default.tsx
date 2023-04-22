@@ -1,11 +1,12 @@
 import React from 'react'
 import { ReactNode, Suspense } from 'react'
-import Navbar from './navbar'
+
+import Navbar from '@/components/layout/navbar'
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className='px-20 py-8'>
-      <Navbar />
+    <div>
+      <Navbar/>
       <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
     </div>
   )

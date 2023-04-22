@@ -17,7 +17,6 @@ export interface ButtonProps extends React.ComponentProps<'button'> {
    * Optional click handler
    */
   onClick?: () => void
- 
 }
 
 /**
@@ -26,7 +25,6 @@ export interface ButtonProps extends React.ComponentProps<'button'> {
 export const Button = ({
   label = 'Click Me',
   shape = 'circle',
-
   className,
   ...props
 }: ButtonProps) => {
