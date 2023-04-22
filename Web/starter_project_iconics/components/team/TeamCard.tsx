@@ -40,17 +40,14 @@ function TeamCard({
       <p className="text-center my-4 text-xl text-[#7D7D7D]">{description}</p>
       <hr className="my-6 w-[100%] "></hr>
 
-      <div className="flex justify-around w-[100%]">
-        {socialMedia &&
-          socialMedia.map((social, index) => (
-            <a href={social.link} key={index}>
-              {' '}
-              {SocialMediaIcon[social.type] || SocialMediaIcon['default']}
-            </a>
-          ))}
-      </div>
-    </div>
-  )
+            <div className="flex justify-around w-[100%]">
+                {socialMedia && socialMedia.map((social) => <a href={social.link}> {SocialMediaIcon[social.type] || SocialMediaIcon["default"]}</a> )}
+                
+                    
+
+            </div>
+        </div>
+    )
 }
 
-export default TeamCard
+export default TeamCard 
