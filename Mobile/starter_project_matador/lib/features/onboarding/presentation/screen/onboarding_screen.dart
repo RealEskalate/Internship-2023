@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:matador/features/onboarding/presentation/widgets/animated_entry.dart';
 import 'package:matador/features/onboarding/presentation/widgets/introduction.dart';
 
-class OnBoardingScreen extends StatefulWidget {
-  const OnBoardingScreen({super.key});
+class OnBoardingScreen1 extends StatefulWidget {
+  const OnBoardingScreen1({super.key});
 
   @override
-  State<OnBoardingScreen> createState() => _OnBoardingState();
+  State<OnBoardingScreen1> createState() => _OnBoardingState();
 }
 
-class _OnBoardingState extends State<OnBoardingScreen> {
+class _OnBoardingState extends State<OnBoardingScreen1> {
   double displaced = -350;
   String topic = "Read the article you want instantly";
   String content =
