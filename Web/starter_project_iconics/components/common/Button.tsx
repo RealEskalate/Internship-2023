@@ -19,9 +19,6 @@ export interface ButtonProps extends React.ComponentProps<'button'> {
    * Optional to outline border handler
    */
 
-  outline?: boolean
-
-
 }
 
 function Button({label = 'Click Me',
