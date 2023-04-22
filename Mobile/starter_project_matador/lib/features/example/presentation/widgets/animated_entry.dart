@@ -24,7 +24,7 @@ class AnimatedEntry extends StatefulWidget {
 
 class _AnimatedEntryState extends State<AnimatedEntry> {
   static const Duration duration = Duration(seconds: 2);
-  
+  static const Color shadowColor = Color.fromARGB(166, 11, 59, 104);
   @override
   Widget build(BuildContext context) {
     return AnimatedPositioned(
@@ -41,7 +41,7 @@ class _AnimatedEntryState extends State<AnimatedEntry> {
         decoration: BoxDecoration(
           boxShadow: const [
             BoxShadow(
-              color: Color.fromARGB(166, 11, 59, 104),
+              color: shadowColor,
               spreadRadius: 1,
               blurRadius: 30,
               offset: Offset(-5, 5),

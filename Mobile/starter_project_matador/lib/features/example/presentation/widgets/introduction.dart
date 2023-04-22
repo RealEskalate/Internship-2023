@@ -14,6 +14,11 @@ class Introduction extends StatefulWidget {
 }
 
 class _IntroductionState extends State<Introduction> {
+  static const Color textColor = Color.fromARGB(255, 16, 27, 65);
+  static const Color unselectedDotColor = Color.fromARGB(141, 33, 149, 243);
+  static const Color selectedDotColor = Colors.blue;
+  static const Color shadowColor = Color.fromARGB(166, 11, 59, 104);
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -24,7 +29,7 @@ class _IntroductionState extends State<Introduction> {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Color.fromARGB(166, 11, 59, 104),
+            color: shadowColor,
             spreadRadius: 1,
             blurRadius: 30,
             offset: Offset(-5, 5),
@@ -42,7 +47,7 @@ class _IntroductionState extends State<Introduction> {
             widget.topic,
             style: GoogleFonts.urbanist(
               textStyle: const TextStyle(
-                color: Color.fromARGB(255, 16, 27, 65),
+                color: textColor,
                 fontSize: 30,
                 fontWeight: FontWeight.w100,
                 decoration: TextDecoration.none,
@@ -55,7 +60,7 @@ class _IntroductionState extends State<Introduction> {
               widget.content,
               style: GoogleFonts.poppins(
                 textStyle: const TextStyle(
-                  color: Color.fromARGB(255, 16, 27, 65),
+                  color: textColor,
                   fontSize: 15,
                   decoration: TextDecoration.none,
                 ),
@@ -78,8 +83,8 @@ class _IntroductionState extends State<Introduction> {
                       margin: const EdgeInsets.all(1),
                       decoration: BoxDecoration(
                         color: index + 1 == widget.currPage
-                            ? Colors.blue
-                            : const Color.fromARGB(141, 33, 149, 243),
+                            ? selectedDotColor
+                            : unselectedDotColor,
                         borderRadius: BorderRadius.circular(5),
                       ),
                     );
