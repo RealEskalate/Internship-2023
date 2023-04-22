@@ -15,13 +15,10 @@ export interface ButtonProps extends React.ComponentProps<'button'> {
    */
   onClick?: () => void
 
-/**
-   * Optional to outline border handler
-   */
 
 }
 
-function Button({label = 'Click Me',
+function Button({label,
 className,
 ...props}: ButtonProps) {
   return (
