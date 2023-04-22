@@ -1,10 +1,10 @@
-import Image from 'next/image'
+import Image from 'next/image';
 import {
   BsEmojiSmileUpsideDown,
   BsFacebook,
   BsInstagram,
   BsLinkedin,
-} from 'react-icons/bs'
+} from 'react-icons/bs';
 type social = { type: string; link: string }
 export interface TeamCardProps {
   name: string
@@ -44,7 +44,6 @@ function TeamCard({
                 {socialMedia && socialMedia.map((social) => <a href={social.link}> {SocialMediaIcon[social.type] || SocialMediaIcon["default"]}</a> )}
                 
                     
-
             </div>
         </div>
     )
