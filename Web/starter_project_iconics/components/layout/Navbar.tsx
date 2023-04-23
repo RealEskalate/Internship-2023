@@ -26,7 +26,6 @@ const Navbar: React.FC = () => {
   ])
 
   const { asPath } = useRouter()
-  console.log(asPath)
   const [showNav, setShowNav] = useState(false)
 
   useEffect(() => {
