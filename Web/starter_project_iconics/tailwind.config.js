@@ -28,7 +28,13 @@ module.exports = {
         montserrat: ['Montserrat', 'sans-serif'],
         imfell : ['IM Fell French Canon', 'serif']
       },
+
+      fontFamily:{
+        montserrat : ['Montserrat','sans-serif']
+  
+      }
     },
+    
   },
   plugins: [],
 }
