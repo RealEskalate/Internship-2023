@@ -11,7 +11,7 @@ const SocialMediaIcon: {[index: string]:any} = {
   "default": <BsEmojiSmileUpsideDown className="fill-gray-400 w-6 h-6" />
 }
 
-const TeamMemberCard = ({
+const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
   teamMember
 }: TeamMemberCardProps) => {
   return (
