@@ -1,7 +1,9 @@
 import React from 'react'
-import Member from './Member'
+import Member from './MemberCard'
 import { members } from '@/mock/members'
-const Members = () => {
+
+
+const Members:React.FC = () => {
   return (
     <div className='grid grid-cols-12 gap-8'>
         {
