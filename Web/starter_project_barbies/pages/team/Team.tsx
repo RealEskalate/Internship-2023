@@ -1,36 +1,8 @@
 import React from 'react'
-import TeamsImage from '../../public/teams_page_img.svg'
+import TeamsImage from '../../public/image/team/teams_page_img.svg'
 import Image from 'next/image'
-import TeamMemberCard from "@/components/team/TeamMemberCard";
-import { TeamMemberCardProps } from "@/types/team/TeamMemberCardProps";
-
-const DummyDataGenerator = (): TeamMemberCardProps[] => {
-  const data:TeamMemberCardProps[] = []
-  for (let i = 0; i < 10; i++) {
-    data.push({
-      name: 'John Doe',
-      jobTitle: 'Software Engineer',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus.',
-      image: 'https://picsum.photos/200',
-      links: [
-        {
-          type: 'facebook',
-          url: 'https://www.facebook.com/',
-        },
-        {
-          type: 'linkedin',
-          url: 'https://www.linkedin.com/',
-        },
-        {
-          type: 'instagram',
-          url: 'https://www.instagram.com/',
-        }
-      ]
-    })
-  }
-  return data
-}
+import TeamMemberCard from "@/components/team/team-member-card";
+import TeamMembers from "@/data/team/data.json";
 
 const Team = () => {
   return (
@@ -56,8 +28,8 @@ const Team = () => {
       <hr className="h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-100 block w-5/6 my-8 m-auto" />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {DummyDataGenerator().map((data, index) => (
-          <TeamMemberCard key={index} name={data.name} jobTitle={data.jobTitle} description={data.description} image={data.image} links={data.links} />
+        {TeamMembers.map((data, index) => (
+          <TeamMemberCard key={index} teamMember={data} />
         ))}
       </div>
     </div>
