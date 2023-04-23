@@ -1,5 +1,6 @@
 import React from 'react'
 import { BsFacebook, BsLinkedin, BsInstagram } from 'react-icons/bs'
+import Image from "next/image";
 
 type TeamCardProps = {
   name: string
@@ -23,7 +24,7 @@ const TeamCard = ({
   return (
     <div className="team-card box-content font-sans w-72 m-4 text-center shadow-md shadow-gray-200 rounded-md py-2">
       <div className="team-card__image container overflow-hidden my-4">
-        <img className="rounded-full mx-auto w-32" src={image} alt={name} />
+        <Image className="rounded-full mx-auto w-32" width={200} height={200} src={image} alt={name} />
       </div>
 
       <div className="team-card__content m-4">
