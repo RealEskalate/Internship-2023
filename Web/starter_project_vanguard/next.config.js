@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    //used to allow to use network images with "next Image"
+    //Configured to use network images, from websites listed below, with "next Image"
     remotePatterns: [
       {
         protocol: 'https',
