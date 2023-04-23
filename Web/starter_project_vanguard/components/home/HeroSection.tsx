@@ -4,9 +4,9 @@ import Image from 'next/image'
 
 const HeroSection: React.FC = () => {
   return (
-    <div className="mt-20 mb-10">
-      <div className="grid w-full grid-flow-row gap-10 p-10 pl-4 mx-4 mt-8 auto-rows-max sm:grid-cols-2">
-        <div className="w-full ml-4 mt:11 sm:mt-24">
+    <div className="mt-11 mb-10">
+      <div className="grid w-full grid-flow-row gap-16 sm:gap-10 p-10 pl-4 mx-4 mt-8 auto-rows-max sm:grid-flow-col sm:auto-cols-fr">
+        <div className="w-full ml-4 mt:11">
           <div>
             <h1 className="font-extrabold text-7xl sm:mb-7">
               Africa To
@@ -48,12 +48,13 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
 
-        <div className="relative w-full mt-20 aspect-square place-self-start">
+        <div className="w-full aspect-square place-self-start">
           <Image
-            src="/images/image_collection.png"
+            src="/images/landing-image.png"
             alt="Picture of A2SV students"
-            className="object-cover overflow-visible"
-            fill
+            className="overflow-visible"
+            width={600}
+            height={600}
           />
         </div>
       </div>
