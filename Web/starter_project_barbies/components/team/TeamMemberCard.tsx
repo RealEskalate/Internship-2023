@@ -1,26 +1,15 @@
 import React from 'react'
 import { BsFacebook, BsLinkedin, BsInstagram } from 'react-icons/bs'
 import Image from "next/image";
+import { TeamMemberCardProps } from "@/types/team/TeamMemberCardProps"
 
-type TeamCardProps = {
-  name: string
-  jobTitle: string
-  description: string
-  image: string
-  facebook: string
-  linkedin: string
-  instagram: string
-}
-
-const TeamCard = ({
+const TeamMemberCard = ({
   name,
   jobTitle,
   description,
   image,
-  facebook,
-  linkedin,
-  instagram,
-}: TeamCardProps) => {
+  links,
+}: TeamMemberCardProps) => {
   return (
     <div className="team-card box-content font-sans w-72 mt-4 text-center shadow-md shadow-gray-200 rounded-md py-2 m-auto">
       <div className="team-card__image container overflow-hidden my-4">
@@ -42,41 +31,24 @@ const TeamCard = ({
       <hr className="h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50 block m-auto w-5/6" />
 
       <div className="team-card__social flex-row mt-3">
-        <div className="team-card__social__icon inline-block w-1/3">
+        {links && links.map((link, index) => (
+        <div key={index} className="team-card__social__icon inline-block w-1/3">
           <a
             className="inline-block"
-            href={facebook}
+            href={link.url}
             target="_blank"
             rel="noreferrer"
           >
-            <BsFacebook className="fill-gray-400 w-6 h-6" />
+            {link.type === 'facebook' && <BsFacebook className="fill-gray-400 w-6 h-6" />}
+            {link.type === 'linkedin' && <BsLinkedin className="fill-gray-400 w-6 h-6" />}
+            {link.type === 'instagram' && <BsInstagram className="fill-gray-400 w-6 h-6" />}
           </a>
         </div>
-
-        <div className="team-card__social__icon inline-block w-1/3">
-          <a
-            className="inline-block"
-            href={linkedin}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <BsLinkedin className="fill-gray-400 w-6 h-6" />
-          </a>
-        </div>
-
-        <div className="team-card__social__icon inline-block w-1/3">
-          <a
-            className="inline-block"
-            href={instagram}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <BsInstagram className="fill-gray-400 w-6 h-6" />
-          </a>
-        </div>
+        )
+        )}
       </div>
     </div>
   )
 }
 
-export default TeamCard
+export default TeamMemberCard
