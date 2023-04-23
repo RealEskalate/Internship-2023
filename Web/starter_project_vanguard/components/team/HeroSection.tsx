@@ -1,7 +1,8 @@
 import clsx from "clsx"
 import Image from "next/image"
+import React from "react"
 
-const HeroSection = () => {
+const HeroSection:React.FC = () => {
 
   const heroImages = [
     {
