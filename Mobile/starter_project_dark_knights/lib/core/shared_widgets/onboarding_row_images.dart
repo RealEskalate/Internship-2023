@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
-class RawImages extends StatelessWidget {
+class UpperRowImages extends StatelessWidget {
   final String image1;
   final String image2;
   final int flex1;
   final int flex2;
-  const RawImages(
+  const UpperRowImages(
       {super.key,
       required this.image1,
       required this.image2,
