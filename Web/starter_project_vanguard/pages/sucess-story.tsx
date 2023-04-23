@@ -1,8 +1,8 @@
 import Partners from '@/components/story/Partners'
-import SucessImage from '@/components/story/story-img'
 import Text from '@/components/story/Text'
 import { mockData } from '../utils/data/mockdata'
 import Head from 'next/head'
+import SucessImage from '@/components/story/story-img'
 
 export const metadata = {
   title: 'Sucess Story',
