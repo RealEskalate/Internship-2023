@@ -9,11 +9,12 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  static const Color backgroundColor = Color.fromARGB(125, 244, 247, 255);
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
-      color: const Color.fromARGB(255, 233, 233, 233),
+      color: backgroundColor,
       child: Stack(
         children: [
           BackgroundContainer(top: 200, left: 300),

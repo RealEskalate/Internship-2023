@@ -15,6 +15,7 @@ class BackgroundContainer extends StatefulWidget {
 
 class _BackgroundContainerState extends State<BackgroundContainer> {
   double pos = 0;
+  static const containerColor = Colors.white;
   @override
   void initState() {
     super.initState();
@@ -40,8 +41,7 @@ class _BackgroundContainerState extends State<BackgroundContainer> {
           width: 800,
           height: size.height / 3,
           decoration: BoxDecoration(
-              color: const Color.fromARGB(131, 255, 255, 255),
-              borderRadius: BorderRadius.circular(100)),
+              color: containerColor, borderRadius: BorderRadius.circular(100)),
           duration: const Duration(seconds: 1),
         ),
       ),
