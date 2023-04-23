@@ -7,53 +7,50 @@ import {
 } from 'react-icons/ai'
 import { MdCopyright, MdOutlineFacebook } from 'react-icons/md'
 
+interface NavBlock {
+  header: string
+  links: NavItem[]
+}
+
 const Footer: React.FC = () => {
-  const navigation = [
+  const navigation: NavBlock[] = [
     {
-      id: 1,
       header: 'Links',
       links: [
-        { id: 1, name: 'Home', to: '/' },
+        { name: 'Home', to: '/' },
         {
-          id: 2,
           name: 'Success Stories',
           to: '/stories',
         },
-        { id: 3, name: 'About Us', to: '/about/about' },
+        { name: 'About Us', to: '/about/about' },
         {
-          id: 4,
           name: 'Get Involved',
           to: '/get-involved',
         },
       ],
     },
     {
-      id: 2,
       header: 'Teams',
       links: [
-        { id: 1, name: 'Board Members', to: '/board' },
+        { name: 'Board Members', to: '/board' },
         {
-          id: 2,
           name: 'Advisors/Mentors',
           to: '/advisors',
         },
-        { id: 3, name: 'Executives', to: '/executives' },
+        { name: 'Executives', to: '/executives' },
         {
-          id: 4,
           name: 'Staffs',
           to: '/staff',
         },
       ],
     },
     {
-      id: 3,
       header: 'Blogs',
       links: [
-        { id: 1, name: 'Recent Blogs', to: '/recent-blogs' },
+        { name: 'Recent Blogs', to: '/recent-blogs' },
         {
-          id: 2,
-          name: 'Blogs',
-          to: '/blogs',
+          name: 'New Blog',
+          to: '/new-blog',
         },
       ],
     },
@@ -64,11 +61,10 @@ const Footer: React.FC = () => {
       <div className="flex flex-col xl:flex-row items-center justify-between gap-4">
         <div className="w-30 lg:w-60 ">
           <Image
-            src="/helping-a-partner-rafiki.svg"
+            src="/img/footer/helping-a-partner.jpg"
             alt="helping-a-partner"
             width={240}
             height={180}
-            className="object-cover"
           />
         </div>
 
@@ -76,7 +72,7 @@ const Footer: React.FC = () => {
           <p className="font-bold ">
             Get involved in improving tech education in Africa!
           </p>
-          <button className="bg-blue-700 w-40 p-3 text-white font-bold rounded-2xl">
+          <button className="bg-blue-700 w-40 p-3 text-white font-bold rounded-2xl xl:self-start">
             Support Us
           </button>
         </div>
@@ -111,11 +107,23 @@ const Footer: React.FC = () => {
           2020 Africa to Silicon Valley, Inc. All right reserved.
         </p>
         <div className="flex gap-4 text-2xl md:text-4xl ">
-          <AiOutlineTwitter />
-          <MdOutlineFacebook />
-          <AiFillYoutube />
-          <AiFillLinkedin />
-          <AiOutlineInstagram />
+          <AiOutlineTwitter href="https://twitter.com/A2_SV" target="_blank" />
+          <MdOutlineFacebook
+            href="https://www.facebook.com/profile.php?id=100085473798621"
+            target="_blank"
+          />
+          <AiFillYoutube
+            href="https://www.youtube.com/channel/UC70kFW6mFFGEjsucvNZk6-A"
+            target="_blank"
+          />
+          <AiFillLinkedin
+            href="https://www.linkedin.com/company/a2sv/mycompany/"
+            target="_blank"
+          />
+          <AiOutlineInstagram
+            href="https://www.instagram.com/a2sv_org"
+            target="_blank"
+          />
         </div>
       </div>
     </section>
