@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dartsmiths/core/utils/article_page_styles.dart';
 
-import '../../../../core/utils/article_page_color.dart';
+import '../../../../core/utils/colors.dart';
 
 class PostArticlePage extends StatefulWidget {
   const PostArticlePage({super.key});
@@ -58,9 +58,9 @@ class _PostArticlePageState extends State<PostArticlePage> {
                           decoration: BoxDecoration(
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(11)),
-                              color: BlogColorConstant.backIconBgColor),
+                              color: backIconBgColor),
                           child: Icon(Icons.keyboard_arrow_left,
-                              color: BlogColorConstant.backIconColor)),
+                              color: backIconColor)),
                       Text(
                         "Post Article",
                         style: BlogFontConstant.postArticleTheme.displayLarge,
@@ -104,7 +104,7 @@ class _PostArticlePageState extends State<PostArticlePage> {
                             child: Icon(
                               Icons.add,
                               textDirection: TextDirection.rtl,
-                              color: BlogColorConstant.addIcondColor,
+                              color: darkPrimaryColorGradient,
                             ),
                           ),
 
@@ -142,7 +142,7 @@ class _PostArticlePageState extends State<PostArticlePage> {
                         maxLines: 15, // Set this
                         keyboardType: TextInputType.multiline,
                         decoration: InputDecoration(
-                            fillColor: BlogColorConstant.contentBgColor,
+                            fillColor: contentBgColor,
                             border: const OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(15))),
@@ -160,7 +160,7 @@ class _PostArticlePageState extends State<PostArticlePage> {
                       Center(
                         child: Container(
                           decoration: BoxDecoration(
-                            color: BlogColorConstant.buttonBgColor,
+                            color: darkPrimaryColorGradient,
                             borderRadius: const BorderRadius.all(
                               Radius.circular(15),
                             ),
@@ -196,14 +196,14 @@ Widget _buildChip(String label, Function removeChips) {
     label: Text(
       label,
       style: TextStyle(
-        color: BlogColorConstant.chipsBgColor,
+        color: darkPrimaryColorGradient,
       ),
     ),
 
     deleteIcon: const Icon(Icons.cancel_outlined),
-    deleteIconColor: BlogColorConstant.addIcondColor,
+    deleteIconColor: darkPrimaryColorGradient,
     onDeleted: () => {removeChips(label)},
-    backgroundColor: BlogColorConstant.buttonTextColor,
+    backgroundColor: whiteColor,
     padding: const EdgeInsets.all(8.0),
   );
 }
