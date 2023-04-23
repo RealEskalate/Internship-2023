@@ -1,9 +1,9 @@
 import 'package:dark_knights/core/constants/colors.dart';
 import 'package:dark_knights/features/example/presentation/screen/home_page.dart';
-import 'package:dark_knights/features/example/presentation/widgets/onboarding_row_images.dart';
-import 'package:dark_knights/features/example/presentation/widgets/description_text_widget.dart';
-import 'package:dark_knights/features/example/presentation/widgets/dot_widget.dart';
-import 'package:dark_knights/features/example/presentation/widgets/header_text_widget.dart';
+import 'package:dark_knights/features/example/presentation/widgets/onboarding/onboarding_row_images.dart';
+import 'package:dark_knights/features/example/presentation/widgets/onboarding/description_text_widget.dart';
+import 'package:dark_knights/features/example/presentation/widgets/onboarding/dot_widget.dart';
+import 'package:dark_knights/features/example/presentation/widgets/onboarding/header_text_widget.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatefulWidget {

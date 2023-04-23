@@ -2,7 +2,7 @@
 // located at the top of the onboarding screen
 
 import 'package:dark_knights/core/constants/colors.dart';
-import 'package:dark_knights/features/example/presentation/widgets/clipped_image_widget.dart';
+import 'package:dark_knights/features/example/presentation/widgets/onboarding/clipped_image_widget.dart';
 import 'package:flutter/material.dart';
 
 class UpperRowImages extends StatelessWidget {
