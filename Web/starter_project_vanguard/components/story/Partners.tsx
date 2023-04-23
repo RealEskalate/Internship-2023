@@ -1,5 +1,3 @@
-import React from "react";
-
 const Partners = () => {
   return (
     <div className="max-w-screen-lg mt-20">
@@ -33,7 +31,7 @@ const Partners = () => {
         <img src="/images/story-img/linkedin.png" alt="LinkedIn logo" />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Partners;
+export default Partners

@@ -37,7 +37,7 @@ class MockData {
 
 export const mockData: MockData[] = [
   new MockData(
-    'Yishak Bogale',
+    'Yisehak Bogale',
     '/images/story-img/Isaac.png',
     'Software Engineering Intern',
     'Google - Mountain View, CA, USA',
