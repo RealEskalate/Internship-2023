@@ -31,11 +31,9 @@ export const Pagination: React.FC<PaginationProps> = ({ numberOfPages }) => {
 const PaginationItem: React.FC<PaginationItemProps> = ({ pageNumber, isCurrentPage, onPageClick }) => {
 	return (
 		<button
-			className={`
-        ${isCurrentPage ?
-					"rounded bg-blue-600 h-8 w-8 text-center leading-8 text-white"
-					: "rounded bg-gray-200 h-8 w-8 text-center leading-8 text-black"}
-      `}
+			className={
+        `${"rounded h-8 w-8 text-center " + (isCurrentPage ? "bg-blue-600 text-white" : "bg-gray-200 text-black")}`
+      }
 			onClick={() => { onPageClick(pageNumber) }}
 		>
 			{pageNumber}
