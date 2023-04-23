@@ -1,3 +1,4 @@
+import 'package:dark_knights/core/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class DescriptionText extends StatelessWidget {
@@ -12,7 +13,7 @@ class DescriptionText extends StatelessWidget {
           fontSize: 18,
           fontFamily: "Urbanist",
           fontWeight: FontWeight.w900,
-          color: Color.fromRGBO(45, 67, 121, 1)),
+          color: descriptionTextColor),
     );
   }
 }

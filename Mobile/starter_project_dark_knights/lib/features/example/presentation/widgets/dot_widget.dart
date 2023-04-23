@@ -1,3 +1,4 @@
+import 'package:dark_knights/core/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class Dot extends StatelessWidget {
@@ -13,9 +14,7 @@ class Dot extends StatelessWidget {
       height: 10,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
-        color: isBlue
-            ? const Color.fromRGBO(55, 106, 237, 1)
-            : const Color.fromRGBO(222, 231, 255, 1),
+        color: isBlue ? dotBlueColor : dotGreyColor,
       ),
     );
   }

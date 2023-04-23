@@ -1,3 +1,4 @@
+import 'package:dark_knights/core/constants/colors.dart';
 import 'package:dark_knights/features/example/presentation/widgets/clipped_image_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +24,7 @@ class UpperRowImages extends StatelessWidget {
               decoration: const BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                    color: Color.fromRGBO(173, 181, 192, 1),
+                    color: imageShadowColor,
                     spreadRadius: 1,
                     blurRadius: 30,
                     offset: Offset(0, 15),
@@ -41,7 +42,7 @@ class UpperRowImages extends StatelessWidget {
               decoration: const BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                    color: Color.fromRGBO(173, 181, 192, 1),
+                    color: imageShadowColor,
                     spreadRadius: 1,
                     blurRadius: 30,
                     offset: Offset(0, 15),

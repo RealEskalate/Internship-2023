@@ -1,3 +1,4 @@
+import 'package:dark_knights/core/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class HeaderText extends StatelessWidget {
@@ -9,7 +10,7 @@ class HeaderText extends StatelessWidget {
     return Text(
       text,
       style: const TextStyle(
-        color: Color.fromRGBO(13, 37, 60, 1),
+        color: headerTextColor,
         fontSize: 27,
         fontWeight: FontWeight.w100,
         fontStyle: FontStyle.italic,
