@@ -1,0 +1,68 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "starter_project_dark_knights",
+            "cwd": "Mobile\\starter_project_dark_knights",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "starter_project_dark_knights (profile mode)",
+            "cwd": "Mobile\\starter_project_dark_knights",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "starter_project_dark_knights (release mode)",
+            "cwd": "Mobile\\starter_project_dark_knights",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "starter_project_dartsmiths",
+            "cwd": "Mobile\\starter_project_dartsmiths",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "starter_project_dartsmiths (profile mode)",
+            "cwd": "Mobile\\starter_project_dartsmiths",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "starter_project_dartsmiths (release mode)",
+            "cwd": "Mobile\\starter_project_dartsmiths",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "starter_project_matador",
+            "cwd": "Mobile\\starter_project_matador",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "starter_project_matador (profile mode)",
+            "cwd": "Mobile\\starter_project_matador",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "starter_project_matador (release mode)",
+            "cwd": "Mobile\\starter_project_matador",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
