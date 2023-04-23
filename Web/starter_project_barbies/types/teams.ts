@@ -1,4 +1,7 @@
-import { SocialMediaLink } from "@/types/team/social-media-link";
+export type SocialMediaLink = {
+  type: string,
+  url: string
+}
 
 export type TeamMember = {
   id: string,
@@ -7,4 +10,8 @@ export type TeamMember = {
   description: string
   image: string
   links: SocialMediaLink[]
+}
+
+export type TeamMemberCardProps = {
+  teamMember: TeamMember
 }

@@ -1,7 +1,7 @@
 import React from 'react'
-import { BsFacebook, BsLinkedin, BsInstagram } from 'react-icons/bs'
+import { BsFacebook, BsLinkedin, BsInstagram } from 'react-icons/bs';
 import Image from "next/image";
-import { TeamMemberCardProps } from "@/types/team/team-member-card-props"
+import { TeamMemberCardProps } from "@/types/teams";
 
 const TeamMemberCard = ({
   teamMember
