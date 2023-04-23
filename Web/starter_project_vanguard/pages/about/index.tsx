@@ -1,6 +1,7 @@
 import A2SVSession from '@/components/about/A2SVSession'
 import CenteredImage from '@/components/about/CenteredImage'
 import ImagePragraph from '@/components/about/ImagePragraph'
+import ImageTextStack from '@/components/about/ImageTextStack'
 import SocialProject from '@/components/about/SocialProject'
 import Image from 'next/image'
 import africaIcon from '../../public/aboutus/africa_icon.svg'
@@ -34,7 +35,7 @@ function AboutPage() {
             students to create digital solutions to Africa’s most pressing
             problems.
           </p>
-          <button className="bg-[#264FAD] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-auto">
+          <button className="bg-[#264FAD] hover:bg-blue-700 text-white font-bold py-3 px-7 rounded m-auto">
             Meet Our Team
           </button>
           <p className="py-7">
@@ -46,30 +47,14 @@ function AboutPage() {
         <div>
           <div className="grid grid-cols-2 gap-4 bg-white text-size">
             <p className="col-span-2 font-semibold">Group Activities</p>
-            <div className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer">
-              <Image
-                className="object-cover w-full h-48"
-                src={educationImage}
-                alt={''}
-              ></Image>
-              <div className="absolute top-0 left-0 px-6 py-4 text-center">
-                <h4 className="mt-10 pt-6 text-xl font-semibold tracking-tight text-white">
-                  The Education Process
-                </h4>
-              </div>
-            </div>
-            <div className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer">
-              <Image
-                className="object-cover w-full h-48"
-                src={developmentImage}
-                alt={''}
-              ></Image>
-              <div className="absolute top-0 left-0 px-6 py-4">
-                <h4 className="mt-10 pt-6 text-xl font-semibold tracking-tight text-white text-center">
-                  The Development Phase
-                </h4>
-              </div>
-            </div>
+            <ImageTextStack
+              image={educationImage}
+              title={'The Education Process'}
+            />
+            <ImageTextStack
+              image={developmentImage}
+              title={'The Development Phase'}
+            />
             <div className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer col-span-2">
               <Image
                 className="object-cover w-full h-48"
@@ -87,11 +72,9 @@ function AboutPage() {
           </div>
         </div>
         <div>
-          <p className="font-extrabold text-[#2B2A35] text-4xl my-10">
-            <span className="font-lato text-[#264FAD]">
-              The problems We Are{' '}
-            </span>{' '}
-            Solving
+          <p className="font-extrabold text-[#264FAD] text-4xl my-10">
+            <span className="font-lato text-[#2B2A35]">The Problem We </span>{' '}
+            Are Solving
           </p>
           <ImagePragraph
             image={africaIcon}
@@ -131,8 +114,8 @@ function AboutPage() {
             than taking their talent elsewhere."
           />
         </div>
-        <p className="font-extrabold text-[#2B2A35] text-4xl my-10 col-span-2 text-center">
-          <span className="font-lato text-[#264FAD]">Social </span> Projects
+        <p className="font-extrabold text-[#264FAD] text-4xl my-10 col-span-2 text-center">
+          <span className="font-lato text-[#2B2A35]">Social </span> Projects
         </p>
         <div className="col-span-2">
           <SocialProject
