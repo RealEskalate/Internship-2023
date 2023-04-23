@@ -1,28 +1,13 @@
 import React, { useState } from "react"
 
-interface PaginationItemProps {
-	pageNumber: number
-	isCurrentPage: boolean,
-	onPageClick: React.Dispatch<React.SetStateAction<number>>
-}
-
 interface PaginationProps {
 	numberOfPages: number
 }
 
-const PaginationItem: React.FC<PaginationItemProps> = ({pageNumber, isCurrentPage, onPageClick}) => {
-  return (
-    <button
-      className={`
-        ${isCurrentPage ?
-					"rounded bg-blue-600 h-8 w-8 text-center leading-8 text-white"
-					: "rounded bg-gray-200 h-8 w-8 text-center leading-8 text-black"}
-      `}
-			onClick={() => {onPageClick(pageNumber)}}
-    >
-      {pageNumber}
-    </button>
-  )
+interface PaginationItemProps {
+	pageNumber: number
+	isCurrentPage: boolean,
+	onPageClick: React.Dispatch<React.SetStateAction<number>>
 }
 
 export const Pagination: React.FC<PaginationProps> = ({numberOfPages}) => {
@@ -40,5 +25,20 @@ export const Pagination: React.FC<PaginationProps> = ({numberOfPages}) => {
 				{paginationItems}
 			</nav>
 		</div>
+  )
+}
+
+const PaginationItem: React.FC<PaginationItemProps> = ({pageNumber, isCurrentPage, onPageClick}) => {
+  return (
+    <button
+      className={`
+        ${isCurrentPage ?
+					"rounded bg-blue-600 h-8 w-8 text-center leading-8 text-white"
+					: "rounded bg-gray-200 h-8 w-8 text-center leading-8 text-black"}
+      `}
+			onClick={() => {onPageClick(pageNumber)}}
+    >
+      {pageNumber}
+    </button>
   )
 }
