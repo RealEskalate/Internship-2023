@@ -1,3 +1,7 @@
+// This file includes a widget called Dot. The purpose of the widget is
+// to create the small circular containers in the bottom left side of the
+// bottom navigation of the onboarding screen
+
 import 'package:dark_knights/core/constants/colors.dart';
 import 'package:flutter/material.dart';
 

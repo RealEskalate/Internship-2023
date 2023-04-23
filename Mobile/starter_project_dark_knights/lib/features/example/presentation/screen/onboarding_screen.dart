@@ -1,14 +1,10 @@
 import 'package:dark_knights/core/constants/colors.dart';
 import 'package:dark_knights/features/example/presentation/screen/home_page.dart';
-import 'package:dark_knights/features/example/presentation/screen/splash_screen.dart';
 import 'package:dark_knights/features/example/presentation/widgets/onboarding_row_images.dart';
 import 'package:dark_knights/features/example/presentation/widgets/description_text_widget.dart';
 import 'package:dark_knights/features/example/presentation/widgets/dot_widget.dart';
 import 'package:dark_knights/features/example/presentation/widgets/header_text_widget.dart';
-import 'package:dark_knights/features/example/presentation/widgets/onboarding_row_images.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});

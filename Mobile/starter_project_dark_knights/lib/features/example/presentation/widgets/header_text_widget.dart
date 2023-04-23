@@ -1,3 +1,7 @@
+// This file includes a widget called HeaderText. The purpose of the widget is
+// to create header text inside the onboarding screen that is located below the four
+// images.
+
 import 'package:dark_knights/core/constants/colors.dart';
 import 'package:flutter/material.dart';
 

@@ -1,3 +1,6 @@
+// The purpose of this widget is to create the four grid images
+// located at the top of the onboarding screen
+
 import 'package:dark_knights/core/constants/colors.dart';
 import 'package:dark_knights/features/example/presentation/widgets/clipped_image_widget.dart';
 import 'package:flutter/material.dart';
@@ -34,6 +37,7 @@ class UpperRowImages extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: ClippedImage(
                 image: image1,
+                radius: 30,
               ),
             )),
         Expanded(
@@ -50,7 +54,10 @@ class UpperRowImages extends StatelessWidget {
                 ],
               ),
               padding: const EdgeInsets.all(8.0),
-              child: ClippedImage(image: image2),
+              child: ClippedImage(
+                image: image2,
+                radius: 30,
+              ),
             ))
       ],
     );

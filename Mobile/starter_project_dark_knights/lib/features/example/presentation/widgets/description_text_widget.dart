@@ -1,3 +1,6 @@
+// The purpose of the widget is to create the blueish description text located below the
+// header text of the onboarding screen.
+
 import 'package:dark_knights/core/constants/colors.dart';
 import 'package:flutter/material.dart';
 
