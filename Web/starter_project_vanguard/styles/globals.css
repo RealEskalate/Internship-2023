@@ -1,5 +1,6 @@
 @tailwind base;
 @tailwind components;
+<<<<<<< HEAD
 
 .btn {
   @apply px-9 py-2 font-medium block transition ease-in-out duration-300 bg-primary text-white rounded-md leading-snug whitespace-nowrap hover:bg-blue-900 text-base;
@@ -29,4 +30,6 @@
   @apply bg-white border-primary text-primary;
 }
 
+=======
+>>>>>>> f608d8d (Refactor code and folder structure based on feedback.)
 @tailwind utilities;
