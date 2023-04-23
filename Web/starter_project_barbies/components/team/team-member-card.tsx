@@ -1,7 +1,15 @@
 import React from 'react'
-import { BsFacebook, BsLinkedin, BsInstagram } from 'react-icons/bs';
+import { BsFacebook, BsLinkedin, BsInstagram, BsEmojiSmileUpsideDown } from 'react-icons/bs';
 import Image from "next/image";
 import { TeamMemberCardProps } from "@/types/teams";
+
+
+const SocialMediaIcon: {[index: string]:any} = {
+  "facebook": <BsFacebook className="fill-gray-400 w-6 h-6" />,
+  "linkedin": <BsLinkedin className="fill-gray-400 w-6 h-6" />,
+  "instagram": <BsInstagram className="fill-gray-400 w-6 h-6" />,
+  "default": <BsEmojiSmileUpsideDown className="fill-gray-400 w-6 h-6" />
+}
 
 const TeamMemberCard = ({
   teamMember
@@ -35,9 +43,7 @@ const TeamMemberCard = ({
             target="_blank"
             rel="noreferrer"
           >
-            {link.type === 'facebook' && <BsFacebook className="fill-gray-400 w-6 h-6" />}
-            {link.type === 'linkedin' && <BsLinkedin className="fill-gray-400 w-6 h-6" />}
-            {link.type === 'instagram' && <BsInstagram className="fill-gray-400 w-6 h-6" />}
+            {SocialMediaIcon[link.type] || SocialMediaIcon["default"]}
           </a>
         </div>
         )
