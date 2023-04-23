@@ -6,7 +6,7 @@ interface PaginationProps {
 
 interface PaginationItemProps {
 	pageNumber: number
-	isCurrentPage: boolean,
+	isCurrentPage: boolean
 	onPageClick: React.Dispatch<React.SetStateAction<number>>
 }
 
