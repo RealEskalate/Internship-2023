@@ -1,7 +1,5 @@
 import 'package:dark_knights/features/example/presentation/widgets/clipped_image_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class UpperRowImages extends StatelessWidget {
   final String image1;
