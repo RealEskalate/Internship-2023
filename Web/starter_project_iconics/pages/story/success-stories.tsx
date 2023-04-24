@@ -4,7 +4,7 @@ import { GlassImage, TextSection, PartnerLogos } from '../../components/story/St
 
 const StoryPage: React.FC = () => {
   return (
-    <div>
+    <div className="bg-gray-100">
       <div className="flex justify-center mt-8">
         <h1 className="font-poppins text-5xl font-semibold">Impact Stories</h1>
       </div>
