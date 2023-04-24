@@ -1,14 +1,10 @@
 import A2SVSession from '@/components/about/A2SVSession'
+import Activities from '@/components/about/Activities'
 import CenteredImage from '@/components/about/CenteredImage'
 import ImagePragraph from '@/components/about/ImagePragraph'
-import ImageTextStack from '@/components/about/ImageTextStack'
 import SocialProject from '@/components/about/SocialProject'
-import Image from 'next/image'
 import africaIcon from '../../public/aboutus/africa_icon.svg'
 import codingIcon from '../../public/aboutus/coding_icon.svg'
-import developmentImage from '../../public/aboutus/development_phase.svg'
-import educationImage from '../../public/aboutus/education_process.svg'
-import growthRate from '../../public/aboutus/growth_rate.svg'
 import hakimHub from '../../public/aboutus/hakimhub.svg'
 import howToApproach from '../../public/aboutus/how_to_approach.svg'
 import howWeAreSolving from '../../public/aboutus/how_we_are_solving.svg'
@@ -44,33 +40,11 @@ function AboutPage() {
             problems.
           </p>
         </div>
-        <div>
-          <div className="grid grid-cols-2 gap-4 bg-white text-size">
-            <p className="col-span-2 font-semibold">Group Activities</p>
-            <ImageTextStack
-              image={educationImage}
-              title={'The Education Process'}
-            />
-            <ImageTextStack
-              image={developmentImage}
-              title={'The Development Phase'}
-            />
-            <div className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer col-span-2">
-              <Image
-                className="object-cover w-full h-48"
-                src={growthRate}
-                alt={''}
-              ></Image>
-              <div className="absolute top-0 left-0 px-6 py-4 text-white w-[100%] text-right">
-                <h4 className="pt-6 text-xl font-semibold">20% Growth Rate</h4>
-                <div className="font-light mt-5">
-                  <p>180% Student Growth Rate</p>
-                  <p>20% Fast Learning Track</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Activities
+          studentGrowthRate={180}
+          learningRate={100}
+          growthRate={20}
+        />
         <div>
           <p className="font-extrabold text-[#264FAD] text-4xl my-10">
             <span className="font-lato text-[#2B2A35]">The Problem We </span>{' '}
