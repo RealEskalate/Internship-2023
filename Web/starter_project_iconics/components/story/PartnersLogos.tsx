@@ -2,7 +2,7 @@ import React from 'react';
 
 const PartnerLogos: React.FC = () => {
   return (
-    <div className="container mx-auto bg-gray-100">
+    <div className="container mx-auto">
         <h2 className="text-3xl font-semibold text-center mb-6 mt-8 font-DMSans">Current Interview Partners</h2>
         <div className="flex justify-center items-center flex-wrap gap-8">
           <div className="w-52 h-52 flex justify-center items-center bg-gray-100 rounded-full">
