@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/Mobile/starter_project_matador/build" />
+      <excludeFolder url="file://$MODULE_DIR$/Mobile/starter_project_matador/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/Mobile/starter_project_matador/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/Mobile/starter_project_dartsmiths/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/Mobile/starter_project_dartsmiths/build" />
+      <excludeFolder url="file://$MODULE_DIR$/Mobile/starter_project_dartsmiths/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/Mobile/starter_project_dark_knights/build" />
+      <excludeFolder url="file://$MODULE_DIR$/Mobile/starter_project_dark_knights/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/Mobile/starter_project_dark_knights/.dart_tool" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
