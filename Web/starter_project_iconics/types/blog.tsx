@@ -1,12 +1,5 @@
-export interface User {
-  id: number
-  firstName: string
-  lastName: string
-  email: string
-  photoUrl: string
-}
-
-export interface Blog {
+import { User } from './user'
+export type Blog = {
   id: number
   title: string
   photoUrl: string

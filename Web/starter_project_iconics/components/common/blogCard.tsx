@@ -1,6 +1,5 @@
-import React, { ReactElement } from 'react'
-import styles from '../../styles/blogCard.module.css'
-import { Blog } from '../../types/models'
+import React from 'react'
+import { Blog } from '../../types/blog'
 import { MdOutlineModeComment } from 'react-icons/md'
 
 import {
@@ -15,117 +14,131 @@ interface Props {
 }
 
 const BlogCard: React.FC<Props> = ({ card, feature }) => {
-  const handleReadMore = () => {
-    console.log('Read More button clicked')
+  const handleReadMore = () => {}
+  const statusIcon = {
+    approved: <AiFillCheckCircle size={18} />,
+    declined: <AiFillWarning size={18} />,
+    pending: <AiFillClockCircle size={18} />,
   }
-  const statusIcons: ReactElement[] = [
-    <AiFillCheckCircle key={1} size={20} className={styles.statIcon} />,
-    <AiFillWarning key={2} size={20} className={styles.statIcon} />,
-    <AiFillClockCircle key={3} size={20} className={styles.statIcon} />,
+
+  const abbreviations: [number, string][] = [
+    [1e3, 'K'],
+    [1e6, 'M'],
+    [1e9, 'B'],
   ]
-  const statusToNum: (stat: string) => number = (stat) => {
-    if (stat === 'approved') return 0
-    if (stat === 'denied') return 1
-    return 2
-  }
-  const formatNumber: (num: number) => string | number = (num: number) => {
-    if (num >= 1000000000) {
-      return (num / 1000000000).toFixed(1) + 'B'
-    } else if (num >= 1000000) {
-      return (num / 1000000).toFixed(1) + 'M'
-    } else if (num >= 1000) {
-      return (num / 1000).toFixed(1) + 'K'
-    } else {
-      return num
-    }
-  }
+
   return (
-    <div className={styles.card}>
+    <div
+      className="card w-400 font-montserrat flex flex-col border border-gray-300 rounded-lg overflow-hidden shadow-md bg-white h-543 my-8 font-bold"
+      style={{ width: '400px' }}
+    >
       <img
-        className={styles.card_image}
+        className="w-full h-60 object-cover"
         src={card.photoUrl}
         alt={`${card.writter.firstName} ${card.writter.lastName}`}
       />
-      <div className={styles.card_content}>
-        <h2 className={styles.card_title}>{card.title}</h2>
+      <div className="p-4">
+        <b>
+          <h2 className="card_title font-bold text-lg text-gray-700 break-words overflow-hidden line-clamp-3 leading-snug">
+            {card.title}
+          </h2>
+        </b>
 
-        <div className={styles.card_writter}>
+        <div className="card_writter flex items-center mb-6 mt-4">
           <img
-            className={styles.card_writter_image}
+            className="card_writter_image w-10 h-10 object-cover rounded-full mr-2"
             src={card.writter.photoUrl}
             alt={`${card.writter.firstName} ${card.writter.lastName}`}
           />
 
-          <div className={styles.card_writter_details}>
-            <span className={styles.card_writter_name}>
-              <b className={styles.by}>&nbsp;{' by '}</b>&nbsp;
-              {card.writter.firstName} {card.writter.lastName}
-              <b className={styles.by}>
+          <div className="card_writter_details flex flex-col items-start">
+            <span className="card_writter_name m-0   text-gray-600 leading-5">
+              <b className="font-thin">&nbsp;{' by '}</b>&nbsp;
+              <b>
+                {card.writter.firstName} {card.writter.lastName}
+              </b>
+              <b className="font-thin">
                 &nbsp;&nbsp;{' | '}&nbsp;&nbsp;
-                {new Date(card.dateOfCreation).toLocaleDateString()}
+                {new Date(card.dateOfCreation).toLocaleDateString('en-US', {
+                  month: 'short',
+                  day: 'numeric',
+                  year: 'numeric',
+                })}
               </b>
             </span>
           </div>
         </div>
-        <div className={styles.card_tags}>
+        <div className="card_tags flex flex-row items-center mb-4">
           {card.tags.map((tag, index) => (
-            <span key={index} className={styles.card_tag}>
+            <span
+              key={index}
+              className="card_tag mr-2 px-2 py-1 bg-gray-100 text-gray-500 rounded-full text-xs"
+            >
               {tag}
             </span>
           ))}
         </div>
-        <p className={styles.card_description}>{card.description}</p>
+        <p className="card_description mt-3 mb-3 text-sm font-thin text-gray-500 break-words overflow-hidden line-clamp-3 leading-snug">
+          {card.description}
+        </p>
         <br />
-        <hr className={styles.line} />
-        <div className={styles.card_details}>
-          <div className={styles.card_footer}>
+        <hr className="line border-gray-200" />
+        <div>
+          <div className="card_footer flex justify-between items-center">
             {(() => {
               if (feature === 'likes') {
+                let val: string = ''
+                for (const [value, abbreviation] of abbreviations) {
+                  if (card.likes >= value) {
+                    const roundedNum = (card.likes / value).toFixed(1)
+                    val = `${roundedNum}${abbreviation} likes`
+                  }
+                }
                 return (
-                  <span style={{ display: 'flex', alignItems: 'center' }}>
+                  <span className="flex items-center">
                     <span
-                      className={styles.card_writter_likes}
+                      className="card_writter_likes m-0 text-sm font-medium text-gray-500"
                       data-likes={card.likes}
                       style={{ display: 'inline-block', marginRight: '14px' }}
                     >
                       <MdOutlineModeComment size={15} />
                     </span>
                     <span
-                      className={styles.card_writter_likes}
+                      className="card_writter_likes m-0 text-sm font-medium text-gray-500"
                       data-likes={card.likes}
                       style={{ display: 'inline-block' }}
                     >
-                      {formatNumber(card.likes)} likes
+                      {val}
                     </span>
                   </span>
                 )
               } else {
                 return (
-                  <span style={{ display: 'flex', alignItems: 'center' }}>
+                  <span className="flex items-center">
                     {
                       <span
                         className={
                           card.status === 'approved'
-                            ? styles.card_status_approved
+                            ? 'text-green-600 '
                             : card.status === 'declined'
-                            ? styles.card_status_declined
-                            : styles.card_status_pending
+                            ? 'text-red-600 '
+                            : 'text-orange-500 '
                         }
                         style={{
                           display: 'inline-block',
-                          marginRight: '14px',
+                          marginRight: '10px',
                         }}
                       >
-                        {statusIcons[statusToNum(card.status)]}
+                        {statusIcon[card.status || 'pending']}
                       </span>
                     }
                     <span
                       className={
                         card.status === 'approved'
-                          ? styles.card_status_approved
+                          ? 'text-green-600 text-sm'
                           : card.status === 'declined'
-                          ? styles.card_status_declined
-                          : styles.card_status_pending
+                          ? 'text-red-600 text-sm'
+                          : 'text-orange-500 text-sm'
                       }
                       style={{ display: 'inline-block' }}
                     >
@@ -136,7 +149,10 @@ const BlogCard: React.FC<Props> = ({ card, feature }) => {
               }
             })()}
 
-            <button className={styles.card_read_more} onClick={handleReadMore}>
+            <button
+              className="card_read_more px-4 py-2 text-sm rounded-md border-none bg-white text-purple-500 font-bold cursor-pointer transition duration-200 ease-in-out"
+              onClick={handleReadMore}
+            >
               Read More
             </button>
           </div>
