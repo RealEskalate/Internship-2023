@@ -1,5 +1,4 @@
 import BlogCard from '@/components/blog/BlogCard';
-import fonts from '@/styles/blog/blog-detail.module.scss';
 import { Blog } from "@/types/blog";
 
 interface RelatedBlogsProps {
@@ -16,7 +15,7 @@ export const RelatedBlogs: React.FC<RelatedBlogsProps> = ({ blog }) => {
   }
 
   return (
-    <div className={fonts.monteserrat}>
+    <div className='font-montserrat'>
 
       {/* Title */}
       <div className='text-lg pt-20 flex items-start font-black'>

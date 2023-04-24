@@ -1,4 +1,3 @@
-import fonts from '@/styles/blog/blog-detail.module.scss'
 import { Blog } from '@/types/blog'
 import Image from 'next/image'
 import { RelatedBlogs } from '../../components/blog/RelatedBlogs'
@@ -13,12 +12,12 @@ export const BlogDetail: React.FC<BlogDetailProps> = ({ blog }) => {
 
       {/* Blog title */}
       <div className='text-3xl pt-20 flex items-center justify-center'>
-        <h1 className={fonts.cannon}>{blog.title}</h1>
+        <h1 className="font-french-cannon">{blog.title}</h1>
       </div>
 
       {/* Tags & read time */}
       <div className='flex items-center justify-center text-xs font-extralight mt-2'>
-        <div className={`flex items-center gap-3 ${fonts.monteserrat}`}>
+        <div className="flex items-center gap-3 font-montserrat">
           <div>{blog.tags.join(', ')}</div>
           <div>|</div>
           <div>{blog.readTime} MIN READ</div>
@@ -55,7 +54,7 @@ interface BlogAuthorDetailProps {
 
 const BlogAuthorDetail: React.FC<BlogAuthorDetailProps> = ({ author: {name, image, profession, userName} }) => {
   return (
-    <div className={`text-xs font-extralight ${fonts.monteserrat}`}>
+    <div className='text-xs font-extralight font-montserrat'>
 
       {/* Author image */}
       <div className="flex items-center justify-center">
@@ -87,7 +86,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ content }) => {
   let paragraphs = []
   let key = 0
   for (let line of content.split('\n')) {
-    let paragraph = <p key={key++} className={`${'mt-6 ' + ((key == 1) ? (`text-xl ${fonts.cannon}`) : (`text-sm font-thin ${fonts.monteserrat}`))}`}>
+    let paragraph = <p key={key++} className={`${'mt-6 ' + ((key == 1) ? ('text-xl font-french-cannon') : ('text-sm font-thin font-montserrat'))}`}>
       {line}
     </p>
     paragraphs.push(paragraph)
