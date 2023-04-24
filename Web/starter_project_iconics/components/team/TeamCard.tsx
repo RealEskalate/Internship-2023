@@ -44,6 +44,7 @@ function TeamCard({
                 {socialMedia && socialMedia.map((social) => <a href={social.link}> {SocialMediaIcon[social.type] || SocialMediaIcon["default"]}</a> )}
                 
                     
+
             </div>
         </div>
     )
