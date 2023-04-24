@@ -10,10 +10,7 @@ export type Blog = {
       name: string;
       email : string;
       image: string;
-      profession: string;
-      userName: string;
     };
     blogImage: string;
-    readTime: number;
     // we can add other properties here as needed
   };
