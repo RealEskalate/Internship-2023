@@ -3,6 +3,7 @@
 
 import 'package:dark_knights/core/constants/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class DescriptionText extends StatelessWidget {
   final String text;
@@ -12,9 +13,8 @@ class DescriptionText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: const TextStyle(
-          fontSize: 18,
-          fontFamily: "Urbanist",
+      style: GoogleFonts.poppins(
+          fontSize: 16,
           fontWeight: FontWeight.w900,
           color: descriptionTextColor),
     );
