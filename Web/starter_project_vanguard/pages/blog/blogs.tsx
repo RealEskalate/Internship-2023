@@ -14,8 +14,8 @@ function Blogs() {
       
       <div className="w-1/2 p-4">
       <div className="flex flex-wrap">
-        <div> <ProfilePic /> </div>
-        <div className="flex justify-center items-center"> <Name /> </div>
+        <div > <ProfilePic /> </div>
+        <div className="flex justify-center items-center mx-3"> <Name /> </div>
       </div>
       
       <div className="flex flex-wrap">
@@ -28,7 +28,7 @@ function Blogs() {
 
       </div>
 
-      <div className="flex justify-center items-center w-1/2 p-4">
+      <div className="flex justify-center items-center w-1/3 p-4">
       <Image src="https://media.wired.com/photos/598e35fb99d76447c4eb1f28/16:9/w_2123,h_1194,c_limit/phonepicutres-TA.jpg"  borderRadius="rounded-lg" />
       </div>
 
