@@ -6,9 +6,9 @@ import growthRateImage from '../../public/aboutus/growth_rate.svg'
 
 function Activities({ studentGrowthRate, learningRate, growthRate }: any) {
   return (
-    <div className="bg-[#FDFEFF] p-7 rounded-lg">
-      <div className="grid grid-cols-2 gap-4 bg-[#FDFEFF] text-size">
-        <p className="col-span-2 font-semibold bg-[#FDFEFF]">
+    <div className="bg-aboutbackground p-7 rounded-lg">
+      <div className="grid grid-cols-2 gap-4 bg-aboutbackground text-size">
+        <p className="col-span-2 font-semibold bg-aboutbackground">
           Group Activities
         </p>
         <ImageTextStack

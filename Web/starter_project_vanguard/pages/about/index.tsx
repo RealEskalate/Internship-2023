@@ -5,33 +5,25 @@ import ImagePragraph from '@/components/about/ImagePragraph'
 import SocialProject from '@/components/about/SocialProject'
 import africaIcon from '../../public/aboutus/africa_icon.svg'
 import codingIcon from '../../public/aboutus/coding_icon.svg'
-import hakimHub from '../../public/aboutus/hakimhub.svg'
-import howToApproach from '../../public/aboutus/how_to_approach.svg'
 import howWeAreSolving from '../../public/aboutus/how_we_are_solving.svg'
 import lightIcon from '../../public/aboutus/light_icon.svg'
 import problemImage from '../../public/aboutus/problem_image.svg'
-import problemSolvingSession from '../../public/aboutus/problem_solving_session.svg'
-import qAndA from '../../public/aboutus/q&a.svg'
-import technicalTraining from '../../public/aboutus/technical_training.svg'
-import trackSys from '../../public/aboutus/tracksys.svg'
-import weeklyContests from '../../public/aboutus/weekly_contests.svg'
-import weeklyOneOnOnes from '../../public/aboutus/weekly_one_on_ones.svg'
+import { a2svSessions, socialProjects } from './data'
 
 function AboutPage() {
   return (
     <div className="bg-white p-10">
       <div className="grid grid-cols-2 gap-10">
         <div>
-          <p className="font-extrabold text-[#2B2A35] text-4xl">
-            <span className="font-lato text-[#264FAD]">Africa </span> to Silicon
-            Valley
+          <p className="font-extrabold text-aboutnormal text-4xl">
+            <span className="text-primary">Africa </span> to Silicon Valley
           </p>
           <p className="py-7">
             A2SV is a social enterprise that enables high-potential university
             students to create digital solutions to Africa’s most pressing
             problems.
           </p>
-          <button className="bg-[#264FAD] hover:bg-blue-700 text-white font-bold py-3 px-7 rounded m-auto">
+          <button className="bg-primary hover:bg-blue-700 text-white font-bold py-3 px-7 rounded m-auto">
             Meet Our Team
           </button>
           <p className="py-7">
@@ -46,9 +38,9 @@ function AboutPage() {
           growthRate={20}
         />
         <div>
-          <p className="font-extrabold text-[#264FAD] text-4xl my-10">
-            <span className="font-lato text-[#2B2A35]">The Problem We </span>{' '}
-            Are Solving
+          <p className="font-extrabold text-aboutnormal text-4xl my-10">
+            <span className="font-lato text-primary">The Problem We </span> Are
+            Solving
           </p>
           <ImagePragraph
             image={africaIcon}
@@ -76,9 +68,9 @@ function AboutPage() {
         <CenteredImage image={howWeAreSolving} />
 
         <div>
-          <p className="font-extrabold text-[#2B2A35] text-4xl my-10">
-            How we are{' '}
-            <span className="font-lato text-[#264FAD]">solving </span> it
+          <p className="font-extrabold text-aboutnormal text-4xl my-10">
+            How we are <span className="font-lato text-primary">solving </span>{' '}
+            it
           </p>
 
           <ImagePragraph
@@ -88,92 +80,37 @@ function AboutPage() {
             than taking their talent elsewhere."
           />
         </div>
-        <p className="font-extrabold text-[#264FAD] text-4xl my-10 col-span-2 text-center">
-          <span className="font-lato text-[#2B2A35]">Social </span> Projects
+        <p className="font-extrabold text-aboutnormal text-4xl my-10 col-span-2 text-center">
+          <span className="font-lato text-primary">Social </span> Projects
         </p>
-        <div className="col-span-2">
-          <SocialProject
-            image={hakimHub}
-            leftAligned={false}
-            isImageLeft={true}
-            title={'Hakim Hub'}
-            content={
-              'HakimHub is a platform that provides information about healthcare\
-            facilities and healthcare professionals in Ethiopia. Hakimhub makes\
-            information about hospitals, medical laboratories, and doctors\
-            conveniently accessible to its users.'
-            }
-          />
-          <div className="h-[50px]"></div>
-          <SocialProject
-            image={trackSys}
-            leftAligned={true}
-            isImageLeft={false}
-            title={'Track Sym'}
-            content={
-              'TrackSym is a non-commercial app that uses crowd-sourcing to collect\
-            and visualize the density of the relevant Covid-19 symptoms. Symptom\
-            data, aggregated by places, can help people avoid visiting areas\
-            that are heavily populated by symptomatic people.'
-            }
-          />
-        </div>
+        {socialProjects.map((project) => {
+          return (
+            <div className="col-span-2">
+              <SocialProject
+                image={project.image}
+                leftAligned={project.leftAligned}
+                isImageLeft={project.isImageLeft}
+                title={project.title}
+                content={project.content}
+              />
+              <div className="h-[50px]"></div>
+            </div>
+          )
+        })}
       </div>
-      <p className="font-extrabold text-[#2B2A35] text-4xl my-10 col-span-2 text-center">
-        <span className="font-lato text-[#264FAD]">A2SV </span> Sessions
+      <p className="font-extrabold text-aboutnormal text-4xl my-10 col-span-2 text-center">
+        <span className="font-lato text-primary">A2SV </span> Sessions
       </p>
       <div className="grid grid-cols-3 gap-2 bg-white text-size">
-        <A2SVSession
-          image={weeklyContests}
-          title={'Bi-weekly contests'}
-          content={
-            'Contests help us to get better at competitive programming and\
-            problem-solving. We use online platforms like Leetcode and\
-            Codeforces.'
-          }
-        />
-        <A2SVSession
-          image={technicalTraining}
-          title={'Technical Training'}
-          content={
-            '6 days a week, 3 hours of lectures and practice sessions to improve \
-            technical problem-solving skills.'
-          }
-        />
-        <A2SVSession
-          image={qAndA}
-          title={'Q&As'}
-          content={
-            'In Q&As, we get to know engineers, founders, and entrepreneurs from \
-            top tech companies. We see that they are normal people like us and \
-            we learn the best practices.'
-          }
-        />
-        <A2SVSession
-          image={problemSolvingSession}
-          title={'Problem Solving Sessions'}
-          content={
-            'We solve technical problems on a whiteboard while explaining to the \
-            class. It helps to get a feel of an interview environment.'
-          }
-        />
-        <A2SVSession
-          image={howToApproach}
-          title={'Learn How to Approach Sessions'}
-          content={
-            ' Students observe how an experienced problem solver approaches a\
-            problem from understanding it to implementing a working solution.'
-          }
-        />
-        <A2SVSession
-          image={weeklyOneOnOnes}
-          title={'Bi-weekly 1-1s'}
-          content={
-            'In 1:1s, we can talk about anything that matters; clearly no \
-            boundaries. The more we speak our minds without a filter, the better \
-            for the team.'
-          }
-        />
+        {a2svSessions.map((session) => {
+          return (
+            <A2SVSession
+              image={session.image}
+              title={session.title}
+              content={session.content}
+            />
+          )
+        })}
       </div>
     </div>
   )
