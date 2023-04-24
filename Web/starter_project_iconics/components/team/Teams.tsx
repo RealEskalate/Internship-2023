@@ -50,8 +50,21 @@ function Teams() {
                     <p className=" xl:text-[1.5rem] text-[#7D7D7D] m-2">Meet our development team is a small but highly skilled and experienced group of professionals. We have a talented mix of web developers, software engineers, project managers and quality assurance specialists who are passionate about developing exceptional products and services.</p>
                 </div>
                 
-                <div className="p-8">
-                    <img src="/landing image area.png" alt="landing image" className="object-contain w-[90%]" />
+                <div className="p-8 relative">
+                    <img src="/vector (1).png" alt="" className='contain absolute top-0 left-0 w-[35%]'/>
+                    <img src="/vector (2).png" alt="" className='contain absolute top-0 right-0 w-[35%]'/>
+                    <img src="/vector (3).png" alt="" className='contain absolute bottom-0 left-0 w-[35%]'/>
+                    <img src="/vector.png" alt="" className="src" />
+
+                    <div className="absolute top-[35%] left-[35%] flex flex-col">
+                    <h1 className="font-bold text-[1.5rem] sm:text-[2rem] md:text-[3rem] uppercase"> <span className="text-[#264FAD]">Team</span>  work</h1>
+
+<h1 className="font-bold text-[1.5rem] sm:text-[2rem] md:text-[3rem] uppercase"> Collaboration </h1>
+<h1 className="font-bold text-[1.5rem] sm:text-[2rem] md:text-[3rem] uppercase"> <span className="text-[#264FAD]">hard</span>  work</h1>
+
+                    </div>
+                    
+                    
                 </div>
             </div>
 <div className="flex justify-around"><hr className='my-4 mx-4 w-[80%] color-black'></hr></div>
