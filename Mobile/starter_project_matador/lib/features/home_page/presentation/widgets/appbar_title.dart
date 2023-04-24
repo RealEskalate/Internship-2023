@@ -3,8 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:matador/core/constants/colors.dart';
 import 'package:matador/core/utils/real_pixel_to_logical_pixel.dart';
 
-class AppBarrTitle extends StatelessWidget {
-  const AppBarrTitle({Key? key}) : super(key: key);
+class AppBarTitle extends StatelessWidget {
+  const AppBarTitle({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
