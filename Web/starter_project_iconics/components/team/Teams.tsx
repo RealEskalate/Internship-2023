@@ -1,7 +1,12 @@
+import { useState } from 'react'
+import Pagination from '../common/Pagination'
 import TeamCard from './TeamCard'
 
 function Teams() {
-
+    
+    const [pages, setPages] = useState(['1','2','3'])
+    const [currentPage, setCurrentPage] = useState(0)
+    
     const teams = [{
         name: 'Nathaniel Awel',
         job: 'software engineer',
@@ -57,6 +62,10 @@ function Teams() {
 <div className="flex justify-around"><hr className='my-4 mx-4 w-[80%] color-black'></hr></div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-8">
                 {teams.map((person, index) => <TeamCard key={index} name={person.name} description={person.description} job={person.job} avatar={person.avatar}></TeamCard>)}
+            </div>
+
+            <div className="grid grid-cols-1">
+                <Pagination pages={pages} currentPage={currentPage} setCurrentPage={setCurrentPage}></Pagination>
             </div>
         </div>
     )
