@@ -10,8 +10,7 @@ const MyBlogs: React.FC<MyblogsProps> = ({ cards }) => {
   return (
     <div className="flex mt-3 justify-between flex-wrap items-center">
       {cards?.map((card, index) => {
-        if (index % 2 === 0) return <BlogCard card={card} feature="likes" />
-        else return <BlogCard card={card} feature="status" />
+        return <BlogCard card={card} key={index} feature="status" />
       })}
     </div>
   )
