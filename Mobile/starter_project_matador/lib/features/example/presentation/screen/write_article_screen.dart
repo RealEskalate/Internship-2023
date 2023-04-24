@@ -10,6 +10,7 @@ class WriteArticlePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         backgroundColor: Colors.white,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.black),
@@ -28,19 +29,19 @@ class WriteArticlePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: screenSize.height * 0.05,
+              height: screenSize.height * 0.02,
             ),
             SizedBox(
-              height: screenSize.height * 0.1,
+              height: screenSize.height * 0.06,
               child: const TextField(
                 decoration: InputDecoration(
                   labelText: 'Add Title',
                 ),
               ),
             ),
-            SizedBox(height: screenSize.height * 0.02),
+            SizedBox(height: screenSize.height * 0.01),
             SizedBox(
-              height: screenSize.height * 0.1,
+              height: screenSize.height * 0.06,
               child: const TextField(
                 decoration: InputDecoration(
                   labelText: 'Add Subtitle',
@@ -52,7 +53,7 @@ class WriteArticlePage extends StatelessWidget {
               children: [
                 Expanded(
                   child: SizedBox(
-                    height: screenSize.height * 0.1,
+                    height: screenSize.height * 0.06,
                     child: const TextField(
                       decoration: InputDecoration(
                         labelText: 'Add Tags',
@@ -74,34 +75,37 @@ class WriteArticlePage extends StatelessWidget {
             ),
             SizedBox(height: screenSize.height * 0.05),
             Expanded(
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.grey[200],
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                padding: EdgeInsets.all(screenSize.height * 0.02),
-                child: const TextField(
-                  decoration: InputDecoration.collapsed(
-                    hintText: 'Add Content',
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: screenSize.height * 0.02),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  expands: true,
-                  minLines: null,
-                  maxLines: null,
+                  padding: EdgeInsets.all(screenSize.height * 0.02),
+                  child: const TextField(
+                    decoration: InputDecoration.collapsed(
+                      hintText: 'Add Content',
+                    ),
+                    expands: true,
+                    minLines: null,
+                    maxLines: null,
+                  ),
                 ),
               ),
             ),
             SizedBox(height: screenSize.height * 0.05),
-            Align(
-              alignment: Alignment.bottomCenter,
+            Center(
               child: SizedBox(
-                width: isPortrait ? screenSize.width : screenSize.width * 0.5,
-                height: screenSize.height * 0.08,
+                width: isPortrait ? screenSize.width * 0.3 : screenSize.width * 0.15,
+                height: screenSize.height * 0.06,
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     shadowColor: Colors.blue,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                   ),
-                  child: const Text('Publish'),
+                  child: const Text('Publish', style: TextStyle(fontSize: 20)),
                 ),
               ),
             ),
