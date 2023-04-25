@@ -3,19 +3,6 @@ import 'package:flutter/material.dart';
 class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final timeDisplay = Text("9:41");
-
-    final iconRow = Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        Transform.scale(scale: 0.8, child: Icon(Icons.signal_cellular_4_bar)),
-        SizedBox(width: 8),
-        Transform.scale(scale: 0.8, child: Icon(Icons.wifi)),
-        SizedBox(width: 8),
-        Transform.scale(scale: 0.8, child: Icon(Icons.battery_full)),
-      ],
-    );
-
     return MaterialApp(
       home: Scaffold(
         body: Column(
@@ -25,14 +12,25 @@ class Login extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  timeDisplay,
-                  iconRow,
+                  Text("9:41"),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Transform.scale(
+                          scale: 0.8, child: Icon(Icons.signal_cellular_4_bar)),
+                      SizedBox(width: 8),
+                      Transform.scale(scale: 0.8, child: Icon(Icons.wifi)),
+                      SizedBox(width: 8),
+                      Transform.scale(
+                          scale: 0.8, child: Icon(Icons.battery_full)),
+                    ],
+                  )
                 ],
               ),
             ),
             Image.asset(
               'images/a2sv.jpg',
-              //width: 200, // set the width of the image
+            
               height: 150, // set the height of the image
             ),
 
@@ -115,11 +113,7 @@ class Login extends StatelessWidget {
                       child: TextField(
                         decoration: InputDecoration(
                           hintText: 'Jonathandavis@gmail.com',
-                          border: UnderlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.red, width: 2.0),
-                           
-                          ),
+                         
                         ),
                       )),
                   SizedBox(height: 10),
@@ -141,18 +135,12 @@ class Login extends StatelessWidget {
                         decoration: InputDecoration(
                           hintText: '••••••',
                           hintStyle: TextStyle(
-                            fontSize: 24, // Change the font size as desired
+                            fontSize: 24,
                             letterSpacing:
-                                8, // Increase the space between the dots
+                                8, 
                             fontWeight: FontWeight.bold,
                           ),
-                          border: UnderlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.red, width: 2.0),
-                            // Change the border style to dotted, dashed, or solid.
-                            // You can also add other styles such as BorderStyle.solid and BorderStyle.dashed.
-                            //borderStyle: BorderStyle.solid,
-                          ),
+                         
                         ),
                       )),
                   SizedBox(height: 20),
