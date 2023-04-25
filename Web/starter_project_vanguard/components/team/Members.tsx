@@ -1,6 +1,6 @@
 import React from 'react'
 import Member from './MemberCard'
-import { members } from '@/data/members'
+import { members } from '@/data/team-members'
 
 
 const Members:React.FC = () => {
