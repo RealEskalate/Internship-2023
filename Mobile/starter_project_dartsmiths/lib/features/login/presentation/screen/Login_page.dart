@@ -1,4 +1,5 @@
-import 'package:dartsmiths/features/example/presentation/widgets/login_card.dart';
+
+import 'package:dartsmiths/features/login/presentation/widgets/login_card.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatelessWidget {
@@ -40,7 +41,10 @@ class Login extends StatelessWidget {
                         "LOGIN",
                         style: TextStyle(color: Colors.white),
                       ),
-                      Text("SIGN UP"),
+                      Text(
+                        "SIGN UP",
+                      
+                      ),
                     ],
                   ),
                   const SizedBox(
