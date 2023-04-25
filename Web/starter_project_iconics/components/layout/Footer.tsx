@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { IconType } from 'react-icons'
 import {
   AiFillLinkedin,
   AiFillYoutube,
@@ -11,6 +12,11 @@ import { MdCopyright, MdOutlineFacebook } from 'react-icons/md'
 interface NavBlock {
   header: string
   links: NavItem[]
+}
+
+interface Icon {
+  icon: IconType
+  to: string
 }
 
 const Footer: React.FC = () => {
@@ -54,6 +60,29 @@ const Footer: React.FC = () => {
           to: '/new-blog',
         },
       ],
+    },
+  ]
+
+  const iconsData: Icon[] = [
+    {
+      icon: AiOutlineTwitter,
+      to: 'https://twitter.com/A2_SV',
+    },
+    {
+      icon: MdOutlineFacebook,
+      to: 'https://www.facebook.com/profile.php?id=100085473798621',
+    },
+    {
+      icon: AiFillYoutube,
+      to: 'https://www.youtube.com/channel/UC70kFW6mFFGEjsucvNZk6-A',
+    },
+    {
+      icon: AiFillLinkedin,
+      to: 'https://www.linkedin.com/company/a2sv/mycompany/',
+    },
+    {
+      icon: AiOutlineInstagram,
+      to: 'https://www.instagram.com/a2sv_org',
     },
   ]
 
@@ -108,24 +137,9 @@ const Footer: React.FC = () => {
           2020 Africa to Silicon Valley, Inc. All right reserved.
         </p>
         <div className="flex gap-4 text-2xl md:text-4xl ">
-          <AiOutlineTwitter href="https://twitter.com/A2_SV" target="_blank" />
-          <MdOutlineFacebook
-            href="https://www.facebook.com/profile.php?id=100085473798621"
-            target="_blank"
-          />
-          <AiFillYoutube
-            href="https://www.youtube.com/channel/UC70kFW6mFFGEjsucvNZk6-A"
-            target="_blank"
-          />
-          <AiFillLinkedin
-            href="https://www.linkedin.com/company/a2sv/mycompany/"
-            target="_blank"
-          />
-          <AiOutlineInstagram
-            href="https://www.instagram.com/a2sv_org"
-            target="_blank"
-          />
-          "<AiFillLinkedin />"
+          {iconsData.map(({ icon: Icon, to }, index) => (
+            <Icon key={index} href={to} target="_blank" />
+          ))}
         </div>
       </div>
     </section>
