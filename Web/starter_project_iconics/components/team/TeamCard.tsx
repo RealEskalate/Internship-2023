@@ -20,13 +20,13 @@ function TeamCard({name, job, description, avatar = 'https://www.dmarge.com/wp-c
 
             <div className="flex justify-around w-[100%]">
                 
-                    <a href=""><img className='rounded-md object-contain w-xl' src='/facebook.png'></img></a>
+                    <a href=""><img className='rounded-md object-contain w-8' src='/facebook.png'></img></a>
               
                 <a href=''>
-                    <img className='rounded-md object-contain w-xl' src='/instagram.png'></img>
+                    <img className='rounded-md object-contain w-8' src='/instagram.png'></img>
                 </a>
                 <a href=''>
-                    <img className='rounded-md object-contain w-xl' src='/linkedin.png'></img>
+                    <img className='rounded-md object-contain w-8' src='/linkedin.png'></img>
                 </a>
 
             </div>
