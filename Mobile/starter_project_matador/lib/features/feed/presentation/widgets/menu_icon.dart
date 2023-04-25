@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:matador/core/constants/colors.dart';
+import 'package:matador/core/utils/constants/colors.dart';
 import 'package:matador/core/utils/menu_alt_right_icon.dart';
 import 'package:matador/core/utils/converters/real_pixel_to_logical_pixel.dart';
 
