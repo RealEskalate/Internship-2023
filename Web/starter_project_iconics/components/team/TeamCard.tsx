@@ -11,7 +11,7 @@ export interface TeamCardProps{
 
 function TeamCard({name, job, description, avatar, instagram, linkedin, facebook}: TeamCardProps) {
     return (
-        <div className='flex flex-col bg-white rounded-lg p-6 m-2 items-center justify-center shadow-xl'>
+        <div className='flex flex-col bg-white rounded-lg p-6 m-2 items-center justify-center shadow-xl max-w-sm'>
             <img className='rounded-full w-32 h-32 mt-2 object-cover ' src={avatar}></img>
             <h1 className="font-bold uppercase text-2xl m-3">{name}</h1>
             <h2 className="uppercase text-xl">{job}</h2>
