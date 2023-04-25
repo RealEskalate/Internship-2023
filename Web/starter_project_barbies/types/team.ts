@@ -1,4 +1,4 @@
-export type SocialMediaLink = {
+type SocialMediaLink = {
   type: string,
   url: string
 }
@@ -8,6 +8,6 @@ export type TeamMember = {
   name: string
   jobTitle: string
   description: string
-  image: string
-  links: SocialMediaLink[]
+  profileImg: string
+  socialMediaLinks: SocialMediaLink[]
 }
