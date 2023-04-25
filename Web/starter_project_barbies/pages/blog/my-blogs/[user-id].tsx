@@ -51,14 +51,14 @@ const MyBlogs: NextPage = () => {
   }
 
   return (
-    <div className="mt-3 mb-5">
-      <div className="mb-5">
+    <div className="mt-3 mb-5 mx-2">
+      <div className="ml-2 mb-3">
         <h1 className="font-medium text-2xl">Manage Blogs</h1>
-        <p>Edit,Delete and View the status of your blog</p>
+        <p>Edit, Delete and View the status of your blog</p>
       </div>
       <div className="flex flex-wrap justify-start gap-2">
         {blogs.map((blog) => (
-          <div key={blog.blogID}>
+          <div className="flex flex-wrap">
             <BlogCard key={blog.blogID} blog={blog} />
           </div>
         ))}
