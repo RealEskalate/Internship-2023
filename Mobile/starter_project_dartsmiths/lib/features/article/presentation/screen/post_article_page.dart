@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:dartsmiths/core/utils/constants.dart';
+import 'package:dartsmiths/core/utils/article_page_styles.dart';
+
+import '../../../../core/utils/article_page_color.dart';
 
 class PostArticlePage extends StatefulWidget {
   const PostArticlePage({super.key});
@@ -57,7 +59,7 @@ class _PostArticlePageState extends State<PostArticlePage> {
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(11)),
                               color: BlogColorConstant.backIconBgColor),
-                          child: Icon(Icons.arrow_back,
+                          child: Icon(Icons.keyboard_arrow_left,
                               color: BlogColorConstant.backIconColor)),
                       Text(
                         "Post Article",
@@ -162,9 +164,7 @@ class _PostArticlePageState extends State<PostArticlePage> {
                             borderRadius: const BorderRadius.all(
                               Radius.circular(15),
                             ),
-                            // border: Border.all(
-                            //   color: const Color(0XFFD7DDEB),
-                            // ),
+                    
                           ),
                           child: TextButton(
                             style: ButtonStyle(
@@ -204,8 +204,6 @@ Widget _buildChip(String label, Function removeChips) {
     deleteIconColor: BlogColorConstant.addIcondColor,
     onDeleted: () => {removeChips(label)},
     backgroundColor: BlogColorConstant.buttonTextColor,
-    // elevation: 6.0,
-    // shadowColor: Colors.grey[60],
     padding: const EdgeInsets.all(8.0),
   );
 }
