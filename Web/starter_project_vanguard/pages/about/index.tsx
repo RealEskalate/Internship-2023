@@ -3,17 +3,18 @@ import Activities from '@/components/about/Activities'
 import CenteredImage from '@/components/about/CenteredImage'
 import ImagePragraph from '@/components/about/ImagePragraph'
 import SocialProject from '@/components/about/SocialProject'
-import africaIcon from '../../public/aboutus/africa_icon.svg'
-import codingIcon from '../../public/aboutus/coding_icon.svg'
-import howWeAreSolving from '../../public/aboutus/how_we_are_solving.svg'
-import lightIcon from '../../public/aboutus/light_icon.svg'
-import problemImage from '../../public/aboutus/problem_image.svg'
-import { a2svSessions, socialProjects } from './data'
+import { a2svSessions } from '../../data/about/a2sv-sessions'
+import { socialProjects } from '../../data/about/social-projects'
+import africaIcon from '../../public/images/aboutus/icons/africa-icon.svg'
+import codingIcon from '../../public/images/aboutus/icons/coding-icon.svg'
+import lightIcon from '../../public/images/aboutus/icons/light-icon.svg'
+import howWeAreSolving from '../../public/images/aboutus/problems/how-we-are-solving.svg'
+import problemImage from '../../public/images/aboutus/problems/problem-image.svg'
 
 function AboutPage() {
   return (
     <div className="bg-white p-10">
-      <div className="grid grid-cols-2 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div>
           <p className="font-extrabold text-aboutnormal text-4xl">
             <span className="text-primary">Africa </span> to Silicon Valley
@@ -37,6 +38,8 @@ function AboutPage() {
           learningRate={100}
           growthRate={20}
         />
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div>
           <p className="font-extrabold text-aboutnormal text-4xl my-10">
             <span className="font-lato text-primary">The Problem We </span> Are
@@ -65,21 +68,24 @@ function AboutPage() {
           />
         </div>
         <CenteredImage image={problemImage} />
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <CenteredImage image={howWeAreSolving} />
 
         <div>
           <p className="font-extrabold text-aboutnormal text-4xl my-10">
-            How we are <span className="font-lato text-primary">solving </span>{' '}
-            it
+            How we are <span className="text-primary">solving </span> it
           </p>
 
           <ImagePragraph
             image={lightIcon}
             text=" Offering students an ecosystem to actualize their ideas means that
-            up-and-coming developers use their skills to benefit Africa, rather
-            than taking their talent elsewhere."
+    up-and-coming developers use their skills to benefit Africa, rather
+    than taking their talent elsewhere."
           />
         </div>
+      </div>
+      <div className="grid grid-cols-2 gap-10">
         <p className="font-extrabold text-aboutnormal text-4xl my-10 col-span-2 text-center">
           <span className="font-lato text-primary">Social </span> Projects
         </p>
@@ -101,7 +107,7 @@ function AboutPage() {
       <p className="font-extrabold text-aboutnormal text-4xl my-10 col-span-2 text-center">
         <span className="font-lato text-primary">A2SV </span> Sessions
       </p>
-      <div className="grid grid-cols-3 gap-2 bg-white text-size">
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 bg-white text-size">
         {a2svSessions.map((session) => {
           return (
             <A2SVSession

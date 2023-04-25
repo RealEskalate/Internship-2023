@@ -9,7 +9,7 @@ function SocialProject({
   isImageLeft,
 }: any) {
   return isImageLeft ? (
-    <div className="grid grid-cols-2 gap-10">
+    <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-10">
       <Image src={image} alt={''}></Image>
       <SocialProjectDescription
         leftAligned={leftAligned}
@@ -18,7 +18,7 @@ function SocialProject({
       />
     </div>
   ) : (
-    <div className="grid grid-cols-2 gap-10">
+    <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2">
       <SocialProjectDescription
         leftAligned={leftAligned}
         title={title}

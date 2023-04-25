@@ -1,8 +1,8 @@
 import ImageTextStack from '@/components/about/ImageTextStack'
 import Image from 'next/image'
-import developmentImage from '../../public/aboutus/development_phase.svg'
-import educationImage from '../../public/aboutus/education_process.svg'
-import growthRateImage from '../../public/aboutus/growth_rate.svg'
+import developmentImage from '../../public/images/aboutus/phases/development-phase.svg'
+import educationImage from '../../public/images/aboutus/phases/education-process.svg'
+import growthRateImage from '../../public/images/aboutus/phases/growth-rate.svg'
 
 function Activities({ studentGrowthRate, learningRate, growthRate }: any) {
   return (

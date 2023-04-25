@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
-import githubIcon from '../../public/aboutus/github.svg'
-import shareIcon from '../../public/aboutus/share.svg'
+import githubIcon from '../../public/images/aboutus/icons/github.svg'
+import shareIcon from '../../public/images/aboutus/icons/share.svg'
 
 function SocialProjectDescription({ leftAligned, title, content }: any) {
   return (
