@@ -1,11 +1,12 @@
 import React from 'react';
 import { GlassImage, TextSection, PartnerLogos } from '../../components/story/Stories';
 
-
+import imagesData from '../../data/story/success-stories';
 const StoryPage: React.FC = () => {
+  
   return (
     <div className="bg-white">
-      <div className="flex justify-center mt-8">
+      <div className="flex justify-center pt-8">
         <h1 className="font-poppins text-5xl font-semibold">Impact Stories</h1>
       </div>
       <div className="flex justify-center mx-2 mt-5">
@@ -19,8 +20,24 @@ const StoryPage: React.FC = () => {
     
       <div className="flex flex-col lg:flex-row justify-center ml-2 mt-28">
         <div className="lg:block">
+          {imagesData.map((data, index) => (
+            <>
+              <GlassImage {...data} />
+              <div className="mt-0 max-w-xl">
+              <TextSection/>
+              </div>
+            </>
+          ))}
+        </div>
+        {/* <div className="mt-0 max-w-xl">
+          <TextSection/>
+        </div> */}
+      </div>
+
+      {/* <div className="flex flex-col lg:flex-row justify-center ml-2 mt-28">
+        <div className="lg:block">
           <GlassImage
-            image="/success-stories-images/yishak.png"
+            image="/img/success-stories-images/people/yishak.png"
             name="Yishak Bogale"
             job="Software Engineering Intern"
             location="Google - Mountain View, CA, USA"
@@ -37,7 +54,7 @@ const StoryPage: React.FC = () => {
         </div>
         <div className="lg:block ">
           <GlassImage
-            image="/success-stories-images/lydia.png"
+            image="/img/success-stories-images/people/lydia.png"
             name="Lydia Gashawtena"
             job="Software Engineering Intern"
             location="Google - Mountain View, CA, USA"
@@ -48,7 +65,7 @@ const StoryPage: React.FC = () => {
       <div className="flex flex-col lg:flex-row justify-center ml-2 mt-20">
         <div className="lg:block">
           <GlassImage
-            image="/success-stories-images/biruk.png"
+            image="/img/success-stories-images/people/biruk.png"
             name="Biruk Ayalew"
             job="Software Engineering Intern"
             location="Google - Mountain View, CA, USA"
@@ -57,7 +74,7 @@ const StoryPage: React.FC = () => {
         <div className="mt-0 max-w-xl ">
           <TextSection/>
         </div>
-      </div>
+      </div> */}
 
       <PartnerLogos />
 
