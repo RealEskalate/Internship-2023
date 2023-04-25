@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
         <Image src="/a2sv-logo.png" alt="a2sv-logo" width={200} height={50} />
       </div>
 
-      <div className="w-3/4 flex flex-col gap-y-4 md:ml-0 md:flex-row justify-between">
+      <div className="w-3/4 absolute -right-0 mr-4 flex flex-col gap-y-4 md:ml-0 md:flex-row  md:static justify-between">
         {showNav ? (
           <MdOutlineClose
             className="block w-10 h-10 p-2 md:hidden ml-auto"
