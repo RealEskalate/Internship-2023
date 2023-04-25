@@ -2,6 +2,12 @@ import React from 'react';
 import { GlassImage, TextSection, PartnerLogos } from '../../components/story/Stories';
 
 import imagesData from '../../data/story/success-stories';
+// type ImageData = {
+//   image: string;
+//   name: string;
+//   job: string;
+//   location: string;
+// }
 const StoryPage: React.FC = () => {
   
   return (
@@ -19,16 +25,18 @@ const StoryPage: React.FC = () => {
       </div>
     
       <div className="flex flex-col lg:flex-row justify-center ml-2 mt-28">
-        <div className="lg:block">
-          {imagesData.map((data, index) => (
-            <>
+        
+        {imagesData.map((data, index) => (
+          <>
+            <div className="lg:block">
               <GlassImage {...data} />
-              <div className="mt-0 max-w-xl">
+            </div>
+            <div className="mt-0 max-w-xl">
               <TextSection/>
-              </div>
-            </>
-          ))}
-        </div>
+            </div>
+          </>
+        ))}
+      
         {/* <div className="mt-0 max-w-xl">
           <TextSection/>
         </div> */}
