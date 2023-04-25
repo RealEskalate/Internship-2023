@@ -59,14 +59,14 @@ const BlogCardAuthorDetail: React.FC<BlogCardWideProps> = ({ blog }) => {
             </div>
             <div>●</div>
             <div className="flex items-center">
-              <div className="text-xs font-extralight">
+              <div className="text-xs font-extralight text-secondary-text" style={{ fontSize: `10px` }}>
                 {formatDate(blog.date)}
               </div>
             </div>
           </div>
         </div>
         {/* Author profession */}
-        <div className="text-xs mt-1 font-extralight">
+        <div className="text-xs mt-1 text-secondary-text" style={{ fontSize: `10px` }}>
           {blog.author.profession.toUpperCase()}
         </div>
       </div>

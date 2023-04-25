@@ -1,8 +1,8 @@
-import { BlogCardWide } from "@/components/blog/BlogCardWide";
+import { BlogsList } from "@/components/blog/BlogsList";
 import { Pagination } from "@/components/common/Pagination";
+import { SearchForm } from "@/components/common/SearchForm";
 import { Blog } from "@/types/blog";
 import React from "react";
-import { AiOutlinePlus } from 'react-icons/ai';
 
 interface BlogsProps {
   blogs: Blog[]
@@ -10,7 +10,7 @@ interface BlogsProps {
 
 export const Blogs: React.FC<BlogsProps> = ({ blogs }) => {
   return (
-    <div className='bg-white text-black font-montserrat'>
+    <div className='bg-white text-primary-text font-montserrat'>
 
       {/* Title and search bar */}
       <div className="flex justify-center pt-20">
@@ -36,35 +36,5 @@ export const Blogs: React.FC<BlogsProps> = ({ blogs }) => {
       <Pagination numberOfPages={5} />
 
     </div>
-  )
-}
-
-const BlogsList: React.FC<BlogsProps> = ({ blogs }) => {
-  let blogComponents = []
-  let key = 0
-  for (let blog of blogs) {
-    blogComponents.push(<BlogCardWide blog={blog} key={key++} />)
-  }
-
-  return (
-    <div className='bg-white text-black'>
-      {blogComponents}
-    </div>
-  )
-}
-
-const SearchForm = () => {
-  return (
-    <form className="flex gap-4">
-
-      {/* Search input */}
-      <input type="text" className="border border-gray-300 text-gray-900 text-sm rounded-full block px-8 py-2.5 w-60" placeholder="Search..." />
-      {/* Search button */}
-      <button type="submit" className="text-white bg-blue-600 font-black rounded-full text-sm px-5 py-2.5 text-center">
-        <AiOutlinePlus className="inline-block me-1" />
-        New Blog
-      </button>
-      
-    </form>
   )
 }

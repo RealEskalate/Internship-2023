@@ -5,10 +5,7 @@ interface TagListProps {
 }
 
 export const TagList: React.FC<TagListProps> = ({ tags }) => {
-  let tagComponents = []
-  for (let tag of tags) {
-    tagComponents.push(<Tag tag={tag} />)
-  }
+  let tagComponents = tags.map((tag, index) => <Tag tag={tag} key={index} />)
 
   return (
     <div className="flex gap-2">
