@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai'
 
 const AccountSetting: React.FC = () => {
-  const [showCurrPassword, setShowCurrPassword] = useState<boolean>(false)
+  const [showCurrentPassword, setShowCurrentPassword] = useState<boolean>(false)
   const [showNewPassword, setShowNewPassword] = useState<boolean>(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false)
 
@@ -10,9 +10,9 @@ const AccountSetting: React.FC = () => {
     <div className="mt-5 flex flex-col justify-center gap-2 px-auto">
       <div className="flex justify-between py-3">
         <div className="font-montserrat ">
-          <h1 className="font-semibold text-xl">Manage your account</h1>
+          <h1 className="font-semibold text-secondary-text text-xl">Manage your account</h1>
           <p className="text-primary-text">
-            you can change your password here.
+            You can change your password here.
           </p>
         </div>
         <button className="bg-primary text-white rounded px-3 h-9 my-auto mr-8">
@@ -25,9 +25,9 @@ const AccountSetting: React.FC = () => {
           <label htmlFor="currPassword">Current Password</label>
           <div
             className="absolute top-3 right-3"
-            onClick={() => setShowCurrPassword(!showCurrPassword)}
+            onClick={() => setShowCurrentPassword(!showCurrentPassword)}
           >
-            {showCurrPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
+            {showCurrentPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
           </div>
           <input
             type="password"

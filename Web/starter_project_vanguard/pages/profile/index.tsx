@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { ReactNode, useState } from 'react'
 
 import AccountSetting from '@/components/profile/AccountSetting'
 import PersonalInfo from '@/components/profile/PersonalInfo'
@@ -10,51 +10,54 @@ const Profile: React.FC = () => {
     setTab(tab)
   }
 
+  const profiles: ReactNode[] = [
+    <PersonalInfo />,
+    <></>,
+    <AccountSetting />,
+  ]
+
   return (
-    <div className="px-10">
-      <h1 className="font-medium font-poppins text-[40px]">Profile</h1>
-      <div className="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
-        <ul className="flex flex-wrap -mb-px">
+    <div className="p-10">
+      <h1 className="font-semibold text-[30px]">Profile</h1>
+      <div className="pt-6 text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+        <ul className="flex flex-wrap gap-5 -mb-px font-semibold">
           <li className="mr-2">
-            <Link
+            <button
               onClick={() => handleTabChange(0)}
-              href="#"
               className={`${
-                tab == 0 && ' text-blue-600 border-b-2 border-blue-600'
-              } inline-block p-4 rounded-t-lg  dark:text-blue-500 dark:border-blue-500`}
+                tab == 0 && ' text-primary border-b-4 border-primary'
+              } inline-block p-4 pl-0 rounded-t-lg  dark:text-primary dark:border-primary`}
               aria-current="page"
             >
               Personal Information
-            </Link>
+            </button>
           </li>
           <li className="mr-2">
-            <Link
+            <button
               onClick={() => handleTabChange(1)}
-              href="#"
               className={`${
-                tab == 1 && ' text-blue-600 border-b-2 border-blue-600'
-              } inline-block p-4 rounded-t-lg  dark:text-blue-500 dark:border-blue-500`}
+                tab == 1 && ' text-primary border-b-4 border-primary'
+              } inline-block py-4 px-2 rounded-t-lg  dark:text-primary dark:border-primary`}
               aria-current="page"
             >
               My Blogs
-            </Link>
+            </button>
           </li>
           <li className="mr-2">
-            <Link
+            <button
               onClick={() => handleTabChange(2)}
-              href="#"
               className={`${
-                tab == 2 && ' text-blue-600 border-b-2 border-blue-600'
-              } inline-block p-4 rounded-t-lg  dark:text-blue-500 dark:border-blue-500`}
+                tab == 2 && ' text-primary border-b-4 border-primary'
+              } inline-block py-4 px-2 rounded-t-lg  dark:text-primary dark:border-primary`}
               aria-current="page"
             >
-              Account Setting
-            </Link>
+              Account Settings
+            </button>
           </li>
+          
         </ul>
       </div>
-      {tab === 0 && <PersonalInfo />}
-      {tab === 2 && <AccountSetting />}
+      {<>{profiles[tab]}</>}
     </div>
   )
 }
