@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-import '../widgets/article_title.dart';
-import '../widgets/add_many_tags.dart';
 import '../widgets/content_widget.dart';
 import '../widgets/publish_button.dart';
-import '../widgets/subtitle_widget.dart';
-import '../widgets/tags_widget.dart';
-import '../widgets/title_widget.dart';
+import '../widgets/input_field.dart';
 
-class WriteArticlePage extends StatelessWidget {
-  const WriteArticlePage({Key? key}) : super(key: key);
+class ArticleFormPage extends StatelessWidget {
+  const ArticleFormPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +18,11 @@ class WriteArticlePage extends StatelessWidget {
           icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {},
         ),
-        title: const ArticleTitle(),
+        title: const Text(
+          'New Article',
+          style: TextStyle(color: Colors.black),
+          textAlign: TextAlign.center,
+        ),
         centerTitle: true,
       ),
       body: Padding(
@@ -33,14 +33,27 @@ class WriteArticlePage extends StatelessWidget {
             SizedBox(
               height: screenSize.height * 0.02,
             ),
-            const TitleWidget(),
-            const SubtitleWidget(),
-            SizedBox(height: screenSize.height * 0.02),
-            const TagsWidget(),
+            const InputField(labelText: 'Add Title'),
             SizedBox(height: screenSize.height * 0.01),
-            const AddManyTags(),
+            const InputField(labelText: 'Add Subtitle'),
+            SizedBox(height: screenSize.height * 0.01),
+             Row(
+              children: [
+                const Expanded(
+                    child: InputField(labelText: 'Add Tags'),
+                  ),
+                  IconButton( onPressed: () {}, icon: const Icon(Icons.add),
+                ),
+              ],
+            ),
+            SizedBox(height: screenSize.height * 0.01),
+            Text(
+              'Add as many tags as you want',
+              textAlign: TextAlign.start,
+              style: TextStyle(fontSize: screenSize.height * 0.02),
+            ),
             SizedBox(height: screenSize.height * 0.05),
-            const ContentWidget(),
+            const ContentFormField(),
             SizedBox(height: screenSize.height * 0.05),
             const PublishButton(),
           ],
