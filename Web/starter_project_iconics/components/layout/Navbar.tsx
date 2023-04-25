@@ -1,3 +1,4 @@
+import { navData } from '@/data/layout/navbar/nav-data'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -9,22 +10,7 @@ function classNames(...classes: string[]) {
 }
 
 const Navbar: React.FC = () => {
-  const [navigation, setNavigation] = useState(() => [
-    { name: 'Home', to: '/', current: true },
-    { name: 'Teams', to: '/teams', current: false },
-    {
-      name: 'Success Stories',
-      to: '/success-stories',
-      current: false,
-    },
-    { name: 'About Us', to: '/about', current: false },
-    { name: 'Blogs', to: '/blogs', current: false },
-    {
-      name: 'Get Involved',
-      to: '/get-involved',
-      current: false,
-    },
-  ])
+  const [navigation, setNavigation] = useState(() => navData)
 
   const { asPath } = useRouter()
   const [showNav, setShowNav] = useState(false)
