@@ -4,11 +4,11 @@ import { Blog } from "@/types/blog";
 import React from "react";
 import { AiOutlinePlus } from 'react-icons/ai';
 
-interface BlogsScreenProps {
+interface BlogsProps {
   blogs: Blog[]
 }
 
-export const BlogsScreen: React.FC<BlogsScreenProps> = ({ blogs }) => {
+export const Blogs: React.FC<BlogsProps> = ({ blogs }) => {
   return (
     <div className='bg-white text-black font-montserrat'>
 
@@ -39,7 +39,7 @@ export const BlogsScreen: React.FC<BlogsScreenProps> = ({ blogs }) => {
   )
 }
 
-const BlogsList: React.FC<BlogsScreenProps> = ({ blogs }) => {
+const BlogsList: React.FC<BlogsProps> = ({ blogs }) => {
   let blogComponents = []
   let key = 0
   for (let blog of blogs) {
