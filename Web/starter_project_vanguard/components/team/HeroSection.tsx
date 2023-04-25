@@ -7,15 +7,15 @@ const HeroSection:React.FC = () => {
   const heroImages = [
     {
       className: "right-24 -top-6",
-      name: "teams-hero-image-1.png"
+      name: "hero-image-1.png"
     },
     {
       className: "-top-8 left-14",
-      name: "teams-hero-image-2.png"
+      name: "hero-image-2.png"
     },
     {
       className: "left-24 -bottom-20",
-      name: "teams-hero-image-3.png"
+      name: "hero-image-3.png"
     }
 
 ]
@@ -29,7 +29,7 @@ const HeroSection:React.FC = () => {
           {
             heroImages.map((img, idx:number) => {
               return(
-                <Image key={idx} className={clsx("absolute", img.className)} width={230} height={250} src={`/images/teams-hero-section/${img.name}`} alt={img.name}/>
+                <Image key={idx} className={clsx("absolute", img.className)} width={230} height={250} src={`/img/teams/hero-section/${img.name}`} alt={img.name}/>
               )
             })
           }
