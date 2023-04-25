@@ -56,7 +56,7 @@ function Teams() {
                     <img src="/vector (3).png" alt="" className='contain absolute bottom-0 left-0 w-[35%]'/>
                     <img src="/vector.png" alt="" className="src" />
 
-                    <div className="absolute top-[35%] left-[35%] flex flex-col">
+                    <div className="absolute top-[33%] left-[33%] flex flex-col">
                     <h1 className="font-bold text-[1.5rem] sm:text-[2rem] md:text-[3rem] uppercase"> <span className="text-[#264FAD]">Team</span>  work</h1>
 
 <h1 className="font-bold text-[1.5rem] sm:text-[2rem] md:text-[3rem] uppercase"> Collaboration </h1>
