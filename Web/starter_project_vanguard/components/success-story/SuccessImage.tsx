@@ -1,16 +1,20 @@
-const SucessImage = ({
-  name: name,
-  image: image,
-  category,
-  location,
-}: {
+import React from 'react'
+
+interface SuccessImageProps {
   name: string
   image: string
   category: string
   location: string
+}
+
+const SuccessImage: React.FC<SuccessImageProps> = ({
+  name,
+  image,
+  category,
+  location,
 }) => {
   return (
-    <div className="relative inline-block sm:max-w-md md:max-w-md lg:w-auto">
+    <div className="relative inline-block">
       <img src={image} alt={name} />
       <div className="absolute bottom-0 left-0 right-0 backdrop-filter backdrop-blur-md rounded-xl w-full z-10">
         {/* Container for h1, h2, h2 components */}
@@ -30,4 +34,4 @@ const SucessImage = ({
   )
 }
 
-export default SucessImage
+export default SuccessImage

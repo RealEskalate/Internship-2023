@@ -1,12 +1,11 @@
 import React from "react";
 
-const Text = ({
-  heading1,
-  paragraph,
-}: {
+interface TextProps {
   heading1: string;
   paragraph: string;
-}) => {
+}
+
+const Text: React.FC<TextProps> = ({ heading1, paragraph }) => {
   return (
     <div className="m-8 max-w-3xl">
       <h1 className="font-montserrat text-2xl font-semibold mb-4">{heading1}</h1>

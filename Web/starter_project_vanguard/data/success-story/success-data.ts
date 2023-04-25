@@ -38,7 +38,7 @@ class MockData {
 export const mockData: MockData[] = [
   new MockData(
     'Yisehak Bogale',
-    '/images/story-img/Isaac.png',
+    '/images/success-story/isaac.png',
     'Software Engineering Intern',
     'Google - Mountain View, CA, USA',
     'My A2SV Experience',
@@ -50,7 +50,7 @@ export const mockData: MockData[] = [
   ),
   new MockData(
     'Lydia Gashawtena',
-    '/images/story-img/lyda.png',
+    '/images/success-story/lyda.png',
     'Software Engineering Intern',
     'Google - Mountain View, CA, USA',
     'My A2SV Experience',
@@ -62,7 +62,7 @@ export const mockData: MockData[] = [
   ),
   new MockData(
     'Biruk Ayalew',
-    '/images/story-img/biruk.png',
+    '/images/success-story/biruk.png',
     'Software Engineering Intern',
     'Google - Mountain View, CA, USA',
     'My A2SV Experience',
