@@ -24,7 +24,7 @@ const MemberCard: React.FC<MemberCardProps> = ( {name, picture, role, descriptio
             links.map((link:SocialMedia, idx: number) => {
               return(
               <Link key={idx} href={link.url} target="_blank">
-                <Image className="" width={27} height={27} src={`/images/member-card/${link.social}.svg`} alt={link.social} />
+                <Image className="" width={27} height={27} src={`/img/teams/member/${link.social}.svg`} alt={link.social} />
               </Link>)
             })
           }

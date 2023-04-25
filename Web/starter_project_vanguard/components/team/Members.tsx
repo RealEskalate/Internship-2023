@@ -1,6 +1,6 @@
 import React from 'react'
 import Member from './MemberCard'
-import { members } from '@/mock/members'
+import { members } from '@/data/members'
 
 
 const Members:React.FC = () => {

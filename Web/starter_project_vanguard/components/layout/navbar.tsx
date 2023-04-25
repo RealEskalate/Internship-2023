@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-import logo from '../../public/images/a2sv-logo.png'
+import logo from '../../public/img/a2sv-logo.png'
 import { NavItem } from '@/types/nav'
 
 const navItems: NavItem[] = [
