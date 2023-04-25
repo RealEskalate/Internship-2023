@@ -1,6 +1,3 @@
-// import 'dart:math';
-
-// Converts height and width to fontSize
 import 'dart:math';
 // converts to fontSize given screen width and screen height of design fonts
 

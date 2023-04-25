@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:matador/core/constants/colors.dart';
 import 'package:matador/core/utils/convert_to_font_size.dart';
 import 'package:matador/core/utils/real_pixel_to_logical_pixel.dart';
