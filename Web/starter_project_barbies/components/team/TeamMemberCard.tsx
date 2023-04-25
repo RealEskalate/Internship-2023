@@ -15,9 +15,8 @@ const SocialMediaIcon: {[index: string]:any} = {
 }
 
 const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
-  teamMember
+  teamMember: {name, jobTitle, description, profileImg, socialMediaLinks }
 }: TeamMemberCardProps) => {
-  const {name, jobTitle, description, profileImg, socialMediaLinks } = teamMember
   return (
     <div className="box-content font-sans w-72 mt-4 text-center shadow-md shadow-gray-200 rounded-md py-2 m-auto">
       <div className="container overflow-hidden my-4">
@@ -40,7 +39,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
 
       <div className="flex-row mt-3">
         {socialMediaLinks && socialMediaLinks.map(({ type, url }, index) => (
-        <div key={index} className="team-card__social__icon inline-block w-1/3">
+        <div key={index} className="inline-block w-1/3">
           <a
             className="inline-block"
             href={url}
