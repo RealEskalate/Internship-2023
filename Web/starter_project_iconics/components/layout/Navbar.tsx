@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { MdOutlineClose, MdViewHeadline } from 'react-icons/md'
@@ -10,14 +11,14 @@ function classNames(...classes: string[]) {
 const Navbar: React.FC = () => {
   const [navigation, setNavigation] = useState(() => [
     { name: 'Home', to: '/', current: true },
-    { name: 'Teams', to: '/team/teams', current: false },
+    { name: 'Teams', to: '/teams', current: false },
     {
       name: 'Success Stories',
       to: '/success-stories',
       current: false,
     },
-    { name: 'About Us', to: '/about/about', current: false },
-    { name: 'Blogs', to: '/blog/blogs', current: false },
+    { name: 'About Us', to: '/about', current: false },
+    { name: 'Blogs', to: '/blogs', current: false },
     {
       name: 'Get Involved',
       to: '/get-involved',
@@ -72,7 +73,7 @@ const Navbar: React.FC = () => {
           <ul className="flex flex-col gap-5 content-between md:flex-row md:w-full justify-between">
             {navigation.map(({ name, to, current }, index) => (
               <li key={index}>
-                <a
+                <Link
                   href={to}
                   id={index.toString()}
                   className={classNames(
@@ -83,7 +84,7 @@ const Navbar: React.FC = () => {
                   )}
                 >
                   {name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
