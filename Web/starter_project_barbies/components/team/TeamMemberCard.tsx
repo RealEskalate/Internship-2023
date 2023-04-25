@@ -17,36 +17,37 @@ const SocialMediaIcon: {[index: string]:any} = {
 const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
   teamMember
 }: TeamMemberCardProps) => {
+  const {name, jobTitle, description, profileImg, socialMediaLinks } = teamMember
   return (
     <div className="box-content font-sans w-72 mt-4 text-center shadow-md shadow-gray-200 rounded-md py-2 m-auto">
       <div className="container overflow-hidden my-4">
-        <Image className="rounded-full mx-auto w-32" width={200} height={200} src={teamMember.profileImg} alt={teamMember.name} />
+        <Image className="rounded-full mx-auto w-32" width={200} height={200} src={profileImg} alt={name} />
       </div>
 
       <div className="m-4">
         <h3 className="text-2xl m-3 font-extrabold tracking-widest uppercase">
-          {teamMember.name}
+          {name}
         </h3>
         <p className="m-3 tracking-widest text-base uppercase">
-          {teamMember.jobTitle}
+          {jobTitle}
         </p>
         <p className="text-sm mt-5 mb-3 text-gray-400 font-light px-4 tracking-wide">
-          {teamMember.description}
+          {description}
         </p>
       </div>
 
       <hr className="h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50 block m-auto w-5/6" />
 
       <div className="flex-row mt-3">
-        {teamMember.socialMediaLinks && teamMember.socialMediaLinks.map((link, index) => (
+        {socialMediaLinks && socialMediaLinks.map(({ type, url }, index) => (
         <div key={index} className="team-card__social__icon inline-block w-1/3">
           <a
             className="inline-block"
-            href={link.url}
+            href={url}
             target="_blank"
             rel="noreferrer"
           >
-            {SocialMediaIcon[link.type] || SocialMediaIcon["default"]}
+            {SocialMediaIcon[type] || SocialMediaIcon["default"]}
           </a>
         </div>
         )
