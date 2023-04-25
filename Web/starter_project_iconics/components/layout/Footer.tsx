@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import {
   AiFillLinkedin,
   AiFillYoutube,
@@ -57,11 +58,11 @@ const Footer: React.FC = () => {
   ]
 
   return (
-    <section className="bg-white flex flex-col gap-y-4 p-4 text-xl md:text-2xl md:p-10">
+    <section className="mt-auto bg-white flex flex-col gap-y-4 p-4 text-xl md:text-xl md:p-10">
       <div className="flex flex-col xl:flex-row items-center justify-between gap-4">
         <div className="w-30 lg:w-60 ">
           <Image
-            src="/img/footer/helping-a-partner.jpg"
+            src="/img/layout/helping-a-partner.jpg"
             alt="helping-a-partner"
             width={240}
             height={180}
@@ -91,9 +92,9 @@ const Footer: React.FC = () => {
                       (index1 + 1).toString() + (index2 + 1).toString()
                     )}
                   >
-                    <a className="font-light" href={link_item.name}>
+                    <Link className="font-light" href={link_item.name}>
                       {link_item.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -124,6 +125,7 @@ const Footer: React.FC = () => {
             href="https://www.instagram.com/a2sv_org"
             target="_blank"
           />
+          "<AiFillLinkedin />"
         </div>
       </div>
     </section>
