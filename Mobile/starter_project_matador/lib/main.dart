@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'features/example/presentation/screen/onboarding_2_screen.dart';
+import 'features/example/presentation/screen/onboarding_screen_2.dart';
 
 void main() {
   runApp(const MyApp());
