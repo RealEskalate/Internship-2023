@@ -43,11 +43,11 @@ function Teams() {
         <div className='bg-white'>
             <div className="grid md:grid-cols-1 lg:grid-cols-2 p-8">
                 <div className="flex flex-col p-8 m-2">
-                    <h1 className="font-bold xl:text-[3rem] uppercase m-2">
+                    <h1 className="font-bold text-[2.5rem] xl:text-[3rem] uppercase m-2">
                         The team we’re currently
                         working with
                     </h1>
-                    <p className=" xl:text-[1.5rem] text-[#7D7D7D] m-2">Meet our development team is a small but highly skilled and experienced group of professionals. We have a talented mix of web developers, software engineers, project managers and quality assurance specialists who are passionate about developing exceptional products and services.</p>
+                    <p className="text-[1.5rem] text-[#7D7D7D] m-2">Meet our development team is a small but highly skilled and experienced group of professionals. We have a talented mix of web developers, software engineers, project managers and quality assurance specialists who are passionate about developing exceptional products and services.</p>
                 </div>
                 
                 <div className="p-8 relative">
