@@ -12,10 +12,9 @@ export const BlogsScreen: React.FC<BlogsScreenProps> = ({ blogs }) => {
   return (
     <div className='bg-white text-black font-montserrat'>
 
+      {/* Title and search bar */}
       <div className="flex justify-center pt-20">
         <div className='grid grid-cols-3 mt-2 w-full'>
-
-          {/* Title and search bar */}
           <div className="flex items-center">
             <div className='ps-28 text-xl font-black'>
               Blogs
@@ -25,7 +24,6 @@ export const BlogsScreen: React.FC<BlogsScreenProps> = ({ blogs }) => {
             <SearchForm />
           </div>
           <div />
-
         </div>
       </div>
 
@@ -59,8 +57,9 @@ const SearchForm = () => {
   return (
     <form className="flex gap-4">
 
+      {/* Search input */}
       <input type="text" className="border border-gray-300 text-gray-900 text-sm rounded-full block px-8 py-2.5 w-60" placeholder="Search..." />
-      
+      {/* Search button */}
       <button type="submit" className="text-white bg-blue-600 font-black rounded-full text-sm px-5 py-2.5 text-center">
         <AiOutlinePlus className="inline-block me-1" />
         New Blog
