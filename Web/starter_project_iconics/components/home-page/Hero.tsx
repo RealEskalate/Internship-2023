@@ -1,12 +1,12 @@
 import Image from 'next/image'
 import { BsArrowRightShort } from 'react-icons/bs'
 
-const Landing: React.FC = () => {
+const Hero: React.FC = () => {
   return (
     <div className="flex flex-col gap-20 lg:gap-0 lg:flex-row justify-around p-16">
       <div className="flex flex-col items-center basis-5/12 gap-10">
         <h1 className="text-7xl font-extrabold">
-          Africa to <span className="text-[#264FAD]">Silicon Valley</span>
+          Africa to <span className="text-primary">Silicon Valley</span>
         </h1>
         <p className="text-secondary-text text-3xl">
           A2SV up-skills high-potential university students, connects them with
@@ -24,7 +24,7 @@ const Landing: React.FC = () => {
       </div>
       <div className="w-full lg:w-6/12">
         <Image
-          src="/img/landing-page.png"
+          src="/img/home-page/hero.png"
           alt="landing page image"
           width={1000}
           height={1000}
@@ -34,4 +34,4 @@ const Landing: React.FC = () => {
   )
 }
 
-export default Landing
+export default Hero
