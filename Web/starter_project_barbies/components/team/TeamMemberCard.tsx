@@ -1,8 +1,11 @@
 import React from 'react'
 import { BsFacebook, BsLinkedin, BsInstagram, BsEmojiSmileUpsideDown } from 'react-icons/bs';
 import Image from "next/image";
-import { TeamMemberCardProps } from "@/types/teams";
+import { TeamMember } from "@/types/teams";
 
+export type TeamMemberCardProps = {
+  teamMember: TeamMember
+}
 
 const SocialMediaIcon: {[index: string]:any} = {
   "facebook": <BsFacebook className="fill-gray-400 w-6 h-6" />,

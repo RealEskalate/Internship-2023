@@ -11,7 +11,3 @@ export type TeamMember = {
   image: string
   links: SocialMediaLink[]
 }
-
-export type TeamMemberCardProps = {
-  teamMember: TeamMember
-}
