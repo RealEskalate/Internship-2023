@@ -13,8 +13,6 @@ class WriteArticlePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
-    final bool isPortrait =
-        MediaQuery.of(context).orientation == Orientation.portrait;
 
     return Scaffold(
       appBar: AppBar(
