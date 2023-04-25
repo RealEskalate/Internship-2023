@@ -118,9 +118,7 @@ class Login extends StatelessWidget {
                           border: UnderlineInputBorder(
                             borderSide:
                                 BorderSide(color: Colors.red, width: 2.0),
-                            // Change the border style to dotted, dashed, or solid.
-                            // You can also add other styles such as BorderStyle.solid and BorderStyle.dashed.
-                            //borderSide: BorderStyle.solid,
+                           
                           ),
                         ),
                       )),
@@ -177,8 +175,6 @@ class Login extends StatelessWidget {
                       ),
                     ),
                   ),
-
-                  //SizedBox(height: 10),
                   Align(
                     alignment: Alignment.centerRight,
                     child: Row(
