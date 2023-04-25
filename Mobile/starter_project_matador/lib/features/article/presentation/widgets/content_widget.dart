@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ContentWidget extends StatelessWidget {
-  const ContentWidget({Key? key}) : super(key: key);
+class ContentFormField extends StatelessWidget {
+  const ContentFormField({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
