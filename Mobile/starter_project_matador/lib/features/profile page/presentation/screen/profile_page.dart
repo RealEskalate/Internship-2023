@@ -24,9 +24,9 @@ class _ProfileState extends State<Profile> {
             padding: const EdgeInsets.fromLTRB(30, 15, 0, 10),
             child: Row(
               children: [
-                Profile_Text(),
+                const ProfileText(),
                 SizedBox(width: screenWidth.size.width * 0.7),
-                IconHeader()
+                const IconHeader()
               ],
             ),
           ),

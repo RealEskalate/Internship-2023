@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-class Profile_Text extends StatelessWidget {
-  const Profile_Text({super.key});
+class ProfileText extends StatelessWidget {
+
+  const ProfileText({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,6 +11,7 @@ class Profile_Text extends StatelessWidget {
       child: Text(
         "Profile",
         style: TextStyle(
+          fontFamily: "Urbanist", 
             fontSize: 22, color: Colors.black, fontWeight: FontWeight.w600),
       ),
     );
