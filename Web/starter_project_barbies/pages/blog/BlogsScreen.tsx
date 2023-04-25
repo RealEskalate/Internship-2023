@@ -15,6 +15,7 @@ export const BlogsScreen: React.FC<BlogsScreenProps> = ({ blogs }) => {
       <div className="flex justify-center pt-20">
         <div className='grid grid-cols-3 mt-2 w-full'>
 
+          {/* Title and search bar */}
           <div className="flex items-center">
             <div className='ps-28 text-xl font-black'>
               Blogs
@@ -28,10 +29,12 @@ export const BlogsScreen: React.FC<BlogsScreenProps> = ({ blogs }) => {
         </div>
       </div>
 
+      {/* Blog list */}
       <div className="mt-10 px-56">
         <BlogsList blogs={blogs} />
       </div>
 
+      {/* Pagination */}
       <Pagination numberOfPages={5} />
 
     </div>
@@ -41,8 +44,8 @@ export const BlogsScreen: React.FC<BlogsScreenProps> = ({ blogs }) => {
 const BlogsList: React.FC<BlogsScreenProps> = ({ blogs }) => {
   let blogComponents = []
   let key = 0
-  for (let i of blogs) {
-    blogComponents.push(<BlogCardWide blog={i} key={key++} />)
+  for (let blog of blogs) {
+    blogComponents.push(<BlogCardWide blog={blog} key={key++} />)
   }
 
   return (

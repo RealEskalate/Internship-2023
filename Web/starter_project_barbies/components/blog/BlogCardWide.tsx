@@ -17,16 +17,25 @@ export const BlogCardWide: React.FC<BlogCardWideProps> = ({ blog }) => {
 
         <div className="flex mt-6">
           <div className="flex flex-col">
+
+            {/* Author details */}
             <BlogCardAuthorDetail blog={blog} />
+
+            {/* Blog title */}
             <div className="mt-4 font-black	text-xl me-40">
               {blog.title}
             </div>
+
+            {/* Blog description */}
             <div className="mt-6 me-28 text-sm font-extralight">
               {blog.shortDescription}
             </div>
+
+            {/* Blog tags */}
             <div className="mt-6">
               <TagList tags={blog.tags} />
             </div>
+            
           </div>
         </div>
 
@@ -43,9 +52,14 @@ export const BlogCardWide: React.FC<BlogCardWideProps> = ({ blog }) => {
 const BlogCardAuthorDetail: React.FC<BlogCardWideProps> = ({ blog }) => {
   return (
     <div className='grid grid-cols-2' style={{ gridTemplateColumns: `60px auto` }}>
+
+      {/* Author image */}
       <Image src={blog.author.image} alt={blog.author.name} width={50} height={50} className="rounded-full" />
+      
       <div className='flex flex-col justify-center ms-2'>
         <div className="flex justify-start">
+
+          {/* Author name and blog date */}
           <div className="flex gap-2 justify-center">
             <div className="font-black">
               {blog.author.name}
@@ -57,11 +71,15 @@ const BlogCardAuthorDetail: React.FC<BlogCardWideProps> = ({ blog }) => {
               </div>
             </div>
           </div>
+          
         </div>
+
+        {/* Author profession */}
         <div className="text-xs mt-1 font-extralight">
           {blog.author.profession.toUpperCase()}
         </div>
       </div>
+      
     </div>
   )
 }
