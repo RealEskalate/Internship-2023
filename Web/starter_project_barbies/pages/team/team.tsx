@@ -1,7 +1,7 @@
 import React from 'react'
 import TeamsImage from '../../public/image/team/teams_page_img.svg'
 import Image from 'next/image'
-import TeamMemberCard from "@/components/team/team-member-card";
+import TeamMemberCard from "@/components/team/TeamMemberCard";
 import TeamMembers from "@/data/team/data.json";
 
 const Team = () => {
