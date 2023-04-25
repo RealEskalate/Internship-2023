@@ -11,7 +11,7 @@ class MenuIcon extends StatelessWidget {
     return Icon(
       MenuAltRight.vector, // Custom Icon data
       color: menuIconColor,
-      size: convertPixelToScreenHeight(context, 18),
+      size: convertPixelToScreenHeight(context, 20),
       shadows: const [
         BoxShadow(
             color: menuIconShadowColor, offset: Offset(0, 4), blurRadius: 4),

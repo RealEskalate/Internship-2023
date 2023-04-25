@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:matador/core/constants/colors.dart';
 import 'package:matador/core/utils/real_pixel_to_logical_pixel.dart';
-import 'package:matador/features/home_page/presentation/widgets/appbar_title.dart';
-import 'package:matador/features/home_page/presentation/widgets/menu_icon.dart';
-import 'package:matador/features/home_page/presentation/widgets/profile_avatar.dart';
+import 'package:matador/features/feed/presentation/widgets/appbar_title.dart';
+import 'package:matador/features/feed/presentation/widgets/menu_icon.dart';
+import 'package:matador/features/feed/presentation/widgets/profile_avatar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);

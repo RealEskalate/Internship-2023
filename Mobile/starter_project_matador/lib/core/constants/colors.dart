@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 // Widget colors
 const scaffoldBackGroundColor = Color.fromRGBO(248, 250, 255, 1);
 const menuIconColor = Colors.black;
-const profileAvatarCircularRing = Colors.white;
+const profileAvatarCircularRingColor = Colors.white;
 
 // Text colors
 const defaultTextColor = Colors.black;
