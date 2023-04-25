@@ -10,7 +10,7 @@ interface PaginationProps{
 function Pagination({pages, currentPage, setCurrentPage}: PaginationProps) {
 
   return (
-    <div className='flex p-4 justify-center'>{pages.map((page, index) => <PaginationPage onClick={() => {setCurrentPage(index)}} key={index} page={page} outline={pages[currentPage] === page ? true: false}></PaginationPage>)}</div>
+    <div className='flex p-4 justify-center'>{pages.map((page, index) => <PaginationPage onClick={() => {setCurrentPage(index)}} key={index} page={page} active={pages[currentPage] === page ? true: false}></PaginationPage>)}</div>
   )
 }
 

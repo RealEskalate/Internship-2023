@@ -3,12 +3,12 @@ import React from 'react'
 interface paginationPageProps{
   page: string,
   onClick?:  () => void,
-  outline?: boolean
+  active?: boolean
 }
-function PaginationPage({page, onClick, outline}: paginationPageProps) {
+function PaginationPage({page, onClick, active}: paginationPageProps) {
   return (
 
-      <button onClick={onClick} className={clsx(outline? 'outline outline-1 outline-[#264FAD]  bg-white text-[#264FAD]': 'text-white', 'm-1 px-3 py-2 bg-[#264FAD] rounded-md cursor-pointer')}>{page}</button>
+      <button onClick={onClick} className={clsx(active? 'bg-primary text-white': 'bg-[#E1E7EC]', 'm-1 px-3 py-2 rounded-md cursor-pointer')}>{page}</button>
 
   )
 }
