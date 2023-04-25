@@ -5,10 +5,11 @@ interface TextProps {
   family?: 'montserrat';
   children: string;
   color?: 'gray-500' | 'black';
-  weight?: 'semibold' | 'medium' | 'bold' | 'light'
+  weight?: 'semibold' | 'medium' | 'bold' | 'light';
+  className?: string
 }
 
-const Text: React.FC<TextProps> = ({ size = "sm", family = "montserrat", children, color="black" , weight = "medium"}) => {
+const Text: React.FC<TextProps> = ({ size = "sm", family = "montserrat", children, color="black" , weight = "medium", className=''}) => {
     const sizes: Record<string, string> = {
         sm: 'text-sm',
         base: 'text-base',
@@ -35,7 +36,7 @@ const Text: React.FC<TextProps> = ({ size = "sm", family = "montserrat", childre
   };
 
   return (
-    <span className={`${sizes[size]} ${families[family]} ${colors[color]} ${weights[weight]}`}>
+    <span className={`${sizes[size]} ${families[family]} ${colors[color]} ${weights[weight]} ${className}`}>
       {children}
     </span>
   );
