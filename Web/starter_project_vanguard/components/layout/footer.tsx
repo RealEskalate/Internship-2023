@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
       <div className="sm:flex justify-between items-center space-y-12 sm:space-y-0 divide-y divide-y-reverse sm:py-12 py-3 sm:divide-y-0  sm:space-x-12">
         <div className="pb-8 sm:pt-0 basis-1/5 hidden lg:block">
           <Link href="/">
-            <Image src={empowered} alt="inpowered logo" />
+            <Image src={empowered} alt="empowered logo" />
           </Link>
         </div>
 
@@ -18,14 +18,13 @@ const Footer: React.FC = () => {
           <h3 className="text-lg font-semibold my-6">
             Get involved in improving tech education in Africa!
           </h3>
-          <button className="bg-primary text-white rounded-md w-[190px] h-[45px]">
-            Support us
-          </button>
+          <button className="btn btn-lg">Support us</button>
         </div>
+        
         {linkItems.map((linkItem, index) => {
           return (
             <div key={index} className="pb-8 sm:pt-0 basis-1/5 self-start">
-              <h3 className="text-lg font-semibold mb-6">{linkItem.title}</h3>
+              <h3 className="font-semibold mb-6">{linkItem.title}</h3>
               <ul className="flex flex-col text-secondary-text space-y-4">
                 {linkItem.links.map((navItem, index) => (
                   <li key={index}>
