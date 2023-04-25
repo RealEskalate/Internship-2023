@@ -21,20 +21,24 @@ class login_card extends StatelessWidget {
           child: Column(
             children: [
               Column(children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
-                      "Welcome back",
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      "Sign in with your account",
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Text(
+                          "Welcome back",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500, fontSize: 20),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Sign in with your account",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ],
                     ),
                   ],
                 ),
