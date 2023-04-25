@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'features/feed/presentation/screen/home_page.dart';
 
 void main() {
