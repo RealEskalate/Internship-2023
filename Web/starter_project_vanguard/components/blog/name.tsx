@@ -1,5 +1,5 @@
 import React from 'react'
-import Text from '../common/text'
+import Text from './text'
 import "typeface-montserrat";
 
 function Name() {

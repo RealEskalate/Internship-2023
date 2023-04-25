@@ -1,6 +1,6 @@
 import { map } from 'cypress/types/bluebird'
 import React from 'react'
-import Blog from './blog'
+import Blog from '@/components/blog/blog'
 
 const blogs = [
     <Blog/>,
