@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dartsmiths/core/constants.dart';
+import 'package:dartsmiths/core/utils/constants.dart';
 
 class PostArticlePage extends StatefulWidget {
   const PostArticlePage({super.key});
