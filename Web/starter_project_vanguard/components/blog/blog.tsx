@@ -1,12 +1,12 @@
 import ProfilePic from '@/components/blog/profilepic';
-import Description from '@/components/profile/description';
-import Name from '@/components/profile/name';
-import Title from '@/components/profile/title';
-import Text from '@/components/common/text';
+import Text from '@/components/blog/text'
 import React from 'react'
 import 'tailwindcss/base.css';
 import Image from '@/components/blog/image';
 import Tags from '@/components/blog/chip';
+import Name from './name';
+import Title from './title';
+import Description from './description';
 function Blog() {
   return (
 
