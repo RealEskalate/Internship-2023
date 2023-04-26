@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'features/feed/presentation/screen/home_page.dart';
 import 'package:matador/features/example/presentation/screen/splash_screen.dart';
 import 'package:matador/features/splash/presentation/screen/splash_screen.dart';
+import 'features/feed/presentation/screen/home_page.dart';
 
 void main() {
   runApp(const MyApp());
