@@ -16,7 +16,7 @@ const blogs = () => {
             placeholder="search"
             className="w-48 p-3 text-secondary-text rounded-3xl text-sm border-0 shadow outline-none focus:outline-none focus:ring "
           />
-          <button className="bg-blue-700 text-white text-sm p-3 rounded-3xl">
+          <button className="bg-primary text-white text-sm p-3 rounded-3xl">
             <FaPlus className="inline text-sm m-2" />
             New Blog
           </button>
