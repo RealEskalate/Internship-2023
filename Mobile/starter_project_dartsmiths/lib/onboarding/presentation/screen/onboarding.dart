@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/utils/colors.dart';
-import '../../../core/utils/images_path.dart';
+import '../../../core/utils/images.dart';
 import '../widgets/onboarding_box.dart';
 import '../widgets/onboarding_button.dart';
 import '../widgets/slide_dots.dart';
