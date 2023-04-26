@@ -10,8 +10,8 @@ import logo from '../../public/img/a2sv-logo.png'
 
 const navItems: NavItem[] = [
   { name: 'Home', href: '/' },
-  { name: 'Teams', href: '/team' },
-  { name: 'Success Stories', href: '/story' },
+  { name: 'Teams', href: '/teams' },
+  { name: 'Success Stories', href: '/successs-story' },
   { name: 'About Us', href: '/about' },
   { name: 'Get Involved', href: '/get-involved' },
 ]
