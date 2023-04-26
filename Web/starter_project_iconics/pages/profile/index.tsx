@@ -1,5 +1,5 @@
 import ProfileLayout from '@/components/profile/profileLayout'
-import { cards } from '../../data/blogs'
+import { cards } from '../../data/profile/blogs'
 import MyBlogs from '@/components/profile/myBlogs'
 
 const index = () => {
