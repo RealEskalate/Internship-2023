@@ -37,13 +37,13 @@ class Status extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(post,
-                          style: MyStyle.copyWith(
+                          style: ProfileTextStyle.copyWith(
                             fontSize: 20,
                             color: whiteColor,
                             fontWeight: FontWeight.w400,
                           )),
                       Text("Post",
-                          style: MyStyle.copyWith(
+                          style: ProfileTextStyle.copyWith(
                             fontSize: 14,
                             color: whiteColor,
                             fontWeight: FontWeight.w300,
@@ -59,13 +59,13 @@ class Status extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(follower,
-                        style: MyStyle.copyWith(
+                        style: ProfileTextStyle.copyWith(
                           fontSize: 20,
                           color: whiteColor,
                           fontWeight: FontWeight.w400,
                         )),
                     Text("Following",
-                        style: MyStyle.copyWith(
+                        style: ProfileTextStyle.copyWith(
                           fontSize: 14,
                           color: whiteColor,
                           fontWeight: FontWeight.w300,
@@ -79,13 +79,13 @@ class Status extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(following,
-                        style: MyStyle.copyWith(
+                        style: ProfileTextStyle.copyWith(
                           fontSize: 20,
                           color: whiteColor,
                           fontWeight: FontWeight.w400,
                         )),
                     Text("Followers",
-                        style: MyStyle.copyWith(
+                        style: ProfileTextStyle.copyWith(
                           fontSize: 14,
                           color: whiteColor,
                           fontWeight: FontWeight.w300,

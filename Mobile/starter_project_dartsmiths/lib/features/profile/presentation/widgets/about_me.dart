@@ -61,12 +61,12 @@ class AboutMe extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(userName,
-                            style: MyStyle.copyWith(
+                            style: ProfileTextStyle.copyWith(
                                 fontSize: 17,
                                 fontWeight: FontWeight.w700,
                                 fontStyle: FontStyle.italic)),
                         Text(name,
-                            style: MyStyle.copyWith(
+                            style: ProfileTextStyle.copyWith(
                                 fontWeight: FontWeight.w300,
                                 fontStyle: FontStyle.italic)),
                         SizedBox(
@@ -75,7 +75,7 @@ class AboutMe extends StatelessWidget {
                         ),
                         Text(
                           job,
-                          style: MyStyle.copyWith(
+                          style: ProfileTextStyle.copyWith(
                             fontSize: 17,
                             color: primaryColor,
                             fontWeight: FontWeight.w200,
@@ -88,7 +88,7 @@ class AboutMe extends StatelessWidget {
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * (1 / 40)),
                 Text("About me",
-                    style: MyStyle.copyWith(
+                    style: ProfileTextStyle.copyWith(
                         fontSize: 17,
                         fontWeight: FontWeight.w200,
                         fontStyle: FontStyle.italic)),
@@ -96,7 +96,7 @@ class AboutMe extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * (1 / 80),
                 ),
                 Text(description,
-                    style: MyStyle.copyWith(
+                    style: ProfileTextStyle.copyWith(
                         fontSize: 15.4,
                         fontWeight: FontWeight.w200,
                         fontStyle: FontStyle.italic)),

@@ -26,7 +26,7 @@ class Profile extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text("Profile",
-                        style: MyStyle.copyWith(
+                        style: ProfileTextStyle.copyWith(
                             fontSize: 22,
                             fontWeight: FontWeight.w500,
                             fontStyle: FontStyle.normal)),

@@ -21,7 +21,7 @@ class MyPosts extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("My Posts",
-                    style: MyStyle.copyWith(
+                    style: ProfileTextStyle.copyWith(
                         fontSize: 21, fontWeight: FontWeight.w500)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
