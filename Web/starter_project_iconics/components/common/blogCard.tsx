@@ -1,5 +1,5 @@
 import React from 'react'
-import { Blog } from '../../types/blog'
+import { Blog } from '../../types/profile/blog'
 import { MdOutlineModeComment } from 'react-icons/md'
 
 import {

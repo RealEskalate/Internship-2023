@@ -1,4 +1,4 @@
-import { User } from '@/types/user'
+import { User } from '@/types/profile/user'
 
 export const user: User = {
   id: 1,

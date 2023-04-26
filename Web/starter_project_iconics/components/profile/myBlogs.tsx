@@ -1,4 +1,4 @@
-import { Blog } from '@/types/blog'
+import { Blog } from '@/types/profile/blog'
 import React from 'react'
 import BlogCard from '../common/blogCard'
 
