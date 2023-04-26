@@ -1,4 +1,3 @@
-
 import 'package:dartsmiths/features/login/presentation/widgets/login_card.dart';
 import 'package:flutter/material.dart';
 
@@ -43,14 +42,13 @@ class Login extends StatelessWidget {
                       ),
                       Text(
                         "SIGN UP",
-                      
                       ),
                     ],
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 25,
                   ),
-                  const login_card()
+                  const LoginCard()
                 ],
               ),
             ),
