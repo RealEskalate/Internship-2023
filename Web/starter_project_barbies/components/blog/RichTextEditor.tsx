@@ -1,13 +1,15 @@
-/* This component is done by using react-quill rich text editor */
+/* This component is done by using react quill text editor */
 import dynamic from 'next/dynamic';
-import 'react-quill/dist/quill.snow.css';  
+// import the snow theme that makes the editor's content area white backgorund and gray text.
+import 'react-quill/dist/quill.snow.css';
 
+// QuillEditor component
 const QuillEditor = dynamic(
   () => import('react-quill'),
-  { ssr: false }
+  { ssr: false } // since quill editor is designed to work in the browser environment.
 );
 
-interface QuillProps {
+interface RichTextEditorProps {
   value: string;
   onChange: (value: string) => void;
 }
@@ -20,7 +22,7 @@ const QuillToolbarOptions = [
   ['link','video', 'image'],
 ];
 
-const QuillEditorComponent: React.FC<QuillProps> = ({ value, onChange }) => {
+const RichTextEditor: React.FC<RichTextEditorProps> = ({ value, onChange }) => {
   return (
     <div className="min-h-20">
       <QuillEditor
@@ -35,4 +37,4 @@ const QuillEditorComponent: React.FC<QuillProps> = ({ value, onChange }) => {
   );
 };
 
-export default QuillEditorComponent;
+export default RichTextEditor;

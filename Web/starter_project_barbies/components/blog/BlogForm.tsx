@@ -1,7 +1,23 @@
 import Image from "next/image";
 import React, {useState} from 'react';
-import SelectTag from './SelectBlogTag';
-import QuillEditorComponent from "./RichTextEditor";
+import SelectBlogTag from './SelectBlogTag';
+import RichTextEditor from "./RichTextEditor";
+
+// props for file uploads
+interface FileInputProps {
+  text: string;
+  id: string;
+}
+
+// File input conponent for file uploads
+const FileInput: React.FC<FileInputProps> = ({ text, id }) => {
+  return (
+    <label htmlFor={id} className="bg-white text-gray rounded-md px-4 py-2 hover:bg-gray-200">
+      {text}
+      <input id={id} type="file" className="sr-only" />
+    </label>
+  );
+};
 
 const BlogForm: React.FC = () => {
   // define state for the text editor content
@@ -25,7 +41,7 @@ const BlogForm: React.FC = () => {
           {/* Image and File Upload Section */}
           <div className="max-w-2xl max-h-96 md:max-h-72 mt-8 bg-gray-100 rounded-lg flex items-center justify-center flex-col p-5">
             <Image
-              src="/img/file-upload.jpg"
+              src="/img/blog/file-upload.jpg"
               alt="File Upload"
               width={200}
               height={200}
@@ -33,21 +49,16 @@ const BlogForm: React.FC = () => {
 
             <div className="flex flex-wrap flex-col md:flex-row gap-2 items-center mt-3">
               <p>Please,</p>
-              <label htmlFor="upload-file" className="bg-white text-gray rounded-md px-4 py-2 hover:bg-gray-200">
-                Upload File
-                <input id="upload-file" type="file" className="sr-only" />
-              </label>
+              <FileInput text="Upload File" id="upload-file" />
               <p>Or choose file from</p>
-              <label htmlFor="my-files" className="bg-white text-gray rounded-md px-4 py-2 hover:bg-gray-200">
-                My Files
-                <input id="my-files" type="file" className="sr-only" />
-              </label>
+              <FileInput text="My Files" id="my-files" />
             </div>
           </div>
+          
 
           {/* Editor Section */}
           <div className="container py-4 max-w-2xl">
-            <QuillEditorComponent
+            <RichTextEditor
               value={content}
               onChange={handleContentChange}
             />
@@ -56,7 +67,7 @@ const BlogForm: React.FC = () => {
 
         {/* Tag Section */}
         <div className="mb-10 mr-10 px-4 sm:w-1/2 md:w-1/3 lg:w-1/4">
-        <SelectTag />
+        <SelectBlogTag />
         </div>
       </div>
 
