@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import Member from '@/components/Member'
 
 const inter = Inter({ subsets: ['latin'] })
 
