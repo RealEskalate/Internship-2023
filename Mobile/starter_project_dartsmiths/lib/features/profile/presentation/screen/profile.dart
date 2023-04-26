@@ -1,7 +1,7 @@
+import 'package:dartsmiths/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/app _ textstyle.dart';
-import '../../../../core/utils/app_color.dart';
+import '../../../../core/utils/app_textstyle.dart';
 import '../widgets/about_me.dart';
 import '../widgets/my_posts.dart';
 
@@ -11,7 +11,7 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.background,
+      backgroundColor: scaffoldBackground,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -27,7 +27,7 @@ class Profile extends StatelessWidget {
                   children: [
                     Text("Profile",
                         style: MyStyle.copyWith(
-                            fontSize: 21,
+                            fontSize: 22,
                             fontWeight: FontWeight.w500,
                             fontStyle: FontStyle.normal)),
                     Icon(

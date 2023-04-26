@@ -1,7 +1,7 @@
+import 'package:dartsmiths/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/app _ textstyle.dart';
-import '../../../../core/utils/app_color.dart';
+import '../../../../core/utils/app_textstyle.dart';
 import 'status.dart';
 
 class AboutMe extends StatelessWidget {
@@ -21,8 +21,8 @@ class AboutMe extends StatelessWidget {
         padding: EdgeInsets.all(MediaQuery.of(context).size.width * (1 / 10)),
         child: Container(
           decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(13)),
-          height: MediaQuery.of(context).size.height * (1 / 3),
+              color: whiteColor, borderRadius: BorderRadius.circular(13)),
+          height: MediaQuery.of(context).size.height * (1 / 3.1),
           child: Padding(
             padding:
                 EdgeInsets.all(MediaQuery.of(context).size.width * (1 / 18)),
@@ -33,7 +33,7 @@ class AboutMe extends StatelessWidget {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                          border: Border.all(width: 2, color: AppColor.violet),
+                          border: Border.all(width: 2, color: primaryColor),
                           borderRadius: BorderRadius.circular(
                               MediaQuery.of(context).size.width * (1 / 14))),
                       child: Padding(
@@ -63,7 +63,7 @@ class AboutMe extends StatelessWidget {
                         Text(userName,
                             style: MyStyle.copyWith(
                                 fontSize: 17,
-                                fontWeight: FontWeight.w600,
+                                fontWeight: FontWeight.w700,
                                 fontStyle: FontStyle.italic)),
                         Text(name,
                             style: MyStyle.copyWith(
@@ -77,7 +77,7 @@ class AboutMe extends StatelessWidget {
                           job,
                           style: MyStyle.copyWith(
                             fontSize: 17,
-                            color: AppColor.violet,
+                            color: primaryColor,
                             fontWeight: FontWeight.w200,
                             fontStyle: FontStyle.italic,
                           ),
@@ -89,7 +89,7 @@ class AboutMe extends StatelessWidget {
                 SizedBox(height: MediaQuery.of(context).size.height * (1 / 40)),
                 Text("About me",
                     style: MyStyle.copyWith(
-                        fontSize: 16,
+                        fontSize: 17,
                         fontWeight: FontWeight.w200,
                         fontStyle: FontStyle.italic)),
                 SizedBox(
@@ -97,7 +97,7 @@ class AboutMe extends StatelessWidget {
                 ),
                 Text(description,
                     style: MyStyle.copyWith(
-                        fontSize: 14.5,
+                        fontSize: 15.4,
                         fontWeight: FontWeight.w200,
                         fontStyle: FontStyle.italic)),
               ],

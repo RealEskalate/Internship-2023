@@ -1,7 +1,6 @@
-import 'package:dartsmiths/core/utils/app%20_%20textstyle.dart';
+import 'package:dartsmiths/core/utils/app_textstyle.dart';
+import 'package:dartsmiths/core/utils/colors.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../core/utils/app_color.dart';
 import 'post_card.dart';
 
 class MyPosts extends StatelessWidget {
@@ -11,7 +10,7 @@ class MyPosts extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.white,
+          color: whiteColor,
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(22), topRight: Radius.circular(22))),
       child: Padding(
@@ -29,7 +28,7 @@ class MyPosts extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.grid_view_outlined,
-                      color: AppColor.violet,
+                      color: primaryColor,
                       size: 30,
                     ),
                     SizedBox(
@@ -37,7 +36,7 @@ class MyPosts extends StatelessWidget {
                     ),
                     Icon(
                       Icons.menu_outlined,
-                      color: AppColor.violet,
+                      color: primaryColor,
                       size: 30,
                     )
                   ],
@@ -64,8 +63,8 @@ class MyPosts extends StatelessWidget {
                       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj2j9hRj3vyP_BiTwRy9GHPD3yVvP9nt0GoQ&usqp=CAU',
                   likes: '2.1k',
                   time: '1hr ago',
-                  title: 'Why Big Data ',
-                  topic: 'BIG DATA',
+                  title: 'Step Design Sprint for UX Beginner',
+                  topic: 'UX DESIGN',
                   saved: true,
                 ),
               ],

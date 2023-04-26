@@ -1,7 +1,7 @@
+import 'package:dartsmiths/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/app _ textstyle.dart';
-import '../../../../core/utils/app_color.dart';
+import '../../../../core/utils/app_textstyle.dart';
 
 class PostCard extends StatelessWidget {
   final String img;
@@ -28,10 +28,10 @@ class PostCard extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(13),
-          color: Colors.white,
+          color: whiteColor,
           boxShadow: [
             BoxShadow(
-              color: AppColor.background,
+              color: scaffoldBackground,
               spreadRadius: 1,
               blurRadius: 15,
               offset: const Offset(0, 15),
@@ -57,7 +57,7 @@ class PostCard extends StatelessWidget {
                   children: [
                     Text(topic,
                         style: MyStyle.copyWith(
-                          color: AppColor.violet,
+                          color: primaryColor,
                           fontSize: 16,
                           fontWeight: FontWeight.w200,
                           fontStyle: FontStyle.italic,
@@ -83,7 +83,7 @@ class PostCard extends StatelessWidget {
                             Text(likes,
                                 style: MyStyle.copyWith(
                                   fontSize: 13,
-                                  fontWeight: FontWeight.w200,
+                                  fontWeight: FontWeight.w300,
                                 )),
                           ],
                         ),
@@ -100,13 +100,13 @@ class PostCard extends StatelessWidget {
                             Text(time,
                                 style: MyStyle.copyWith(
                                   fontSize: 13,
-                                  fontWeight: FontWeight.w200,
+                                  fontWeight: FontWeight.w300,
                                 )),
                           ],
                         ),
                         Icon(Icons.bookmark,
                             size: 20,
-                            color: saved ? AppColor.violet : Colors.transparent)
+                            color: saved ? primaryColor : Colors.transparent)
                       ],
                     )
                   ],
