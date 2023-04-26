@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import { BsArrowRightShort } from 'react-icons/bs'
-import Button from '../common/Button'
 
 const Hero: React.FC = () => {
   return (
@@ -17,8 +16,10 @@ const Hero: React.FC = () => {
           <button className="rounded-lg mx-5 py-2 capitalize w-1/3 border-2 border-primary text-primary hover:bg-blue-600 hover:text-blue-100 duration-300">
             Get started
           </button>
-          
-          <Button label='Support Us' endIcon={<BsArrowRightShort className="hidden md:flex" size={25} />}></Button>
+          <button className="flex flex-row justify-center gap-1 rounded-lg w-1/3 py-2 bg-primary text-blue-100 hover:bg-blue-600 duration-300 uppercase">
+            <p>SUPPORT US</p>
+            <BsArrowRightShort className="hidden md:flex" size={25} />
+          </button>
         </div>
       </div>
       <div className="w-full lg:w-6/12">
