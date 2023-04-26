@@ -25,13 +25,13 @@ const Navbar = () => {
       <Link href="/">
         <Image src={logo} alt="A2SV Logo" className="h-12 w-25  " />
       </Link>
-      <div className="hidden md:flex gap-4">
+      <div className="hidden md:flex gap-9">
         {navItems.map((navItem, index) => (
           <Link
             href={navItem.href}
             key={index}
             className={clsx(
-              'font-semibold',
+              'font-semibold pt-2',
               currSegment === navItem.href.split('/')[1]
                 ? 'border-b-4 border-primary text-primary'
                 : 'text-tertiary-text'
@@ -43,7 +43,7 @@ const Navbar = () => {
       </div>
 
       <div className="hidden md:flex float-right gap-4">
-        <button className="bg-primary text-white rounded-md w-[78px] h-[36px] md:float-right">
+        <button className="btn btn-md">
           Donate
         </button>
       </div>
@@ -55,7 +55,7 @@ const Navbar = () => {
         <div
           className={`${
             !toggle ? 'hidden' : 'flex'
-          } flex-col gap-4 p-6 black-gradient absolute top-20 right-2 mx-4 my-2 min-w-[140px] rounded-xl
+          } flex-col gap-4 p-6 black-gradient absolute top-12 right-2 mx-4 my-2 min-w-[140px] rounded-xl
           z-50 bg-gray-100 bg-opacity-100
           `}
         >
@@ -75,7 +75,7 @@ const Navbar = () => {
               {navItem.name}
             </Link>
           ))}
-          <button className="bg-primary text-white rounded-md w-[78px] h-[36px] md:float-right">
+          <button className="btn btn-md">
             Donate
           </button>
         </div>
