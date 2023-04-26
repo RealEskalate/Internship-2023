@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'features/article/presentation/widgets/article_reading.dart';
+import 'features/article/presentation/screen/article.dart';
+// import 'features/article/presentation/widgets/article_reading.dart';
 
 
 void main() {
