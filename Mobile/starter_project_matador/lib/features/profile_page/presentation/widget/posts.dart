@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 class PostCard extends StatelessWidget {
-  const PostCard({Key? key, required this.titleText, required this.description})
+  const PostCard({Key? key, required this.titleText, required this.description, required this.postImage})
       : super(key: key);
   final String titleText;
   final String description;
+  final String postImage;
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +25,9 @@ class PostCard extends StatelessWidget {
                   child: Container(
                     width: screenWidth.size.width * 0.15,
                     height: screenWidth.size.width * 0.23,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage('assets/images/laser.jpg'),
+                          image: AssetImage(postImage),
                           fit: BoxFit.cover,
                         ),
                         borderRadius: BorderRadius.all(Radius.circular(20))),

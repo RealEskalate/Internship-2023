@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../widget/header_widget.dart';
-import '../widget/posts_widget.dart';
-import '../widget/profile_description_widget.dart';
-import '../widget/status_card_widget.dart';
+import '../widget/header.dart';
+import '../widget/posts.dart';
+import '../widget/profile_description.dart';
+import '../widget/status_card.dart';
 
 
 class Profile extends StatefulWidget {
@@ -59,9 +59,9 @@ class _ProfileState extends State<Profile> {
                     child: Card(
                       child: Row(
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(30, 10, 0, 10),
-                            child: const Text(
+                          const Padding(
+                            padding: EdgeInsets.fromLTRB(30, 10, 0, 10),
+                            child: Text(
                               'My Posts',
                               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                             ),
@@ -82,11 +82,15 @@ class _ProfileState extends State<Profile> {
                                 ),
                   ),
             
-                  PostCard(titleText: 'BIG DATA                                  ', description: 'Why Big Data Needs Thick Data?',),
+                  const PostCard(titleText: 'BIG DATA                                  ', 
+                  description: 'Why Big Data Needs Thick Data?',
+                   postImage: 'assets/images/laser.jpg',),
                   // the first card
-                  Padding(
+                  const Padding(
                       padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                      child: PostCard(titleText: 'UX DESIGN                                  ', description: 'Why Big Data Needs Thick Data?')
+                      child: PostCard(titleText: 'UX DESIGN                                  ',
+                       description: 'Why Big Data Needs Thick Data?',
+                        postImage: 'assets/images/board.jpg',)
                       )
                 ],
               ),
