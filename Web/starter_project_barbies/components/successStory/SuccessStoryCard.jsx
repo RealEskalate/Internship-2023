@@ -1,18 +1,18 @@
 import React from 'react'
 import Image from 'next/image'
-const ProfileCard = ({personalProfile}) => {
+const SuccessStoryCard = ({successStory}) => {
      const paragraphs = [
         {
             title: "My A2SV Experience",
-            detail: personalProfile?.experience,
+            detail: successStory?.experience,
         },
         {
             title: "What I did/I am doing now",
-            detail: personalProfile?.achivements,
+            detail: successStory?.achivements,
         },
         {
             title: "How the A2sv Program changed my life",
-            detail: personalProfile?.a2svImpact,
+            detail: successStory?.a2svImpact,
         },
     ]
 
@@ -20,11 +20,11 @@ const ProfileCard = ({personalProfile}) => {
     <div className='flex flex-row gap-20 mx-20 my-10'>
 
         <div className = "relative  flex flex-col w-96 h-100">
-            <Image src = {personalProfile?.image} className='h-full w-full' alt = {personalProfile?.name}/>
+            <Image src = {successStory?.image} className='h-full w-full' alt = {successStory?.name}/>
                 <div className='absolute flex flex-col gap-2 w-full bottom-0 p-8 rounded-lg shadow-lg backdrop-filter backdrop-blur-lg backdrop-opacity-100 text-white'>
-                    <p className='text-2xl font-semibold'>{personalProfile?.name}</p>
-                    <p className='font-semibold'>{personalProfile?.profession}</p>
-                    <p >{personalProfile?.internPlace}</p>
+                    <p className='text-2xl font-semibold'>{successStory?.name}</p>
+                    <p className='font-semibold'>{successStory?.profession}</p>
+                    <p >{successStory?.internPlace}</p>
                 </div>
         </div>
 
@@ -45,4 +45,4 @@ const ProfileCard = ({personalProfile}) => {
   )
 }
 
-export default ProfileCard;
+export default SuccessStoryCard;
