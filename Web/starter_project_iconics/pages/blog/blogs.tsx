@@ -1,46 +1,10 @@
 import BlogTile from '@/components/blog/BlogTile'
-import { BlogData } from '@/types/blogs'
 import { FaPlus } from 'react-icons/fa'
 
+import { BlogData } from '@/types/blog/blog'
+import data from '../../data/blog/blog-tile.json'
 const blogs = () => {
-  const blogsData: BlogData[] = [
-    {
-      name: 'Yididiya Kebede',
-      profession: 'SOFTWARE ENGINEER',
-      profileImg: '/img/blog/profile-img.jpg',
-      title:
-        'The essential guide to Competitive Programming Tab System On React : 3 ways to do it.',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea ',
-      datePosted: new Date('Apr 16, 2022'),
-      tags: ['UI/UX', 'Development'],
-      blogImg: '/img/blog/blog-img.jpg',
-    },
-    {
-      name: 'Yididiya Kebede',
-      profession: 'SOFTWARE ENGINEER',
-      profileImg: '/img/blog/profile-img.jpg',
-      title:
-        'The essential guide to Competitive Programming Tab System On React : 3 ways to do it.',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea ',
-      datePosted: new Date('Apr 16, 2022'),
-      tags: ['UI/UX', 'Development'],
-      blogImg: '/img/blog/blog-img.jpg',
-    },
-    {
-      name: 'Yididiya Kebede',
-      profession: 'SOFTWARE ENGINEER',
-      profileImg: '/img/blog/profile-img.jpg',
-      title:
-        'The essential guide to Competitive Programming Tab System On React : 3 ways to do it.',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea ',
-      datePosted: new Date('Apr 16, 2022'),
-      tags: ['UI/UX', 'Development'],
-      blogImg: '/img/blog/blog-img.jpg',
-    },
-  ]
+  const blogsData: BlogData[] = data
   return (
     <div className="bg-white pt-4">
       <div className="flex flex-col items-center gap-y-4 mx-10 md:flex-row">

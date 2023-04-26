@@ -1,4 +1,4 @@
-import { BlogData } from '@/types/blogs'
+import { BlogData } from '@/types/blog/blog'
 import Image from 'next/image'
 import { GoPrimitiveDot } from 'react-icons/go'
 
@@ -30,7 +30,7 @@ const BlogTile = ({
             <h1 className="font-bold">{name}</h1>
             <GoPrimitiveDot className="text-sm self-center" />
             <span className="text-secondary-text text-xs self-center">
-              {datePosted.toDateString()}
+              {datePosted}
             </span>
           </div>
           <h2 className="text-secondary-text text-sm">{profession}</h2>
