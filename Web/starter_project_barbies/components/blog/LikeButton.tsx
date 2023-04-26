@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { GoComment } from "react-icons/Go";
+import { GoComment } from "react-icons/go";
 import { FaRegClock} from "react-icons/fa";
 
 const LikeButton: React.FC = () => {
