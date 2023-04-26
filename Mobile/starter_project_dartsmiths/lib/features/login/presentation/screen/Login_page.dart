@@ -1,5 +1,6 @@
 import 'package:dartsmiths/features/login/presentation/widgets/login_card.dart';
 import 'package:flutter/material.dart';
+import '../../../../core/utils/colors.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -7,7 +8,7 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: whiteColor,
       body: Column(
         children: [
           Container(
@@ -22,7 +23,7 @@ class Login extends StatelessWidget {
           Expanded(
             child: Container(
               decoration: const BoxDecoration(
-                color: Color(0xFF376AED),
+                color: primaryColor,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(25),
                   topRight: Radius.circular(25),
@@ -38,7 +39,7 @@ class Login extends StatelessWidget {
                     children: const [
                       Text(
                         "LOGIN",
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: primaryColor),
                       ),
                       Text(
                         "SIGN UP",

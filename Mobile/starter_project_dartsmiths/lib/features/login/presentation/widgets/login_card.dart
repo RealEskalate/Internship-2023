@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/utils/colors.dart';
 
 class LoginCard extends StatelessWidget {
   const LoginCard({super.key});
@@ -12,7 +13,7 @@ class LoginCard extends StatelessWidget {
               topLeft: Radius.circular(25),
               topRight: Radius.circular(25),
             ),
-            color: Colors.white),
+            color: whiteColor),
         child: Padding(
           padding: const EdgeInsets.fromLTRB(30, 15, 30, 0),
           child: Column(
@@ -58,7 +59,7 @@ class LoginCard extends StatelessWidget {
                     suffixIcon: Text(
                       "show",
                       style: TextStyle(
-                        color: Color(0xFF376AED),
+                        color: primaryColor,
                       ),
                     ),
                   ),
@@ -89,7 +90,7 @@ class LoginCard extends StatelessWidget {
                     ),
                     Text(
                       "Reset here",
-                      style: TextStyle(color: Color(0xFF376AED)),
+                      style: TextStyle(color: primaryColor),
                     )
                   ],
                 )
