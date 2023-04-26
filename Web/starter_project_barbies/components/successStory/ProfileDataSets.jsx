@@ -1,6 +1,7 @@
 import yisakImage from "./../../public/img/successStory/yisak.png"
 import lydiaImage from "./../../public/img/successStory/lydia.png"
 import birukImage from "./../../public/img/successStory/biruk.png"
+
 const Profiles = [
 {
     image: yisakImage,

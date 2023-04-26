@@ -1,11 +1,12 @@
 import React from 'react'
+import Image from 'next/image'
 import google from './../../public/img/successStory/google.png'
 import palantir from './../../public/img/successStory/palantir.png'
 import instaDeep from './../../public/img/successStory/instDeep.png'
 import meta from './../../public/img/successStory/meta.png'
 import databricks from './../../public/img/successStory/databricks.png'
 import linkedin from './../../public/img/successStory/linkedin.png'
-import Image from 'next/image'
+
 
 const Partners = () => {
     const logos = [google, palantir, instaDeep, meta, databricks, linkedin]

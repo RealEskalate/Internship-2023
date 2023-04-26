@@ -1,10 +1,10 @@
 import React from 'react'
-import a2svlogo from './../../public/img/successStory/a2svlogo.png'
 import { FaFacebook } from 'react-icons/fa';
 import { FaLinkedinIn } from 'react-icons/fa';
 import { FaTelegramPlane } from 'react-icons/fa';
 import { FaTwitter } from 'react-icons/fa';
 import Image from 'next/image'
+import a2svlogo from './../../public/img/successStory/a2svlogo.png'
 const Footer = () => {
   return (
     <div className='flex flex-row gap-70 justify-between mx-20'>
