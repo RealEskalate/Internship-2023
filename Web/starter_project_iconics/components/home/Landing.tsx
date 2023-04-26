@@ -3,7 +3,7 @@ import { BsArrowRightShort } from 'react-icons/bs'
 
 const Landing: React.FC = () => {
   return (
-    <div className="flex flex-col gap-20 lg:gap-0 lg:flex-row justify-around p-16">
+    <div className="flex flex-col gap-20 lg:gap-0 lg:flex-row justify-around p-12">
       <div className="flex flex-col basis-5/12 gap-10">
         <h1 className="text-7xl font-extrabold text-center md:text-left">
           Africa to <span className="text-primary">Silicon Valley</span>
@@ -22,7 +22,7 @@ const Landing: React.FC = () => {
           </button>
         </div>
       </div>
-      <div className="w-full lg:w-6/12">
+      <div className="w-full lg:w-5/12">
         <Image
           src="/img/home/hero.png"
           alt="landing page image"
