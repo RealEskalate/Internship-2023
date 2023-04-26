@@ -22,6 +22,11 @@ module.exports = {
         imfell: ['IM Fell French Canon', 'serif'],
         DMSans: ['Dm Sans'],
       },
+      fontFamily:{
+        montserrat: ['Montserrat', 'sans-serif'],
+        imfell : ['IM Fell French Canon', 'serif'],
+        Poppins: ['Poppins', 'sans-serif']
+      },
     },
   },
   plugins: [],
