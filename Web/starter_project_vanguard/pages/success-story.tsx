@@ -1,10 +1,12 @@
 import Partners from '@/components/success-story/Partners'
 import SuccessDescription from '@/components/success-story/SuccessDescription'
-import SucessImage from '@/components/success-story/SuccessImage'
-import { SuccessStories } from '@/types/success-story'
+import SuccessImageCard from '@/components/success-story/SuccessImageCard'
+import { SuccessStory } from '@/types/success-story'
+import successStoryjsonData from '../data/success-story.json'
 import Head from 'next/head'
 
 export default function SucessStory() {
+  const successStories: SuccessStory[] = successStoryjsonData
   return (
     <>
       <Head>
@@ -38,7 +40,7 @@ export default function SucessStory() {
         <div className="flex justify-center">
           <div className="max-w-5xl">
             <div>
-              {SuccessStories.map((successStory, index) => (
+              {successStories.map((successStory, index) => (
                 <div
                   key={index}
                   className={`flex flex-col lg:flex-row justify-center ml-2 mt-20 ${
@@ -46,7 +48,7 @@ export default function SucessStory() {
                   }`}
                 >
                   <div className="  lg:block">
-                    <SucessImage
+                    <SuccessImageCard
                       name={successStory.personName}
                       image={successStory.imgURL}
                       category={successStory.role}
@@ -56,8 +58,7 @@ export default function SucessStory() {
                   <div className="mt-0">
                     {successStory.story.map((story, index) => (
                       <SuccessDescription
-                        heading={story.heading}
-                        paragraph={story.paragraph}
+                        successDescription={story}
                       />
                     ))}
                   </div>

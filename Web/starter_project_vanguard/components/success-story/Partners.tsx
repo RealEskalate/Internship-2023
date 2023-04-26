@@ -1,33 +1,36 @@
-import React from 'react'
+import React from 'react';
 
 interface Partner {
-  companyName: string
-  imgURL: string
+  companyName: string;
+  imgURL: string;
 }
 
 const partners: Partner[] = [
   {
     companyName: 'Google',
-    imgURL: '/images/success-story/companies/google.png',
+    imgURL: 'google.png',
   },
   {
     companyName: 'Palantir',
-    imgURL: '/images/success-story/companies/palantir.png',
+    imgURL: 'palantir.png',
   },
   {
     companyName: 'InstaDeep',
-    imgURL: '/images/success-story/companies/inst-deep.png',
+    imgURL: 'insta-deep.png',
   },
-  { companyName: 'Meta', imgURL: '/images/success-story/companies/meta.png' },
+  {
+    companyName: 'Meta',
+    imgURL: 'meta.png',
+  },
   {
     companyName: 'Databricks',
-    imgURL: '/images/success-story/companies/databricks.png',
+    imgURL: 'databricks.png',
   },
   {
     companyName: 'LinkedIn',
-    imgURL: '/images/success-story/companies/linkedIn.png',
+    imgURL: 'linkedIn.png',
   },
-]
+];
 
 const Partners: React.FC = () => {
   return (
@@ -37,11 +40,15 @@ const Partners: React.FC = () => {
       </h1>
       <div className="flex flex-wrap justify-around	 gap-1">
         {partners.map((partner, index) => (
-          <img key={index} src={partner.imgURL} alt={partner.companyName} />
+          <img
+            key={index}
+            src={`/images/success-story/companies/${partner.imgURL}`} // Concatenate the common path with imgURL
+            alt={partner.companyName}
+          />
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Partners
+export default Partners;

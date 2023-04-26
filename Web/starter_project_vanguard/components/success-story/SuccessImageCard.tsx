@@ -7,7 +7,7 @@ interface SuccessImageProps {
   location: string
 }
 
-const SuccessImage: React.FC<SuccessImageProps> = ({
+const SuccessImageCard: React.FC<SuccessImageProps> = ({
   name,
   image,
   category,
@@ -34,4 +34,4 @@ const SuccessImage: React.FC<SuccessImageProps> = ({
   )
 }
 
-export default SuccessImage
+export default SuccessImageCard
