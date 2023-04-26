@@ -13,7 +13,7 @@ const HeroSection: React.FC = () => {
       name: 'hero-image-2.png',
     },
     {
-      className: 'left-24 -bottom-20',
+      className: 'left-24 top-[340px] ',
       name: 'hero-image-3.png',
     },
   ]
@@ -32,12 +32,14 @@ const HeroSection: React.FC = () => {
           and services.
         </p>
       </div>
-      <div
-        className=" relative basis-3/5 p-40 flex flex-col gap-4 bg-center bg-no-repeat bg-contain text-primary-text"
-        style={{
-          backgroundImage: 'url("/img/teams/hero-section/hero-background.png")',
-        }}
-      >
+      <div className=" relative basis-3/5 p-40 flex flex-col gap-4 bg-center bg-no-repeat bg-contain text-primary-text">
+        <div className="absolute top-4 -z-10">
+          <Image
+            src="/img/teams/hero-section/hero-background.png"
+            width={550}
+            height={500}
+            alt={'background image'}/>
+        </div>
         {heroImages.map((img, idx: number) => {
           return (
             <Image

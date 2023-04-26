@@ -1,18 +1,20 @@
-import { Member } from '@/types/teams'
+import { TeamMember } from '@/types/teams'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa'
+import { FaFacebook, FaInstagram, FaLinkedin, FaNetworkWired } from 'react-icons/fa'
 import { IconContext } from 'react-icons/lib'
 
 interface MemberCardProps {
-  member: Member
+  member: TeamMember
 }
 const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
-  let social_icon_map = new Map<string, JSX.Element>()
-  social_icon_map.set('facebook', <FaFacebook />)
-  social_icon_map.set('linkedin', <FaLinkedin />)
-  social_icon_map.set('instagram', <FaInstagram />)
+  const socialMediaIcons = {
+      facebook: <FaFacebook />,
+      linkedin: <FaLinkedin />,
+      instagram: <FaInstagram />,
+      default: <FaNetworkWired />
+      }
 
   return (
     <div className="bg-white rounded-md drop-shadow-xl py-6 px-6 max-w-sm ">
@@ -37,8 +39,8 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
         {member.links.map((link, idx: number) => {
           return (
             <Link key={idx} href={link.url} target="_blank">
-              <IconContext.Provider value={{ color: '#717171', size: '27px' }}>
-                {social_icon_map.get(link.social)}
+              <IconContext.Provider value={{ size: '27px', color:'grey' }} >
+                {socialMediaIcons[link.social as keyof typeof socialMediaIcons] || socialMediaIcons.default}
               </IconContext.Provider>
             </Link>
           )
