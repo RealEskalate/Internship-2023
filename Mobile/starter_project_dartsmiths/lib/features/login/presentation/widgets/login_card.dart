@@ -52,17 +52,24 @@ class LoginCard extends StatelessWidget {
                 ),
                 TextFormField(
                   obscureText: true,
-                  decoration: const InputDecoration(
-                    label: Text(
-                      "Password",
-                    ),
-                    suffixIcon: Text(
-                      "show",
-                      style: TextStyle(
-                        color: primaryColor,
+                  decoration: InputDecoration(
+                      label: const Text(
+                        "Password",
                       ),
-                    ),
-                  ),
+                      suffixIcon: TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          "Show",
+                          style: TextStyle(color: primaryColor),
+                        ),
+                      )
+                      // suffixIcon: Text(
+                      //   "show",
+                      //   style: TextStyle(
+                      //     color: primaryColor,
+                      //   ),
+                      // ),
+                      ),
                 ),
                 const SizedBox(
                   height: 50,
