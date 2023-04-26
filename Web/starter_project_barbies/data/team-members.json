@@ -5,8 +5,8 @@
       "jobTitle": "Software Engineer",
       "description":
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus.",
-      "image": "https://picsum.photos/200",
-      "links": [
+      "profileImg": "https://picsum.photos/200",
+      "socialMediaLinks": [
         {
           "type": "facebook",
           "url": "https://www.facebook.com/"
@@ -27,8 +27,8 @@
       "jobTitle": "Software Engineer",
       "description":
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus.",
-      "image": "https://picsum.photos/200",
-      "links": [
+      "profileImg": "https://picsum.photos/200",
+      "socialMediaLinks": [
         {
           "type": "facebook",
           "url": "https://www.facebook.com/"
@@ -49,8 +49,8 @@
       "jobTitle": "Software Engineer",
       "description":
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus.",
-      "image": "https://picsum.photos/200",
-      "links": [
+      "profileImg": "https://picsum.photos/200",
+      "socialMediaLinks": [
         {
           "type": "facebook",
           "url": "https://www.facebook.com/"
@@ -71,8 +71,8 @@
       "jobTitle": "Software Engineer",
       "description":
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus.",
-      "image": "https://picsum.photos/200",
-      "links": [
+      "profileImg": "https://picsum.photos/200",
+      "socialMediaLinks": [
         {
           "type": "facebook",
           "url": "https://www.facebook.com/"
@@ -93,8 +93,8 @@
       "jobTitle": "Software Engineer",
       "description":
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus.",
-      "image": "https://picsum.photos/200",
-      "links": [
+      "profileImg": "https://picsum.photos/200",
+      "socialMediaLinks": [
         {
           "type": "facebook",
           "url": "https://www.facebook.com/"
