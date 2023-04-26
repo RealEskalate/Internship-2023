@@ -4,8 +4,8 @@ import Image from 'next/image'
 
 const HeroSection: React.FC = () => {
   return (
-    <div className="mt-11 mb-10">
-      <div className="grid w-full grid-flow-row gap-16 sm:gap-10 p-10 pl-4 mx-4 mt-8 auto-rows-max sm:grid-flow-col sm:auto-cols-fr">
+    <div className="mb-10 mt-11">
+      <div className="grid w-full grid-flow-row gap-16 p-10 pl-4 mx-4 mt-8 sm:gap-10 auto-rows-max sm:grid-flow-col sm:auto-cols-fr">
         <div className="w-full ml-4 mt:11">
           <div>
             <h1 className="font-extrabold text-7xl sm:mb-7">
@@ -13,7 +13,7 @@ const HeroSection: React.FC = () => {
               <span className="text-primary"> Silicon Valley</span>
             </h1>
 
-            <p className="mt-5 text-sm text-gray-700 whitespace-normal sm:text-lg">
+            <p className="mt-5 text-gray-700 whitespace-normal sm:text-lg">
               A2SV up-skills high-potential university students, connects them
               with opportunities at top tech companies.
             </p>
