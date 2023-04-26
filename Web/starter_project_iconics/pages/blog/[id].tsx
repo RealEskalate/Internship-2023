@@ -5,7 +5,6 @@ const SingleBlog: React.FC = () => {
     const router = useRouter();
     const {id} = router.query;
     const currBlog = blogs.filter(item => item.blogId === id)
-    console.log(currBlog[0])
   return (
     <div className="bg-white">
         
