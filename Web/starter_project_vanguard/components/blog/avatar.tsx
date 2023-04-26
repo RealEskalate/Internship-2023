@@ -17,7 +17,7 @@ const Avatar: React.FC<AvatarProps> = ({ src, alt, size = 'md' }) => {
     <img
       src={src}
       alt={alt}
-      className={`rounded-full ${sizes[size]} object-cover`}
+      className={`rounded-full ${sizes[size]} object-cover `}
     />
   );
 };

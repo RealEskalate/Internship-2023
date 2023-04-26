@@ -11,11 +11,11 @@ function Blog() {
   return (
 
     
-    <div className="bg-white flex flex-wrap justify-center   ">
-      <div className='flex border-b-2 justify-center w-3/4 border-gray-400'>
-      <div className="w-3/5 p-4">
+    <div className=" flex flex-wrap justify-center w-6/5 ">
+      <div className='flex border-t-2  w-3/4 border-gray-300 pl-10'>
+      <div className=" items-start w-3/5 pt-4 pb-4 pr-0">
       <div className="flex items-start">
-        <div className="items-start my-4"> <ProfilePic /> </div>
+        <div className="items-start my-4 mx-0"> <ProfilePic /> </div>
         <div className="self-center mx-3"> <Name /> </div>
         <div className='items-end self-center mx-5'>
        <Text  size="sm" family="montserrat" children={'April 20'} color="black" weight='light' ></Text>
@@ -34,7 +34,7 @@ function Blog() {
 
       </div>
 
-      <div className="flex justify-center items-center w-1/4 p-3 pl-0">
+      <div className="flex justify-center items-center w-1/4 pl-0 ">
       <Image className="w-6/5" src="https://cdn.pixabay.com/photo/2021/08/04/13/06/software-developer-6521720_960_720.jpg"  borderRadius="rounded-lg" />
       </div>
 
