@@ -14,7 +14,6 @@ interface Props {
 }
 
 const BlogCard: React.FC<Props> = ({ card, feature }) => {
-  const handleReadMore = () => {}
   const statusIcon = {
     approved: <AiFillCheckCircle size={18} />,
     declined: <AiFillWarning size={18} />,
@@ -149,10 +148,7 @@ const BlogCard: React.FC<Props> = ({ card, feature }) => {
               }
             })()}
 
-            <button
-              className="card_read_more px-4 py-2 text-sm rounded-md border-none bg-white text-purple-500 font-bold cursor-pointer transition duration-200 ease-in-out"
-              onClick={handleReadMore}
-            >
+            <button className="card_read_more px-4 py-2 text-sm rounded-md border-none bg-white text-purple-500 font-bold cursor-pointer transition duration-200 ease-in-out">
               Read More
             </button>
           </div>
