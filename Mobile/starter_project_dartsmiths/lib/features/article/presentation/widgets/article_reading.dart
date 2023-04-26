@@ -1,31 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:dartsmiths/core/utils/ui_converter.dart';
 
 // ignore: camel_case_types
+
+Widget description = Text(
+  'That marked a turnaround from last year, when the social network reported a decline in users for the first time.\n The drop wiped billions from the firms market value.\n Since executives disclosed the fall in February, the firms share price has nearly halved.But shares jumped 19% in after-hours trade on Wednesday.',
+  maxLines: null,
+  style: TextStyle(fontSize: UIConverter.designWidth * 0.04),
+);
+
 class article_reading extends StatelessWidget {
   const article_reading({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // double screenWidth = MediaQuery.of(context).size.width;
-    // double screenHeight = MediaQuery.of(context).size.height;
-    Widget description = const Text(
-      'That marked a turnaround from last year, when the social network reported a decline in users for the first time.\n The drop wiped billions from the firms market value.\n Since executives disclosed the fall in February, the firms share price has nearly halved.But shares jumped 19% in after-hours trade on Wednesday.',
-      style: TextStyle(fontSize: 18),
-    );
-
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Builder(builder: (BuildContext context) {
-
-          var screen_width = MediaQuery.of(context).size.width;
-          var screen_height = MediaQuery.of(context).size.height;
-
-          Widget description = Text(
-            'That marked a turnaround from last year, when the social network reported a decline in users for the first time.\n The drop wiped billions from the firms market value.\n Since executives disclosed the fall in February, the firms share price has nearly halved.But shares jumped 19% in after-hours trade on Wednesday.',
-            maxLines: null,
-            
-            style: TextStyle(fontSize: screen_width * 0.04),
-          );
           return Scaffold(
               body: SafeArea(
             child: Stack(
@@ -36,10 +27,10 @@ class article_reading extends StatelessWidget {
                     children: [
                       Padding(
                         padding: EdgeInsets.fromLTRB(
-                            screen_width * 0.1,
-                            screen_height * 0.1,
-                            screen_width * 0.1,
-                            screen_height * 0.02),
+                            UIConverter.designWidth * 0.1,
+                            UIConverter.designHeight * 0.1,
+                            UIConverter.designWidth * 0.1,
+                            UIConverter.designHeight * 0.02),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -51,7 +42,7 @@ class article_reading extends StatelessWidget {
                               ],
                             ),
                             SizedBox(
-                              height: screen_height * 0.03,
+                              height: UIConverter.designHeight * 0.03,
                             ),
                             const Text(
                               'Four Things Everyone Needs To Know',
@@ -61,7 +52,7 @@ class article_reading extends StatelessWidget {
                               ),
                             ),
                             SizedBox(
-                              height: screen_height * 0.03,
+                              height: UIConverter.designHeight * 0.03,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -69,15 +60,16 @@ class article_reading extends StatelessWidget {
                                 Row(
                                   children: [
                                     ClipRRect(
-                                      borderRadius: BorderRadius.circular(screen_width * 0.3),
+                                      borderRadius: BorderRadius.circular(
+                                          UIConverter.designWidth * 0.3),
                                       child: Image.asset(
                                         'images/fashion1.jpg',
-                                        width: screen_width * 0.1,
-                                        height: screen_height * 0.06,
+                                        width: UIConverter.designWidth * 0.1,
+                                        height: UIConverter.designHeight * 0.06,
                                       ),
                                     ),
                                     SizedBox(
-                                      width: screen_height * 0.03,
+                                      width: UIConverter.designHeight * 0.03,
                                     ),
                                     Column(
                                       crossAxisAlignment:
@@ -105,7 +97,7 @@ class article_reading extends StatelessWidget {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        height: screen_height * 0.25,
+                        height: UIConverter.designHeight * 0.25,
                         width: double.infinity,
                         child: ClipRRect(
                           borderRadius: const BorderRadius.only(
@@ -121,14 +113,6 @@ class article_reading extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.fromLTRB(30, 25, 30, 0),
                         child: description,
-                        // Text(
-                        //     "That marked a turnaround from last year, when the social network reported a decline in users for the first time.\n The drop wiped billions from the firms market value.\n Since executives disclosed the fall in February, the firms share price has nearly halved.But shares jumped 19% in after-hours trade on Wednesday.",
-                        //     style: TextStyle(
-                        //       fontSize: 18,
-                        //       color: Colors.blueGrey,
-                        //       height: 1.5, // the height between text, default is null
-                        //       // letterSpacing: 1.0
-                        //     ))
                       ),
                     ],
                   ),

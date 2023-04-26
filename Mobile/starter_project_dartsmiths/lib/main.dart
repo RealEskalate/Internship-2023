@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'features/example/presentation/screen/article.dart';
+import 'features/article/presentation/widgets/article_reading.dart';
 
 
 void main() {
-  runApp(const MyApp());
+  runApp(const article_reading());
 }
 
 class MyApp extends StatelessWidget {
