@@ -6,11 +6,9 @@ interface BlogsProps {
 }
 
 export const BlogsList: React.FC<BlogsProps> = ({ blogs }) => {
-  let blogComponents = blogs.map((blog, index) => <BlogCardWide blog={blog} key={index} />)
-
   return (
     <div className='bg-white text-primary-text'>
-      {blogComponents}
+      { blogs.map((blog, index) => <BlogCardWide blog={blog} key={index} />) }
     </div>
   )
 }
