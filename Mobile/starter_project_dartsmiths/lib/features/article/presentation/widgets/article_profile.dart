@@ -1,5 +1,10 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import '../../../../core/utils/ui_converter.dart';
+
+String name = 'Richard Gervan';
+String post_time = '2m';
 
 class article_profile extends StatelessWidget {
   const article_profile({super.key});
@@ -25,14 +30,14 @@ class article_profile extends StatelessWidget {
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
-                  'Richard Gervan',
-                  style: TextStyle(color: Colors.blue),
+                  name,
+                  style: const TextStyle(color: Colors.blue),
                 ),
                 Text(
-                  '2m ago',
-                  style: TextStyle(color: Colors.blue),
+                  post_time,
+                  style: const TextStyle(color: Colors.blue),
                 )
               ],
             ),
