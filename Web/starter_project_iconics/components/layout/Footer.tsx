@@ -87,7 +87,7 @@ const Footer: React.FC = () => {
   ]
 
   return (
-    <section className="mt-auto bg-white flex flex-col gap-y-4 p-4 text-xl md:text-xl md:p-10">
+    <section className="font-montserrat mt-auto text-primary-text text-sm bg-white flex flex-col gap-y-4 p-4 lg:text-base md:p-10">
       <div className="flex flex-col xl:flex-row items-center justify-between gap-4">
         <div className="w-30 lg:w-60 ">
           <Image
@@ -102,7 +102,7 @@ const Footer: React.FC = () => {
           <p className="font-bold ">
             Get involved in improving tech education in Africa!
           </p>
-          <button className="bg-blue-700 w-40 p-3 text-white font-bold rounded-2xl xl:self-start">
+          <button className="bg-primary w-40 p-3 text-white font-bold rounded-2xl xl:self-start hover:bg-blue-500">
             Support Us
           </button>
         </div>
@@ -121,7 +121,10 @@ const Footer: React.FC = () => {
                       (index1 + 1).toString() + (index2 + 1).toString()
                     )}
                   >
-                    <Link className="font-light" href={link_item.name}>
+                    <Link
+                      className="font-light text-secondary-text"
+                      href={link_item.name}
+                    >
                       {link_item.name}
                     </Link>
                   </li>
@@ -131,14 +134,21 @@ const Footer: React.FC = () => {
           ))}
         </div>
       </div>
-      <div className="flex flex-col items-center gap-y-4 md:flex-row justify-between text-gray-500">
+      <div className="flex flex-col items-center gap-y-4 md:flex-row justify-between text-secondary-text">
         <p>
           <MdCopyright className="inline mr-2" />
           2020 Africa to Silicon Valley, Inc. All right reserved.
         </p>
         <div className="flex gap-4 text-2xl md:text-4xl ">
           {iconsData.map(({ icon: Icon, to }, index) => (
-            <Icon key={index} href={to} target="_blank" />
+            <Link
+              key={index}
+              href={to}
+              target="_blank"
+              className="hover:text-gray-400"
+            >
+              <Icon />
+            </Link>
           ))}
         </div>
       </div>
