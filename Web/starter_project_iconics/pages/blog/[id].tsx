@@ -12,7 +12,7 @@ const SingleBlog: React.FC = () => {
         <h2 className="text-center pt-4 font-imfell font-normal text-3xl text-primary-text">
             {currBlog[0].blogTitle}
         </h2>
-        <p className="text-center uppercase font-montserrat font-thin tracking-widest leading-9 text-xs">
+        <p className="text-center uppercase font-montserrat font-thin tracking-widest leading-9 text-xs text-primary-text">
         {currBlog[0].smallBlogTitle}
         </p>
         <div className="flex h-auto w-5/6 justify-center items-center mx-auto p-8">
@@ -22,7 +22,7 @@ const SingleBlog: React.FC = () => {
         <div className="mx-auto p-4">
             <img src={currBlog[0].author.imageUrl} className="mx-auto p-4 rounded-full w-28 h-28"/>
             <div className="">
-                <p className="mx-auto text-center uppercase font-thin text-sm font-montserrat font-light tracking-widest leading-9">{currBlog[0].author.name} | {currBlog[0].author.profession}</p>
+                <p className="mx-auto text-center uppercase font-thin text-sm font-montserrat font-light tracking-widest leading-9 text-primary-text">{currBlog[0].author.name} | {currBlog[0].author.profession}</p>
                 <a className="text-center " href="#"><p className="text-center uppercase font-semibold text-sm text-primary font-montserrat tracking-widest leading-9">{currBlog[0].author.socialMediaLink}</p></a>
             </div>
             </div>

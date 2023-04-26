@@ -1,4 +1,4 @@
-import Blog, { Author } from '@/types/blog'
+import Blog, { Author } from '@/types/blog/blog'
 
 const author1:Author = {
     name:"chaltu kebede",
