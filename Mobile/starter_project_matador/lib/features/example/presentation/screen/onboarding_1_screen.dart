@@ -70,7 +70,7 @@ class _OnBoardingState extends State<OnBoardingScreen1> {
           ],
         ),
       ),
-      Expanded(child: Introduction(topic, content, 1, 3))
+      Expanded(child: Introduction(topic, content, 2, 3))
     ]);
   }
 }
