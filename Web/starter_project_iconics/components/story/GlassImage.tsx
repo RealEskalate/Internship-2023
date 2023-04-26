@@ -1,6 +1,6 @@
 import React from 'react';
 
-type GlassImageProps = {
+ interface GlassImageProps  {
   image: string;
   name: string;
   job: string;
@@ -10,7 +10,7 @@ type GlassImageProps = {
 const GlassImage: React.FC<GlassImageProps> = ({ image, name, job, location }) => {
   return (
     <div className="relative inline-block sm:max-w-md md:max-w-md lg:w-auto">
-      <img src={image} alt="image"  />
+      <img src={`/img/success-stories-images/people/${image}`} alt="image"  />
       <div className="absolute bottom-0 left-0 right-0 backdrop-filter backdrop-blur-md rounded-xl w-full z-10">
         <div className="lg:m-4 lg:py-2">
           <p className="lg:pt-4 px-4 font-poppins text-2xl font-bold text-gray-50">{name}</p>

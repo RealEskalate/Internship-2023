@@ -1,17 +1,10 @@
 import React from 'react';
 import { GlassImage, TextSection, PartnerLogos } from '../../components/story/Stories';
+import imagesData from "../../data/story/success-stories";
 
-import imagesData from '../../data/story/success-stories';
-// type ImageData = {
-//   image: string;
-//   name: string;
-//   job: string;
-//   location: string;
-// }
 const StoryPage: React.FC = () => {
-  
   return (
-    <div className="bg-white">
+    <div className="bg-white text-primary-text flex justify-center flex-col items-center">
       <div className="flex justify-center pt-8">
         <h1 className="font-poppins text-5xl font-semibold">Impact Stories</h1>
       </div>
@@ -24,67 +17,24 @@ const StoryPage: React.FC = () => {
         <hr className="border-2 w-14  border-blue-700" />
       </div>
     
-      <div className="flex flex-col lg:flex-row justify-center ml-2 mt-28">
+      <div className={`flex ${imagesData.length % 2 === 1 ? 'flex-col' : 'flex-row'} justify-center`}>
         
         {imagesData.map((data, index) => (
-          <>
+          
+          <div key={index} className={`flex justify-center mt-20 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`} >
             <div className="lg:block">
-              <GlassImage {...data} />
+            <GlassImage image={data.imageURL} name={data.personName} job={data.role} location={data.location}/>
             </div>
             <div className="mt-0 max-w-xl">
-              <TextSection/>
+              {data.story.map(para => <TextSection heading={para.heading} paragraph={para.paragraph}/>)}
             </div>
-          </>
+          </div>
         ))}
-      
-        {/* <div className="mt-0 max-w-xl">
-          <TextSection/>
-        </div> */}
       </div>
 
-      {/* <div className="flex flex-col lg:flex-row justify-center ml-2 mt-28">
-        <div className="lg:block">
-          <GlassImage
-            image="/img/success-stories-images/people/yishak.png"
-            name="Yishak Bogale"
-            job="Software Engineering Intern"
-            location="Google - Mountain View, CA, USA"
-          />
-        </div>
-        <div className="mt-0 max-w-xl">
-          <TextSection/>
-        </div>
+      <div>
+        <PartnerLogos />
       </div>
-
-      <div className="flex flex-col lg:flex-row justify-center ml-2 mt-20">
-        <div className="mt-0 max-w-xl ">
-          <TextSection/>
-        </div>
-        <div className="lg:block ">
-          <GlassImage
-            image="/img/success-stories-images/people/lydia.png"
-            name="Lydia Gashawtena"
-            job="Software Engineering Intern"
-            location="Google - Mountain View, CA, USA"
-          />
-        </div>
-      </div>
-
-      <div className="flex flex-col lg:flex-row justify-center ml-2 mt-20">
-        <div className="lg:block">
-          <GlassImage
-            image="/img/success-stories-images/people/biruk.png"
-            name="Biruk Ayalew"
-            job="Software Engineering Intern"
-            location="Google - Mountain View, CA, USA"
-          />
-        </div>
-        <div className="mt-0 max-w-xl ">
-          <TextSection/>
-        </div>
-      </div> */}
-
-      <PartnerLogos />
 
     </div>
   );
