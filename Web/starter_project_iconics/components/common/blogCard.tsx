@@ -27,10 +27,7 @@ const BlogCard: React.FC<Props> = ({ card, feature }) => {
   ]
 
   return (
-    <div
-      className="card w-400 font-montserrat flex flex-col border border-gray-300 rounded-lg overflow-hidden shadow-md bg-white h-543 my-8 font-bold"
-      style={{ width: '400px' }}
-    >
+    <div className="card w-[400px] font-montserrat flex flex-col border border-gray-300 rounded-lg overflow-hidden shadow-md bg-white h-543 my-8 font-bold">
       <img
         className="w-full h-60 object-cover"
         src={card.photoUrl}
