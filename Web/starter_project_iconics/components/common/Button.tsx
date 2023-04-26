@@ -26,11 +26,9 @@ function Button({ label,
   className, startIcon, endIcon,
   ...props }: ButtonProps){
   return (
-<<<<<<< HEAD
-    <button {...props} className={clsx('flex justify-center items-center gap-x-2 px-4 py-2 m-2 text-white bg-primary rounded-md cursor-pointer', className)}>{startIcon && startIcon} {label} {endIcon && endIcon} </button>
-=======
-    <button {...props} className={clsx('flex justify-center items-center gap-x-2 px-4 py-2 m-2 text-white bg-[#264FAD] rounded-md cursor-pointer', className)}>{startIcon && startIcon} {label} {endIcon && endIcon} </button>
->>>>>>> af25d5c (add optional icon to button)
+
+    <button {...props} className={clsx('flex justify-center items-center gap-x-2 px-8 py-3 m-2 text-md text-white bg-primary rounded-md cursor-pointer', className)}>{startIcon && startIcon} {label} {endIcon && endIcon} </button>
+
   )
 }
 
