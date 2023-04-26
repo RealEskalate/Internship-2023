@@ -1,7 +1,6 @@
 import 'package:dartsmiths/features/home/presentation/widgets/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 import '../../../../core/utils/style.dart';
 import '../widgets/button.dart';
 import '../widgets/profile_widget.dart';
@@ -23,7 +22,7 @@ class HomePage extends StatelessWidget {
                 child: SvgPicture.asset("menu_bar.svg"))),
         title: Center(
             child: Text("Welcome  Back!",
-                style:  myTextStyle.copyWith(
+                style: myTextStyle.copyWith(
                     color: Colors.black,
                     fontSize: 25,
                     fontWeight: FontWeight.w800))),
@@ -39,12 +38,22 @@ class HomePage extends StatelessWidget {
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      MyButton(text: "All",active: true,),
                       MyButton(
-                        text: "Sports", active: false,
+                        text: "All",
+                        isActive: true,
                       ),
-                      MyButton(text: "Tech",active: false,),
-                      MyButton(text: "Politics",active: false,)
+                      MyButton(
+                        text: "Sports",
+                        isActive: false,
+                      ),
+                      MyButton(
+                        text: "Tech",
+                        isActive: false,
+                      ),
+                      MyButton(
+                        text: "Politics",
+                        isActive: false,
+                      )
                     ]))
           ],
         ),
