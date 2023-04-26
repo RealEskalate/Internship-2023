@@ -20,14 +20,17 @@ export interface ButtonProps extends React.ComponentProps<'button'> {
 
   // optional trailing icon
   startIcon?: JSX.Element
+
+  // add outline border
+  outline?: boolean
 }
 
 function Button({ label,
-  className, startIcon, endIcon,
+  className, startIcon, endIcon, outline,
   ...props }: ButtonProps){
   return (
 
-    <button {...props} className={clsx('flex justify-center items-center gap-x-2 px-8 py-3 m-2 text-md text-white bg-primary rounded-md cursor-pointer', className)}>{startIcon && startIcon} {label} {endIcon && endIcon} </button>
+    <button {...props} className={clsx( outline? 'outline outline-2 outline-primary text-primary bg-white hover:bg-primary hover:text-white' : 'text-white bg-primary hover:bg-blue-600', 'flex justify-center items-center gap-x-3 px-8 py-3 m-2 text-md  rounded-md cursor-pointer', className)}>{startIcon && startIcon} {label} {endIcon && endIcon} </button>
 
   )
 }
