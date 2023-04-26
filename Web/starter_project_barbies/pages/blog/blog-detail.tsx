@@ -49,3 +49,5 @@ export const BlogDetail: React.FC<BlogDetailProps> = ({ blog }) => {
     </div>
   )
 }
+
+export default BlogDetail;

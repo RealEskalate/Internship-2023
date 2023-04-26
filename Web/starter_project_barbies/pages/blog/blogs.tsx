@@ -38,3 +38,5 @@ export const Blogs: React.FC<BlogsProps> = ({ blogs }) => {
     </div>
   )
 }
+
+export default Blogs;
