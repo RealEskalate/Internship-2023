@@ -1,16 +1,24 @@
+import { BsEmojiSmileUpsideDown, BsFacebook, BsInstagram, BsLinkedin } from 'react-icons/bs';
 
+type social = {type: string, link: string}
 export interface TeamCardProps{
     name: string
     job: string
     description: string
-    instagram?: string
-     linkedin?: string
-     facebook?: string
-     avatar?: string
+    avatar: string
+    socialMedia: social[]
+
 }
 
-function TeamCard({name, job, description, avatar = 'https://www.dmarge.com/wp-content/uploads/2021/01/dwayne-the-rock-.jpg', instagram, linkedin, facebook}: TeamCardProps) {
-    const socials = [{link: facebook, image: '/img/teams-page/facebook.png' }, {link: instagram, image: '/img/teams-page/instagram.png' }, {link: linkedin, image: '/img/teams-page/linkedin.png' }]
+const SocialMediaIcon: {[index: string]:any} = {
+      "facebook": <BsFacebook className="fill-gray-400 w-8 h-8" />,
+      "linkedin": <BsLinkedin className="fill-gray-400 w-8 h-8" />,
+      "instagram": <BsInstagram className="fill-gray-400 w-8 h-8" />,
+      "default": <BsEmojiSmileUpsideDown className="fill-gray-400 w-8 h-8" />
+    }
+
+function TeamCard({name, job, description, avatar, socialMedia}: TeamCardProps) {
+    
     return (
         <div className='flex flex-col bg-white rounded-lg p-6 m-2 items-center justify-center shadow-xl max-w-sm'>
         <img className='rounded-full w-32 h-32 mt-2 object-cover ' src={avatar}></img>
@@ -20,8 +28,8 @@ function TeamCard({name, job, description, avatar = 'https://www.dmarge.com/wp-c
         <hr className='my-6 w-[100%] '></hr>
 
             <div className="flex justify-around w-[100%]">
+                {socialMedia && socialMedia.map((social) => <a href={social.link}> {SocialMediaIcon[social.type] || SocialMediaIcon["default"]}</a> )}
                 
-                {socials.map((social) => <a href={social.link}><img className='rounded-md object-contain w-8' src={social.image}></img></a>)}
                     
 
             </div>
