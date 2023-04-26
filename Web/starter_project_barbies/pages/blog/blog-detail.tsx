@@ -42,7 +42,7 @@ export const BlogDetail: React.FC<BlogDetailProps> = ({ blog }) => {
       </div>
 
       {/* Related blogs */}
-      <div className='flex items-center justify-center pb-20'>
+      <div className='flex items-center justify-center pb-20 font-light'>
         <RelatedBlogs blog={blog} />
       </div>
 

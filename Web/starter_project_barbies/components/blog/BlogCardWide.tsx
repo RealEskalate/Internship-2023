@@ -20,7 +20,7 @@ export const BlogCardWide: React.FC<BlogCardWideProps> = ({ blog }) => {
             {/* Author details */}
             <BlogCardAuthorDetail blog={blog} />
             {/* Blog title */}
-            <div className="mt-4 font-black	text-xl me-40">
+            <div className="mt-4 font-semibold text-xl me-40">
               {blog.title}
             </div>
             {/* Blog description */}
@@ -53,8 +53,8 @@ const BlogCardAuthorDetail: React.FC<BlogCardWideProps> = ({ blog }) => {
       <div className='flex flex-col justify-center ms-2'>
         <div className="flex justify-start">
           {/* Author name and blog date */}
-          <div className="flex gap-2 justify-center">
-            <div className="font-black">
+          <div className="flex gap-2 justify-center items-center">
+            <div className="font-medium" style={{ fontSize: `15px` }}>
               {blog.author.name}
             </div>
             <div>●</div>

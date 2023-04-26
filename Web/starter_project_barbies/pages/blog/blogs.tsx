@@ -16,7 +16,7 @@ export const Blogs: React.FC<BlogsProps> = ({ blogs }) => {
       <div className="flex justify-center pt-20">
         <div className='grid grid-cols-3 mt-2 w-full'>
           <div className="flex items-center">
-            <div className='ps-28 text-xl font-black'>
+            <div className='ps-28 text-xl font-semibold'>
               Blogs
             </div>
           </div>
