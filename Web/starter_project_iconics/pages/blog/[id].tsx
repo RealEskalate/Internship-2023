@@ -23,7 +23,7 @@ const SingleBlog: React.FC = () => {
 
       <div className="mx-auto p-4">
         <img
-          src={currBlog[0].author.imageUrl}
+          src={`/img/blog/${currBlog[0].author.imageUrl}`}
           className="mx-auto p-4 rounded-full w-28 h-28"
         />
         <div className="">
@@ -39,11 +39,10 @@ const SingleBlog: React.FC = () => {
       </div>
       <div className="mx-auto pt-8 text-left w-4/6 font-imfell font-medium text-xl text-primary-text leading-10">
         <b className="bold-text">{currBlog[0].heading}</b>
-
-        {currBlog[0].paragraphs.map((text, index) => (
+        {currBlog[0].paragraphs.map((text) => (
           <div className="mt-4">
             <small className="font-light font-montserrat text-base text-secondary-text">
-              {text[index]}
+              {text}
             </small>
           </div>
         ))}

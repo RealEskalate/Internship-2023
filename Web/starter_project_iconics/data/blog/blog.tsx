@@ -28,7 +28,7 @@ const blogs: Blog[] = [
     blogId: '2',
     blogTitle: 'The essential guide to Competitive Programming',
     smallBlogTitle: 'Programming, tech | 6 min Read',
-    blogImgUrl: '/blog/dummy-blog-img.png',
+    blogImgUrl: 'dummy-blog-img.png',
     author: author1,
     heading:
       'We know that data structure and algorithm can seem hard at first glance. And you may not be familiar with advanced algorithms, but there are simple steps you can follow to see outstanding results in a short period of time.',
