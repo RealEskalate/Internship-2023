@@ -1,4 +1,33 @@
-import React from "react"
+import React from 'react'
+
+interface Partner {
+  companyName: string
+  imgURL: string
+}
+
+const partners: Partner[] = [
+  {
+    companyName: 'Google',
+    imgURL: '/images/success-story/companies/google.png',
+  },
+  {
+    companyName: 'Palantir',
+    imgURL: '/images/success-story/companies/palantir.png',
+  },
+  {
+    companyName: 'InstaDeep',
+    imgURL: '/images/success-story/companies/inst-deep.png',
+  },
+  { companyName: 'Meta', imgURL: '/images/success-story/companies/meta.png' },
+  {
+    companyName: 'Databricks',
+    imgURL: '/images/success-story/companies/databricks.png',
+  },
+  {
+    companyName: 'LinkedIn',
+    imgURL: '/images/success-story/companies/linkedIn.png',
+  },
+]
 
 const Partners: React.FC = () => {
   return (
@@ -6,31 +35,10 @@ const Partners: React.FC = () => {
       <h1 className="font-DMSans text-5xl font-semibold mb-16 text-center">
         Current Interview Partners
       </h1>
-      <div className="flex flex-col sm:flex-row  gap-1">
-        <img
-          src="/images/success-story/google.png"
-          alt="Google logo"
-          className="w-full max-w-screen-lg sm:max-w-none"
-        />
-        <img
-          src="/images/success-story/palantir.png"
-          alt="Palantir logo"
-          className="w-full max-w-screen-lg sm:max-w-none"
-        />
-        <img
-          src="/images/success-story/inst-deep.png"
-          alt="InstaDeep logo"
-          className="w-full max-w-screen-lg sm:max-w-none"
-        />
-        <img
-          src="/images/success-story/meta.png"
-          alt="Meta logo"
-          className="w-full max-w-screen-lg sm:max-w-none"
-        />
-      </div>
-      <div className="flex gap-1 flex-col sm:flex-row justify-between mx-0 md:mx-40">
-        <img src="/images/success-story/databricks.png" alt="Databricks logo" />
-        <img src="/images/success-story/linkedin.png" alt="LinkedIn logo" />
+      <div className="flex flex-wrap justify-around	 gap-1">
+        {partners.map((partner, index) => (
+          <img key={index} src={partner.imgURL} alt={partner.companyName} />
+        ))}
       </div>
     </div>
   )
