@@ -28,7 +28,7 @@ const LikeButton: React.FC = () => {
         </>
       ) : (
         <>
-          <GoComment className="" />
+          <GoComment/>
           <span>{likes} Likes</span>
         </>
       )
