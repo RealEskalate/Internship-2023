@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:matador/features/example/presentation/widgets/background_container.dart';
+import 'package:matador/features/splash/presentation/widgets/background_container.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
