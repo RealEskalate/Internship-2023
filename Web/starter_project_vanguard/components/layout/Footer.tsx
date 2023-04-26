@@ -1,13 +1,70 @@
 import Link from 'next/link'
 import empowered from 'public/img/footer/empowered.png'
+import {
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+  FaTwitter,
+  FaYoutube,
+} from 'react-icons/fa'
+
 import Image from 'next/image'
-import { linkItems } from './links/navigationLink'
-import { socialMedialinks } from './links/socialMediaLinks'
 
 const Footer: React.FC = () => {
+  const linkItems: LinkItem[] = [
+    {
+      title: 'Links',
+      links: [
+        { name: 'Home', path: '/' },
+        { name: 'Success Stories', path: '/story' },
+        { name: 'About Us', path: '/about' },
+        { name: 'Get Involved', path: '/get-involved' },
+      ],
+    },
+    {
+      title: 'Teams',
+      links: [
+        { name: 'Board Members', path: '/board' },
+        { name: 'Advisors/Mentors', path: '/advisors' },
+        { name: 'Executives', path: '/executives' },
+        { name: 'Staffs', path: '/staffs' },
+      ],
+    },
+    {
+      title: 'Blogs',
+      links: [
+        { name: 'Recent Blogs', path: '/recent-blogs' },
+        { name: 'New Blog', path: '/new-blog' },
+      ],
+    },
+  ]
+
+  const socialMedialinks = [
+    {
+      icon: FaTwitter,
+      url: 'https://twitter.com/A2_SV',
+    },
+    {
+      icon: FaFacebook,
+      url: 'https://www.facebook.com/profile.php?id=100085473798621',
+    },
+    {
+      icon: FaYoutube,
+      url: 'https://www.youtube.com/channel/UC70kFW6mFFGEjsucvNZk6-A',
+    },
+    {
+      icon: FaLinkedin,
+      url: 'https://www.linkedin.com/company/a2sv/mycompany/',
+    },
+    {
+      icon: FaInstagram,
+      url: 'https://www.instagram.com/a2sv_org',
+    },
+  ]
+
   return (
     <footer className="mt-auto border-y border-text-secondary sm:px-6 px-12">
-      <div className="px-6 sm:flex justify-between items-center space-y-12 sm:space-y-0 divide-y divide-y-reverse sm:py-12 py-3 sm:divide-y-0  sm:space-x-12">
+      <div className="px-6 sm:flex justify-between items-center space-y-12 sm:space-y-0 divide-y divide-y-reverse sm:py-12 py-3 sm:divide-y-0 sm:space-x-12">
         <div className="pb-8 sm:pb-0 basis-1/5 hidden lg:block">
           <Link href="/">
             <Image src={empowered} alt="empowered logo" />
@@ -20,15 +77,15 @@ const Footer: React.FC = () => {
           </h3>
           <button className="btn btn-lg">Support us</button>
         </div>
-        
+
         {linkItems.map((linkItem, index) => {
           return (
             <div key={index} className="sm:pt-0 basis-1/5 self-start">
               <h3 className="font-semibold mb-6">{linkItem.title}</h3>
               <ul className="flex flex-col text-secondary-text space-y-4">
-                {linkItem.links.map((navItem, index) => (
+                {linkItem.links.map(({ path, name }, index) => (
                   <li key={index}>
-                    <Link href={navItem.path}>{navItem.name}</Link>
+                    <Link href={path}>{name}</Link>
                   </li>
                 ))}
               </ul>
@@ -44,10 +101,10 @@ const Footer: React.FC = () => {
         </p>
 
         <div className="text-secondary-text flex align-middle justify-center space-x-6 text-xl">
-          {socialMedialinks.map((socialMediaLink, index) => {
+          {socialMedialinks.map(({ icon: Icon, url }, index) => {
             return (
-              <Link key={index} href={socialMediaLink.url} target="_blank">
-                {socialMediaLink.icon}
+              <Link key={index} href={url} target="_blank">
+                {<Icon />}
               </Link>
             )
           })}
