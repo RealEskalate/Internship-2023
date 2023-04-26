@@ -8,7 +8,7 @@ interface BlogsProps {
   blogs: Blog[]
 }
 
-export const Blogs: React.FC<BlogsProps> = ({ blogs }) => {
+const Blogs: React.FC<BlogsProps> = ({ blogs }) => {
   return (
     <div className='bg-white text-primary-text font-montserrat'>
 
@@ -38,3 +38,5 @@ export const Blogs: React.FC<BlogsProps> = ({ blogs }) => {
     </div>
   )
 }
+
+export default Blogs;

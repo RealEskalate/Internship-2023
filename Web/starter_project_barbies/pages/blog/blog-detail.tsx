@@ -8,7 +8,7 @@ interface BlogDetailProps {
   blog: Blog
 }
 
-export const BlogDetail: React.FC<BlogDetailProps> = ({ blog }) => {
+const BlogDetail: React.FC<BlogDetailProps> = ({ blog }) => {
   return (
     <div className='bg-white text-black'>
 
@@ -49,3 +49,5 @@ export const BlogDetail: React.FC<BlogDetailProps> = ({ blog }) => {
     </div>
   )
 }
+
+export default BlogDetail;
