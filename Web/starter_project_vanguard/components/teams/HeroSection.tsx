@@ -18,8 +18,8 @@ const HeroSection: React.FC = () => {
     },
   ]
   return (
-    <div className="m-8 flex">
-      <div className="lg:basis-2/5 ">
+    <div className="my-2 2lg:my-8 flex max-h-screen">
+      <div className="2lg:basis-2/5 ">
         <h1 className="uppercase font-bold text-5xl text-primary-text flex flex-col gap-4">
           <span>The team we&apos;re</span> <span>currently</span>{' '}
           <span>working with</span>{' '}
@@ -32,7 +32,7 @@ const HeroSection: React.FC = () => {
           and services.
         </p>
       </div>
-      <div className="relative hidden lg:flex basis-3/5 p-40 flex-col gap-4 w-full aspect-auto text-primary-text">
+      <div className="relative hidden 2lg:flex basis-3/5 p-40 flex-col gap-4 w-full aspect-auto text-primary-text">
         <div className="absolute top-4 -z-10">
           <Image
             src="/img/teams/hero-section/hero-background.png"
