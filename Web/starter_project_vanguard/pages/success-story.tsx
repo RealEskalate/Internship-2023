@@ -8,20 +8,20 @@ export default function SucessStory() {
   return (
     <>
       <main>
-        <div className="flex justify-center mt-4">
-          <h1 className="font-poppins text-5xl font-semibold">
+        <div className="flex sm:justify-center mt-4 mx-6">
+          <h1 className="font-poppins text-4xl md:text-5xl font-semibold">
             Impact Stories
           </h1>
         </div>
         <div className="flex justify-center mx-2 mt-2">
           <div className="flex justify-center max-w-xl">
-            <p className="text-center font-poppins text-2xl">
+            <p className="sm:text-center font-poppins text-xl md:text-2xl">
               Behind every success is a story. Learn about the stories of
               A2SVians
             </p>
           </div>
         </div>
-        <div className="flex justify-center">
+        <div className="hidden sm:flex justify-center">
           <hr className="border-2 w-10 rounded-sm border-blue-700" />
         </div>
         <div className="flex justify-center">

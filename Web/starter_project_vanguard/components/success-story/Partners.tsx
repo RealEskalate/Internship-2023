@@ -35,7 +35,7 @@ const partners: Partner[] = [
 const Partners: React.FC = () => {
   return (
     <div className="max-w-screen-lg mt-20">
-      <h1 className="font-DMSans text-5xl font-semibold mb-16 text-center">
+      <h1 className="font-DMSans text-4xl md:text-5xl font-semibold mb-16 text-center">
         Current Interview Partners
       </h1>
       <div className="flex flex-wrap justify-around	 gap-1">
