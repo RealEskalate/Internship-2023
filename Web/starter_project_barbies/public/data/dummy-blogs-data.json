@@ -6,11 +6,11 @@
     "author": {
       "name": "Jane Smith",
       "email": "johndoe@gmail.com",
-      "image": "/img/profile.jpg"
+      "image": "/img/blog/profile.jpg"
     },
     "tags" : ["UI/UX","mobile"],
     "date": "2022-01-01",
-    "blogImage": "/img/coding.jpg",
+    "blogImage": "/img/blog/coding.jpg",
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae sapien sed augue volutpat malesuada. In eget nulla non massa finibus lacinia at id tellus. Aliquam vel consectetur tellus. Sed vitae justo nec tellus posuere bibendum. Morbi auctor ultricies arcu, vel malesuada lorem maximus ut. Praesent efficitur vestibulum orci, id pulvinar mi ullamcorper in. Duis dapibus, turpis sit amet consequat malesuada, nisi nisl lacinia eros, a sagittis purus sapien ut magna. Fusce elementum ex sit amet aliquam fringilla. Suspendisse eget sapien euismod, malesuada libero eu, commodo velit. Vestibulum condimentum semper felis, vel varius nisl commodo quis."
   },
   {
@@ -20,11 +20,11 @@
     "author": {
       "name": "Jane Smith",
       "email": "jannesmith@gmail.com",
-      "image": "/img/profile.jpg"
+      "image": "/img/blog/profile.jpg"
     },
     "tags" : ["UI/UX","Mobile"],
     "date": "2022-02-15",
-    "blogImage": "/img/coding.jpg",
+    "blogImage": "/img/blog/coding.jpg",
     "content": "Praesent sed elit id elit hendrerit imperdiet vitae vel libero. Sed convallis, est eget tristique faucibus, est enim consequat nisi, id tristique ipsum quam vel mauris. Proin sit amet enim libero. Fusce vitae enim in lectus pretium scelerisque. Etiam aliquam nulla sed ipsum semper, vel sodales quam varius. Etiam id turpis in nibh semper lacinia. In hac habitasse platea dictumst. Aenean pretium consequat tellus, quis dapibus dolor dapibus ac. Ut eu finibus massa. Suspendisse potenti."
   },
   {
@@ -34,11 +34,11 @@
     "author": {
       "name": "Mark Johnson",
       "email": "markjohnson@gmail.com",
-      "image": "/img/profile.jpg"
+      "image": "/img/blog/profile.jpg"
     },
     "tags" : ["UI/UX","Backend"],
     "date": "2022-03-20",
-    "blogImage": "/img/coding.jpg",
+    "blogImage": "/img/blog/coding.jpg",
     "content": "Nullam maximus, magna a lacinia fringilla, tellus odio mattis erat, non semper ante ipsum ut enim. Donec laoreet, velit eu luctus rhoncus, mauris tortor bibendum mauris, non finibus mauris enim vitae justo. Donec faucibus malesuada sapien vel commodo. Vivamus ac nunc eu lectus dictum consectetur. Ut sit amet ante bibendum, eleifend ex vel, tristique purus. Donec vulputate nunc a commodo hendrerit. Nunc varius purus ac ipsum imperdiet commodo. Nullam bibendum pharetra tortor quis molestie."
   },
   {
@@ -48,11 +48,11 @@
     "author": {
       "name": "John Doe",
       "email": "johndoe@gmail.com",
-      "image": "/img/profile.jpg"
+      "image": "/img/blog/profile.jpg"
     },
     "tags" : ["UI/UX","Product"],
     "date": "2022-03-20",
-    "blogImage": "/img/coding.jpg",
+    "blogImage": "/img/blog/coding.jpg",
     "content": "Nullam maximus, magna a lacinia fringilla, tellus odio mattis erat, non semper ante ipsum ut enim. Donec laoreet, velit eu luctus rhoncus, mauris tortor bibendum mauris, non finibus mauris enim vitae justo. Donec faucibus malesuada sapien vel commodo. Vivamus ac nunc eu lectus dictum consectetur. Ut sit amet ante bibendum, eleifend ex vel, tristique purus. Donec vulputate nunc a commodo hendrerit. Nunc varius purus ac ipsum imperdiet commodo. Nullam bibendum pharetra tortor quis molestie."
   },
   {
@@ -62,11 +62,11 @@
     "author": {
       "name": "Mark Johnson",
       "email": "johndoee@gmail.com",
-      "image": "/img/profile.jpg"
+      "image": "/img/blog/profile.jpg"
     },
     "tags" : ["UI/UX","Web Development"],
     "date": "2022-01-20",
-    "blogImage": "/img/coding.jpg",
+    "blogImage": "/img/blog/coding.jpg",
     "content": "Nullam maximus, magna a lacinia fringilla, tellus odio mattis erat, non semper ante ipsum ut enim. Donec laoreet, velit eu luctus rhoncus, mauris tortor bibendum mauris, non finibus mauris enim vitae justo. Donec faucibus malesuada sapien vel commodo. Vivamus ac nunc eu lectus dictum consectetur. Ut sit amet ante bibendum, eleifend ex vel, tristique purus. Donec vulputate nunc a commodo hendrerit. Nunc varius purus ac ipsum imperdiet commodo. Nullam bibendum pharetra tortor quis molestie."
   },
   {
@@ -76,11 +76,11 @@
     "author": {
       "name": "Jane Smith",
       "email": "johndoe@gmail.com",
-      "image": "/img/profile.jpg"
+      "image": "/img/blog/profile.jpg"
     },
     "tags" : ["UI/UX","Web Dev"],
     "date": "2022-01-01",
-    "blogImage": "/img/coding.jpg",
+    "blogImage": "/img/blog/coding.jpg",
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae sapien sed augue volutpat malesuada. In eget nulla non massa finibus lacinia at id tellus. Aliquam vel consectetur tellus. Sed vitae justo nec tellus posuere bibendum. Morbi auctor ultricies arcu, vel malesuada lorem maximus ut. Praesent efficitur vestibulum orci, id pulvinar mi ullamcorper in. Duis dapibus, turpis sit amet consequat malesuada, nisi nisl lacinia eros, a sagittis purus sapien ut magna. Fusce elementum ex sit amet aliquam fringilla. Suspendisse eget sapien euismod, malesuada libero eu, commodo velit. Vestibulum condimentum semper felis, vel varius nisl commodo quis."
   },
   {
@@ -90,11 +90,11 @@
     "author": {
       "name": "Jane Smith",
       "email": "jannesmith@gmail.com",
-      "image": "/img/profile.jpg"
+      "image": "/img/blog/profile.jpg"
     },
     "tags" : ["UI/UX","Mobile"],
     "date": "2022-02-15",
-    "blogImage": "/img/coding.jpg",
+    "blogImage": "/img/blog/coding.jpg",
     "content": "Praesent sed elit id elit hendrerit imperdiet vitae vel libero. Sed convallis, est eget tristique faucibus, est enim consequat nisi, id tristique ipsum quam vel mauris. Proin sit amet enim libero. Fusce vitae enim in lectus pretium scelerisque. Etiam aliquam nulla sed ipsum semper, vel sodales quam varius. Etiam id turpis in nibh semper lacinia. In hac habitasse platea dictumst. Aenean pretium consequat tellus, quis dapibus dolor dapibus ac. Ut eu finibus massa. Suspendisse potenti."
   },
   {
@@ -104,11 +104,11 @@
     "author": {
       "name": "Mark Johnson",
       "email": "markjohnson@gmail.com",
-      "image": "/img/profile.jpg"
+      "image": "/img/blog/profile.jpg"
     },
     "tags" : ["UI/UX","Backend"],
     "date": "2022-03-20",
-    "blogImage": "/img/coding.jpg",
+    "blogImage": "/img/blog/coding.jpg",
     "content": "Nullam maximus, magna a lacinia fringilla, tellus odio mattis erat, non semper ante ipsum ut enim. Donec laoreet, velit eu luctus rhoncus, mauris tortor bibendum mauris, non finibus mauris enim vitae justo. Donec faucibus malesuada sapien vel commodo. Vivamus ac nunc eu lectus dictum consectetur. Ut sit amet ante bibendum, eleifend ex vel, tristique purus. Donec vulputate nunc a commodo hendrerit. Nunc varius purus ac ipsum imperdiet commodo. Nullam bibendum pharetra tortor quis molestie."
   },
   {
@@ -118,11 +118,11 @@
     "author": {
       "name": "John Doe",
       "email": "johndoe@gmail.com",
-      "image": "/img/profile.jpg"
+      "image": "/img/blog/profile.jpg"
     },
     "tags" : ["UI/UX","Product"],
     "date": "2022-03-20",
-    "blogImage": "/img/coding.jpg",
+    "blogImage": "/img/blog/coding.jpg",
     "content": "Nullam maximus, magna a lacinia fringilla, tellus odio mattis erat, non semper ante ipsum ut enim. Donec laoreet, velit eu luctus rhoncus, mauris tortor bibendum mauris, non finibus mauris enim vitae justo. Donec faucibus malesuada sapien vel commodo. Vivamus ac nunc eu lectus dictum consectetur. Ut sit amet ante bibendum, eleifend ex vel, tristique purus. Donec vulputate nunc a commodo hendrerit. Nunc varius purus ac ipsum imperdiet commodo. Nullam bibendum pharetra tortor quis molestie."
   },
   {
@@ -132,11 +132,11 @@
     "author": {
       "name": "Mark Johnson",
       "email": "johndoee@gmail.com",
-      "image": "/img/profile.jpg"
+      "image": "/img/blog/profile.jpg"
     },
     "tags" : ["UI/UX","Web Development"],
     "date": "2022-01-20",
-    "blogImage": "/img/coding.jpg",
+    "blogImage": "/img/blog/coding.jpg",
     "content": "Nullam maximus, magna a lacinia fringilla, tellus odio mattis erat, non semper ante ipsum ut enim. Donec laoreet, velit eu luctus rhoncus, mauris tortor bibendum mauris, non finibus mauris enim vitae justo. Donec faucibus malesuada sapien vel commodo. Vivamus ac nunc eu lectus dictum consectetur. Ut sit amet ante bibendum, eleifend ex vel, tristique purus. Donec vulputate nunc a commodo hendrerit. Nunc varius purus ac ipsum imperdiet commodo. Nullam bibendum pharetra tortor quis molestie."
   },
   {
@@ -146,11 +146,11 @@
     "author": {
       "name": "Jane Smith",
       "email": "johndoe@gmail.com",
-      "image": "/img/profile.jpg"
+      "image": "/img/blog/profile.jpg"
     },
     "tags" : ["UI/UX","Web Dev"],
     "date": "2022-01-01",
-    "blogImage": "/img/coding.jpg",
+    "blogImage": "/img/blog/coding.jpg",
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae sapien sed augue volutpat malesuada. In eget nulla non massa finibus lacinia at id tellus. Aliquam vel consectetur tellus. Sed vitae justo nec tellus posuere bibendum. Morbi auctor ultricies arcu, vel malesuada lorem maximus ut. Praesent efficitur vestibulum orci, id pulvinar mi ullamcorper in. Duis dapibus, turpis sit amet consequat malesuada, nisi nisl lacinia eros, a sagittis purus sapien ut magna. Fusce elementum ex sit amet aliquam fringilla. Suspendisse eget sapien euismod, malesuada libero eu, commodo velit. Vestibulum condimentum semper felis, vel varius nisl commodo quis."
   },
   {
@@ -160,11 +160,11 @@
     "author": {
       "name": "Jane Smith",
       "email": "jannesmith@gmail.com",
-      "image": "/img/profile.jpg"
+      "image": "/img/blog/profile.jpg"
     },
     "tags" : ["UI/UX","Mobile"],
     "date": "2022-02-15",
-    "blogImage": "/img/coding.jpg",
+    "blogImage": "/img/blog/coding.jpg",
     "content": "Praesent sed elit id elit hendrerit imperdiet vitae vel libero. Sed convallis, est eget tristique faucibus, est enim consequat nisi, id tristique ipsum quam vel mauris. Proin sit amet enim libero. Fusce vitae enim in lectus pretium scelerisque. Etiam aliquam nulla sed ipsum semper, vel sodales quam varius. Etiam id turpis in nibh semper lacinia. In hac habitasse platea dictumst. Aenean pretium consequat tellus, quis dapibus dolor dapibus ac. Ut eu finibus massa. Suspendisse potenti."
   },
   {
@@ -174,11 +174,11 @@
     "author": {
       "name": "Mark Johnson",
       "email": "markjohnson@gmail.com",
-      "image": "/img/profile.jpg"
+      "image": "/img/blog/profile.jpg"
     },
     "tags" : ["UI/UX","Backend"],
     "date": "2022-03-20",
-    "blogImage": "/img/coding.jpg",
+    "blogImage": "/img/blog/coding.jpg",
     "content": "Nullam maximus, magna a lacinia fringilla, tellus odio mattis erat, non semper ante ipsum ut enim. Donec laoreet, velit eu luctus rhoncus, mauris tortor bibendum mauris, non finibus mauris enim vitae justo. Donec faucibus malesuada sapien vel commodo. Vivamus ac nunc eu lectus dictum consectetur. Ut sit amet ante bibendum, eleifend ex vel, tristique purus. Donec vulputate nunc a commodo hendrerit. Nunc varius purus ac ipsum imperdiet commodo. Nullam bibendum pharetra tortor quis molestie."
   },
   {
@@ -188,11 +188,11 @@
     "author": {
       "name": "John Doe",
       "email": "johndoe@gmail.com",
-      "image": "/img/profile.jpg"
+      "image": "/img/blog/profile.jpg"
     },
     "tags" : ["UI/UX","Product"],
     "date": "2022-03-20",
-    "blogImage": "/img/coding.jpg",
+    "blogImage": "/img/blog/coding.jpg",
     "content": "Nullam maximus, magna a lacinia fringilla, tellus odio mattis erat, non semper ante ipsum ut enim. Donec laoreet, velit eu luctus rhoncus, mauris tortor bibendum mauris, non finibus mauris enim vitae justo. Donec faucibus malesuada sapien vel commodo. Vivamus ac nunc eu lectus dictum consectetur. Ut sit amet ante bibendum, eleifend ex vel, tristique purus. Donec vulputate nunc a commodo hendrerit. Nunc varius purus ac ipsum imperdiet commodo. Nullam bibendum pharetra tortor quis molestie."
   },
   {
@@ -202,11 +202,11 @@
     "author": {
       "name": "Mark Johnson",
       "email": "johndoee@gmail.com",
-      "image": "/img/profile.jpg"
+      "image": "/img/blog/profile.jpg"
     },
     "tags" : ["UI/UX","Web Development"],
     "date": "2022-01-20",
-    "blogImage": "/img/coding.jpg",
+    "blogImage": "/img/blog/coding.jpg",
     "content": "Nullam maximus, magna a lacinia fringilla, tellus odio mattis erat, non semper ante ipsum ut enim. Donec laoreet, velit eu luctus rhoncus, mauris tortor bibendum mauris, non finibus mauris enim vitae justo. Donec faucibus malesuada sapien vel commodo. Vivamus ac nunc eu lectus dictum consectetur. Ut sit amet ante bibendum, eleifend ex vel, tristique purus. Donec vulputate nunc a commodo hendrerit. Nunc varius purus ac ipsum imperdiet commodo. Nullam bibendum pharetra tortor quis molestie."
   } 
 ]

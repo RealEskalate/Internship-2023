@@ -7,7 +7,7 @@ import BlogCard from "@/components/blog/BlogCard";
 
 // Fetch blogs from dummyData.json file 
 const fetchBlogs = async (): Promise<Blog[]> => {
-  const res = await fetch("/data/dummyData.json");
+  const res = await fetch("/data/dummy-blogs-data.json");
   const data = await res.json();
   
   return data;
