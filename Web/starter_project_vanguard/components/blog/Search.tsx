@@ -1,7 +1,7 @@
-import SearchBar from '@/components/blog/searchbar'
-import Text from '@/components/blog/text'
+import SearchBar from '@/components/blog/SearchBar'
+import Text from '@/components/blog/Text'
 import React from 'react'
-import Button from './addbutton'
+import Button from './AddButton'
 
 function Search() {
   return (

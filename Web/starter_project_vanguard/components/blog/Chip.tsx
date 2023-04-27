@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Chip from "./tag";
+import Chip from "./Tag";
 
 type MyComponentProps = {
   tags: string[];

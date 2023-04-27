@@ -1,10 +1,10 @@
 import { map } from 'cypress/types/bluebird'
 import React from 'react'
-import Blog from '@/components/blog/blog'
-import Search from '@/components/blog/search'
+import Blog from '@/components/blog/Blog'
+import Search from '@/components/blog/Search'
 
 import { useState } from 'react';
-import Pagination from '@/components/blog/pagination';
+import Pagination from '@/components/blog/Pagination';
 
 
 function Blogs() {
