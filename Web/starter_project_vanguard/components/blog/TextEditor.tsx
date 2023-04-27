@@ -21,14 +21,16 @@ const QuillToolbarOptions = [
 
 const TextEditor: React.FC<QuillProps> = ({ value, onChange }) => {
   return (
-    <div className="min-h-20">
+    <div className="border-l-2 ">
       <QuillEditor
-        theme="snow"  
+        theme="snow" 
+        placeholder='Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim optio voluptatum accusamus quibusdam aliquam quam libero qui, ducimus magnam voluptas quia, omnis et aspernatur maiores voluptatem quis officiis molestias quo! Ipsum vero illo quasi ducimus quia voluptatum numquam dignissimos quae. Accusamus maiores explicabo vero minima praesentium a doloribus itaque cumque hic odio pariatur, sint ullam ad architecto dolorum, at culpa!' 
         modules={{
           toolbar: QuillToolbarOptions,  
         }}
         value={value}
         onChange={(content) => onChange(content)}
+        className='h-28 '
       />
     </div>
   );

@@ -36,7 +36,7 @@ const addNewBlog = () => {
   ))
 
   return (
-    <div className="flex pl-20 mb-24 pr-6 pt-6 h-screen">
+    <div className="flex pl-20 mb-72 pr-6 pt-6 min-h-screen">
       <div className="w-3/4  pr-10 pb-10 mr-10">
         <div>
 
@@ -56,7 +56,7 @@ const addNewBlog = () => {
 
         <TextEditor value={content} onChange={() => handleContentChange} />
 
-        <div className="flex flex-row gap-4  mt-10  p-4 justify-end">
+        <div className="flex flex-row gap-4  mt-20  p-4 justify-end">
           <button className="btn btn-outline border-none">cancel</button>
           <button className="btn">save changes</button>
         </div>
@@ -64,7 +64,7 @@ const addNewBlog = () => {
       </div>
 
       <div className="w-1/3 pl-8 border-l-2  pr-10 gap-4">
-        
+
         <h2 className="font-{montserrat} text-lg font-bold mb-5">
           Select Tag
         </h2>
