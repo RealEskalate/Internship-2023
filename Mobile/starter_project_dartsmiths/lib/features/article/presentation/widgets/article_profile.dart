@@ -1,5 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
+import 'package:dartsmiths/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/utils/ui_converter.dart';
 
@@ -33,11 +34,11 @@ class article_profile extends StatelessWidget {
               children: [
                 Text(
                   name,
-                  style: const TextStyle(color: Colors.blue),
+                  style: const TextStyle(color: secondaryColor),
                 ),
                 Text(
                   post_time,
-                  style: const TextStyle(color: Colors.blue),
+                  style: const TextStyle(color: secondaryColor),
                 )
               ],
             ),

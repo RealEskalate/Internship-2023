@@ -1,5 +1,6 @@
 // ignore_for_file: camel_case_types
 
+import 'package:dartsmiths/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/utils/ui_converter.dart';
 
@@ -23,11 +24,11 @@ class like_button extends StatelessWidget {
             children: [
               const Icon(
                 Icons.thumb_up_alt_outlined,
-                color: Colors.white,
+                color: whiteColor,
               ),
               Text(
                 likes,
-                style: const TextStyle(color: Colors.white),
+                style: const TextStyle(color: whiteColor),
               ),
             ],
           ) //child widget inside this button
