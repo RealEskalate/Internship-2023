@@ -5,7 +5,6 @@ const AccountSetting: React.FC = () => {
   const [showCurrentPassword, setShowCurrentPassword] = useState<boolean>(false)
   const [showNewPassword, setShowNewPassword] = useState<boolean>(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false)
-
   return (
     <div className="mt-5 flex flex-col justify-center gap-2 px-auto">
       <div className="flex justify-between py-3">
@@ -16,7 +15,7 @@ const AccountSetting: React.FC = () => {
           </p>
         </div>
         <button className="bg-primary text-white rounded px-3 h-9 my-auto mr-8">
-          Save Changes
+          Save <span className='hidden sm:inline-block'>Changes</span> 
         </button>
       </div>
       <hr />
@@ -24,7 +23,7 @@ const AccountSetting: React.FC = () => {
         <div className="relative">
           <label htmlFor="currPassword">Current Password</label>
           <div
-            className="absolute top-3 right-3"
+            className="hidden sm:block absolute top-3 right-0 px-5"
             onClick={() => setShowCurrentPassword(!showCurrentPassword)}
           >
             {showCurrentPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
@@ -33,7 +32,7 @@ const AccountSetting: React.FC = () => {
             type="password"
             id="currPassword"
             name="currPassword"
-            className="p-2 border border-gray-300 outline-none bg-gray-50 ml-10 rounded-md"
+            className="p-2  outline-none bg-slate-100 ml-10 rounded-md"
           placeholder='Current password'
           />
         </div>
@@ -42,7 +41,7 @@ const AccountSetting: React.FC = () => {
             New Password
           </label>
           <div
-            className="absolute top-3 right-3"
+            className="hidden sm:block absolute top-3 right-0 px-5"
             onClick={() => setShowNewPassword(!showNewPassword)}
           >
             {showNewPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
@@ -51,14 +50,14 @@ const AccountSetting: React.FC = () => {
             id="newPassword"
             name="newPassword"
             type="password"
-            className="p-2  border border-gray-300 outline-none bg-gray-50 ml-14 rounded-md"
+            className="p-2  outline-none bg-slate-100 ml-14 rounded-md "
           placeholder='Enter new password'
           />
         </div>
         <div className="relative">
           <label htmlFor="confirmPassword">Confirm Password</label>
           <div
-            className="absolute top-3 right-3"
+            className="hidden sm:block absolute top-3 right-0 px-5"
             onClick={() => setShowConfirmPassword(!showConfirmPassword)}
           >
             {showConfirmPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
@@ -67,7 +66,7 @@ const AccountSetting: React.FC = () => {
             type="password"
             id="confirmPassword"
             name="confirmPassword"
-            className="p-2 border border-gray-300 outline-none bg-gray-50 ml-10 rounded-md"
+            className="p-2 border   outline-none bg-slate-100 ml-10 rounded-md"
           placeholder='Confirm password'
           />
         </div>
