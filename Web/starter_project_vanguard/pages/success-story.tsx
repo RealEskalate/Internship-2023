@@ -3,23 +3,10 @@ import SuccessDescription from '@/components/success-story/SuccessDescription'
 import SuccessImageCard from '@/components/success-story/SuccessImageCard'
 import { SuccessStory } from '@/types/success-story'
 import successStoryjsonData from '../data/success-story.json'
-import Head from 'next/head'
-
 export default function SucessStory() {
   const successStories: SuccessStory[] = successStoryjsonData
   return (
     <>
-      <Head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Neucha&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Roboto&display=swap"
-          rel="stylesheet"
-        />
-        <title> Success Stories</title>
-      </Head>
       <main>
         <div className="flex justify-center mt-4">
           <h1 className="font-poppins text-5xl font-semibold">
@@ -57,9 +44,7 @@ export default function SucessStory() {
                   </div>
                   <div className="mt-0">
                     {successStory.story.map((story, index) => (
-                      <SuccessDescription
-                        successDescription={story}
-                      />
+                      <SuccessDescription successDescription={story} />
                     ))}
                   </div>
                 </div>
