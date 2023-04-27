@@ -3,18 +3,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { AiOutlineMenu } from 'react-icons/ai'
-
-import { NavItem } from '@/types/nav'
+import { navItems } from './data/nav-items'
 import { useState } from 'react'
 import logo from '../../public/img/a2sv-logo.png'
 
-const navItems: NavItem[] = [
-  { name: 'Home', href: '/' },
-  { name: 'Teams', href: '/teams' },
-  { name: 'Success Stories', href: '/successs-story' },
-  { name: 'About Us', href: '/about' },
-  { name: 'Get Involved', href: '/get-involved' },
-]
+
 const Navbar = () => {
   const router = useRouter()
   const currSegment = router.pathname.split('/')[1] || ''
