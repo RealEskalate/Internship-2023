@@ -9,7 +9,7 @@ import { NavItem } from '@/types/nav'
 const navItems: NavItem[] = [
   { name: 'Home', href: '/' },
   { name: 'Teams', href: '/team' },
-  { name: 'Success Stories', href: '/story' },
+  { name: 'Success Stories', href: '/success-story' },
   { name: 'About Us', href: '/about' },
   { name: 'Get Involved', href: '/get-involved' },
 ]
