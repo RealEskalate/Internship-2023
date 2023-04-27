@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
-class MyProfile extends StatelessWidget {
-  const MyProfile({super.key});
+class ProfilePic extends StatelessWidget {
+  const ProfilePic({super.key});
 
   @override
   Widget build(BuildContext context) {

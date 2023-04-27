@@ -1,10 +1,10 @@
 import 'package:dartsmiths/core/utils/style.dart';
 import 'package:flutter/material.dart';
 
-class MyButton extends StatelessWidget {
+class FilterButton extends StatelessWidget {
   String text;
   bool isActive = false;
-  MyButton({super.key, required this.text, required this.isActive});
+  FilterButton({super.key, required this.text, required this.isActive});
 
   @override
   Widget build(BuildContext context) {
