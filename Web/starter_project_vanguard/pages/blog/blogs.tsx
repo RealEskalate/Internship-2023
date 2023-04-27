@@ -5,13 +5,6 @@ import Search from '@/components/blog/search'
 
 import { useState } from 'react';
 import Pagination from '@/components/blog/pagination';
-import Navbar from '@/components/layout/navbar';
-
-
-
-
-
-
 
 
 function Blogs() {

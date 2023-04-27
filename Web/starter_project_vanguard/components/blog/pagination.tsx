@@ -11,9 +11,9 @@ const Pagination: React.FC<Props> = ({ currentPage, totalPages, onPageChange }) 
     Array.from({ length: end - start + 1 }, (_, i) => i + start);
 
   const pages = range(1, totalPages);
-
+  console.log(pages);
   return (
-    <div className="flex justify-center mt-4 bg-red-500">
+    <div className="flex justify-center mt-4">
       <nav className="block ">
         <ul className="flex pl-0 rounded list-none flex-wrap mb-10">
           {pages.map((page) => (
