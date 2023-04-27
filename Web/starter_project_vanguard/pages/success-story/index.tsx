@@ -2,7 +2,7 @@ import Partners from '@/components/success-story/Partners'
 import SuccessDescription from '@/components/success-story/SuccessDescription'
 import SuccessImageCard from '@/components/success-story/SuccessImageCard'
 import { SuccessStory } from '@/types/success-story'
-import successStoryjsonData from '../data/success-story.json'
+import successStoryjsonData from '../../data/success-story.json'
 export default function SucessStory() {
   const successStories: SuccessStory[] = successStoryjsonData
   return (
