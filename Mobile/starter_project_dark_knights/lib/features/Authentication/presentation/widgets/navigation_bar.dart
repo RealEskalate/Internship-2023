@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:dark_knights/features/Authentication/presentation/widgets/text_style.dart';
-
 import '../../../../core/utils/colors.dart';
 
 class Navigation extends StatelessWidget {
@@ -18,7 +17,6 @@ class Navigation extends StatelessWidget {
           "LOGIN",
           style: TextStyles.login,
         ),
-        //customText(text: "LOGIN", color: whiteColor),
         SizedBox(width: MediaQuery.of(context).size.width * 0.3),
         Text("SIGNUP", style: TextStyles.signUp),
       ],
