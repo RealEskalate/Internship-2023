@@ -13,17 +13,17 @@ const Pagination: React.FC<Props> = ({ currentPage, totalPages, onPageChange }) 
   const pages = range(1, totalPages);
 
   return (
-    <div className="flex justify-center mt-4">
-      <nav className="block">
-        <ul className="flex pl-0 rounded list-none flex-wrap">
+    <div className="flex justify-center mt-4 bg-red-500">
+      <nav className="block ">
+        <ul className="flex pl-0 rounded list-none flex-wrap mb-10">
           {pages.map((page) => (
             <li key={page}>
               <button
                 className={`${
                   currentPage === page
                     ? 'bg-blue-800 text-white'
-                    : 'text-black hover:text-blue-800 bg-gray-300'
-                } font-bold py-2 px-4 border border-gray-300  rounded mx-2`}
+                    : 'text-black hover:text-primary bg-gray-300'
+                } font-bold py-2 px-4 border border-gray-300  rounded mx-2  mb-10`}
                 onClick={() => onPageChange(page)}
               >
                 {page}

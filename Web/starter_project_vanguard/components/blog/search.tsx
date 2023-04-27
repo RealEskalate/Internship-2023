@@ -5,7 +5,7 @@ import Button from './addbutton'
 
 function Search() {
   return (
-    <div className='bg-white flex pt-52 min-h-screen pl-14 '>
+    <div className='bg-white flex pt-16 min-h-screen pl-14 '>
         
     <div className=' flex flex-wrap justify-center h-20 '>
         <div className='justify-center pr-14 w-1/4'>

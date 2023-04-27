@@ -5,6 +5,7 @@ import Search from '@/components/blog/search'
 
 import { useState } from 'react';
 import Pagination from '@/components/blog/pagination';
+import Navbar from '@/components/layout/navbar';
 
 
 
@@ -16,6 +17,11 @@ import Pagination from '@/components/blog/pagination';
 function Blogs() {
 
   const blogs = [
+    <Blog/>,
+    <Blog/>,
+    <Blog/>,
+    <Blog/>,
+    <Blog/>,
     <Blog/>,
     
   
@@ -29,14 +35,14 @@ const onPageChange = (page: number) => {
 
 
   return (
-    <div className='justify-center min-h-screen'>
-      
-      <div className='h-80'>
+    <div className='justify-center min-h-screen mb-10'>
+     
+      <div className='h-44 '>
       <Search />
      
       </div>
       
-     <div className='pt-4'>
+     <div>
      <ul>
      {currentBlogs.map((blog) => (
           <li className="text-2xl font-bold">{blog}</li>
