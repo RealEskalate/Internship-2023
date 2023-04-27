@@ -2,8 +2,9 @@ import 'package:dartsmiths/features/home/presentation/widgets/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../../core/utils/style.dart';
-import '../widgets/button.dart';
-import '../widgets/profile_widget.dart';
+import '../widgets/filter_button.dart';
+import '../widgets/article_card.dart';
+import '../widgets/profile.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -19,42 +20,50 @@ class HomePage extends StatelessWidget {
             child: Container(
                 height: 35,
                 width: 35,
-                child: SvgPicture.asset("menu_bar.svg"))),
+                child: SvgPicture.asset("images/menu_bar.svg"))),
         title: Center(
             child: Text("Welcome  Back!",
                 style: myTextStyle.copyWith(
                     color: Colors.black,
                     fontSize: 25,
                     fontWeight: FontWeight.w800))),
-        actions: [MyProfile()],
+        actions: [ProfilePic()],
       ),
       body: Container(
         height: double.infinity,
         child: Column(
           children: [
-            MySearchbar(),
+            Searchbar(),
             Padding(
                 padding: EdgeInsets.only(top: 20, right: 25, left: 25),
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      MyButton(
+                      FilterButton(
                         text: "All",
                         isActive: true,
                       ),
-                      MyButton(
+                      FilterButton(
                         text: "Sports",
                         isActive: false,
                       ),
-                      MyButton(
+                      FilterButton(
                         text: "Tech",
                         isActive: false,
                       ),
-                      MyButton(
+                      FilterButton(
                         text: "Politics",
                         isActive: false,
                       )
-                    ]))
+                    ])),
+            Expanded(
+              child: ListView(
+                children: [
+                  ArticleCard(),
+                  ArticleCard(),
+                ],
+              ),
+            ),
           ],
         ),
       ),
