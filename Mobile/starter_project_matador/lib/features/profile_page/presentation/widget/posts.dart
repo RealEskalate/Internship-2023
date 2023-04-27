@@ -46,7 +46,7 @@ class PostCard extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
                       child: Text(
                         description,
                         style: const TextStyle(

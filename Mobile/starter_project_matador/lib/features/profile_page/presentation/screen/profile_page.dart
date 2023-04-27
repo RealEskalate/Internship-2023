@@ -52,7 +52,7 @@ class _ProfileState extends State<Profile> {
             child: Container(
             
               child: ListView(
-                physics: NeverScrollableScrollPhysics(),
+                // physics: NeverScrollableScrollPhysics(),
                 children: [
                   Padding(
                     padding: const EdgeInsets.fromLTRB(0, 80, 0, 0),
