@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../core/utils/colors.dart';
 
-class OnboardingButton extends StatelessWidget {
-  OnboardingButton({required this.onTap, super.key});
+class OnboardingStepperButton extends StatelessWidget {
+  OnboardingStepperButton({required this.onTap, super.key});
   final void Function()? onTap;
   @override
   Widget build(BuildContext context) {

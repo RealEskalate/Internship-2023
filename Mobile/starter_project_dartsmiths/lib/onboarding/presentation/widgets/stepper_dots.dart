@@ -2,15 +2,15 @@ import "package:flutter/material.dart";
 import '../../../core/utils/colors.dart';
 
 // This widget acceps index and returns pagination dots making the index active
-class SlideDotes extends StatefulWidget {
-  SlideDotes({required this.index, super.key});
+class StepperDots extends StatefulWidget {
+  StepperDots({required this.index, super.key});
   int index;
 
   @override
-  State<SlideDotes> createState() => _SlideDotesState();
+  State<StepperDots> createState() => _StepperDotsState();
 }
 
-class _SlideDotesState extends State<SlideDotes> {
+class _StepperDotsState extends State<StepperDots> {
   @override
   Widget build(BuildContext context) {
     return Row(

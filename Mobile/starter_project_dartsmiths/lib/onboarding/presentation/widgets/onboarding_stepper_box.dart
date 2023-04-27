@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 //This widget accepts the imageUrl and boolean value isLarge to give us large and small containers
-class OnboardingBox extends StatelessWidget {
-  OnboardingBox({required this.imageUrl, required this.isLarge, Key? key})
+class OnboardingStepperBox extends StatelessWidget {
+  OnboardingStepperBox({required this.imageUrl, required this.isLarge, Key? key})
       : super(key: key);
 
   final String imageUrl;

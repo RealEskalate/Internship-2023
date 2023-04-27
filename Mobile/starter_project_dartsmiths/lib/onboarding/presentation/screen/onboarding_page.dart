@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 
 import '../../../core/utils/colors.dart';
 import '../../../core/utils/images.dart';
-import '../widgets/onboarding_box.dart';
-import '../widgets/onboarding_button.dart';
-import '../widgets/slide_dots.dart';
+import '../widgets/onboarding_stepper_box.dart';
+import '../widgets/onboarding_stepper_button.dart';
+import '../widgets/stepper_dots.dart';
 
-class Onboarding extends StatefulWidget {
-  const Onboarding({super.key});
+class OnboardingPage extends StatefulWidget {
+  const OnboardingPage({super.key});
 
   @override
-  State<Onboarding> createState() => _OnboardingState();
+  State<OnboardingPage> createState() => _OnboardingPageState();
 }
 
-class _OnboardingState extends State<Onboarding> {
+class _OnboardingPageState extends State<OnboardingPage> {
   int index = 0;
   static const pageTitle = "Read the article you want instantly";
   static const pageDescription =
@@ -37,18 +37,18 @@ class _OnboardingState extends State<Onboarding> {
                     children: [
                       Row(
                         children: [
-                          OnboardingBox(
+                          OnboardingStepperBox(
                             imageUrl: onBoardingPhoto1,
                             isLarge: false,
                           ),
-                          OnboardingBox(
+                          OnboardingStepperBox(
                               imageUrl: onBoardingPhoto2, isLarge: true,)
                         ],
                       ),
                       Row(
                         children: [
-                          OnboardingBox(imageUrl: onBoardingPhoto3, isLarge: true),
-                          OnboardingBox(imageUrl: onBoardingPhoto4, isLarge: false)
+                          OnboardingStepperBox(imageUrl: onBoardingPhoto3, isLarge: true),
+                          OnboardingStepperBox(imageUrl: onBoardingPhoto4, isLarge: false)
                         ],
                       ),
                       SizedBox(
@@ -94,10 +94,10 @@ class _OnboardingState extends State<Onboarding> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        SlideDotes(
+                        StepperDots(
                           index: index,
                         ),
-                        OnboardingButton(onTap: () {
+                        OnboardingStepperButton(onTap: () {
                           setState(() {
                             index = (index + 1) % 3;
                           });
