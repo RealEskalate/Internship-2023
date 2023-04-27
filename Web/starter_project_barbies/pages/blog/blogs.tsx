@@ -1,14 +1,10 @@
 import { BlogsList } from "@/components/blog/BlogsList";
 import { Pagination } from "@/components/common/Pagination";
 import { SearchForm } from "@/components/common/SearchForm";
-import { Blog } from "@/types/blog";
 import React from "react";
+import blogs from "@/data/blogs.json";
 
-interface BlogsProps {
-  blogs: Blog[]
-}
-
-const Blogs: React.FC<BlogsProps> = ({ blogs }) => {
+const Blogs = () => {
   return (
     <div className='bg-white text-primary-text font-montserrat'>
 
