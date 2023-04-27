@@ -29,7 +29,7 @@ class UpperRowImages extends StatelessWidget {
                   BoxShadow(
                     color: imageShadowColor,
                     spreadRadius: 1,
-                    blurRadius: 30,
+                    blurRadius: 20,
                     offset: Offset(0, 15),
                   ),
                 ],
@@ -37,7 +37,7 @@ class UpperRowImages extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: ClippedImage(
                 image: image1,
-                radius: 30,
+                radius: MediaQuery.of(context).size.height * 0.045,
               ),
             )),
         Expanded(
@@ -48,7 +48,7 @@ class UpperRowImages extends StatelessWidget {
                   BoxShadow(
                     color: imageShadowColor,
                     spreadRadius: 1,
-                    blurRadius: 30,
+                    blurRadius: 20,
                     offset: Offset(0, 15),
                   ),
                 ],
@@ -56,11 +56,10 @@ class UpperRowImages extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: ClippedImage(
                 image: image2,
-                radius: 30,
+                radius: MediaQuery.of(context).size.height * 0.04,
               ),
             ))
       ],
     );
-    ;
   }
 }
