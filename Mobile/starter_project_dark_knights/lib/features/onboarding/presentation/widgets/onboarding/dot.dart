@@ -15,10 +15,10 @@ class Dot extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(5),
       width: width,
-      height: 10,
+      height: MediaQuery.of(context).size.height * 0.012,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
-        color: isBlue ? primaryColor : tertiaryColor,
+        color: isBlue ? primaryColor : imageShadowColor,
       ),
     );
   }

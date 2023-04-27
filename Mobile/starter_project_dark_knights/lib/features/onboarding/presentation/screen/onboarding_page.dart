@@ -3,6 +3,7 @@ import 'package:dark_knights/features/onboarding/presentation/widgets/onboarding
 import 'package:dark_knights/features/onboarding/presentation/widgets/onboarding/dot.dart';
 import 'package:dark_knights/features/onboarding/presentation/widgets/onboarding/header_text.dart';
 import 'package:dark_knights/features/onboarding/presentation/widgets/onboarding/onboarding_row_images.dart';
+import 'package:dark_knights/features/onboarding/presentation/widgets/onboarding/separator.dart';
 import 'package:dark_knights/main.dart';
 import 'package:flutter/material.dart';
 
@@ -33,7 +34,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(height: 50),
+            Separator(height: MediaQuery.of(context).size.height * 0.07),
             Padding(
               padding: const EdgeInsets.all(35.0),
               child: Column(
@@ -48,7 +49,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 width: double.infinity,
                 padding: const EdgeInsets.all(35),
                 decoration: const BoxDecoration(
-                    color: Colors.white,
+                    color: whiteColor,
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(40),
                       topRight: Radius.circular(40),
@@ -58,11 +59,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     const HeaderText(
                       text: 'Read the article you want instantly.',
                     ),
-                    const SizedBox(height: 30),
+                    Separator(
+                        height: MediaQuery.of(context).size.height * 0.03),
                     const DescriptionText(
                         text:
                             'You can read thousands of articles on Blog Club, save them in the application and share them with your loved ones.'),
-                    const SizedBox(height: 30),
+                    Separator(
+                        height: MediaQuery.of(context).size.height * 0.03),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -84,8 +87,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           decoration: BoxDecoration(
                               color: primaryColor,
                               borderRadius: BorderRadius.circular(10)),
-                          width: 100,
-                          height: 65,
+                          width: MediaQuery.of(context).size.width * 0.25,
+                          height: MediaQuery.of(context).size.width * 0.16,
                           child: InkWell(
                             onTap: () => {
                               if (index >= 2)
