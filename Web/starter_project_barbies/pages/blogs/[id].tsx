@@ -4,14 +4,37 @@ import { RelatedBlogs } from '../../components/blog/RelatedBlogs'
 import { BlogAuthorDetail } from '@/components/blog/BlogAuthorDetail'
 import { BlogContent } from '@/components/blog/BlogContent'
 import { useRouter } from 'next/router'
-import blogs from "@/data/blogs.json"
+import { useEffect, useState } from 'react'
+
+const fetchBlogs = async (): Promise<Blog[]> => {
+  const result = await fetch("/data/blogs.json");
+  const data = await result.json();
+  return data;
+}
 
 const BlogDetail = () => {
-  const router = useRouter()
-  const blogID = parseInt(router.query.id as string, 10)
+  const [blogs, setBlogs] = useState<Blog[]>([]);
 
-  // Fetch blog
-  const blog: Blog = blogs[blogID - 1]
+  const router = useRouter()
+  // const blogID = parseInt(router.query.id as string, 10)
+  const blogID = router.query.id
+
+  // Fetch blogs
+  useEffect(() => {
+    const fetchData = async () => {
+      const blogs = await fetchBlogs();
+      setBlogs(blogs)
+    };
+
+    fetchData()
+
+  }, []);
+
+  const blog = blogs.find((blog) => blog.blogID == blogID)
+
+  if (!blog) {
+    return <div>Blog not found</div>
+  }
 
   return (
     <div className='bg-white text-black'>
