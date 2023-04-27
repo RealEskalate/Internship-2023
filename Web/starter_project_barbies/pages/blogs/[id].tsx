@@ -3,12 +3,38 @@ import Image from 'next/image'
 import { RelatedBlogs } from '../../components/blog/RelatedBlogs'
 import { BlogAuthorDetail } from '@/components/blog/BlogAuthorDetail'
 import { BlogContent } from '@/components/blog/BlogContent'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
 
-interface BlogDetailProps {
-  blog: Blog
+const fetchBlogs = async (): Promise<Blog[]> => {
+  const result = await fetch("/data/blogs.json");
+  const data = await result.json();
+  return data;
 }
 
-const BlogDetail: React.FC<BlogDetailProps> = ({ blog }) => {
+const BlogDetail = () => {
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+
+  const router = useRouter()
+  const blogID = router.query.id
+
+  // Fetch blogs
+  useEffect(() => {
+    const fetchData = async () => {
+      const blogs = await fetchBlogs();
+      setBlogs(blogs)
+    };
+
+    fetchData()
+
+  }, []);
+
+  const blog = blogs.find((blog) => blog.blogID == blogID)
+
+  if (!blog) {
+    return <div>Blog not found</div>
+  }
+
   return (
     <div className='bg-white text-black'>
 
