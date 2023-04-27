@@ -2,6 +2,7 @@ import Text from '@/components/common/Text'
 import 'tailwindcss/base.css'
 import React, { FC, useState } from 'react'
 import Avatar from '../common/Avatar'
+import "typeface-montserrat";
 
 type MyTagProps = {
   tags: string[]
