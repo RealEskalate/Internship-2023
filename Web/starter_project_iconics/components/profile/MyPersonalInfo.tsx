@@ -92,7 +92,7 @@ const Form: React.FC<FormProps> = ({ user }) => {
           <div className="block w-600 py-2 flex flex-direction-col justify-center rounded-lg bg-gray-100 border-transparent focus:border-gray-200 text-secondary focus:bg-white focus:ring-0 secondary-text">
             <span>
               <AiOutlineCloudUpload className="ml-[50%]" color="blue" />
-              <p className="ml-[5%] text-center">
+              <p className="ml-[5%] text-center text-secondary-text">
                 <b onClick={handleClick}>Click to upload</b> or drag and drop
                 SVG, PNG, JPG, or GIF(max800x400px)
               </p>
