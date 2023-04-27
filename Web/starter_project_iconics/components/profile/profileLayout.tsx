@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React, { useState } from 'react'
 
 type ProfileProps = {
@@ -5,6 +6,7 @@ type ProfileProps = {
   element: React.ReactNode
   text: string
   innerText: string
+  currentPage: string
 }
 
 const ProfileLayout: React.FC<ProfileProps> = ({
@@ -12,8 +14,9 @@ const ProfileLayout: React.FC<ProfileProps> = ({
   element,
   text,
   innerText,
+  currentPage,
 }) => {
-  const [activeLink, setActiveLink] = useState('My Blogs')
+  const [activeLink, setActiveLink] = useState(currentPage)
 
   const handleLinkClick = (linkText: string) => {
     setActiveLink(linkText)
@@ -25,30 +28,30 @@ const ProfileLayout: React.FC<ProfileProps> = ({
         <h1 className="text-4xl font-bold text-gray-900">Profile</h1>
       </div>
       <div className="flex flex-col md:flex-row justify-center items-center bg-white pb-0">
-        <a
-          href="#"
+        <Link
+          href="/profile/my-info"
           className={`text-lg font-semibold  text-gray-700 pl-0 pr-4 pt-2 pb-5 hover:text-primary ${
-            activeLink === 'My Blogs'
-              ? 'border-b-2 border-primary text-primary'
-              : 'border-b-2 border-transparent text-gray-700'
-          }`}
-          onClick={() => handleLinkClick('My Blogs')}
-        >
-          Personal Information
-        </a>
-        <a
-          href="#"
-          className={`text-lg font-semibold  text-gray-700 px-4 pt-2 pb-5 hover:text-primary ${
             activeLink === 'My Information'
               ? 'border-b-2 border-primary text-primary'
               : 'border-b-2 border-transparent text-gray-700'
           }`}
           onClick={() => handleLinkClick('My Information')}
         >
+          Personal Information
+        </Link>
+        <Link
+          href="/profile/my-blogs"
+          className={`text-lg font-semibold  text-gray-700 px-4 pt-2 pb-5 hover:text-primary ${
+            activeLink === 'My Blogs'
+              ? 'border-b-2 border-primary text-primary'
+              : 'border-b-2 border-transparent text-gray-700'
+          }`}
+          onClick={() => handleLinkClick('My Blogs')}
+        >
           My Blogs
-        </a>
-        <a
-          href="#"
+        </Link>
+        <Link
+          href="/profile/my-account"
           className={`text-lg font-semibold  px-4 pt-2 pb-5 hover:text-primary ${
             activeLink === 'My Account'
               ? 'border-b-2 border-primary text-primary'
@@ -57,7 +60,7 @@ const ProfileLayout: React.FC<ProfileProps> = ({
           onClick={() => handleLinkClick('My Account')}
         >
           Account Settings
-        </a>
+        </Link>
         <div className="flex-1"></div>
       </div>
       <hr className="border-gray-300" />
