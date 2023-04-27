@@ -1,6 +1,6 @@
-import ProfileLayout from '@/components/profile/profileLayout'
+import ProfileLayout from '@/components/profile/ProfileLayout'
 import cards from '../../data/profile/blogs.json'
-import MyBlogs from '@/components/profile/myBlogs'
+import MyBlogs from '@/components/profile/MyBlogs'
 import { Blog } from '@/types/profile/blog'
 
 const myBlogs = () => {
