@@ -3,7 +3,7 @@ import cards from '../../data/profile/blogs.json'
 import MyBlogs from '@/components/profile/myBlogs'
 import { Blog } from '@/types/profile/blog'
 
-const myBlogs = () => {
+const index = () => {
   const result: Blog[] = JSON.parse(JSON.stringify(cards))
   return (
     <ProfileLayout
@@ -16,4 +16,4 @@ const myBlogs = () => {
   )
 }
 
-export default myBlogs
+export default index
