@@ -56,7 +56,7 @@ class PostCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(topic,
-                        style: ProfileTextStyle.copyWith(
+                        style: profileTextStyle.copyWith(
                           color: primaryColor,
                           fontSize: 16,
                           fontWeight: FontWeight.w200,
@@ -66,7 +66,7 @@ class PostCard extends StatelessWidget {
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         softWrap: false,
-                        style: ProfileTextStyle.copyWith(
+                        style: profileTextStyle.copyWith(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
                         )),
@@ -81,7 +81,7 @@ class PostCard extends StatelessWidget {
                                   (1 / 180),
                             ),
                             Text(likes,
-                                style: ProfileTextStyle.copyWith(
+                                style: profileTextStyle.copyWith(
                                   fontSize: 13,
                                   fontWeight: FontWeight.w300,
                                 )),
@@ -98,7 +98,7 @@ class PostCard extends StatelessWidget {
                                   (1 / 180),
                             ),
                             Text(time,
-                                style: ProfileTextStyle.copyWith(
+                                style: profileTextStyle.copyWith(
                                   fontSize: 13,
                                   fontWeight: FontWeight.w300,
                                 )),

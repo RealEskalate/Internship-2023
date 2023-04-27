@@ -2,8 +2,8 @@ import 'package:dartsmiths/core/utils/app_textstyle.dart';
 import 'package:dartsmiths/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 
-class Status extends StatelessWidget {
-  const Status({super.key});
+class StatusCard extends StatelessWidget {
+  const StatusCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,13 +37,13 @@ class Status extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(post,
-                          style: ProfileTextStyle.copyWith(
+                          style: profileTextStyle.copyWith(
                             fontSize: 20,
                             color: whiteColor,
                             fontWeight: FontWeight.w400,
                           )),
                       Text("Post",
-                          style: ProfileTextStyle.copyWith(
+                          style: profileTextStyle.copyWith(
                             fontSize: 14,
                             color: whiteColor,
                             fontWeight: FontWeight.w300,
@@ -59,13 +59,13 @@ class Status extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(follower,
-                        style: ProfileTextStyle.copyWith(
+                        style: profileTextStyle.copyWith(
                           fontSize: 20,
                           color: whiteColor,
                           fontWeight: FontWeight.w400,
                         )),
                     Text("Following",
-                        style: ProfileTextStyle.copyWith(
+                        style: profileTextStyle.copyWith(
                           fontSize: 14,
                           color: whiteColor,
                           fontWeight: FontWeight.w300,
@@ -79,13 +79,13 @@ class Status extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(following,
-                        style: ProfileTextStyle.copyWith(
+                        style: profileTextStyle.copyWith(
                           fontSize: 20,
                           color: whiteColor,
                           fontWeight: FontWeight.w400,
                         )),
                     Text("Followers",
-                        style: ProfileTextStyle.copyWith(
+                        style: profileTextStyle.copyWith(
                           fontSize: 14,
                           color: whiteColor,
                           fontWeight: FontWeight.w300,

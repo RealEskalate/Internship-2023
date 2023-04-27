@@ -1,12 +1,12 @@
 import 'package:dartsmiths/core/utils/colors.dart';
+import 'package:dartsmiths/features/profile/presentation/widgets/user_post_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_textstyle.dart';
-import '../widgets/about_me.dart';
-import '../widgets/my_posts.dart';
+import '../widgets/about_card.dart';
 
-class Profile extends StatelessWidget {
-  const Profile({super.key});
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class Profile extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text("Profile",
-                        style: ProfileTextStyle.copyWith(
+                        style: profileTextStyle.copyWith(
                             fontSize: 22,
                             fontWeight: FontWeight.w500,
                             fontStyle: FontStyle.normal)),
@@ -36,11 +36,11 @@ class Profile extends StatelessWidget {
                     )
                   ]),
             ),
-            const AboutMe(),
+            const AboutCard(),
             SizedBox(
               height: MediaQuery.of(context).size.height * (1 / 25),
             ),
-            const MyPosts(),
+            UserPostView(),
           ],
         ),
       ),

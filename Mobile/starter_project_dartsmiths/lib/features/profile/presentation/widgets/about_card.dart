@@ -2,10 +2,10 @@ import 'package:dartsmiths/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_textstyle.dart';
-import 'status.dart';
+import 'status_card.dart';
 
-class AboutMe extends StatelessWidget {
-  const AboutMe({super.key});
+class AboutCard extends StatelessWidget {
+  const AboutCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -61,12 +61,12 @@ class AboutMe extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(userName,
-                            style: ProfileTextStyle.copyWith(
+                            style: profileTextStyle.copyWith(
                                 fontSize: 17,
                                 fontWeight: FontWeight.w700,
                                 fontStyle: FontStyle.italic)),
                         Text(name,
-                            style: ProfileTextStyle.copyWith(
+                            style: profileTextStyle.copyWith(
                                 fontWeight: FontWeight.w300,
                                 fontStyle: FontStyle.italic)),
                         SizedBox(
@@ -75,7 +75,7 @@ class AboutMe extends StatelessWidget {
                         ),
                         Text(
                           job,
-                          style: ProfileTextStyle.copyWith(
+                          style: profileTextStyle.copyWith(
                             fontSize: 17,
                             color: primaryColor,
                             fontWeight: FontWeight.w200,
@@ -88,7 +88,7 @@ class AboutMe extends StatelessWidget {
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * (1 / 40)),
                 Text("About me",
-                    style: ProfileTextStyle.copyWith(
+                    style: profileTextStyle.copyWith(
                         fontSize: 17,
                         fontWeight: FontWeight.w200,
                         fontStyle: FontStyle.italic)),
@@ -96,7 +96,7 @@ class AboutMe extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * (1 / 80),
                 ),
                 Text(description,
-                    style: ProfileTextStyle.copyWith(
+                    style: profileTextStyle.copyWith(
                         fontSize: 15.4,
                         fontWeight: FontWeight.w200,
                         fontStyle: FontStyle.italic)),
@@ -105,7 +105,7 @@ class AboutMe extends StatelessWidget {
           ),
         ),
       ),
-      const Status()
+      const StatusCard()
     ]);
   }
 }
