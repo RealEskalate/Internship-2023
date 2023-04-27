@@ -1,12 +1,11 @@
-import Navbar from '@/components/layout/Navbar'
+import RootLayout from '@/layouts/default'
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
-      <Navbar />
+    <RootLayout>
       <Component {...pageProps} />
-    </>
+    </RootLayout>
   )
 }
