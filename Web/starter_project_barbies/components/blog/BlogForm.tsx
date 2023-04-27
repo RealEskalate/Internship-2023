@@ -73,10 +73,10 @@ const BlogForm: React.FC = () => {
 
       {/* Buttons */}
       <div className="flex flex-col sm:flex-row gap-4 w-9/12 mt-10 lg:mt-2 p-4 justify-end lg:justify-center">
-          <button className="text-blue-600 hover:text-gray-800 font-medium mr-4">
+          <button className="text-primary hover:text-blue-500 font-medium mr-4">
             Cancel
           </button>
-          <button className="bg-blue-600 text-white rounded-md px-3 py-1 hover:bg-blue-500">
+          <button className="bg-primary text-white rounded-md px-3 py-1 hover:bg-blue-500">
             Save Changes
           </button>
         </div>
