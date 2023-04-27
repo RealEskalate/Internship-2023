@@ -21,7 +21,6 @@ const PartnerLogos: React.FC = () => {
         <h2 className="text-4xl font-semibold text-center mb-6 mt-8 font-DMSans">Current Interview Partners</h2>
         <div className="flex flex-wrap  justify-around items-center  ">
           {partnerSection.map((data,index) => (
-            
             <div className="w-52 h-36 flex justify-center items-center bg-white rounded-full">
               <img src={`/img/success-stories-images/companies/${data.imgurl}`}alt={data.alternative} />
             </div>
