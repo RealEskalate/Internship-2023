@@ -6,11 +6,9 @@ import growthRateImage from '../../public/images/aboutus/phases/growth-rate.svg'
 
 function Activities({ studentGrowthRate, learningRate, growthRate }: any) {
   return (
-    <div className="bg-aboutbackground p-7 rounded-lg">
-      <div className="grid grid-cols-2 gap-4 bg-aboutbackground text-size">
-        <p className="col-span-2 font-semibold bg-aboutbackground">
-          Group Activities
-        </p>
+    <div className="bg-lightblue p-7 rounded-lg">
+      <div className="grid grid-cols-2 gap-4 text-size">
+        <p className="col-span-2 font-semibold">Group Activities</p>
         <ImageTextStack
           image={educationImage}
           title={'The Education Process'}

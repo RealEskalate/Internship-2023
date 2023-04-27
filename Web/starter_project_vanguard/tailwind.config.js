@@ -11,12 +11,11 @@ module.exports = {
       colors: {
         primary: '#264FAD',
         accent: '#FF9F43',
-        aboutbackground: '#FDFEFF',
+        lightbluebg: '#FDFEFF',
         danger: '#b91c1c',
         'primary-text': '#353535',
         'secondary-text': '#717171',
         'tertiary-text': '#565656',
-        'aboutnormal-text': '#2B2A35',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

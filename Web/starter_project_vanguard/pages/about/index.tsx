@@ -16,7 +16,7 @@ function AboutPage() {
     <div className="bg-white p-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div>
-          <p className="font-extrabold text-aboutnormal text-4xl">
+          <p className="font-extrabold text-secondary text-4xl">
             <span className="text-primary">Africa </span> to Silicon Valley
           </p>
           <p className="py-7">
@@ -41,7 +41,7 @@ function AboutPage() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div>
-          <p className="font-extrabold text-aboutnormal text-4xl my-10">
+          <p className="font-extrabold text-secondary text-4xl my-10">
             <span className="font-lato text-primary">The Problem We </span> Are
             Solving
           </p>
@@ -73,7 +73,7 @@ function AboutPage() {
         <CenteredImage image={howWeAreSolving} />
 
         <div>
-          <p className="font-extrabold text-aboutnormal text-4xl my-10">
+          <p className="font-extrabold text-secondary text-4xl my-10">
             How we are <span className="text-primary">solving </span> it
           </p>
 
@@ -86,7 +86,7 @@ function AboutPage() {
         </div>
       </div>
       <div className="grid grid-cols-2 gap-10">
-        <p className="font-extrabold text-aboutnormal text-4xl my-10 col-span-2 text-center">
+        <p className="font-extrabold text-secondary text-4xl my-10 col-span-2 text-center">
           <span className="font-lato text-primary">Social </span> Projects
         </p>
         {socialProjects.map((project) => {
@@ -104,7 +104,7 @@ function AboutPage() {
           )
         })}
       </div>
-      <p className="font-extrabold text-aboutnormal text-4xl my-10 col-span-2 text-center">
+      <p className="font-extrabold text-secondary text-4xl my-10 col-span-2 text-center">
         <span className="font-lato text-primary">A2SV </span> Sessions
       </p>
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 bg-white text-size">
