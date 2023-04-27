@@ -2,7 +2,7 @@
 // located at the top of the onboarding screen
 
 import 'package:dark_knights/core/utils/colors.dart';
-import 'package:dark_knights/features/onboarding/presentation/widgets/onboarding/clipped_image_widget.dart';
+import 'package:dark_knights/features/onboarding/presentation/widgets/onboarding/clipped_image.dart';
 import 'package:flutter/material.dart';
 
 class UpperRowImages extends StatelessWidget {
@@ -27,7 +27,7 @@ class UpperRowImages extends StatelessWidget {
               decoration: const BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                    color: tertiaryColor,
+                    color: imageShadowColor,
                     spreadRadius: 1,
                     blurRadius: 30,
                     offset: Offset(0, 15),
@@ -46,7 +46,7 @@ class UpperRowImages extends StatelessWidget {
               decoration: const BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                    color: tertiaryColor,
+                    color: imageShadowColor,
                     spreadRadius: 1,
                     blurRadius: 30,
                     offset: Offset(0, 15),

@@ -1,9 +1,9 @@
-import 'package:dark_knights/core/constants/colors.dart';
-import 'package:dark_knights/features/example/presentation/screen/home_page.dart';
-import 'package:dark_knights/features/example/presentation/widgets/onboarding/onboarding_row_images.dart';
-import 'package:dark_knights/features/example/presentation/widgets/onboarding/description_text_widget.dart';
-import 'package:dark_knights/features/example/presentation/widgets/onboarding/dot_widget.dart';
-import 'package:dark_knights/features/example/presentation/widgets/onboarding/header_text_widget.dart';
+import 'package:dark_knights/core/utils/colors.dart';
+import 'package:dark_knights/features/onboarding/presentation/widgets/onboarding/description_text.dart';
+import 'package:dark_knights/features/onboarding/presentation/widgets/onboarding/dot.dart';
+import 'package:dark_knights/features/onboarding/presentation/widgets/onboarding/header_text.dart';
+import 'package:dark_knights/features/onboarding/presentation/widgets/onboarding/onboarding_row_images.dart';
+import 'package:dark_knights/main.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -28,7 +28,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: scaffoldBackgroundColor,
+      backgroundColor: scaffoldBackground,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -82,7 +82,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         ),
                         Container(
                           decoration: BoxDecoration(
-                              color: dotBlueColor,
+                              color: primaryColor,
                               borderRadius: BorderRadius.circular(10)),
                           width: 100,
                           height: 65,
@@ -93,7 +93,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => const HomePage(),
+                                      builder: (context) => const MyHomePage(
+                                        title: "",
+                                      ),
                                     ),
                                   )
                                 }

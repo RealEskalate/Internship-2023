@@ -2,9 +2,8 @@
 // to create header text inside the onboarding screen that is located below the four
 // images.
 
-import 'package:dark_knights/core/constants/colors.dart';
+import 'package:dark_knights/core/utils/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class HeaderText extends StatelessWidget {
   final String text;
@@ -14,11 +13,12 @@ class HeaderText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: GoogleFonts.urbanist(
+      style: const TextStyle(
           fontSize: 27,
+          fontFamily: 'urbanist',
           fontWeight: FontWeight.w200,
           fontStyle: FontStyle.italic,
-          color: headerTextColor),
+          color: primaryTextColor),
     );
   }
 }
