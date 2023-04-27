@@ -1,18 +1,19 @@
 import clsx from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { navItems } from './data/nav-items'
 import { useState } from 'react'
 import logo from '../../public/img/a2sv-logo.png'
 
 
-const Navbar = () => {
-  const router = useRouter()
-  const currSegment = router.pathname.split('/')[1] || ''
+const Navbar:React.FC = () => {
   const [toggle, setToggle] = useState(false)
-
+  const [active, setActive] = useState("/")
+  const setActiveAndToggle = (current:string)=>{
+    setActive(current)
+    setToggle(!toggle)
+  }
   return (
     <div className="sticky top-0 z-50 bg-white bg-opacity-100 flex justify-between font-montserrat px-10 pt-5">
       <Link href="/">
@@ -23,9 +24,10 @@ const Navbar = () => {
           <Link
             href={navItem.href}
             key={index}
+            onClick={()=>setActive(navItem.href)}
             className={clsx(
               'font-semibold pt-2',
-              currSegment === navItem.href.split('/')[1]
+              active === navItem.href
                 ? 'border-b-4 border-primary text-primary'
                 : 'text-tertiary-text'
             )}
@@ -59,11 +61,11 @@ const Navbar = () => {
               key={index}
               className={clsx(
                 'font-semibold',
-                currSegment === navItem.href.split('/')[1]
-                  ? 'border-b-4 border-primary text-primary'
+                active === navItem.href
+                ? 'border-b-4 border-primary text-primary'
                   : 'text-tertiary-text'
               )}
-              onClick={() => setToggle(!toggle)}
+              onClick={() => setActiveAndToggle(navItem.href)}
             >
               {navItem.name}
             </Link>
