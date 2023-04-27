@@ -13,9 +13,7 @@ function Blogs() {
     <Blog/>,
     <Blog/>,
     <Blog/>,
-    <Blog/>,
-    <Blog/>,
-    <Blog/>,
+   
     
   
 ]
