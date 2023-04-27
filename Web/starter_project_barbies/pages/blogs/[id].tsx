@@ -16,7 +16,6 @@ const BlogDetail = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
 
   const router = useRouter()
-  // const blogID = parseInt(router.query.id as string, 10)
   const blogID = router.query.id
 
   // Fetch blogs
