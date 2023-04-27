@@ -1,194 +1,209 @@
 import 'package:flutter/material.dart';
 
 class Login extends StatelessWidget {
+  const Login({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Column(
-          children: [
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("9:41"),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Transform.scale(
-                          scale: 0.8, child: Icon(Icons.signal_cellular_4_bar)),
-                      SizedBox(width: 8),
-                      Transform.scale(scale: 0.8, child: Icon(Icons.wifi)),
-                      SizedBox(width: 8),
-                      Transform.scale(
-                          scale: 0.8, child: Icon(Icons.battery_full)),
-                    ],
-                  )
-                ],
-              ),
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Align(
+            alignment: Alignment.topCenter,
+            child: Image.asset(
+              'images/a2sv.png',
+              height: MediaQuery.of(context).size.height * 0.2,
+              fit: BoxFit.fitWidth,
             ),
-            Image.asset(
-              'images/a2sv.jpg',
-            
-              height: 150, // set the height of the image
-            ),
-
-            //Container(height: 150, child: Image.asset('a2sv.jpg')),
-            Container(
-              width: double.infinity,
-              child: ClipRRect(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(20.0),
-                  topRight: Radius.circular(20.0),
+          ),
+          Expanded(
+            child: Stack(children: [
+              Container(
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                    color: Color(0xff376AED),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(25.0),
+                      topRight: Radius.circular(25.0),
+                    )),
+                height: MediaQuery.of(context).size.height * 0.18,
+                padding: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.height * 0.16,
+                  vertical: MediaQuery.of(context).size.width * 0.04,
                 ),
-                child: Container(
-                  height: 50,
-                  color: Colors.blue[900],
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "LOGIN",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                      SizedBox(width: 80),
-                      Text(
-                        "SIGNUP",
-                        style: TextStyle(
-                          color: Colors.blueGrey[300],
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ],
-                  ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    customText(text: "LOGIN", color: Colors.white),
+                    SizedBox(width: MediaQuery.of(context).size.width * 0.3),
+                    customText(
+                      text: "SIGNUP",
+                      color: Colors.white.withOpacity(0.4),
+                    ),
+                  ],
                 ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 30.0, left: 40.0),
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Welcome back",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w400,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Sign in with your account",
-                      style: TextStyle(
-                        color: Colors.grey[700],
-                        fontWeight: FontWeight.w900,
-                        fontSize: 15,
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Username",
-                      style: TextStyle(
-                        fontStyle: FontStyle.italic,
-                        color: Colors.grey[400],
-                        fontSize: 17,
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Align(
-                      alignment: Alignment.centerLeft,
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: 'Jonathandavis@gmail.com',
-                         
-                        ),
-                      )),
-                  SizedBox(height: 10),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Password",
-                      style: TextStyle(
-                        fontStyle: FontStyle.italic,
-                        color: Colors.grey[400],
-                        fontSize: 17,
-                      ),
-                    ),
-                  ),
-                  Align(
-                      alignment: Alignment.centerLeft,
-                      child: TextField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          hintText: '••••••',
-                          hintStyle: TextStyle(
-                            fontSize: 24,
-                            letterSpacing:
-                                8, 
-                            fontWeight: FontWeight.bold,
+              Positioned(
+                  top: MediaQuery.of(context).size.height * 0.087,
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height,
+                    decoration: const BoxDecoration(
+                        border: null,
+                        color: Colors.white,
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(25.0),
+                          topRight: Radius.circular(25.0),
+                        )),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 28, vertical: 28),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Welcome back",
+                              style: TextStyle(
+                                fontFamily: "Urbanist",
+                                color: Colors.black,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 24,
+                              )),
+                          SizedBox(height: 12),
+                          Text("Sign in with your account",
+                              style: TextStyle(
+                                color: Color(0xff2D4379),
+                                fontWeight: FontWeight.w900,
+                                fontSize: 14,
+                              )),
+                          SizedBox(height: 30),
+                          Text(
+                            "Username",
+                            style: TextStyle(
+                              fontFamily: "Urbanist",
+                              fontStyle: FontStyle.italic,
+                              color: Color(0xff2D4379),
+                              fontSize: 14,
+                            ),
                           ),
-                         
-                        ),
-                      )),
-                  SizedBox(height: 20),
-                  Container(
-                    width: 400,
-                    height: 50,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.blue[900],
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      child: Text(
-                        "Login",
-                        style: TextStyle(
-                          fontSize: 18,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Row(
-                      children: [
-                        Text(
-                          "Forgot your password?",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
+                          TextField(
+                            decoration: InputDecoration(
+                              hintText: 'Jonathandavis@gmail.com',
+                              hintStyle: TextStyle(
+                                color: Colors.black,
+                                fontFamily: "Urbanist",
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
                           ),
-                        ),
-                        Text(
-                          "Reset here",
-                          style: TextStyle(
-                            color: Colors.blue[900],
+                          SizedBox(height: 20),
+                          Text(
+                            "Password",
+                            style: TextStyle(
+                                fontFamily: "Urbanist",
+                                fontStyle: FontStyle.italic,
+                                color: Color(0xff2D4379),
+                                fontSize: 14),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            )
-          ],
-        ),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: TextField(
+                                  decoration: InputDecoration(
+                                    hintText: '••••••',
+                                    hintStyle: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 24,
+                                      letterSpacing: 8,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              TextButton(
+                                onPressed: () {},
+                                child: Text(
+                                  "Show",
+                                  style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 100),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.9,
+                            height: 50,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                primary: Color(0xff376AED),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                              child: Text(
+                                "Login",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 10),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Forgot your password?",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w900,
+                                      fontSize: 14,
+                                      color: Color(0xff2D4379)),
+                                ),
+                                SizedBox(width: 10),
+                                Text(
+                                  "Reset here",
+                                  style: TextStyle(
+                                      color: Color(0xff376AED),
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 14,
+                                      fontFamily: "Urbanist"),
+                                ),
+                              ]),
+                        ]),
+                  ))
+            ]),
+          ),
+        ],
       ),
-      debugShowCheckedModeBanner: false,
+    );
+  }
+}
+
+class customText extends StatelessWidget {
+  final String text;
+  final Color color;
+  const customText({
+    super.key,
+    required this.text,
+    required this.color,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: TextStyle(
+        color: color,
+        fontWeight: FontWeight.w700,
+        fontSize: 18,
+        fontFamily: "Urbanist",
+      ),
     );
   }
 }
