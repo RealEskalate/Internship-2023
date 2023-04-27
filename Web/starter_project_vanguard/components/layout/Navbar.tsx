@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { AiOutlineMenu } from 'react-icons/ai'
 import logo from '../../public/img/a2sv-logo.png'
+import { navItems } from './data/nav-items'
 
 const Navbar: React.FC = () => {
   const [toggle, setToggle] = useState(false)
