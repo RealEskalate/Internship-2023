@@ -5,7 +5,7 @@ import { Blog } from "@/types/blog";
 import BlogCard from "@/components/blog/BlogCard";
 
 
-// Fetch blogs from dummyData.json file 
+// Fetch blogs from dummy-blogs-data.json file 
 const fetchBlogs = async (): Promise<Blog[]> => {
   const res = await fetch("/data/dummy-blogs-data.json");
   const data = await res.json();
@@ -32,16 +32,6 @@ const MyBlogs: NextPage = () => {
     }
 
   }, [userID]);
-
-  // Check if userID is valid
-  if (!userID) {
-    return (
-      <p>
-        Oops! It looks like you don't have any blogs to manage yet. Why not create a new blog post and start sharing your thoughts with the world?
-      </p>
-    );
-  }
-  
 
   // Check if the user has any blogs
   if (blogs.length === 0) {
