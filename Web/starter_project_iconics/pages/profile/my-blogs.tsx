@@ -11,6 +11,7 @@ const index = () => {
       element={<MyBlogs cards={result} />}
       text="Manage Blogs"
       innerText="Edit, Delete and View the Status of your blogs"
+      currentPage="My Blogs"
     ></ProfileLayout>
   )
 }
