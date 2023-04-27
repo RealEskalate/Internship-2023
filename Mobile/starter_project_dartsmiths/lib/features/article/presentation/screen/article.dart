@@ -4,6 +4,7 @@ import 'package:dartsmiths/features/article/presentation/widgets/article_profile
 import 'package:dartsmiths/features/article/presentation/widgets/like_button.dart';
 import 'package:flutter/material.dart';
 import 'package:dartsmiths/core/utils/ui_converter.dart';
+import 'package:dartsmiths/core/utils/colors.dart';
 
 String textValue =
     'That marked a turnaround from last year, when the social network reported a decline in users for the first time.\n The drop wiped billions from the firms market value.\n Since executives disclosed the fall in February, the firms share price has nearly halved.But shares jumped 19% in after-hours trade on Wednesday.';
@@ -19,6 +20,7 @@ class article_reading extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: Builder(builder: (BuildContext context) {
           return Scaffold(
+            backgroundColor: scaffoldBackground,
             floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
             body: SafeArea(
               child: Column(
@@ -50,6 +52,7 @@ class article_reading extends StatelessWidget {
                               Text(
                                 title,
                                 style: const TextStyle(
+                                  color: primaryTextColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 25,
                                 ),
@@ -84,6 +87,8 @@ class article_reading extends StatelessWidget {
                             textValue,
                             maxLines: null,
                             style: TextStyle(
+                              color: secondaryTextColor,
+                                height: 1.5,
                                 fontSize: UIConverter.designWidth * 0.04),
                           ),
                         ),
