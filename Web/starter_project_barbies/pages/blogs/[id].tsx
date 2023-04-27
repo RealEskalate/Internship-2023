@@ -8,7 +8,7 @@ import blogs from "@/data/blogs.json"
 
 const BlogDetail = () => {
   const router = useRouter()
-  const blogID = parseInt(router.query.id as string)
+  const blogID = parseInt(router.query.id as string, 10)
 
   // Fetch blog
   const blog: Blog = blogs[blogID - 1]
