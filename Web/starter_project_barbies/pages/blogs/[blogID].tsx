@@ -3,12 +3,16 @@ import Image from 'next/image'
 import { RelatedBlogs } from '../../components/blog/RelatedBlogs'
 import { BlogAuthorDetail } from '@/components/blog/BlogAuthorDetail'
 import { BlogContent } from '@/components/blog/BlogContent'
+import { useRouter } from 'next/router'
+import blogs from "@/data/blogs.json"
 
-interface BlogDetailProps {
-  blog: Blog
-}
+const BlogDetail = () => {
+  const router = useRouter()
+  const blogID = parseInt(router.query.blogID as string, 10)
 
-const BlogDetail: React.FC<BlogDetailProps> = ({ blog }) => {
+  // Fetch blog
+  const blog: Blog = blogs[blogID - 1]
+
   return (
     <div className='bg-white text-black'>
 
