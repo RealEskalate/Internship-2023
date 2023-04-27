@@ -7,7 +7,7 @@ const Members: React.FC = () => {
     <div className="grid grid-cols-12 gap-8">
       {teamMembers.map((member, idx: number) => {
         return (
-          <div className="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 " key={idx}>
+          <div className="col-span-12 sm:col-span-6 2md:col-span-4 xl:col-span-3 3xl:col-span-2" key={idx}>
             <MemberCard member={member} />
           </div>
         )
