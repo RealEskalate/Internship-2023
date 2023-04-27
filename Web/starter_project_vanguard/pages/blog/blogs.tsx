@@ -4,7 +4,7 @@ import Blog from '@/components/blog/Blog'
 import Search from '@/components/blog/Search'
 
 import { useState } from 'react';
-import Pagination from '@/components/blog/Pagination';
+import Pagination from '@/components/common/Pagination';
 
 
 function Blogs() {
