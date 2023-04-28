@@ -18,7 +18,7 @@ class OnboardingLowerImage extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(24.0),
                 image: const DecorationImage(
-                  image: AssetImage('assets/images/onboarding4.jpg'),
+                  image: AssetImage('assets/images/onboarding2.jpg'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -30,7 +30,7 @@ class OnboardingLowerImage extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(24.0),
                 image: const DecorationImage(
-                  image: AssetImage('assets/images/onboarding3.jpg'),
+                  image: AssetImage('assets/images/onboarding1.jpg'),
                   fit: BoxFit.cover,
                 ),
               ),
