@@ -1,3 +1,4 @@
+import { NavItem } from '@/types/layout/nav-item'
 import Image from 'next/image'
 import Link from 'next/link'
 import { IconType } from 'react-icons'
