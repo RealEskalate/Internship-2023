@@ -18,11 +18,5 @@
       "@/*": ["./*"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "components/blog/fetch copy.jsx"
-  ],
   "exclude": ["node_modules"]
 }

@@ -1,24 +1,17 @@
-import { useState } from 'react'
-import { Blog } from '../../types/blogs'
 import Image from 'next/image'
-import { TbClockFilled } from 'react-icons/tb'
 import { FiMessageSquare } from 'react-icons/fi'
+import { TbClockFilled } from 'react-icons/tb'
+import { Blog } from '../../types/blog/blog'
 
-interface Props {
-  blog: Blog
-}
+const BlogCard: React.FC<{ blog: Blog }> = ({ blog }) => {
+  const numberFormater = (num: number) => {
+    if (num >= 1e6) return +(num / 1e6).toFixed(1) + 'm'
+    if (num >= 1e3) return +(num / 1e3).toFixed(1) + 'k'
+    if (num < 1e3) return num
+  }
 
-const BlogCard: React.FC<Props> = ({ blog }) => {
-  const [readMore, setReadMore] = useState<boolean>(false)
-  const numberFormater = (num : number) => {
-    if (num >= 1e6) return +(num / 1e6).toFixed(1) + "m";
-    if (num >= 1e3) return +(num / 1e3).toFixed(1) + "k";
-    if (num < 1e3) return num;
-  };
-  
   return (
-
-    <div className="max-w-sm rounded-sm shadow">
+    <div className="max-w-sm rounded-sm shadow hover:shadow-lg">
       <Image
         className="rounded object-cover h-52 w-full"
         width={400}
@@ -60,7 +53,7 @@ const BlogCard: React.FC<Props> = ({ blog }) => {
           })}
         </div>
         <p className="my-5 text-xs text-secondary-text ">
-          {readMore ? blog.description : blog.description.slice(0, 85)}
+          {blog.description.slice(0, 85)}
         </p>
         <div className="flex justify-between border-t pt-4">
           {blog.isPending ? (
@@ -70,18 +63,18 @@ const BlogCard: React.FC<Props> = ({ blog }) => {
           ) : (
             <div className="flex space-x-2 items-center text-secondary-text">
               <FiMessageSquare />
-              
-              <p className="text-xs text-primary-text font-semibold">{
-              numberFormater(blog.likes)
-              } Likes</p>
+
+              <p className="text-xs text-primary-text font-semibold">
+                {numberFormater(blog.likes)} Likes
+              </p>
             </div>
           )}
-          <div
+          <button
             className="text-indigo-700 text-xs font-semibold"
-            onClick={() => setReadMore(!readMore)}
+            onClick={() => null}
           >
-            {readMore ? 'Read Less' : 'Read more'}
-          </div>
+            Read More
+          </button>
         </div>
       </div>
     </div>
