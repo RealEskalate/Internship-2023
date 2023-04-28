@@ -19,15 +19,15 @@ String post_time = '2m';
           children: [
             ClipRRect(
               borderRadius:
-                  BorderRadius.circular(UIConverter.designWidth * 0.3),
+                  BorderRadius.circular(UIConverter.getComponentWidth(context, 15)),
               child: Image.asset(
                 articleReadingFasionImage1,
-                width: UIConverter.designWidth * 0.1,
-                height: UIConverter.designHeight * 0.06,
+                width: UIConverter.getComponentWidth(context, 38),
+                height: UIConverter.getComponentHeight(context, 38),
               ),
             ),
             SizedBox(
-              width: UIConverter.getComponentHeight(context, 10),
+              width: UIConverter.getComponentHeight(context, 13),
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,7 +40,6 @@ String post_time = '2m';
                   post_time,
                   style: const TextStyle(color: secondaryColor),
                 ),
-                SizedBox(width: 10,)
               ],
             ),
           ],

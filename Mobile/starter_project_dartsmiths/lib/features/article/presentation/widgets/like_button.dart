@@ -14,8 +14,8 @@ class like_button extends StatelessWidget {
       child: FloatingActionButton(
           onPressed: () {},
           shape: BeveledRectangleBorder(
-              borderRadius:
-                  BorderRadius.circular(UIConverter.designWidth * 0.01)),
+              borderRadius: BorderRadius.circular(
+                  UIConverter.getComponentWidth(context, 10))),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
