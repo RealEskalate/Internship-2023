@@ -44,7 +44,7 @@ class _ArticlePageState extends State<ArticleContent> {
               Text(
                 "You can read thousands of articles on Blog Club, save them in the application and share them with your loved ones.",
                 style: TextStyle(
-                    color: blackColor,
+                    color: secondaryTextColor,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w900,
                     fontSize: 14,
