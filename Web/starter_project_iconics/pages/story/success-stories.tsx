@@ -30,9 +30,6 @@ const StoryPage: React.FC = () => {
         ))}
       </div>
 
-
-
-
       <div>
         <PartnerLogos />
       </div>
