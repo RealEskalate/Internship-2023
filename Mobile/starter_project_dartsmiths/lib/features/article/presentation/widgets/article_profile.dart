@@ -5,8 +5,8 @@ import '../../../../core/utils/ui_converter.dart';
 
 
 
-class article_profile extends StatelessWidget {
-  article_profile({super.key});
+class ArticleProfile extends StatelessWidget {
+  ArticleProfile({super.key});
   String name = 'Richard Gervan';
 String post_time = '2m';
 

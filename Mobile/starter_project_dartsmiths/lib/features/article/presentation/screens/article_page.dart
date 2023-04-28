@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:dartsmiths/core/utils/ui_converter.dart';
 import 'package:dartsmiths/core/utils/colors.dart';
 
-class article_reading extends StatelessWidget {
-  article_reading({Key? key}) : super(key: key);
+class ArticleReading extends StatelessWidget {
+  ArticleReading({Key? key}) : super(key: key);
   String textValue =
       'That marked a turnaround from last year, when the social network reported a decline in users for the first time.\n The drop wiped billions from the firms market value.\n Since executives disclosed the fall in February, the firms share price has nearly halved.But shares jumped 19% in after-hours trade on Wednesday.';
 

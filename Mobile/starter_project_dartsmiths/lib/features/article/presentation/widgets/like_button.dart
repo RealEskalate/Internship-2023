@@ -2,8 +2,8 @@ import 'package:dartsmiths/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/utils/ui_converter.dart';
 
-class like_button extends StatelessWidget {
-  like_button({super.key});
+class LikeButton extends StatelessWidget {
+  LikeButton({super.key});
   String likes = '2.3k';
 
   @override
