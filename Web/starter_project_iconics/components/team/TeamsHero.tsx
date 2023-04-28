@@ -2,7 +2,7 @@
 function TeamsHero() {
 
     return (
-        <div className="bg-secondary">
+        <div>
             <div className="grid md:grid-cols-1 lg:grid-cols-2 p-8">
                 <div className="flex flex-col p-8 m-2">
                     <h1 className="font-bold text-black text-4xl xl:text-5xl text-base uppercase m-2">
