@@ -7,7 +7,7 @@ const blogs = () => {
   const blogsData: BlogData[] = data
   return (
     <div className="bg-white pt-4">
-      <div className="flex flex-col items-center gap-y-4 mx-10 md:flex-row">
+      <div className="flex flex-col items-center gap-y-4 mt-5 mx-10 md:flex-row">
         <h1 className="text-xl font-bold">Blogs</h1>
         <form className="flex gap-4 m-auto">
           <input
