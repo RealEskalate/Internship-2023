@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 
  interface GlassImageProps  {
-  image: string;
-  name: string;
-  job: string;
-  location: string;
-};
+  image: string,
+  name: string,
+  job: string,
+  location: string
+}
 
 const GlassImage: React.FC<GlassImageProps> = ({ image, name, job, location }) => {
   return (
@@ -19,9 +19,9 @@ const GlassImage: React.FC<GlassImageProps> = ({ image, name, job, location }) =
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default GlassImage;
+export default GlassImage
 
 

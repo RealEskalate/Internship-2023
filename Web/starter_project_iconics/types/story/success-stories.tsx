@@ -4,10 +4,10 @@ export interface Story {
   }
   
 export interface SuccessStory {
-    personName: string;
-    imageURL: string;
-    role: string;
-    location: string;
+    personName: string,
+    imageURL: string,
+    role: string,
+    location: string,
     
     story: Story[]
 }

@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
 interface TextSectionProps  {
-  heading : string;
-  paragraph : string;
-};
+  heading : string,
+  paragraph : string
+}
 
 const TextSection: React.FC<TextSectionProps> = ({heading,paragraph}) => {
   return(
@@ -14,4 +14,4 @@ const TextSection: React.FC<TextSectionProps> = ({heading,paragraph}) => {
   )
 }
 
-export default TextSection;
+export default TextSection

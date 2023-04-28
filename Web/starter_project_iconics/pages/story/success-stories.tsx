@@ -1,6 +1,6 @@
-import React from 'react';
-import { GlassImage, TextSection, PartnerLogos } from '../../components/story/Stories';
-import imagesData from "../../data/story/success-stories";
+import React from 'react'
+import { GlassImage, TextSection, PartnerLogos } from '../../components/story/Stories'
+import imagesData from "../../data/story/success-stories"
 
 const StoryPage: React.FC = () => {
   return (
@@ -35,7 +35,7 @@ const StoryPage: React.FC = () => {
       </div>
 
     </div>
-  );
-};
+  )
+}
 
-export default StoryPage;
+export default StoryPage

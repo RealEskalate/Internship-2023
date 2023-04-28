@@ -1,4 +1,4 @@
-import {Story, SuccessStory} from '../../types/story/success-stories';
+import {Story, SuccessStory} from '../../types/story/success-stories'
 
 const story1 : Story[] = [{
     heading: "My A2SV Experience",
