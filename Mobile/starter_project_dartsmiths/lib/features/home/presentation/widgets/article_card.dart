@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
+import '../../../../core/utils/colors.dart';
+import '../../../../core/utils/ui_converter.dart';
+
 class ArticleCard extends StatelessWidget {
   const ArticleCard({super.key});
 
@@ -21,7 +24,7 @@ class ArticleCard extends StatelessWidget {
             )
           ],
           borderRadius: BorderRadius.circular(30),
-          color: Colors.white,
+          color: whiteColor,
         ),
         width: double.infinity,
         height: 400,
@@ -71,12 +74,13 @@ class ArticleCard extends StatelessWidget {
                             height: 35,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
-                                color: Colors.white),
+                                color: whiteColor),
                             child: Center(
                               child: Text(
                                 "5 min read",
                                 style: myTextStyle.copyWith(
                                     fontWeight: FontWeight.w500,
+                                    // here
                                     color: Color(0xFF424242)),
                               ),
                             ),
@@ -106,6 +110,8 @@ class ArticleCard extends StatelessWidget {
                                         style: myTextStyle.copyWith(
                                             fontWeight: FontWeight.normal,
                                             fontSize: 22,
+
+                                            // here
                                             color: Color(0xFF4D4A49)),
                                       ),
                                     ),
@@ -113,7 +119,7 @@ class ArticleCard extends StatelessWidget {
                                       padding: EdgeInsets.only(top: 20),
                                       child: Container(
                                           decoration: BoxDecoration(
-                                              color: Color(0xFF5E5F6F),
+                                              color: tertiaryColor,
                                               borderRadius:
                                                   BorderRadius.circular(5)),
                                           width: 110,
@@ -124,16 +130,17 @@ class ArticleCard extends StatelessWidget {
                                             style: myTextStyle.copyWith(
                                                 fontSize: 15,
                                                 fontWeight: FontWeight.w500,
-                                                color: Colors.white),
+                                                color: whiteColor),
                                           ))),
                                     ),
                                     Padding(
-                                        padding: EdgeInsets.only(top: 25),
+                                        padding: EdgeInsets.only(top:UIConverter.getComponentHeight(context,  25)),
                                         child: Text(
                                           "by John Doe",
                                           style: myTextStyle.copyWith(
-                                              fontSize: 18,
+                                              fontSize: UIConverter.getComponentWidth(context, 18),
                                               fontWeight: FontWeight.w500,
+                                              // here
                                               color: Color(0xFF424242)),
                                         )),
                                   ],
@@ -153,6 +160,7 @@ class ArticleCard extends StatelessWidget {
                         padding: EdgeInsets.only(right: 20, top: 45, bottom: 0),
                         child: Text(
                           "Jan 12, 2022",
+                          // here
                           style: myTextStyle.copyWith(color: Color(0xFF7D7D7D)),
                         ))
                   ],

@@ -1,5 +1,8 @@
+import 'package:dartsmiths/core/utils/colors.dart';
 import 'package:dartsmiths/core/utils/style.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../core/utils/ui_converter.dart';
 
 class FilterButton extends StatelessWidget {
   String text;
@@ -10,19 +13,20 @@ class FilterButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: isActive ? Color(0xFF376AED) : Colors.white,
-          borderRadius: BorderRadius.circular(120),
+          color: isActive ? primaryColor : whiteColor,
+          borderRadius:
+              BorderRadius.circular(UIConverter.getComponentWidth(context, 35)),
           border: Border.all(
-            color: Color(0xFF376AED),
-            width: 2,
+            color: primaryColor,
+            width: UIConverter.getComponentWidth(context, 2),
           )),
-      width: 85,
-      height: 40,
+      width: UIConverter.getComponentWidth(context, 65),
+      height: UIConverter.getComponentHeight(context, 45),
       child: Center(
           child: Text(text,
               style: isActive
-                  ? myTextStyle.copyWith(color: Colors.white)
-                  : myTextStyle)),
+                  ? myTextStyle.copyWith(color: whiteColor)
+                  : myTextStyle.copyWith(color: primaryColor))),
     );
   }
 }

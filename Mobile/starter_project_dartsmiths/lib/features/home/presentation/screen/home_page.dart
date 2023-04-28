@@ -1,7 +1,9 @@
+import 'package:dartsmiths/core/utils/colors.dart';
 import 'package:dartsmiths/features/home/presentation/widgets/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../../core/utils/style.dart';
+import '../widgets/add_button.dart';
 import '../widgets/filter_button.dart';
 import '../widgets/article_card.dart';
 import '../widgets/profile.dart';
@@ -12,9 +14,10 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: whiteColor,
         leading: Padding(
             padding: EdgeInsets.all(15),
             child: Container(
@@ -24,7 +27,7 @@ class HomePage extends StatelessWidget {
         title: Center(
             child: Text("Welcome  Back!",
                 style: myTextStyle.copyWith(
-                    color: Colors.black,
+                    color: blackColor,
                     fontSize: 25,
                     fontWeight: FontWeight.w800))),
         actions: [ProfilePic()],
@@ -61,12 +64,16 @@ class HomePage extends StatelessWidget {
                 children: [
                   ArticleCard(),
                   ArticleCard(),
+                  SizedBox(
+                    height: 70,
+                  ),
                 ],
               ),
             ),
           ],
         ),
       ),
+      floatingActionButton: AddButton(),
     );
   }
 }

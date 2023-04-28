@@ -1,69 +1,77 @@
+import 'package:dartsmiths/core/utils/colors.dart';
+import 'package:dartsmiths/core/utils/style.dart';
+import 'package:dartsmiths/core/utils/ui_converter.dart';
 import 'package:flutter/material.dart';
+
 class Searchbar extends StatelessWidget {
   const Searchbar({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
-    Color _color =
-        Color(int.parse("#669AFF".substring(1, 7), radix: 16) + 0xFF000000);
     return Padding(
-      padding: EdgeInsets.only(left: 15, right: 15, top: 20, bottom: 10),
+      padding: EdgeInsets.only(
+          left: UIConverter.getComponentWidth(context, 15),
+          right: UIConverter.getComponentWidth(context, 15),
+          top: UIConverter.getComponentHeight(context, 20),
+          bottom: UIConverter.getComponentHeight(context, 10)),
       child: Container(
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
+            color: whiteColor,
+            borderRadius: BorderRadius.circular(
+                UIConverter.getComponentWidth(context, 10)),
           ),
           child: Padding(
-            padding: EdgeInsets.only(left: 20),
+            padding: EdgeInsets.only(
+                left: UIConverter.getComponentWidth(context, 15)),
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    child: Text(
-                      "Search and article ..",
-                      style: TextStyle(
-                          letterSpacing: 1,
-                          fontFamily: "Poppins",
+                    child: Text("Search and article ..",
+                        style: myTextStyle.copyWith(
+                          letterSpacing:
+                              UIConverter.getComponentWidth(context, 1),
                           fontWeight: FontWeight.w100,
-                          fontSize: 16,
-                          color: Color(
-                              int.parse("#9A9494".substring(1, 7), radix: 16) +
-                                  0xFF000000)),
-                    ),
-                    color: Colors.white,
+                          fontSize: UIConverter.getComponentWidth(context, 10),
+                          color: Colors.grey,
+                        )),
+                    color: whiteColor,
                   ),
                   Container(
                     decoration: BoxDecoration(
-                        color: _color, borderRadius: BorderRadius.circular(10)),
-                    width: 55,
-                    height: 60,
-                    
+                        color: secondaryColor,
+                        borderRadius: BorderRadius.circular(
+                            UIConverter.getComponentWidth(context, 10))),
+                    width: UIConverter.getComponentWidth(context, 40),
+                    height: UIConverter.getComponentHeight(context, 60),
                     child: IconButton(
                         onPressed: () => {},
                         icon: Icon(
-                          size: 35,
+                          size: UIConverter.getComponentWidth(context, 20),
                           Icons.search_sharp,
-                          color: Colors.white,
+                          color: whiteColor,
                         )),
                   ),
                 ]),
           ),
           width: double.infinity,
-          height: 220,
+          height: UIConverter.getComponentHeight(context, 220),
         ),
         width: double.infinity,
-        height: 50,
+        height: UIConverter.getComponentHeight(context, 60),
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.3),
-              spreadRadius: 5,
-              blurRadius: 9,
-              offset: Offset(0, 9),
+              spreadRadius: UIConverter.getComponentWidth(context, 5),
+              blurRadius: UIConverter.getComponentWidth(context, 9),
+              offset: Offset(UIConverter.getComponentWidth(context, 0),
+                  UIConverter.getComponentHeight(context, 9)),
             )
           ],
-          borderRadius: BorderRadius.circular(10),
+          borderRadius:
+              BorderRadius.circular(UIConverter.getComponentWidth(context, 10)),
         ),
       ),
     );
