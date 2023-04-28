@@ -1,8 +1,9 @@
 import 'package:dark_knights/features/signup/presentation/screen/signup_page.dart';
 import 'package:flutter/material.dart';
+import 'features/write_article/presentation/screen/write_article.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const WriteArticle());
 }
 
 class MyApp extends StatelessWidget {
