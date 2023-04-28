@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { AiOutlineMenu } from 'react-icons/ai'
 import logo from '../../public/img/a2sv-logo.png'
-import { navItems } from './data/nav-items'
+import { navItems } from '@/data/layout/nav-items'
 
 const Navbar: React.FC = () => {
   const [toggle, setToggle] = useState(false)
@@ -51,7 +51,6 @@ const Navbar: React.FC = () => {
           z-50 bg-gray-100 bg-opacity-100
           `}
         >
-          {' '}
           {navItems.map((navItem, index) => (
             <Link
               href={navItem.href}
