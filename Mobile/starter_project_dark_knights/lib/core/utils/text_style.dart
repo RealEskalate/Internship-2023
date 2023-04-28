@@ -1,7 +1,7 @@
 import 'package:dark_knights/features/Authentication/presentation/screen/log_in_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/colors.dart';
+import 'colors.dart';
 
 class TextStyles {
   static const welcomeBack = TextStyle(
