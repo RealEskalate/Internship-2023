@@ -30,11 +30,11 @@ export default function SucessStory() {
               {successStories.map((successStory, index) => (
                 <div
                   key={index}
-                  className={`flex flex-col lg:flex-row justify-center ml-2 mt-20 ${
+                  className={`flex flex-col lg:flex-row justify-center lg:items-center ml-2 mt-20 ${
                     index % 2 === 1 ? 'lg:flex-row-reverse' : ''
                   }`}
                 >
-                  <div className="  lg:block">
+                  <div className="md:ml-6 lg:block">
                     <SuccessImageCard
                       name={successStory.personName}
                       image={successStory.imgURL}
