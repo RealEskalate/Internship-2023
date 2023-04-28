@@ -17,19 +17,6 @@ const StoryPage: React.FC = () => {
         </div>
       </div>
       
-      {/* <div className={`flex ${imagesData.length % 2 === 1 ? 'flex-col' : 'flex-row'} justify-center mt-8`}>
-        {imagesData.map((data, index) => (
-          <div key={index} className={`flex justify-center mt-20 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`} >
-            <div className="lg:block">
-            <GlassImage image={data.imageURL} name={data.personName} job={data.role} location={data.location}/>
-            </div>
-            <div className="mt-0 max-w-xl">
-              {data.story.map(text => <TextSection heading={text.heading} paragraph={text.paragraph}/>)}
-            </div>
-          </div>
-        ))}
-      </div> */}
-
       <div className={`flex flex-col md:flex-row ${imagesData.length % 2 === 1 ? 'md:flex-col' : 'md:flex-row'} justify-center items-center md:items-start mt-8`}>
         {imagesData.map((data, index) => (
           <div key={index} className={`flex flex-col md:flex-row justify-center mt-20 items-center md:justify-start ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
