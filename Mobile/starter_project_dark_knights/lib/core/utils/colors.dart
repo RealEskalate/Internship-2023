@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 const Color scaffoldBackground = Color(0xFFE6EAF1);
 const Color whiteColor = Colors.white;
+
 const Color blackColor = Colors.black;
 const Color primaryTextColor = Color(0xFF0D253C);
 const Color secondaryTextColor = Color(0xFF2d4379);
