@@ -4,15 +4,6 @@ import { useState, useEffect } from "react";
 import { Blog } from "@/types/blog";
 import BlogCard from "@/components/blog/BlogCard";
 
-
-// Fetch blogs from dummy-blogs-data.json file 
-const fetchBlogs = async (): Promise<Blog[]> => {
-  const res = await fetch("/data/dummy-blogs-data.json");
-  const data = await res.json();
-  
-  return data;
-};
-
 const MyBlogs: NextPage = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
 
@@ -22,9 +13,10 @@ const MyBlogs: NextPage = () => {
   
   useEffect(() => {
     const fetchData = async () => {
-      const allBlogs = await fetchBlogs();
-      const userBlogs = allBlogs.filter((blog) => blog.userID === userID);
-      setBlogs(userBlogs);
+        const res = await fetch("/api/blogs");
+        const allBlogs = await res.json();
+        const userBlogs = allBlogs.filter((blog : Blog) => blog.userID === userID);
+        setBlogs(userBlogs);
     };
 
     if (userID) {
