@@ -2,8 +2,11 @@ import Image from 'next/image'
 import { FiMessageSquare } from 'react-icons/fi'
 import { TbClockFilled } from 'react-icons/tb'
 import { Blog } from '../../types/blog/blog'
+interface Props {
+  blog: Blog
+}
 
-const BlogCard: React.FC<{ blog: Blog }> = ({ blog }) => {
+const BlogCard: React.FC<Props> = ({ blog }) => {
   const numberFormater = (num: number) => {
     if (num >= 1e6) return +(num / 1e6).toFixed(1) + 'm'
     if (num >= 1e3) return +(num / 1e3).toFixed(1) + 'k'
