@@ -1,8 +1,17 @@
+import 'package:dartsmiths/features/login/presentation/widgets/custom_login_text.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/utils/colors.dart';
+import '../../../../core/utils/ui_converter.dart';
 
-class LoginCard extends StatelessWidget {
+class LoginCard extends StatefulWidget {
   const LoginCard({super.key});
+
+  @override
+  State<LoginCard> createState() => _LoginCardState();
+}
+
+class _LoginCardState extends State<LoginCard> {
+  bool isObsecured = true;
 
   @override
   Widget build(BuildContext context) {
@@ -10,12 +19,17 @@ class LoginCard extends StatelessWidget {
       child: Container(
         decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(25),
-              topRight: Radius.circular(25),
+              topLeft: Radius.circular(16),
+              topRight: Radius.circular(16),
             ),
             color: whiteColor),
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(30, 15, 30, 0),
+          padding: EdgeInsets.fromLTRB(
+            UIConverter.getComponentWidth(context, 40),
+            UIConverter.getComponentHeight(context, 32),
+            UIConverter.getComponentWidth(context, 40),
+            UIConverter.getComponentHeight(context, 0),
+          ),
           child: Column(
             children: [
               Column(children: [
@@ -23,82 +37,105 @@ class LoginCard extends StatelessWidget {
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text(
+                      children: [
+                        const Text(
                           "Welcome back",
                           style: TextStyle(
-                              fontWeight: FontWeight.w500, fontSize: 20),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                            fontFamily: 'Urbanist',
+                          ),
                         ),
                         SizedBox(
-                          height: 10,
+                          height: UIConverter.getComponentHeight(context, 10),
                         ),
-                        Text(
+                        const Text(
                           "Sign in with your account",
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                            fontSize: 10,
+                            color: secondaryTextColor,
+                            fontWeight: FontWeight.w800,
+                          ),
                         ),
                       ],
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 25,
+                SizedBox(
+                  // height: UIConverter.getComponentHeight(context, 40),
+                  height: MediaQuery.of(context).size.height * 0.0166666666,
                 ),
                 TextFormField(
                   decoration: const InputDecoration(
                       label: Text(
                         "Username",
+                        style: TextStyle(
+                            fontStyle: FontStyle.italic, fontSize: 14),
                       ),
-                      hintText: "Jonathandavis@gmail.com"),
+                      hintText: "Jonathandavis@gmail.com",
+                      hintStyle: TextStyle(fontSize: 12)),
                 ),
                 TextFormField(
-                  obscureText: true,
+                  obscureText: isObsecured,
                   decoration: InputDecoration(
                       label: const Text(
                         "Password",
+                        style: TextStyle(
+                            fontStyle: FontStyle.italic, fontSize: 14),
                       ),
-                      suffixIcon: TextButton(
-                        onPressed: () {},
+                      suffix: InkWell(
+                        onTap: () {
+                          setState(() {
+                            isObsecured = !isObsecured;
+                          });
+                        },
                         child: const Text(
                           "Show",
-                          style: TextStyle(color: primaryColor),
+                          style: TextStyle(color: primaryColor, fontSize: 10),
                         ),
-                      )
-                      // suffixIcon: Text(
-                      //   "show",
-                      //   style: TextStyle(
-                      //     color: primaryColor,
-                      //   ),
-                      // ),
                       ),
-                ),
-                const SizedBox(
-                  height: 50,
+                      hintStyle: const TextStyle(fontSize: 12)),
                 ),
                 SizedBox(
-                  height: 60,
-                  width: 295,
-                  child: ElevatedButton(
-                    onPressed: () => {},
-                    child: const Text("LOGIN"),
-                  ),
+                  height: UIConverter.getComponentHeight(context, 150),
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: UIConverter.getComponentHeight(context, 60),
+                  width: UIConverter.getComponentWidth(context, 295),
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: primaryColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      onPressed: () => {},
+                      child: const CustomLoginText(str: "LOGIN")),
+                ),
+                SizedBox(
+                  height: UIConverter.getComponentHeight(context, 15),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text(
+                  children: [
+                    const Text(
                       "Forgot your password?",
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 10,
+                        color: secondaryTextColor,
+                        fontWeight: FontWeight.w800,
+                      ),
                     ),
                     SizedBox(
-                      width: 5,
+                      width: UIConverter.getComponentHeight(context, 10),
                     ),
-                    Text(
-                      "Reset here",
-                      style: TextStyle(color: primaryColor),
-                    )
+                    InkWell(
+                      onTap: () {},
+                      child: const Text(
+                        "Reset here",
+                        style: TextStyle(color: primaryColor, fontSize: 10),
+                      ),
+                    ),
                   ],
                 )
               ]),
