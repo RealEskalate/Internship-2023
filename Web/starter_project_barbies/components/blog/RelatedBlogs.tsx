@@ -9,11 +9,6 @@ export const RelatedBlogs: React.FC<RelatedBlogsProps> = ({ blog }) => {
   // Fetch related blogs
   let relatedBlogs: Blog[] = new Array(3).fill(blog);
 
-  let relatedBlogComponents = []
-  for (let blog of relatedBlogs) {
-    relatedBlogComponents.push(BlogCard({ blog }))
-  }
-
   return (
     <div className='font-montserrat'>
 
@@ -24,7 +19,7 @@ export const RelatedBlogs: React.FC<RelatedBlogsProps> = ({ blog }) => {
 
       {/* Related blogs */}
       <div className='flex items-center gap-8 justify-center mt-6 text-xs'>
-        {relatedBlogComponents}
+        { relatedBlogs.map((blog) => (BlogCard({ blog }))) }
       </div>
 
     </div>
