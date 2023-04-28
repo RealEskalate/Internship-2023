@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../core/utils/colors.dart';
-import 'navigation.dart';
 import 'buttons.dart';
+import '../../../../core/utils/style.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});
@@ -21,13 +21,13 @@ class _SignUpFormState extends State<SignUpForm> {
       children: [
         Column(
           children: [
-            const Align(
+            Align(
               alignment: Alignment.centerLeft,
               child: Text(
                 'Welcome',
                 style: TextStyle(
                     fontWeight: FontWeight.w700,
-                    fontSize: 24,
+                    fontSize: screenHeight * 0.03,
                     fontFamily: "Urbanist"),
               ),
             ),
@@ -42,35 +42,31 @@ class _SignUpFormState extends State<SignUpForm> {
             ),
           ],
         ),
+
         SizedBox(height: screenHeight * 0.04),
         //Username text field
-        const TextField(
-          decoration: InputDecoration(
+        TextField(
+            style: style(screenHeight, 0),
+            decoration: InputDecoration(
               labelText: 'Username',
               // suffixText: ,
-              labelStyle: TextStyle(
-                fontFamily: "Urbanist2",
-                fontSize: 20,
-                color: secondaryTextColor,
-                fontStyle: FontStyle.italic,
-              )),
-        ),
-        SizedBox(height: screenHeight * 0.07),
+              labelStyle: textStyle(screenHeight, 0.5),
+            )),
+        SizedBox(height: screenHeight * 0.05),
+
         //password text field
         TextField(
+          style: style(screenHeight, 9),
           decoration: InputDecoration(
             labelText: 'Password',
-            labelStyle: TextStyle(
-              // height: 50,
-              fontSize: 20,
-              fontStyle: FontStyle.italic,
-              fontFamily: "Urbanist2",
-              color: secondaryTextColor,
-            ),
+            labelStyle: textStyle(screenHeight, 0.5),
             // Adding a suffix text  to show/hide password
-            suffixIcon: TextButton(
-              child: Text(_showPassword ? 'show' : 'hide'),
-              onPressed: () {
+            suffixIcon: InkWell(
+              child: Text(
+                _showPassword ? 'show' : 'hide',
+                style: const TextStyle(color: secondaryColor),
+              ),
+              onTap: () {
                 setState(() {
                   _showPassword = !_showPassword;
                 });
@@ -81,11 +77,13 @@ class _SignUpFormState extends State<SignUpForm> {
         ),
 
         SizedBox(height: screenHeight * 0.15),
-        const SizedBox(
-          height: 60,
+
+        SizedBox(
+          height: screenHeight * 0.07,
           width: double.infinity,
-          child: button_widget(),
+          child: const ButtonWidget(),
         ),
+
         SizedBox(height: screenHeight * 0.02),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -97,9 +95,15 @@ class _SignUpFormState extends State<SignUpForm> {
                   fontFamily: "Poppins",
                   fontWeight: FontWeight.w700),
             ),
-            TextButton(
-              onPressed: () {},
-              child: const Text('Login'),
+            SizedBox(
+              width: screenHeight * 0.002,
+            ),
+            InkWell(
+              onTap: () {},
+              child: const Text(
+                "Login",
+                style: TextStyle(color: secondaryColor),
+              ),
             ),
           ],
         ),

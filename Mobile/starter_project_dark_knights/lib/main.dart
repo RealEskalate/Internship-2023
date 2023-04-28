@@ -1,4 +1,4 @@
-import 'package:dark_knights/features/signup/presentation/screen/pages/signup.dart';
+import 'package:dark_knights/features/signup/presentation/screen/signup_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -26,7 +26,9 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-        home: const SignUpPage());
+        home: const MyHomePage(
+          title: "FLutter demo",
+        ));
   }
 }
 
