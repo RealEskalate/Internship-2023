@@ -11,8 +11,8 @@ class AddButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 55,
-      height: 55,
+      width: UIConverter.getComponentWidth(context, 40),
+      height: UIConverter.getComponentHeight(context, 55),
       child: FloatingActionButton(
         backgroundColor: secondaryColor,
         onPressed: () => {},

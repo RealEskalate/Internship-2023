@@ -31,8 +31,8 @@ class ProfilePic extends StatelessWidget {
                             UIConverter.getComponentWidth(context, 10),
                           ),
                           border: Border.all(color: whiteColor, width: 2)),
-                      width: UIConverter.getComponentWidth(context, 20),
-                      height: UIConverter.getComponentHeight(context, 35),
+                      width: UIConverter.getComponentWidth(context, 15),
+                      height: UIConverter.getComponentWidth(context, 15),
                     )
                   ]),
             ),
