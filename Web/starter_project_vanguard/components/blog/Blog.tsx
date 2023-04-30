@@ -1,8 +1,7 @@
-import Text from '@/components/common/Text'
 import 'tailwindcss/base.css'
 import React, { FC, useState } from 'react'
 import Avatar from '../common/Avatar'
-import "typeface-montserrat";
+import 'typeface-montserrat'
 
 type MyTagProps = {
   tags: string[]
@@ -14,21 +13,6 @@ const Tags: FC<MyTagProps> = ({ tags }) => {
       {tags.map((tag, index) => (
         <Chip key={index} label={tag} />
       ))}
-    </div>
-  )
-}
-
-function Description() {
-  return (
-    <div className="pt-4 w-2/3">
-      <Text
-        children={
-          'Lorem ipsum dolor sit amLorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur et consectetur adipisicing elit. Blanditiis id deserunt dolor.'
-        }
-        color="gray-500"
-        weight="light"
-        size="lg"
-      />
     </div>
   )
 }
@@ -51,41 +35,6 @@ const Image: React.FC<ImageProps> = ({
   )
 }
 
-function Name() {
-  return (
-    <div className=" flex flex-col justify-center">
-      <Text
-        size="sm"
-        family="montserrat"
-        children={'Yididya Kebede'}
-        color="black"
-        weight="semibold"
-        className="block"
-      ></Text>
-
-      <Text
-        size="sm"
-        family="montserrat"
-        children={'SOFTWARE ENGINEER'}
-        color="gray-500"
-        className="flex "
-      />
-    </div>
-  )
-}
-
-function ProfilePic() {
-  return (
-    <div>
-      <Avatar
-        src="https://media.wired.com/photos/598e35fb99d76447c4eb1f28/16:9/w_2123,h_1194,c_limit/phonepicutres-TA.jpg"
-        alt="Avatar"
-        size="md"
-      />
-    </div>
-  )
-}
-
 type ChipProps = {
   label: string
 }
@@ -98,26 +47,6 @@ const Chip: FC<ChipProps> = ({ label }) => {
   )
 }
 
-function Title() {
-  return (
-    <div>
-      {/* <Text size="2xl" family="montserrat" children={'Yididya Kebede'} color="black"></Text> */}
-
-      <Text
-        size="2xl"
-        children={'The essential guide to Competitive Programming, '}
-        weight="bold"
-      />
-      <br />
-      <Text
-        size="2xl"
-        children={'Tab System On React : 3 ways to do it.'}
-        weight="bold"
-      />
-    </div>
-  )
-}
-
 function Blog() {
   return (
     <div className=" flex flex-wrap justify-center w-6/5 ">
@@ -125,32 +54,51 @@ function Blog() {
         <div className=" items-start w-3/5 pt-4 pb-4 pr-0">
           <div className="flex items-start">
             <div className="items-start my-4 mx-0">
-              {' '}
-              <ProfilePic />{' '}
+              <div>
+                <Avatar
+                  src="https://media.wired.com/photos/598e35fb99d76447c4eb1f28/16:9/w_2123,h_1194,c_limit/phonepicutres-TA.jpg"
+                  alt="Avatar"
+                  size="md"
+                />
+              </div>
             </div>
             <div className="self-center mx-3">
-              {' '}
-              <Name />{' '}
+              <div className=" flex flex-col justify-center">
+                <span className="text-sm font-montserrat text-black font-semibold block">
+                  Yididya Kebede
+                </span>
+                <span className="text-sm font-montserrat text-gray-500 flex font-medium">
+                  SOFTWARE ENGINEER
+                </span>
+              </div>
             </div>
             <div className="items-end self-center mx-5">
-              <Text
-                size="sm"
-                family="montserrat"
-                children={'April 20'}
-                color="black"
-                weight="light"
-              ></Text>
+              <span className="text-sm font-montserrat text-black font-light">
+                April 20
+              </span>
             </div>
           </div>
 
           <div className="flex flex-wrap">
             <div>
-              {' '}
-              <Title />{' '}
+              <div>
+                <span className="text-2xl font-bold font-montserrat">
+                  Lorem ipsum dolor sit amet consectetur
+                  <br />
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit...
+                </span>
+              </div>
             </div>
             <div>
               {' '}
-              <Description />{' '}
+              <div className="pt-4 w-2/3">
+                <span className="text-gray-500 font-light text-lg font-montserrat">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Quas, laudantium exercitationem eum eos incidunt magni
+                  veritatis fugit vero voluptate et eius officiis sequi nemo!
+                  Iusto nobis laudantium dignissimos veritatis voluptatibus.
+                </span>
+              </div>
             </div>
           </div>
           <div className="justify-start items-end">

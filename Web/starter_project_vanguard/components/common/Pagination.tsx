@@ -1,17 +1,21 @@
-import React from 'react';
+import React from 'react'
 
 interface Props {
-  currentPage: number;
-  totalPages: number;
-  onPageChange: (page: number) => void;
+  currentPage: number
+  totalPages: number
+  onPageChange: (page: number) => void
 }
 
-const Pagination: React.FC<Props> = ({ currentPage, totalPages, onPageChange }) => {
+const Pagination: React.FC<Props> = ({
+  currentPage,
+  totalPages,
+  onPageChange,
+}) => {
   const range = (start: number, end: number) =>
-    Array.from({ length: end - start + 1 }, (_, i) => i + start);
+    Array.from({ length: end - start + 1 }, (_, i) => i + start)
 
-  const pages = range(1, totalPages);
-  console.log(pages);
+  const pages = range(1, totalPages)
+  console.log(pages)
   return (
     <div className="flex justify-center mt-4">
       <nav className="block ">
@@ -33,7 +37,7 @@ const Pagination: React.FC<Props> = ({ currentPage, totalPages, onPageChange }) 
         </ul>
       </nav>
     </div>
-  );
-};
+  )
+}
 
-export default Pagination;
+export default Pagination
