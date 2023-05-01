@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dani wiz Jesus\\source\\repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\BlogApp\\BlogApp.Persistence\\BlogApp.Persistence.csproj": {}
+    "C:\\Users\\Dani wiz Jesus\\Source\\Repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\blogapp\\BlogApp.Persistence\\BlogApp.Persistence.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dani wiz Jesus\\source\\repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\BlogApp\\BlogApp.Application\\BlogApp.Application.csproj": {
+    "C:\\Users\\Dani wiz Jesus\\Source\\Repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\blogapp\\BlogApp.Application\\BlogApp.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dani wiz Jesus\\source\\repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\BlogApp\\BlogApp.Application\\BlogApp.Application.csproj",
+        "projectUniqueName": "C:\\Users\\Dani wiz Jesus\\Source\\Repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\blogapp\\BlogApp.Application\\BlogApp.Application.csproj",
         "projectName": "BlogApp.Application",
-        "projectPath": "C:\\Users\\Dani wiz Jesus\\source\\repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\BlogApp\\BlogApp.Application\\BlogApp.Application.csproj",
+        "projectPath": "C:\\Users\\Dani wiz Jesus\\Source\\Repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\blogapp\\BlogApp.Application\\BlogApp.Application.csproj",
         "packagesPath": "C:\\Users\\Dani wiz Jesus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dani wiz Jesus\\source\\repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\BlogApp\\BlogApp.Application\\obj\\",
+        "outputPath": "C:\\Users\\Dani wiz Jesus\\Source\\Repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\blogapp\\BlogApp.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Dani wiz Jesus\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Dani wiz Jesus\\source\\repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\BlogApp\\BlogApp.Domain\\BlogApp.Domain.csproj": {
-                "projectPath": "C:\\Users\\Dani wiz Jesus\\source\\repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\BlogApp\\BlogApp.Domain\\BlogApp.Domain.csproj"
+              "C:\\Users\\Dani wiz Jesus\\Source\\Repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\blogapp\\BlogApp.Domain\\BlogApp.Domain.csproj": {
+                "projectPath": "C:\\Users\\Dani wiz Jesus\\Source\\Repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\blogapp\\BlogApp.Domain\\BlogApp.Domain.csproj"
               }
             }
           }
@@ -77,14 +77,14 @@
         }
       }
     },
-    "C:\\Users\\Dani wiz Jesus\\source\\repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\BlogApp\\BlogApp.Domain\\BlogApp.Domain.csproj": {
+    "C:\\Users\\Dani wiz Jesus\\Source\\Repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\blogapp\\BlogApp.Domain\\BlogApp.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dani wiz Jesus\\source\\repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\BlogApp\\BlogApp.Domain\\BlogApp.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Dani wiz Jesus\\Source\\Repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\blogapp\\BlogApp.Domain\\BlogApp.Domain.csproj",
         "projectName": "BlogApp.Domain",
-        "projectPath": "C:\\Users\\Dani wiz Jesus\\source\\repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\BlogApp\\BlogApp.Domain\\BlogApp.Domain.csproj",
+        "projectPath": "C:\\Users\\Dani wiz Jesus\\Source\\Repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\blogapp\\BlogApp.Domain\\BlogApp.Domain.csproj",
         "packagesPath": "C:\\Users\\Dani wiz Jesus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dani wiz Jesus\\source\\repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\BlogApp\\BlogApp.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Dani wiz Jesus\\Source\\Repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\blogapp\\BlogApp.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Dani wiz Jesus\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -132,14 +132,14 @@
         }
       }
     },
-    "C:\\Users\\Dani wiz Jesus\\source\\repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\BlogApp\\BlogApp.Persistence\\BlogApp.Persistence.csproj": {
+    "C:\\Users\\Dani wiz Jesus\\Source\\Repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\blogapp\\BlogApp.Persistence\\BlogApp.Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dani wiz Jesus\\source\\repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\BlogApp\\BlogApp.Persistence\\BlogApp.Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\Dani wiz Jesus\\Source\\Repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\blogapp\\BlogApp.Persistence\\BlogApp.Persistence.csproj",
         "projectName": "BlogApp.Persistence",
-        "projectPath": "C:\\Users\\Dani wiz Jesus\\source\\repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\BlogApp\\BlogApp.Persistence\\BlogApp.Persistence.csproj",
+        "projectPath": "C:\\Users\\Dani wiz Jesus\\Source\\Repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\blogapp\\BlogApp.Persistence\\BlogApp.Persistence.csproj",
         "packagesPath": "C:\\Users\\Dani wiz Jesus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dani wiz Jesus\\source\\repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\BlogApp\\BlogApp.Persistence\\obj\\",
+        "outputPath": "C:\\Users\\Dani wiz Jesus\\Source\\Repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\blogapp\\BlogApp.Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Dani wiz Jesus\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -156,11 +156,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Dani wiz Jesus\\source\\repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\BlogApp\\BlogApp.Application\\BlogApp.Application.csproj": {
-                "projectPath": "C:\\Users\\Dani wiz Jesus\\source\\repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\BlogApp\\BlogApp.Application\\BlogApp.Application.csproj"
+              "C:\\Users\\Dani wiz Jesus\\Source\\Repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\blogapp\\BlogApp.Application\\BlogApp.Application.csproj": {
+                "projectPath": "C:\\Users\\Dani wiz Jesus\\Source\\Repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\blogapp\\BlogApp.Application\\BlogApp.Application.csproj"
               },
-              "C:\\Users\\Dani wiz Jesus\\source\\repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\BlogApp\\BlogApp.Domain\\BlogApp.Domain.csproj": {
-                "projectPath": "C:\\Users\\Dani wiz Jesus\\source\\repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\BlogApp\\BlogApp.Domain\\BlogApp.Domain.csproj"
+              "C:\\Users\\Dani wiz Jesus\\Source\\Repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\blogapp\\BlogApp.Domain\\BlogApp.Domain.csproj": {
+                "projectPath": "C:\\Users\\Dani wiz Jesus\\Source\\Repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\blogapp\\BlogApp.Domain\\BlogApp.Domain.csproj"
               }
             }
           }

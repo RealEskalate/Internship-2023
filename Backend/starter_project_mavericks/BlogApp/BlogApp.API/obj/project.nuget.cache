@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PLv9ww5Tl9OrudrDdrzpzJkZD8Zpvab488Fk9OwW20nAYECO73IFHeDoBIi89xL3UGk/Iex6igONBZ77LCo6gQ==",
+  "dgSpecHash": "5Wwva5cCdbAcXKIhdq8Qj7OFhVP10qy4bEpQ4eevzrRZw0FuiOAL++7L4VT0Ol+VnxEUZ5Eqt6Ic7KI/2/XfDQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dani wiz Jesus\\source\\repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\BlogApp\\BlogApp.API\\BlogApp.API.csproj",
+  "projectFilePath": "C:\\Users\\Dani wiz Jesus\\Source\\Repos\\RealEskalate\\Internship-2023\\Backend\\starter_project_mavericks\\blogapp\\BlogApp.API\\BlogApp.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dani wiz Jesus\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Dani wiz Jesus\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
