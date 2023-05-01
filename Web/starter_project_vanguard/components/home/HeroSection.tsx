@@ -13,7 +13,7 @@ const HeroSection: React.FC = () => {
               <span className="text-primary"> Silicon Valley</span>
             </h1>
 
-            <p className="mt-5 text-gray-700 whitespace-normal sm:text-lg">
+            <p className="mt-5 whitespace-normal text-primary-text sm:text-lg">
               A2SV up-skills high-potential university students, connects them
               with opportunities at top tech companies.
             </p>
