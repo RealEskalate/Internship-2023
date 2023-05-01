@@ -1,0 +1,15 @@
+C:\Users\Dani wiz Jesus\source\repos\RealEskalate\Internship-2023\Backend\starter_project_mavericks\BlogApp\BlogApp.Application\bin\Debug\net6.0\BlogApp.Application.deps.json
+C:\Users\Dani wiz Jesus\source\repos\RealEskalate\Internship-2023\Backend\starter_project_mavericks\BlogApp\BlogApp.Application\bin\Debug\net6.0\BlogApp.Application.dll
+C:\Users\Dani wiz Jesus\source\repos\RealEskalate\Internship-2023\Backend\starter_project_mavericks\BlogApp\BlogApp.Application\bin\Debug\net6.0\BlogApp.Application.pdb
+C:\Users\Dani wiz Jesus\source\repos\RealEskalate\Internship-2023\Backend\starter_project_mavericks\BlogApp\BlogApp.Application\bin\Debug\net6.0\BlogApp.Domain.dll
+C:\Users\Dani wiz Jesus\source\repos\RealEskalate\Internship-2023\Backend\starter_project_mavericks\BlogApp\BlogApp.Application\bin\Debug\net6.0\BlogApp.Domain.pdb
+C:\Users\Dani wiz Jesus\source\repos\RealEskalate\Internship-2023\Backend\starter_project_mavericks\BlogApp\BlogApp.Application\obj\Debug\net6.0\BlogApp.Application.csproj.AssemblyReference.cache
+C:\Users\Dani wiz Jesus\source\repos\RealEskalate\Internship-2023\Backend\starter_project_mavericks\BlogApp\BlogApp.Application\obj\Debug\net6.0\BlogApp.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dani wiz Jesus\source\repos\RealEskalate\Internship-2023\Backend\starter_project_mavericks\BlogApp\BlogApp.Application\obj\Debug\net6.0\BlogApp.Application.AssemblyInfoInputs.cache
+C:\Users\Dani wiz Jesus\source\repos\RealEskalate\Internship-2023\Backend\starter_project_mavericks\BlogApp\BlogApp.Application\obj\Debug\net6.0\BlogApp.Application.AssemblyInfo.cs
+C:\Users\Dani wiz Jesus\source\repos\RealEskalate\Internship-2023\Backend\starter_project_mavericks\BlogApp\BlogApp.Application\obj\Debug\net6.0\BlogApp.Application.csproj.CoreCompileInputs.cache
+C:\Users\Dani wiz Jesus\source\repos\RealEskalate\Internship-2023\Backend\starter_project_mavericks\BlogApp\BlogApp.Application\obj\Debug\net6.0\BlogApp.Application.csproj.CopyComplete
+C:\Users\Dani wiz Jesus\source\repos\RealEskalate\Internship-2023\Backend\starter_project_mavericks\BlogApp\BlogApp.Application\obj\Debug\net6.0\BlogApp.Application.dll
+C:\Users\Dani wiz Jesus\source\repos\RealEskalate\Internship-2023\Backend\starter_project_mavericks\BlogApp\BlogApp.Application\obj\Debug\net6.0\refint\BlogApp.Application.dll
+C:\Users\Dani wiz Jesus\source\repos\RealEskalate\Internship-2023\Backend\starter_project_mavericks\BlogApp\BlogApp.Application\obj\Debug\net6.0\BlogApp.Application.pdb
+C:\Users\Dani wiz Jesus\source\repos\RealEskalate\Internship-2023\Backend\starter_project_mavericks\BlogApp\BlogApp.Application\obj\Debug\net6.0\ref\BlogApp.Application.dll

@@ -1,0 +1,12 @@
+C:\Users\Dani wiz Jesus\source\repos\RealEskalate\Internship-2023\Backend\starter_project_mavericks\BlogApp\BlogApp.Domain\bin\Debug\net6.0\BlogApp.Domain.deps.json
+C:\Users\Dani wiz Jesus\source\repos\RealEskalate\Internship-2023\Backend\starter_project_mavericks\BlogApp\BlogApp.Domain\bin\Debug\net6.0\BlogApp.Domain.dll
+C:\Users\Dani wiz Jesus\source\repos\RealEskalate\Internship-2023\Backend\starter_project_mavericks\BlogApp\BlogApp.Domain\bin\Debug\net6.0\BlogApp.Domain.pdb
+C:\Users\Dani wiz Jesus\source\repos\RealEskalate\Internship-2023\Backend\starter_project_mavericks\BlogApp\BlogApp.Domain\obj\Debug\net6.0\BlogApp.Domain.csproj.AssemblyReference.cache
+C:\Users\Dani wiz Jesus\source\repos\RealEskalate\Internship-2023\Backend\starter_project_mavericks\BlogApp\BlogApp.Domain\obj\Debug\net6.0\BlogApp.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dani wiz Jesus\source\repos\RealEskalate\Internship-2023\Backend\starter_project_mavericks\BlogApp\BlogApp.Domain\obj\Debug\net6.0\BlogApp.Domain.AssemblyInfoInputs.cache
+C:\Users\Dani wiz Jesus\source\repos\RealEskalate\Internship-2023\Backend\starter_project_mavericks\BlogApp\BlogApp.Domain\obj\Debug\net6.0\BlogApp.Domain.AssemblyInfo.cs
+C:\Users\Dani wiz Jesus\source\repos\RealEskalate\Internship-2023\Backend\starter_project_mavericks\BlogApp\BlogApp.Domain\obj\Debug\net6.0\BlogApp.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Dani wiz Jesus\source\repos\RealEskalate\Internship-2023\Backend\starter_project_mavericks\BlogApp\BlogApp.Domain\obj\Debug\net6.0\BlogApp.Domain.dll
+C:\Users\Dani wiz Jesus\source\repos\RealEskalate\Internship-2023\Backend\starter_project_mavericks\BlogApp\BlogApp.Domain\obj\Debug\net6.0\refint\BlogApp.Domain.dll
+C:\Users\Dani wiz Jesus\source\repos\RealEskalate\Internship-2023\Backend\starter_project_mavericks\BlogApp\BlogApp.Domain\obj\Debug\net6.0\BlogApp.Domain.pdb
+C:\Users\Dani wiz Jesus\source\repos\RealEskalate\Internship-2023\Backend\starter_project_mavericks\BlogApp\BlogApp.Domain\obj\Debug\net6.0\ref\BlogApp.Domain.dll
