@@ -30,7 +30,7 @@ const TextEditor: React.FC<QuillProps> = ({ value, onChange }) => {
         }}
         value={value}
         onChange={(content) => onChange(content)}
-        className='h-28 '
+        className='h-36 lg:h-28 '
       />
     </div>
   );

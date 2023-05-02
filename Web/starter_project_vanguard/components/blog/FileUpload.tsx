@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 const FileUpload = () => {
   return (
-    <div className="w-full mb-16 h-3/4  mt-8 bg-gray-100 rounded-lg flex items-center justify-center flex-col p-5">
+    <div className="w-full mb-16 h-1/2   lg:h-2/3  mt-8 bg-gray-100 rounded-lg flex items-center justify-center flex-col p-2 lg:p-5">
 
       <Image src='/images/illustration.jpg' alt="illustration image" width={200} height={200}/>
 
