@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Roboto&display=swap');
+@tailwind base;
+@tailwind components;
+
+.btn {
+  @apply px-9 py-2 font-medium block transition ease-in-out duration-300 bg-primary text-white rounded-md leading-snug whitespace-nowrap hover:bg-blue-900 text-base;
+}
+
+.btn.btn-sm {
+  @apply px-4 py-2 text-sm;
+}
+
+.btn.btn-lg {
+  @apply px-14 py-3;
+}
+
+.btn.btn-md {
+  @apply px-9 py-2;
+}
+
+.btn.btn-pill {
+  @apply rounded-full;
+}
+
+.btn-outline {
+  @apply text-primary-text border bg-gray-100 hover:bg-white hover:border-primary hover:text-primary;
+}
+
+.btn-outline.btn-active {
+  @apply bg-white border-primary text-primary;
+}
+
+
+@tailwind utilities;

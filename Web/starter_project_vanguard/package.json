@@ -1,0 +1,43 @@
+{
+  "name": "starter-project",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prettier": "prettier --write .",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.3",
+    "@types/node": "18.15.11",
+    "@types/react": "18.0.35",
+    "@types/react-dom": "18.0.11",
+    "@types/react-redux": "^7.1.25",
+    "autoprefixer": "10.4.14",
+    "eslint": "8.38.0",
+    "eslint-config-next": "13.3.0",
+    "formik": "^2.2.9",
+    "next": "13.3.0",
+    "postcss": "8.4.21",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.8.0",
+    "react-redux": "^8.0.5",
+    "sass": "^1.62.0",
+    "tailwindcss": "3.3.1",
+    "typescript": "5.0.4",
+    "yup": "^1.1.0"
+  },
+  "devDependencies": {
+    "clsx": "^1.2.1",
+    "cypress": "^12.9.0",
+    "prettier": "^2.8.7"
+  }
+}
