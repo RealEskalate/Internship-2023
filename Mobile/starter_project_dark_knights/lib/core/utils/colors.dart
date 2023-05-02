@@ -13,3 +13,4 @@ const Color darkPrimaryColor = Color(0xFF2151CD);
 const Color lightPrimaryColorGradient = Color(0xFF9CECFB);
 const Color darkPrimaryColorGradient = Color(0xFF376AED);
 const Color imageShadowColor = Color.fromARGB(255, 191, 191, 191);
+const Color BlueCardColor = Color(0xFF386BED);
