@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/add_tags.dart';
 import '../widgets/add_article_content.dart';
-import '../widgets/add_subtitle.dart';
-import '../widgets/add_title.dart';
 import '../widgets/publish_button.dart';
 import '../widgets/title_bar.dart';
 import '../widgets/text_fields.dart';
