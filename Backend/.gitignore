@@ -1082,3 +1082,9 @@ msbuild.wrn
 
 # Visual Studio 2015
 .vs/
+**/obj/
+**/Debug/
+**/net6.0/
+**/net7.0/
+**/bin/
+**/.vs/
