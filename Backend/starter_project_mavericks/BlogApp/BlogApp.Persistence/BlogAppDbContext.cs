@@ -7,8 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using BlogApp.Domain;
 using BlogApp.Domain.Common;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
 
 namespace BlogApp.Persistence
 {
@@ -19,6 +17,11 @@ namespace BlogApp.Persistence
         {
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
             AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(BlogAppDbContext).Assembly);
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
@@ -33,6 +36,8 @@ namespace BlogApp.Persistence
                     entry.Entity.DateCreated = DateTime.Now;
                 }
             }
+
+
             return base.SaveChangesAsync(cancellationToken);
         }
 

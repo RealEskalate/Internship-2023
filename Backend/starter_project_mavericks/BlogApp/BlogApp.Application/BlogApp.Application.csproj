@@ -8,7 +8,9 @@
 
   <ItemGroup>
     <Folder Include="Constants\" />
+    <Folder Include="Contracts\Identity\" />
     <Folder Include="Contracts\Infrastructure\" />
+    <Folder Include="Models\" />
   </ItemGroup>
 
   <ItemGroup>
