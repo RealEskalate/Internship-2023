@@ -92,7 +92,7 @@ flutter:
         - asset: assets/fonts/Poppins-Regular.ttf
           weight: 400
         - asset: assets/fonts/Urbanist-Medium.ttf
-        - asset: assets/fonts/Urbanist-Thin.ttf
+        - asset: assets/fonts/Urbanist-Light.ttf
   
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
