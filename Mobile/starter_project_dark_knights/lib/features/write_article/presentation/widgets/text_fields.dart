@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/utils/colors.dart';
 
 class AddTitleAndSubtitle extends StatelessWidget {
   const AddTitleAndSubtitle({super.key});
@@ -16,7 +17,7 @@ class AddTitleAndSubtitle extends StatelessWidget {
                     labelText: 'Add title',
                     labelStyle: TextStyle(
                       fontFamily: 'Poppins',
-                      color: Color.fromARGB(255, 209, 209, 207),),
+                      color: textFieldTextColor,),
                   ),
                 ),
               ),
@@ -29,7 +30,7 @@ class AddTitleAndSubtitle extends StatelessWidget {
                     labelText: 'Add subtitle',
                     labelStyle: TextStyle(
                       fontFamily: 'Poppins',
-                      color: Color.fromARGB(255, 209, 209, 207),
+                      color: textFieldTextColor,
                       fontSize: 16,
                       ),
                   ),

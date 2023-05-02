@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../../../../core/utils/colors.dart';
 
 class PublishButton extends StatelessWidget {
   const PublishButton({super.key});
@@ -17,12 +17,12 @@ class PublishButton extends StatelessWidget {
                     height: 50,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
-                      color: const Color.fromRGBO(55, 106, 237, 1),
+                      color:  primaryColor,
                     ),
                     child:const Center(child: Text('Publish',
                     style: TextStyle(
                       fontFamily: 'Poppins',
-                      color: Color.fromRGBO(255, 255, 255, 1),
+                      color: whiteColor,
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
 

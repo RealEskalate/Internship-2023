@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
+import '../../../../core/utils/colors.dart';
 
 class TitleBar extends StatelessWidget {
     TitleBar({super.key});
   
-  TextStyle myTextStyle = const TextStyle(
-    color: Colors.black,
-    fontSize: 24.0,
-    fontFamily: 'Poppins', 
-  );
 
   @override
   Widget build(BuildContext context) {
@@ -20,24 +16,24 @@ class TitleBar extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       child: Container(
                         decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 240, 239, 238),
+                          color: textFieldTextColor,
                           borderRadius:BorderRadius.all(Radius.circular(13)), 
                         ),
                         padding:const EdgeInsets.fromLTRB(1,1,1,1),
                         child: Material(
-                          color: Colors.transparent,
+                          color: transparentBlack,
                           borderRadius:const BorderRadius.all(Radius.circular(13)),
                           child: IconButton(
-                            splashColor: const Color.fromARGB(255, 84, 83, 82),
+                            splashColor: tertiaryColor,
                             splashRadius: 100,
                             onPressed: (){},
-                            icon: const Icon(Icons.arrow_back_ios_new_sharp,color: Color.fromARGB(255, 131, 130, 129),size: 20, )),
+                            icon: const Icon(Icons.arrow_back_ios_new_sharp,color: tertiaryColor,size: 20, )),
                         )),
                     ),
-                    Align(
+                    const Align(
                       alignment: Alignment.center,
                       child: Text('New Article',
-                      style:myTextStyle,
+                      style: titleTextStyle,
                       
                       )
                     )

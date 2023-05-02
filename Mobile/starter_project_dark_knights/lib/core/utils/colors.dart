@@ -12,3 +12,10 @@ const Color tertiaryColor = Color(0xFF5E5F6F);
 const Color darkPrimaryColor = Color(0xFF2151CD);
 const Color lightPrimaryColorGradient = Color(0xFF9CECFB);
 const Color darkPrimaryColorGradient = Color(0xFF376AED);
+const Color textFieldTextColor = Color.fromARGB(255, 209, 209, 207);
+const Color transparentBlack = Colors.transparent;
+const TextStyle titleTextStyle =  TextStyle(
+    color: Colors.black,
+    fontSize: 24.0,
+    fontFamily: 'Poppins', 
+  );

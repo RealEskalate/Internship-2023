@@ -1,4 +1,5 @@
 import 'dart:math';
+import '../../../../core/utils/colors.dart';
 
 import 'package:flutter/material.dart';
 
@@ -39,7 +40,7 @@ class _TagSelectorState extends State<TagSelector> {
                       labelText: 'Add Tags',
                       labelStyle: TextStyle(
                         fontFamily: 'Poppins',
-                        color: Color.fromARGB(255, 209, 209, 207),
+                        color: whiteColor,
                       ),
                     ),
                   ),
@@ -51,7 +52,7 @@ class _TagSelectorState extends State<TagSelector> {
                         'add as many tags as you want',
                         style: TextStyle(
                           fontFamily: 'Poppins',
-                          color: Color.fromARGB(255, 209, 209, 207),
+                          color: whiteColor,
                           fontSize: 10,
                         ),
                       ),
@@ -70,7 +71,7 @@ class _TagSelectorState extends State<TagSelector> {
                               deleteIcon:const CircleAvatar(
                                 backgroundColor: Color.fromRGBO(55, 106, 237, 0.15),
                                 child:  Icon(
-                                  Icons.close, color: Color.fromRGBO(59, 113, 253, 1),size: 14,
+                                  Icons.close, color: primaryColor,size: 14,
                                 ),
                               ),
                               onDeleted: () {
@@ -78,18 +79,18 @@ class _TagSelectorState extends State<TagSelector> {
                                   _tags.remove(i);
                                 });
                               },
-                              deleteIconColor: const Color.fromRGBO(59, 113, 253, 1),
-                              backgroundColor: Colors.white,
+                              deleteIconColor:  primaryColor,
+                              backgroundColor: whiteColor,
                               label: Text(i),
                               labelStyle: const TextStyle(
-                                color: Color.fromRGBO(59, 113, 253, 1),
+                                color: primaryColor,
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w500,
                               ),
                               shape: const StadiumBorder(
                                       side: BorderSide(
                                         width: 2,
-                                        color: Color.fromRGBO(59, 113, 253, 1),
+                                        color: primaryColor,
                                       )),
                             ),
                         ],
@@ -112,7 +113,7 @@ class _TagSelectorState extends State<TagSelector> {
                 },
                 icon: const Icon(
                   Icons.add_circle_outline,
-                  color: Color.fromRGBO(59, 113, 253, 1),
+                  color: primaryColor,
                   size: 35,
                 ),
               ),
