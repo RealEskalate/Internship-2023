@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dartsmiths/core/utils/article_page_styles.dart';
 import '../widgets/chips_builder.dart';
+import '../widgets/custom_textfield.dart';
 
 import '../../../../core/utils/colors.dart';
 
@@ -58,7 +59,7 @@ class _PostArticlePageState extends State<PostArticlePage> {
                           height: windowWidth * 0.1,
                           decoration: const BoxDecoration(
                               borderRadius:
-                                   BorderRadius.all(Radius.circular(11)),
+                                  BorderRadius.all(Radius.circular(11)),
                               color: backIconBgColor),
                           child: const Icon(Icons.keyboard_arrow_left,
                               color: backIconColor)),
@@ -75,28 +76,18 @@ class _PostArticlePageState extends State<PostArticlePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      TextField(
-                        controller: controllerTitle,
-                        decoration: InputDecoration(
-                            hintText: ("Add title"), //hint text
-                            hintStyle: 
-                                postArticleTheme.bodyLarge, //hint text style
-                            hintMaxLines: 2, //hint text maximum lines
-                            hintTextDirection: TextDirection
-                                .ltr //hint text direction, current is RTL
-                            ),
-                      ),
-                      TextField(
-                        controller: controllerSubTitle,
-                        decoration: InputDecoration(
-                            hintText: ("Add subtitle"), //hint text
-                            hintStyle: 
-                                postArticleTheme.bodyLarge, //hint text style
-                            hintMaxLines: 2, //hint text maximum lines
-                            hintTextDirection: TextDirection
-                                .ltr //hint text direction, current is RTL
-                            ),
-                      ),
+                      CustomTextField(
+                          maxHintLine: 2,
+                          maxLineCount: 1,
+                          placeholder: "Add title",
+                          textEditingController: controllerTitle,
+                          textFormFunction: () {}),
+                      CustomTextField(
+                          maxHintLine: 2,
+                          maxLineCount: 1,
+                          placeholder: "Add subtitle",
+                          textEditingController: controllerSubTitle,
+                          textFormFunction: () {}),
                       TextField(
                         controller: controllerTags,
                         decoration: InputDecoration(
@@ -111,7 +102,7 @@ class _PostArticlePageState extends State<PostArticlePage> {
 
                           hintText: ("Add tags"), //hint text
                           //hint text style
-                          hintStyle: 
+                          hintStyle:
                               postArticleTheme.bodyLarge, //hint text style
 
                           hintMaxLines: 2, //hint text maximum lines
@@ -122,8 +113,7 @@ class _PostArticlePageState extends State<PostArticlePage> {
                       ),
                       Text(
                         "add as many tags as you want",
-                        style: 
-                            postArticleTheme.bodySmall, //hint text style
+                        style: postArticleTheme.bodySmall, //hint text style
                       ),
                       SizedBox(
                         height: windowHeight * 0.02,
@@ -132,29 +122,19 @@ class _PostArticlePageState extends State<PostArticlePage> {
                         spacing: 6.0,
                         runSpacing: 6.0,
                         children: chipList
-                            .map((e) => BuildChip(label : e, removeChips :removeChips))
+                            .map((e) =>
+                                BuildChip(label: e, removeChips: removeChips))
                             .toList(),
                       ),
                       SizedBox(
                         height: windowHeight * 0.043,
                       ),
-                      TextField(
-                        controller: controllerContent,
-                        maxLines: 15, // Set this
-                        keyboardType: TextInputType.multiline,
-                        decoration: InputDecoration(
-                            fillColor: contentBgColor,
-                            border: const OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(15))),
-                            hintText: ("Article Content"), //hint text
-                            hintStyle: 
-                                postArticleTheme.bodyLarge, //hint text style
-                            hintMaxLines: 15, //hint text maximum lines
-                            hintTextDirection: TextDirection
-                                .ltr //hint text direction, current is RTL
-                            ),
-                      ),
+                      CustomTextField(
+                          maxHintLine: 15,
+                          maxLineCount: 15,
+                          placeholder: "Article Content",
+                          textEditingController: controllerContent,
+                          textFormFunction: () {}),
                       SizedBox(
                         height: windowHeight * 0.09,
                       ),
@@ -162,20 +142,18 @@ class _PostArticlePageState extends State<PostArticlePage> {
                         child: Container(
                           decoration: const BoxDecoration(
                             color: darkPrimaryColorGradient,
-                            borderRadius:  BorderRadius.all(
+                            borderRadius: BorderRadius.all(
                               Radius.circular(15),
                             ),
-                    
                           ),
                           child: TextButton(
                             style: ButtonStyle(
-                              padding:  MaterialStateProperty.all(
+                              padding: MaterialStateProperty.all(
                                   const EdgeInsets.fromLTRB(27, 7, 27, 7)),
                             ),
                             child: Text(
                               'Publish',
-                              style:
-                                  postArticleTheme.bodyMedium,
+                              style: postArticleTheme.bodyMedium,
                             ),
                             onPressed: () => {},
                           ),
