@@ -55,11 +55,11 @@ class _PostArticlePageState extends State<PostArticlePage> {
                       Container(
                           width: windowWidth * 0.1,
                           height: windowWidth * 0.1,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                               borderRadius:
-                                  const BorderRadius.all(Radius.circular(11)),
+                                   BorderRadius.all(Radius.circular(11)),
                               color: backIconBgColor),
-                          child: Icon(Icons.keyboard_arrow_left,
+                          child: const Icon(Icons.keyboard_arrow_left,
                               color: backIconColor)),
                       Text(
                         "Post Article",
@@ -101,7 +101,7 @@ class _PostArticlePageState extends State<PostArticlePage> {
                         decoration: InputDecoration(
                           suffixIcon: GestureDetector(
                             onTap: () => {_addChip(controllerTags.text)},
-                            child: Icon(
+                            child: const Icon(
                               Icons.add,
                               textDirection: TextDirection.rtl,
                               color: darkPrimaryColorGradient,
@@ -159,9 +159,9 @@ class _PostArticlePageState extends State<PostArticlePage> {
                       ),
                       Center(
                         child: Container(
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: darkPrimaryColorGradient,
-                            borderRadius: const BorderRadius.all(
+                            borderRadius:  BorderRadius.all(
                               Radius.circular(15),
                             ),
                     
@@ -195,7 +195,7 @@ Widget _buildChip(String label, Function removeChips) {
     labelPadding: const EdgeInsets.all(2.0),
     label: Text(
       label,
-      style: TextStyle(
+      style: const TextStyle(
         color: darkPrimaryColorGradient,
       ),
     ),
