@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../../../core/utils/constants/global_variables.dart';
 
-class InputLine extends StatelessWidget {
+class InputFormField extends StatelessWidget {
   final bool password;
-  const InputLine({Key? key, required this.password}) : super(key: key);
+  const InputFormField({Key? key, required this.password}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

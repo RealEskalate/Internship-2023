@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/utils/constants/global_variables.dart';
 
-class LoginSignup extends StatelessWidget {
+class LoginSignupNavBar extends StatelessWidget {
   final double width;
   final double height;
 
-  const LoginSignup({Key? key, required this.width, required this.height})
+  const LoginSignupNavBar({Key? key, required this.width, required this.height})
       : super(key: key);
 
   @override

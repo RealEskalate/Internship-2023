@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:matador/features/login_page/Presentation/widgets/input_form_field.dart';
+import 'package:matador/features/login_page/Presentation/widgets/login_signup.dart';
 
 import '../../../../core/utils/constants/global_variables.dart';
 import '../widgets/forgot_password.dart';
-import '../widgets/input_line.dart';
-import '../widgets/login_signup.dart';
 import '../widgets/logo.dart';
 import '../widgets/rounded_button.dart';
 import '../widgets/sign_in_with_your_account.dart';
-import '../widgets/welcome_back.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -28,7 +27,7 @@ class LoginPage extends StatelessWidget {
             ),
           ),
         ),
-        LoginSignup(
+        LoginSignupNavBar(
           width: width,
           height: height,
         ),
@@ -39,8 +38,16 @@ class LoginPage extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  WelcomeBack(
+                  SizedBox(
                     width: width,
+                    child: const Text(
+                      'Welcome back',
+                      style: TextStyle(
+                          color: headingColor,
+                          fontSize: 30,
+                          fontFamily: 'Urbanist',
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 15.0),
@@ -63,7 +70,7 @@ class LoginPage extends StatelessWidget {
                               fontStyle: FontStyle.italic,
                               fontFamily: 'Urbanist'),
                         )),
-                    const InputLine(password: false),
+                    const InputFormField(password: false),
                     SizedBox(
                       height: 0.02 * height,
                     ),
@@ -76,7 +83,7 @@ class LoginPage extends StatelessWidget {
                               fontStyle: FontStyle.italic,
                               fontFamily: 'Urbanist'),
                         )),
-                    const InputLine(password: true),
+                    const InputFormField(password: true),
                   ],
                 ),
               ),
