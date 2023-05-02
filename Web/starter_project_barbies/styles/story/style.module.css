@@ -1,0 +1,9 @@
+.container > :nth-child(2) 
+  {
+    display: flex;
+    flex-direction: column;
+    flex-direction: row-reverse;
+    margin:20 10;
+    gap:20;
+  }
+  
