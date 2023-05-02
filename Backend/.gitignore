@@ -566,6 +566,7 @@ venv.bak/
 # Cython debug symbols
 cython_debug/
 
+<<<<<<< HEAD
 
 ##############
 # From .NET Core 3.0 you can use the command: `dotnet new gitignore` to generate a customizable .gitignore file
@@ -602,3 +603,7 @@ msbuild.wrn
 
 # Visual Studio 2015
 .vs/
+=======
+# Visual Studio 2015
+.vs/
+>>>>>>> Folder structure final setup.
