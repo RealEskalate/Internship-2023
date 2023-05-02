@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 class ArticleImage extends StatelessWidget {
   const ArticleImage({
     super.key,
+    required this.readTime
   });
+  final int readTime;
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +29,9 @@ class ArticleImage extends StatelessWidget {
             decoration: BoxDecoration(
                 color: whiteColor,
                 borderRadius: BorderRadius.circular(screenHeight * 0.01)),
-            child: const Center(
-                child: Text("5 min read",
-                    style: TextStyle(
+            child:  Center(
+                child: Text("$readTime min read",
+                    style: const TextStyle(
                       fontFamily: "Poppins",
                       fontWeight: FontWeight.w500,
                       color: textColor2,

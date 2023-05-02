@@ -3,9 +3,14 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 class ArticleInfo extends StatelessWidget {
-  const ArticleInfo({
-    super.key,
-  });
+  const ArticleInfo(
+      {super.key,
+      required this.articleTitle,
+      required this.articleType,
+      required this.author});
+  final String articleTitle;
+  final String author;
+  final String articleType;
 
   @override
   Widget build(BuildContext context) {
@@ -21,25 +26,26 @@ class ArticleInfo extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "STUDENTS SHOULD WORK ON IMPROVING THEIR WRITING SKILL",
+                articleTitle,
                 style: TextStyle(
                     fontSize: min(screenWidth * 0.04, screenHeight * 0.03),
                     fontFamily: "Urbanist",
                     color: textColor1),
               ),
               ElevatedButton(
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(tertiaryColor)),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: tertiaryColor,
+                    minimumSize: Size(screenWidth * 0.1, screenHeight * 0.033),
+                  ),
                   onPressed: () {},
-                  child: const Text(
-                    "Education",
-                    style: TextStyle(
+                  child: Text(
+                    articleType,
+                    style: const TextStyle(
                         fontFamily: "Poppins", fontWeight: FontWeight.w700),
                   )),
-              const Text(
-                "By John Doe",
-                style: TextStyle(
+              Text(
+                author,
+                style: const TextStyle(
                   fontFamily: "Poppins",
                 ),
               )

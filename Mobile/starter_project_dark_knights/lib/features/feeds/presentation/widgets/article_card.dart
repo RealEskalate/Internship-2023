@@ -4,10 +4,14 @@ import 'article_image.dart';
 import '../../../../core/utils/colors.dart';
 
 class ArticleCard extends StatelessWidget {
-  const ArticleCard({
-    super.key,
-  });
+  const ArticleCard({super.key, required this.publishedDate,required this.readTime,required this.articleTitle,required this.articleType,required this.author});
+  final String publishedDate;
+  final int readTime;
+  final String articleTitle;
+  final String author;
+  final String articleType;
 
+  
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -27,16 +31,16 @@ class ArticleCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Row(
-                  children: const [
+                  children: [
                     Expanded(
-                      child: ArticleImage(),
+                      child: ArticleImage(readTime: readTime,),
                     ),
-                    ArticleInfo()
+                    ArticleInfo(articleTitle: articleTitle,articleType: articleType,author: author,)
                   ],
                 ),
-                const Text(
-                  "Jan 12,2022",
-                  style: TextStyle(
+                Text(
+                  publishedDate,
+                  style: const TextStyle(
                     fontFamily: "Poppins",
                     fontWeight: FontWeight.w200,
                   ),
