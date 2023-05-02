@@ -7,6 +7,8 @@ class LabelledTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var Height = MediaQuery.of(context).size.height;
+    var Width = MediaQuery.of(context).size.width;
     return Container(
       // margin: EdgeInsets.only(top: 24),
       child: TextFormField(
@@ -17,7 +19,7 @@ class LabelledTextField extends StatelessWidget {
             fontFamily: 'Urbanist',
             fontStyle: FontStyle.italic,
             fontWeight: FontWeight.bold,
-            fontSize: (14 / 812) * MediaQuery.of(context).size.height,
+            fontSize: (14 / 812) * Height,
             color: Color(0xFF2D4379),
           ),
         ),

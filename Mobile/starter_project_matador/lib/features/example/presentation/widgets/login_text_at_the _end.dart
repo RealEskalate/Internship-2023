@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
-class TextAtTheEnd extends StatelessWidget {
-  const TextAtTheEnd({super.key});
+class Footer extends StatelessWidget {
+  const Footer({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var Height = MediaQuery.of(context).size.height;
+    var Width = MediaQuery.of(context).size.width;
     return Container(
       margin: EdgeInsets.only(
-        top: (24 / 812) * MediaQuery.of(context).size.height,
+        top: (17 / 812) * Height,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -17,7 +19,7 @@ class TextAtTheEnd extends StatelessWidget {
             style: TextStyle(
               fontFamily: 'Urbanist',
               fontWeight: FontWeight.w500,
-              fontSize: (14 / 812) * MediaQuery.of(context).size.height,
+              fontSize: (14 / 812) * Height,
               color: Color(0xFF2D4379),
             ),
           ),
@@ -28,7 +30,7 @@ class TextAtTheEnd extends StatelessWidget {
               style: TextStyle(
                 fontFamily: 'Urbanist',
                 fontWeight: FontWeight.w700,
-                fontSize: (14 / 812) * MediaQuery.of(context).size.height,
+                fontSize: (14 / 812) * Height,
                 color: Color(0xFF376AED),
               ),
             ),

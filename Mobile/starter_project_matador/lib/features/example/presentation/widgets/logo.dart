@@ -9,9 +9,11 @@ class Logo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var Height = MediaQuery.of(context).size.height;
+    var Width = MediaQuery.of(context).size.width;
     return SizedBox(
-      height: (54 / 812) * MediaQuery.of(context).size.height,
-      width: (141 / 375) * MediaQuery.of(context).size.width,
+      height: (54 / 812) * Height,
+      width: (141 / 375) * Width,
       child: Image(
         image: NetworkImage(Link),
       ),

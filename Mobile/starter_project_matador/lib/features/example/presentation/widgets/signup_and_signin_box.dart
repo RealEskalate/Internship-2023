@@ -5,11 +5,13 @@ class SigninSignupBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var Height = MediaQuery.of(context).size.height;
+    var Width = MediaQuery.of(context).size.width;
     var row = Align(
       alignment: Alignment.topCenter,
       child: Padding(
         padding: EdgeInsets.only(
-          top: (20.0 / 812) * MediaQuery.of(context).size.height,
+          top: (20.0 / 812) * Height,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -19,7 +21,7 @@ class SigninSignupBox extends StatelessWidget {
               style: TextStyle(
                 fontFamily: 'Urbanist',
                 fontWeight: FontWeight.bold,
-                fontSize: (18 / 812) * MediaQuery.of(context).size.height,
+                fontSize: (18 / 812) * Height,
                 letterSpacing: 1,
                 color: Colors.white.withOpacity(0.25),
               ),
@@ -29,7 +31,7 @@ class SigninSignupBox extends StatelessWidget {
               style: TextStyle(
                 fontFamily: 'Urbanist',
                 fontWeight: FontWeight.bold,
-                fontSize: (18 / 812) * MediaQuery.of(context).size.height,
+                fontSize: (18 / 812) * Height,
                 letterSpacing: 1,
                 color: Colors.white,
               ),
@@ -39,20 +41,18 @@ class SigninSignupBox extends StatelessWidget {
       ),
     );
     return Container(
-      height: 96 / 812 * MediaQuery.of(context).size.height,
+      height: 96 / 812 * Height,
       width: double.infinity,
       decoration: BoxDecoration(
         color: Color(0xff376AED),
         borderRadius: BorderRadius.only(
-          topLeft:
-              Radius.circular(28 / 812 * MediaQuery.of(context).size.height),
-          topRight:
-              Radius.circular(28 / 812 * MediaQuery.of(context).size.height),
+          topLeft: Radius.circular(28 / 812 * Height),
+          topRight: Radius.circular(28 / 812 * Height),
         ),
         boxShadow: [
           BoxShadow(
             color: Color.fromRGBO(79, 91, 121, 0.1),
-            blurRadius: (22 / 812) * MediaQuery.of(context).size.height,
+            blurRadius: (22 / 812) * Height,
             offset: Offset(0, 4),
           ),
         ],
