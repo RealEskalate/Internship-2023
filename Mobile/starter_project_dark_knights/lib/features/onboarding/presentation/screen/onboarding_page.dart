@@ -1,9 +1,8 @@
 import 'package:dark_knights/core/utils/colors.dart';
 import 'package:dark_knights/features/onboarding/presentation/widgets/onboarding/description_text.dart';
-import 'package:dark_knights/features/onboarding/presentation/widgets/onboarding/dot.dart';
+import 'package:dark_knights/features/onboarding/presentation/widgets/onboarding/stepper_dot.dart';
 import 'package:dark_knights/features/onboarding/presentation/widgets/onboarding/header_text.dart';
 import 'package:dark_knights/features/onboarding/presentation/widgets/onboarding/onboarding_row_images.dart';
-import 'package:dark_knights/features/onboarding/presentation/widgets/onboarding/separator.dart';
 import 'package:dark_knights/main.dart';
 import 'package:flutter/material.dart';
 
@@ -26,6 +25,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     [false, false, true]
   ];
   int index = 0;
+  final String headerText = 'Read the article you want instantly.';
+  final String descriptionText =
+      'You can read thousands of articles on Blog Club, save them in the application and share them with your loved ones.';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,13 +36,21 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Separator(height: MediaQuery.of(context).size.height * 0.07),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.07),
             Padding(
               padding: const EdgeInsets.all(35.0),
               child: Column(
                 children: const [
-                  UpperRowImages(image1: '1', image2: '2', flex1: 1, flex2: 2),
-                  UpperRowImages(image1: '3', image2: '4', flex1: 2, flex2: 1),
+                  UpperRowImages(
+                      image1: 'onboarding_1',
+                      image2: 'onboarding_2',
+                      flex1: 1,
+                      flex2: 2),
+                  UpperRowImages(
+                      image1: 'onboarding_3',
+                      image2: 'onboarding_4',
+                      flex1: 2,
+                      flex2: 1),
                 ],
               ),
             ),
@@ -56,29 +66,25 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     )),
                 child: Column(
                   children: [
-                    const HeaderText(
-                      text: 'Read the article you want instantly.',
+                    HeaderText(
+                      text: headerText,
                     ),
-                    Separator(
-                        height: MediaQuery.of(context).size.height * 0.03),
-                    const DescriptionText(
-                        text:
-                            'You can read thousands of articles on Blog Club, save them in the application and share them with your loved ones.'),
-                    Separator(
-                        height: MediaQuery.of(context).size.height * 0.03),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+                    DescriptionText(text: descriptionText),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.03),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Dot(
+                            StepperDot(
                                 width: widths[index][0],
                                 isBlue: colors[index][0]),
-                            Dot(
+                            StepperDot(
                                 width: widths[index][1],
                                 isBlue: colors[index][1]),
-                            Dot(
+                            StepperDot(
                                 width: widths[index][2],
                                 isBlue: colors[index][2]),
                           ],

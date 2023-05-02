@@ -5,10 +5,10 @@
 import 'package:dark_knights/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 
-class Dot extends StatelessWidget {
+class StepperDot extends StatelessWidget {
   final double width;
   final bool isBlue;
-  const Dot({super.key, required this.width, required this.isBlue});
+  const StepperDot({super.key, required this.width, required this.isBlue});
 
   @override
   Widget build(BuildContext context) {
