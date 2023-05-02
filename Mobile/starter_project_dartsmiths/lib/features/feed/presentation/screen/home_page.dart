@@ -10,8 +10,8 @@ import '../widgets/article_card.dart';
 import '../widgets/profile.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
+  HomePage({super.key});
+  List<String> FilterText = ["All", "Sports", "Tech", "Politics"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +36,7 @@ class HomePage extends StatelessWidget {
                     color: blackColor,
                     fontSize: 25,
                     fontWeight: FontWeight.w800))),
-        actions: [ProfilePic()],
+        actions: [ProfileAvatar()],
       ),
       body: Container(
         height: double.infinity,
@@ -52,22 +52,10 @@ class HomePage extends StatelessWidget {
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      FilterButton(
-                        text: "All",
-                        isActive: true,
-                      ),
-                      FilterButton(
-                        text: "Sports",
-                        isActive: false,
-                      ),
-                      FilterButton(
-                        text: "Tech",
-                        isActive: false,
-                      ),
-                      FilterButton(
-                        text: "Politics",
-                        isActive: false,
-                      )
+                      for (var i = 0; i < FilterText.length; i++)
+                        FilterButton(
+                            text: FilterText[i],
+                            isActive: i == 0 ? true : false)
                     ])),
             Expanded(
               child: ListView(

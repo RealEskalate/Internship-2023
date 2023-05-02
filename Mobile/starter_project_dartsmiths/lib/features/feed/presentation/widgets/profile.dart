@@ -5,8 +5,8 @@ import 'package:flutter/src/widgets/placeholder.dart';
 
 import '../../../../core/utils/ui_converter.dart';
 
-class ProfilePic extends StatelessWidget {
-  const ProfilePic({super.key});
+class ProfileAvatar extends StatelessWidget {
+  const ProfileAvatar({super.key});
 
   @override
   Widget build(BuildContext context) {
