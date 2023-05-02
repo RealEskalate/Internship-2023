@@ -10,7 +10,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BlogApp.Application.Features.Reviews.DTOs;
 
 namespace BlogApp.Application.Profiles
 {
@@ -18,6 +17,8 @@ namespace BlogApp.Application.Profiles
     {
         public MappingProfile()
         {
+            CreateMap<_Index, _IndexDto>().ReverseMap();
+            CreateMap<_Index, Create_IndexDto>().ReverseMap();
             #region _index Mappings
 
             CreateMap<_Index, _IndexDto>().ReverseMap();
@@ -27,36 +28,6 @@ namespace BlogApp.Application.Profiles
             CreateMap<Comment,UpdateCommentDto>().ReverseMap();
 
             #endregion _index
-
-            #region rating Mappings
-
-            CreateMap<Rating, RatingDto>().ReverseMap();
-
-            #endregion rating
-            
-            #region blog Mappings
-
-            CreateMap<Blog, CreateBlogDTO>().ReverseMap();
-            CreateMap<Blog, BlogDTO>().ReverseMap();
-            CreateMap<Blog, BlogListDTO>().ReverseMap();
-            CreateMap<Blog, UpdateBlogDTO>().ReverseMap();
-
-            #endregion blog
-
-            #region review Mappings
-
-            CreateMap<Review, CreateReviewDto>().ReverseMap();
-            CreateMap<Review, ReviewDto>().ReverseMap();
-            CreateMap<Review, UpdateReviewDto>().ReverseMap();
-
-            #endregion
-            #region tag Mapping
-
-            CreateMap<Tag, TagDto>().ReverseMap();
-            CreateMap<Tag, updateTagDto>().ReverseMap();
-            CreateMap<Tag, createTagDto>().ReverseMap();
-
-            #endregion tag
         }
     }
 }

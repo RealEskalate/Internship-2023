@@ -35,7 +35,7 @@ namespace BlogApp.Persistence
                 {
                     entry.Entity.DateCreated = DateTime.Now;
                 }
-            }  
+            }
 
 
             return base.SaveChangesAsync(cancellationToken);

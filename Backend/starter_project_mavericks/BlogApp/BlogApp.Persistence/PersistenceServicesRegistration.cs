@@ -25,6 +25,7 @@ namespace BlogApp.Persistence
             services.AddScoped<IReviewRepository, ReviewRepository>();
             services.AddScoped<ITagRepository, TagRepository>();
 
+            
             return services;
         }
     }

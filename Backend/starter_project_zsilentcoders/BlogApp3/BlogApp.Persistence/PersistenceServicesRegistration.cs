@@ -18,15 +18,7 @@ namespace BlogApp.Persistence
             services.AddDbContext<BlogAppDbContext>(opt =>
             opt.UseNpgsql(configuration.GetConnectionString("BlogAppConnectionString")));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            services.AddScoped<I_UserRepository, _UserRepository>();
-            services.AddScoped<IBlogRepository, BlogRepository>();
             services.AddScoped<I_IndexRepository, _IndexRepository>();
-            services.AddScoped<IBlogRateRepository, BlogRateRepository>();
-            services.AddScoped<IBlogRepository, BlogRepository>();
-            services.AddScoped<IReviewRepository, ReviewRepository>();
-
-            services.AddScoped<ICommentRepository,CommentRepository>();
 
             
             return services;
