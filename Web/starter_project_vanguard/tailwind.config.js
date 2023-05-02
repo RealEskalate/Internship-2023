@@ -27,7 +27,17 @@ module.exports = {
         montserrat: ["Montserrat"],
         DMSans: ["DM Sans"],
       },
+      screens:{
+        '3xl':'1800px',
+        // => @media (min-width: 1800px) { ... }
+        '2lg': '1100px',
+        // => @media (min-width: 1100px) { ... }
+        '2md': '950px',   
+        // => @media (min-width: 950px) { ... }
+
+      }
     },
+
   },
   plugins: [],
 }

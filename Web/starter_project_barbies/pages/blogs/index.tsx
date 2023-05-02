@@ -1,14 +1,30 @@
 import { BlogsList } from "@/components/blog/BlogsList";
 import { Pagination } from "@/components/common/Pagination";
 import { SearchForm } from "@/components/common/SearchForm";
+import React, { useEffect, useState } from "react";
 import { Blog } from "@/types/blog";
-import React from "react";
 
-interface BlogsProps {
-  blogs: Blog[]
+const fetchBlogs = async (): Promise<Blog[]> => {
+  const result = await fetch("/data/blogs.json");
+  const data = await result.json();
+  return data;
 }
 
-const Blogs: React.FC<BlogsProps> = ({ blogs }) => {
+const Blogs = () => {
+  const [blogs, setBlogs] = useState<Blog[]>([])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const blogs = await fetchBlogs();
+      setBlogs(blogs)
+    };
+
+    fetchData()
+
+  }, []);
+
+  console.log(blogs)
+
   return (
     <div className='bg-white text-primary-text font-montserrat'>
 

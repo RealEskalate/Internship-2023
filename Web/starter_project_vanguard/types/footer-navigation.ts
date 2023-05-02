@@ -1,4 +1,4 @@
-interface LinkItem {
+export interface LinkItem {
     title: string
     links: {
       name: string
