@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:dark_knights/core/utils/text_style.dart';
 import '../../../../core/utils/colors.dart';
 
-class Navigation extends StatelessWidget {
-  const Navigation({
+class LoginSignUpNavigation extends StatelessWidget {
+  const LoginSignUpNavigation({
     super.key,
   });
 

@@ -3,8 +3,8 @@ import '../../../../core/utils/colors.dart';
 import '../widgets/log_in_form.dart';
 import '../widgets/navigation_bar.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class Login extends StatelessWidget {
                   horizontal: MediaQuery.of(context).size.width * 0.16,
                   vertical: MediaQuery.of(context).size.height * 0.03,
                 ),
-                child: Navigation(),
+                child: LoginSignUpNavigation(),
               ),
               Positioned(
                   top: MediaQuery.of(context).size.height * 0.09,

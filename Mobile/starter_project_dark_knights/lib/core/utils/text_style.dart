@@ -1,4 +1,4 @@
-import 'package:dark_knights/features/Authentication/presentation/screen/log_in_screen.dart';
+import 'package:dark_knights/features/Authentication/presentation/screen/login_page.dart';
 import 'package:flutter/material.dart';
 
 import 'colors.dart';
@@ -6,7 +6,7 @@ import 'colors.dart';
 class TextStyles {
   static const welcomeBack = TextStyle(
     fontFamily: "Urbanist",
-    color: Colors.black,
+    color: blackColor,
     fontWeight: FontWeight.w600,
     fontSize: 24,
   );
@@ -17,7 +17,7 @@ class TextStyles {
     fontSize: 14,
   );
 
-  static const username = TextStyle(
+ static const formFieldTextStyle = TextStyle(
     fontFamily: "Urbanist",
     fontStyle: FontStyle.italic,
     color: secondaryTextColor,
@@ -25,21 +25,14 @@ class TextStyles {
   );
 
   static const hintText = TextStyle(
-    color: Colors.black,
+    color: blackColor,
     fontFamily: "Urbanist",
     fontSize: 16,
     fontWeight: FontWeight.w500,
   );
-
-  static const password = TextStyle(
-    fontFamily: "Urbanist",
-    fontStyle: FontStyle.italic,
-    color: secondaryTextColor,
-    fontSize: 14,
-  );
-
+  
   static const passwordTextFieldHint = TextStyle(
-    color: Colors.black,
+    color: blackColor,
     fontSize: 24,
     letterSpacing: 8,
     fontWeight: FontWeight.w500,

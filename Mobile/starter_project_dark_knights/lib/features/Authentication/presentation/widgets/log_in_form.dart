@@ -23,7 +23,7 @@ class LogInForm extends StatelessWidget {
       SizedBox(height: MediaQuery.of(context).size.height * 0.03),
       const Text(
         "Username",
-        style: TextStyles.username,
+        style: TextStyles.formFieldTextStyle,
       ),
       const TextField(
         decoration: InputDecoration(
@@ -34,7 +34,7 @@ class LogInForm extends StatelessWidget {
       SizedBox(height: MediaQuery.of(context).size.height * 0.03),
       const Text(
         "Password",
-        style: TextStyles.password,
+        style: TextStyles.formFieldTextStyle,
       ),
       Row(
         children: [
