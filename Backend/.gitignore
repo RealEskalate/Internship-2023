@@ -603,6 +603,12 @@ msbuild.wrn
 
 # Visual Studio 2015
 .vs/
+**/obj/
+**/Debug/
+**/net6.0/
+**/net7.0/
+**/bin/
+**/.vs/
 
 <<<<<<< HEAD
 
@@ -647,3 +653,6 @@ msbuild.wrn
 **/net7.0/
 **/bin/
 **/.vs/
+
+**/Migrations/
+**/.idea/
