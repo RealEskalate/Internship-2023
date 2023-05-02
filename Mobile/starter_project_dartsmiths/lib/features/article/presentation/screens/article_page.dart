@@ -13,7 +13,7 @@ class ArticleReading extends StatelessWidget {
       'That marked a turnaround from last year, when the social network reported a decline in users for the first time.\n The drop wiped billions from the firms market value.\n Since executives disclosed the fall in February, the firms share price has nearly halved.But shares jumped 19% in after-hours trade on Wednesday.';
 
   String title = 'Four Things Everyone Needs To Know';
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -47,7 +47,8 @@ class ArticleReading extends StatelessWidget {
                                 ],
                               ),
                               SizedBox(
-                                height: UIConverter.getComponentHeight(context, 32),
+                                height:
+                                    UIConverter.getComponentHeight(context, 32),
                               ),
                               Text(
                                 title,
@@ -58,9 +59,10 @@ class ArticleReading extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(
-                                height: UIConverter.getComponentHeight(context, 32),
+                                height:
+                                    UIConverter.getComponentHeight(context, 32),
                               ),
-                               article_profile(),
+                              ArticleProfile(),
                             ],
                           ),
                         ),
@@ -82,7 +84,8 @@ class ArticleReading extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.fromLTRB(UIConverter.getComponentWidth(context, 21),
+                          padding: EdgeInsets.fromLTRB(
+                              UIConverter.getComponentWidth(context, 21),
                               UIConverter.getComponentHeight(context, 21),
                               UIConverter.getComponentWidth(context, 23),
                               0),
@@ -92,7 +95,8 @@ class ArticleReading extends StatelessWidget {
                             style: TextStyle(
                                 color: secondaryTextColor,
                                 height: 1.5,
-                                fontSize: UIConverter.getComponentWidth(context, 15)),
+                                fontSize:
+                                    UIConverter.getComponentWidth(context, 15)),
                           ),
                         ),
                       ],
@@ -103,7 +107,7 @@ class ArticleReading extends StatelessWidget {
               ),
               //
             ),
-            floatingActionButton: like_button(),
+            floatingActionButton: LikeButton(),
           );
         }));
   }
