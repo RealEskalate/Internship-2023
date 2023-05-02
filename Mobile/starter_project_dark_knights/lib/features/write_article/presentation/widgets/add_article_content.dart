@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../../../../core/utils/colors.dart';
 
 class AddArticleContent extends StatelessWidget {
   const AddArticleContent({super.key});
@@ -15,7 +15,7 @@ class AddArticleContent extends StatelessWidget {
                     hintText: 'Article Content',   
                     hintStyle: const TextStyle(
                                   fontFamily: 'Poppins',
-                                  color: Color.fromARGB(255, 209, 209, 207),
+                                  color: textFieldTextColor,
                                   fontSize: 13,
                                   ),
                     floatingLabelBehavior: FloatingLabelBehavior.auto,
