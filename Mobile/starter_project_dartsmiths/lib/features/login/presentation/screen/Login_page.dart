@@ -3,6 +3,7 @@ import 'package:dartsmiths/features/login/presentation/widgets/login_card.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/utils/colors.dart';
 import '../../../../features/login/presentation/widgets/custom_login_text.dart';
+import '../../../../core/utils/images.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -23,7 +24,7 @@ class LoginPage extends StatelessWidget {
               UIConverter.getComponentHeight(context, 54),
             ),
             child: const Image(
-              image: AssetImage('assets/images/a2sv_logo.jpg'),
+              image: AssetImage(A2SVLogo),
             ),
           ),
           Expanded(
