@@ -86,3 +86,27 @@ venv.bak/
 
 # Cython debug symbols
 cython_debug/
+/.vs
+/Backend/starter_project_dotnetforce7/BlogApp2/BlogApp.API/obj/Debug/net6.0
+/Backend/starter_project_dotnetforce7/BlogApp2/BlogApp.API/obj/Release/net6.0
+/Backend/starter_project_dotnetforce7/BlogApp2/BlogApp.Application/obj/Debug/net6.0
+/Backend/starter_project_dotnetforce7/BlogApp2/BlogApp.Application/obj/Release/net6.0
+/Backend/starter_project_dotnetforce7/BlogApp2/BlogApp.Domain/obj
+/Backend/starter_project_dotnetforce7/BlogApp2/BlogApp.Persistence/obj/Debug/net6.0
+/Backend/starter_project_dotnetforce7/BlogApp2/BlogApp.Persistence/obj/Release/net6.0
+/Backend/starter_project_mavericks/BlogApp/BlogApp.API/bin/Debug/net6.0
+/Backend/starter_project_mavericks/BlogApp/BlogApp.API/obj
+/Backend/starter_project_mavericks/BlogApp/BlogApp.Application/bin/Debug/net6.0
+/Backend/starter_project_mavericks/BlogApp/BlogApp.Application/obj
+/Backend/starter_project_mavericks/BlogApp/BlogApp.Domain/bin/Debug/net6.0
+/Backend/starter_project_mavericks/BlogApp/BlogApp.Domain/obj
+/Backend/starter_project_mavericks/BlogApp/BlogApp.Persistence/bin/Debug/net6.0
+/Backend/starter_project_mavericks/BlogApp/BlogApp.Persistence/obj/Debug/net6.0
+/Backend/starter_project_mavericks/BlogApp/BlogApp.Persistence/obj/Release/net6.0
+/Backend/starter_project_mavericks/BlogApp/BlogApp.Persistence/obj
+/Backend/starter_project_zsilentcoders/BlogApp3/BlogApp.API/obj
+/Backend/starter_project_zsilentcoders/BlogApp3/BlogApp.Application/obj
+/Backend/starter_project_zsilentcoders/BlogApp3/BlogApp.Domain/obj
+/Backend/starter_project_zsilentcoders/BlogApp3/BlogApp.Persistence/obj/Debug/net6.0
+/Backend/starter_project_zsilentcoders/BlogApp3/BlogApp.Persistence/obj/Release/net6.0
+/Backend/starter_project_mavericks/BlogApp/.vs/BlogApp
