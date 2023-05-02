@@ -87,5 +87,5 @@ venv.bak/
 # Cython debug symbols
 cython_debug/
 
-# Visual Studio 2015
+# Visual Studio
 .vs/
