@@ -95,11 +95,12 @@ flutter:
           weight: 700
         - asset: assets/fonts/Urbanist/Urbanist-Medium.ttf
         - asset: assets/fonts/Urbanist/Urbanist-SemiBold.ttf
+          weight: 900
         - asset: assets/fonts/Urbanist/Urbanist-ExtraLightItalic.ttf
         - asset: assets/fonts/Urbanist/Urbanist-VariableFont_wght.ttf
           weight: 700
-
         - asset: assets/fonts/Urbanist/Urbanist-SemiBold.ttf
+          weight: 800
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

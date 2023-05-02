@@ -30,6 +30,7 @@ class ArticleInfo extends StatelessWidget {
                 style: TextStyle(
                     fontSize: min(screenWidth * 0.04, screenHeight * 0.03),
                     fontFamily: "Urbanist",
+                    fontWeight: FontWeight.w700,
                     color: textColor1),
               ),
               ElevatedButton(
