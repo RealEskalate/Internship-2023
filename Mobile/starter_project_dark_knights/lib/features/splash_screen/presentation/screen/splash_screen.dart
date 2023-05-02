@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:dark_knights/features/onboarding/presentation/screen/onboarding_page.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -13,7 +14,8 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 3), () {
-      Navigator.of(context).pushReplacementNamed('/main');
+      Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => const OnboardingScreen()));
     });
   }
 
