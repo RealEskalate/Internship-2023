@@ -64,7 +64,7 @@ class _PostArticlePageState extends State<PostArticlePage> {
                               color: backIconColor)),
                       Text(
                         "Post Article",
-                        style: BlogFontConstant.postArticleTheme.displayLarge,
+                        style: postArticleTheme.displayLarge,
                       )
                     ],
                   ),
@@ -79,8 +79,8 @@ class _PostArticlePageState extends State<PostArticlePage> {
                         controller: controllerTitle,
                         decoration: InputDecoration(
                             hintText: ("Add title"), //hint text
-                            hintStyle: BlogFontConstant
-                                .postArticleTheme.bodyLarge, //hint text style
+                            hintStyle: 
+                                postArticleTheme.bodyLarge, //hint text style
                             hintMaxLines: 2, //hint text maximum lines
                             hintTextDirection: TextDirection
                                 .ltr //hint text direction, current is RTL
@@ -90,8 +90,8 @@ class _PostArticlePageState extends State<PostArticlePage> {
                         controller: controllerSubTitle,
                         decoration: InputDecoration(
                             hintText: ("Add subtitle"), //hint text
-                            hintStyle: BlogFontConstant
-                                .postArticleTheme.bodyLarge, //hint text style
+                            hintStyle: 
+                                postArticleTheme.bodyLarge, //hint text style
                             hintMaxLines: 2, //hint text maximum lines
                             hintTextDirection: TextDirection
                                 .ltr //hint text direction, current is RTL
@@ -111,8 +111,8 @@ class _PostArticlePageState extends State<PostArticlePage> {
 
                           hintText: ("Add tags"), //hint text
                           //hint text style
-                          hintStyle: BlogFontConstant
-                              .postArticleTheme.bodyLarge, //hint text style
+                          hintStyle: 
+                              postArticleTheme.bodyLarge, //hint text style
 
                           hintMaxLines: 2, //hint text maximum lines
                           hintTextDirection: TextDirection.ltr,
@@ -122,8 +122,8 @@ class _PostArticlePageState extends State<PostArticlePage> {
                       ),
                       Text(
                         "add as many tags as you want",
-                        style: BlogFontConstant
-                            .postArticleTheme.bodySmall, //hint text style
+                        style: 
+                            postArticleTheme.bodySmall, //hint text style
                       ),
                       SizedBox(
                         height: windowHeight * 0.02,
@@ -132,7 +132,7 @@ class _PostArticlePageState extends State<PostArticlePage> {
                         spacing: 6.0,
                         runSpacing: 6.0,
                         children: chipList
-                            .map((e) => buildChip(e, removeChips))
+                            .map((e) => BuildChip(label : e, removeChips :removeChips))
                             .toList(),
                       ),
                       SizedBox(
@@ -148,8 +148,8 @@ class _PostArticlePageState extends State<PostArticlePage> {
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(15))),
                             hintText: ("Article Content"), //hint text
-                            hintStyle: BlogFontConstant
-                                .postArticleTheme.bodyLarge, //hint text style
+                            hintStyle: 
+                                postArticleTheme.bodyLarge, //hint text style
                             hintMaxLines: 15, //hint text maximum lines
                             hintTextDirection: TextDirection
                                 .ltr //hint text direction, current is RTL
@@ -175,7 +175,7 @@ class _PostArticlePageState extends State<PostArticlePage> {
                             child: Text(
                               'Publish',
                               style:
-                                  BlogFontConstant.postArticleTheme.bodyMedium,
+                                  postArticleTheme.bodyMedium,
                             ),
                             onPressed: () => {},
                           ),

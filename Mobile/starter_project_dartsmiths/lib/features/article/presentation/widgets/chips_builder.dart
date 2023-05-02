@@ -3,8 +3,17 @@ import 'package:dartsmiths/core/utils/article_page_styles.dart';
 
 import '../../../../core/utils/colors.dart';
 
-Widget buildChip(String label, Function removeChips) {
-  return InputChip(
+class BuildChip extends StatelessWidget {
+
+  String label;
+  Function removeChips;
+  BuildChip({
+    required this.label, required this.removeChips
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InputChip(
     labelPadding: const EdgeInsets.all(2.0),
     label: Text(
       label,
@@ -19,4 +28,5 @@ Widget buildChip(String label, Function removeChips) {
     backgroundColor: whiteColor,
     padding: const EdgeInsets.all(8.0),
   );
+  }
 }

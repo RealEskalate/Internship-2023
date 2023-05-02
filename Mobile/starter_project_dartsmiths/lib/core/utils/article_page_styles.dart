@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 
-class BlogFontConstant {
-  static TextTheme postArticleTheme = const TextTheme(
+TextTheme postArticleTheme = const TextTheme(
     // title fonts
     displayLarge: TextStyle(
       fontSize: 24,
@@ -35,4 +34,3 @@ class BlogFontConstant {
     );
  
   
-}
