@@ -10,9 +10,14 @@ const nextConfig = {
         port: '',
         pathname: '/dms/image/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'media.wired.com',
+        port: '',
+        pathname: '/photos/**',
+      },
     ],
   },
-
 }
 
 module.exports = nextConfig

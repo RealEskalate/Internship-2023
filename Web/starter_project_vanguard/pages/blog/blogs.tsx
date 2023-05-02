@@ -1,4 +1,3 @@
-import { map } from 'cypress/types/bluebird'
 import React from 'react'
 import Blog from '@/components/blog/Blog'
 import Search from '@/components/blog/Search'

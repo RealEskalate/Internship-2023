@@ -2,6 +2,8 @@ import 'tailwindcss/base.css'
 import React, { FC, useState } from 'react'
 import Avatar from '../common/Avatar'
 import 'typeface-montserrat'
+import Image from 'next/image';
+import pic from '../../public/images/samplepic.jpg'
 
 type MyTagProps = {
   tags: string[]
@@ -23,17 +25,6 @@ interface ImageProps {
   className?: string
 }
 
-const Image: React.FC<ImageProps> = ({
-  src,
-  borderRadius = 'rounded',
-  className,
-}) => {
-  return (
-    <div className={className}>
-      <img src={src} className={`object-cover ${borderRadius}`} />
-    </div>
-  )
-}
 
 type ChipProps = {
   label: string
@@ -107,11 +98,7 @@ function Blog() {
         </div>
 
         <div className="flex justify-center items-center w-1/4 pl-0 ">
-          <Image
-            className="w-6/5"
-            src="https://cdn.pixabay.com/photo/2021/08/04/13/06/software-developer-6521720_960_720.jpg"
-            borderRadius="rounded-lg"
-          />
+        <Image src={pic} className={`object-cover rounded`} alt={''} width={350} height={350}/>
         </div>
       </div>
     </div>
