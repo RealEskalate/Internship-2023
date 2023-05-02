@@ -86,3 +86,10 @@ venv.bak/
 
 # Cython debug symbols
 cython_debug/
+/.vs
+**/obj/
+**/Debug/
+**/net6.0/
+**/net7.0/
+**/bin/
+**/.vs/
