@@ -5,10 +5,7 @@ import '../widgets/add_subtitle.dart';
 import '../widgets/add_title.dart';
 import '../widgets/publish_button.dart';
 import '../widgets/title_bar.dart';
-
-void main() {
-  runApp(const WriteArticle());
-}
+import '../widgets/text_fields.dart';
 
 class WriteArticle extends StatelessWidget {
   const WriteArticle({super.key});
@@ -25,8 +22,7 @@ class WriteArticle extends StatelessWidget {
             shrinkWrap: true,
             children: [
               TitleBar(),
-              const AddTitle(),
-              const AddSubtitle(),
+              const AddTitleAndSubtitle(),
               TagSelector(),
               const AddArticleContent(),
               const PublishButton(),

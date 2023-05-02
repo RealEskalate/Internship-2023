@@ -1,6 +1,6 @@
 import 'package:dark_knights/features/signup/presentation/screen/signup_page.dart';
 import 'package:flutter/material.dart';
-import 'features/write_article/presentation/screen/write_article.dart';
+import 'features/write_article/presentation/screen/write_article_page.dart';
 
 void main() {
   runApp(const WriteArticle());
