@@ -603,7 +603,3 @@ msbuild.wrn
 
 # Visual Studio 2015
 .vs/
-=======
-# Visual Studio 2015
-.vs/
->>>>>>> Folder structure final setup.
