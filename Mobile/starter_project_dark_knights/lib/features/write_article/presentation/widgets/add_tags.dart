@@ -1,4 +1,3 @@
-import 'dart:math';
 import '../../../../core/utils/colors.dart';
 
 import 'package:flutter/material.dart';
@@ -68,10 +67,13 @@ class _TagSelectorState extends State<TagSelector> {
                         children: <Widget>[
                           for (var i in _tags)
                             Chip(
-                              deleteIcon:const CircleAvatar(
-                                backgroundColor: Color.fromRGBO(55, 106, 237, 0.15),
-                                child:  Icon(
-                                  Icons.close, color: primaryColor,size: 14,
+                              deleteIcon: const CircleAvatar(
+                                backgroundColor:
+                                    Color.fromRGBO(55, 106, 237, 0.15),
+                                child: Icon(
+                                  Icons.close,
+                                  color: primaryColor,
+                                  size: 14,
                                 ),
                               ),
                               onDeleted: () {
@@ -79,7 +81,7 @@ class _TagSelectorState extends State<TagSelector> {
                                   _tags.remove(i);
                                 });
                               },
-                              deleteIconColor:  primaryColor,
+                              deleteIconColor: primaryColor,
                               backgroundColor: whiteColor,
                               label: Text(i),
                               labelStyle: const TextStyle(
@@ -88,10 +90,10 @@ class _TagSelectorState extends State<TagSelector> {
                                 fontWeight: FontWeight.w500,
                               ),
                               shape: const StadiumBorder(
-                                      side: BorderSide(
-                                        width: 2,
-                                        color: primaryColor,
-                                      )),
+                                  side: BorderSide(
+                                width: 2,
+                                color: primaryColor,
+                              )),
                             ),
                         ],
                       ),

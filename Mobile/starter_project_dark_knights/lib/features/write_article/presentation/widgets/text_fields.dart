@@ -9,33 +9,32 @@ class AddTitleAndSubtitle extends StatelessWidget {
     return Column(
       children: [
         Container(
-                margin: const EdgeInsets.fromLTRB(33, 20, 33, 20),
-                
-                child: TextFormField(
-                  decoration: const InputDecoration(
-                    border: UnderlineInputBorder(),
-                    labelText: 'Add title',
-                    labelStyle: TextStyle(
-                      fontFamily: 'Poppins',
-                      color: textFieldTextColor,),
-                  ),
-                ),
+          margin: const EdgeInsets.fromLTRB(33, 20, 33, 20),
+          child: TextFormField(
+            decoration: const InputDecoration(
+              border: UnderlineInputBorder(),
+              labelText: 'Add title',
+              labelStyle: TextStyle(
+                fontFamily: 'Poppins',
+                color: textFieldTextColor,
               ),
+            ),
+          ),
+        ),
         Container(
-                margin: const EdgeInsets.fromLTRB(33, 20, 33, 20),
-                
-                child: TextFormField(
-                  decoration: const InputDecoration(
-                    border: UnderlineInputBorder(),
-                    labelText: 'Add subtitle',
-                    labelStyle: TextStyle(
-                      fontFamily: 'Poppins',
-                      color: textFieldTextColor,
-                      fontSize: 16,
-                      ),
-                  ),
-                ),
+          margin: const EdgeInsets.fromLTRB(33, 20, 33, 20),
+          child: TextFormField(
+            decoration: const InputDecoration(
+              border: UnderlineInputBorder(),
+              labelText: 'Add subtitle',
+              labelStyle: TextStyle(
+                fontFamily: 'Poppins',
+                color: textFieldTextColor,
+                fontSize: 16,
               ),
+            ),
+          ),
+        ),
       ],
     );
   }

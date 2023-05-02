@@ -7,14 +7,13 @@ import '../widgets/text_fields.dart';
 
 class WriteArticle extends StatelessWidget {
   const WriteArticle({super.key});
-  
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'write Article',
-      home:  Scaffold(
+      home: Scaffold(
         body: SafeArea(
           child: ListView(
             shrinkWrap: true,
@@ -27,7 +26,6 @@ class WriteArticle extends StatelessWidget {
             ],
           ),
         ),
-        
       ),
     );
   }
