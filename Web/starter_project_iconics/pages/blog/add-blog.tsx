@@ -49,7 +49,7 @@ const AddBlog: React.FC = () => {
         <div className="mx-auto">
           <input
             type="text"
-            className="border-l-2 border-indigo-400 text-black text-3xl p-2 leading-normal mt-8 focus:outline-0 font-imfell"
+            className="border-l-2 border-indigo-400 text-primary-text text-3xl p-2 leading-normal mt-8 focus:outline-0 font-imfell"
             placeholder="Enter the title of the blog"
             required
           />
@@ -59,15 +59,17 @@ const AddBlog: React.FC = () => {
             src="/img/blog/upload-img.png"
             alt=""
             className="mx-auto pt-24 pb-8"
+            width={300}
+            height={300}
           />
-          <div className=" text-center p-12 font-montserrat">
+          <div className="text-center p-12 font-montserrat text-primary-text">
             <p>
               please, &nbsp;{' '}
-              <button className="bg-white hover:bg-gray-50 text-gray-800 py-2 px-4 border-gray-400 rounded shadow">
+              <button className="bg-white hover:bg-gray-50 text-secondary-text py-2 px-4 border-gray-400 rounded shadow">
                 Upload File
               </button>{' '}
               &nbsp; or choose file from &nbsp;{' '}
-              <button className="bg-white hover:bg-gray-50 text-gray-800 py-2 px-4 border-gray-400 rounded shadow">
+              <button className="bg-white hover:bg-gray-50 text-secondary-text  py-2 px-4 border-gray-400 rounded shadow">
                 {' '}
                 My Files
               </button>
