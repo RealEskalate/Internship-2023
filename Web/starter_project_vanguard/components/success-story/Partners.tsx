@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 interface Partner {
@@ -40,8 +41,12 @@ const Partners: React.FC = () => {
       </h1>
       <div className="flex flex-wrap justify-around	 gap-1">
         {partners.map((partner, index) => (
-          <img
+          <Image
             key={index}
+            width={251}
+        height={110}
+        className="max-w-[251px]"
+        layout="responsive"
             src={`/images/success-story/companies/${partner.imgURL}`} // Concatenate the common path with imgURL
             alt={partner.companyName}
           />
