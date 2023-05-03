@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React, { useState } from 'react'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css' // import the stylesheet
@@ -54,7 +55,7 @@ const AddBlog: React.FC = () => {
           />
         </div>
         <div className="bg-gray-100 mt-8">
-          <img
+          <Image
             src="/img/blog/upload-img.png"
             alt=""
             className="mx-auto pt-24 pb-8"
