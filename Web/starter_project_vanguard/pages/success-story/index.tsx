@@ -44,7 +44,7 @@ export default function SucessStory() {
                   </div>
                   <div className="mt-0">
                     {successStory.story.map((story, index) => (
-                      <SuccessDescription successDescription={story} />
+                      <SuccessDescription key={index} successDescription={story} />
                     ))}
                   </div>
                 </div>
