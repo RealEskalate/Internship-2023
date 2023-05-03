@@ -17,7 +17,15 @@ public class RatingRepository : GenericRepository<Rating>, IRatingRepository
         _dbContext = dbContext;
     }
 
-    public async Task<Rating> FindByBlogAndRater(int blogId, int raterId)
+    public IReadOnlyList<Rating> GetByBlog(int blogId)
+    {
+        var ratings = _dbContext.Ratings
+            .Where(q => q.BlogId == blogId).ToList();
+
+        return ratings;
+    }
+
+    public async Task<Rating> GetByBlogAndRater(int blogId, int raterId)
     {
         var rating = await _dbContext.Ratings
             .FirstOrDefaultAsync(q => q.BlogId == blogId && q.RaterId == raterId);

@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BlogApp.Application.Features.Ratings.CQRS.Handlers;
-public class Update_RatingCommandHandler : IRequestHandler<Update_RatingCommand, Unit>
+public class Update_RatingCommandHandler : IRequestHandler<Update_RatingCommand, int>
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
@@ -23,7 +23,7 @@ public class Update_RatingCommandHandler : IRequestHandler<Update_RatingCommand,
         _mapper = mapper;
     }
 
-    public async Task<Unit> Handle(Update_RatingCommand request, CancellationToken cancellationToken)
+    public async Task<int> Handle(Update_RatingCommand request, CancellationToken cancellationToken)
     {
         var validator = new RatingDtoValidator();
         var validationResult = await validator.ValidateAsync(request.RatingDto);
@@ -36,11 +36,10 @@ public class Update_RatingCommandHandler : IRequestHandler<Update_RatingCommand,
         {
             var updatedRating = _mapper.Map<Rating>(request.RatingDto);
             updatedRating.BlogId = request.BlogId;
-            /*
-             * updatedRating.RaterId = _httpContextAccessor.HttpContext.User.Claims.FirstOrDefault(
+            /* updatedRating.RaterId = _httpContextAccessor.HttpContext.User.Claims.FirstOrDefault(
              *      q => q.Type == CustomClaimTypes.Uid)?.Value;
             **/
-            var existingRating = _unitOfWork.RatingRepository.FindByBlogAndRater(request.BlogId, updatedRating.RaterId);
+            var existingRating = _unitOfWork.RatingRepository.GetByBlogAndRater(request.BlogId, updatedRating.RaterId);
             if(existingRating == null)
             {
                 throw new RatingNotFoundException(nameof(Rating), request.BlogId);
@@ -48,6 +47,12 @@ public class Update_RatingCommandHandler : IRequestHandler<Update_RatingCommand,
             await _unitOfWork.RatingRepository.Update(updatedRating);
             await _unitOfWork.Save();
         }
-        return Unit.Value;
+        int response = 0;
+        var ratings = _unitOfWork.RatingRepository.GetByBlog(request.BlogId);
+        foreach (var rating in ratings){
+            response += rating.Rate;
+        }
+        if(response != 0) response /= ratings.Count;
+        return response;
     }
 }

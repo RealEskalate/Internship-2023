@@ -4,5 +4,6 @@ namespace BlogApp.Application.Contracts.Persistence;
 
 public interface IRatingRepository : IGenericRepository<Rating>
 {
-    Task<Rating> FindByBlogAndRater(int blogId, int raterId);
+    Task<Rating> GetByBlogAndRater(int blogId, int raterId);
+    IReadOnlyList<Rating> GetByBlog(int blogId);
 }

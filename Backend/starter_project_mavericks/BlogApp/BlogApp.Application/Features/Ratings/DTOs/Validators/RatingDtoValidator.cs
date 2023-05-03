@@ -11,10 +11,10 @@ public class RatingDtoValidator : AbstractValidator<RatingDto>
 {
     public RatingDtoValidator()
     {
-        int maxRate = 10;
-        int minRate = 0;
+        int maxBound = 10;
+        int minBound = 0;
         RuleFor(p => p.Rate)
-            .GreaterThan(maxRate).WithMessage("{PropertyName} must not exceed {ComparisonValue}.")
-            .GreaterThan(minRate).WithMessage("{PropertyName} must exceed {ComparisonValue}.");
+            .LessThanOrEqualTo(maxBound).WithMessage("{PropertyName} must not exceed {ComparisonValue}.")
+            .GreaterThanOrEqualTo(minBound).WithMessage("{PropertyName} must equal or exceed {ComparisonValue}.");
     }
 }

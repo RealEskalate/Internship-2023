@@ -25,10 +25,10 @@ public class BlogsController : ControllerBase
     }
 
     [HttpPut("{blogId}/rate")]
-    public async Task<ActionResult> Put(int blogId, [FromBody] RatingDto ratingDto)
+    public async Task<ActionResult<int>> Put(int blogId, [FromBody] RatingDto ratingDto)
     {
         var command = new Update_RatingCommand { BlogId = blogId, RatingDto = ratingDto };
-        await _mediator.Send(command);
-        return NoContent();
+        var response = await _mediator.Send(command);
+        return Ok(response);
     }
 }

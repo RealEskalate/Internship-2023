@@ -29,7 +29,6 @@ public class Create_RatingCommandHandler : IRequestHandler<Create_RatingCommand,
     
     public async Task<int> Handle(Create_RatingCommand request, CancellationToken cancellationToken)
     {
-        int response;
         var validator = new RatingDtoValidator();
         var validationResult = await validator.ValidateAsync(request.RatingDto);
 
@@ -41,15 +40,19 @@ public class Create_RatingCommandHandler : IRequestHandler<Create_RatingCommand,
         {
             var rating = _mapper.Map<Rating>(request.RatingDto);
             rating.BlogId = request.BlogId;
-            /*
-             * rating.raterId = _httpContextAccessor.HttpContext.User.Claims.FirstOrDefault(
+            /* rating.raterId = _httpContextAccessor.HttpContext.User.Claims.FirstOrDefault(
              *      q => q.Type == CustomClaimTypes.Uid)?.Value;
             **/
             rating = await _unitOfWork.RatingRepository.Add(rating);
             await _unitOfWork.Save();
-
-            response = rating.Id;
         }
+        int response = 0;
+        var ratings = _unitOfWork.RatingRepository.GetByBlog(request.BlogId);
+        foreach (var rating in ratings)
+        {
+            response += rating.Rate;
+        }
+        if (response != 0) response /= ratings.Count;
         return response;
     }
 }
