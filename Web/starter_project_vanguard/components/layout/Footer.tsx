@@ -7,7 +7,7 @@ import {
   FaTwitter,
   FaYoutube,
 } from 'react-icons/fa'
-
+import { LinkItem } from '@/types/footer-navigation'
 import Image from 'next/image'
 
 const Footer: React.FC = () => {
