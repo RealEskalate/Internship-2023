@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Title = () => {
     return (
         <div className='gap-5'>

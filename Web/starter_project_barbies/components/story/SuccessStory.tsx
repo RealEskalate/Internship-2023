@@ -1,4 +1,3 @@
-import React from 'react'
 import SuccessStoryCard from './SuccessStoryCard'
 import style from "./../../styles/story/style.module.css"
 import story from "./../../public/data/story.json"
