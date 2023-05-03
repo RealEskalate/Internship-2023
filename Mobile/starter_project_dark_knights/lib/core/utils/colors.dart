@@ -13,3 +13,6 @@ const Color darkPrimaryColor = Color(0xFF2151CD);
 const Color lightPrimaryColorGradient = Color(0xFF9CECFB);
 const Color darkPrimaryColorGradient = Color(0xFF376AED);
 const Color imageShadowColor = Color.fromARGB(255, 191, 191, 191);
+const Color homeBackgroundColor = Color(0xFFF8FAFF);
+const Color textColor2 = Color(0xFF424242);
+const Color textColor1 = Color(0xFF4D4A49);
