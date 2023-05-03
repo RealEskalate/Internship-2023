@@ -29,12 +29,15 @@ function TeamCard({
   socialMedia,
 }: TeamCardProps) {
   return (
-    <div className="flex flex-col bg-white rounded-lg p-6 m-2 items-center justify-center shadow-xl max-w-sm">
+    <div className="flex flex-col self-start bg-white rounded-lg p-6 m-2 items-center justify-center shadow-xl max-w-[500px]">
       <Image
-        className="rounded-full w-32 h-32 mt-2 object-cover"
+        className="rounded-full w-32 h-32 mt-2 bg-gray-200 object-contain"
         src={avatar}
         alt="avatar"
+        width={178}
+        height={178}
       ></Image>
+
       <h1 className="font-bold uppercase text-black text-2xl m-3">{name}</h1>
       <h2 className="uppercase text-black text-xl">{job}</h2>
       <p className="text-center my-4 text-xl text-[#7D7D7D]">{description}</p>
