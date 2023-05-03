@@ -3,11 +3,11 @@ import React, { useState } from 'react'
 import { AiOutlineCloudUpload } from 'react-icons/ai'
 import { HiOutlineMail } from 'react-icons/hi'
 
-import { user } from './user'
+import { user } from '../../data/profile/user'
 const PersonalInfo: React.FC = () => {
-  const [firstName, setFirstName] = useState("Segni")
-  const [lastName, setLastName] = useState("Desta")
-  const [email, setEmail] = useState("segnidesta@gmail.com")
+  const [firstName, setFirstName] = useState(user.firstName)
+  const [lastName, setLastName] = useState(user.lastName)
+  const [email, setEmail] = useState(user.email)
    return (
     <div className="flex flex-col gap-4 py-6  text-secondary-text">
       <div className="flex justify-between">
