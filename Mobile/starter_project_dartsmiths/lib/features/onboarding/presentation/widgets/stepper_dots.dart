@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
-import '../../../core/utils/colors.dart';
+
+import "../../../../core/utils/colors.dart";
+
 
 // This widget acceps index and returns pagination dots making the index active
 class StepperDots extends StatefulWidget {
