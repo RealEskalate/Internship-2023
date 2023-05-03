@@ -3,7 +3,6 @@ using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Exceptions;
 using BlogApp.Application.Features._Indices.CQRS.Commands;
 using BlogApp.Application.Features._Indices.DTOs.Validators;
-using BlogApp.Application.Features.Rates.CQRS.Commands;
 using BlogApp.Application.Features.Ratings.CQRS.Commands;
 using BlogApp.Application.Features.Ratings.DTOs.Validators;
 using BlogApp.Application.Responses;

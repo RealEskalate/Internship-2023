@@ -36,20 +36,23 @@ public class Update_RatingCommandHandler : IRequestHandler<Update_RatingCommand,
         {
             var updatedRating = _mapper.Map<Rating>(request.RatingDto);
             updatedRating.BlogId = request.BlogId;
+            updatedRating.RaterId = 0;
             /* updatedRating.RaterId = _httpContextAccessor.HttpContext.User.Claims.FirstOrDefault(
              *      q => q.Type == CustomClaimTypes.Uid)?.Value;
             **/
-            var existingRating = _unitOfWork.RatingRepository.GetByBlogAndRater(request.BlogId, updatedRating.RaterId);
+            var existingRating = await _unitOfWork.RatingRepository.GetByBlogAndRater(request.BlogId, updatedRating.RaterId);
             if(existingRating == null)
             {
-                throw new RatingNotFoundException(nameof(Rating), request.BlogId);
+                throw new NotFoundException(nameof(Rating), $"{request.BlogId} {updatedRating.RaterId}");
             }
+            updatedRating.Id = existingRating.Id;
             await _unitOfWork.RatingRepository.Update(updatedRating);
             await _unitOfWork.Save();
         }
         int response = 0;
         var ratings = _unitOfWork.RatingRepository.GetByBlog(request.BlogId);
-        foreach (var rating in ratings){
+        foreach (var rating in ratings)
+        {
             response += rating.Rate;
         }
         if(response != 0) response /= ratings.Count;
