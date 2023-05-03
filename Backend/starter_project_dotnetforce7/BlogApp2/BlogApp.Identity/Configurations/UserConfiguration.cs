@@ -22,8 +22,8 @@ namespace BlogApp.Identity.Configurations
                      NormalizedEmail = "ADMIN@LOCALHOST.COM",
                      UserName = "Admin",
                      NormalizedUserName = "ADMIN",
-                     FirstName = "Admin",
-                     LastName = "Admin",
+                     Firstname = "Admin",
+                     Lastname = "Admin",
                      PasswordHash = hasher.HashPassword(null, "P@ssword1"),
                      EmailConfirmed = true
                  },
@@ -34,8 +34,8 @@ namespace BlogApp.Identity.Configurations
                      NormalizedEmail = "USER@LOCALHOST.COM",
                      UserName = "User",
                      NormalizedUserName = "USER",
-                     FirstName = "User",
-                     LastName = "User",
+                     Firstname = "User",
+                     Lastname = "User",
                      PasswordHash = hasher.HashPassword(null, "P@ssword1"),
                      EmailConfirmed = true
                  }
