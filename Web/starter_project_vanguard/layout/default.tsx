@@ -1,7 +1,7 @@
 import React from 'react'
 import { ReactNode, Suspense } from 'react'
 
-import Navbar from '@/components/layout/navbar'
+import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
