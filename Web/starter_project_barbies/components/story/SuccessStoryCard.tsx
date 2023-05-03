@@ -1,15 +1,12 @@
-import React from 'react'
 import Image from 'next/image'
-
 import {SuccessStoriesProps} from './../../types/story'
-
 
 interface props{
     successStory:SuccessStoriesProps
 }
 
 const SuccessStoryCard = ({ successStory }:props)=> {
-     const paragraphs = [
+const paragraphs = [
         {
             title: "My A2SV Experience",
             detail: successStory?.experience,
@@ -37,7 +34,7 @@ const SuccessStoryCard = ({ successStory }:props)=> {
         </div>
 
         <div className='flex flex-grow flex-col w-64 h-40 gap-30 mx-10 md:w-96 mt-20 lg:mt-10 md:mt-0 '>
-            {paragraphs.map((paragraph , index) => {
+            {paragraphs.map((paragraph , index : number) => {
             
              return (
                 <div className = "flex flex-col gap-3 mt-5" key = {index} >
