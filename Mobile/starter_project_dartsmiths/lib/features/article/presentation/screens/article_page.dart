@@ -60,7 +60,7 @@ class ArticleReading extends StatelessWidget {
                               SizedBox(
                                 height: UIConverter.getComponentHeight(context, 32),
                               ),
-                               article_profile(),
+                               ArticleProfile(),
                             ],
                           ),
                         ),
@@ -103,7 +103,7 @@ class ArticleReading extends StatelessWidget {
               ),
               //
             ),
-            floatingActionButton: like_button(),
+            floatingActionButton: LikeButton(),
           );
         }));
   }

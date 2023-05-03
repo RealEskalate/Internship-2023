@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/utils/colors.dart';
-import '../../../core/utils/images.dart';
+import '../../../../core/utils/colors.dart';
+import '../../../../core/utils/images.dart';
 import '../widgets/onboarding_stepper_box.dart';
 import '../widgets/onboarding_stepper_button.dart';
 import '../widgets/stepper_dots.dart';
@@ -21,12 +21,14 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
         backgroundColor: scaffoldBackground,
         body: Column(
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.05,
+              height: screenHeight * 0.05,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -42,17 +44,21 @@ class _OnboardingPageState extends State<OnboardingPage> {
                             isLarge: false,
                           ),
                           OnboardingStepperBox(
-                              imageUrl: onBoardingPhoto2, isLarge: true,)
+                            imageUrl: onBoardingPhoto2,
+                            isLarge: true,
+                          )
                         ],
                       ),
                       Row(
                         children: [
-                          OnboardingStepperBox(imageUrl: onBoardingPhoto3, isLarge: true),
-                          OnboardingStepperBox(imageUrl: onBoardingPhoto4, isLarge: false)
+                          OnboardingStepperBox(
+                              imageUrl: onBoardingPhoto3, isLarge: true),
+                          OnboardingStepperBox(
+                              imageUrl: onBoardingPhoto4, isLarge: false)
                         ],
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.015,
+                        height: screenHeight * 0.015,
                       ),
                     ],
                   ),
@@ -69,27 +75,26 @@ class _OnboardingPageState extends State<OnboardingPage> {
               width: double.infinity,
               child: Padding(
                 padding: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width * 0.13,
-                    right: MediaQuery.of(context).size.width * 0.15),
+                    left: screenWidth * 0.13, right: screenWidth * 0.15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.03,
+                      height: screenHeight * 0.03,
                     ),
-                    const Text(pageTitle,
+                    Text(pageTitle,
                         style: TextStyle(
-                          fontSize: 24,
+                          fontSize: screenWidth * 0.08 * (8 / 10),
                           fontStyle: FontStyle.italic,
                           fontFamily: "urbanist",
                           fontWeight: FontWeight.w100,
                         )),
-                    const Text(pageDescription,
+                    Text(pageDescription,
                         style: TextStyle(
                             color: secondaryTextColor,
                             fontFamily: "popins",
-                            fontSize: 14,
+                            fontSize: screenWidth * 0.045 * (8 / 10),
                             fontWeight: FontWeight.w900)),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -105,7 +110,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       ],
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.03,
+                      height: screenHeight * 0.03,
                     ),
                   ],
                 ),
