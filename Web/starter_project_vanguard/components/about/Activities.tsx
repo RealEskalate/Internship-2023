@@ -1,9 +1,9 @@
 import ImageTextStack from '@/components/about/ImageTextStack'
 import { ActivityComponentProp } from '@/types/about/activity-component-prop'
 import Image from 'next/image'
-import developmentImage from '../../public/images/aboutus/phases/development-phase.svg'
-import educationImage from '../../public/images/aboutus/phases/education-process.svg'
-import growthRateImage from '../../public/images/aboutus/phases/growth-rate.svg'
+import developmentImage from '../../public/img/aboutus/phases/development-phase.svg'
+import educationImage from '../../public/img/aboutus/phases/education-process.svg'
+import growthRateImage from '../../public/img/aboutus/phases/growth-rate.svg'
 
 function Activities({
   studentGrowthRate,

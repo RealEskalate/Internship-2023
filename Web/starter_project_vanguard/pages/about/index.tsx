@@ -5,11 +5,11 @@ import ImagePragraph from '@/components/about/ImagePragraph'
 import SocialProject from '@/components/about/SocialProject'
 import { a2svSessions } from '../../data/about/a2sv-sessions'
 import { socialProjects } from '../../data/about/social-projects'
-import africaIcon from '../../public/images/aboutus/icons/africa-icon.svg'
-import codingIcon from '../../public/images/aboutus/icons/coding-icon.svg'
-import lightIcon from '../../public/images/aboutus/icons/light-icon.svg'
-import howWeAreSolving from '../../public/images/aboutus/problems/how-we-are-solving.svg'
-import problemImage from '../../public/images/aboutus/problems/problem-image.svg'
+import africaIcon from '../../public/img/aboutus/icons/africa-icon.svg'
+import codingIcon from '../../public/img/aboutus/icons/coding-icon.svg'
+import lightIcon from '../../public/img/aboutus/icons/light-icon.svg'
+import howWeAreSolving from '../../public/img/aboutus/problems/how-we-are-solving.svg'
+import problemImage from '../../public/img/aboutus/problems/problem-image.svg'
 
 function AboutPage() {
   return (

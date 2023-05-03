@@ -1,8 +1,8 @@
 import Image from 'next/image'
 
 import { SocialProjectDescriptionProp } from '@/types/about/social-project-description-prop'
-import githubIcon from '../../public/images/aboutus/icons/github.svg'
-import shareIcon from '../../public/images/aboutus/icons/share.svg'
+import githubIcon from '../../public/img/aboutus/icons/github.svg'
+import shareIcon from '../../public/img/aboutus/icons/share.svg'
 
 function SocialProjectDescription({
   leftAligned,
