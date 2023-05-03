@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 
 const partnerSection = [
   {imgurl:"google-logo.png" , 
@@ -22,7 +23,7 @@ const PartnerLogos: React.FC = () => {
         <div className="flex flex-wrap  justify-around items-center  ">
           {partnerSection.map((data) => (
             <div key={data.imgurl} className="w-52 h-36 flex justify-center items-center bg-white rounded-full">
-              <img src={`/img/success-stories-images/companies/${data.imgurl}`}alt={data.alternative} />
+              <Image width={251} height={110} src={`/img/success-stories-images/companies/${data.imgurl}`}alt={data.alternative} />
             </div>
             
           ))}
