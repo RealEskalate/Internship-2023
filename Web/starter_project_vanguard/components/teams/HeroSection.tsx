@@ -35,7 +35,7 @@ const HeroSection: React.FC = () => {
       <div className="relative hidden 2lg:flex basis-3/5 p-40 flex-col gap-4 text-primary-text">
         <div className="absolute top-4 -z-10">
           <Image
-            className=' w-[530px]'
+            className=' w-[490px] xl:w-[530px]'
             src="/img/teams/hero-section/hero-background.png"
             width={550}
             height={500}
