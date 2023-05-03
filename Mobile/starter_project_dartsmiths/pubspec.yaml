@@ -30,6 +30,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  
+  equatable: ^2.0.5
+  dartz: ^0.10.1
 
 
   # The following adds the Cupertino Icons font to your application.
