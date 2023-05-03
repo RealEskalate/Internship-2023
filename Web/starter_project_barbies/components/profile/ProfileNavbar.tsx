@@ -5,7 +5,7 @@ const ProfileNavbar = () => {
   const router = useRouter();
 
   return (
-    
+
     <nav className='bg-white ml-10'  >
       <h1 className='bg-white text-black pd-12 pt-6 text-2xl ml-8 mb-4'>Profile</h1>
       <ul className='flex bg-white'>

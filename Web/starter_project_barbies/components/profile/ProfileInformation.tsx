@@ -11,13 +11,13 @@ export const PersonalInformation = () => {
         <div className="flex flex-row h-screen ">   
          <main className="flex-grow bg-white p-8">
           <form className="w-96 ml-10">
-            <div className="mb-4 flex">
+            <div className="mb-4 flex ">
 
              <div className='mr-8 text-black'> Name</div>
 
               <div className="w-1/2 pr-2">
 
-                <label className="block text-gray-700 font-bold mb-2" htmlFor="first_name"/>
+                <label className="block text-gray-600 font-bold mb-2" htmlFor="first_name"/>
               
                 <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
