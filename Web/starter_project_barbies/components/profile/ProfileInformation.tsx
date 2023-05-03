@@ -40,9 +40,8 @@ export const PersonalInformation = () => {
               </div>
             </div>
 
-                {/* Email Adress */}
             <div>
-                <div className="mb-4 flex mb-12 mt-12">
+                <div className=" flex mb-12 mt-12">
                 <p className='text-black'> Email Address</p>
                     
                         <label className="block text-gray-700 font-bold mb-2" htmlFor="email"/>
@@ -57,12 +56,9 @@ export const PersonalInformation = () => {
                 </div>
             </div>
 
-                {/* click to upload */}
-
         <div className="flex items-center justify-center w-full ">
           <p className='mr-8 text-black'>Your Photo</p>
 
-                {/* Image selector */}
             <label htmlFor="image" className="block text-gray-700 font-bold mb-2 mr-4">
                 <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-gray-400 hover:border-gray-500 focus:border-blue-500">
                 <Image height={50} width={50} className="w-full h-full object-cover" src="/img/profile-information/profile-girl.png" alt="Image placeholder"/>
