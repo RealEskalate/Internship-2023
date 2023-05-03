@@ -26,7 +26,7 @@ function Activities({
           <Image
             className="object-cover w-full h-48"
             src={growthRateImage}
-            alt={''}
+            alt={'growth rate'}
           ></Image>
           <div className="absolute top-0 left-0 px-6 py-4 text-white w-[100%] text-right">
             <h4 className="pt-6 text-xl font-semibold">
