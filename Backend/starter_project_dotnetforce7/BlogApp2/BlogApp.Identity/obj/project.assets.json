@@ -1553,7 +1553,8 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "BlogApp.Domain": "1.0.0",
           "FluentValidation.DependencyInjectionExtensions": "11.5.2",
-          "MediatR.Extensions.Microsoft.DependencyInjection": "11.1.0"
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.1.0",
+          "Microsoft.EntityFrameworkCore": "7.0.5"
         },
         "compile": {
           "bin/placeholder/BlogApp.Application.dll": {}
@@ -4263,19 +4264,19 @@
     ]
   },
   "packageFolders": {
-    "/home/biruk/.nuget/packages/": {}
+    "/Users/leultefera/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/biruk/Desktop/test/Internship-2023/Backend/starter_project_dotnetforce7/BlogApp2/BlogApp.Identity/BlogApp.Identity.csproj",
+      "projectUniqueName": "/Users/leultefera/Internship-2023/Backend/starter_project_dotnetforce7/BlogApp2/BlogApp.Identity/BlogApp.Identity.csproj",
       "projectName": "BlogApp.Identity",
-      "projectPath": "/home/biruk/Desktop/test/Internship-2023/Backend/starter_project_dotnetforce7/BlogApp2/BlogApp.Identity/BlogApp.Identity.csproj",
-      "packagesPath": "/home/biruk/.nuget/packages/",
-      "outputPath": "/home/biruk/Desktop/test/Internship-2023/Backend/starter_project_dotnetforce7/BlogApp2/BlogApp.Identity/obj/",
+      "projectPath": "/Users/leultefera/Internship-2023/Backend/starter_project_dotnetforce7/BlogApp2/BlogApp.Identity/BlogApp.Identity.csproj",
+      "packagesPath": "/Users/leultefera/.nuget/packages/",
+      "outputPath": "/Users/leultefera/Internship-2023/Backend/starter_project_dotnetforce7/BlogApp2/BlogApp.Identity/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/biruk/.nuget/NuGet/NuGet.Config"
+        "/Users/leultefera/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -4287,8 +4288,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "/home/biruk/Desktop/test/Internship-2023/Backend/starter_project_dotnetforce7/BlogApp2/BlogApp.Application/BlogApp.Application.csproj": {
-              "projectPath": "/home/biruk/Desktop/test/Internship-2023/Backend/starter_project_dotnetforce7/BlogApp2/BlogApp.Application/BlogApp.Application.csproj"
+            "/Users/leultefera/Internship-2023/Backend/starter_project_dotnetforce7/BlogApp2/BlogApp.Application/BlogApp.Application.csproj": {
+              "projectPath": "/Users/leultefera/Internship-2023/Backend/starter_project_dotnetforce7/BlogApp2/BlogApp.Application/BlogApp.Application.csproj"
             }
           }
         }
@@ -4386,7 +4387,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
       }
     }
   }
