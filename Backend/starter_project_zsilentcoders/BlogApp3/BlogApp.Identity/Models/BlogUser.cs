@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Identity;
+
 namespace BlogApp.Identity.Models;
 
-public class BlogUser
+public class BlogUser: IdentityUser
 {
 }

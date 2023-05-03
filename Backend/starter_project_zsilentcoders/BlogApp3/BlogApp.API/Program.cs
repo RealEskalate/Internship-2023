@@ -1,4 +1,5 @@
 using BlogApp.Application;
+using BlogApp.Identity;
 using BlogApp.Persistence;
 using Microsoft.OpenApi.Models;
 
@@ -14,6 +15,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.ConfigureIdentityServices(builder.Configuration);
+
 
 builder.Services.AddCors(o =>
 {
