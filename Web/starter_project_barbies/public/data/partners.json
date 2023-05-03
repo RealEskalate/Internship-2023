@@ -1,0 +1,26 @@
+[
+  {
+  "name":"google",
+  "image":"/img/story/companies/google.png"
+  },
+  {
+  "name":"palantir",
+  "image":"/img/story/companies/palantir.png"
+  }, 
+  {
+  "name":"instdeep",
+  "image":"/img/story/companies/instdeep.png"
+  }, 
+  {
+  "name":"meta",
+  "image":"/img/story/companies/meta.png"
+  }, 
+  {
+  "name":"databricks",
+  "image":"/img/story/companies/databricks.png"
+  }, 
+  {
+  "name":"linkedin",
+  "image":"/img/story/companies/linkedin.png"
+  }
+]
