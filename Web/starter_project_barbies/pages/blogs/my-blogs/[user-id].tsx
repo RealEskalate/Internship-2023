@@ -9,14 +9,14 @@ const MyBlogs: NextPage = () => {
 
   // Get userID from router
   const router = useRouter();
-  const userID = router.query["my-blogs"];
-  
+  const userID = router.query["user-id"];
+
   // Fetch data
   const fetchData = async () => {
-      const res = await fetch("/api/blogs");
-      const allBlogs = await res.json();
-      const userBlogs = allBlogs.filter((blog : Blog) => blog.userID === userID);
-      setBlogs(userBlogs);
+    const res = await fetch("/api/blogs");
+    const allBlogs = await res.json();
+    const userBlogs = allBlogs.filter((blog : Blog) => blog.userID === userID);
+    setBlogs(userBlogs);
   };
 
   useEffect(() => {
@@ -28,9 +28,7 @@ const MyBlogs: NextPage = () => {
 
   // Check if the user has any blogs
   if (blogs.length === 0) {
-    return <p>
-        Oops! It looks like you don't have any blogs to manage yet. Why not create a new blog post and start sharing your thoughts with the world?
-  </p>
+    return <p>You do not have any blogs to manage.</p>;
   }
 
   return (
