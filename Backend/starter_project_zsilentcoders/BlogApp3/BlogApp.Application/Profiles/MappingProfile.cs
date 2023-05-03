@@ -13,14 +13,8 @@ namespace BlogApp.Application.Profiles
     {
         public MappingProfile()
         {
-            CreateMap<_Index, _IndexDto>().ReverseMap();
-            CreateMap<_Index, Create_IndexDto>().ReverseMap();
-            #region _index Mappings
-
-            CreateMap<_Index, _IndexDto>().ReverseMap();
-            CreateMap<_Index, Create_IndexDto>().ReverseMap();
-
-            #endregion _index
+            CreateMap<User, _UserDto>().ReverseMap();
+            CreateMap<User, Create_UserDto>().ReverseMap();
         }
     }
 }

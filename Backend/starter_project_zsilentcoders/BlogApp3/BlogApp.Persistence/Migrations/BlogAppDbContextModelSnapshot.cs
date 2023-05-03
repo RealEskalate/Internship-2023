@@ -22,7 +22,7 @@ namespace BlogApp.Persistence.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("BlogApp.Domain._Index", b =>
+            modelBuilder.Entity("BlogApp.Domain.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -30,34 +30,52 @@ namespace BlogApp.Persistence.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("AccountId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("text");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("LastModifiedDate")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("LastName")
                         .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Password")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.ToTable("_Indices");
+                    b.ToTable("Users");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
+                            AccountId = "abe1",
                             DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Abebe",
                             LastModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "First Index"
+                            LastName = "kebede"
                         },
                         new
                         {
                             Id = 2,
+                            AccountId = "Lula1",
                             DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Alemu",
                             LastModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Second Index"
+                            LastName = "Lula"
                         });
                 });
 #pragma warning restore 612, 618
