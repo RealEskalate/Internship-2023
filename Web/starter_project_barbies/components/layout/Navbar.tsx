@@ -5,21 +5,27 @@ interface HeaderProps {
   activePage: string;
 }
 
+// primary: '#264FAD',Blue,
+// accent: '#FF9F43',orange,
+// danger: '#b91c1c',Red,
+// 'primary-text': '#,Black',
+// 'secondary-text': '#717171'Gray,
+
 function Navbar({ activePage }: HeaderProps) {
   return (
-    <nav className="bg-white border-slate-600">
+    <nav className="bg-white text-secondary-text">
      
           <div  className="flex mt-2 justify-between">
             
             <div className="ml-2">
               <Link href="/" >
-                  <Image width={60}  height={50} className="bg-black" src="/img/A2SV Logo.jpeg" alt="Logo" />
+                  <Image width={60}  height={60} className="primary-text" src="/img/a2sv-logo.jpeg" alt="Logo" />
               </Link>
             </div>
 
            {/* Navbar  */}
             <div className="hidden justify-center sm:block sm:ml-28  ">
-              <ul className="flex space-x-4 text-black">
+              <ul className="flex space-x-4 secondary-text">
 
                 <HeaderLink  href="/" active={activePage === "home"}>
                   Home
@@ -41,7 +47,7 @@ function Navbar({ activePage }: HeaderProps) {
                   Blogs
                 </HeaderLink>
 
-                <HeaderLink href="/get-involved"active={activePage === "get-involved"}>
+                <HeaderLink href="/get-involved" active={activePage === "get-involved"}>
                   Get Involved
                 </HeaderLink>
                 </ul>
@@ -49,11 +55,11 @@ function Navbar({ activePage }: HeaderProps) {
 
                {/* Buttons Login and Donate */}
                 <div className="justify-end mr-8 mt-1 ">
-                    <Link href="/login" className="px-3 py-2 rounded-md text-stone-950 text-sm font-medium hover:text-white hover:bg-gray-400 focus:outline-none focus:text-white focus:bg-gray-700">
+                    <Link href="/login" className="px-3 py-2 rounded-md bg-white text-sm font-medium hover:text-white hover:bg-secondary-text focus:outline-none focus:text-white focus:bg-secondary-text">
                         Login
                     </Link>
 
-                    <Link href="/donate" className="px-3 py-2 rounded-md bg-blue-700 text-sm font-medium hover:text-white hover:bg-red focus:outline-none focus:text-white focus:bg-gray-700">
+                    <Link href="/donate" className="px-3 py-2 rounded-md bg-primary text-sm font-medium hover:text-white hover:bg-red focus:outline-none focus:text-white focus:bg-secondary-text">
                         Donate
                     </Link>
                 </div>
@@ -69,10 +75,12 @@ interface HeaderLinkProps {
 }
 
 function HeaderLink({ href, active, children }: HeaderLinkProps) {
+
   const activeClasses = active ? "bg-blue text-white" : "text-black";
+  
   return (
     <li className="flex">
-      <Link href={href} className={`px-3 py-2 rounded-md text-sm font-medium ${activeClasses} hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700`}>
+      <Link href={href} className={`px-3 py-2 rounded-md text-sm font-medium ${activeClasses} hover:text-white hover:bg-secondary-text focus:outline-none focus:text-white focus:bg-secondary-text`}>
           {children}
       </Link>
     </li>
