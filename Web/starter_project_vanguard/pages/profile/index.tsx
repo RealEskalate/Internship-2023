@@ -9,7 +9,11 @@ const Profile: React.FC = () => {
     setTab(tab)
   }
 
-  const profiles: ReactNode[] = [<PersonalInfo key={0} />, <></>, <AccountSetting key={2}/>]
+  const profiles: ReactNode[] = [
+    <PersonalInfo key={0} />,
+    <></>,
+    <AccountSetting key={2} />,
+  ]
 
   return (
     <div className="p-10">

@@ -1,11 +1,14 @@
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import { AiOutlineCloudUpload } from 'react-icons/ai'
 import { HiOutlineMail } from 'react-icons/hi'
 
 import { user } from './user'
 const PersonalInfo: React.FC = () => {
-  return (
+  const [firstName, setFirstName] = useState("Segni")
+  const [lastName, setLastName] = useState("Desta")
+  const [email, setEmail] = useState("segnidesta@gmail.com")
+   return (
     <div className="flex flex-col gap-4 py-6  text-secondary-text">
       <div className="flex justify-between">
         <div>
@@ -27,12 +30,14 @@ const PersonalInfo: React.FC = () => {
         <div className="flex gap-10 ml-10 flex-wrap">
           <input
             className="bg-gray-50  ml-10 p-2   text-tertiary-text b-2 pl-3 outline-none  border border-primary-text/20 rounded-lg"
-            value={user.firstName}
+            value={firstName}
+            onChange={(e)=>setFirstName(e.target.value)}
             type="text"
           />
           <input
             className="b-2 p-2 pl-3 outline-none ml-10 border border-primary-text/20 bg-gray-50 rounded-lg"
-            value={user.lastName}
+            value={lastName}
+            onChange={(e)=>setLastName(e.target.value)}
             type="text"
           />
         </div>
@@ -48,7 +53,8 @@ const PersonalInfo: React.FC = () => {
           </div>
           <input
             required
-            value={user.email}
+            value={email}
+            onChange={(e)=>setEmail(e.target.value)}
             type="text"
             id="email"
             className="bg-gray-50 border ml-10 sm:w-[100%] md:w-[195%]  border-primary-text/20 text-primary-text text-sm rounded-lg block  pl-10 p-3 outline-none"
