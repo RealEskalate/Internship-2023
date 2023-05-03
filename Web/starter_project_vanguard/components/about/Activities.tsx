@@ -1,10 +1,15 @@
 import ImageTextStack from '@/components/about/ImageTextStack'
+import { ActivityComponentProp } from '@/types/about/activity-component-prop'
 import Image from 'next/image'
 import developmentImage from '../../public/images/aboutus/phases/development-phase.svg'
 import educationImage from '../../public/images/aboutus/phases/education-process.svg'
 import growthRateImage from '../../public/images/aboutus/phases/growth-rate.svg'
 
-function Activities({ studentGrowthRate, learningRate, growthRate }: any) {
+function Activities({
+  studentGrowthRate,
+  learningRate,
+  growthRate,
+}: ActivityComponentProp) {
   return (
     <div className="bg-lightblue p-7 rounded-lg">
       <div className="grid grid-cols-2 gap-4 text-size">

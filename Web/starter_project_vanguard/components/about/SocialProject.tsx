@@ -1,3 +1,4 @@
+import { SocialProjectComponentProp } from '@/types/about/social-project-component-prop'
 import Image from 'next/image'
 import SocialProjectDescription from './SocialProjectDescription'
 
@@ -7,10 +8,10 @@ function SocialProject({
   title,
   content,
   isImageLeft,
-}: any) {
+}: SocialProjectComponentProp) {
   return isImageLeft ? (
     <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-10">
-      <Image src={image} alt={''}></Image>
+      <Image src={image} alt={title}></Image>
       <SocialProjectDescription
         leftAligned={leftAligned}
         title={title}
