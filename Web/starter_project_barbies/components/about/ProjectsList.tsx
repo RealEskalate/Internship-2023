@@ -20,6 +20,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, reverseFlex }) => {
       <Image
         className="flex-initial"
         src={`/images/about/projects/${project.image}`}
+        style={{width:'auto', height:'auto'}}
         width={700}
         height={200}
         alt=""
@@ -49,7 +50,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, reverseFlex }) => {
   )
 }
 
-const ProjectsList = ({}) => {
+const ProjectsList = () => {
   return (
     <div>
       <div className="font-bold lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl text-center mx-auto mb-12">

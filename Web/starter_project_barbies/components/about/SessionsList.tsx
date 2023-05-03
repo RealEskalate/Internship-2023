@@ -27,7 +27,7 @@ const SessionCard: React.FC<SessionCardProps> = ({ session }) => {
   )
 }
 
-const SessionsList = ({}) => {
+const SessionsList = () => {
   return (
     <div>
       <div className="font-bold lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl text-center mx-auto mb-10">

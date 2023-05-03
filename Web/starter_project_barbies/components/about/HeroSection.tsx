@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-const HeroSection: React.FC = ({}) => {
+const HeroSection: React.FC = () => {
   return (
     <div className="flex justify-center gap-10 flex-wrap">
       <div className="flex flex-col justify-center">
@@ -30,6 +30,7 @@ const HeroSection: React.FC = ({}) => {
             <Image
               src="/about/education_process.png"
               alt="education"
+              style={{width:'auto', height:'auto'}}
               width={300}
               height={50}
             />
@@ -41,6 +42,7 @@ const HeroSection: React.FC = ({}) => {
             <Image
               src="/about/development_phase.png"
               alt="development"
+              style={{width:'auto', height:'auto'}}
               width={300}
               height={50}
             />
