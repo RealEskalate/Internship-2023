@@ -91,7 +91,7 @@ function AboutPage() {
         </p>
         {socialProjects.map((project) => {
           return (
-            <div className="col-span-2">
+            <div className="col-span-2" key={project.title}>
               <SocialProject
                 image={project.image}
                 leftAligned={project.leftAligned}
@@ -114,6 +114,7 @@ function AboutPage() {
               image={session.image}
               title={session.title}
               content={session.content}
+              key={session.title}
             />
           )
         })}
