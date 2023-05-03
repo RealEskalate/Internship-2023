@@ -10,7 +10,7 @@ class UserEntity extends Equatable {
   final String password;
   final String image;
 
-UserEntity({
+  UserEntity({
     required this.id,
     required this.username,
     required this.firstName,
@@ -22,5 +22,14 @@ UserEntity({
   });
 
   @override
-  List<Object?> get props => [id, username, firstName, lastName,occupation,selfDescription,password,image];
+  List<Object?> get props => [
+        id,
+        username,
+        firstName,
+        lastName,
+        occupation,
+        selfDescription,
+        password,
+        image
+      ];
 }
