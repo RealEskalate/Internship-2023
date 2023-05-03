@@ -6,10 +6,7 @@ const index = () => {
     <div className="lg:mx-10 mx-8">
       <HeroSection />
       <hr className="border mt-32 mb-16" />
-      <Members />
-      <div className="my-14">
-      </div>
-      
+      <Members />      
     </div>
   )
 }
