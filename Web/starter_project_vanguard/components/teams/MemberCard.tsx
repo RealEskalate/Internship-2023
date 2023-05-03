@@ -17,7 +17,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
       }
 
   return (
-    <div className="bg-white rounded-md drop-shadow-xl py-6 px-6 max-w-sm ">
+    <div className="bg-white rounded-md drop-shadow-xl py-6 px-6 ">
       <Image
         className="rounded-full m-auto text-center"
         width={120}
