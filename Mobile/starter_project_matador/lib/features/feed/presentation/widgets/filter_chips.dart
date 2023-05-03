@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:matador/core/utils/constants/colors.dart';
-import 'package:matador/core/utils/constants/styles.dart';
+
 import 'package:matador/core/utils/converters/real_pixel_to_logical_pixel.dart';
+import 'package:matador/features/feed/presentation/widgets/chip_builder.dart';
 
 class FilterChips extends StatelessWidget {
   const FilterChips({Key? key}) : super(key: key);
@@ -12,36 +12,25 @@ class FilterChips extends StatelessWidget {
       height: convertPixelToScreenHeight(context, 27),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          chipBuilder("All", true),
-          chipBuilder("Sports", false),
-          chipBuilder("Tech", false),
-          chipBuilder("Politics", false),
+        children: const <Widget>[
+          ChipBuilder(
+            text: "All",
+            isSelected: true,
+          ),
+          ChipBuilder(
+            text: "Sports",
+            isSelected: false,
+          ),
+          ChipBuilder(
+            text: "Tech",
+            isSelected: false,
+          ),
+          ChipBuilder(
+            text: "Politics",
+            isSelected: false,
+          ),
         ],
       ),
     );
   }
-}
-
-Widget chipBuilder(String text, bool isSelected) {
-  return Builder(builder: (context) {
-    return Container(
-      height: convertPixelToScreenHeight(context, 27),
-      width: convertPixelToScreenHeight(context, 77),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(21.0),
-        border: Border.all(
-          width: 2,
-          color: filterChipsColor,
-        ),
-        color: isSelected ? filterChipsColor : Colors.white,
-      ),
-      child: Center(
-        child: Text(text,
-            style: filterChipsTextStyle.copyWith(
-              color: isSelected ? Colors.white : filterChipsColor,
-            )),
-      ),
-    );
-  });
 }
