@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import Image from 'next/image';
 import {
   BsEmojiSmileUpsideDown,
@@ -13,18 +12,6 @@ export interface TeamCardProps {
   description: string
   avatar: string
   socialMedia: social[]
-=======
-import { BsEmojiSmileUpsideDown, BsFacebook, BsInstagram, BsLinkedin } from 'react-icons/bs';
-
-type social = {type: string, link: string}
-export interface TeamCardProps{
-    name: string
-    job: string
-    description: string
-    avatar: string
-    socialMedia: social[]
-
->>>>>>> 7677fe6 (fix conflict)
 }
 
 const SocialMediaIcon: { [index: string]: any } = {
