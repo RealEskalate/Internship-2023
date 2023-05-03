@@ -5,12 +5,6 @@ interface HeaderProps {
   activePage: string;
 }
 
-// primary: '#264FAD',Blue,
-// accent: '#FF9F43',orange,
-// danger: '#b91c1c',Red,
-// 'primary-text': '#,Black',
-// 'secondary-text': '#717171'Gray,
-
 function Navbar({ activePage }: HeaderProps) {
   return (
     <nav className="bg-white text-secondary-text">
