@@ -16,7 +16,6 @@ const PersonalInfo: React.FC = () => {
     updateUser(updatedUser)
   }
 
-
   useEffect(() => {
     if (user) {
       setFirstName(user.firstName)
@@ -140,4 +139,3 @@ function dispatch(arg0: any) {
 function fetchUser(): any {
   throw new Error('Function not implemented.')
 }
-
