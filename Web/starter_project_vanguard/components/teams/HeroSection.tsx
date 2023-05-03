@@ -19,8 +19,8 @@ const HeroSection: React.FC = () => {
   ]
   return (
     <div className="my-2 2lg:my-8 flex max-h-screen">
-      <div className="2lg:basis-2/5 ">
-        <h1 className="uppercase font-bold text-5xl text-primary-text flex flex-col gap-4">
+      <div className="2lg:basis-2/5">
+        <h1 className="uppercase font-bold mx-auto text-5xl text-primary-text flex flex-col gap-4">
           <span>The team we&apos;re</span> <span>currently</span>{' '}
           <span>working with</span>{' '}
         </h1>
