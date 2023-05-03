@@ -12,8 +12,8 @@ module.exports = {
         primary: '#264FAD',
         accent: '#FF9F43',
         danger: '#b91c1c',
-        'primary-text': '#353535',
-        'secondary-text': '#717171',
+        primarytext: '#353535',
+        secondarytext: '#717171',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
