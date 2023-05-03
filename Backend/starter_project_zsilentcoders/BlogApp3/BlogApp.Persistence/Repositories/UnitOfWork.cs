@@ -12,7 +12,7 @@ namespace BlogApp.Persistence.Repositories
 
         private readonly BlogAppDbContext _context;
 
-        private I_IndexRepository _indexRepository;
+        private I_UserRepository _userRepository;
         private IBlogRepository _blogRepository;
 
         public UnitOfWork(BlogAppDbContext context)
@@ -20,12 +20,12 @@ namespace BlogApp.Persistence.Repositories
             _context = context;
         }
 
-        public I_IndexRepository _IndexRepository { 
+        public I_UserRepository _UserRepository { 
             get 
             {
-                if (_indexRepository == null)
-                    _indexRepository = new _IndexRepository(_context);
-                return _indexRepository; 
+                if (_userRepository == null)
+                    _userRepository = new _UserRepository(_context);
+                return _userRepository;
             } 
          }
 

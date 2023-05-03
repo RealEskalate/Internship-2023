@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BlogApp.Domain;
 using BlogApp.Domain.Common;
+using BlogApp.Domain;
 
 namespace BlogApp.Persistence
 {
@@ -44,5 +45,8 @@ namespace BlogApp.Persistence
 
             return base.SaveChangesAsync(cancellationToken);
         }
+
+        public DbSet<User> Users { get; set; }
+
     }
 }
