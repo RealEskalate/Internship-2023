@@ -38,9 +38,9 @@ const MyBlogs: NextPage = () => {
         <p>Edit, Delete and View the status of your blog</p>
       </div>
       <div className="flex flex-wrap justify-start gap-2">
-        {blogs.map((blog) => (
-          <div className="flex flex-wrap">
-            <BlogCard key={blog.blogID} blog={blog} />
+        {blogs.map((blog,index) => (
+          <div key={index} className="flex flex-wrap">
+            <BlogCard  blog={blog} />
           </div>
         ))}
       </div>
