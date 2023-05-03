@@ -11,14 +11,15 @@ const MyBlogs: NextPage = () => {
   const router = useRouter();
   const userID = router.query["my-blogs"];
   
-  useEffect(() => {
-    const fetchData = async () => {
-        const res = await fetch("/api/blogs");
-        const allBlogs = await res.json();
-        const userBlogs = allBlogs.filter((blog : Blog) => blog.userID === userID);
-        setBlogs(userBlogs);
-    };
+  // Fetch data
+  const fetchData = async () => {
+      const res = await fetch("/api/blogs");
+      const allBlogs = await res.json();
+      const userBlogs = allBlogs.filter((blog : Blog) => blog.userID === userID);
+      setBlogs(userBlogs);
+  };
 
+  useEffect(() => {
     if (userID) {
       fetchData();
     }
