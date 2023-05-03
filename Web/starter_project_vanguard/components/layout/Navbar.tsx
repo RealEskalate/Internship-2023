@@ -1,10 +1,10 @@
+import { navItems } from '@/data/layout/nav-items'
 import clsx from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { AiOutlineMenu } from 'react-icons/ai'
 import logo from '../../public/img/a2sv-logo.png'
-import { navItems } from '@/data/layout/nav-items'
 
 const Navbar: React.FC = () => {
   const [toggle, setToggle] = useState(false)
@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
   }
   return (
     <div className="sticky top-0 z-50 bg-white bg-opacity-100 flex justify-between px-10 pt-5">
-      <Link href="/">
+      <Link href="/" onClick={() => setActive('/')}>
         <Image src={logo} alt="A2SV Logo" className="h-12 w-25  " />
       </Link>
       <div className="hidden md:flex gap-9">
@@ -37,7 +37,7 @@ const Navbar: React.FC = () => {
       </div>
 
       <div className="hidden md:flex float-right gap-4">
-        <button className="btn btn-md">Donate</button>
+        <button className="btn btn-md my-auto">Donate</button>
       </div>
       <div
         className="md:hidden flex flex-col "
