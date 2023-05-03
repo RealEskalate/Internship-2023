@@ -1,5 +1,5 @@
 import { User } from '@/types/profile'
-import profile from 'public/img/profilePhoto.png'
+import profile from 'public/img/profile/profile-photo.png'
 
 export const user: User = {
   firstName: 'Segni',

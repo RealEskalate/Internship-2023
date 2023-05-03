@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import React, { ReactNode, useState } from 'react'
 
 import AccountSetting from '@/components/profile/AccountSetting'
@@ -10,7 +9,7 @@ const Profile: React.FC = () => {
     setTab(tab)
   }
 
-  const profiles: ReactNode[] = [<PersonalInfo />, <></>, <AccountSetting />]
+  const profiles: ReactNode[] = [<PersonalInfo key={0} />, <></>, <AccountSetting key={2}/>]
 
   return (
     <div className="p-10">
