@@ -41,11 +41,11 @@ namespace BlogApp.Identity.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("boolean");
 
-                    b.Property<string>("FirstName")
+                    b.Property<string>("Firstname")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("LastName")
+                    b.Property<string>("Lastname")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -98,17 +98,17 @@ namespace BlogApp.Identity.Migrations
                         {
                             Id = "6123c26ebf21e81f7ccf9383",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "314a4a1f-3137-4dd1-9efd-a64f105225fc",
+                            ConcurrencyStamp = "634bec3e-bc9b-405b-9663-70a08a9dfefd",
                             Email = "admin@localhost.com",
                             EmailConfirmed = true,
-                            FirstName = "Admin",
-                            LastName = "Admin",
+                            Firstname = "Admin",
+                            Lastname = "Admin",
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGjEW9CtjTXQ3FMnxKV8hREs6AfekE8y4svBUKe2JhO228/pNuFPVPTMt0SWi59MsA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHI+LmytVyZdC7BJH6mVDpk0YB4Cdvwrr+kwN2pZ8Stv3f/UqlLOQCcrh2rsFHvnvg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "bf80eb9b-f35d-4fff-939e-b604e8498e85",
+                            SecurityStamp = "ec54a9f9-371a-4a0e-a9d6-c7b099dec83c",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         },
@@ -116,17 +116,17 @@ namespace BlogApp.Identity.Migrations
                         {
                             Id = "6123c291bf21e81f7ccf9384",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b86ed513-993d-42aa-af97-d383e9cba150",
+                            ConcurrencyStamp = "1c99c6a4-9405-4ad1-a3f9-c109610f3956",
                             Email = "user@localhost.com",
                             EmailConfirmed = true,
-                            FirstName = "User",
-                            LastName = "User",
+                            Firstname = "User",
+                            Lastname = "User",
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@LOCALHOST.COM",
                             NormalizedUserName = "USER",
-                            PasswordHash = "AQAAAAIAAYagAAAAENfg0zuSIh/er8K5CIKO0gKAptXWx8UpQ3iEdASauuE0ouzWOMSKH+GZGOX7tcZFMA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDb3PGspMm+8NaWzdjMazt9Ck7WosBLlcKwx1K5qtzSt/fxTVdX+xiWHJDmdrqFxZg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "26653b54-c82b-4409-9c1f-017392b5adb0",
+                            SecurityStamp = "8fdecb20-6569-4c3f-a217-7ac2f3488d0e",
                             TwoFactorEnabled = false,
                             UserName = "User"
                         });

@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BlogApp.Identity.Migrations
 {
     /// <inheritdoc />
-    public partial class IdentityModel : Migration
+    public partial class Initailmigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -33,8 +33,8 @@ namespace BlogApp.Identity.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "text", nullable: false),
-                    FirstName = table.Column<string>(type: "text", nullable: false),
-                    LastName = table.Column<string>(type: "text", nullable: false),
+                    Firstname = table.Column<string>(type: "text", nullable: false),
+                    Lastname = table.Column<string>(type: "text", nullable: false),
                     UserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
@@ -172,11 +172,11 @@ namespace BlogApp.Identity.Migrations
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "Firstname", "Lastname", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "6123c26ebf21e81f7ccf9383", 0, "314a4a1f-3137-4dd1-9efd-a64f105225fc", "admin@localhost.com", true, "Admin", "Admin", false, null, "ADMIN@LOCALHOST.COM", "ADMIN", "AQAAAAIAAYagAAAAEGjEW9CtjTXQ3FMnxKV8hREs6AfekE8y4svBUKe2JhO228/pNuFPVPTMt0SWi59MsA==", null, false, "bf80eb9b-f35d-4fff-939e-b604e8498e85", false, "Admin" },
-                    { "6123c291bf21e81f7ccf9384", 0, "b86ed513-993d-42aa-af97-d383e9cba150", "user@localhost.com", true, "User", "User", false, null, "USER@LOCALHOST.COM", "USER", "AQAAAAIAAYagAAAAENfg0zuSIh/er8K5CIKO0gKAptXWx8UpQ3iEdASauuE0ouzWOMSKH+GZGOX7tcZFMA==", null, false, "26653b54-c82b-4409-9c1f-017392b5adb0", false, "User" }
+                    { "6123c26ebf21e81f7ccf9383", 0, "634bec3e-bc9b-405b-9663-70a08a9dfefd", "admin@localhost.com", true, "Admin", "Admin", false, null, "ADMIN@LOCALHOST.COM", "ADMIN", "AQAAAAIAAYagAAAAEHI+LmytVyZdC7BJH6mVDpk0YB4Cdvwrr+kwN2pZ8Stv3f/UqlLOQCcrh2rsFHvnvg==", null, false, "ec54a9f9-371a-4a0e-a9d6-c7b099dec83c", false, "Admin" },
+                    { "6123c291bf21e81f7ccf9384", 0, "1c99c6a4-9405-4ad1-a3f9-c109610f3956", "user@localhost.com", true, "User", "User", false, null, "USER@LOCALHOST.COM", "USER", "AQAAAAIAAYagAAAAEDb3PGspMm+8NaWzdjMazt9Ck7WosBLlcKwx1K5qtzSt/fxTVdX+xiWHJDmdrqFxZg==", null, false, "8fdecb20-6569-4c3f-a217-7ac2f3488d0e", false, "User" }
                 });
 
             migrationBuilder.InsertData(
