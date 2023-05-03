@@ -1,4 +1,4 @@
-using HR.LeaveManagement.Identity.Models;
+using BlogApp.Identity.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
