@@ -10,7 +10,7 @@ public interface IAuthService
 
     public  Task<ConfirmEmailResponse> ConfirmEmail(string token, string email);
     
-    public  Task<ForgotPasswordResponse> ResetPasswordRequest(string Email);
+    public  Task<ForgotPasswordResponse> ForgotPassword(string Email);
 
     public  Task<ResetPasswordResponse> ResetPassword(ResetPasswordModel resetPasswordModel);
 

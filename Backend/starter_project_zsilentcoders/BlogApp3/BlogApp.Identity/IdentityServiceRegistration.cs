@@ -30,7 +30,8 @@ public static class IdentityServiceRegistration
         .AddDefaultTokenProviders();
 
         services.AddTransient<IAuthService, AuthService>();
-        // services.AddTransient<ILogger, Logger>();
+        services.Configure<DataProtectionTokenProviderOptions>(opt =>
+                        opt.TokenLifespan = TimeSpan.FromHours(2));
 
         services.AddAuthentication(options =>
         {
