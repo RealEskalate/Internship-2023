@@ -28,7 +28,7 @@ const SuccessStoryCard = ({ successStory }:props)=> {
     <div className='flex flex-row md:gap-5 gap-20 mx-20 my-10'>
 
         <div className = "relative  flex flex-col w-96 h-100">
-            <Image width={400} height={100} src = {successStory?.image}  alt = {successStory?.name}/>
+            <Image width={400} height={100} src = {successStory?.image}  alt = {successStory?.name} priority />
                 <div className='absolute flex flex-col gap-2 w-full bottom-0 p-8 rounded-lg shadow-lg backdrop-filter backdrop-blur-lg backdrop-opacity-100 text-white'>
                     <p className='text-2xl font-semibold'>{successStory?.name}</p>
                     <p className='font-semibold'>{successStory?.profession}</p>

@@ -1,11 +1,8 @@
-import Title from '../../components/successStory/Title'
-import  Profile  from '../../components/successStory/SuccessStory'
-import Partners from '../../components/successStory/Partners'
-import Footer from '../../components/successStory/Footer'
-import { Inter } from 'next/font/google'
+import Title from '../../components/story/Title'
+import  Profile  from '../../components/story/SuccessStory'
+import Partners from '../../components/story/Partners'
 
 
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
@@ -13,7 +10,6 @@ export default function Home() {
       <Title />
       <Profile />
       <Partners />
-      <Footer />
     </div>
     
   )
