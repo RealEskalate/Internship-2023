@@ -6,16 +6,16 @@ const AccountSetting: React.FC = () => {
   const [showNewPassword, setShowNewPassword] = useState<boolean>(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false)
   return (
-    <div className="mt-5 flex flex-col justify-center gap-2 px-auto">
-      <div className="flex justify-between py-3">
-        <div className="font-montserrat ">
-          <h1 className="font-semibold text-secondary-text text-xl">Manage your account</h1>
-          <p className="text-primary-text">
-            You can change your password here.
-          </p>
+    <div className="flex flex-col gap-5 mt-4  text-secondary-text justify-center px-auto">
+      <div className="flex justify-between">
+        <div>
+          <h1 className="font-semibold text-secondary-text text py-1">
+            Manage your account
+          </h1>
+          <p className="text-xs">You can change your password here.</p>
         </div>
         <button className="bg-primary text-white rounded px-3 h-9 my-auto mr-8">
-          Save <span className='hidden sm:inline-block'>Changes</span> 
+          Save <span className="hidden sm:inline-block">Changes</span>
         </button>
       </div>
       <hr />
@@ -33,7 +33,7 @@ const AccountSetting: React.FC = () => {
             id="currPassword"
             name="currPassword"
             className="p-2  outline-none bg-slate-100 ml-10 rounded-md"
-          placeholder='Current password'
+            placeholder="Current password"
           />
         </div>
         <div className="relative">
@@ -51,7 +51,7 @@ const AccountSetting: React.FC = () => {
             name="newPassword"
             type="password"
             className="p-2  outline-none bg-slate-100 ml-14 rounded-md "
-          placeholder='Enter new password'
+            placeholder="Enter new password"
           />
         </div>
         <div className="relative">
@@ -67,7 +67,7 @@ const AccountSetting: React.FC = () => {
             id="confirmPassword"
             name="confirmPassword"
             className="p-2 border   outline-none bg-slate-100 ml-10 rounded-md"
-          placeholder='Confirm password'
+            placeholder="Confirm password"
           />
         </div>
       </form>
