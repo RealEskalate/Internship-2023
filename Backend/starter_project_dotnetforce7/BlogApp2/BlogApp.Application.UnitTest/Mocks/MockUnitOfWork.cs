@@ -25,11 +25,12 @@ namespace BlogApp.Application.UnitTest.Mocks
                 return temp;
             });
 
+    
             var mockBlogRepo = MockBlogRepository.GetBlogRepository();
 
             mockUow.Setup(r => r.BlogRepository).Returns(mockBlogRepo.Object);
-
             return mockUow;
+
     }
 
      
