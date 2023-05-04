@@ -108,7 +108,7 @@ namespace BlogApp.Identity.Services
 
             for (int i = 0; i < roles.Count; i++)
             {
-                roleClaims.Add(new Claim(ClaimTypes.Role, roles[i]));
+                roleClaims.Add(new Claim(ClaimTypes.Role, roles[i], "string"));
             }
 
             var claims = new[]
@@ -116,7 +116,7 @@ namespace BlogApp.Identity.Services
                 new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(JwtRegisteredClaimNames.Email, user.Email),
-                new Claim(CustomClaimTypes.Uid, user.Id)
+                new Claim(CustomClaimTypes.Uid, user.Id.ToString())
             }
             .Union(userClaims)
             .Union(roleClaims);

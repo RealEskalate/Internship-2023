@@ -24,8 +24,8 @@ namespace BlogApp.Identity
             services.Configure<JwtSettings>(configuration.GetSection("JwtSettings"));
 
             services.AddDbContext<BlogIdentityDbContext>(options => 
-                options.UseSqlServer(configuration.GetConnectionString("LeaveManagementIdentityConnectionString"),
-                b => b.MigrationsAssembly(typeof(LeaveManagementIdentityDbContext).Assembly.FullName)));
+                options.UseNpgsql(configuration.GetConnectionString("BlogAppConnectionString"),
+                b => b.MigrationsAssembly(typeof(BlogIdentityDbContext).Assembly.FullName)));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<BlogIdentityDbContext>().AddDefaultTokenProviders();
