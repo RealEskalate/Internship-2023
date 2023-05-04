@@ -7,27 +7,28 @@ using MediatR;
 
 namespace BlogApp.Application.Features.Comments.CQRS.Handlers;
 
-public class DeleteCommentCommandHandler : IRequestHandler<DeleteCommentCommand,Unit>
+ public class DeleteCommentCommandHandler : IRequestHandler<DeleteCommentCommand>
 {
-    private readonly ICommentRepository _commentRepository;
+    private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
 
-    public   DeleteCommentCommandHandler(ICommentRepository commentRepository,IMapper mapper)
+    public   DeleteCommentCommandHandler(IUnitOfWork unitOfWork,IMapper mapper)
     {
-        _commentRepository = commentRepository;
+         _unitOfWork= unitOfWork;
         _mapper = mapper;
         
     }
 
     public async Task<Unit> Handle(DeleteCommentCommand request, CancellationToken cancellationToken)
     {
-        var comment = await _commentRepository.Get(request.Id);
+        var comment = await _unitOfWork._CommentRepository.Get(request.Id);
 
          if (comment == null){
             throw new NotFoundException(nameof(Comment),request.Id); 
         }
 
-        await _commentRepository.Delete(comment);
+        await _unitOfWork._CommentRepository.Delete(comment);
+        await _unitOfWork.Save();
         return Unit.Value;
          
     }

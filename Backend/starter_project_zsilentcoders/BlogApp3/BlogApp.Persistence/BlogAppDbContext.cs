@@ -49,5 +49,9 @@ namespace BlogApp.Persistence
             return base.SaveChangesAsync(cancellationToken);
         }
 
+        
+        public DbSet<Comment> Comments { get; set; }
+
+
     }
 }
