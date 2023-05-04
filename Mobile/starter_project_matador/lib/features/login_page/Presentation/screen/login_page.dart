@@ -97,7 +97,7 @@ class LoginPage extends StatelessWidget {
           width: width,
           height: height,
         ),
-        const ForgotPassword(),,
+        const ForgotPassword(),
       ]),
     );
   }
