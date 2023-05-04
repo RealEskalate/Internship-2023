@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class Introduction extends StatefulWidget {
   late String topic;
@@ -45,25 +44,23 @@ class _IntroductionState extends State<Introduction> {
         children: [
           Text(
             widget.topic,
-            style: GoogleFonts.urbanist(
-              textStyle: const TextStyle(
-                color: textColor,
-                fontSize: 30,
-                fontWeight: FontWeight.w100,
-                decoration: TextDecoration.none,
-              ),
+            style: const TextStyle(
+              color: textColor,
+              fontSize: 30,
+              fontFamily: "Poppins",
+              fontWeight: FontWeight.w100,
+              decoration: TextDecoration.none,
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 10),
             child: Text(
               widget.content,
-              style: GoogleFonts.poppins(
-                textStyle: const TextStyle(
-                  color: textColor,
-                  fontSize: 15,
-                  decoration: TextDecoration.none,
-                ),
+              style: const TextStyle(
+                color: textColor,
+                fontSize: 15,
+                fontFamily: "Poppins",
+                decoration: TextDecoration.none,
               ),
             ),
           ),
