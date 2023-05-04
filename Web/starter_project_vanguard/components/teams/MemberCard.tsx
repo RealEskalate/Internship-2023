@@ -25,7 +25,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
         src={member.photoUrl}
         alt={member.name}
       />
-      <h2 className="font-bold mt-4 uppercase text-2xl text-center text-primary-text">
+      <h2 className="font-bold mt-4 uppercase text-xl lg:text-2xl text-center text-primary-text">
         {member.name}
       </h2>
       <h5 className="font-medium uppercase text-center text-primary-text">

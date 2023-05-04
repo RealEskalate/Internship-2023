@@ -19,7 +19,7 @@ namespace BlogApp.Persistence
             opt.UseNpgsql(configuration.GetConnectionString("BlogAppConnectionString")));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<I_IndexRepository, _IndexRepository>();
-
+            services.AddScoped<IRatingRepository, RatingRepository>();
             
             return services;
         }
