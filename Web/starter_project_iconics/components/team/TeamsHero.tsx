@@ -6,7 +6,7 @@ function TeamsHero() {
         <div>
             <div className="grid md:grid-cols-1 lg:grid-cols-2 p-8">
                 <div className="flex flex-col p-8 m-2">
-                    <h1 className="font-bold text-black text-6xl text-base uppercase m-2">
+                    <h1 className="font-bold text-black text-5xl uppercase m-2">
                         The team we’re currently
                         working with
                     </h1>
