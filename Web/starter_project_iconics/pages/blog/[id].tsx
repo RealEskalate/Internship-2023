@@ -27,7 +27,7 @@ const SingleBlog: React.FC = () => {
           className="mx-auto p-4 rounded-full w-28 h-28"
         />
         <div className="">
-          <p className="mx-auto text-center uppercase font-thin text-sm font-montserrat font-light tracking-widest leading-9 text-primary-text">
+          <p className="mx-auto text-center uppercase font-thin text-sm font-montserrat tracking-widest leading-9 text-primary-text">
             {currBlog[0].author.name} | {currBlog[0].author.profession}
           </p>
           <a className="text-center " href="#">
