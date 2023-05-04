@@ -1,7 +1,7 @@
 import Image from "next/image"
 
 function TeamsHero() {
-
+    
     return (
         <div>
             <div className="grid md:grid-cols-1 lg:grid-cols-2 p-8">
