@@ -5,8 +5,6 @@ import {
   BsInstagram,
   BsLinkedin,
 } from 'react-icons/bs'
-
-
 type social = { type: string; link: string }
 export interface TeamCardProps {
   name: string
