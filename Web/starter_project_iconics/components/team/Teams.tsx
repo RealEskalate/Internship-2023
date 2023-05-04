@@ -7,7 +7,7 @@ function Teams() {
     const teams = teamMembers
 
     return (
-        <div className='flex bg-white'>
+        <div className='flex'>
             <div className='max-w-screen-2xl mx-auto'>
             <TeamsHero></TeamsHero>
             
