@@ -17,7 +17,7 @@ const Profile: React.FC = () => {
   ]
 
   return (
-    <div className="p-10">
+    <div className="p-10 px-16">
       <h1 className="font-semibold text-[30px]">Profile</h1>
       <div className="pt-6 text-sm font-medium text-center text-tertiary-text border-b border-primary-text/20">
         <ul className="flex flex-wrap gap-5 -mb-px font-semibold">
