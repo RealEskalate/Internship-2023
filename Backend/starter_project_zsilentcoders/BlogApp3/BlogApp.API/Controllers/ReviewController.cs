@@ -1,43 +1,66 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BlogApp.Application.Features._Indices.CQRS.Commands;
+using BlogApp.Application.Features._Indices.CQRS.Queries;
+using BlogApp.Application.Features._Indices.DTOs;
+using BlogApp.Application.Features.Review.CQRS.Command;
+using BlogApp.Application.Features.Review.CQRS.Commands;
+using BlogApp.Application.Features.Review.CQRS.Queries;
+using BlogApp.Application.Features.Review.DTOs;
+using BlogApp.Application.Responses;
+using BlogApp.Domain;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace BlogApp.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[Controller]")]
     [ApiController]
     public class ReviewController : ControllerBase
     {
-        // GET: api/<ReviewController>
+        private readonly IMediator _mediator;
+
+        public ReviewController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<ActionResult<List<_Review>>> Get()
         {
-            return new string[] { "value1", "value2" };
+            var reviews = await _mediator.Send(new GetReviewListQuery());
+            return Ok(reviews);
         }
 
-        // GET api/<ReviewController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<ActionResult<ReviewDto>> Get(int id)
         {
-            return "value";
+            var review = await _mediator.Send(new GetReviewDetailQuery { Id = id });
+            return Ok(review);
         }
 
-        // POST api/<ReviewController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult<BaseCommandResponse>> Post([FromBody] CreateReviewDto createReviewDto)
         {
+            var command = new CreateReviewCommand { reviewDto = createReviewDto };
+            var repsonse = await _mediator.Send(command);
+            return Ok(repsonse);
         }
 
-        // PUT api/<ReviewController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public async Task<ActionResult> Put([FromBody] ReviewDto reviewDto)
         {
+            var command = new UpdateReviewCommand { reviewDto = reviewDto };
+            await _mediator.Send(command);
+            return NoContent();
         }
 
-        // DELETE api/<ReviewController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
+            var command = new DeleteReviewCommand { Id = id };
+            await _mediator.Send(command);
+            return NoContent();
         }
     }
 }
