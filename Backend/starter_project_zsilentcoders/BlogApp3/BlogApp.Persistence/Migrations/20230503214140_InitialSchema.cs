@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BlogApp.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class initialMigration : Migration
+    public partial class InitialSchema : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -29,6 +29,25 @@ namespace BlogApp.Persistence.Migrations
                     table.PrimaryKey("PK__Indices", x => x.Id);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Blogs",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    AuthorId = table.Column<int>(type: "integer", nullable: false),
+                    Title = table.Column<string>(type: "text", nullable: false),
+                    Content = table.Column<string>(type: "text", nullable: false),
+                    ThumbnailImage = table.Column<string>(type: "text", nullable: true),
+                    PublicationStatus = table.Column<int>(type: "integer", nullable: false),
+                    DateCreated = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    LastModifiedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Blogs", x => x.Id);
+                });
+
             migrationBuilder.InsertData(
                 table: "_Indices",
                 columns: new[] { "Id", "DateCreated", "LastModifiedDate", "Name" },
@@ -44,6 +63,9 @@ namespace BlogApp.Persistence.Migrations
         {
             migrationBuilder.DropTable(
                 name: "_Indices");
+
+            migrationBuilder.DropTable(
+                name: "Blogs");
         }
     }
 }
