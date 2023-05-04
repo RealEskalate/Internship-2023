@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BlogApp.Application.Features._Indices.DTOs;
 using BlogApp.Application.Features.Rates.DTOs;
+using BlogApp.Application.Features.Blogs.DTOs;
 using BlogApp.Domain;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,11 @@ namespace BlogApp.Application.Profiles
 
             CreateMap<_Index, _IndexDto>().ReverseMap();
             CreateMap<_Index, Create_IndexDto>().ReverseMap();
+
+            CreateMap<Blog, BlogDto>().ReverseMap();
+            CreateMap<Blog, CreateBlogDto>().ReverseMap();
+
+
 
             #endregion _index
 
