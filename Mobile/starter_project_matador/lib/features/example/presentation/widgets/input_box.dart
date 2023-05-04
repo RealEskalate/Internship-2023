@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/utils/constants/styles.dart';
 
 class LabelledTextField extends StatelessWidget {
   final String hintText;
@@ -15,13 +16,7 @@ class LabelledTextField extends StatelessWidget {
         obscureText: obscureText,
         decoration: InputDecoration(
           hintText: hintText,
-          hintStyle: TextStyle(
-            fontFamily: 'Urbanist',
-            fontStyle: FontStyle.italic,
-            fontWeight: FontWeight.bold,
-            fontSize: (14 / 812) * Height,
-            color: Color(0xFF2D4379),
-          ),
+          hintStyle: hintTextStyle,
         ),
       ),
     );

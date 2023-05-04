@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/utils/constants/styles.dart';
 
 class Footer extends StatelessWidget {
   const Footer({super.key});
@@ -16,23 +17,13 @@ class Footer extends StatelessWidget {
         children: [
           Text(
             'Have an account?  ',
-            style: TextStyle(
-              fontFamily: 'Urbanist',
-              fontWeight: FontWeight.w500,
-              fontSize: (14 / 812) * Height,
-              color: Color(0xFF2D4379),
-            ),
+            style: haveAnAccountTextStyle,
           ),
           GestureDetector(
             onTap: () {},
             child: Text(
               'Login',
-              style: TextStyle(
-                fontFamily: 'Urbanist',
-                fontWeight: FontWeight.w700,
-                fontSize: (14 / 812) * Height,
-                color: Color(0xFF376AED),
-              ),
+              style: loginBottomTextStyle,
             ),
           ),
         ],

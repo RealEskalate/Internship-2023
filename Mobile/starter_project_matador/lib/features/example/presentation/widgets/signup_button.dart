@@ -1,7 +1,9 @@
 import "package:flutter/material.dart";
+import '../../../../core/utils/constants/colors.dart';
+import '../../../../core/utils/constants/styles.dart';
 
-class Button extends StatelessWidget {
-  const Button({super.key});
+class CustomButton extends StatelessWidget {
+  const CustomButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,19 +13,13 @@ class Button extends StatelessWidget {
       width: Width * 0.8,
       height: (56 / 812) * Height,
       decoration: BoxDecoration(
-        color: Color(0xFF376AED),
+        color: primaryColor,
         borderRadius: BorderRadius.circular((20 / 812) * Height),
       ),
       child: Center(
         child: Text(
           'SIGNUP',
-          style: TextStyle(
-            fontFamily: 'Urbanist',
-            fontWeight: FontWeight.w700,
-            fontSize: (18 / 812) * Height,
-            color: Color(0xFFFFFFFF),
-            letterSpacing: 1.5,
-          ),
+          style: signupInButtonTextStyle,
         ),
       ),
     );

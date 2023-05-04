@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import '../widgets/logo.dart';
 import '../widgets/signup_and_signin_box.dart';
 import '../widgets/data_fill.dart';
-import '../widgets/white_box.dart';
+import '../../../../core/utils/constants/colors.dart';
+import '../../../../core/utils/constants/styles.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({super.key});
@@ -13,7 +14,7 @@ class SignUpPage extends StatelessWidget {
     var Height = MediaQuery.of(context).size.height;
     var Width = MediaQuery.of(context).size.width;
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: profileAvatarCircularRingColor,
         body: SafeArea(
             child: Stack(children: <Widget>[
           Positioned(

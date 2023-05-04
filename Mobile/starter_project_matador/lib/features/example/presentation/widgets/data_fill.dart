@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'input_box.dart';
 import 'signup_button.dart';
 import 'login_text_at_the _end.dart';
+import '../../../../core/utils/constants/colors.dart';
+import '../../../../core/utils/constants/styles.dart';
 
 class DataFillBox extends StatelessWidget {
   const DataFillBox({super.key});
@@ -12,9 +14,9 @@ class DataFillBox extends StatelessWidget {
     var Width = MediaQuery.of(context).size.width;
     return Container(
       height: Height,
-      width: double.infinity,
+      width: Width,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: profileAvatarCircularRingColor,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular((28 / 812) * Height),
           topRight: Radius.circular((28 / 812) * Height),
@@ -28,29 +30,16 @@ class DataFillBox extends StatelessWidget {
                 (41.0 / 375) * Width, (32.0 / 812) * Height, 0.0, 0.0),
             child: Text(
               'WELCOME',
-              style: TextStyle(
-                fontFamily: 'Urbanist',
-                fontWeight: FontWeight.w400,
-                fontSize: (24 / 812) * Height,
-                color: Color(0xff0D253C),
-              ),
+              style: WelcomeTextStyle,
             ),
           ),
           SizedBox(height: (16 / 812) * Height),
           Padding(
             padding: EdgeInsets.fromLTRB(
-                (40.0 / 375) * MediaQuery.of(context).size.width,
-                (12 / 812) * MediaQuery.of(context).size.height,
-                0.0,
-                0.0),
+                (40.0 / 375) * Width, (12 / 812) * Height, 0.0, 0.0),
             child: Text(
               'Provide credentials to signup',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.bold,
-                fontSize: (14 / 812) * Height,
-                color: Color(0xff2D4379),
-              ),
+              style: ProvideCredentialTextStyle,
             ),
           ),
           Padding(
@@ -58,14 +47,7 @@ class DataFillBox extends StatelessWidget {
                 top: (37 / 812) * Height, left: (40 / 375) * Width),
             child: Text(
               'Username',
-              style: TextStyle(
-                  fontFamily: 'Urbanist',
-                  fontStyle: FontStyle.italic,
-                  fontWeight: FontWeight.w100,
-                  fontSize: (14 / 812) * Height,
-                  height: (1.21 / 812) *
-                      Height // This corresponds to a line-height of 17px
-                  ),
+              style: UsernameTextStyle,
             ),
           ),
           Padding(
@@ -83,14 +65,7 @@ class DataFillBox extends StatelessWidget {
                 top: (20 / 812) * Height, left: (40 / 375) * Width),
             child: Text(
               'Password',
-              style: TextStyle(
-                fontFamily: 'Urbanist',
-                fontStyle: FontStyle.italic,
-                fontWeight: FontWeight.w100,
-                fontSize: (14 / 812) * Height,
-                height: (1.21 / 812) *
-                    Height, // This corresponds to a line-height of 17px
-              ),
+              style: PasswordText,
             ),
           ),
           Padding(
@@ -108,7 +83,7 @@ class DataFillBox extends StatelessWidget {
                 top: (110 / 812) * Height,
                 left: (40.0 / 375) * Width,
                 right: (40 / 375) * Width),
-            child: Button(),
+            child: CustomButton(),
           ),
           Padding(
             padding: EdgeInsets.only(

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../../../core/utils/constants/colors.dart';
+import '../../../../core/utils/constants/styles.dart';
 
 class SigninSignupBox extends StatelessWidget {
   const SigninSignupBox({super.key});
@@ -18,23 +20,11 @@ class SigninSignupBox extends StatelessWidget {
           children: <Widget>[
             Text(
               'LOGIN',
-              style: TextStyle(
-                fontFamily: 'Urbanist',
-                fontWeight: FontWeight.bold,
-                fontSize: (18 / 812) * Height,
-                letterSpacing: 1,
-                color: Colors.white.withOpacity(0.25),
-              ),
+              style: loginUpTextStyle,
             ),
             Text(
               'SIGNUP',
-              style: TextStyle(
-                fontFamily: 'Urbanist',
-                fontWeight: FontWeight.bold,
-                fontSize: (18 / 812) * Height,
-                letterSpacing: 1,
-                color: Colors.white,
-              ),
+              style: signupUpTextStyle,
             ),
           ],
         ),
@@ -42,16 +32,16 @@ class SigninSignupBox extends StatelessWidget {
     );
     return Container(
       height: 96 / 812 * Height,
-      width: double.infinity,
+      width: Width,
       decoration: BoxDecoration(
-        color: Color(0xff376AED),
+        color: primaryColor,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(28 / 812 * Height),
           topRight: Radius.circular(28 / 812 * Height),
         ),
         boxShadow: [
           BoxShadow(
-            color: Color.fromRGBO(79, 91, 121, 0.1),
+            color: borderShadow,
             blurRadius: (22 / 812) * Height,
             offset: Offset(0, 4),
           ),
