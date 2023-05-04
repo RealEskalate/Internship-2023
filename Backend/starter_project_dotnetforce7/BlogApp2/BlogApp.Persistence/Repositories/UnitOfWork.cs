@@ -18,6 +18,9 @@ namespace BlogApp.Persistence.Repositories
         private IBlogRepository _BlogRepository;
 
 
+        private IBlogRepository _BlogRepository;
+
+
         public UnitOfWork(BlogAppDbContext context)
         {
             _context = context;
