@@ -10,6 +10,7 @@
     <Folder Include="Constants\" />
     <Folder Include="Contracts\Identity\" />
     <Folder Include="Contracts\Infrastructure\" />
+    <Folder Include="Features\Ratings\CQRS\Queries\" />
     <Folder Include="Models\" />
   </ItemGroup>
 
