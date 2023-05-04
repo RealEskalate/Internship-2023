@@ -1,6 +1,5 @@
 import { navData } from '@/data/layout/navbar/nav-data'
 import Image from 'next/image'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { MdOutlineClose, MdViewHeadline } from 'react-icons/md'
