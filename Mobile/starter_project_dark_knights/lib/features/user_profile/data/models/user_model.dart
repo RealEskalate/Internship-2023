@@ -40,6 +40,8 @@ class UserModel {
     data['lastName'] = lastName;
     data['occupation'] = occupation;
     data['selfDescription'] = selfDescription;
+    data['image'] = image;
+    data['password'] = password;
     return data;
   }
 }
