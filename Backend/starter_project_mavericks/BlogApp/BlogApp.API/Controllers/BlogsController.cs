@@ -9,26 +9,5 @@ namespace BlogApp.API.Controllers;
 [ApiController]
 public class BlogsController : ControllerBase
 {
-    private readonly IMediator _mediator;
-
-    public BlogsController(IMediator mediator)
-    {
-        _mediator = mediator;
-    }
     
-    [HttpPost("{blogId}/rate")]
-    public async Task<ActionResult<int>> Post(int blogId, [FromBody] RatingDto ratingDto)
-    {
-        var command = new Create_RatingCommand { BlogId = blogId, RatingDto = ratingDto };
-        var repsonse = await _mediator.Send(command);
-        return Ok(repsonse);
-    }
-
-    [HttpPut("{blogId}/rate")]
-    public async Task<ActionResult<int>> Put(int blogId, [FromBody] RatingDto ratingDto)
-    {
-        var command = new Update_RatingCommand { BlogId = blogId, RatingDto = ratingDto };
-        var response = await _mediator.Send(command);
-        return Ok(response);
-    }
 }

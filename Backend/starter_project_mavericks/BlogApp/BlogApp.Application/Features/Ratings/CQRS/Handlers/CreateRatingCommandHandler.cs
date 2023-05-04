@@ -15,25 +15,25 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BlogApp.Application.Features.Ratings.CQRS.Handlers;
-public class Create_RatingCommandHandler : IRequestHandler<Create_RatingCommand, BaseResponse<int>>
+public class CreateRatingCommandHandler : IRequestHandler<CreateRatingCommand, BaseResponse<Nullable<int>>>
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
 
-    public Create_RatingCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+    public CreateRatingCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
     {
         _unitOfWork = unitOfWork;
         _mapper = mapper;
     }
     
-    public async Task<BaseResponse<int>> Handle(Create_RatingCommand request, CancellationToken cancellationToken)
+    public async Task<BaseResponse<Nullable<int>>> Handle(CreateRatingCommand request, CancellationToken cancellationToken)
     {
         var validator = new RatingDtoValidator();
         var validationResult = await validator.ValidateAsync(request.RatingDto);
-        BaseResponse<int> response;
+        BaseResponse<Nullable<int>> response;
         if (validationResult.IsValid == false)
         {
-            response = new BaseResponse<int>()
+            response = new BaseResponse<Nullable<int>>()
             {
                 Success = false,
                 Message = nameof(ValidationException),
@@ -41,24 +41,30 @@ public class Create_RatingCommandHandler : IRequestHandler<Create_RatingCommand,
             };
             return response;
         }
-        else
-        {
-            var rating = _mapper.Map<Rating>(request.RatingDto);
-            rating.BlogId = request.BlogId;
-            /* rating.raterId = _httpContextAccessor.HttpContext.User.Claims.FirstOrDefault(
-             *      q => q.Type == CustomClaimTypes.Uid)?.Value;
-            **/
 
-            await _unitOfWork.RatingRepository.Add(rating);
-            await _unitOfWork.Save();
+        var rating = _mapper.Map<Rating>(request.RatingDto);
+        rating.BlogId = request.BlogId;
+        /* rating.raterId = _httpContextAccessor.HttpContext.User.Claims.FirstOrDefault(
+            *      q => q.Type == CustomClaimTypes.Uid)?.Value;
+        **/
+
+        await _unitOfWork.RatingRepository.Add(rating);
+        var databaseResponse = await _unitOfWork.Save();
+        if (databaseResponse == 0)
+        {
+            response = new BaseResponse<Nullable<int>>()
+            {
+                Success = false,
+                Message = "ServerErrorException",
+            };
         }
-        var ratings = _unitOfWork.RatingRepository.GetByBlog(request.BlogId);
-        response = new BaseResponse<int>()
+
+        var ratings = _unitOfWork.RatingRepository.GetByBlog(rating.BlogId);
+        response = new BaseResponse<Nullable<int>>()
         {
             Data = CalculateRating(ratings),
-            Success = false,
-            Message = nameof(ValidationException),
-            Errors = validationResult.Errors.Select(error => error.ErrorMessage).ToList()
+            Success = true,
+            Message = "CreateRatingSuccess"
         };
         
         return response;

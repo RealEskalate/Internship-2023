@@ -17,14 +17,14 @@ using System.Threading.Tasks;
 using Xunit;
 
 namespace BlogApp.UnitTests.Ratings;
-public class Update_RatingCommandHandlerTests
+public class UpdateRatingCommandHandlerTests
 {
     private readonly IMapper _mapper;
     private readonly Mock<IUnitOfWork> _mockUow;
     private readonly RatingDto _ratingDto;
-    private readonly Update_RatingCommandHandler _handler;
+    private readonly UpdateRatingCommandHandler _handler;
 
-    public Update_RatingCommandHandlerTests()
+    public UpdateRatingCommandHandlerTests()
     {
         _mockUow = MockUnitOfWork.GetUnitOfWork();
 
@@ -34,7 +34,7 @@ public class Update_RatingCommandHandlerTests
         });
 
         _mapper = mapperConfig.CreateMapper();
-        _handler = new Update_RatingCommandHandler(_mockUow.Object, _mapper);
+        _handler = new UpdateRatingCommandHandler(_mockUow.Object, _mapper);
 
         _ratingDto = new RatingDto
         {
@@ -45,15 +45,17 @@ public class Update_RatingCommandHandlerTests
     [Fact]
     public async Task Valid_Rate_Updated()
     {
-        var result = await _handler.Handle(new Update_RatingCommand() { BlogId = 1, RatingDto = _ratingDto }, CancellationToken.None);
-        result.ShouldBeOfType<int>();
-        result.ShouldBe(7);
+        var response = await _handler.Handle(new UpdateRatingCommand() { BlogId = 1, RatingDto = _ratingDto }, CancellationToken.None);
+        response.ShouldNotBeNull();
+        response.Success.ShouldBeTrue();
+        response.Data.ShouldBe(7);
     }
 
     [Fact]
     public async Task InValid_Rate_Updated()
     {
-        var ex = Should.Throw<NotFoundException>(async () => await _handler.Handle(new Update_RatingCommand() { BlogId = 11, RatingDto = _ratingDto }, CancellationToken.None));
-        ex.ShouldNotBeNull();
+        var response = await _handler.Handle(new UpdateRatingCommand() { BlogId = 11, RatingDto = _ratingDto }, CancellationToken.None);
+        response.ShouldNotBeNull();
+        response.Success.ShouldBeFalse();
     }
 }
