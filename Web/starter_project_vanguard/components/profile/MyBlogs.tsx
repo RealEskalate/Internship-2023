@@ -1,5 +1,4 @@
 import blogs from '../../data/blogs.json'
-// import BlogCard from "./BlogCard";
 import { Blog } from '../../types/blog/blog'
 
 import BlogCard from '../blog/BlogCard'
