@@ -1,7 +1,7 @@
 [
   {
     "personName": "Yisehak Bogale",
-    "imgURL": "/images/success-story/people/isaac.png",
+    "imgURL": "/img/success-story/people/isaac.png",
     "role": "Software Engineering Intern",
     "location": "Google - Mountain View, CA, USA",
     "story": [
@@ -21,7 +21,7 @@
   },
   {
     "personName": "Lydia Gashawtena",
-    "imgURL": "/images/success-story/people/lydia.png",
+    "imgURL": "/img/success-story/people/lydia.png",
     "role": "Software Engineering Intern",
     "location": "Google - Mountain View, CA, USA",
     "story": [
@@ -41,7 +41,7 @@
   },
   {
     "personName": "Biruk Ayalew",
-    "imgURL": "/images/success-story/people/biruk.png",
+    "imgURL": "/img/success-story/people/biruk.png",
     "role": "Software Engineering Intern",
     "location": "Google - Mountain View, CA, USA",
     "story": [
