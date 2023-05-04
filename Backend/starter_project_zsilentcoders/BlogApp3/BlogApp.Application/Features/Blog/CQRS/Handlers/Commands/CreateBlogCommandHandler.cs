@@ -1,5 +1,6 @@
 using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Features.Blog.DTOs;
+using BlogApp.Application.Responses;
 using Application.DTOs.Blog.Validators;
 using BlogApp.Application.Features.Blog.CQRS.Requests.Commands;
 using AutoMapper;
@@ -7,7 +8,7 @@ using MediatR;
 
 namespace BlogApp.Application.Features.Blog.CQRS.Handlers.Commands;
 
-public class CreateBlogCommandHandler: IRequestHandler<CreateBlogCommand, BlogDetailsDto>
+public class CreateBlogCommandHandler: IRequestHandler<CreateBlogCommand, BaseCommandResponse>
 {
 
     private readonly IUnitOfWork _unitOfWork;

@@ -6,7 +6,7 @@ using MediatR;
 
 namespace Application.Features.Blog.Handlers.Commands;
 
-public class DeleteBlogCommandHandler: IRequestHandler<DeleteBlogCommand, bool>
+public class DeleteBlogCommandHandler: IRequestHandler<DeleteBlogCommand, Unit>
 {
 
     private readonly IUnitOfWork _unitOfWork;

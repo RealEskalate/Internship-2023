@@ -3,7 +3,7 @@ using MediatR;
 
 namespace BlogApp.Application.Features.Blog.CQRS.Requests.Commands;
 
-public class DeleteBlogCommand: IRequest<bool>
+public class DeleteBlogCommand: IRequest<Unit>
 {
     public DeleteBlogDto DeleteBlogDto;
 }

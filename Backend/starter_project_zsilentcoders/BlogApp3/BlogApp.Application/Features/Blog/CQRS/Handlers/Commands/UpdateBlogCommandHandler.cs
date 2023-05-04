@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Application.Features.Blog.CQRS.Handlers.Commands;
 
-public class UpdateBlogCommandHandler
+public class UpdateBlogCommandHandler : IRequestHandler<Unit>
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
