@@ -14,6 +14,7 @@ namespace BlogApp.Persistence.Repositories
 
         private I_IndexRepository _indexRepository;
         private IBlogRepository _blogRepository;
+        private ITagRepository _tagRepository;
 
         public UnitOfWork(BlogAppDbContext context)
         {
@@ -26,6 +27,14 @@ namespace BlogApp.Persistence.Repositories
                 if (_indexRepository == null)
                     _indexRepository = new _IndexRepository(_context);
                 return _indexRepository; 
+            } 
+         }
+          public ITagRepository TagRepository { 
+            get 
+            {
+                if (_tagRepository == null)
+                    _tagRepository = new TagRepository(_context);
+                return _tagRepository; 
             } 
          }
 

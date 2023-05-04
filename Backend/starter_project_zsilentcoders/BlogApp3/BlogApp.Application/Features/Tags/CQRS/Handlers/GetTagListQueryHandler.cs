@@ -13,18 +13,18 @@ namespace BlogApp.Application.Features.Tags.CQRS.Handlers
 {
     public class GetTagListQueryHandler : IRequestHandler<GetTagListQuery, List<TagDto>>
     {
-        private readonly ITagRepository _TagRepository;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public GetTagListQueryHandler(ITagRepository TagRepository, IMapper mapper)
+        public GetTagListQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
-            _TagRepository = TagRepository;
+            _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
 
         public async Task<List<TagDto>> Handle(GetTagListQuery request, CancellationToken cancellationToken)
         {
-            var Tags = await _TagRepository.GetAll();
+            var Tags = await _unitOfWork.TagRepository.GetAll();
             Console.Write(Tags);
             return _mapper.Map<List<TagDto>>(Tags);
         }
