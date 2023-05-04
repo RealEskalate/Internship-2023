@@ -8,14 +8,14 @@ const PersonalInfo: React.FC = () => {
   const [firstName, setFirstName] = useState(user.firstName)
   const [lastName, setLastName] = useState(user.lastName)
   const [email, setEmail] = useState(user.email)
-   return (
-    <div className="flex flex-col gap-4 py-6  text-secondary-text">
+  return (
+    <div className="flex flex-col gap-5 mt-4  text-secondary-text">
       <div className="flex justify-between">
         <div>
-          <h1 className="font-semibold text-secondary-text pt-3 text-xl">
+          <h1 className="font-semibold text-secondary-text text py-1">
             Manage Personal Information
           </h1>
-          <p>Add all required information about yourself</p>
+          <p className="text-xs">Add all required information about yourself</p>
         </div>
         <button className="bg-primary text-white rounded px-3 h-9 my-auto mr-8">
           Save <span className="hidden sm:inline-block">Changes</span>
@@ -31,13 +31,13 @@ const PersonalInfo: React.FC = () => {
           <input
             className="bg-gray-50  ml-10 p-2   text-tertiary-text b-2 pl-3 outline-none  border border-primary-text/20 rounded-lg"
             value={firstName}
-            onChange={(e)=>setFirstName(e.target.value)}
+            onChange={(e) => setFirstName(e.target.value)}
             type="text"
           />
           <input
             className="b-2 p-2 pl-3 outline-none ml-10 border border-primary-text/20 bg-gray-50 rounded-lg"
             value={lastName}
-            onChange={(e)=>setLastName(e.target.value)}
+            onChange={(e) => setLastName(e.target.value)}
             type="text"
           />
         </div>
@@ -54,7 +54,7 @@ const PersonalInfo: React.FC = () => {
           <input
             required
             value={email}
-            onChange={(e)=>setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             type="text"
             id="email"
             className="bg-gray-50 border ml-10 sm:w-[100%] md:w-[195%]  border-primary-text/20 text-primary-text text-sm rounded-lg block  pl-10 p-3 outline-none"
@@ -64,7 +64,8 @@ const PersonalInfo: React.FC = () => {
       <hr />
       <div className="flex py-5 gap-10">
         <label htmlFor="" className="mr-10 pt-3 relative">
-          Your Photo <span className="text-red-500  absolute top-3 -right-3">*</span>
+          Your Photo{' '}
+          <span className="text-red-500  absolute top-3 -right-3">*</span>
         </label>
         <Image
           src={user.img}
