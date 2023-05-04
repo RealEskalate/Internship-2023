@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { BsArrowRightShort } from 'react-icons/bs'
 
-import landing_image from '../../public/img/home-page/landing-image.png'
+import landingImage from '../../public/img/home-page/landing-image.png'
 
 const HeroSection: React.FC = () => {
   return (
@@ -40,7 +40,7 @@ const HeroSection: React.FC = () => {
 
         <div className="w-full aspect-square place-self-start">
           <Image
-            src={landing_image}
+            src={landingImage}
             alt="Picture of A2SV students"
             className="overflow-visible"
             width={600}
