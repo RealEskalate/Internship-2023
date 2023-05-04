@@ -3,7 +3,7 @@ import 'package:matador/features/login_page/Presentation/widgets/input_form_fiel
 import 'package:matador/features/login_page/Presentation/widgets/login_signup.dart';
 
 import '../../../../core/utils/constants/global_variables.dart';
-import '../widgets/forgot_password.dart';
+
 import '../widgets/logo.dart';
 import '../widgets/rounded_button.dart';
 import '../widgets/sign_in_with_your_account.dart';
@@ -97,7 +97,7 @@ class LoginPage extends StatelessWidget {
           width: width,
           height: height,
         ),
-        const ForgotPassword(),
+        const Placeholder(),
       ]),
     );
   }
