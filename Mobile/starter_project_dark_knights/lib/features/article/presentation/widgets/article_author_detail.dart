@@ -13,7 +13,6 @@ class ArticleAuthorDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double fontSize = convertPixle(14, "width", context);
-
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
