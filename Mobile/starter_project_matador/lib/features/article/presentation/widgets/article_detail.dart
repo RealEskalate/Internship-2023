@@ -35,7 +35,7 @@ class ArticleDetail extends StatelessWidget {
               // Widgets to position on top of each other
               Expanded(
                 child: Text(
-                  "very long text goes here. very long text goes here. very long text goes here. very long text goes here.  very long text goes here. very long text goes here. very long text goes here.  very long text goes here. I will copy and paste long text here and see what happens. In the above example, we're using the Stack widget to position two Text widgets on top of each other. We're also using the Positioned widget to specify the position of each Text widget within the Stack. The alignment property of the Stack widget is used to specify the default alignment of the widgets within the Stack. In this case, we're using Alignment.center to center the widgets within the Stack. very long text goes here. I will copy and paste long text here and see what happens. In the above example, we're using the Stack widge to position two Text widgets on top of each other.",
+                  text,
                   style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 16,

@@ -4,9 +4,10 @@ import 'package:matador/features/Article/presentation/widgets/user_card.dart';
 
 class ArticleReading extends StatelessWidget {
   const ArticleReading({super.key});
-
   @override
   Widget build(BuildContext context) {
+    String articleDescription =
+        "very long text goes here. very long text goes here. very long text goes here. very long text goes here.  very long text goes here. very long text goes here. very long text goes here.  very long text goes here. I will copy and paste long text here and see what happens. In the above example, we're using the Stack widget to position two Text widgets on top of each other. We're also using the Positioned widget to specify the position of each Text widget within the Stack. The alignment property of the Stack widget is used to specify the default alignment of the widgets within the Stack. In this case, we're using Alignment.center to center the widgets within the Stack. very long text goes here. I will copy and paste long text here and see what happens. In the above example, we're using the Stack widge to position two Text widgets on top of each other.";
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -52,7 +53,7 @@ class ArticleReading extends StatelessWidget {
             // Article detail card. should be a stack as we need Like icon button on it.
             ArticleDetail(
               imageUrl: "assets/images/article_detail.jpg",
-              text: "long text goes here.",
+              text: articleDescription,
               likes: "2.1K",
             )
           ],
