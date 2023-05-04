@@ -1,5 +1,6 @@
 using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Domain;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,13 @@ namespace BlogApp.Persistence.Repositories
         {
             _dbContext = dbContext;
         }
-        
+
+        public async Task<IReadOnlyList<_Review>> GetAllByReviewerId(int id)
+        {
+            return await _dbContext.Set<_Review>()
+                .AsNoTracking()
+                .Where(r => r.ReviewerId == id)
+                .ToListAsync();
+        }
     }
 }
