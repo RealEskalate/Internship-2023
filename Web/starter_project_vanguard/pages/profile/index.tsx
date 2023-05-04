@@ -2,6 +2,7 @@ import React, { ReactNode, useState } from 'react'
 
 import AccountSetting from '@/components/profile/AccountSetting'
 import PersonalInfo from '@/components/profile/PersonalInfo'
+import MyBlogs from '@/components/profile/MyBlogs'
 
 const Profile: React.FC = () => {
   const [tab, setTab] = useState<number>(0)
@@ -11,7 +12,7 @@ const Profile: React.FC = () => {
 
   const profiles: ReactNode[] = [
     <PersonalInfo key={0} />,
-    <></>,
+    <MyBlogs key={1}/>,
     <AccountSetting key={2} />,
   ]
 
