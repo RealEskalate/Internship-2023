@@ -15,7 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BlogApp.Application.Features.Ratings.CQRS.Handlers;
-public class Create_RatingCommandHandler : IRequestHandler<Create_RatingCommand, int>
+public class Create_RatingCommandHandler : IRequestHandler<Create_RatingCommand, BaseResponse<int>>
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
@@ -26,14 +26,20 @@ public class Create_RatingCommandHandler : IRequestHandler<Create_RatingCommand,
         _mapper = mapper;
     }
     
-    public async Task<int> Handle(Create_RatingCommand request, CancellationToken cancellationToken)
+    public async Task<BaseResponse<int>> Handle(Create_RatingCommand request, CancellationToken cancellationToken)
     {
         var validator = new RatingDtoValidator();
         var validationResult = await validator.ValidateAsync(request.RatingDto);
-
+        BaseResponse<int> response;
         if (validationResult.IsValid == false)
         {
-            throw new ValidationException(validationResult);
+            response = new BaseResponse<int>()
+            {
+                Success = false,
+                Message = nameof(ValidationException),
+                Errors = validationResult.Errors.Select(error => error.ErrorMessage).ToList()
+            };
+            return response;
         }
         else
         {
@@ -42,16 +48,30 @@ public class Create_RatingCommandHandler : IRequestHandler<Create_RatingCommand,
             /* rating.raterId = _httpContextAccessor.HttpContext.User.Claims.FirstOrDefault(
              *      q => q.Type == CustomClaimTypes.Uid)?.Value;
             **/
-            rating = await _unitOfWork.RatingRepository.Add(rating);
+
+            await _unitOfWork.RatingRepository.Add(rating);
             await _unitOfWork.Save();
         }
-        int response = 0;
         var ratings = _unitOfWork.RatingRepository.GetByBlog(request.BlogId);
+        response = new BaseResponse<int>()
+        {
+            Data = CalculateRating(ratings),
+            Success = false,
+            Message = nameof(ValidationException),
+            Errors = validationResult.Errors.Select(error => error.ErrorMessage).ToList()
+        };
+        
+        return response;
+    }
+
+    public static int CalculateRating(IReadOnlyList<Rating> ratings)
+    {
+        int commulativeRating = 0;
         foreach (var rating in ratings)
         {
-            response += rating.Rate;
+            commulativeRating += rating.Rate;
         }
-        if (response != 0) response /= ratings.Count;
-        return response;
+        if (commulativeRating != 0) commulativeRating /= ratings.Count;
+        return commulativeRating;
     }
 }

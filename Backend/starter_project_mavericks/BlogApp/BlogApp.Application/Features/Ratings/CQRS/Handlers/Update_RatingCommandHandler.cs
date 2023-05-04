@@ -3,6 +3,7 @@ using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Exceptions;
 using BlogApp.Application.Features.Ratings.CQRS.Commands;
 using BlogApp.Application.Features.Ratings.DTOs.Validators;
+using BlogApp.Application.Responses;
 using BlogApp.Domain;
 using MediatR;
 using System;
@@ -12,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BlogApp.Application.Features.Ratings.CQRS.Handlers;
-public class Update_RatingCommandHandler : IRequestHandler<Update_RatingCommand, int>
+public class Update_RatingCommandHandler : IRequestHandler<Update_RatingCommand, BaseResponse<int>>
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
@@ -23,14 +24,20 @@ public class Update_RatingCommandHandler : IRequestHandler<Update_RatingCommand,
         _mapper = mapper;
     }
 
-    public async Task<int> Handle(Update_RatingCommand request, CancellationToken cancellationToken)
+    public async Task<BaseResponse<int>> Handle(Update_RatingCommand request, CancellationToken cancellationToken)
     {
         var validator = new RatingDtoValidator();
         var validationResult = await validator.ValidateAsync(request.RatingDto);
-
+        BaseResponse<int> response;
         if (validationResult.IsValid == false)
         {
-            throw new ValidationException(validationResult);
+            response = new BaseResponse<int>()
+            {
+                Success = false,
+                Message = nameof(ValidationException),
+                Errors = validationResult.Errors.Select(error => error.ErrorMessage).ToList()
+            };
+            return response;
         }
         else
         {
@@ -43,19 +50,28 @@ public class Update_RatingCommandHandler : IRequestHandler<Update_RatingCommand,
             var existingRating = await _unitOfWork.RatingRepository.GetByBlogAndRater(request.BlogId, updatedRating.RaterId);
             if(existingRating == null)
             {
-                throw new NotFoundException(nameof(Rating), $"{request.BlogId} {updatedRating.RaterId}");
+                var ex = new NotFoundException(nameof(Rating), $"for {request.BlogId} by {updatedRating.RaterId}");
+                response = new BaseResponse<int>()
+                {
+                    Success = false,
+                    Message = nameof(NotFoundException),
+                    Errors = new List<string> { ex.Message }
+                };
+                return response;
             }
             updatedRating.Id = existingRating.Id;
             await _unitOfWork.RatingRepository.Update(updatedRating);
             await _unitOfWork.Save();
         }
-        int response = 0;
         var ratings = _unitOfWork.RatingRepository.GetByBlog(request.BlogId);
-        foreach (var rating in ratings)
+        response = new BaseResponse<int>()
         {
-            response += rating.Rate;
-        }
-        if(response != 0) response /= ratings.Count;
+            Data = Create_RatingCommandHandler.CalculateRating(ratings),
+            Success = false,
+            Message = nameof(ValidationException),
+            Errors = validationResult.Errors.Select(error => error.ErrorMessage).ToList()
+        };
+
         return response;
     }
 }

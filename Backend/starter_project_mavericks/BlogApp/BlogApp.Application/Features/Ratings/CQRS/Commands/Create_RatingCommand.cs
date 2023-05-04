@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BlogApp.Application.Features.Ratings.CQRS.Commands;
-public class Create_RatingCommand : IRequest<int>
+public class Create_RatingCommand : IRequest<BaseResponse<int>>
 {
     public int BlogId { get; set; }
     public RatingDto RatingDto { get; set; }
