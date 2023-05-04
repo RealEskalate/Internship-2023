@@ -27,7 +27,7 @@ namespace BlogApp.Application.Features.Rates.CQRS.Handlers
             var response = new Result<RateDto>();
             var rate = await _unitOfWork.RateRepository.Get(request.Id);
             response.Success = true;
-            response.Message = "Featch Success";
+            response.Message = "Fetch Success";
             response.Value = _mapper.Map<RateDto>(rate);
 
             return response;

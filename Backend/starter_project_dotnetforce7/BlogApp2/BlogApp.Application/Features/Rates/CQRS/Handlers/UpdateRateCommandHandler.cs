@@ -42,15 +42,22 @@ namespace BlogApp.Application.Features.Rates.CQRS.Handlers
                 var Rate = await _unitOfWork.RateRepository.Get(request.RateDto.Id);
 
                 if (Rate is null)
-                    throw new NotFoundException(nameof(Rate), request.RateDto.Id);
-
+                    return null;
+                   
                 _mapper.Map(request.RateDto, Rate);
 
                 await _unitOfWork.RateRepository.Update(Rate);
-                await _unitOfWork.Save();
-
-                response.Success = true;
-                response.Message = "Updated Successful";
+              
+                if (await _unitOfWork.Save() > 0)
+                {
+                    response.Success = true;
+                    response.Message = "Updated Successful";
+                }
+                else
+                {
+                    response.Success = false;
+                    response.Message = "Update Failed";
+                }    
             }
 
             return response;

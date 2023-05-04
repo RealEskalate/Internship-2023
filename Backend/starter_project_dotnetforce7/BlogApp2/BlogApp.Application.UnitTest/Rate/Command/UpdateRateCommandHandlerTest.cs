@@ -15,7 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlogApp.Application.UnitTest.Rate.Command
+namespace BlogApp.Application.UnitTest.Rates.Command
 {
     public class UpdateRateCommandHandlerTest
     {

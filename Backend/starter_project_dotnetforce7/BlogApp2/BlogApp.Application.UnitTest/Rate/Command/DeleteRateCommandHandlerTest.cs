@@ -16,7 +16,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlogApp.Application.UnitTest.Rate.Command
+namespace BlogApp.Application.UnitTest.Rates.Command
 {
     public class DeleteRateCommandHandlerTest
     {
@@ -66,8 +66,8 @@ namespace BlogApp.Application.UnitTest.Rate.Command
 
             _id  = 0;
             var result = await _handler.Handle(new DeleteRateCommand() { Id = _id }, CancellationToken.None);
-            result.ShouldBeOfType<Result<Unit>>();
-            result.Success.ShouldBeFalse();
+            result.ShouldBe(null);
+        
             var rates = await _mockRepo.Object.RateRepository.GetAll();
             rates.Count.ShouldBe(2);
 

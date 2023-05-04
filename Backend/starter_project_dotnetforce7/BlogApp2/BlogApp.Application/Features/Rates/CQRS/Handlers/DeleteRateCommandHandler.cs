@@ -30,16 +30,22 @@ namespace BlogApp.Application.Features._Indecis.CQRS.Handlers
 
             if (Rate == null)
             {
-                response.Success = false;
-                response.Message = "Rate not found";
+                return null;
             }
             else
             {
                 await _unitOfWork.RateRepository.Delete(Rate);
-                await _unitOfWork.Save();
-                response.Success = true;
-                response.Message = "Delete Successful";
-
+                if (await _unitOfWork.Save() > 0 )
+                {
+                    response.Success = true;
+                    response.Message = "Delete Successful";
+                }
+                else
+                {
+                    response.Success = true;
+                    response.Message = "Delete Failed";
+                }
+            
             }
             return response;
         }

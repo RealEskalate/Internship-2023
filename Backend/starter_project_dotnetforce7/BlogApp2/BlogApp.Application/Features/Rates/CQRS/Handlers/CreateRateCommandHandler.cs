@@ -33,7 +33,7 @@ namespace BlogApp.Application.Features.Rates.CQRS.Handlers
             if (validationResult.IsValid == false)
             {
                 response.Success = false;
-                response.Message = "Creation Failed";
+                response.Message = "Validation Error";
                 response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
             }
             else
@@ -41,11 +41,17 @@ namespace BlogApp.Application.Features.Rates.CQRS.Handlers
                 var rate = _mapper.Map<Rate>(request.RateDto);
 
                 rate = await _unitOfWork.RateRepository.Add(rate);
-                await _unitOfWork.Save();
-
-                response.Success = true;
-                response.Message = "Creation Successful";
-                response.Value = rate.Id;
+                if (await _unitOfWork.Save() > 0)
+                {
+                    response.Success = true;
+                    response.Message = "Creation Successful";
+                    response.Value = rate.Id;
+                }
+                else
+                {
+                    response.Success = false;
+                    response.Message = "Creation Failed";
+                }
             }
 
             return response;

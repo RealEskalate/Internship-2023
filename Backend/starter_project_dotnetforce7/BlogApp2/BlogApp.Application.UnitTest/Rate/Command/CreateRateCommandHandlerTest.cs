@@ -6,7 +6,6 @@ using BlogApp.Application.Features.Rates.DTOs;
 using BlogApp.Application.Profiles;
 using BlogApp.Application.Responses;
 using BlogApp.Application.UnitTest.Mocks;
-using HR.LeaveManagement.Application.UnitTests.Mocks;
 using MediatR;
 using Moq;
 using Shouldly;
@@ -17,7 +16,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlogApp.Application.UnitTest.Rate.Command
+namespace BlogApp.Application.UnitTest.Rates.Command
 {
     public class CreateRateCommandHandlerTest
     {

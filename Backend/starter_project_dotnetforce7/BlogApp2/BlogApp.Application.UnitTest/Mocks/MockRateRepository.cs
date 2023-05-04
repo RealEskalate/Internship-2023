@@ -1,9 +1,11 @@
 ﻿using BlogApp.Application.Contracts.Persistence;
+using BlogApp.Application.UnitTest.Mocks;
 using BlogApp.Domain;
+using MediatR;
 using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
 using Moq;
 
-namespace HR.LeaveManagement.Application.UnitTests.Mocks
+namespace BlogApp.Application.UnitTests.Mocks
 {
     public static class MockRateRepository
     {
@@ -36,6 +38,7 @@ namespace HR.LeaveManagement.Application.UnitTests.Mocks
             {
                 Rate.Id = Rates.Count() + 1;
                 Rates.Add(Rate);
+                MockUnitOfWork.changes += 1;
                 return Rate;
             });
 
@@ -44,11 +47,13 @@ namespace HR.LeaveManagement.Application.UnitTests.Mocks
                 var newRates = Rates.Where((r) => r.Id != Rate.Id);
                 Rates = newRates.ToList();
                 Rates.Add(Rate);
+                MockUnitOfWork.changes += 1;
             });
 
             mockRepo.Setup(r => r.Delete(It.IsAny<Rate>())).Callback((Rate Rate) =>
             {
-                Rates.Remove(Rate);
+                if (Rates.Remove(Rate))
+                    MockUnitOfWork.changes += 1;
             });
 
             mockRepo.Setup(r => r.Exists(It.IsAny<int>())).ReturnsAsync((int Id) =>
@@ -59,7 +64,7 @@ namespace HR.LeaveManagement.Application.UnitTests.Mocks
 
 
             mockRepo.Setup(r => r.Get(It.IsAny<int>())).ReturnsAsync((int Id) =>
-            {
+            {   
                 return Rates.FirstOrDefault((r) => r.Id == Id);
             });
 
