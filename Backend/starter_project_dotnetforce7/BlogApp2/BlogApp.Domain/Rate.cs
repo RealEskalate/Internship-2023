@@ -10,7 +10,7 @@ namespace BlogApp.Domain
     public class Rate: BaseDomainEntity
     {
         public int RaterId { get; set; }
-        // public int BlogId { get; set; }
+        public int BlogId { get; set; }
         // public Blog Blog { get; set; }
         public int RateNo { get; set; }
     }
