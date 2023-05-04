@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{59246A86-0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogApp.Identity", "BlogApp.Identity\BlogApp.Identity.csproj", "{44FFAC30-9101-4535-8722-FDD36168B34C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogApp.Identity.UnitTests", "BlogApp.Identity.UnitTests\BlogApp.Identity.UnitTests.csproj", "{D5A8B086-217A-4065-A4F4-95D6AA304ECB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogApp.Identity.UnitTest", "BlogApp.Identity.UnitTests\BlogApp.Identity.UnitTest.csproj", "{D5A8B086-217A-4065-A4F4-95D6AA304ECB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
