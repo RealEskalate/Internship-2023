@@ -16,13 +16,13 @@ namespace BlogApp.Persistence.Configurations.Entities
             builder.HasData(
                 new _Index
                 {
-                    Id = "1",
+                    Id = 1,
                     Name = "First Index"
                 },
 
                 new _Index
                 {
-                    Id = "2",
+                    Id = 2,
                     Name = "Second Index"
                 }
                 );
