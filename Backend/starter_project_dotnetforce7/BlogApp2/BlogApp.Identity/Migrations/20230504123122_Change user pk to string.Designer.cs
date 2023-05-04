@@ -3,6 +3,7 @@ using System;
 using BlogApp.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BlogApp.Identity.Migrations
 {
     [DbContext(typeof(BlogIdentityDbContext))]
-    partial class BlogIdentityDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230504123122_Change user pk to string")]
+    partial class Changeuserpktostring
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
