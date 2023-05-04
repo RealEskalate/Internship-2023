@@ -10,8 +10,8 @@ class GetUserProfile {
   GetUserProfile(this.repository);
 
   Future<Either<Failure, UserProfile>> execute({
-    required Object id,
+    required String id,
   }) async {
-    return repository.getUserProfile(id);
+    return await repository.getUserProfile(id);
   }
 }

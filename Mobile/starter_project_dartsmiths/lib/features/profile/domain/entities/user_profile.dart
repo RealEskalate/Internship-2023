@@ -11,5 +11,13 @@ class UserProfile extends Equatable {
       required this.fullName,
       required this.userName,
       required this.career})
-      : super([profilePicture, fullName, userName, career]);
+      : super();
+
+  @override
+  List<Object> get props => [
+        profilePicture,
+        fullName,
+        userName,
+        career,
+      ];
 }
