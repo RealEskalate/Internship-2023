@@ -17,8 +17,8 @@ public class Blog: BaseDomainEntity
     public string? ThumbnailImage { get; set; }
     public PublicationStatuses PublicationStatus { get; set; }
 
-    public int TotalRaters {get; set;}
-    public  int TotalRating {get; set;}
+    // public int TotalRaters {get; set;}
+    // public  int TotalRating {get; set;}
     
     // public List<Tag> Tags { get; set; }
     // public List<Comment> Comments { get; set; }

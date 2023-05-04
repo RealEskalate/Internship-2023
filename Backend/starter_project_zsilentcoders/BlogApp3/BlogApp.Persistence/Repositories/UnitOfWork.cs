@@ -29,12 +29,12 @@ namespace BlogApp.Persistence.Repositories
             } 
          }
 
-        public IBlogRepository _BlogRepository
+        public IBlogRepository BlogRepository
         {
             get
             {
                 if (_blogRepository == null)
-                    _blogRepository = new _BlogRepository(_context);
+                    _blogRepository = new BlogRepository(_context);
                 return _blogRepository;
             }
         }

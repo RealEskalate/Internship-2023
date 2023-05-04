@@ -7,12 +7,10 @@ public class DeleteBlogDtoValidator: AbstractValidator<DeleteBlogDto>
 {
     private IBlogRepository _blogRepository;
 
-    public DeleteBlogDtoValidator(IBlogRepository blogRepository)
+    public DeleteBlogDtoValidator(IUnitOfWork unitOfWork)
     {
-        _blogRepository = blogRepository;
-
         RuleFor(p => p.Id)
             .GreaterThan(0)
-            .MustAsync(async (id, token) => await _blogRepository.Exists(id));
+            .MustAsync(async (id, token) => await unitOfWork.BlogRepository.Exists(id)).WithMessage($"Blog not found");
     }
 }

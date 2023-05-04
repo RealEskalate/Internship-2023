@@ -8,9 +8,8 @@ using MediatR;
 
 namespace BlogApp.Application.Features.Blog.CQRS.Handlers.Commands;
 
-public class CreateBlogCommandHandler: IRequestHandler<CreateBlogCommand, BaseCommandResponse>
+public class CreateBlogCommandHandler: IRequestHandler<CreateBlogCommand, Result<BlogDetailsDto?>>
 {
-
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
 
@@ -20,9 +19,10 @@ public class CreateBlogCommandHandler: IRequestHandler<CreateBlogCommand, BaseCo
         _mapper = mapper;
     }
 
-    public async Task<BaseCommandResponse> Handle(CreateBlogCommand request, CancellationToken cancellationToken)
+    public async Task<Result<BlogDetailsDto?>> Handle(CreateBlogCommand request, CancellationToken cancellationToken)
     {
-        var response = new BaseCommandResponse();
+        var response = new Result<BlogDetailsDto?>();
+        
         var validator = new CreateBlogDtoValidator();
         var validationResult = await validator.ValidateAsync(request.CreateBlogDto);
 
@@ -34,14 +34,14 @@ public class CreateBlogCommandHandler: IRequestHandler<CreateBlogCommand, BaseCo
         }
         else
         {
-            var Blog = _mapper.Map<Blog>(request.CreateBlogDto);
+            var blog = _mapper.Map<Domain.Blog>(request.CreateBlogDto);
 
-            Blog = await _unitOfWork._BlogRepository.Add(Blog);
+            blog = await _unitOfWork.BlogRepository.Add(blog);
             await _unitOfWork.Save();
 
             response.Success = true;
             response.Message = "Creation Successful";
-            response.Id = Blog.Id;
+            response.Value = _mapper.Map<BlogDetailsDto>(blog);
         }
 
         return response;

@@ -4,6 +4,7 @@ using BlogApp.Application.Features.Blog.CQRS.Handlers.Commands;
 using BlogApp.Application.Features.Blog.CQRS.Requests.Commands;
 using BlogApp.Application.Profiles;
 using AutoMapper;
+using BlogApp.Application.Tests.Mocks;
 using Shouldly;
 using Moq;
 using Xunit;
@@ -14,20 +15,20 @@ namespace BlogApp.Tests.Blog.Command;
 public class CreateBlogCommandHandlerTest
 {
        private IMapper _mapper { get; set; }
-       private Mock<IBlogRepository> _mockRepo { get; set; }
+       private Mock<IUnitOfWork> _mockUnitOfWork { get; set; }
        private CreateBlogCommandHandler _handler { get; set; }
        
 
        public CreateBlogCommandHandlerTest()
-       { 
-              _mockRepo = MockBlogRepository.GetBlogRepository();
+       {
+              _mockUnitOfWork = MockUnitOfWork.GetUnitOfWork();
               
               _mapper = new MapperConfiguration(c =>
               {
                      c.AddProfile<MappingProfile>();
               }).CreateMapper();
 
-              _handler = new CreateBlogCommandHandler(_mockRepo.Object, _mapper);
+              _handler = new CreateBlogCommandHandler(_mockUnitOfWork.Object, _mapper);
        }
        
        
@@ -44,10 +45,10 @@ public class CreateBlogCommandHandlerTest
               
               var result = await _handler.Handle(new CreateBlogCommand() { CreateBlogDto = createBlogDto }, CancellationToken.None);
               
-              result.Content.ShouldBeEquivalentTo(createBlogDto.Content);
-              result.Title.ShouldBeEquivalentTo(createBlogDto.Title);
+              result.Value.Content.ShouldBeEquivalentTo(createBlogDto.Content);
+              result.Value.Title.ShouldBeEquivalentTo(createBlogDto.Title);
               
-              (await _mockRepo.Object.GetAll()).Count.ShouldBe(3);
+              (await _mockUnitOfWork.Object.BlogRepository.GetAll()).Count.ShouldBe(3);
        }
        
        [Fact]
@@ -63,7 +64,7 @@ public class CreateBlogCommandHandlerTest
               
               var result = await _handler.Handle(new CreateBlogCommand() { CreateBlogDto = createBlogDto }, CancellationToken.None);
               
-              result.ShouldBe(null);
+              result.Value.ShouldBe(null);
        }
 }
 

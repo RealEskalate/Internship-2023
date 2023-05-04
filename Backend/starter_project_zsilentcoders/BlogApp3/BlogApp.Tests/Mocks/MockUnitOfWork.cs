@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BlogApp.Tests.Mocks;
 
 namespace BlogApp.Application.Tests.Mocks
 {
@@ -16,7 +17,7 @@ namespace BlogApp.Application.Tests.Mocks
         {
             var mockUow = new Mock<IUnitOfWork>();
             var mockBlogRepo = MockBlogRepository.GetBlogRepository();
-            mockUow.Setup(r => r._BlogRepository).Returns(mockBlogRepo.Object);
+            mockUow.Setup(r => r.BlogRepository).Returns(mockBlogRepo.Object);
             return mockUow;
         }
     }

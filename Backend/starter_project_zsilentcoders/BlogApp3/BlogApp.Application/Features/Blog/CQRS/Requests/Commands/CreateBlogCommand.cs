@@ -5,7 +5,7 @@ using MediatR;
 
 namespace BlogApp.Application.Features.Blog.CQRS.Requests.Commands;
 
-public class CreateBlogCommand: IRequest<BaseCommandResponse>
+public class CreateBlogCommand: IRequest<Result<BlogDetailsDto?>>
 {
     public CreateBlogDto CreateBlogDto { get; set; }
 }

@@ -1,5 +1,6 @@
-using BlogApp.Application.Features.Blog.DTOs;
 using BlogApp.Application.Features.Blog.CQRS.Requests.Commands;
+using BlogApp.Application.Features.Blog.DTOs;
+// using BlogApp.Application.Features.Blog.CQRS.Requests.Commands;
 using BlogApp.Application.Features.Blog.CQRS.Requests.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -18,36 +19,28 @@ public class BlogsController: BaseController
     [HttpGet("{id:int}")]
     public async Task<ActionResult> Get(int id)
     {
-        var blog = await _mediator.Send(new GetBlogDetailsQuery { Id = id });
-        return blog == null ? NotFound() : Ok(blog);
+        return HandleResult(await _mediator.Send(new GetBlogDetailsQuery { Id = id }));
     }
     
     [HttpPost]
     public async Task<ActionResult> CreateBlog([FromBody] CreateBlogDto createBlogDto)
     {
-        var blog = await _mediator.Send(new CreateBlogCommand { CreateBlogDto = createBlogDto });
-        
-        return blog == null ?
-            new ObjectResult(new { message = "Invalid data!" }) { StatusCode = 422 } :
-            Ok(blog);
+        return HandleResult(await _mediator.Send(new CreateBlogCommand { CreateBlogDto = createBlogDto }));
     }
-
+    
+    
     [HttpDelete("{id:int}")]
     public async Task<ActionResult> DeleteBlog(int id)
     {
-        bool result = await _mediator.Send(new DeleteBlogCommand { DeleteBlogDto = new DeleteBlogDto{Id = id} });
-        return result ? NoContent() : NotFound();
+        return HandleResult(
+            await _mediator.Send(new DeleteBlogCommand { DeleteBlogDto = new DeleteBlogDto { Id = id } }));
     }
-
+    
 
     [HttpPut]
     public async Task<ActionResult> UpdateBlog([FromBody] UpdateBlogDto updateBlogDto)
     {
-        var command = new UpdateBlogCommand { UpdateBlogDto = updateBlogDto };
-        await _mediator.Send(command);
-        return NoContent();
+        return HandleResult(await _mediator.Send(new UpdateBlogCommand(){UpdateBlogDto = updateBlogDto}));
     }
     
-
-
 }

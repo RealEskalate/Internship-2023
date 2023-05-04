@@ -10,7 +10,7 @@ namespace BlogApp.Application.Contracts.Persistence
     {
         I_IndexRepository _IndexRepository { get; }
 
-        IBlogRepository _BlogRepository { get; }
+        IBlogRepository BlogRepository { get; }
         Task Save();
     }
 }
