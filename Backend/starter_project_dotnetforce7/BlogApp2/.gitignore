@@ -609,3 +609,5 @@ msbuild.wrn
 **/net7.0/
 **/bin/
 **/.vs/
+obj
+/BlogApp.Identity/obj
