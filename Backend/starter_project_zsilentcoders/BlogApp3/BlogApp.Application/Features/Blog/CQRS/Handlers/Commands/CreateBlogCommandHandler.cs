@@ -9,23 +9,40 @@ namespace BlogApp.Application.Features.Blog.CQRS.Handlers.Commands;
 
 public class CreateBlogCommandHandler: IRequestHandler<CreateBlogCommand, BlogDetailsDto>
 {
-    private IBlogRepository _blogRepository { get; set; }
-    private IMapper _mapper { get; set; }
 
-    public CreateBlogCommandHandler(IBlogRepository blogRepository, IMapper mapper)
+    private readonly IUnitOfWork _unitOfWork;
+    private readonly IMapper _mapper;
+
+    public CreateBlogCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
     {
-        _blogRepository = blogRepository;
+        _unitOfWork = unitOfWork;
         _mapper = mapper;
     }
-    
-    public async Task<BlogDetailsDto> Handle(CreateBlogCommand request, CancellationToken cancellationToken)
+
+    public async Task<BaseCommandResponse> Handle(CreateBlogCommand request, CancellationToken cancellationToken)
     {
+        var response = new BaseCommandResponse();
         var validator = new CreateBlogDtoValidator();
-        
-        if (!(await validator.ValidateAsync(request.CreateBlogDto)).IsValid)
-            return null;
-        
-        var result =  _mapper.Map<BlogDetailsDto>(await _blogRepository.Add(_mapper.Map<BlogApp.Domain.Blog>(request.CreateBlogDto)));
-        return result;
+        var validationResult = await validator.ValidateAsync(request.CreateBlogDto);
+
+        if (validationResult.IsValid == false)
+        {
+            response.Success = false;
+            response.Message = "Creation Failed";
+            response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
+        }
+        else
+        {
+            var Blog = _mapper.Map<Blog>(request.CreateBlogDto);
+
+            Blog = await _unitOfWork._BlogRepository.Add(Blog);
+            await _unitOfWork.Save();
+
+            response.Success = true;
+            response.Message = "Creation Successful";
+            response.Id = Blog.Id;
+        }
+
+        return response;
     }
 }

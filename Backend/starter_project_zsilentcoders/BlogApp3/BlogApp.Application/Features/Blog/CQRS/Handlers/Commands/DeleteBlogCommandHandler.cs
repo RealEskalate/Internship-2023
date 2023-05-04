@@ -8,24 +8,26 @@ namespace Application.Features.Blog.Handlers.Commands;
 
 public class DeleteBlogCommandHandler: IRequestHandler<DeleteBlogCommand, bool>
 {
-    private IBlogRepository _blogRepository { get; set; }
-    private IMapper _mapper { get; set; }
 
-    public DeleteBlogCommandHandler(IBlogRepository blogRepository, IMapper mapper)
+    private readonly IUnitOfWork _unitOfWork;
+    private readonly IMapper _mapper;
+
+    public DeleteBlogCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
     {
-        _blogRepository = blogRepository;
+        _unitOfWork = unitOfWork;
         _mapper = mapper;
     }
-    
-    public async Task<bool> Handle(DeleteBlogCommand request, CancellationToken cancellationToken)
-    {
-        var validator = new DeleteBlogDtoValidator(_blogRepository);
-        
-        if (!(await validator.ValidateAsync(request.DeleteBlogDto)).IsValid)
-            return false;
 
-        await _blogRepository.Delete(await _blogRepository.Get(request.DeleteBlogDto.Id));
-        
-        return true;
+    public async Task<Unit> Handle(DeleteBlogCommand request, CancellationToken cancellationToken)
+    {
+        var Blog = await _unitOfWork._BlogRepository.Get(request.Id);
+
+        if (Blog == null)
+            throw new NotFoundException(nameof(Blog), request.Id);
+
+        await _unitOfWork._BlogRepository.Delete(Blog);
+        await _unitOfWork.Save();
+
+        return Unit.Value;
     }
 }

@@ -38,4 +38,16 @@ public class BlogsController: BaseController
         bool result = await _mediator.Send(new DeleteBlogCommand { DeleteBlogDto = new DeleteBlogDto{Id = id} });
         return result ? NoContent() : NotFound();
     }
+
+
+    [HttpPut]
+    public async Task<ActionResult> UpdateBlog([FromBody] UpdateBlogDto updateBlogDto)
+    {
+        var command = new UpdateBlogCommand { UpdateBlogDto = updateBlogDto };
+        await _mediator.Send(command);
+        return NoContent();
+    }
+    
+
+
 }
