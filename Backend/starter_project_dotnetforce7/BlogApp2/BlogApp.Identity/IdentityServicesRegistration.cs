@@ -3,16 +3,11 @@ using BlogApp.Application.Models.Identity;
 using BlogApp.Identity.Models;
 using BlogApp.Identity.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Reflection;
 using System.Text;
 
 namespace BlogApp.Identity

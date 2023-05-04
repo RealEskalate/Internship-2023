@@ -1,7 +1,7 @@
 namespace BlogApp.Application.Models.Identity;
 public class AuthResponse
 {
-    public int Id { get; set; }
+    public string Id { get; set; }
     public string Username { get; set;}
     public string Firstname { get; set; }
     public string Lastname { get; set; }

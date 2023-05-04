@@ -17,6 +17,6 @@ public class RegistrationRequest
 
     [Required]
     [MinLength(8)]
-    [RegularExpression(@"^(?=.*[\d\W]).+$", ErrorMessage = "The password must contain at least one special character and one number.")] 
+    [RegularExpression(@"^(?=.*\d)(?=.*\W).+$", ErrorMessage = "The password must contain at least one special character and one number.")] 
     public string Password { get; set; }
 } 

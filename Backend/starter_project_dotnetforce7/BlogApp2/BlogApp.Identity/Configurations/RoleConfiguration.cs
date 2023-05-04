@@ -1,10 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BlogApp.Identity.Configurations
 {
@@ -13,7 +9,7 @@ namespace BlogApp.Identity.Configurations
         public void Configure(EntityTypeBuilder<IdentityRole> builder)
         {
             builder.HasData(
-                new IdentityRole
+                new IdentityRole 
                 {
                     Id = "6123c2b5bf21e81f7ccf9385",
                     Name = "User",

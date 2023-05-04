@@ -17,7 +17,7 @@ namespace BlogApp.Identity.Configurations
             builder.HasData(
                  new ApplicationUser
                  {
-                     Id = 1,
+                     Id = "e6c52d57-24b6-4524-be10-eb7bce4d3217",
                      Email = "admin@localhost.com",
                      NormalizedEmail = "ADMIN@LOCALHOST.COM",
                      UserName = "Admin",
@@ -29,7 +29,7 @@ namespace BlogApp.Identity.Configurations
                  },
                  new ApplicationUser
                  {
-                     Id = 0,
+                     Id = "fb8656da-2b94-474f-8709-85e0cd7ea903",
                      Email = "user@localhost.com",
                      NormalizedEmail = "USER@LOCALHOST.COM",
                      UserName = "User",

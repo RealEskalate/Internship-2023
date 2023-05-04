@@ -53,7 +53,7 @@ namespace BlogApp.Identity.Services
                 Id = user.Id,
                 Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken),
                 Email = user.Email,
-                Username = user.Username
+                Username = user.UserName
             };
 
             return response;
@@ -85,7 +85,7 @@ namespace BlogApp.Identity.Services
 
                 if (result.Succeeded)
                 {
-                    await _userManager.AddToRoleAsync(user, "Employee");
+                    await _userManager.AddToRoleAsync(user, "User");
                     return new RegistrationResponse() { UserId = user.Id };
                 }
                 else
