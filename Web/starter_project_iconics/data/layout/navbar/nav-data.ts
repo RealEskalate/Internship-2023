@@ -3,11 +3,11 @@ export const navData = [
   { name: 'Teams', to: '/teams', current: false },
   {
     name: 'Success Stories',
-    to: '/success-stories',
+    to: '/story',
     current: false,
   },
   { name: 'About Us', to: '/about', current: false },
-  { name: 'Blogs', to: '/blogs', current: false },
+  { name: 'Blogs', to: '/blog', current: false },
   {
     name: 'Get Involved',
     to: '/get-involved',
