@@ -4,7 +4,7 @@ export interface Author {
   profession: string
   socialMediaLink: string
 }
-interface Blog {
+interface SingleBlog {
   blogId: string
   blogTitle: string
   smallBlogTitle: string
@@ -13,4 +13,4 @@ interface Blog {
   heading: string
   paragraphs: string[]
 }
-export default Blog
+export default SingleBlog

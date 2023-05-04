@@ -1,4 +1,4 @@
-import blogs from '@/data/blog/blog'
+import blogs from '@/data/blog/single-blog'
 import { useRouter } from 'next/router'
 
 const SingleBlog: React.FC = () => {

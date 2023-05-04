@@ -1,4 +1,4 @@
-import Blog, { Author } from '@/types/blog/single-blog'
+import SingleBlog, { Author } from '@/types/blog/single-blog'
 
 const author1: Author = {
   name: 'chaltu kebede',
@@ -13,7 +13,7 @@ const paragraphs = [
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
 ]
 
-const blogs: Blog[] = [
+const blogs: SingleBlog[] = [
   {
     blogId: '1',
     blogTitle: 'The essential guide to Competitive Programming',
