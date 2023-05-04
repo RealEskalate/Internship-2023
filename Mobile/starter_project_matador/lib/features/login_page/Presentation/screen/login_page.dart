@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:matador/features/login_page/Presentation/widgets/input_form_field.dart';
 import 'package:matador/features/login_page/Presentation/widgets/login_signup.dart';
-
+import '../widgets/forgot_password.dart';
 import '../../../../core/utils/constants/global_variables.dart';
 
 import '../widgets/logo.dart';
@@ -97,7 +97,7 @@ class LoginPage extends StatelessWidget {
           width: width,
           height: height,
         ),
-        const Placeholder(),
+        const ForgotPassword(),,
       ]),
     );
   }
