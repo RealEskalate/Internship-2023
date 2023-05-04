@@ -14,6 +14,9 @@ namespace BlogApp.Persistence.Repositories
 
         private I_IndexRepository _indexRepository;
 
+        private IBlogRepository _BlogRepository;
+
+
         public UnitOfWork(BlogAppDbContext context)
         {
             _context = context;
@@ -27,6 +30,16 @@ namespace BlogApp.Persistence.Repositories
                 return _indexRepository; 
             } 
          }
+
+        public IBlogRepository BlogRepository { 
+            get 
+            {
+                if (_BlogRepository == null)
+                    _BlogRepository = new BlogRepository(_context);
+                return _BlogRepository; 
+            } 
+         }
+         
 
         public void Dispose()
         {
