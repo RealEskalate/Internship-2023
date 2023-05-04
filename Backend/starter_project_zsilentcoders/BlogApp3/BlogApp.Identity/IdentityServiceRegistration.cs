@@ -8,8 +8,7 @@ public class IdentityServiceRegistration
         services.Configure<JwtSettings>(configuration.GetSection("JwtSettings"));
         services.AddDbContext<BlogAppIdentityDbContext>(options =>
         options.UseNpgsql(
-            configuration.GetConnectionString("LeaveManagementIdentityConnectionString"
-            ),
+            configuration.GetConnectionString("BlogIdentityConnectionString"),
         options => options.MigrationsAssembly(typeof(BlogAppIdentityDbContext).Assembly.FullName)));
 
         services.AddIdentity<BlogUser, IdentityRole>()

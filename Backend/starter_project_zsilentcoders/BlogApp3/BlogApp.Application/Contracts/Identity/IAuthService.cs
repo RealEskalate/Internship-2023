@@ -14,5 +14,8 @@ public interface IAuthService
 
     public  Task<ResetPasswordResponse> ResetPassword(ResetPasswordModel resetPasswordModel);
 
+    public Task<bool> DeleteUser(string Email);
+
+
 
 }

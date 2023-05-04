@@ -10,7 +10,9 @@ namespace BlogApp.Application.Features._Indices.DTOs
     public class Create_UserDto : I_UserDto
     {
         public string FirstName { get; set; }
+
         public string LastName { get; set; }
+        
         public string AccountId { get; set; }
 
     }

@@ -178,4 +178,16 @@ public class AuthService
         }
         return new ResetPasswordResponse{};
     }
+
+    public async Task<bool> DeleteUser(string Email)
+    {
+        var user = _userManager.FindByEmailAsync(Email);
+        if (user == null)
+            return False;
+
+        var result = await _userManager.DeleteAsync(user);
+        return result.Succeeded;
+    }
+
+
 }

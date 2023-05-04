@@ -34,13 +34,6 @@ namespace BlogApp.Api.Controllers
             return Ok(users);
         }
 
-        [HttpPost]
-        public async Task<ActionResult<BaseCommandResponse>> Post([FromBody] Create_UserDto create_UserDto)
-        {
-            var command = new Create_UserCommand { _UserDto = create_UserDto };
-            var repsonse = await _mediator.Send(command);
-            return Ok(repsonse);
-        }
 
         [HttpPut]
         public async Task<ActionResult> Put([FromBody] _UserDto userDto)
