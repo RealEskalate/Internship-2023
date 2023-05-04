@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image"
+import { ReactFragment } from "react";
 
 interface HeaderProps {
   activePage: string;
