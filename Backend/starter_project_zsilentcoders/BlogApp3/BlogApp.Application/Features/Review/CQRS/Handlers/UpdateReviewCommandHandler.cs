@@ -25,17 +25,21 @@ namespace BlogApp.Application.Features.Review.CQRS.Handlers
 
         public async Task<Unit> Handle(UpdateReviewCommand request, CancellationToken cancellationToken)
         {
-            
-            var review = await _unitOfWork.ReviewRepository.Get(request.reviewDto.Id);
 
+            var review = await _unitOfWork.ReviewRepository.Get(request.Id);
             if (review is null)
                 throw new NotFoundException(nameof(review), request.reviewDto.Id);
 
-            _mapper.Map(request.reviewDto, review);
-
-            await _unitOfWork.ReviewRepository.Update(review);
-            await _unitOfWork.Save();
-
+            if (request.reviewIsApprovedDto != null) {
+                await _unitOfWork.ReviewRepository.ChangeApprovalStatus(review, request.reviewIsApprovedDto.IsApproved);
+            }
+            else if (request.reviewDto != null)
+            {
+                _mapper.Map(request.reviewDto, review);
+                await _unitOfWork.ReviewRepository.Update(review);
+                await _unitOfWork.Save();
+                
+            }
             return Unit.Value;
         }
     }

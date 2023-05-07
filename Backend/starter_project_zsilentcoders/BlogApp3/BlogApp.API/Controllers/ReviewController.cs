@@ -25,15 +25,15 @@ namespace BlogApp.API.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<List<_Review>>> Get()
+        [HttpGet("{reivewerId}")]
+        public async Task<ActionResult<List<_Review>>> GetReviewsByReviewerId(int reivewerId)
         {
-            var reviews = await _mediator.Send(new GetReviewListQuery());
+            var reviews = await _mediator.Send(new GetReviewListQuery { ReviewerId= reivewerId });
             return Ok(reviews);
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<ReviewDto>> Get(int id)
+        [HttpGet("reviewer/{reviewId}")]
+        public async Task<ActionResult<ReviewDto>> GetReviewById(int id)
         {
             var review = await _mediator.Send(new GetReviewDetailQuery { Id = id });
             return Ok(review);
