@@ -10,5 +10,6 @@ namespace BlogApp.Application.Features.Review.CQRS.Commands
     public class DeleteReviewCommand: IRequest<Result<Unit>>
     {
         public int Id { get; set; }
+        public int ReviewerId { get; set; }
     }
 }
