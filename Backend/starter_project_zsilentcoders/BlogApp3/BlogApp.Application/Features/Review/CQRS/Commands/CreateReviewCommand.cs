@@ -10,6 +10,6 @@ namespace BlogApp.Application.Features.Review.CQRS.Command
 {
     public class CreateReviewCommand: IRequest<BaseCommandResponse>
     {
-        public CreateReviewDto reviewDto { get; set; }
+        public ReviewDto reviewDto { get; set; }
     }
 }

@@ -7,9 +7,6 @@ namespace BlogApp.Application.Features.Review.DTOs
 {
     public interface IReviewDto
     {
-        public int ReviewerId { get; set; }
-        public string Comment { get; set; }
-        public int BlogId { get; set; }
         public bool? IsResolved { get; set; }
     }
 }

@@ -7,6 +7,8 @@ using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Exceptions;
 using BlogApp.Application.Features._Indices.CQRS.Commands;
 using BlogApp.Application.Features.Review.CQRS.Commands;
+using BlogApp.Application.Features.Review.DTOs.Validators;
+using BlogApp.Domain;
 using MediatR;
 
 namespace BlogApp.Application.Features.Review.CQRS.Handlers
@@ -25,15 +27,23 @@ namespace BlogApp.Application.Features.Review.CQRS.Handlers
 
         public async Task<Unit> Handle(DeleteReviewCommand request, CancellationToken cancellationToken)
         {
-            var review = await _unitOfWork.ReviewRepository.Get(request.Id);
+            var validator = new DeleteReviewValidator(_unitOfWork);
+            var validationResult = await validator.ValidateAsync(request.Id);
 
-            if (review == null)
-                throw new NotFoundException(nameof(review), request.Id);
+            if (validationResult.IsValid == false) {
+                throw new NotFoundException(nameof(_Review), request.Id);
+            }
+            else {
+                var review = await _unitOfWork.ReviewRepository.Get(request.Id);
 
-            await _unitOfWork.ReviewRepository.Delete(review);
-            await _unitOfWork.Save();
+                if (review == null)
+                    throw new NotFoundException(nameof(review), request.Id);
 
-            return Unit.Value;
+                await _unitOfWork.ReviewRepository.Delete(review);
+                await _unitOfWork.Save();
+
+                return Unit.Value;
+            }
         }
     }
 }

@@ -40,7 +40,7 @@ namespace BlogApp.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<BaseCommandResponse>> Post([FromBody] CreateReviewDto createReviewDto)
+        public async Task<ActionResult<BaseCommandResponse>> Post([FromBody] ReviewDto createReviewDto)
         {
             var command = new CreateReviewCommand { reviewDto = createReviewDto };
             var repsonse = await _mediator.Send(command);
