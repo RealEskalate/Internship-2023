@@ -66,6 +66,29 @@ namespace BlogApp.Tests.Review.Command
         }
 
         [Fact]
+        public async Task UpdateIsResolvedTest()
+        {
+
+            var updateIsResolved = new ReviewIsApprovedDto()
+            {
+                Id = 1,
+                IsApproved = true,
+
+            };
+            var review = await _mockUnitOfWork.Object.ReviewRepository.Get(2);
+            bool res = await _mockUnitOfWork.Object.ReviewRepository.Exists(2);
+            res.ShouldBeTrue();
+
+            var result = await _handler.Handle(new UpdateReviewCommand() { reviewIsApprovedDto = updateIsResolved }, CancellationToken.None);
+
+            // should get the current review
+            review = await _mockUnitOfWork.Object.ReviewRepository.Get(1);
+            review.IsResolved.HasValue.ShouldBeTrue();
+        }
+
+
+
+        [Fact]
         public async Task UpdateReviewInvalid()
         {
 

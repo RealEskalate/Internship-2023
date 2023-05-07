@@ -1,12 +1,9 @@
 ﻿using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Exceptions;
-using BlogApp.Application.Features.Blog.CQRS.Handlers.Queries;
-using BlogApp.Application.Features.Blog.CQRS.Requests.Queries;
 using BlogApp.Application.Features.Review.CQRS.Handlers;
 using BlogApp.Application.Features.Review.CQRS.Queries;
 using BlogApp.Application.Profiles;
-using BlogApp.Application.Responses;
 using BlogApp.Application.Tests.Mocks;
 using Moq;
 using Shouldly;
@@ -19,13 +16,13 @@ using Xunit;
 
 namespace BlogApp.Tests.Review.Query
 {
-    public class GetReviewDetainQueryHandlerTest
+    public class GetReviewListQueryHandlerTest
     {
         private IMapper _mapper { get; set; }
         private Mock<IUnitOfWork> _mockUnitOfWork { get; set; }
-        private GetReviewDetailQueryHandler _handler { get; set; }
+        private GetReviewListQueryHandler _handler { get; set; }
 
-        public GetReviewDetainQueryHandlerTest()
+        public GetReviewListQueryHandlerTest()
         {
             _mockUnitOfWork = MockUnitOfWork.GetUnitOfWork();
 
@@ -34,22 +31,22 @@ namespace BlogApp.Tests.Review.Query
                 c.AddProfile<MappingProfile>();
             }).CreateMapper();
 
-            _handler = new GetReviewDetailQueryHandler(_mockUnitOfWork.Object, _mapper);
+            _handler = new GetReviewListQueryHandler(_mockUnitOfWork.Object, _mapper);
         }
 
         [Fact]
-        public async Task GetReviewDetailValid()
+        public async Task GetReviewListValid()
         {
-            var result = await _handler.Handle(new GetReviewDetailQuery() { Id = 1 }, CancellationToken.None);
+            var result = await _handler.Handle(new GetReviewListQuery() { ReviewerId = 1 }, CancellationToken.None);
             result.ShouldNotBe(null);
         }
 
         [Fact]
-        public async Task GetReviewDetailInvalid()
+        public async Task GetReviewListInvalid()
         {
             NotFoundException ex = await Should.ThrowAsync<NotFoundException>(async () =>
             {
-                await _handler.Handle(new GetReviewDetailQuery() { Id = 10 }, CancellationToken.None);
+               await _handler.Handle(new GetReviewListQuery () { ReviewerId = 100 }, CancellationToken.None);
             });
         }
     }

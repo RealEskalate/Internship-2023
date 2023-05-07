@@ -64,6 +64,11 @@ namespace BlogApp.Tests.Mocks
                 return reviews.FirstOrDefault((r) => r.Id == id);
             });
 
+            mockRepo.Setup(r => r.GetAllByReviewerId(It.IsAny<int>())).ReturnsAsync((int id) =>
+            {
+                    return reviews.Where(r => r.ReviewerId == id).ToList();
+            });
+
 
             return mockRepo;
         }

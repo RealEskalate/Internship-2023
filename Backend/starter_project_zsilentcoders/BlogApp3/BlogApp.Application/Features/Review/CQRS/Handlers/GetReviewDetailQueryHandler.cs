@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
+using BlogApp.Application.Exceptions;
 using BlogApp.Application.Features._Indices.CQRS.Queries;
 using BlogApp.Application.Features._Indices.DTOs;
 using BlogApp.Application.Features.Review.CQRS.Queries;
 using BlogApp.Application.Features.Review.DTOs;
+using BlogApp.Domain;
 using MediatR;
 
 namespace BlogApp.Application.Features.Review.CQRS.Handlers
@@ -24,8 +26,10 @@ namespace BlogApp.Application.Features.Review.CQRS.Handlers
         }
         public async Task<ReviewDto> Handle(GetReviewDetailQuery request, CancellationToken cancellationToken)
         {
-            var _Index = await _unitOfWork.ReviewRepository.Get(request.ReviewerId);
-            return _mapper.Map<ReviewDto>(_Index);
+            var review = await _unitOfWork.ReviewRepository.Get(request.Id);
+            if (review == null)
+                throw new NotFoundException(nameof(review), request.Id);
+            return _mapper.Map<ReviewDto>(review);
         }
     }
 }

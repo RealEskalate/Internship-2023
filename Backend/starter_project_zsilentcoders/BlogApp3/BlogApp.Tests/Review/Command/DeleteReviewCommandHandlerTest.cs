@@ -53,6 +53,8 @@ namespace BlogApp.Tests.Review.Command
 
             // the count should be 1
             var reviews = await _mockUnitOfWork.Object.ReviewRepository.GetAll();
+            var exist = await _mockUnitOfWork.Object.ReviewRepository.Exists(1);
+            exist.ShouldBeFalse();
             reviews.Count.ShouldBe(1);
         }
 

@@ -35,7 +35,7 @@ namespace BlogApp.API.Controllers
         [HttpGet("{reviewId}")]
         public async Task<ActionResult<ReviewDto>> GetReviewById(int reviewId)
         {
-            var review = await _mediator.Send(new GetReviewDetailQuery { ReviewerId = reviewId });
+            var review = await _mediator.Send(new GetReviewDetailQuery { Id = reviewId });
             return Ok(review);
         }
 
