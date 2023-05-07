@@ -14,20 +14,22 @@ namespace BlogApp.Persistence.Repositories
 
         private I_IndexRepository _indexRepository;
         private IRateRepository _rateRepository;
+        private ITagRepository _tagRepository;
 
         public UnitOfWork(BlogAppDbContext context)
         {
             _context = context;
         }
 
-        public I_IndexRepository _IndexRepository { 
-            get 
+        public I_IndexRepository _IndexRepository
+        {
+            get
             {
                 if (_indexRepository == null)
                     _indexRepository = new _IndexRepository(_context);
-                return _indexRepository; 
-            } 
-         }
+                return _indexRepository;
+            }
+        }
 
         public IRateRepository RateRepository
         {
@@ -38,6 +40,18 @@ namespace BlogApp.Persistence.Repositories
                 return _rateRepository;
             }
         }
+
+
+        public ITagRepository TagRepository
+        {
+            get
+            {
+                if (_tagRepository == null)
+                    _tagRepository = new TagRepository(_context);
+                return _tagRepository;
+            }
+        }
+
 
         public void Dispose()
         {
