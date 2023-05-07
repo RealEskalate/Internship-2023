@@ -1,7 +1,7 @@
 import 'package:dartsmiths/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/app_textstyle.dart';
+import '../../../../core/utils/text_styles.dart';
 import 'status_card.dart';
 
 class AboutCard extends StatelessWidget {
