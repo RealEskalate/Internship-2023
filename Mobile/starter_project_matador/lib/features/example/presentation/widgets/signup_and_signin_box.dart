@@ -9,7 +9,24 @@ class SigninSignupBox extends StatelessWidget {
   Widget build(BuildContext context) {
     var Height = MediaQuery.of(context).size.height;
     var Width = MediaQuery.of(context).size.width;
-    var row = Align(
+    return Container(
+      height: 96 / 812 * Height,
+      width: Width,
+      decoration: BoxDecoration(
+        color: primaryColor,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(28 / 812 * Height),
+          topRight: Radius.circular(28 / 812 * Height),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: borderShadow,
+            blurRadius: (22 / 812) * Height,
+            offset: Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Align(
       alignment: Alignment.topCenter,
       child: Padding(
         padding: EdgeInsets.only(
@@ -29,25 +46,7 @@ class SigninSignupBox extends StatelessWidget {
           ],
         ),
       ),
-    );
-    return Container(
-      height: 96 / 812 * Height,
-      width: Width,
-      decoration: BoxDecoration(
-        color: primaryColor,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(28 / 812 * Height),
-          topRight: Radius.circular(28 / 812 * Height),
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: borderShadow,
-            blurRadius: (22 / 812) * Height,
-            offset: Offset(0, 4),
-          ),
-        ],
-      ),
-      child: row,
+    );,
     );
   }
 }
