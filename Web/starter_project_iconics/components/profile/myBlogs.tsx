@@ -1,6 +1,6 @@
 import { Blog } from '@/types/profile/blog'
 import React from 'react'
-import BlogCard from '../blog/blogCard'
+import BlogCard from '../blog/BlogCard'
 
 type MyblogsProps = {
   cards: Blog[]
