@@ -32,10 +32,10 @@ namespace BlogApp.API.Controllers
             return Ok(reviews);
         }
 
-        [HttpGet("reviewer/{reviewId}")]
-        public async Task<ActionResult<ReviewDto>> GetReviewById(int id)
+        [HttpGet("{reviewId}")]
+        public async Task<ActionResult<ReviewDto>> GetReviewById(int reviewId)
         {
-            var review = await _mediator.Send(new GetReviewDetailQuery { Id = id });
+            var review = await _mediator.Send(new GetReviewDetailQuery { ReviewerId = reviewId });
             return Ok(review);
         }
 

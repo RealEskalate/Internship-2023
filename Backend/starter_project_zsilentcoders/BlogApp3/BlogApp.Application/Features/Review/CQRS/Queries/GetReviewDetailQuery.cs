@@ -9,7 +9,6 @@ namespace BlogApp.Application.Features.Review.CQRS.Queries
 {
     public class GetReviewDetailQuery: IRequest<ReviewDto>
     {
-        public int Id  { get; set; }
         public int ReviewerId { get; set; }
     }
 }
