@@ -16,12 +16,6 @@ namespace BlogApp.Persistence.Repositories
         {
             _dbContext = dbContext;
         }
-        public async Task ChangeApprovalStatus(_Review review, bool? IsResolved)
-        {
-            review.IsResolved = IsResolved;
-            _dbContext.Entry(review).State = EntityState.Modified;
-            await _dbContext.SaveChangesAsync();
-        }
 
         public async Task<IReadOnlyList<_Review>> GetAllByReviewerId(int id)
         {

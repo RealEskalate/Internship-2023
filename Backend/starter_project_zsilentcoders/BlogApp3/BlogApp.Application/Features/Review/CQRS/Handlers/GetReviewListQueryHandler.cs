@@ -4,8 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
-using BlogApp.Application.Features._Indices.CQRS.Queries;
-using BlogApp.Application.Features._Indices.DTOs;
 using BlogApp.Application.Features.Review.CQRS.Queries;
 using BlogApp.Application.Features.Review.DTOs;
 using MediatR;
@@ -25,7 +23,7 @@ namespace BlogApp.Application.Features.Review.CQRS.Handlers
 
         public async Task<List<ReviewDto>> Handle(GetReviewListQuery request, CancellationToken cancellationToken)
         {
-            var review = await _unitOfWork.ReviewRepository.GetAll();
+            var review = await _unitOfWork.ReviewRepository.GetAllByReviewerId(request.ReviewerId);
             return _mapper.Map<List<ReviewDto>>(review);
         }
     }
