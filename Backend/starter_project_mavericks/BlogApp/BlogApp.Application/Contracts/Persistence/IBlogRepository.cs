@@ -6,5 +6,7 @@ namespace BlogApp.Application.Contracts.Persistence
     {
         Task<IList<Blog>> GetReviewerBlogs(int Id);
         Task<IList<Blog>> GetUserBlogs(int Id);
+        Task<IList<Blog>> GetPublishedBlogs();
+        Task<IList<Blog>> GetUnPublishedBlogs();
     }
 }

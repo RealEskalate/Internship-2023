@@ -7,7 +7,6 @@ namespace BlogApp.Application.Features.Blogs.DTOs
     {
         public string Title { get; set; }
         public string ThumbnailImageUrl { get; set; }
-        public PublicationStatus Status { get; set; }
         public int Rating { get; set; }
     }
 }

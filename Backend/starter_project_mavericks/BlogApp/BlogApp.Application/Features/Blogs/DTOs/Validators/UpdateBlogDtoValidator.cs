@@ -26,12 +26,6 @@ namespace BlogApp.Application.Features.Blogs.DTOs.Validators
             When(blog => blog.ThumbnailImageUrl != null, ()=>{
                 Include(new ImageUrlValidator());
             });
-
-            When(blog => blog.Status != null, ()=>{
-                RuleFor(blog => blog.Status)
-                    .IsInEnum()
-                    .WithMessage("{PropertyName} must be either 0 or 1");
-            });
         }
     }
 }

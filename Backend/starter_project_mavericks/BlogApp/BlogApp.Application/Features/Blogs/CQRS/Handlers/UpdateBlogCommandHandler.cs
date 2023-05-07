@@ -49,7 +49,6 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
             blog.Title = request.UpdateBlogDTO.Title ?? blog.Title;
             blog.Content = request.UpdateBlogDTO.Content ?? blog.Content;
             blog.ThumbnailImageUrl = request.UpdateBlogDTO.ThumbnailImageUrl ?? blog.ThumbnailImageUrl;
-            blog.Status = request.UpdateBlogDTO.Status ?? blog.Status;
             
             await _blogRepository.Update(blog);
             await _unitOfWork.Save();

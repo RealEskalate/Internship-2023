@@ -13,7 +13,6 @@ namespace BlogApp.Domain{
     {
         public string Title { get; set; }
         public string Content { get; set; }
-        [UrlAttribute]
         public string ThumbnailImageUrl { get; set; }
         public PublicationStatus Status { get; set; }
         public int Rating { get; set; }

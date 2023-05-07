@@ -4,7 +4,8 @@ using MediatR;
 
 namespace BlogApp.Application.Features.Blogs.CQRS.Queries
 {
-    public class GetAllBlogsQuery: IRequest<BaseResponse<IList<BlogListDTO>>>
+    public class GetBlogListQuery: IRequest<BaseResponse<IList<BlogListDTO>>>
     {
+        public bool published { get; set; }
     }
 }
