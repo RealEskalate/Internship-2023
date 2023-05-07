@@ -24,7 +24,7 @@ namespace BlogApp.Application.Features.Review.CQRS.Handlers
         }
         public async Task<ReviewDto> Handle(GetReviewDetailQuery request, CancellationToken cancellationToken)
         {
-            var _Index = await _unitOfWork.ReviewRepository.Get(request.ReviewerId);
+            var _Index = await _unitOfWork.ReviewRepository.Get(request.Id);
             return _mapper.Map<ReviewDto>(_Index);
         }
     }
