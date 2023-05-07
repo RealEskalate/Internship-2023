@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BlogApp.Domain.Common;
+using BlogApp.Application.Features.Common;
 
-namespace BlogApp.Domain
+namespace BlogApp.Application.Features.Review.DTOs
 {
-    public class Review: BaseDomainEntity
+    public class ReviewDto: BaseDto, IReviewDto
     {
         public int ReviewerId { get; set; }
         public string Comment { get; set; } = "";

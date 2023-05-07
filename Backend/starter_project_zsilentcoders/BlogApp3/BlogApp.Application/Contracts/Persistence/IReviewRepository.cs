@@ -6,7 +6,7 @@ using BlogApp.Domain;
 
 namespace BlogApp.Application.Contracts.Persistence
 {
-    public interface IReviewRepository: IGenericRepository<Review>
+    public interface IReviewRepository: IGenericRepository<_Review>
     {
         
     }

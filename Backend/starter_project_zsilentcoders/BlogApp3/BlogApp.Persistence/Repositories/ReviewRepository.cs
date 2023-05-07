@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Persistence.Repositories
 {
-    public class ReviewRepository: GenericRepository<Review>, IReviewRepository
+    public class ReviewRepository: GenericRepository<_Review>, IReviewRepository
     {
         private readonly BlogAppDbContext _dbContext;
 
