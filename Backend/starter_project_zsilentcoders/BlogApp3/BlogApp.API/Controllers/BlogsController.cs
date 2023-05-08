@@ -15,7 +15,12 @@ public class BlogsController: BaseController
     {
         _mediator = mediator;
     }
-    
+    [HttpGet]
+    public async Task<ActionResult<List<BlogListDto>>> Get()
+    {
+        return HandleResult(await _mediator.Send(new GetBlogListQuery() ));
+    }
+
     [HttpGet("{id:int}")]
     public async Task<ActionResult> Get(int id)
     {

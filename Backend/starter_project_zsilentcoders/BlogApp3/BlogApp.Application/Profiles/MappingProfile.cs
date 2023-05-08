@@ -34,6 +34,8 @@ namespace BlogApp.Application.Profiles
                     opt => opt.MapFrom(src => DateTime.UtcNow));
         
             CreateMap<BlogDetailsDto, Blog>().ReverseMap();
+            CreateMap<UpdateBlogDto, Blog>().ReverseMap();
+            CreateMap<BlogListDto, Blog>().ReverseMap();
             
             #endregion Blog
         }
