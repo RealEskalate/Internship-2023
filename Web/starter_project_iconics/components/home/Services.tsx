@@ -7,7 +7,7 @@ const Services: React.FC = () => {
     <div className="flex flex-col items-center p-28 gap-y-20">
       {services.map((service, index) => (
         <IndividualService
-          key={service.title}
+          key={service.id}
           title={service.title}
           image={service.image}
           subtitle={service.subtitle}
