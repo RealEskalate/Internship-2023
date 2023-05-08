@@ -1,9 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import buildBetterImage from '../../public/img/home-page/bulid-better-image.jpg'
+import buildBetterImage from '../../public/img/home/bulid-better-image.jpg'
 import { AiOutlineMessage } from 'react-icons/ai'
-const BuildBetter = () => {
+const BuildBetter: React.FC  = () => {
   return (
     <div className="p-5">
       <div className="flex flex-col items-center justify-center">
@@ -23,7 +23,7 @@ const BuildBetter = () => {
           </p>
         </div>
 
-        <div className="p-3 mt-10 ml-4 font-semibold text-white bg-blue-600 border-2 border-blue-500 rounded">
+        <div className="p-3 mt-10 ml-4 font-semibold text-white bg-primary rounded">
           <Link href="/">
             <AiOutlineMessage className="inline-block w-6 h-6 mr-2" />
             Connect to our team

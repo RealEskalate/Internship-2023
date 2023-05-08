@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-const HelpUs = () => {
+const HelpUs: React.FC  = () => {
   return (
     <div className="mb-20">
       <div className="relative mt-20 bg-fixed h-72 aspect-auto">

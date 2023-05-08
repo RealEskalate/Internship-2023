@@ -2,7 +2,7 @@ import React from "react"
 import Image from "next/image"
 import Link from 'next/link'
 
-const ImpactStroies = () => {
+const ImpactStroies: React.FC = () => {
   return (
     <div className="mb-40 mt-11 sm:mt-32">
       <h1 className="text-5xl font-bold text-center mb:10 sm:mb-20">
@@ -27,14 +27,14 @@ const ImpactStroies = () => {
             office for 2022.&quot;
           </p>
           <div>
-            <div className="px-5 py-3 mt-4 text-base text-center text-white bg-blue-700 rounded w-max whitespace-nowrap">
+            <div className="px-5 py-3 mt-4 text-base text-center text-white bg-primary rounded w-max whitespace-nowrap">
               <Link href="/">See More</Link>
             </div>
           </div>
         </div>
         <div className="w-full mt-11 aspect-square">
           <Image
-            src="/img/home-page/impact-story-image.png"
+            src="/img/home/impact-story-image.png"
             alt="Picture of A2SV students"
             className="overflow-visible"
             width={1000}

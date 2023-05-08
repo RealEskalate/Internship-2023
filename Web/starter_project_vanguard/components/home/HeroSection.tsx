@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { BsArrowRightShort } from 'react-icons/bs'
 
-import landingImage from '../../public/img/home-page/landing-image.png'
+import landingImage from '../../public/img/home/landing-image.png'
 
 const HeroSection: React.FC = () => {
   return (
