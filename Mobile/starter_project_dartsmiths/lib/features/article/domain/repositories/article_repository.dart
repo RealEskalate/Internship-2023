@@ -1,4 +1,3 @@
-import 'package:dartsmiths/features/article/domain/usecases/post_article.dart';
 import 'package:dartz/dartz.dart';
 import '../../../../core/error/failures.dart';
 import '../entities/article.dart';
