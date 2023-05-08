@@ -11,10 +11,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BlogApp.Application.Responses;
+using BlogApp.Application.Features.Blog.DTOs;
 
 namespace BlogApp.Application.Features.Blog.CQRS.Handlers.Commands;
 
-public class UpdateBlogCommandHandler : IRequestHandler<UpdateBlogCommand, Result<Unit>>
+public class UpdateBlogCommandHandler : IRequestHandler<UpdateBlogCommand, Result<UpdateBlogDto?>>
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
@@ -25,25 +26,39 @@ public class UpdateBlogCommandHandler : IRequestHandler<UpdateBlogCommand, Resul
         _mapper = mapper;
     }
 
-    public async Task<Result<Unit>> Handle(UpdateBlogCommand request, CancellationToken cancellationToken)
+    public async Task<Result<UpdateBlogDto?>> Handle(UpdateBlogCommand request, CancellationToken cancellationToken)
     {
-    //     var validator = new UpdateBlogDtoValidator();
-    //     var validationResult = await validator.ValidateAsync(request.UpdateBlogDto);
-    //
-    //     if (validationResult.IsValid == false)
-    //         throw new ValidationException(validationResult);
-    //
-    //     var Blog = await _unitOfWork._BlogRepository.Get(request.UpdateBlogDto.Id);
-    //
-    //     if (Blog is null)
-    //         throw new NotFoundException(nameof(Blog), request.UpdateBlogDto.Id);
-    //
-    //     _mapper.Map(request.UpdateBlogDto, Blog);
-    //
-    //     await _unitOfWork._BlogRepository.Update(Blog);
-    //     await _unitOfWork.Save();
-    //
-    //     return Unit.Value;
-    return new Result<Unit>();
+
+        var response = new Result<UpdateBlogDto?>();
+        var validator = new UpdateBlogDtoValidator();
+        var validationResult = await validator.ValidateAsync(request.UpdateBlogDto);
+
+        if (validationResult.IsValid == false)
+        {
+            response.Success = false;
+            response.Message = "Updation Failed";
+            response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
+        }
+        else
+        {
+
+            var blog = await _unitOfWork.BlogRepository.Get(request.UpdateBlogDto.Id);
+
+            if (blog is null)
+                throw new NotFoundException(nameof(blog), request.UpdateBlogDto.Id);
+
+            _mapper.Map(request.UpdateBlogDto, blog);
+
+            await _unitOfWork.BlogRepository.Update(blog);
+            await _unitOfWork.Save();
+
+
+            response.Message = "Updation Successful!";
+            // response.Value = new Unit();
+            response.Value = _mapper.Map<UpdateBlogDto>(blog);
+
+        }
+
+        return response;
     }
 }
