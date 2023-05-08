@@ -5,4 +5,6 @@ import 'package:matador/features/user/domain/entities/user.dart';
 
 abstract class UserRepository {
   Future<Either<Failure, User>> getUserById(int id);
+  Future<Either<Failure, User>> updateUserProfile(User user);
+
 }
