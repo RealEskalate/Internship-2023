@@ -53,7 +53,9 @@ namespace BlogApp.Identity.Services
                 Id = user.Id,
                 Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken),
                 Email = user.Email,
-                Username = user.UserName
+                Username = user.UserName,
+                Firstname = user.Firstname,
+                Lastname = user.Lastname,
             };
 
             return response;
