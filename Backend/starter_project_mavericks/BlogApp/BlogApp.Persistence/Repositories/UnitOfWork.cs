@@ -14,6 +14,8 @@ namespace BlogApp.Persistence.Repositories
 
         private I_IndexRepository _indexRepository;
 
+        private ICommentRepository commentRepository;
+
         public UnitOfWork(BlogAppDbContext context)
         {
             _context = context;
@@ -25,6 +27,15 @@ namespace BlogApp.Persistence.Repositories
                 if (_indexRepository == null)
                     _indexRepository = new _IndexRepository(_context);
                 return _indexRepository; 
+            } 
+         }
+         
+         public ICommentRepository CommentRepository { 
+            get 
+            {
+                if (commentRepository == null)
+                    commentRepository = new CommentRepository(_context);
+                return commentRepository; 
             } 
          }
 

@@ -12,7 +12,7 @@ namespace BlogApp.Application.Features.Comments.DTOs.Validators
     {
         public UpdateCommentDtoValidator()
         {
-            Include(new ICommentDtoValidator());
+            
 
             RuleFor(p => p.Id).NotNull().WithMessage("{PropertyName} must be present");
         }

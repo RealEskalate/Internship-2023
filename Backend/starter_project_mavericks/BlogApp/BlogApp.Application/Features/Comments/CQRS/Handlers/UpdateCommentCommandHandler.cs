@@ -26,7 +26,7 @@ namespace BlogApp.Application.Features.Comments.CQRS.Handlers
         public async Task<Unit> Handle(UpdateCommentCommand request, CancellationToken cancellationToken)
         {
             var validator = new UpdateCommentDtoValidator();
-            var validationResult = await validator.ValidateAsync(request.CommentDto);
+            var validationResult = await validator.ValidateAsync(request.updateCommentDto);
 
             if (validationResult.IsValid == false)
                 throw new ValidationException(validationResult);
@@ -36,7 +36,7 @@ namespace BlogApp.Application.Features.Comments.CQRS.Handlers
             if (Comment is null)
                 throw new NotFoundException(nameof(Comment), request.Id);
 
-            _mapper.Map(request.CommentDto, Comment);
+            _mapper.Map(request.updateCommentDto, Comment);
 
             await _unitOfWork.CommentRepository.Update(Comment);
             await _unitOfWork.Save();

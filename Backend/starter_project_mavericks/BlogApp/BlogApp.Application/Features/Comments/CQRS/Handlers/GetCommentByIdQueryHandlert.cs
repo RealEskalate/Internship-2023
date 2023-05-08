@@ -11,22 +11,23 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Application.Features.Comments.CQRS.Handlers
 {
-    public class GetCommentListQueryHandler : IRequestHandler<GetCommentListQuery, List<CommentDto>>
+    public class GetCommentByIdQueryHandler : IRequestHandler<GetCommentByIdQuery, CommentDto>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public GetCommentListQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public GetCommentByIdQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
 
-        public async Task<List<CommentDto>> Handle(GetCommentListQuery request, CancellationToken cancellationToken)
+        public async Task<CommentDto> Handle(GetCommentByIdQuery request, CancellationToken cancellationToken)
         {
-            var comments = await _unitOfWork.CommentRepository.GetAll();
           
-            return _mapper.Map<List<CommentDto>>(comments);
+             var comment = await _unitOfWork.CommentRepository.Get(request.Id);
+            return _mapper.Map<CommentDto>(comment);
+        
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Application.Features.Comments.DTOs
 {
-    public class UpdateCommentDto : BaseDto, ICommentDto
+    public class UpdateCommentDto : BaseDto
     {
         public string Commenter { get; set; }
 

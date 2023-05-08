@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlogApp.Application.Features._Indices.CQRS.Commands
+namespace BlogApp.Application.Features.Comments.CQRS.Commands
 {
     public class UpdateCommentCommand : IRequest<Unit>
     {

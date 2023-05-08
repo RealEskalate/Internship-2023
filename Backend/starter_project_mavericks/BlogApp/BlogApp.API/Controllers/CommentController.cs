@@ -1,6 +1,6 @@
-using BlogApp.Application.Features.Comment.CQRS.Commands;
-using BlogApp.Application.Features.Comment.CQRS.Queries;
-using BlogApp.Application.Features.Comment.DTOs;
+using BlogApp.Application.Features.Comments.CQRS.Commands;
+using BlogApp.Application.Features.Comments.CQRS.Queries;
+using BlogApp.Application.Features.Comments.DTOs;
 using BlogApp.Application.Responses;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -30,7 +30,7 @@ namespace BlogApp.Api.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<CommentDto>> Get(int id)
         {
-            var indices = await _mediator.Send(new GetCommentDetailQuery { Id = id });
+            var indices = await _mediator.Send(new GetCommentByIdQuery { Id = id });
             return Ok(indices);
         }
 
@@ -42,10 +42,10 @@ namespace BlogApp.Api.Controllers
             return Ok(repsonse);
         }
 
-        [HttpPut]
-        public async Task<ActionResult> Put([FromBody] CommentDto indexDto)
+        [HttpPut("{id:int}")]
+        public async Task<ActionResult> Put(UpdateCommentDto indexDto ,int id)
         {
-            var command = new UpdateCommentCommand { CommentDto = indexDto };
+            var command = new UpdateCommentCommand { Id = id,updateCommentDto = indexDto  };
             await _mediator.Send(command);
             return NoContent();
         }
