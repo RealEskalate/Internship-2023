@@ -1,6 +1,6 @@
-﻿using BlogApp.Application.Features._Indices.CQRS.Commands;
-using BlogApp.Application.Features._Indices.CQRS.Queries;
-using BlogApp.Application.Features._Indices.DTOs;
+﻿using BlogApp.Application.Features.Users.CQRS.Commands;
+using BlogApp.Application.Features.Users.CQRS.Queries;
+using BlogApp.Application.Features.Users.DTOs;
 using BlogApp.Application.Responses;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

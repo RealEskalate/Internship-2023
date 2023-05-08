@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
-using BlogApp.Application.Features._Indices.CQRS.Commands;
-using BlogApp.Application.Features._Indices.DTOs.Validators;
+using BlogApp.Application.Features.Users.CQRS.Commands;
+using BlogApp.Application.Features.Users.DTOs.Validators;
 using BlogApp.Application.Responses;
 using MediatR;
 using BlogApp.Domain;
@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlogApp.Application.Features._Indices.CQRS.Handlers
+namespace BlogApp.Application.Features.Users.CQRS.Handlers
 {
     public class Create_UserCommandHandler : IRequestHandler<Create_UserCommand, BaseCommandResponse>
     {

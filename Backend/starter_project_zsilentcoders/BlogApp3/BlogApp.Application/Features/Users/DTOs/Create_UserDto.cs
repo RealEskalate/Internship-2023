@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BlogApp.Domain;
 
-namespace BlogApp.Application.Features._Indices.DTOs
+namespace BlogApp.Application.Features.Users.DTOs
 {
     public class Create_UserDto : I_UserDto
     {

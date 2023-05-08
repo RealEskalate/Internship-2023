@@ -178,4 +178,13 @@ public class AuthService : IAuthService
         }
         return new ResetPasswordResponse{};
     }
+     public async Task<bool> DeleteUser(string Email)
+    {
+        var user = await _userManager.FindByEmailAsync(Email);
+        if (user == null)
+            return false;
+
+        var result = await _userManager.DeleteAsync(user);
+        return result.Succeeded;
+    }
 }

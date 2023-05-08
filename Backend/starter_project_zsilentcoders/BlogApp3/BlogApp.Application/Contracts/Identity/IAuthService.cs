@@ -13,6 +13,8 @@ public interface IAuthService
     public  Task<ForgotPasswordResponse> ForgotPassword(string Email);
 
     public  Task<ResetPasswordResponse> ResetPassword(ResetPasswordModel resetPasswordModel);
+    public Task<bool> DeleteUser(string Email);
+
 
 
 }

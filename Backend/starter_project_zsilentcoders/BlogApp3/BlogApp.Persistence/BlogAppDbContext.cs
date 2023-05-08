@@ -17,7 +17,7 @@ namespace BlogApp.Persistence
            : base(options)
         {
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
-            AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
+            // AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
