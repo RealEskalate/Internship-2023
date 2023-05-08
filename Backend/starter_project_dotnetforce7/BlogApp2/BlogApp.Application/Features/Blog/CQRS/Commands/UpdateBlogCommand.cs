@@ -9,9 +9,9 @@ using BlogApp.Application.Responses;
 
 namespace BlogApp.Application.Features.Blogs.CQRS.Commands
 {
-    public class UpdateBlogCommand : IRequest<BaseCommandResponse>
+    public class UpdateBlogCommand : IRequest<Result<Unit>>
     {
-        public BlogDto BlogDto { get; set; }
+        public UpdateBlogDto BlogDto { get; set; }
 
     }
 }

@@ -20,8 +20,12 @@ namespace BlogApp.Application.Profiles
             CreateMap<_Index, _IndexDto>().ReverseMap();
             CreateMap<_Index, Create_IndexDto>().ReverseMap();
 
-            CreateMap<Blog, BlogDto>().ReverseMap();
+                CreateMap<Blog, BlogDto>().ReverseMap();
+
             CreateMap<Blog, CreateBlogDto>().ReverseMap();
+
+            CreateMap<Blog, UpdateBlogDto>().ReverseMap();
+
 
 
 

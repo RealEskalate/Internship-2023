@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace BlogApp.Application.Features.Blogs.CQRS.Commands
 
 {
-    public class DeleteBlogCommand : IRequest<BaseCommandResponse>
+    public class DeleteBlogCommand : IRequest<Result<int>>
     {
         public int Id { get; set; }
     }

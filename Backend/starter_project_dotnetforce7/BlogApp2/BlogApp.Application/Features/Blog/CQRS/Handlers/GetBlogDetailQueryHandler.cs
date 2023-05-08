@@ -9,10 +9,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BlogApp.Application.Exceptions;
+using BlogApp.Application.Responses;
 
 namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
 {
-    public class GetBlogDetailQueryHandler : IRequestHandler<GetBlogDetailQuery, BlogDto>
+    public class GetBlogDetailQueryHandler : IRequestHandler<GetBlogDetailQuery, Result<BlogDto>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -22,10 +23,15 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-        public async Task<BlogDto> Handle(GetBlogDetailQuery request, CancellationToken cancellationToken)
+        public async Task<Result<BlogDto>> Handle(GetBlogDetailQuery request, CancellationToken cancellationToken)
         {
+            var response = new Result<BlogDto>();
             var blog = await _unitOfWork.BlogRepository.Get(request.Id);
-            return _mapper.Map<BlogDto>(blog);
+            response.Success = true;
+            response.Message = "Fetch Success";
+            response.Value = _mapper.Map<BlogDto>(blog);
+
+            return response;
         }
     }
 }

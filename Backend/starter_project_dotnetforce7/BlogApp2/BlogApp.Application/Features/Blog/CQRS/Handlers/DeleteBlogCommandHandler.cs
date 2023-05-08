@@ -14,7 +14,7 @@ using BlogApp.Application.Exceptions;
 
 namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
 {
-    public class DeleteBlogCommandHandler : IRequestHandler<DeleteBlogCommand, BaseCommandResponse>
+    public class DeleteBlogCommandHandler : IRequestHandler<DeleteBlogCommand, Result<int>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -25,9 +25,9 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
             _mapper = mapper;
         }
 
-        public async Task<BaseCommandResponse> Handle(DeleteBlogCommand request, CancellationToken cancellationToken)
+        public async Task<Result<int>> Handle(DeleteBlogCommand request, CancellationToken cancellationToken)
         {
-            var response = new BaseCommandResponse();
+            var response = new Result<int>();
             
             var blog = await _unitOfWork.BlogRepository.Get(request.Id);
 
@@ -38,11 +38,19 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
             else{
 
                 await _unitOfWork.BlogRepository.Delete(blog);
-                await _unitOfWork.Save();
 
-                response.Success = true;
-                response.Message = "Creation Successful";
-                response.Id = blog.Id;
+
+                  if (await _unitOfWork.Save() > 0 )
+                {
+                    response.Success = true;
+                    response.Message = "Delete Successful";
+                    response.Value = blog.Id;
+                }
+                else
+                {
+                    response.Success = false;
+                    response.Message = "Delete Failed";
+                }
             }
 
            

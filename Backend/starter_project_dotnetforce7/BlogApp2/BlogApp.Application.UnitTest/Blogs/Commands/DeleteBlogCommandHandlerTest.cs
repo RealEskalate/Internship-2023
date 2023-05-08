@@ -53,7 +53,7 @@ namespace BlogApp.Application.UnitTest.Blogs.Commands
             /* var create_result = await _handler.Handle(new CreateRateCommand(){ RateDto = _rateDto  }, CancellationToken.None);*/
 
             var result = await _handler.Handle(new DeleteBlogCommand() { Id = _id }, CancellationToken.None);
-            result.ShouldBeOfType<BaseCommandResponse>();
+            result.ShouldBeOfType<Result<int>>();
             result.Success.ShouldBeTrue();
 
             var Blogs = await _mockRepo.Object.BlogRepository.GetAll();
@@ -66,7 +66,7 @@ namespace BlogApp.Application.UnitTest.Blogs.Commands
 
             _id  = 0;
             var result = await _handler.Handle(new DeleteBlogCommand() { Id = _id }, CancellationToken.None);
-            result.ShouldBeOfType<BaseCommandResponse>();
+            result.ShouldBeOfType<Result<int>>();
             result.Success.ShouldBeFalse();
             var Blogs = await _mockRepo.Object.BlogRepository.GetAll();
             Blogs.Count.ShouldBe(2);

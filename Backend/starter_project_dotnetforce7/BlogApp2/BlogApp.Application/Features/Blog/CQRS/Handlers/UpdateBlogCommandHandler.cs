@@ -13,7 +13,7 @@ using BlogApp.Application.Responses;
 
 namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
 {
-    public class UpdateBlogCommandHandler : IRequestHandler<UpdateBlogCommand, BaseCommandResponse>
+    public class UpdateBlogCommandHandler : IRequestHandler<UpdateBlogCommand, Result<Unit>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -24,10 +24,10 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
             _mapper = mapper;
         }
 
-        public async Task<BaseCommandResponse> Handle(UpdateBlogCommand request, CancellationToken cancellationToken)
+        public async Task<Result<Unit>> Handle(UpdateBlogCommand request, CancellationToken cancellationToken)
         {
 
-            var response = new BaseCommandResponse();
+            var response = new Result<Unit>();
 
 
             var validator = new UpdateBlogDtoValidator();
@@ -46,17 +46,27 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
             
             var blog = await _unitOfWork.BlogRepository.Get(request.BlogDto.Id);
 
-            // if (blog is null)
+            if (blog == null){
+                 return null;
+            }
+            
             //     throw new NotFoundException(nameof(blog), request.BlogDto.Id);
 
             _mapper.Map(request.BlogDto, blog);
 
             await _unitOfWork.BlogRepository.Update(blog);
-            await _unitOfWork.Save();
+             if (await _unitOfWork.Save() > 0)
+                {
+                    response.Success = true;
+                    response.Message = "Updated Successful";
+                    response.Value = Unit.Value;
+                }
+                else
+                {
+                    response.Success = false;
+                    response.Message = "Update Failed";
+                }    
 
-            response.Success = true;
-            response.Message = "Update Successful";
-            response.Id = blog.Id;
 
             }
 

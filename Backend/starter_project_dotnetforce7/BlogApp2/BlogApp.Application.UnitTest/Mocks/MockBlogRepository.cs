@@ -18,7 +18,7 @@ namespace BlogApp.Application.UnitTest.Mocks
                     Content = "Blog Content",
                     CoverImage = "blog image",
                     PublicationStatus= true
-
+                    
                 },
 
                 new Blog
@@ -40,6 +40,7 @@ namespace BlogApp.Application.UnitTest.Mocks
             {
                 Blog.Id = Blogs.Count() + 1;
                 Blogs.Add(Blog);
+                MockUnitOfWork.changes += 1;
                 return Blog;
             });
 
@@ -48,11 +49,13 @@ namespace BlogApp.Application.UnitTest.Mocks
                 var newBlogs = Blogs.Where((r) => r.Id != Blog.Id);
                 Blogs = newBlogs.ToList();
                 Blogs.Add(Blog);
+                MockUnitOfWork.changes += 1;
             });
 
             mockRepo.Setup(r => r.Delete(It.IsAny<Blog>())).Callback((Blog Blog) =>
             {
-                Blogs.Remove(Blog);
+                 if (Blogs.Remove(Blog))
+                    MockUnitOfWork.changes += 1;
             });
 
             mockRepo.Setup(r => r.Get(It.IsAny<int>())).ReturnsAsync((int Id) =>

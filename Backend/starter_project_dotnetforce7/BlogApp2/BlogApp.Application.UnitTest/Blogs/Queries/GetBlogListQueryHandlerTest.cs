@@ -40,8 +40,9 @@ namespace BlogApp.Application.UnitTest.Blogs.Queries
         public async Task GetBlogList()
         {
             var result = await _handler.Handle(new GetBlogListQuery(), CancellationToken.None);
-            result.ShouldBeOfType<List<BlogDto>>();
-            result.Count.ShouldBe(2);
+            result.ShouldBeOfType<Result<List<BlogDto>>>();
+            Console.WriteLine("result", result);
+            result.Value.Count.ShouldBe(2);
         }
     }
 }

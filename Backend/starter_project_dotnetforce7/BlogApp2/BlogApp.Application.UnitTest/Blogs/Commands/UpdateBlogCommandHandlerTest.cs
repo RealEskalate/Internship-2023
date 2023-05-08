@@ -22,7 +22,7 @@ namespace BlogApp.Application.UnitTest.Blogs.Commands
     {
         private readonly IMapper _mapper;
         private readonly Mock<IUnitOfWork> _mockRepo;
-        private readonly BlogDto _BlogDto;
+        private readonly UpdateBlogDto _BlogDto;
         private readonly UpdateBlogCommandHandler _handler;
         public UpdateBlogCommandHandlerTest()
         {
@@ -33,7 +33,7 @@ namespace BlogApp.Application.UnitTest.Blogs.Commands
             });
             _mapper = mapperConfig.CreateMapper();
 
-            _BlogDto = new BlogDto
+            _BlogDto = new UpdateBlogDto
             {
                  Id = 1,
                 Title = "blog title21 updated",
@@ -51,14 +51,12 @@ namespace BlogApp.Application.UnitTest.Blogs.Commands
         public async Task UpdateBlog()
         {
             var result = await _handler.Handle(new UpdateBlogCommand() { BlogDto = _BlogDto }, CancellationToken.None);
-            result.ShouldBeOfType<BaseCommandResponse>();
+            result.ShouldBeOfType<Result<Unit>>();
             result.Success.ShouldBeTrue();
 
-            var rate = await _mockRepo.Object.BlogRepository.Get(_BlogDto.Id);
-            rate.Id.Equals(_BlogDto.Id);
-            rate.Title.Equals(_BlogDto.Title);
-            rate.Content.Equals(_BlogDto.Content);
-            rate.CoverImage.Equals(_BlogDto.CoverImage);
+            var blog = await _mockRepo.Object.BlogRepository.Get(_BlogDto.Id);
+            blog.Title.Equals(_BlogDto.Title);
+            blog.Content.Equals(_BlogDto.Content);
         }
 
         [Fact]
@@ -67,7 +65,7 @@ namespace BlogApp.Application.UnitTest.Blogs.Commands
 
             _BlogDto.PublicationStatus = null;
             var result = await _handler.Handle(new UpdateBlogCommand() { BlogDto = _BlogDto }, CancellationToken.None);
-            result.ShouldBeOfType<BaseCommandResponse>();
+            result.ShouldBeOfType<Result<Unit>>();
             result.Success.ShouldBeFalse();
 
             result.Errors.ShouldNotBeEmpty();

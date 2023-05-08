@@ -45,8 +45,8 @@ namespace BlogApp.Application.UnitTest.Blogs.Queries
         public async Task GetBlogDetail()
         {
             var result = await _handler.Handle(new GetBlogDetailQuery() { Id = Id }, CancellationToken.None);
-            result.ShouldBeOfType<BlogDto>();
-            result.Id.Equals(Id);
+            result.ShouldBeOfType<Result<BlogDto>>();
+             result.Value.ShouldBeOfType<BlogDto>();
         }
 
         [Fact]
@@ -59,8 +59,9 @@ namespace BlogApp.Application.UnitTest.Blogs.Queries
     var result = await _handler.Handle(new GetBlogDetailQuery() { Id = nonExistingId }, CancellationToken.None);
 
     // Assert that the response is a NotFound result
-    Assert.True(result == null || result is NotFoundResult);
-
+    result.ShouldBeOfType<Result<BlogDto>>();
+        result.Success.ShouldBeTrue();
+    result.Value.ShouldBe(null);
 }
     }
 }

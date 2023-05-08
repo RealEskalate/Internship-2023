@@ -23,12 +23,10 @@ namespace BlogApp.Application.Features.Blogs.DTOs.Validators
                 .NotNull()
                 .MaximumLength(400).WithMessage("{PropertyName} must not exceed {ComparisonValue} characters.");
 
-             RuleFor(p => p.CoverImage)
-                .NotEmpty().WithMessage("{PropertyName} is required.")
-                .NotNull();
 
              RuleFor(p => p.PublicationStatus)
-                .Must(x => x == false || x == true);
+                .Must(x => (x == false || x == true))
+                .WithMessage("{PropertyName} is required.");
         }
     }
 }

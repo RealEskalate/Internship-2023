@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Application.Features.Blogs.DTOs.Validators
 {
-    public class UpdateBlogDtoValidator : AbstractValidator<BlogDto>
+    public class UpdateBlogDtoValidator : AbstractValidator<UpdateBlogDto>
     {
         public UpdateBlogDtoValidator()
         {

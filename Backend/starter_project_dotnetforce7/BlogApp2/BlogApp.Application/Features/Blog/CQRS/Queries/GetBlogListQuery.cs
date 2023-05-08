@@ -1,4 +1,5 @@
 using BlogApp.Application.Features.Blogs.DTOs;
+using BlogApp.Application.Responses;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Application.Features.Blogs.CQRS.Queries
 {
-    public class GetBlogListQuery : IRequest<List<BlogDto>>
+    public class GetBlogListQuery : IRequest<Result<List<BlogDto>>>
     {
         
     }

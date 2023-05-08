@@ -4,12 +4,13 @@ using BlogApp.Application.Responses;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using BlogApp.Application.Features.Blogs.CQRS.Commands;
+using API.Controllers;
 
 namespace BlogApp.Api.Controllers
 {
     [Route("api/[Controller]")]
     [ApiController]
-    public class BlogsController : ControllerBase
+    public class BlogsController : BaseApiController
     {
         private readonly IMediator _mediator;
 
@@ -26,41 +27,33 @@ namespace BlogApp.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<BlogDto>> Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            var blog = await _mediator.Send(new GetBlogDetailQuery { Id = id });
-            if(blog == null){
-                return NotFound();
-            }
-            return Ok(blog);
+        return HandleResult(await _mediator.Send(new GetBlogDetailQuery { Id = id }));
+          
         }
 
         [HttpPost]
-        public async Task<ActionResult<BaseCommandResponse>> Post([FromBody] CreateBlogDto createBlog)
+        public async Task<IActionResult> Post([FromBody] CreateBlogDto createBlog)
         {
-    
-
             var command = new CreateBlogCommand { BlogDto = createBlog };
-            var repsonse = await _mediator.Send(command);
-            return Ok(repsonse);
+            return  HandleResult(await _mediator.Send(command));
         }
 
         [HttpPut]
-        public async Task<ActionResult<BaseCommandResponse>> Put([FromBody] BlogDto blogDto)
+        public async Task<IActionResult> Put([FromBody] UpdateBlogDto blogDto)
         {
 
       
             var command = new UpdateBlogCommand { BlogDto = blogDto };
-            var response = await _mediator.Send(command);
-            return Ok(response);
+            return HandleResult( await _mediator.Send(command));
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             var command = new DeleteBlogCommand { Id = id };
-            await _mediator.Send(command);
-            return NoContent();
+            return HandleResult(await _mediator.Send(command));
         }
     }
 }
