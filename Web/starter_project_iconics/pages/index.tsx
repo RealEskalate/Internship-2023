@@ -1,5 +1,6 @@
 import BuildBetter from '@/components/home/BuildBetter'
 import Landing from '@/components/home/Landing'
+import Services from '@/components/home/Services'
 import SuccessRate from '@/components/home/SuccessRate'
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
       <Landing />
       <BuildBetter />
       <SuccessRate />
+      <Services />
     </main>
   )
 }
