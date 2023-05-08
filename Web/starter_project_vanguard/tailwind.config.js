@@ -11,11 +11,11 @@ module.exports = {
       colors: {
         primary: '#264FAD',
         accent: '#FF9F43',
+        lightbluebg: '#FDFEFF',
         danger: '#b91c1c',
         'primary-text': '#353535',
         'secondary-text': '#717171',
         'tertiary-text': '#565656',
-        
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -23,9 +23,9 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       fontFamily: {
-        poppins: ["Poppins"],
-        montserrat: ["Montserrat"],
-        DMSans: ["DM Sans"],
+        poppins: ['Poppins'],
+        montserrat: ['Montserrat'],
+        DMSans: ['DM Sans'],
       },
       screens:{
         '3xl':'1800px',
