@@ -95,7 +95,7 @@ namespace BlogApp.Identity.Services
             }
             else
             {
-                throw new Exception($"Email {request.Email } already exists.");
+                throw new Exception($"Email {request.Email} already exists.");
             }
         }
 
