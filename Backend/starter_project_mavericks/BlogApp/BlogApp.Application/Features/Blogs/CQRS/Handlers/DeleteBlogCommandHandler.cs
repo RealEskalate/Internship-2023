@@ -12,20 +12,18 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
 {
     public class DeleteBlogCommandHandler : IRequestHandler<DeleteBlogCommand, BaseResponse<Unit>>
     {
-        private readonly IBlogRepository _blogRepository;
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
 
-        public DeleteBlogCommandHandler(IBlogRepository repository, IMapper mapper, IUnitOfWork work)
+        public DeleteBlogCommandHandler(IMapper mapper, IUnitOfWork work)
         {
-            _blogRepository = repository;
             _mapper = mapper;
             _unitOfWork = work;
         }   
 
         public async Task<BaseResponse<Unit>> Handle(DeleteBlogCommand request, CancellationToken cancellationToken)
         {
-            var Blog = await _blogRepository.Get(request.Id);
+            var Blog = await _unitOfWork.BlogRepository.Get(request.Id);
             if(Blog == null){
                 var error = new NotFoundException(nameof(Blog), request.Id);
                 var response = new BaseResponse<Unit>{
@@ -35,7 +33,7 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
                 response.Errors.Add(error.Message);
                 return response;
             }
-            await _blogRepository.Delete(Blog);
+            await _unitOfWork.BlogRepository.Delete(Blog);
             await _unitOfWork.Save();
 
             return new BaseResponse<Unit>(){

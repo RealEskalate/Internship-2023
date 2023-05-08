@@ -15,13 +15,11 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
     public class UpdateBlogCommandHandler : IRequestHandler<UpdateBlogCommand, BaseResponse<Unit>>
     {
         private readonly IMapper _mapper;
-        private readonly IBlogRepository _blogRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public UpdateBlogCommandHandler(IBlogRepository blogRepository, IMapper mapper, IUnitOfWork work)
+        public UpdateBlogCommandHandler(IMapper mapper, IUnitOfWork work)
         {
             _mapper = mapper;
-            _blogRepository = blogRepository;
             _unitOfWork = work;
         }
 
@@ -30,7 +28,7 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
             var validator = new UpdateBlogDtoValidator();
             var validationResult = await validator.ValidateAsync(request.UpdateBlogDTO);
             
-            var blog = await _blogRepository.Get(request.UpdateBlogDTO.Id);
+            var blog = await _unitOfWork.BlogRepository.Get(request.UpdateBlogDTO.Id);
 
             if(validationResult.IsValid == false || blog == null){
                 var response = new BaseResponse<Unit>{
@@ -50,7 +48,7 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
             blog.Content = request.UpdateBlogDTO.Content ?? blog.Content;
             blog.ThumbnailImageUrl = request.UpdateBlogDTO.ThumbnailImageUrl ?? blog.ThumbnailImageUrl;
             
-            await _blogRepository.Update(blog);
+            await _unitOfWork.BlogRepository.Update(blog);
             await _unitOfWork.Save();
             
             return new BaseResponse<Unit>{

@@ -12,17 +12,17 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
 {
     public class GetBlogQueryHandler : IRequestHandler<GetBlogQuery, BaseResponse<BlogDTO>>
     {
-        private readonly IBlogRepository _blogRepository;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public GetBlogQueryHandler(IBlogRepository repository, IMapper mapper)
+        public GetBlogQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
-            _blogRepository = repository;
+            _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
         public async Task<BaseResponse<BlogDTO>> Handle(GetBlogQuery request, CancellationToken cancellationToken)
         {
-            bool exists = await _blogRepository.Exists(request.Id);
+            bool exists = await _unitOfWork.BlogRepository.Exists(request.Id);
             if(exists == false){
                 var error = new NotFoundException(nameof(Blog), request.Id);
                 return new BaseResponse<BlogDTO> {
@@ -31,7 +31,7 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
                     Errors= new List<string>(){error.Message}
                 };
             }
-            var blog = await _blogRepository.Get(request.Id);
+            var blog = await _unitOfWork.BlogRepository.Get(request.Id);
             return new BaseResponse<BlogDTO> {
                 Success = true, 
                 Message = "Blog Fetch Success", 

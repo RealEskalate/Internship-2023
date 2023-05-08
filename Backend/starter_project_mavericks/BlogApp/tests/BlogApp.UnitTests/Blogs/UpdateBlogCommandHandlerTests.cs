@@ -17,13 +17,11 @@ namespace BlogApp.UnitTests.Blogs
     {
         private readonly IMapper _mapper;
         private readonly Mock<IUnitOfWork> _mockUow;
-        private readonly Mock<IBlogRepository> _mockBlogRepo;
         private readonly UpdateBlogCommandHandler _handler;
 
         public UpdateBlogCommandHandlerTests()
         {
             _mockUow = MockUnitOfWork.GetUnitOfWork();
-            _mockBlogRepo = MockBlogRepository.GetBlogRepository();
 
             var mapperConfig = new MapperConfiguration(c =>
             {
@@ -31,7 +29,7 @@ namespace BlogApp.UnitTests.Blogs
             });
 
             _mapper = mapperConfig.CreateMapper();
-            _handler = new UpdateBlogCommandHandler(_mockBlogRepo.Object, _mapper, _mockUow.Object);
+            _handler = new UpdateBlogCommandHandler(_mapper, _mockUow.Object);
         }
         
         [Fact]
@@ -47,10 +45,12 @@ namespace BlogApp.UnitTests.Blogs
                 UpdateBlogDTO = blogUpdate
             }, CancellationToken.None);
 
-            var blog = await _mockBlogRepo.Object.Get(id: 2);
+            var blog = await _mockUow.Object.BlogRepository.Get(id: 2);
+
 
             Assert.IsType<BaseResponse<Unit>>(response);
-            Assert.True(response.Success);            Assert.Equal(blogUpdate.Title, blog.Title);
+            Assert.True(response.Success);            
+            Assert.Equal(blogUpdate.Title, blog.Title);
             Assert.Equal(blogUpdate.Content, blog.Content);
             Assert.Equal(blogUpdate.ThumbnailImageUrl, blog.ThumbnailImageUrl);
         }

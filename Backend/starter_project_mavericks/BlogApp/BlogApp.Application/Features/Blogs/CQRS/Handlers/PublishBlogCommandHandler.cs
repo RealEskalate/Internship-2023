@@ -10,20 +10,18 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
 {
     public class PublishBlogCommandHandler : IRequestHandler<PublishBlogCommand, BaseResponse<Unit>>
     {
-        private readonly IBlogRepository _blogRepository;
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
 
-        public PublishBlogCommandHandler(IBlogRepository repository, IMapper mapper, IUnitOfWork work)
+        public PublishBlogCommandHandler(IMapper mapper, IUnitOfWork work)
         {
-            _blogRepository = repository;
             _mapper = mapper;
             _unitOfWork = work;
         }
 
         public async Task<BaseResponse<Unit>> Handle(PublishBlogCommand request, CancellationToken cancellationToken)
         {
-            var Blog = await _blogRepository.Get(request.Id);
+            var Blog = await _unitOfWork.BlogRepository.Get(request.Id);
             if(Blog == null){
                 var error = new NotFoundException(nameof(Blog), request.Id);
                 var response = new BaseResponse<Unit>{
@@ -35,7 +33,7 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
             }
 
             Blog.Status = PublicationStatus.Published;
-            await _blogRepository.Update(Blog);
+            await _unitOfWork.BlogRepository.Update(Blog);
 
             await _unitOfWork.Save();
 

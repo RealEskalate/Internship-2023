@@ -12,13 +12,11 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
     public class CreateBlogCommandHandler : IRequestHandler<CreateBlogCommand, BaseResponse<Nullable<int>>>
     {
         private readonly IMapper _mapper;
-        private readonly IBlogRepository _blogRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public CreateBlogCommandHandler(IBlogRepository blogRepository, IMapper mapper, IUnitOfWork work)
+        public CreateBlogCommandHandler(IMapper mapper, IUnitOfWork work)
         {
             _mapper = mapper;
-            _blogRepository = blogRepository;
             _unitOfWork = work;
         }
 
@@ -38,7 +36,7 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
             Blog newBlog = _mapper.Map<Blog>(request.CreateBlogDTO);
             newBlog.Status = PublicationStatus.NotPublished;
 
-            newBlog = await _blogRepository.Add(newBlog);
+            newBlog = await _unitOfWork.BlogRepository.Add(newBlog);
             await _unitOfWork.Save();
             
             return new BaseResponse<Nullable<int>> {

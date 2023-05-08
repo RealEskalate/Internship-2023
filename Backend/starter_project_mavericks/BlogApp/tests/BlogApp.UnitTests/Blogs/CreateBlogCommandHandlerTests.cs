@@ -29,7 +29,7 @@ namespace BlogApp.UnitTests.Blogs
             });
 
             _mapper = mapperConfig.CreateMapper();
-            _handler = new CreateBlogCommandHandler(_mockBlogRepo.Object, _mapper, _mockUow.Object);
+            _handler = new CreateBlogCommandHandler(_mapper, _mockUow.Object);
         }
         
         [Fact]
