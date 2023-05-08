@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.ConfigureApplicationServices();
 builder.Services.ConfigurePersistenceServices(builder.Configuration);
+builder.Services.ConfigureIdentityServices(builder.Configuration);
 builder.Services.AddHttpContextAccessor();
 AddSwaggerDoc(builder.Services);
 builder.Services.AddControllers();
@@ -48,14 +49,10 @@ void AddSwaggerDoc(IServiceCollection services)
 {
     services.AddSwaggerGen(c =>
     {
-
-
         c.SwaggerDoc("v1", new OpenApiInfo
         {
             Version = "v1",
             Title = "Blog APP  Api",
-
         });
-
     });
 }
