@@ -31,6 +31,9 @@ dependencies:
   flutter:
     sdk: flutter
   google_fonts: ^4.0.3
+  # for checking equality
+  equatable: ^2.0.5
+  dartz: ^0.10.1
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -40,6 +43,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  mockito: ^5.4.0
+  build_runner: ^2.3.3
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
