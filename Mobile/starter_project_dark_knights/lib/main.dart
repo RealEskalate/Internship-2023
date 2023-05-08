@@ -1,5 +1,6 @@
 import 'package:dark_knights/features/signup/presentation/screen/signup_page.dart';
 import 'package:dark_knights/features/onboarding/presentation/screen/onboarding_page.dart';
+import 'package:dark_knights/features/splash_screen/presentation/screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'features/Authentication/presentation/screen/login_page.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const OnboardingScreen(),
+      home: const SplashScreen(),
     );
   }
 }
