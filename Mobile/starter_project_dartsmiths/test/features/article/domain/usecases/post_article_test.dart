@@ -4,16 +4,21 @@ import 'package:dartsmiths/features/article/domain/repositories/article_reposito
 import 'package:dartsmiths/features/article/domain/usecases/post_article.dart';
 import 'package:dartsmiths/features/article/domain/usecases/update_article.dart';
 import 'package:dartsmiths/core/error/failures.dart';
+import 'package:mockito/annotations.dart';
 
-import './mock_article_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'post_article_test.mocks.dart';
+
+@GenerateMocks([ArticleRepository])
+
+
 void main() {
 
-  PostArticle usecase;
-  MockArticleRepository mockArticleRepository;
+  late PostArticle usecase;
+  late MockArticleRepository mockArticleRepository;
 
 
   setUp(() {
@@ -41,7 +46,7 @@ void main() {
 
   test('should return a failure when posting article fails', () async {
     // arrange
-    when(mockArticleRepository.postArticle(tArticle)).thenAnswer((_) async => Left(ServerFailure()));
+    when( mockArticleRepository.postArticle(tArticle)).thenAnswer((_) async => Left(ServerFailure()));
     // act
     final result = await usecase(tArticle);
     // assert

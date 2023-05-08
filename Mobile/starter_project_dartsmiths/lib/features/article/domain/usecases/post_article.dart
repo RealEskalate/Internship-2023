@@ -14,6 +14,6 @@ class PostArticle implements UseCase<Article, Article> {
 
   @override
   Future<Either<Failure, Article>> call(Article article) async {
-    return repository.postArticle(article);
+    return await repository.postArticle(article);
   }
 }
