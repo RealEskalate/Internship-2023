@@ -30,10 +30,10 @@ const ProfileLayout: React.FC<ProfileProps> = ({
       <div className="flex flex-col md:flex-row justify-center items-center bg-white pb-0">
         <Link
           href="/profile/my-info"
-          className={`text-lg font-semibold  text-gray-700 pl-0 pr-4 pt-2 pb-5 hover:text-primary ${
+          className={`text-lg font-semibold  text-secondary pl-0 pr-4 pt-2 pb-5 hover:text-primary ${
             activeLink === 'My Information'
               ? 'border-b-2 border-primary text-primary'
-              : 'border-b-2 border-transparent text-gray-700'
+              : 'border-b-2 border-transparent text-secondary'
           }`}
           onClick={() => handleLinkClick('My Information')}
         >
@@ -41,10 +41,10 @@ const ProfileLayout: React.FC<ProfileProps> = ({
         </Link>
         <Link
           href="/profile/my-blogs"
-          className={`text-lg font-semibold  text-gray-700 px-4 pt-2 pb-5 hover:text-primary ${
+          className={`text-lg font-semibold  text-secondary px-4 pt-2 pb-5 hover:text-primary ${
             activeLink === 'My Blogs'
               ? 'border-b-2 border-primary text-primary'
-              : 'border-b-2 border-transparent text-gray-700'
+              : 'border-b-2 border-transparent text-secondary'
           }`}
           onClick={() => handleLinkClick('My Blogs')}
         >
@@ -55,7 +55,7 @@ const ProfileLayout: React.FC<ProfileProps> = ({
           className={`text-lg font-semibold  px-4 pt-2 pb-5 hover:text-primary ${
             activeLink === 'My Account'
               ? 'border-b-2 border-primary text-primary'
-              : 'border-b-2 border-transparent text-gray-700'
+              : 'border-b-2 border-transparent text-secondary'
           }`}
           onClick={() => handleLinkClick('My Account')}
         >
