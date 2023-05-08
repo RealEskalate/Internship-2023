@@ -42,23 +42,30 @@ public class AuthService
 
     public async Task<LoginResponse> Login(LoginModel request)
     {
+        var response = new LoginResponse();
         var user = await _userManager.FindByEmailAsync(request.Email);
         if (user == null)
-            throw new Exception($"User {request.Email} not found");
+        {
+            response.Success = false;
+            response.Errors.Add($"User with given Email({request.Email}) doesn't exist");
+            return response;
+        }
 
         var result = await _signInManager.PasswordSignInAsync(user.UserName, request.Password, false, lockoutOnFailure: false);
         if(!result.Succeeded)
-            throw new Exception($"Invalid Password");
+        {
+            response.Success = false;
+            response.Errors.Add($"Incorrect password");
+            return response;
+        }
 
         JwtSecurityToken token = await GenerateToken(user);
 
-        LoginResponse response = new LoginResponse
-        {
-            Id = user.Id,
-            UserName = user.UserName,
-            Email = user.Email,
-            Token = new JwtSecurityTokenHandler().WriteToken(token)
-        };
+        response.Success = true;
+        response.UserId = user.Id;
+        response.UserName = user.UserName;
+        response.Email = user.Email;
+        response.Token = new JwtSecurityTokenHandler().WriteToken(token);
 
         return response;
     }
@@ -100,9 +107,14 @@ public class AuthService
 
     public async Task<RegistrationResponse> Register(RegistrationModel request)
     {
+        var response = new RegistrationResponse();
         var existingUser = await _userManager.FindByEmailAsync(request.Email);
         if(existingUser != null)
-            throw new Exception("user already exists");
+        {
+            response.Success = false;
+            response.Errors.Add($"User with given Email({request.Email}) already exists");
+            return response;
+        }
 
         var user = new BlogUser{
             UserName = request.UserName,
@@ -112,7 +124,11 @@ public class AuthService
 
         var result = await _userManager.CreateAsync(user, request.Password);
         if(!result.Succeeded)
-            throw new Exception($"something went wrong {result.Errors}");
+        {
+            response.Success = false;
+            response.Errors.Add(result.ToString());
+            return response;
+        }
 
         var createdUser = await _userManager.FindByEmailAsync(request.Email);
         var token = await _userManager.GenerateEmailConfirmationTokenAsync(createdUser);
@@ -131,14 +147,14 @@ public class AuthService
 
         }
         catch(Exception e){
-            //todo
+            response.Errors.Add(e.Message);
         }
 
         await _userManager.AddToRolesAsync(createdUser, request.Roles);
         
-        return new RegistrationResponse{
-            Id = createdUser.Id
-        };
+        response.Success = true;
+        response.UserId = createdUser.Id;
+        return response;
 
     }
 
@@ -181,9 +197,9 @@ public class AuthService
 
     public async Task<bool> DeleteUser(string Email)
     {
-        var user = _userManager.FindByEmailAsync(Email);
+        var user = await _userManager.FindByEmailAsync(Email);
         if (user == null)
-            return False;
+            return false;
 
         var result = await _userManager.DeleteAsync(user);
         return result.Succeeded;

@@ -40,27 +40,31 @@ public class AuthController : ControllerBase
     [Route("Register")]
     public async Task<ActionResult<RegistrationResponse>> Register([FromBody] RegisterDto registerDto)
     {
-        var registrationResponse = await _authService.Register(_mapper.Map<RegistrationModel>(registerDto));
+        var response = await _authService.Register(_mapper.Map<RegistrationModel>(registerDto));
         var command = new Create_UserCommand {_UserDto = _mapper.Map<Create_UserDto>(registerDto)};
-        command._UserDto.AccountId = registrationResponse.Id;
+        command._UserDto.AccountId = response.UserId;
         try
         {
-            var response = await _mediator.Send(command);
+            var userResponse = await _mediator.Send(command);
             return Ok(response);
         }
         catch(Exception e)
         {
             await _authService.DeleteUser(registerDto.Email);
+            response.UserId = "";
+            response.Success = false;
+            response.Errors.Add(e.Message);
+            return Ok(response);
         }
         
     }
 
-    [HttpGet]
-    [Route("Confirm")]
-    public async Task<ActionResult<ConfirmEmailResponse>> ConfirmEmail(string token, string email)
-    {
-        var response = await _authService.ConfirmEmail(token, email);
-        return Ok(response);
+    // [HttpGet]
+    // [Route("Confirm")]
+    // public async Task<ActionResult<ConfirmEmailResponse>> ConfirmEmail(string token, string email)
+    // {
+    //     var response = await _authService.ConfirmEmail(token, email);
+    //     return Ok(response);
         
-    }
+    // }
 }

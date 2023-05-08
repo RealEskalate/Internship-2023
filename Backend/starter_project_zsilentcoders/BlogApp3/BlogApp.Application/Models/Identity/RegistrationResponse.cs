@@ -1,6 +1,8 @@
+using BlogApp.Application.Responses;
+
 namespace BlogApp.Application.Models.Identity;
 
-public class RegistrationResponse
+public class RegistrationResponse: BaseCommandResponse
 {
-    public string Id {get; set;}
+    public string UserId {get; set;} = "";
 }
