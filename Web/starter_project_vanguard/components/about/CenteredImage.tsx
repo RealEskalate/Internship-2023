@@ -1,8 +1,10 @@
-import { CenteredImageComponentProp } from '@/types/about/centered-image-prop'
+import { CenteredImageComponent } from '@/types/about/centered-image'
 import Image from 'next/image'
 import { title } from 'process'
 
-function CenteredImage({ image }: CenteredImageComponentProp) {
+const CenteredImage: React.FC<CenteredImageComponent> = ({
+  image,
+}: CenteredImageComponent) => {
   return (
     <div className="mx-10 p-10 my-auto">
       <Image src={image} alt={title}></Image>

@@ -1,14 +1,15 @@
 import Image from 'next/image'
 
-import { SocialProjectDescriptionProp } from '@/types/about/social-project-description-prop'
-import githubIcon from '../../public/img/aboutus/icons/github.svg'
-import shareIcon from '../../public/img/aboutus/icons/share.svg'
+import { SocialProjectData } from '@/types/about/social-project-description'
+import React from 'react'
+import githubIcon from '../../public/img/about/icons/github.svg'
+import shareIcon from '../../public/img/about/icons/share.svg'
 
-function SocialProjectDescription({
+const SocialProjectDescription: React.FC<SocialProjectData> = ({
   leftAligned,
   title,
   content,
-}: SocialProjectDescriptionProp) {
+}: SocialProjectData) => {
   return (
     <div className={`${leftAligned ? 'text-left' : 'text-right'}`}>
       <p className="font-extralight text-[#1E3A8A]">Social Project</p>

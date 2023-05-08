@@ -1,15 +1,15 @@
 import ImageTextStack from '@/components/about/ImageTextStack'
-import { ActivityComponentProp } from '@/types/about/activity-component-prop'
+import { ActivityComponent } from '@/types/about/activity-component'
 import Image from 'next/image'
-import developmentImage from '../../public/img/aboutus/phases/development-phase.svg'
-import educationImage from '../../public/img/aboutus/phases/education-process.svg'
-import growthRateImage from '../../public/img/aboutus/phases/growth-rate.svg'
+import developmentImage from '../../public/img/about/phases/development-phase.svg'
+import educationImage from '../../public/img/about/phases/education-process.svg'
+import growthRateImage from '../../public/img/about/phases/growth-rate.svg'
 
-function Activities({
+const Activities: React.FC<ActivityComponent> = ({
   studentGrowthRate,
   learningRate,
   growthRate,
-}: ActivityComponentProp) {
+}: ActivityComponent) => {
   return (
     <div className="bg-lightblue p-7 rounded-lg">
       <div className="grid grid-cols-2 gap-4 text-size">

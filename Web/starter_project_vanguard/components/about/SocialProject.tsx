@@ -1,14 +1,15 @@
-import { SocialProjectComponentProp } from '@/types/about/social-project-component-prop'
+import { SocialProjectComponent } from '@/types/about/social-project-component'
 import Image from 'next/image'
+import React from 'react'
 import SocialProjectDescription from './SocialProjectDescription'
 
-function SocialProject({
+const SocialProject: React.FC<SocialProjectComponent> = ({
   image,
   leftAligned,
   title,
   content,
   isImageLeft,
-}: SocialProjectComponentProp) {
+}: SocialProjectComponent) => {
   return isImageLeft ? (
     <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-10">
       <Image src={image} alt={title}></Image>

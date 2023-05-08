@@ -1,7 +1,11 @@
-import { ImageParagraphComponentProp } from '@/types/about/image-paragraph-component-prop'
+import { ImageParagraphComponent } from '@/types/about/image-paragraph-component'
 import Image from 'next/image'
+import React from 'react'
 
-function ImagePragraph({ image, text }: ImageParagraphComponentProp) {
+const ImagePragraph: React.FC<ImageParagraphComponent> = ({
+  image,
+  text,
+}: ImageParagraphComponent) => {
   return (
     <div className="py-7">
       <Image src={image} alt={text} className="w-[10%]"></Image>

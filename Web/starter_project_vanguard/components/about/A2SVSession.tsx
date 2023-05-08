@@ -1,7 +1,11 @@
-import { SessionComponentProp } from '@/types/about/session-component-prop'
+import { SessionComponent } from '@/types/about/session-component'
 import Image from 'next/image'
 
-function A2SVSession({ image, title, content }: SessionComponentProp) {
+const A2SVSession: React.FC<SessionComponent> = ({
+  image,
+  title,
+  content,
+}: SessionComponent) => {
   return (
     <div className="shadow-lg rounded p-5 m-3">
       <Image src={image} className="w-[60px]" alt={title}></Image>

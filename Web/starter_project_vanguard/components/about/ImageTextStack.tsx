@@ -1,7 +1,10 @@
-import { ImageTextStackComponentProp } from '@/types/about/image-text-stack-component-prop'
+import { ImageTextStackComponent } from '@/types/about/image-text-stack-component'
 import Image from 'next/image'
 
-function ImageTextStack({ image, title }: ImageTextStackComponentProp) {
+const ImageTextStack: React.FC<ImageTextStackComponent> = ({
+  image,
+  title,
+}: ImageTextStackComponent) => {
   return (
     <div className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer bg-aboutbackground ">
       <Image className="object-cover w-full h-48" src={image} alt={title} />

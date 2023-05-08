@@ -1,4 +1,4 @@
-export interface SessionComponentProp {
+export interface SessionComponent {
   image: string
   title: string
   content: string

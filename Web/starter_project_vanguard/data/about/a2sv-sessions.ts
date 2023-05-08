@@ -1,9 +1,9 @@
-import howToApproach from '../../public/img/aboutus/sessions/how-to-approach.svg'
-import problemSolvingSession from '../../public/img/aboutus/sessions/problem-solving-session.svg'
-import qAndA from '../../public/img/aboutus/sessions/q&a.svg'
-import technicalTraining from '../../public/img/aboutus/sessions/technical-training.svg'
-import weeklyContests from '../../public/img/aboutus/sessions/weekly-contests.svg'
-import weeklyOneOnOnes from '../../public/img/aboutus/sessions/weekly-one-on-ones.svg'
+import howToApproach from '../../public/img/about/sessions/how-to-approach.svg'
+import problemSolvingSession from '../../public/img/about/sessions/problem-solving-session.svg'
+import qAndA from '../../public/img/about/sessions/q&a.svg'
+import technicalTraining from '../../public/img/about/sessions/technical-training.svg'
+import weeklyContests from '../../public/img/about/sessions/weekly-contests.svg'
+import weeklyOneOnOnes from '../../public/img/about/sessions/weekly-one-on-ones.svg'
 
 export const a2svSessions = [
   {

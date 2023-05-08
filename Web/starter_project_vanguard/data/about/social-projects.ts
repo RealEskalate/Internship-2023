@@ -1,5 +1,5 @@
-import hakimHub from '../../public/img/aboutus/projects/hakimhub.svg'
-import trackSys from '../../public/img/aboutus/projects/tracksys.svg'
+import hakimHub from '../../public/img/about/projects/hakimhub.svg'
+import trackSys from '../../public/img/about/projects/tracksys.svg'
 
 export const socialProjects = [
   {
