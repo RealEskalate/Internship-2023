@@ -37,8 +37,9 @@ namespace BlogApp.Application.UnitTest.TagTest.Command
 
             _tagDto = new TagDto
             {
-             Title = "updated tag",
-             Description = "this is an updated tag",
+                Id = 3,
+                Title = "updated",
+                Description = "this is an updated tag",
             };
 
             _handler = new UpdateTagCommandHandler(_mockRepo.Object, _mapper);
@@ -49,28 +50,10 @@ namespace BlogApp.Application.UnitTest.TagTest.Command
         [Fact]
         public async Task UpdateTag()
         {
-            var result = await _handler.Handle(new UpdateTagCommand{ TagDto = _tagDto }, CancellationToken.None);
+            var result = await _handler.Handle(new UpdateTagCommand { TagDto = _tagDto }, CancellationToken.None);
             result.ShouldBeOfType<Result<Unit>>();
             result.Success.ShouldBeTrue();
 
-            var tag = await _mockRepo.Object.TagRepository.Get(_tagDto.Id);
-            tag.Id.Equals(_tagDto.Id);
-            tag.Title.Equals( _tagDto.Title);
-            tag.Description.Equals(_tagDto.Description);
-     
-        }
-
-        [Fact]
-        public async Task Update_With_Invalid_RateNO()
-        {
-
-            _tagDto.Title = "this title has a characteer count more than 10";
-
-            var result = await _handler.Handle(new UpdateTagCommand{ TagDto = _tagDto }, CancellationToken.None);
-            result.ShouldBeOfType<Result<Unit>>();
-            result.Success.ShouldBeFalse();
-
-            result.Errors.ShouldNotBeEmpty();
             var tag = await _mockRepo.Object.TagRepository.Get(_tagDto.Id);
             tag.Id.Equals(_tagDto.Id);
             tag.Title.Equals(_tagDto.Title);
@@ -78,8 +61,21 @@ namespace BlogApp.Application.UnitTest.TagTest.Command
 
         }
 
+        [Fact]
+        public async Task Update_With_Invalid_TagNO()
+        {
 
+            _tagDto.Title = "this title has a characteer count more than 10";
 
+            var result = await _handler.Handle(new UpdateTagCommand { TagDto = _tagDto }, CancellationToken.None);
+            result.ShouldBeOfType<Result<Unit>>();
+            result.Success.ShouldBeFalse();
+
+            result.Errors.ShouldNotBeEmpty();
+            var tags = await _mockRepo.Object.TagRepository.GetAll();
+            tags.Count.ShouldBe(3);
+
+        }
 
 
     }

@@ -1,3 +1,4 @@
+using API.Controllers;
 using BlogApp.Application.Features.Tags.CQRS.Commands;
 using BlogApp.Application.Features.Tags.CQRS.Queries;
 using BlogApp.Application.Features.Tags.DTOs;
@@ -9,7 +10,7 @@ namespace BlogApp.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class TagController : ControllerBase
+    public class TagController : BaseApiController
     {
 
         private readonly IMediator _mediator;
@@ -22,36 +23,32 @@ namespace BlogApp.API.Controllers
         [HttpGet]
         public async Task<ActionResult<List<TagDto>>> Get()
         {
-            var tags = await _mediator.Send(new GetTagListQuery());
-            return Ok(tags);
+             return  HandleResult( await _mediator.Send(new GetTagListQuery()));
+            
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<TagDto>> Get(int id)
         {
-            var Tags = await _mediator.Send(new GetTagDetailQuery { Id = id });
-            return Ok(Tags);
+            return  HandleResult(await _mediator.Send(new GetTagDetailQuery { Id = id }));
         }
 
         [HttpPost]
         public async Task<ActionResult<BaseCommandResponse>> Post([FromBody] CreateTagDto createTagDto)
         {
-            var repsonse = await _mediator.Send(new CreateTagCommand { TagDto = createTagDto });
-            return Ok(repsonse);
+             return HandleResult(await _mediator.Send(new CreateTagCommand { TagDto = createTagDto }));
         }
 
         [HttpPut]
         public async Task<ActionResult> Put([FromBody] TagDto tagDto)
         {
-            await _mediator.Send(new UpdateTagCommand { TagDto = tagDto });
-            return NoContent();
+            return HandleResult(await _mediator.Send(new UpdateTagCommand { TagDto = tagDto }));
         }
 
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
-            await _mediator.Send(new DeleteTagCommand { Id = id });
-            return NoContent();
+           return HandleResult( await _mediator.Send(new DeleteTagCommand { Id = id }));
         }
     }
 

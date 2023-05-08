@@ -25,6 +25,7 @@ namespace BlogApp.Application.Features.Tags.CQRS.Handlers
 
         public async Task<Result<int>> Handle(CreateTagCommand request, CancellationToken cancellationToken)
         {
+            Console.WriteLine("HEer _________________________________");
 
             var response = new Result<int>();
             var validator = new CreateTagDtoValidator();
@@ -32,6 +33,8 @@ namespace BlogApp.Application.Features.Tags.CQRS.Handlers
 
             if (validationResult.IsValid == false)
             {
+                Console.WriteLine("here failed");
+
                 response.Success = false;
                 response.Message = "Validation Failed";
                 response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
@@ -52,6 +55,7 @@ namespace BlogApp.Application.Features.Tags.CQRS.Handlers
                 }
                 else
                 {
+                     Console.WriteLine("here failed 2" );
                     response.Success = false;
                     response.Message = "Creation Failed";
                 }

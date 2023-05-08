@@ -38,7 +38,7 @@ namespace BlogApp.Application.UnitTest.TagTest.Command
 
             _tagDto = new CreateTagDto
             {
-                Title = "New creation",
+                Title = "New tag",
                 Description = "this is a newly created tag"
             };
 
@@ -53,10 +53,10 @@ namespace BlogApp.Application.UnitTest.TagTest.Command
         {
             var result = await _handler.Handle(new CreateTagCommand{ TagDto = _tagDto }, CancellationToken.None);
             result.ShouldBeOfType<Result<int>>();
+            /*Console.WriteLine(result);*/
             result.Success.ShouldBeTrue();
-
-            var rates = await _mockRepo.Object.RateRepository.GetAll();
-            rates.Count.ShouldBe(4);
+            var tags = await _mockRepo.Object.TagRepository.GetAll();
+            tags.Count.ShouldBe(4);
 
         }
 
@@ -69,7 +69,7 @@ namespace BlogApp.Application.UnitTest.TagTest.Command
             result.Success.ShouldBeFalse();
             result.Errors.ShouldNotBeEmpty();
 
-            var tags = await _mockRepo.Object.RateRepository.GetAll();
+            var tags = await _mockRepo.Object.TagRepository.GetAll();
             tags.Count.ShouldBe(3);
 
         }

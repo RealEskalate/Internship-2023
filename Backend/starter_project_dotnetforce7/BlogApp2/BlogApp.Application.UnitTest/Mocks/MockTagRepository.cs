@@ -49,7 +49,6 @@ namespace BlogApp.Application.UnitTest.Mocks
                 tag.Id = tags.Count() + 1;
                 tags.Add(tag);
                 MockUnitOfWork.changes += 1;
-
                 return tag;
             });
 

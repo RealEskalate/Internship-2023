@@ -18,7 +18,7 @@ namespace BlogApp.Application.Features.Tags.DTOs.Validators
             RuleFor(a => a.Description)
              .NotEmpty().WithMessage("{PropertyName} is required.")
             .NotNull()
-            .MaximumLength(20).WithMessage("{PropertyName} must not exceed {ComparisonValue} Characters.");
+            .MaximumLength(50).WithMessage("{PropertyName} must not exceed {ComparisonValue} Characters.");
         }
 
     }

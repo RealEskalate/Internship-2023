@@ -26,8 +26,10 @@ namespace BlogApp.Application.Features.Tags.CQRS.Handlers
             var response = new Result<Unit>();
             var tag = await _unitOfWork.TagRepository.Get(request.Id);
 
-            if (tag == null)
-                return null;
+            if (tag == null) {
+                Console.WriteLine(tag);
+                return null; }
+                
 
 
            await _unitOfWork.TagRepository.Delete(tag);

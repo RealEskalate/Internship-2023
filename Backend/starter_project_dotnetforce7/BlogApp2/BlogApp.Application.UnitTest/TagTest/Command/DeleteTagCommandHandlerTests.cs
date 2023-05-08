@@ -44,11 +44,11 @@ namespace BlogApp.Application.UnitTest.TagTest.Command
         public async Task DeleteTag()
         {
 
-            var result = await _handler.Handle(new DeleteTagCommand{ Id = 1 }, CancellationToken.None);
+            var result = await _handler.Handle(new DeleteTagCommand { Id = 2 }, CancellationToken.None);
             result.ShouldBeOfType<Result<Unit>>();
             result.Success.ShouldBeTrue();
 
-            var tags = await _mockRepo.Object.RateRepository.GetAll();
+            var tags = await _mockRepo.Object.TagRepository.GetAll();
             tags.Count().ShouldBe(2);
 
         }
@@ -56,10 +56,10 @@ namespace BlogApp.Application.UnitTest.TagTest.Command
         [Fact]
         public async Task Delete_Tag_Doesnt_Exist()
         {
-            var result = await _handler.Handle(new DeleteTagCommand{ Id = 0 }, CancellationToken.None);
+            var result = await _handler.Handle(new DeleteTagCommand { Id = 0 }, CancellationToken.None);
             result.ShouldBe(null);
 
-            var tags = await _mockRepo.Object.TagRepository.GetAll(); 
+            var tags = await _mockRepo.Object.TagRepository.GetAll();
             tags.Count().ShouldBe(3);
 
 
