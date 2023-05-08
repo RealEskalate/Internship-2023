@@ -11,7 +11,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace BlogApp.Identity.Services;
 
-public class AuthService
+public class AuthService: IAuthService
 {
     private readonly UserManager<BlogUser> _userManager;
     private readonly SignInManager<BlogUser> _signInManager;

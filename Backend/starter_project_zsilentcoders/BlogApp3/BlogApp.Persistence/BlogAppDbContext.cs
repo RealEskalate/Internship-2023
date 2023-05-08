@@ -14,7 +14,6 @@ namespace BlogApp.Persistence
     public class BlogAppDbContext : DbContext
     {
         
-        public DbSet<_Index> _Indices { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         
         public BlogAppDbContext(DbContextOptions<BlogAppDbContext> options)

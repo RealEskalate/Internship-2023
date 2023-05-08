@@ -1,6 +1,11 @@
+using BlogApp.Identity.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
 namespace BlogApp.Identity.Configurations;
 
-public class UserConfiguration
+public class UserConfiguration : IEntityTypeConfiguration<BlogUser>
 {
     public void Configure(EntityTypeBuilder<BlogUser> builder)
     {

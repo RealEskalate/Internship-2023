@@ -1,6 +1,19 @@
+using System.Text;
+using BlogApp.Identity.Models;
+using BlogApp.Identity.Services;
+using BlogApp.Application.Contracts.Identity;
+using BlogApp.Application.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
+using BlogApp.Application.Models.Identity;
+
 namespace BlogApp.Identity;
 
-public class IdentityServiceRegistration
+public static class IdentityServiceRegistration
 {
     public static IServiceCollection ConfigureIdentityServices(this IServiceCollection services,
                                                                   IConfiguration configuration)

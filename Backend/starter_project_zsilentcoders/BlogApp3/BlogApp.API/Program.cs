@@ -2,6 +2,7 @@ using BlogApp.Application;
 using BlogApp.Persistence;
 using BlogApp.Infrastructure;
 using Microsoft.OpenApi.Models;
+using BlogApp.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
