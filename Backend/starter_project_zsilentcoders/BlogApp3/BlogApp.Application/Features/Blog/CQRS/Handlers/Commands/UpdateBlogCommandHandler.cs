@@ -11,11 +11,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BlogApp.Application.Responses;
-using BlogApp.Application.Features.Blog.DTOs;
 
 namespace BlogApp.Application.Features.Blog.CQRS.Handlers.Commands;
 
-public class UpdateBlogCommandHandler : IRequestHandler<UpdateBlogCommand, Result<UpdateBlogDto?>>
+public class UpdateBlogCommandHandler : IRequestHandler<UpdateBlogCommand, Result<Unit?>>
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
@@ -26,10 +25,9 @@ public class UpdateBlogCommandHandler : IRequestHandler<UpdateBlogCommand, Resul
         _mapper = mapper;
     }
 
-    public async Task<Result<UpdateBlogDto?>> Handle(UpdateBlogCommand request, CancellationToken cancellationToken)
+    public async Task<Result<Unit?>> Handle(UpdateBlogCommand request, CancellationToken cancellationToken)
     {
-
-        var response = new Result<UpdateBlogDto?>();
+        var response = new Result<Unit?>();
         var validator = new UpdateBlogDtoValidator();
         var validationResult = await validator.ValidateAsync(request.UpdateBlogDto);
 
@@ -41,24 +39,14 @@ public class UpdateBlogCommandHandler : IRequestHandler<UpdateBlogCommand, Resul
         }
         else
         {
+            response.Message = "Deletion Successful!";
+            response.Value = new Unit();
 
-            var blog = await _unitOfWork.BlogRepository.Get(request.UpdateBlogDto.Id);
-
-            if (blog is null)
-                throw new NotFoundException(nameof(blog), request.UpdateBlogDto.Id);
-
-            _mapper.Map(request.UpdateBlogDto, blog);
-
-            await _unitOfWork.BlogRepository.Update(blog);
+            await _unitOfWork.BlogRepository.Update(await _unitOfWork.BlogRepository.Get(request.UpdateBlogDto.Id));
             await _unitOfWork.Save();
-
-
-            response.Message = "Updation Successful!";
-            // response.Value = new Unit();
-            response.Value = _mapper.Map<UpdateBlogDto>(blog);
-
         }
 
         return response;
+    
     }
 }
