@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogApp.Persistence", "Blog
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogApp.API", "BlogApp.API\BlogApp.API.csproj", "{19ECDC73-7A86-4F8F-B8F1-F71756230AF7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogApp.Application.UnitTest", "E:\NET\Internship-2023\Backend\starter_project_dotnetforce7\BlogApp2\BlogApp.Application.UnitTest\BlogApp.Application.UnitTest.csproj", "{7C0EF30C-CFE5-4244-B7B3-D5DB85FB87A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogApp.Application.UnitTest", "BlogApp.Application.UnitTest\BlogApp.Application.UnitTest.csproj", "{7C0EF30C-CFE5-4244-B7B3-D5DB85FB87A5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{59246A86-003D-4BA1-A862-5DD317F83C73}"
 EndProject

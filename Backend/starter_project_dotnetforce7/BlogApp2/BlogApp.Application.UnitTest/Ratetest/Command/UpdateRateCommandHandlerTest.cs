@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
-using BlogApp.Application.Features._Indecis.CQRS.Handlers;
 using BlogApp.Application.Features.Rates.CQRS.Commands;
 using BlogApp.Application.Features.Rates.CQRS.Handlers;
 using BlogApp.Application.Features.Rates.DTOs;
@@ -16,17 +15,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlogApp.Application.UnitTest.Rates.Command
+namespace BlogApp.Application.UnitTest.Ratetest.Command
 {
-    public class DeleteRateCommandHandlerTest
+    public class UpdateRateCommandHandlerTest
     {
-
         private readonly IMapper _mapper;
         private readonly Mock<IUnitOfWork> _mockRepo;
-        private int _id { get; set; }
-        private readonly DeleteRateCommandHandler _handler;
-        private readonly CreateRateDto _rateDto;
-        public DeleteRateCommandHandlerTest()
+        private readonly UpdateRateDto _rateDto;
+        private readonly UpdateRateCommandHandler _handler;
+        public UpdateRateCommandHandlerTest()
         {
             _mockRepo = MockUnitOfWork.GetUnitOfWork();
             var mapperConfig = new MapperConfiguration(c =>
@@ -34,44 +31,50 @@ namespace BlogApp.Application.UnitTest.Rates.Command
                 c.AddProfile<MappingProfile>();
             });
             _mapper = mapperConfig.CreateMapper();
-            _rateDto = new CreateRateDto
+
+            _rateDto = new UpdateRateDto
             {
+                Id = 1,
                 RateNo = 5,
                 RaterId = 3,
                 BlogId = 4
             };
-            _id = 1;
 
-            _handler = new DeleteRateCommandHandler(_mockRepo.Object, _mapper);
+            _handler = new UpdateRateCommandHandler(_mockRepo.Object, _mapper);
 
         }
 
 
         [Fact]
-        public async Task DeleteRate()
+        public async Task UpdateRate()
         {
-            /* var create_result = await _handler.Handle(new CreateRateCommand(){ RateDto = _rateDto  }, CancellationToken.None);*/
-
-            var result = await _handler.Handle(new DeleteRateCommand() { Id = _id }, CancellationToken.None);
+            var result = await _handler.Handle(new UpdateRateCommand() { RateDto = _rateDto }, CancellationToken.None);
             result.ShouldBeOfType<Result<Unit>>();
             result.Success.ShouldBeTrue();
 
-            var rates = await _mockRepo.Object.RateRepository.GetAll();
-            rates.Count().ShouldBe(1);
+            var rate = await _mockRepo.Object.RateRepository.Get(_rateDto.Id);
+            rate.Id.Equals(_rateDto.Id);
+            rate.BlogId.Equals(_rateDto.BlogId);
+            rate.RateNo.Equals(_rateDto.RateNo);
+            rate.RaterId.Equals(_rateDto.RaterId);
         }
 
         [Fact]
-        public async Task Delete_Rate_Doesnt_Exist()
+        public async Task Update_With_Invalid_RateNO()
         {
 
-            _id  = 0;
-            var result = await _handler.Handle(new DeleteRateCommand() { Id = _id }, CancellationToken.None);
-            result.ShouldBe(null);
-        
+            _rateDto.RateNo = -1;
+            var result = await _handler.Handle(new UpdateRateCommand() { RateDto = _rateDto }, CancellationToken.None);
+            result.ShouldBeOfType<Result<Unit>>();
+            result.Success.ShouldBeFalse();
+
+            result.Errors.ShouldNotBeEmpty();
             var rates = await _mockRepo.Object.RateRepository.GetAll();
             rates.Count.ShouldBe(2);
 
         }
+
+
     }
 }
 
