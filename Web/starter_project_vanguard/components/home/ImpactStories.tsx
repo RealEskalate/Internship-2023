@@ -1,6 +1,7 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
+import React from "react"
+import Image from "next/image"
+import Link from 'next/link'
+
 const ImpactStroies = () => {
   return (
     <div className="mb-40 mt-11 sm:mt-32">
@@ -12,18 +13,18 @@ const ImpactStroies = () => {
           <h1 className="mb-2 text-2xl font-semibold">Abel Tesfaye</h1>
           <p className="text-lg mb-7">Software Engineer at Google</p>
           <p className="w-full text-base">
-            "When I joined A2SV in 2019, I found the concept of data structures
-            and algorithms quite challenging. A2SV's smooth learning process and
+            &quot;When I joined A2SV in 2019, I found the concept of data structures
+            and algorithms quite challenging. A2SV&apos;s smooth learning process and
             dedicated team molded me to see the peak of my abilities. Through
-            A2SV's effective education and continual support, I passed Google's
+            A2SV&apos;s effective education and continual support, I passed Google&lsquo;s
             internship interviews and attended a summer internship at Google in
             Amsterdam. However, the A2SV program and training is beyond
             technical education and interview preparation. As an A2SVian, I also
             learned the values of putting humanity first, giving back to our
             community, and utilizing teamwork with my colleagues, which I can
             now consider my big family. After completing three remarkable months
-            at Google, I was offered a full-time position at Google's London
-            office for 2022.""
+            at Google, I was offered a full-time position at Google&lsquo;s London
+            office for 2022.&quot;
           </p>
           <div>
             <div className="px-5 py-3 mt-4 text-base text-center text-white bg-blue-700 rounded w-max whitespace-nowrap">
@@ -42,7 +43,7 @@ const ImpactStroies = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ImpactStroies;
+export default ImpactStroies

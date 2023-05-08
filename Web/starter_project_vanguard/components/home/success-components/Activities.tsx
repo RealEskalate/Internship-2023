@@ -1,9 +1,9 @@
-import React from "react";
-import Image from "next/image";
-import { Activity } from "@/types/home/Activity";
+import React from 'react'
+import Image from 'next/image'
+import { Activity } from '@/types/home/Activity'
 
 interface Props {
-  activity: Activity;
+  activity: Activity
 }
 
 export const Activities = ({ activity }: Props) => {
@@ -12,10 +12,9 @@ export const Activities = ({ activity }: Props) => {
       <div className="grid grid-flow-row gap-10 mx-8 auto-rows-max sm:grid-flow-col sm:auto-cols-fr sm:mx-11">
         <div
           className={` ${
-            activity.left ? "order-first" : "sm:order-last place-self-end"
+            activity.left ? 'order-first' : 'sm:order-last place-self-end'
           }`}
         >
-        
           <Image
             src={activity.url}
             alt={activity.alt_text}
@@ -23,11 +22,10 @@ export const Activities = ({ activity }: Props) => {
             width={320}
             height={320}
           />
-
         </div>
         <div
           className={`sm:col-span-2 self-end mb-14 ${
-            activity.left ? "text-end" : "text-start"
+            activity.left ? 'text-end' : 'text-start'
           }`}
         >
           <h3 className="mb-6 text-3xl font-semibold">{activity.title}</h3>
@@ -35,5 +33,5 @@ export const Activities = ({ activity }: Props) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

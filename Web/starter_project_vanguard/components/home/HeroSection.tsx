@@ -9,7 +9,7 @@ const HeroSection: React.FC = () => {
   return (
     <div className="my-11">
       <div className="grid w-full grid-flow-row gap-16 p-10 pl-4 mx-4 mt-8 sm:gap-10 auto-rows-max sm:grid-flow-col sm:auto-cols-fr">
-        <div className="w-full ml-4 mt:11">
+        <div className="w-full ml-4 mt-11">
           <div>
             <h1 className="font-extrabold text-7xl sm:mb-7">
               Africa To

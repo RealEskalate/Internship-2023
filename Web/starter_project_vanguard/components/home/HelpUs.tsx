@@ -1,6 +1,6 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
+import React from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
 const HelpUs = () => {
   return (
     <div className="mb-20">
@@ -21,6 +21,6 @@ const HelpUs = () => {
         </div>
       </div>
     </div>
-  );
-};
-export default HelpUs;
+  )
+}
+export default HelpUs
