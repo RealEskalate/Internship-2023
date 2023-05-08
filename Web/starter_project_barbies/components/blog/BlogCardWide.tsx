@@ -2,6 +2,7 @@ import { Blog } from "@/types/blog";
 import moment from "moment";
 import Image from "next/image";
 import { TagList } from "../common/TagList";
+import Link from 'next/link';
 
 interface BlogCardWideProps {
   blog: Blog
@@ -9,37 +10,39 @@ interface BlogCardWideProps {
 
 export const BlogCardWide: React.FC<BlogCardWideProps> = ({ blog }) => {
   return (
-    <div className="mb-6">
+    <Link href={`blogs/${blog.blogID}`}>
 
-      {/* Horizontal divider */}
-      <hr className="mx-4 h-2" />
+      <div className="mb-6">
+        {/* Horizontal divider */}
+        <hr className="mx-4 h-2" />
 
-      <div className='grid grid-cols-2' style={{ gridTemplateColumns: `70% 30%` }}>
-        <div className="flex mt-6">
-          <div className="flex flex-col">
-            {/* Author details */}
-            <BlogCardAuthorDetail blog={blog} />
-            {/* Blog title */}
-            <div className="mt-4 font-semibold text-xl me-40">
-              {blog.title}
-            </div>
-            {/* Blog description */}
-            <div className="mt-6 me-28 text-sm font-extralight">
-              {blog.shortDescription}
-            </div>
-            {/* Blog tags */}
-            <div className="mt-6">
-              <TagList tags={blog.tags} />
+        <div className='grid grid-cols-2' style={{ gridTemplateColumns: `70% 30%` }}>
+          <div className="flex mt-6">
+            <div className="flex flex-col">
+              {/* Author details */}
+              <BlogCardAuthorDetail blog={blog} />
+              {/* Blog title */}
+              <div className="mt-4 font-semibold text-xl me-40">
+                {blog.title}
+              </div>
+              {/* Blog description */}
+              <div className="mt-6 me-28 text-sm font-extralight">
+                {blog.shortDescription}
+              </div>
+              {/* Blog tags */}
+              <div className="mt-6">
+                <TagList tags={blog.tags} />
+              </div>
             </div>
           </div>
-        </div>
-        {/* Blog image */}
-        <div className='flex items-center justify-center'>
-          <Image className="rounded-lg" src={blog.blogImage} alt={blog.title} width={300} height={180} />
+          {/* Blog image */}
+          <div className='flex items-center justify-center'>
+            <Image className="rounded-lg" src={blog.blogImage} alt={blog.title} width={300} height={180} />
+          </div>
         </div>
       </div>
-
-    </div>
+      
+    </Link>
   )
 }
 

@@ -3,10 +3,10 @@ import HeroSection from '@/components/teams/HeroSection'
 import Members from '@/components/teams/Members'
 const index = () => {
   return (
-    <div className="mx-10">
+    <div className="lg:mx-10 mx-8">
       <HeroSection />
       <hr className="border mt-32 mb-16" />
-      <Members />
+      <Members />      
     </div>
   )
 }

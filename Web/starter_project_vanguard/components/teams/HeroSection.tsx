@@ -5,7 +5,7 @@ import React from 'react'
 const HeroSection: React.FC = () => {
   const heroImages = [
     {
-      className: 'right-24 -top-6',
+      className: 'left-[500px] -top-6',
       name: 'hero-image-1.png',
     },
     {
@@ -18,9 +18,9 @@ const HeroSection: React.FC = () => {
     },
   ]
   return (
-    <div className="flex m-8">
-      <div className="basis-2/5 ">
-        <h1 className="uppercase font-bold text-5xl text-primary-text flex flex-col gap-4">
+    <div className="my-2 pt-8 2lg:my-8 flex">
+      <div className="2lg:basis-2/5 ">
+        <h1 className="uppercase font-bold text-3xl md:text-5xl 2lg:text-4xl xl:text-5xl  text-primary-text flex flex-col gap-4">
           <span>The team we&apos;re</span> <span>currently</span>{' '}
           <span>working with</span>{' '}
         </h1>
@@ -32,9 +32,10 @@ const HeroSection: React.FC = () => {
           and services.
         </p>
       </div>
-      <div className=" relative basis-3/5 p-40 flex flex-col gap-4 bg-center bg-no-repeat bg-contain text-primary-text">
+      <div className="relative hidden 2lg:flex basis-3/5 p-40 flex-col gap-4 text-primary-text">
         <div className="absolute top-4 -z-10">
           <Image
+            className=' w-[490px] xl:w-[530px]'
             src="/img/teams/hero-section/hero-background.png"
             width={550}
             height={500}
@@ -52,13 +53,14 @@ const HeroSection: React.FC = () => {
             />
           )
         })}
-        <h1 className="uppercase font-bold text-5xl ml-24">
-          <span className=" text-primary">Team</span> work
-        </h1>
-        <h1 className="uppercase font-bold text-5xl ml-24">collaboration</h1>
-        <h1 className="uppercase font-bold text-5xl mx-24 ">
-          <span className=" text-primary">Hard</span> work
-        </h1>
+          <h1 className="uppercase font-bold text-3xl md:text-5xl 2lg:text-4xl xl:text-5xl ml-24">
+            <span className=" text-primary">Team</span> work
+          </h1>
+          <h1 className="uppercase font-bold text-3xl md:text-5xl 2lg:text-4xl xl:text-5xl ml-24">collaboration</h1>
+          <h1 className="uppercase font-bold text-3xl md:text-5xl 2lg:text-4xl xl:text-5xl ml-24">
+            <span className=" text-primary">Hard</span> work
+          </h1>
+        
       </div>
     </div>
   )
