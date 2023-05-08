@@ -16,9 +16,13 @@ namespace BlogApp.Identity.Services
             _userManager = userManager;
         }
 
-        public async Task<User> GetUser(string userId)
+        public async Task<User?> GetUser(string userId)
         {
             var User = await _userManager.FindByIdAsync(userId);
+            if (User == null)
+            {
+                return null;
+            }
             return new User
             {
                 Email = User.Email,
@@ -27,12 +31,13 @@ namespace BlogApp.Identity.Services
                 Lastname = User.Lastname
             };
         }
-        
+
 
         public async Task<List<User>> GetUsers()
         {
             var Users = await _userManager.GetUsersInRoleAsync("User");
-            return Users.Select(q => new User { 
+            return Users.Select(q => new User
+            {
                 Id = q.Id,
                 Email = q.Email,
                 Firstname = q.Firstname,
