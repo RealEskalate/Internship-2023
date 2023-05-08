@@ -14,7 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlogApp.Application.UnitTest.Rates.Query
+namespace BlogApp.Application.UnitTest.Ratetest.Query
 {
     public class GetRateListQueryHandlerTest
     {

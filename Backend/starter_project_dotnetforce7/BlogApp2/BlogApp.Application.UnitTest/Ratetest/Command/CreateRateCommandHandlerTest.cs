@@ -11,19 +11,21 @@ using Moq;
 using Shouldly;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlogApp.Application.UnitTest.Rates.Command
+namespace BlogApp.Application.UnitTest.Ratetest.Command
 {
-    public class UpdateRateCommandHandlerTest
+    public class CreateRateCommandHandlerTest
     {
+
         private readonly IMapper _mapper;
         private readonly Mock<IUnitOfWork> _mockRepo;
-        private readonly UpdateRateDto _rateDto;
-        private readonly UpdateRateCommandHandler _handler;
-        public UpdateRateCommandHandlerTest()
+        private readonly CreateRateDto _rateDto;
+        private readonly CreateRateCommandHandler _handler;
+        public CreateRateCommandHandlerTest()
         {
             _mockRepo = MockUnitOfWork.GetUnitOfWork();
             var mapperConfig = new MapperConfiguration(c =>
@@ -32,51 +34,46 @@ namespace BlogApp.Application.UnitTest.Rates.Command
             });
             _mapper = mapperConfig.CreateMapper();
 
-            _rateDto = new UpdateRateDto
+            _rateDto = new CreateRateDto
             {
-                Id = 1,
-                RateNo = 5,
-                RaterId = 3,
+                RateNo=5,
+                RaterId=3,
                 BlogId = 4
             };
 
-            _handler = new UpdateRateCommandHandler(_mockRepo.Object, _mapper);
+            _handler = new CreateRateCommandHandler(_mockRepo.Object, _mapper);
 
         }
 
 
         [Fact]
-        public async Task UpdateRate()
+        public async Task CreateRate()
         {
-            var result = await _handler.Handle(new UpdateRateCommand() { RateDto = _rateDto }, CancellationToken.None);
-            result.ShouldBeOfType<Result<Unit>>();
+            var result = await _handler.Handle(new CreateRateCommand() { RateDto = _rateDto }, CancellationToken.None);
+            result.ShouldBeOfType<Result<int>>();
             result.Success.ShouldBeTrue();
 
-            var rate = await _mockRepo.Object.RateRepository.Get(_rateDto.Id);
-            rate.Id.Equals(_rateDto.Id);
-            rate.BlogId.Equals(_rateDto.BlogId);
-            rate.RateNo.Equals(_rateDto.RateNo);
-            rate.RaterId.Equals(_rateDto.RaterId);
+            var rates = await _mockRepo.Object.RateRepository.GetAll();
+            rates.Count.ShouldBe(3);
+
         }
 
         [Fact]
-        public async Task Update_With_Invalid_RateNO()
+        public async Task InvalidRate_Added()
         {
 
             _rateDto.RateNo = -1;
-            var result = await _handler.Handle(new UpdateRateCommand() { RateDto = _rateDto }, CancellationToken.None);
-            result.ShouldBeOfType<Result<Unit>>();
+            var result = await _handler.Handle(new CreateRateCommand() { RateDto = _rateDto }, CancellationToken.None);
+            result.ShouldBeOfType<Result<int>>();
             result.Success.ShouldBeFalse();
-
             result.Errors.ShouldNotBeEmpty();
             var rates = await _mockRepo.Object.RateRepository.GetAll();
             rates.Count.ShouldBe(2);
 
         }
-
-
     }
 }
+
 
 
 
