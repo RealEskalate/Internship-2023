@@ -6,7 +6,7 @@ import {
   BsEmojiSmileUpsideDown,
 } from 'react-icons/bs'
 import Image from 'next/image'
-import { TeamMember } from '@/types/team'
+import { TeamMember } from '@/types/team/team'
 
 export type TeamMemberCardProps = {
   teamMember: TeamMember
