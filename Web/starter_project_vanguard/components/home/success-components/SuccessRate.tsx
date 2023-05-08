@@ -15,11 +15,11 @@ const SuccessRate = () => {
         </h1>
       </div>
 
-      <div className="flex flex-col items-center mb-20 limit_size:flex-row sm:justify-center bg-bg_color mx-7 rounded-xl">
+      <div className="pb-10 flex flex-col items-center mb-20 limit_size:flex-row sm:justify-center bg-zinc-200 mx-7 rounded-xl">
         <div className="self-center w-2/4 py-3 mx-4 text-center limit_size:w-1/5 limit_size:h-1/5 aspect-auto">
           <p className="text-sm text-gray-700">
             A2SV students are <span className="font-semibold">35</span> times
-            more likely to pass{' '}
+            more likely to pass
             <span className="font-semibold">Google SWE interviews </span>
             than average candiadates.
           </p>
