@@ -8,12 +8,12 @@ const SuccessRate = () => {
         Google SWE Interviews Acceptance Rate Comparison
       </h2>
 
-      <div className="flex felx-row px-7 gap-5 items-center bg-[#F6F6FC] rounded-lg max-w-px-1560 h-75 overflow-auto">
+      <div className="flex felx-row px-7 gap-5 items-center bg-secondary rounded-lg max-w-px-1560 h-75 overflow-auto">
         <p className="text-secondary-text text-center lg:text-start text-2xl my-12 w-full lg:w-1/5">
           A2SV students are{' '}
-          <span className="font-semibold text-[#160041]">35</span> times more
+          <span className="font-semibold text-primary-text">35</span> times more
           likely to pass{' '}
-          <span className="font-semibold text-[#160041]">
+          <span className="font-semibold text-primary-text">
             Google SWE interviews
           </span>{' '}
           than average candidates.
