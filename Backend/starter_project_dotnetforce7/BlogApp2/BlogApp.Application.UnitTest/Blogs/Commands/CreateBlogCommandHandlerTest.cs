@@ -42,7 +42,7 @@ namespace BlogApp.Application.UnitTest.Blogs.Commands
                 Title = "blog title 3",
                 Content = "Blog Content 3",
                 CoverImage = "blog image 3",
-                PublicationStatus= false
+                PublicationStatus= true
         };
 
             _handler = new CreateBlogCommandHandler(_mockRepo.Object, _mapper);
@@ -54,7 +54,8 @@ namespace BlogApp.Application.UnitTest.Blogs.Commands
         public async Task CreateBlog()
         {
             var result = await _handler.Handle(new CreateBlogCommand() { BlogDto = _blogDto }, CancellationToken.None);
-            result.ShouldBeOfType<BaseCommandResponse>();
+            result.ShouldBeOfType<Result<int>>();
+            Console.WriteLine("result: ", result);
             result.Success.ShouldBeTrue();
 
             var Blogs = await _mockRepo.Object.BlogRepository.GetAll();
@@ -68,7 +69,7 @@ namespace BlogApp.Application.UnitTest.Blogs.Commands
 
             _blogDto.PublicationStatus = null;
             var result = await _handler.Handle(new CreateBlogCommand() { BlogDto = _blogDto }, CancellationToken.None);
-            result.ShouldBeOfType<BaseCommandResponse>();
+            result.ShouldBeOfType<Result<int>>();
             result.Success.ShouldBeFalse();
             result.Errors.ShouldNotBeEmpty();
             var Blogs = await _mockRepo.Object.BlogRepository.GetAll();

@@ -11,7 +11,6 @@ namespace BlogApp.Domain
     {
         public int RaterId { get; set; }
         public int BlogId { get; set; }
-        // public Blog Blog { get; set; }
         public int RateNo { get; set; }
     }
 }

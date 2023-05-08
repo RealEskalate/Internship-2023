@@ -16,7 +16,9 @@ namespace BlogApp.Application.Features.Blogs.DTOs
         public string? CoverImage { get; set; }
         public bool? PublicationStatus { get; set; }
 
-        
+        public ICollection<RateDto> Rates { get; set; }
+
+        public double BlogRate { get; set; }
 
     }
 }
