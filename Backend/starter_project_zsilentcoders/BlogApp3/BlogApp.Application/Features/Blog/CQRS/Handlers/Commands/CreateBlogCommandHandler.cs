@@ -25,25 +25,18 @@ public class CreateBlogCommandHandler: IRequestHandler<CreateBlogCommand, Result
         
         var validator = new CreateBlogDtoValidator();
         var validationResult = await validator.ValidateAsync(request.CreateBlogDto);
-
-        if (validationResult.IsValid == false)
-        {
-            response.Success = false;
-            response.Message = "Creation Failed";
-            response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
-        }
-        else
-        {
-            var blog = _mapper.Map<Domain.Blog>(request.CreateBlogDto);
-
-            blog = await _unitOfWork.BlogRepository.Add(blog);
-            await _unitOfWork.Save();
-
+        var blog = _mapper.Map<Domain.Blog>(request.CreateBlogDto);
+        blog = await _unitOfWork.BlogRepository.Add(blog);
+        
+        if (await _unitOfWork.Save() > 0 && validationResult.IsValid == true){
             response.Success = true;
             response.Message = "Creation Successful";
             response.Value = _mapper.Map<BlogDetailsDto>(blog);
-        }
-
+        }else{
+            response.Success = false;
+            response.Message = "Creation Failed";
+            response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
+        }  
         return response;
     }
 }

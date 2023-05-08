@@ -32,32 +32,24 @@ public class UpdateBlogCommandHandler : IRequestHandler<UpdateBlogCommand, Resul
         var response = new Result<UpdateBlogDto?>();
         var validator = new UpdateBlogDtoValidator();
         var validationResult = await validator.ValidateAsync(request.UpdateBlogDto);
+        var blog = await _unitOfWork.BlogRepository.Get(request.UpdateBlogDto.Id);
 
-        if (validationResult.IsValid == false)
-        {
-            response.Success = false;
-            response.Message = "Updation Failed";
-            response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
-        }
-        else
-        {
+        if (blog is null)
+            throw new NotFoundException(nameof(blog), request.UpdateBlogDto.Id);
 
-            var blog = await _unitOfWork.BlogRepository.Get(request.UpdateBlogDto.Id);
+        _mapper.Map(request.UpdateBlogDto, blog);
 
-            if (blog is null)
-                throw new NotFoundException(nameof(blog), request.UpdateBlogDto.Id);
-
-            _mapper.Map(request.UpdateBlogDto, blog);
-
-            await _unitOfWork.BlogRepository.Update(blog);
-            await _unitOfWork.Save();
-
-
-            response.Message = "Updation Successful!";
-            // response.Value = new Unit();
-            response.Value = _mapper.Map<UpdateBlogDto>(blog);
-
-        }
+        await _unitOfWork.BlogRepository.Update(blog);
+           
+            if (await _unitOfWork.Save() > 0 && validationResult.IsValid == true){
+                response.Message = "Updation Successful!";
+                // response.Value = new Unit();
+                response.Value = _mapper.Map<UpdateBlogDto>(blog);
+            }else{
+                response.Success = false;
+                response.Message = "Updation Failed";
+                response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
+            }
 
         return response;
     }
