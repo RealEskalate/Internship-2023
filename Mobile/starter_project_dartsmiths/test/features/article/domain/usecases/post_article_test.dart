@@ -27,7 +27,7 @@ void main() {
 
   } );
 
-  final Article tArticle = Article(id: "1234qwer", title: "Sport", subTitle: "Athletics", content: "Ethiopian althlets are ready for the coming olympic", tags: ["athlets", "olympic"]);
+  final Article tArticle = Article(id: "1234qwer", title: "Sport", subTitle: "Athletics", content: "Ethiopian althlets are ready for the coming olympic", tags: ["athlets", "olympic"], authorId: "ididid");
 
   test("should post article to the repository", () async{
     
