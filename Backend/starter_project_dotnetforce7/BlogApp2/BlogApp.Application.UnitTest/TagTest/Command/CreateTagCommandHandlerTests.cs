@@ -51,9 +51,8 @@ namespace BlogApp.Application.UnitTest.TagTest.Command
         [Fact]
         public async Task CreateTag()
         {
-            var result = await _handler.Handle(new CreateTagCommand{ TagDto = _tagDto }, CancellationToken.None);
+            var result = await _handler.Handle(new CreateTagCommand { TagDto = _tagDto }, CancellationToken.None);
             result.ShouldBeOfType<Result<int>>();
-            /*Console.WriteLine(result);*/
             result.Success.ShouldBeTrue();
             var tags = await _mockRepo.Object.TagRepository.GetAll();
             tags.Count.ShouldBe(4);
@@ -64,7 +63,7 @@ namespace BlogApp.Application.UnitTest.TagTest.Command
         public async Task InvalidTag_Added()
         {
             _tagDto.Title = "this title has a characteer count more than 10";
-            var result = await _handler.Handle(new CreateTagCommand{ TagDto = _tagDto }, CancellationToken.None);
+            var result = await _handler.Handle(new CreateTagCommand { TagDto = _tagDto }, CancellationToken.None);
             result.ShouldBeOfType<Result<int>>();
             result.Success.ShouldBeFalse();
             result.Errors.ShouldNotBeEmpty();
