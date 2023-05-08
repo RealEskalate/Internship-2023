@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BlogApp.Application.Features._Indices.DTOs;
 using BlogApp.Application.Features.Comments.DTOs;
+using BlogApp.Application.Features.Ratings.DTOs;
 using BlogApp.Domain;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,12 @@ namespace BlogApp.Application.Profiles
             CreateMap<Comment,UpdateCommentDto>().ReverseMap();
 
             #endregion _index
+
+            #region rating Mappings
+
+            CreateMap<Rating, RatingDto>().ReverseMap();
+
+            #endregion rating
         }
     }
 }

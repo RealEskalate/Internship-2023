@@ -1,6 +1,5 @@
 import { navData } from '@/data/layout/navbar/nav-data'
 import Image from 'next/image'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { MdOutlineClose, MdViewHeadline } from 'react-icons/md'
@@ -59,7 +58,7 @@ const Navbar: React.FC = () => {
           <ul className="flex flex-col gap-5 content-between md:flex-row md:w-full justify-between">
             {navigation.map(({ name, to, current }, index) => (
               <li key={index}>
-                <Link
+                <a
                   href={to}
                   id={index.toString()}
                   className={classNames(
@@ -70,7 +69,7 @@ const Navbar: React.FC = () => {
                   )}
                 >
                   {name}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>

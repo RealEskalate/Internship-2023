@@ -13,6 +13,7 @@ namespace BlogApp.Persistence.Repositories
         private readonly BlogAppDbContext _context;
 
         private I_IndexRepository _indexRepository;
+        private IRatingRepository _ratingRepository;
 
         private ICommentRepository commentRepository;
 
@@ -39,15 +40,25 @@ namespace BlogApp.Persistence.Repositories
             } 
          }
 
+        public IRatingRepository RatingRepository
+        {
+            get
+            {
+                if (_ratingRepository == null)
+                    _ratingRepository = new RatingRepository(_context);
+                return _ratingRepository;
+            }
+        }
+
         public void Dispose()
         {
             _context.Dispose();
             GC.SuppressFinalize(this);
         }
 
-        public async Task Save()
+        public async Task<int> Save()
         {
-            await _context.SaveChangesAsync();
+            return await _context.SaveChangesAsync();
         }
     }
 }

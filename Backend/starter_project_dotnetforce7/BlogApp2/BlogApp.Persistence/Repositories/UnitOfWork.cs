@@ -13,6 +13,7 @@ namespace BlogApp.Persistence.Repositories
         private readonly BlogAppDbContext _context;
 
         private I_IndexRepository _indexRepository;
+        private IRateRepository _rateRepository;
 
         public UnitOfWork(BlogAppDbContext context)
         {
@@ -28,15 +29,25 @@ namespace BlogApp.Persistence.Repositories
             } 
          }
 
+        public IRateRepository RateRepository
+        {
+            get
+            {
+                if (_rateRepository == null)
+                    _rateRepository = new RateRepository(_context);
+                return _rateRepository;
+            }
+        }
+
         public void Dispose()
         {
             _context.Dispose();
             GC.SuppressFinalize(this);
         }
 
-        public async Task Save()
+        public async Task<int> Save()
         {
-            await _context.SaveChangesAsync();
+            return await _context.SaveChangesAsync();
         }
     }
 }
