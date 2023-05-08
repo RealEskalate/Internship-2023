@@ -9,6 +9,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        tab: 'text-gray-700',
         primary: '#264FAD',
         secondary: '#E1E7EC',
         lightPrimary: '#019CFA',
