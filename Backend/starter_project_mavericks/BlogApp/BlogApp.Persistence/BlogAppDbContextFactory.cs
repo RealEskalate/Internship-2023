@@ -23,8 +23,9 @@ namespace BlogApp.Persistence
             var connectionString = configuration.GetConnectionString("BlogAppConnectionString");
 
             builder.UseNpgsql(connectionString);
-
+  
             return new BlogAppDbContext(builder.Options);
         }
     }
 }
+
