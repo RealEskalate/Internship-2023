@@ -9,7 +9,7 @@ interface paginationPageProps{
   onClick?:  () => void,
   active?: boolean
 }
-function PaginationPage({page, onClick, active}: paginationPageProps) {
+const PaginationPage : React.FC<paginationPageProps> = ({page, onClick, active}) => {
   return (
 
       <button onClick={onClick} className={`${active? 'bg-primary text-secondary': 'bg-secondary text-primary'} m-1 px-3 py-2 rounded-md cursor-pointer`}>{page}</button>
@@ -18,7 +18,7 @@ function PaginationPage({page, onClick, active}: paginationPageProps) {
 }
 
 
-function Pagination({pagesCount, currentPage, setCurrentPage}: PaginationProps) {
+const Pagination : React.FC<PaginationProps> = ({pagesCount, currentPage, setCurrentPage}) => {
 
   let pages: string[] = []
 
