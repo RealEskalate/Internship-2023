@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Moq;
-Ø
 namespace BlogApp.Identity.UnitTests
 {
     public class AuthServiceTests
