@@ -1,4 +1,5 @@
 using BlogApp.Application.Features.Comments.CQRS.Commands;
+using BlogApp.Application.Features.Comments.CQRS.Queries;
 using BlogApp.Application.Features.Comments.DTOs;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +16,21 @@ public class CommentController : ControllerBase
     {
         _mediator = mediatR;     
     }
+
+    
+        [HttpGet]
+        public async Task<ActionResult<List<CommentDto>>> Get()
+        {
+            var indices = await _mediator.Send(new GetCommentListQuery());
+            return Ok(indices);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<CommentDto>> Get(int id)
+        {
+            var indices = await _mediator.Send(new GetCommentDetailQuery { Id = id });
+            return Ok(indices);
+        }
 
 
     [HttpPost]
