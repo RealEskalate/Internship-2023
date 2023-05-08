@@ -5,12 +5,20 @@ class UserProfile extends Equatable {
   final String fullName;
   final String userName;
   final String career;
+  final String bio;
+  final int userFollower;
+  final int userFollowing;
+  final int numberOfPosts;
 
   UserProfile(
       {required this.profilePicture,
       required this.fullName,
       required this.userName,
-      required this.career})
+      required this.career,
+      required this.bio,
+      required this.userFollower,
+      required this.userFollowing,
+      required this.numberOfPosts})
       : super();
 
   @override
@@ -19,5 +27,8 @@ class UserProfile extends Equatable {
         fullName,
         userName,
         career,
+        userFollower,
+        userFollowing,
+        numberOfPosts
       ];
 }

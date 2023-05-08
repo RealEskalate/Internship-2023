@@ -22,7 +22,11 @@ void main() {
       profilePicture: "profilePicture",
       fullName: "fullName",
       userName: "userName",
-      career: "career");
+      career: "career",
+      bio: "bio",
+      userFollower: 1,
+      userFollowing: 1,
+      numberOfPosts: 1);
 
   test('Should get user profile', () async {
     when(mockUserProfileRepository.getUserProfile(id))
