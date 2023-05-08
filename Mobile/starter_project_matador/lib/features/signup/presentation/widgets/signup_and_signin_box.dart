@@ -46,7 +46,7 @@ class SigninSignupBox extends StatelessWidget {
           ],
         ),
       ),
-    );,
+    ),
     );
   }
 }

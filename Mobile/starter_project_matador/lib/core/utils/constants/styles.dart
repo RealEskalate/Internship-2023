@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:matador/core/utils/constants/colors.dart';
 
+const Height = 81;
+
 // TEXT STYLES
 const primaryTextStyle = TextStyle(
   fontFamily: "Poppins",
@@ -50,7 +52,6 @@ const cardDateTextStyle = TextStyle(
     fontSize: 12,
     color: Color.fromARGB(125, 125, 125, 1));
 
-
 // SHADOW STYLES
 
 const searchBarShadowStyle = BoxShadow(
@@ -67,6 +68,7 @@ const homePageSecondShadowStyle = BoxShadow(
   color: Color.fromRGBO(0, 0, 0, 0.03),
   offset: Offset(4, 4),
   blurRadius: 8,
+);
 
 const WelcomeTextStyle = TextStyle(
   fontFamily: 'Urbanist',
@@ -83,12 +85,12 @@ const ProvideCredentialTextStyle = TextStyle(
 );
 
 const UsernameTextStyle = TextStyle(
-    fontFamily: 'Urbanist',
-    fontStyle: FontStyle.italic,
-    fontWeight: FontWeight.w100,
-    fontSize: (14 / 812) * Height,
-    height: (1.21 / 812) * Height // This corresponds to a line-height of 17px
-    );
+  fontFamily: 'Urbanist',
+  fontStyle: FontStyle.italic,
+  fontWeight: FontWeight.w100,
+  fontSize: (14 / 812) * Height,
+  height: (1.21 / 812) * Height, // This corresponds to a line-height of 17px
+);
 
 const PasswordText = TextStyle(
   fontFamily: 'Urbanist',
@@ -120,7 +122,7 @@ const loginBottomTextStyle = TextStyle(
   color: primaryColor,
 );
 
-const loginUpTextStyle = TextStyle(
+TextStyle loginUpTextStyle = TextStyle(
   fontFamily: 'Urbanist',
   fontWeight: FontWeight.bold,
   fontSize: (18 / 812) * Height,
