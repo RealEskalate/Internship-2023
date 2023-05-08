@@ -6,12 +6,12 @@ import {
 } from 'react-icons/ai'
 import { MdOutlineModeComment } from 'react-icons/md'
 
-interface Props {
+interface BlogFooterProps {
   card: Blog
   feature: string
 }
 
-const BlogFooter: React.FC<Props> = ({ card, feature }) => {
+const BlogFooter: React.FC<BlogFooterProps> = ({ card, feature }) => {
   const statusIcon = {
     approved: <AiFillCheckCircle size={18} />,
     declined: <AiFillWarning size={18} />,
