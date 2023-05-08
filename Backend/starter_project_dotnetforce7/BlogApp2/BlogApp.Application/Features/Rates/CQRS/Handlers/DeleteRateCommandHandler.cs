@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlogApp.Application.Features._Indecis.CQRS.Handlers
+namespace BlogApp.Application.Features.Rates.CQRS.Handlers
 {
     public class DeleteRateCommandHandler : IRequestHandler<DeleteRateCommand,Result<Unit>>
     {
@@ -42,7 +42,7 @@ namespace BlogApp.Application.Features._Indecis.CQRS.Handlers
                 }
                 else
                 {
-                    response.Success = true;
+                    response.Success = false;
                     response.Message = "Delete Failed";
                 }
             
