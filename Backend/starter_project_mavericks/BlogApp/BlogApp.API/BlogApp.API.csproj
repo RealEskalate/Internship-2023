@@ -18,11 +18,10 @@
   <ItemGroup>
     <ProjectReference Include="..\BlogApp.Application\BlogApp.Application.csproj" />
     <ProjectReference Include="..\BlogApp.Persistence\BlogApp.Persistence.csproj" />
-    <ProjectReference Include="..\Src\BlogApp.Identity\BlogApp.Identity.csproj" />
+    <ProjectReference Include="..\BlogApp.Identity\BlogApp.Identity.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Controllers\Contracts\Infrastructure\" />
   </ItemGroup>
-
 </Project>

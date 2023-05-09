@@ -20,7 +20,7 @@ namespace BlogApp.Persistence
             services.AddDbContext<UserIdentityDbContext>(opt =>
             opt.UseNpgsql(configuration.GetConnectionString("BlogAppConnectionString")));
 
-            
+            services.Configure<JwtSettings>(configuration.GetSection("JwtSettings"));
             services.AddIdentity<User, IdentityRole>()
                     .AddEntityFrameworkStores<UserIdentityDbContext>()
                     .AddDefaultTokenProviders();
@@ -32,7 +32,16 @@ namespace BlogApp.Persistence
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(options => {
                 options.TokenValidationParameters = new TokenValidationParameters
-                {};
+                {
+                    ValidateIssuerSigningKey = true,
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.Zero,
+                    ValidIssuer = configuration.GetValue<string>("JwtSettings:Issuer"),
+                    ValidAudience = configuration.GetValue<string>("JwtSettings:Audience"),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration.GetValue<string>("JwtSettings:Key")))
+                };
             });
 
             services.AddScoped<IAuthRepository, AuthRepository>();
