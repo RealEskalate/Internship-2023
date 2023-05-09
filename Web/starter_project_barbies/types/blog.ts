@@ -16,5 +16,5 @@ export type Blog = {
     blogImage: string;
     readTime: number;
     shortDescription: string;
-    // we can add other properties here as needed
+    relatedBlogs: string[];
   };

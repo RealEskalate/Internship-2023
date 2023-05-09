@@ -50,7 +50,7 @@ const BlogDetail = () => {
 
       {/* Related blogs */}
       <div className='flex items-center justify-center pb-20 font-light'>
-        <RelatedBlogs blog={blog} />
+        <RelatedBlogs blogs={blog.relatedBlogs} />
       </div>
 
     </div>

@@ -1,13 +1,18 @@
 import BlogCard from '@/components/blog/BlogCard';
-import { Blog } from "@/types/blog";
+import { useAppSelector } from "@/store/hooks";
+import { Blog } from '@/types/blog';
 
 interface RelatedBlogsProps {
-  blog: Blog
+  blogs: Blog['relatedBlogs']
 }
 
-export const RelatedBlogs: React.FC<RelatedBlogsProps> = ({ blog }) => {
+export const RelatedBlogs: React.FC<RelatedBlogsProps> = ({ blogs }) => {
   // Fetch related blogs
-  let relatedBlogs: Blog[] = new Array(3).fill(blog);
+  const relatedBlogs = useAppSelector((state) => {
+    return state.blogs.blogs.filter((blog) => {
+      return blogs.includes(blog.blogID)
+    })
+  })
 
   return (
     <div className='font-montserrat'>
@@ -19,7 +24,7 @@ export const RelatedBlogs: React.FC<RelatedBlogsProps> = ({ blog }) => {
 
       {/* Related blogs */}
       <div className='flex items-center gap-8 justify-center mt-6 text-xs'>
-        { relatedBlogs.map((blog) => (BlogCard({ blog }))) }
+        { relatedBlogs.map((blog, index) => <BlogCard blog={blog} key={index} />) }
       </div>
 
     </div>
