@@ -29,8 +29,7 @@ public class DeleteBlogCommandHandlerTest
 
               _handler = new DeleteBlogCommandHandler(_mockUnitOfWork.Object, _mapper);
        }
-       
-       
+ 
        [Fact]
        public async Task DeleteBlogValid()
        {

@@ -27,18 +27,28 @@ public class DeleteBlogCommandHandler: IRequestHandler<DeleteBlogCommand, Result
         
         var validator = new DeleteBlogDtoValidator(_unitOfWork);
         var validationResult = await validator.ValidateAsync(request.DeleteBlogDto);
-        await _unitOfWork.BlogRepository.Delete(await _unitOfWork.BlogRepository.Get(request.DeleteBlogDto.Id));
-    
-            
-            if (await _unitOfWork.Save() > 0 && validationResult.IsValid == true){
+       
+        if (validationResult.IsValid == true){
+            var blog = await _unitOfWork.BlogRepository.Get(request.DeleteBlogDto.Id);
+            await _unitOfWork.BlogRepository.Delete(blog);
+            if (await _unitOfWork.Save() > 0)
+            {
+                
                 response.Message = "Deletion Successful!";
                 response.Value = new Unit();
-            }else{
-
+            }
+            else
+            {
                 response.Success = false;
                 response.Message = "Deletion Failed";
                 response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
+            }
+        }else{
+            response.Success = false;
+            response.Message = "Deletion Failed";
+            response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
         }
+        
         return response;
     }
-    }
+}

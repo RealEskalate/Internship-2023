@@ -26,7 +26,7 @@ public class BlogRepository: IBlogRepository
     public async Task<Blog> Add(Blog blog)
     {
         await _context.Blogs.AddAsync(blog);
-        await _context.SaveChangesAsync();
+
         
         return blog;
     }
@@ -39,12 +39,11 @@ public class BlogRepository: IBlogRepository
     public async Task Update(Blog blog)
     {
         _context.Blogs.Update(blog);
-        await _context.SaveChangesAsync();
     }
     
     public async Task Delete(Blog blog)
     {
         _context.Blogs.Remove(blog);
-        await _context.SaveChangesAsync();
+        
     }
 }
