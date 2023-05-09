@@ -7,3 +7,8 @@ abstract class Failure extends Equatable {
   // TODO: implement props
   List<Object> get props => [];
 }
+
+class ServerFailure extends Failure {
+  final String message;
+  ServerFailure(this.message);
+}
