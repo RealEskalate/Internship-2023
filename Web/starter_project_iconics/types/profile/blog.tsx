@@ -8,5 +8,5 @@ export type Blog = {
   writter: User
   likes: number
   status: 'pending' | 'approved' | 'declined'
-  dateOfCreation: number
+  datePosted: string
 }

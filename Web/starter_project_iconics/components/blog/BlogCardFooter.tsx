@@ -1,4 +1,3 @@
-import { Blog } from '@/types/profile/blog'
 import {
   AiFillCheckCircle,
   AiFillClockCircle,
@@ -7,11 +6,16 @@ import {
 import { MdOutlineModeComment } from 'react-icons/md'
 
 interface BlogFooterProps {
-  card: Blog
-  feature: string
+  numberOfLikes: number
+  blogStatus: 'approved' | 'pending' | 'declined'
+  myBlog: boolean
 }
 
-const BlogFooter: React.FC<BlogFooterProps> = ({ card, feature }) => {
+const BlogFooter: React.FC<BlogFooterProps> = ({
+  numberOfLikes,
+  blogStatus,
+  myBlog,
+}) => {
   const statusIcon = {
     approved: <AiFillCheckCircle size={18} />,
     declined: <AiFillWarning size={18} />,
@@ -27,11 +31,11 @@ const BlogFooter: React.FC<BlogFooterProps> = ({ card, feature }) => {
     <div>
       <div className="card_footer flex justify-between items-center">
         {(() => {
-          if (feature === 'likes') {
+          if (!myBlog) {
             let val: string = ''
             for (const [value, abbreviation] of abbreviations) {
-              if (card.likes >= value) {
-                const roundedNum = (card.likes / value).toFixed(1)
+              if (numberOfLikes >= value) {
+                const roundedNum = (numberOfLikes / value).toFixed(1)
                 val = `${roundedNum}${abbreviation} likes`
               }
             }
@@ -39,14 +43,14 @@ const BlogFooter: React.FC<BlogFooterProps> = ({ card, feature }) => {
               <span className="flex items-center">
                 <span
                   className="card_writter_likes m-0 text-sm font-medium text-gray-500"
-                  data-likes={card.likes}
+                  data-likes={numberOfLikes}
                   style={{ display: 'inline-block', marginRight: '14px' }}
                 >
                   <MdOutlineModeComment size={15} />
                 </span>
                 <span
                   className="card_writter_likes m-0 text-sm font-medium text-gray-500"
-                  data-likes={card.likes}
+                  data-likes={numberOfLikes}
                   style={{ display: 'inline-block' }}
                 >
                   {val}
@@ -59,9 +63,9 @@ const BlogFooter: React.FC<BlogFooterProps> = ({ card, feature }) => {
                 {
                   <span
                     className={
-                      card.status === 'approved'
+                      blogStatus === 'approved'
                         ? 'text-green-600 '
-                        : card.status === 'declined'
+                        : blogStatus === 'declined'
                         ? 'text-red-600 '
                         : 'text-orange-500 '
                     }
@@ -70,20 +74,20 @@ const BlogFooter: React.FC<BlogFooterProps> = ({ card, feature }) => {
                       marginRight: '10px',
                     }}
                   >
-                    {statusIcon[card.status || 'pending']}
+                    {statusIcon[blogStatus || 'pending']}
                   </span>
                 }
                 <span
                   className={
-                    card.status === 'approved'
+                    blogStatus === 'approved'
                       ? 'text-green-600 text-sm'
-                      : card.status === 'declined'
+                      : blogStatus === 'declined'
                       ? 'text-red-600 text-sm'
                       : 'text-orange-500 text-sm'
                   }
                   style={{ display: 'inline-block' }}
                 >
-                  {card.status.toUpperCase()}
+                  {blogStatus.toUpperCase()}
                 </span>
               </span>
             )
