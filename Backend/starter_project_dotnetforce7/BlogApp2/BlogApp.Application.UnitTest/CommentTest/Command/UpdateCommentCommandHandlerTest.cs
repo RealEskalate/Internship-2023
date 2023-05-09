@@ -2,9 +2,9 @@ using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Features.Comments.CQRS.Commands;
 using BlogApp.Application.Features.Comments.DTOs;
-using BlogApp.Application.Features.Rates.CQRS.Commands;
-using BlogApp.Application.Features.Rates.CQRS.Handlers;
-using BlogApp.Application.Features.Rates.DTOs;
+using BlogApp.Application.Features.Comments.CQRS.Commands;
+using BlogApp.Application.Features.Comments.CQRS.Handlers;
+using BlogApp.Application.Features.Comments.DTOs;
 using BlogApp.Application.Profiles;
 using BlogApp.Application.Responses;
 using BlogApp.Application.UnitTest.Mocks;
@@ -17,7 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlogApp.Application.UnitTest.Ratetest.Command
+namespace BlogApp.Application.UnitTest.Commenttest.Command
 {
     public class UpdateCommentCommandHandlerTest
     {

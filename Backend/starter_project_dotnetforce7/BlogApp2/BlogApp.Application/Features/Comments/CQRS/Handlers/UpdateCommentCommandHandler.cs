@@ -3,8 +3,8 @@ using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Exceptions;
 using BlogApp.Application.Features.Comments.CQRS.Commands;
 using BlogApp.Application.Features.Comments.DTOs.Validators;
-using BlogApp.Application.Features.Rates.CQRS.Commands;
-using BlogApp.Application.Features.Rates.DTOs.Validators;
+using BlogApp.Application.Features.Comments.CQRS.Commands;
+using BlogApp.Application.Features.Comments.DTOs.Validators;
 using BlogApp.Application.Responses;
 using MediatR;
 using System;
@@ -13,7 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlogApp.Application.Features.Rates.CQRS.Handlers
+namespace BlogApp.Application.Features.Comments.CQRS.Handlers
 {
     public class UpdateCommentCommandHandler : IRequestHandler<UpdateCommentCommand, Result<Unit>>
     {

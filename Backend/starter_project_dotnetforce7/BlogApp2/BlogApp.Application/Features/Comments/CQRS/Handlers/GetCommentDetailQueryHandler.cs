@@ -1,8 +1,8 @@
 using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Features.Comments.DTOs;
-using BlogApp.Application.Features.Rates.CQRS.Queries;
-using BlogApp.Application.Features.Rates.DTOs;
+using BlogApp.Application.Features.Comments.CQRS.Queries;
+using BlogApp.Application.Features.Comments.DTOs;
 using BlogApp.Application.Responses;
 using BlogApp.Domain;
 using MediatR;
@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlogApp.Application.Features.Rates.CQRS.Handlers
+namespace BlogApp.Application.Features.Comments.CQRS.Handlers
 {
     public class GetCommentDetailQueryHandler : IRequestHandler<GetCommentDetailQuery,Result<CommentDto>>
     {

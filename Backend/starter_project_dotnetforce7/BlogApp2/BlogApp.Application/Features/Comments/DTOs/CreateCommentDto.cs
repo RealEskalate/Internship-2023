@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BlogApp.Application.Features.Comments.DTOs;
 
-namespace BlogApp.Application.Features.Rates.DTOs
+namespace BlogApp.Application.Features.Comments.DTOs
 {
     public class CreateCommentDto : ICommentDto
     {

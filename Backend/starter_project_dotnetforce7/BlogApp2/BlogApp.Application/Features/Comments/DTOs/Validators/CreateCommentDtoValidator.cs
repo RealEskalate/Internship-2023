@@ -1,5 +1,5 @@
 using BlogApp.Application.Features._Indices.DTOs;
-using BlogApp.Application.Features.Rates.DTOs;
+using BlogApp.Application.Features.Comments.DTOs;
 using FluentValidation;
 using System;
 using System.Collections.Generic;

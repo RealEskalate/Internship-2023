@@ -1,9 +1,9 @@
 using API.Controllers;
 using BlogApp.Application.Features.Comments.CQRS.Commands;
 using BlogApp.Application.Features.Comments.DTOs;
-using BlogApp.Application.Features.Rates.CQRS.Commands;
-using BlogApp.Application.Features.Rates.CQRS.Queries;
-using BlogApp.Application.Features.Rates.DTOs;
+using BlogApp.Application.Features.Comments.CQRS.Commands;
+using BlogApp.Application.Features.Comments.CQRS.Queries;
+using BlogApp.Application.Features.Comments.DTOs;
 using BlogApp.Domain;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -12,7 +12,7 @@ namespace BlogApp.API.Controllers
 {
     public class CommentController : BaseApiController
     {
-        [HttpGet] //api/rates
+        [HttpGet] //api/Comments
         public async Task<IActionResult> GetActivities()
         {
             return HandleResult(await Mediator.Send(new GetCommentListQuery()));

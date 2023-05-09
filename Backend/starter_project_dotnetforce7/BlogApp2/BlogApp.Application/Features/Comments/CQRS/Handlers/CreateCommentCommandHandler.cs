@@ -1,7 +1,7 @@
 using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
-using BlogApp.Application.Features.Rates.CQRS.Commands;
-using BlogApp.Application.Features.Rates.DTOs.Validators;
+using BlogApp.Application.Features.Comments.CQRS.Commands;
+using BlogApp.Application.Features.Comments.DTOs.Validators;
 using BlogApp.Application.Responses;
 using MediatR;
 using BlogApp.Domain;
@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BlogApp.Application.Features._Indices.DTOs.Validators;
 
-namespace BlogApp.Application.Features.Rates.CQRS.Handlers
+namespace BlogApp.Application.Features.Comments.CQRS.Handlers
 {
     public class CreateCommentCommandHandler : IRequestHandler<CreateCommentCommand, Result<int>>
     {
