@@ -14,7 +14,8 @@ namespace BlogApp.Application.Features.Comments.DTOs.Validators
         {
             
 
-            RuleFor(p => p.Id).NotNull().WithMessage("{PropertyName} must be present");
+            RuleFor(p => p.Commenter).NotNull().WithMessage("{PropertyName} must be present").NotEmpty().WithMessage("{PropertyName} must not be empty ");
+             RuleFor(p => p.Content).NotNull().WithMessage("{PropertyName} must be present").NotEmpty().WithMessage("{PropertyName} must not be empty ");;
         }
     }
 }

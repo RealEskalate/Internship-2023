@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Application.Features.Comments.CQRS.Handlers
 {
-    public class CreateCommentCommandHandler : IRequestHandler<CreateCommentCommand, BaseCommandResponse>
+    public class CreateCommentCommandHandler : IRequestHandler<CreateCommentCommand, BaseResponse<Nullable<int>>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -24,7 +24,7 @@ namespace BlogApp.Application.Features.Comments.CQRS.Handlers
             _mapper = mapper;
         }
 
-        public async Task<BaseCommandResponse> Handle(CreateCommentCommand request, CancellationToken cancellationToken)
+        public async Task<BaseResponse<Nullable<int>>> Handle(CreateCommentCommand request, CancellationToken cancellationToken)
         {
             var response = new BaseCommandResponse();
             var validator = new CreateCommentDtoValidator();
@@ -32,23 +32,41 @@ namespace BlogApp.Application.Features.Comments.CQRS.Handlers
 
             if (validationResult.IsValid == false)
             {
-                response.Success = false;
-                response.Message = "Creation Failed";
-                response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
+                return new BaseResponse<Nullable<int>>
+                {
+                    Success = false,
+                    Message = "Comment Creation Failed",
+                    Errors = validationResult.Errors.Select(error => error.ErrorMessage).ToList()
+                };
+
             }
             else
             {
-                var Comment = _mapper.Map<Comment>(request.CommentDto);
+                var comment = _mapper.Map<Comment>(request.CommentDto);
 
-                Comment = await _unitOfWork.CommentRepository.Add(Comment);
-                await _unitOfWork.Save();
+                comment = await _unitOfWork.CommentRepository.Add(comment);
+                bool successful = await _unitOfWork.Save() > 0;
 
-                response.Success = true;
-                response.Message = "Creation Successful";
-                response.Id = Comment.Id;
+                if (!successful)
+                {
+                    return new BaseResponse<Nullable<int>>
+                    {
+                        Success = false,
+                        Message = "Comment Creation Failed",
+                        Errors = new List<string>() { "Failed to save to database" }
+                    };
+                }
+                return new BaseResponse<Nullable<int>>
+                {
+                    Success = true,
+                    Message = "Comment Creation Success",
+                    Data = comment.Id
+                };
+
+
             }
 
-            return response;
+
         }
     }
 }

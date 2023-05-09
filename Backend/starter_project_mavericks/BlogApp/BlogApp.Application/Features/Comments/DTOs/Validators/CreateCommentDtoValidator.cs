@@ -13,6 +13,10 @@ namespace BlogApp.Application.Features.Comments.DTOs.Validators
         public CreateCommentDtoValidator()
         {
             Include(new ICommentDtoValidator());
+              RuleFor(p => p.Commenter).NotNull().WithMessage("{PropertyName} must be present").NotEmpty().WithMessage("{PropertyName} must not be empty ");
+             RuleFor(p => p.Content).NotNull().WithMessage("{PropertyName} must be present").NotEmpty().WithMessage("{PropertyName} must not be empty ");
+               RuleFor(p => p.BlogId).NotNull().WithMessage("{PropertyName} must be present").NotEmpty().WithMessage("{PropertyName} must not be empty ");
+             
         }
     }
 

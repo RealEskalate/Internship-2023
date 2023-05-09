@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Application.Features.Comments.CQRS.Commands
 {
-    public class CreateCommentCommand: IRequest<BaseCommandResponse>
+    public class CreateCommentCommand:  IRequest<BaseResponse<Nullable<int>>>
     {
         public CreateCommentDto CommentDto { get; set; }
     }

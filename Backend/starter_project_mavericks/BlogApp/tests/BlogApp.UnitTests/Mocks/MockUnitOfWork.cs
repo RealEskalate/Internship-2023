@@ -14,9 +14,11 @@ public class MockUnitOfWork
         var mockUow = new Mock<IUnitOfWork>();
         var mockRatingRepository = MockRatingRepository.GetRatingRepository();
         var mockBlogRepository = MockBlogRepository.GetBlogRepository();
+        var mockCommentRepository = MockCommentRepository.GetCommentRepository();
 
         mockUow.Setup(r => r.RatingRepository).Returns(mockRatingRepository.Object);
         mockUow.Setup(uow => uow.BlogRepository).Returns(mockBlogRepository.Object);
+        mockUow.Setup(c=>c.CommentRepository).Returns(mockCommentRepository.Object);
         mockUow.Setup(r => r.Save()).ReturnsAsync(1);
 
         return mockUow;

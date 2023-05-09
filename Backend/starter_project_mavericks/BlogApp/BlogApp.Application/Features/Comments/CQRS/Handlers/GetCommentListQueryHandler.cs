@@ -8,10 +8,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BlogApp.Application.Responses;
 
 namespace BlogApp.Application.Features.Comments.CQRS.Handlers
 {
-    public class GetCommentListQueryHandler : IRequestHandler<GetCommentListQuery, List<CommentDto>>
+    public class GetCommentListQueryHandler : IRequestHandler<GetCommentListQuery, BaseResponse<List<CommentDto>>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -22,11 +23,15 @@ namespace BlogApp.Application.Features.Comments.CQRS.Handlers
             _mapper = mapper;
         }
 
-        public async Task<List<CommentDto>> Handle(GetCommentListQuery request, CancellationToken cancellationToken)
+        public async Task<BaseResponse<List<CommentDto>>> Handle(GetCommentListQuery request, CancellationToken cancellationToken)
         {
             var comments = await _unitOfWork.CommentRepository.GetAll();
           
-            return _mapper.Map<List<CommentDto>>(comments);
+            var listOfComments = _mapper.Map<List<CommentDto>>(comments);
+            return new BaseResponse<List<CommentDto>>(){
+                Success = true,
+                Data = listOfComments
+            };
         }
     }
 }

@@ -1,3 +1,4 @@
+using BlogApp.Application.Responses;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Application.Features.Comments.CQRS.Commands
 {
-    public class DeleteCommentCommand : IRequest
+    public class DeleteCommentCommand : IRequest<BaseResponse<Unit>>
     {
         public int Id { get; set; }
     }

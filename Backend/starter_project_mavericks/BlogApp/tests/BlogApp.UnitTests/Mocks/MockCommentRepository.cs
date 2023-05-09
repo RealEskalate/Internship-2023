@@ -7,7 +7,7 @@ namespace BlogApp.UnitTests.Mocks;
 
 public class MockCommentRepository
 {
-    public static Mock<ICommentRepository> GetRatingRepository()
+    public static Mock<ICommentRepository> GetCommentRepository()
     {
         var comments = new List<Comment>
             {
@@ -50,11 +50,7 @@ public class MockCommentRepository
             c.Content = comment.Content;
         });
 
-        mockRepo.Setup(c => c.GetByBlog(It.IsAny<string>())).Returns((string blogId) =>
-        {
-            return comments
-                .Where(q => q.BlogId == blogId).ToList();
-        });
+       
 
         
         return mockRepo;
