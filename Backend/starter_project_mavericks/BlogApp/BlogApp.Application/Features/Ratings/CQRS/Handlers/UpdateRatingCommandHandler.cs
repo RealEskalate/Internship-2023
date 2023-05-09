@@ -68,6 +68,7 @@ public class UpdateRatingCommandHandler : IRequestHandler<UpdateRatingCommand, B
                 Success = false,
                 Message = "ServerErrorException",
             };
+            return response;
         }
         
         var ratings = _unitOfWork.RatingRepository.GetByBlog(existingRating.BlogId);
