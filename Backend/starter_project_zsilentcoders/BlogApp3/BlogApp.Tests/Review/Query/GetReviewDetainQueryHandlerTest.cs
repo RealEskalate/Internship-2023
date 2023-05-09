@@ -41,7 +41,7 @@ namespace BlogApp.Tests.Review.Query
         public async Task GetReviewDetailValid()
         {
             var result = await _handler.Handle(new GetReviewDetailQuery() { Id = 1 }, CancellationToken.None);
-            result.ShouldNotBe(null);
+            result.Success.ShouldBeTrue();
         }
 
         [Fact]
@@ -49,8 +49,8 @@ namespace BlogApp.Tests.Review.Query
         {
             //NotFoundException ex = await Should.ThrowAsync<NotFoundException>(async () =>
             //{
-            var cur = await _handler.Handle(new GetReviewDetailQuery() { Id = 10 }, CancellationToken.None);
-            cur.ShouldBeNull();
+            var result = await _handler.Handle(new GetReviewDetailQuery() { Id = 10 }, CancellationToken.None);
+            result.Success.ShouldBeFalse();
             //});
         }
     }

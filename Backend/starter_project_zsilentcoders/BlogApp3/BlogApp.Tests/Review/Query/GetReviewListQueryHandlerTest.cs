@@ -38,14 +38,14 @@ namespace BlogApp.Tests.Review.Query
         public async Task GetReviewListValid()
         {
             var result = await _handler.Handle(new GetReviewListQuery() { ReviewerId = 1 }, CancellationToken.None);
-            result.ShouldNotBe(null);
+            result.Success.ShouldBeTrue();
         }
 
         [Fact]
         public async Task GetReviewListInvalid()
         {
             var result = await _handler.Handle(new GetReviewListQuery() { ReviewerId = 100 }, CancellationToken.None);
-            result.ShouldBe(null);
+            result.Success.ShouldBeFalse();
         }
     }
 }
