@@ -3,7 +3,6 @@ using BlogApp.Application.Features.Authentication.CQRS.Commands;
 using BlogApp.Application.Features.Authentication.DTO;
 using BlogApp.Application.Responses;
 using BlogApp.Application.Features.Authentication.DTO.Validators;
-
 using MediatR;
 using System;
 using System.Collections.Generic;

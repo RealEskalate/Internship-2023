@@ -13,7 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogApp.Persistence", "Blog
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogApp.API", "BlogApp.API\BlogApp.API.csproj", "{50CFF789-9EED-4657-B5B6-CF75A46D394C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogApp.Identity", "BlogApp.Identity\BlogApp.Identity.csproj", "{1A9B2D47-ED53-4371-AD7B-90674F2FCC0F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{549D8514-41C0-4AA3-97D1-655DDE827926}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogApp.UnitTests", "tests\BlogApp.UnitTests\BlogApp.UnitTests.csproj", "{ABA54207-878B-427D-A0BE-FBE5E282F8A4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogApp.Identity", "BlogApp.Identity\BlogApp.Identity.csproj", "{1A9B2D47-ED53-4371-AD7B-90674F2FCC0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
