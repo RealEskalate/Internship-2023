@@ -28,7 +28,7 @@ namespace BlogApp.Application.Features.Rates.CQRS.Handlers
         {
             var response = new Result<Unit>();
 
-            var validator = new UpdateRateDtoValidator();
+            var validator = new UpdateRateDtoValidator(_unitOfWork);
             var validationResult = await validator.ValidateAsync(request.RateDto);
 
             if (validationResult.IsValid == false)
