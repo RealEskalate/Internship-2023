@@ -1,4 +1,4 @@
-import 'package:dark_knights/core/utils/colors.dart';
+import '../../../../core/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class ArticleImage extends StatelessWidget {

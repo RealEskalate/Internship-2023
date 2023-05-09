@@ -1,4 +1,4 @@
-import 'package:dark_knights/features/Authentication/presentation/screen/login_page.dart';
+import '../../features/Authentication/presentation/screen/login_page.dart';
 import 'package:flutter/material.dart';
 
 import 'colors.dart';

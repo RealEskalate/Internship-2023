@@ -1,8 +1,6 @@
 // The purpose of this widget is to create the four grid images
 // located at the top of the onboarding screen
 
-import 'dart:ffi';
-
 import 'package:dark_knights/core/utils/colors.dart';
 import 'package:dark_knights/features/onboarding/presentation/widgets/onboarding/clipped_image.dart';
 import 'package:flutter/material.dart';

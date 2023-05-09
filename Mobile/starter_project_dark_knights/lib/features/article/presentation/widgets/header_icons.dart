@@ -1,5 +1,5 @@
-import 'package:dark_knights/core/utils/colors.dart';
-import 'package:dark_knights/core/utils/converter.dart';
+import '../../../../core/utils/colors.dart';
+import '../../../../core/utils/converter.dart';
 import 'package:flutter/material.dart';
 
 class HeaderIconButtons extends StatelessWidget {
