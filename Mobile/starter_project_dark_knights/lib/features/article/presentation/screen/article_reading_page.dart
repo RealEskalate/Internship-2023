@@ -1,8 +1,9 @@
-import 'package:dark_knights/features/article%20reading/presentation/widgets/Article_Like_Button.dart';
-import 'package:dark_knights/features/article%20reading/presentation/widgets/Article_Post.dart';
-import 'package:dark_knights/features/article%20reading/presentation/widgets/Header.dart';
-import 'package:dark_knights/features/article%20reading/presentation/widgets/Header_Icons.dart';
 import 'package:flutter/material.dart';
+
+import '../widgets/article_like_button.dart';
+import '../widgets/article_post.dart';
+import '../widgets/header.dart';
+import '../widgets/header_icons.dart';
 
 class ArticleReadingPage extends StatefulWidget {
   const ArticleReadingPage({super.key});

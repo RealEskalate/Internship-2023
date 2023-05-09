@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../../core/utils/colors.dart';
 
 class AddTitleAndSubtitle extends StatelessWidget {
