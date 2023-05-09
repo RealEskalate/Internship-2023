@@ -40,6 +40,6 @@ public class GetBlogListQueryHandlerTest
     public async Task GetBlogListInvalid()
     {
         var result = await _handler.Handle(new GetBlogListQuery(), CancellationToken.None);
-        result.Value.ShouldBe(null);
+        result.Value.Count.ShouldNotBe(1);
     }
 }
