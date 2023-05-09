@@ -1,16 +1,14 @@
 import { Blog } from '@/types/profile/blog'
 import React from 'react'
-import BlogCard from '../blog/BlogCard'
+import BlogCard from '@/components/blog/BlogCard'
+import blogs from '@/data/profile/blogs.json'
 
-type MyblogsProps = {
-  cards: Blog[]
-}
-
-const MyBlogs: React.FC<MyblogsProps> = ({ cards }) => {
+const MyBlogs: React.FC = () => {
+  const blogsArray: Blog[] = JSON.parse(JSON.stringify(blogs))
   return (
     <div className="flex mt-3 justify-between flex-wrap items-center">
-      {cards?.map((card, index) => {
-        return <BlogCard card={card} key={index} feature="status" />
+      {blogsArray?.map((blog, index) => {
+        return <BlogCard blog={blog} key={index} isMyBlogsPage={true} />
       })}
     </div>
   )
