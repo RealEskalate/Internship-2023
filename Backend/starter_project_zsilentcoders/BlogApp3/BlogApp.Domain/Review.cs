@@ -9,7 +9,7 @@ namespace BlogApp.Domain
     public class Review: BaseDomainEntity
     {
         public int ReviewerId { get; set; }
-        public String Comment { get; set; }
+        public string Comment { get; set; } = "";
         public int BlogId { get; set; }
         public bool? IsResolved { get; set; } = false;
     }
