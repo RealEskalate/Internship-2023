@@ -33,19 +33,12 @@ namespace BlogApp.Application.Features.Review.CQRS.Handlers
             
             if (request.reviewIsApprovedDto != null)
             {
-                var validator = new UpdateIsResolvedValidator();
+                var validator = new UpdateIsResolvedValidator(_unitOfWork);
                 var validationResult = await validator.ValidateAsync(request.reviewIsApprovedDto);
 
                 if (validationResult.IsValid == true)
                 {
                     var review = await _unitOfWork.ReviewRepository.Get(request.reviewIsApprovedDto.Id);
-                    if (review is null)
-                    {
-                        response.Success = false;
-                        response.Message = "Updation Failed";
-                        response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
-                        return response;
-                    }
                     await _unitOfWork.ReviewRepository.ChangeApprovalStatus(review, request.reviewIsApprovedDto.IsApproved);
                     if (await _unitOfWork.Save() > 0)
                     {
@@ -70,7 +63,7 @@ namespace BlogApp.Application.Features.Review.CQRS.Handlers
             }
             else
             {
-                var validator = new UpdateReviewValidator();
+                var validator = new UpdateReviewValidator(_unitOfWork);
                 var validationResult = await validator.ValidateAsync(request.reviewDto);
                
 
