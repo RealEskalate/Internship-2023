@@ -68,7 +68,7 @@ namespace BlogApp.Application.Features.Review.CQRS.Handlers
 
                 
             }
-            else if (request.reviewDto != null)
+            else
             {
                 var validator = new UpdateReviewValidator();
                 var validationResult = await validator.ValidateAsync(request.reviewDto);
