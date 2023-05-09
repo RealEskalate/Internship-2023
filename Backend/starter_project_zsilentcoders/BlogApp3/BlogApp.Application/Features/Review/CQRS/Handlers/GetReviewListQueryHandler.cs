@@ -7,11 +7,12 @@ using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Exceptions;
 using BlogApp.Application.Features.Review.CQRS.Queries;
 using BlogApp.Application.Features.Review.DTOs;
+using BlogApp.Application.Responses;
 using MediatR;
 
 namespace BlogApp.Application.Features.Review.CQRS.Handlers
 {
-    public class GetReviewListQueryHandler : IRequestHandler<GetReviewListQuery, List<ReviewDto>>
+    public class GetReviewListQueryHandler : IRequestHandler<GetReviewListQuery, Result<List<ReviewDto>>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -22,13 +23,22 @@ namespace BlogApp.Application.Features.Review.CQRS.Handlers
             _mapper = mapper;
         }
 
-        public async Task<List<ReviewDto>> Handle(GetReviewListQuery request, CancellationToken cancellationToken)
+        public async Task<Result<List<ReviewDto>>> Handle(GetReviewListQuery request, CancellationToken cancellationToken)
         {
             var review = await _unitOfWork.ReviewRepository.GetAllByReviewerId(request.ReviewerId);
-
-            if (review == null || review.Count==0)
-                throw new NotFoundException(nameof(review), request.ReviewerId);
-            return _mapper.Map<List<ReviewDto>>(review);
+            var response = new Result<List<ReviewDto>>();
+            if (review == null || review.Count == 0)
+            {
+                response.Success = false;
+                response.Message = "Creation Failed";
+            }
+            else
+            {
+                response.Success = true;
+                response.Message = "Creation Successful";
+                response.Value = _mapper.Map<List<ReviewDto>>(review);
+            }
+            return response;
         }
     }
 }

@@ -15,7 +15,7 @@ using MediatR;
 
 namespace BlogApp.Application.Features.Review.CQRS.Handlers
 {
-    public class CreateReviewCommandHandler : IRequestHandler<CreateReviewCommand, BaseCommandResponse>
+    public class CreateReviewCommandHandler : IRequestHandler<CreateReviewCommand, Result<ReviewDto?>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -26,26 +26,36 @@ namespace BlogApp.Application.Features.Review.CQRS.Handlers
             _mapper = mapper;
         }
 
-        public async Task<BaseCommandResponse> Handle(CreateReviewCommand request, CancellationToken cancellationToken)
+        public async Task<Result<ReviewDto?>> Handle(CreateReviewCommand request, CancellationToken cancellationToken)
         {
-            var response = new BaseCommandResponse();
+            var response = new Result<ReviewDto?>();
 
             var validator = new CreateReviewValidator();
             var validationResult = await validator.ValidateAsync(request.reviewDto);
 
-            if (validationResult.IsValid == false)
-                throw new ValidationException(validationResult);
-             else
-                {
+            if (validationResult.IsValid == true)
+            {
                 var review = _mapper.Map<_Review>(request.reviewDto);
                 review = await _unitOfWork.ReviewRepository.Add(review);
-                await _unitOfWork.Save();
-                response.Success = true;
-                response.Message = "Creation Successful";
-                response.Id = review.Id;
 
-                // here I will send the email to requist review.ReviewId
-
+                if (await _unitOfWork.Save() > 0)
+                {
+                    response.Success = true;
+                    response.Message = "Creation Successful";
+                    response.Value = _mapper.Map<ReviewDto>(review);
+                }
+                else
+                {
+                    response.Success = false;
+                    response.Message = "Creation Failed";
+                    response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
+                }
+            }
+            else
+            {
+                response.Success = false;
+                response.Message = "Creation Failed";
+                response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
             }
             return response;
         }

@@ -47,10 +47,11 @@ namespace BlogApp.Tests.Review.Query
         [Fact]
         public async Task GetReviewDetailInvalid()
         {
-            NotFoundException ex = await Should.ThrowAsync<NotFoundException>(async () =>
-            {
-                await _handler.Handle(new GetReviewDetailQuery() { Id = 10 }, CancellationToken.None);
-            });
+            //NotFoundException ex = await Should.ThrowAsync<NotFoundException>(async () =>
+            //{
+            var cur = await _handler.Handle(new GetReviewDetailQuery() { Id = 10 }, CancellationToken.None);
+            cur.ShouldBeNull();
+            //});
         }
     }
 }

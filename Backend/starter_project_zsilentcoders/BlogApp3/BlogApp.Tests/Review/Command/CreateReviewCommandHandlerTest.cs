@@ -62,7 +62,7 @@ namespace BlogApp.Tests.Review.Command
             review.Comment.Equals("With id 5");
 
             // return type should be reviewDt
-            result.ShouldNotBeOfType<ReviewDto>();
+            result.ShouldBeOfType<Result<ReviewDto>>();
 
             // the count should be 3 because there are 2 that are already added
             var reviews = await _mockUnitOfWork.Object.ReviewRepository.GetAll();
@@ -80,11 +80,8 @@ namespace BlogApp.Tests.Review.Command
                 ReviewerId = 1,
             };
 
-            // should throw validation exception
-            ValidationException ex = await Should.ThrowAsync<ValidationException>(async () =>
-            {
-                await _handler.Handle(new CreateReviewCommand() { reviewDto = createReviewDto }, CancellationToken.None);
-            });
+            var response = await _handler.Handle(new CreateReviewCommand() { reviewDto = createReviewDto }, CancellationToken.None);
+            // response.Value();
             // review should be false because Blog Id should not be null
             var review = await _mockUnitOfWork.Object.ReviewRepository.Exists(10);
             review.ShouldBe(false);

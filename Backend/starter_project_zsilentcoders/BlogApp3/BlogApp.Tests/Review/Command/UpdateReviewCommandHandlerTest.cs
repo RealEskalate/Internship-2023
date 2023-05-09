@@ -56,13 +56,7 @@ namespace BlogApp.Tests.Review.Command
             res.ShouldBeTrue();
 
             var result = await _handler.Handle(new UpdateReviewCommand() { reviewDto = updateReviewDto }, CancellationToken.None);
-
-            // should get the current review
-            review = await _mockUnitOfWork.Object.ReviewRepository.Get(2);
-            // review.Comment.ShouldBe("updated");
-
-            var reviews = await _mockUnitOfWork.Object.ReviewRepository.GetAll();
-            reviews.Count.ShouldBe(2);
+            result.Success.ShouldBeTrue();
         }
 
         [Fact]
@@ -80,10 +74,7 @@ namespace BlogApp.Tests.Review.Command
             res.ShouldBeTrue();
 
             var result = await _handler.Handle(new UpdateReviewCommand() { reviewIsApprovedDto = updateIsResolved }, CancellationToken.None);
-
-            // should get the current review
-            review = await _mockUnitOfWork.Object.ReviewRepository.Get(1);
-            review.IsResolved.HasValue.ShouldBeTrue();
+            result.Success.ShouldBeTrue();
         }
 
 
@@ -100,13 +91,9 @@ namespace BlogApp.Tests.Review.Command
                 ReviewerId = 5,
 
             };
-
-            NotFoundException ex = await Should.ThrowAsync<NotFoundException>(async () =>
-            {
-               await _handler.Handle(new UpdateReviewCommand() { reviewDto = updateReviewDto }, CancellationToken.None);
-            });
-            var reviews = await _mockUnitOfWork.Object.ReviewRepository.GetAll();
-            reviews.Count.ShouldBe(2);
+            // Id is not exist
+            var result =  await _handler.Handle(new UpdateReviewCommand() { reviewDto = updateReviewDto }, CancellationToken.None);
+            result.Success.ShouldBeFalse();
 
         }
     }

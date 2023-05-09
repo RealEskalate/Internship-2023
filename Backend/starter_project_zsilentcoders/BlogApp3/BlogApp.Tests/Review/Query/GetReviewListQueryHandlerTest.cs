@@ -44,10 +44,8 @@ namespace BlogApp.Tests.Review.Query
         [Fact]
         public async Task GetReviewListInvalid()
         {
-            NotFoundException ex = await Should.ThrowAsync<NotFoundException>(async () =>
-            {
-               await _handler.Handle(new GetReviewListQuery () { ReviewerId = 100 }, CancellationToken.None);
-            });
+            var result = await _handler.Handle(new GetReviewListQuery() { ReviewerId = 100 }, CancellationToken.None);
+            result.ShouldBe(null);
         }
     }
 }

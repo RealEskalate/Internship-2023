@@ -8,7 +8,7 @@ using MediatR;
 
 namespace BlogApp.Application.Features.Review.CQRS.Command
 {
-    public class CreateReviewCommand: IRequest<BaseCommandResponse>
+    public class CreateReviewCommand: IRequest<Result<ReviewDto?>>
     {
         public ReviewDto reviewDto { get; set; }
     }
