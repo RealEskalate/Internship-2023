@@ -1,4 +1,4 @@
-import impactStories from '@/data/home/impact-story'
+import impactStories from '@/data/home/impact-story.json'
 import React, { useState } from 'react'
 import ImpactImage from './ImpactImage'
 
