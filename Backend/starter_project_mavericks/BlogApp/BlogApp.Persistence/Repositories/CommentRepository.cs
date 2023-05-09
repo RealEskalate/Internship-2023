@@ -16,5 +16,12 @@ namespace BlogApp.Persistence.Repositories
         {
             _dbContext = dbContext;
         }
+        public IReadOnlyList<Comment> GetByBlog(string blogId)
+    {
+        var comments = _dbContext.Comments
+            .Where(q => q.BlogId == blogId).ToList();
+
+        return comments;
+    }
     }
 }

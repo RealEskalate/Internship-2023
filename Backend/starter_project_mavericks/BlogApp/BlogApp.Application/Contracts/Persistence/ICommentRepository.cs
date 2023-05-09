@@ -9,5 +9,6 @@ namespace BlogApp.Application.Contracts.Persistence
 {
     public interface ICommentRepository : IGenericRepository<Comment>
     {
+          IReadOnlyList<Comment> GetByBlog(string blogId);
     }
 }
