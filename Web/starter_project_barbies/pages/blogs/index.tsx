@@ -1,29 +1,11 @@
 import { BlogsList } from "@/components/blog/BlogsList";
 import { Pagination } from "@/components/common/Pagination";
 import { SearchForm } from "@/components/common/SearchForm";
-import React, { useEffect, useState } from "react";
-import { Blog } from "@/types/blog";
-
-const fetchBlogs = async (): Promise<Blog[]> => {
-  const result = await fetch("/data/blogs.json");
-  const data = await result.json();
-  return data;
-}
+import { selectAllBlogs } from "@/slices/blogs/blogsSlice";
+import { useAppSelector } from "@/store/hooks";
 
 const Blogs = () => {
-  const [blogs, setBlogs] = useState<Blog[]>([])
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const blogs = await fetchBlogs();
-      setBlogs(blogs)
-    };
-
-    fetchData()
-
-  }, []);
-
-  console.log(blogs)
+  const blogs = useAppSelector(selectAllBlogs)
 
   return (
     <div className='bg-white text-primary-text font-montserrat'>

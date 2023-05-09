@@ -1,35 +1,16 @@
-import { Blog } from '@/types/blog'
 import Image from 'next/image'
 import { RelatedBlogs } from '../../components/blog/RelatedBlogs'
 import { BlogAuthorDetail } from '@/components/blog/BlogAuthorDetail'
 import { BlogContent } from '@/components/blog/BlogContent'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
-
-const fetchBlogs = async (): Promise<Blog[]> => {
-  const result = await fetch("/data/blogs.json");
-  const data = await result.json();
-  return data;
-}
+import { useAppSelector } from "@/store/hooks";
+import { selectBlogByID } from '@/slices/blogs/blogsSlice'
 
 const BlogDetail = () => {
-  const [blogs, setBlogs] = useState<Blog[]>([]);
-
   const router = useRouter()
-  const blogID = router.query.id
+  const blogID = router.query.id as string
 
-  // Fetch blogs
-  useEffect(() => {
-    const fetchData = async () => {
-      const blogs = await fetchBlogs();
-      setBlogs(blogs)
-    };
-
-    fetchData()
-
-  }, []);
-
-  const blog = blogs.find((blog) => blog.blogID == blogID)
+  const blog = useAppSelector(selectBlogByID(blogID))
 
   if (!blog) {
     return <div>Blog not found</div>
