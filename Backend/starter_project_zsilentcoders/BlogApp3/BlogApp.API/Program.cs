@@ -49,8 +49,6 @@ void AddSwaggerDoc(IServiceCollection services)
 {
     services.AddSwaggerGen(c =>
     {
-
-
         c.SwaggerDoc("v1", new OpenApiInfo
         {
             Version = "v1",
