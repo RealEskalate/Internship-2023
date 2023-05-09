@@ -42,7 +42,7 @@ class MockUserRepository extends _i1.Mock implements _i3.UserRepository {
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, _i6.User>> getUserById(int? id) =>
+  _i4.Future<_i2.Either<_i5.Failure, _i6.User>> getUserById(String? id) =>
       (super.noSuchMethod(
         Invocation.method(
           #getUserById,

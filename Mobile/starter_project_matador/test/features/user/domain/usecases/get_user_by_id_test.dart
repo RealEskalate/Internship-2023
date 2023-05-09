@@ -5,6 +5,7 @@ import 'package:matador/features/user/domain/repositories/user_repository.dart';
 import 'package:matador/features/user/domain/usecases/get_user_by_id.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+
 import 'get_user_by_id_test.mocks.dart';
 
 @GenerateMocks([UserRepository])
@@ -19,7 +20,7 @@ void main() {
     usecase = GetUserById(mockUserRepository);
   });
 
-  final tId = 1;
+  final tId = "1";
   final tUser = User(
       id: tId,
       userName: "test",
@@ -30,7 +31,7 @@ void main() {
     when(mockUserRepository!.getUserById(tId))
         .thenAnswer((realInvocation) async => Right(tUser));
 
-    final result = await usecase!(Params(id: tId));
+    final result = await usecase!(tId);
     // UseCase should simply return whatever was returned from the Repository
     expect(result, Right(tUser));
     // Verify that the method has been called on the Repository

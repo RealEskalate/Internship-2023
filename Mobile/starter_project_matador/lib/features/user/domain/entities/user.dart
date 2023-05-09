@@ -1,7 +1,7 @@
 import "package:equatable/equatable.dart";
 
 class User extends Equatable {
-  final int id;
+  final String id;
   final String userName;
   final String email;
   final String fullName;
