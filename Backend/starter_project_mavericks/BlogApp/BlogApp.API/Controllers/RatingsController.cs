@@ -35,3 +35,4 @@ public class RatingsController : BaseApiController
         return getResponse<BaseResponse<Nullable<int>>>(status, response);
     }
 }
+**/

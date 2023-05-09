@@ -15,5 +15,4 @@ namespace BlogApp.Application.Features._Indices.DTOs.Validators
             Include(new I_IndexDtoValidator());
         }
     }
-
 }
