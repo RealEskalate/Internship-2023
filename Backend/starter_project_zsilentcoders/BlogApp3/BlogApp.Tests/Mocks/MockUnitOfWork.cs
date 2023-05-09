@@ -21,8 +21,8 @@ namespace BlogApp.Application.Tests.Mocks
             mockUow.Setup(r => r.TagRepository).Returns(mockTagRepo.Object);
             var mockReviewRepo = MockReviewRepository.GetReviewRepository();
             mockUow.Setup(r => r.BlogRepository).Returns(mockBlogRepo.Object);
-            mockUow.Setup(r=>r.ReviewRepository).Returns(mockReviewRepo.Object);
             mockUow.Setup(r => r.Save()).ReturnsAsync(1);
+            mockUow.Setup(r=>r.ReviewRepository).Returns(mockReviewRepo.Object);
             return mockUow;
         }
     }
