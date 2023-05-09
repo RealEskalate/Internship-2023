@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using BlogApp.Application.Features._Indices.DTOs;
 using BlogApp.Application.Features.Users.DTOs;
 using BlogApp.Application.Models.Identity;
 using BlogApp.Domain;
