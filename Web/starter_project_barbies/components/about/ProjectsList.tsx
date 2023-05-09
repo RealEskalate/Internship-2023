@@ -1,16 +1,16 @@
-import { projects } from '@/data/about'
 import { Project } from '@/types/about'
 import Image from 'next/image'
 import { IconContext } from 'react-icons'
 import { FiGithub } from 'react-icons/fi'
 import { IoMdOpen } from 'react-icons/io'
+import projects from '../../data/about/projects.json'
 
 interface ProjectCardProps {
   project: Project
   reverseFlex: boolean
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project, reverseFlex }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ project:{image, name, description}, reverseFlex }) => {
   return (
     <div
       className={`flex flex-wrap justify-around ${
@@ -19,7 +19,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, reverseFlex }) => {
     >
       <Image
         className="flex-initial"
-        src={`/img/about/projects/${project.image}`}
+        src={`/img/about/projects/${image}`}
         style={{width:'auto', height:'auto'}}
         width={700}
         height={200}
@@ -30,9 +30,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, reverseFlex }) => {
       >
         <div className="text-primary">Social Project</div>
         <div className="text-primary font-bold text-3xl mt-2 mb-5">
-          {project.project}
+          {name}
         </div>
-        <div className="lg:max-w-sm text-gray-600">{project.description}</div>
+        <div className="lg:max-w-sm text-gray-600">{description}</div>
         <div
           className={`flex gap-5 mt-5 ${
             !reverseFlex ? 'lg:justify-end' : 'lg:justify-start'
@@ -50,7 +50,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, reverseFlex }) => {
   )
 }
 
-const ProjectsList = () => {
+const ProjectsList:React.FC = () => {
   return (
     <div>
       <div className="font-bold lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl text-center mx-auto mb-12">

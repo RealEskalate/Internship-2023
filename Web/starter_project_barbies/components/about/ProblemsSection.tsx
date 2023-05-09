@@ -1,29 +1,23 @@
-import { problemItemList, solutionItemList } from '@/data/about'
+import problemItemList from '../../data/about/problem-items.json'
+import solutionItemList from '../../data/about/solution-items.json'
+
 import { ProblemItem } from '@/types/about'
 import Image from 'next/image'
-import { IconContext } from 'react-icons'
 
 interface ProblemItemCardProps {
   Item: ProblemItem
 }
 
-const ProblemItemCard: React.FC<ProblemItemCardProps> = ({ Item }) => {
+const ProblemItemCard: React.FC<ProblemItemCardProps> = ({ Item:{icon, description} }) => {
   return (
     <div className="p-3">
-      <IconContext.Provider
-        value={{
-          className: 'text-white bg-gray-600 my-5 w-16 h-16 rounded-xl p-3',
-          size: '3em',
-        }}
-      >
-        {Item.icon}
-      </IconContext.Provider>
-      <div className="max-w-md text-gray-400">{Item.description}</div>
+      <Image className='my-5' src={`/img/about/problems/${icon}`} width={50} height={50} alt='' />
+      <div className="max-w-md text-gray-400">{description}</div>
     </div>
   )
 }
 
-const ProblemsSection = () => {
+const ProblemsSection:React.FC = () => {
   return (
     <div>
       <div className="flex gap-24 justify-center items-center mt-16 flex-wrap">

@@ -1,19 +1,18 @@
-import { ReactNode } from 'react'
 
 export type Project = {
   image: string
-  project: string
+  name: string
   description: string
 }
 
 export type Session = {
-  session: string
+  name: string
   description: string
-  icon: ReactNode
+  icon: string
 }
 
 export type ProblemItem = {
-  icon: ReactNode
+  icon: string
   description: string
 }
 
