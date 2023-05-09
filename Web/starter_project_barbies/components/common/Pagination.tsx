@@ -15,7 +15,7 @@ export const Pagination: React.FC<PaginationProps> = ({ numberOfPages }) => {
 
   let paginationItems = []
   for (let i = 1; i <= numberOfPages; i++) {
-    let paginationItem = <PaginationItem pageNumber={i} isCurrentPage={i == currentPage} onPageClick={setCurrentPage} />
+    let paginationItem = <PaginationItem pageNumber={i} isCurrentPage={i == currentPage} onPageClick={setCurrentPage} key={i} />
     paginationItems.push(paginationItem)
   }
 
