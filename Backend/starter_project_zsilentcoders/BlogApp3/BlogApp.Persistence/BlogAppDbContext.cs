@@ -46,8 +46,5 @@ namespace BlogApp.Persistence
             return base.SaveChangesAsync(cancellationToken);
         }
 
-        public DbSet<_Index> _Indices { get; set; }
-        public DbSet<Review> _Review { get; set; }
-
     }
 }

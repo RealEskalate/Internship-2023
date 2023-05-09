@@ -10,8 +10,6 @@ namespace BlogApp.Application.Features.Review.CQRS.Commands
 {
     public class UpdateReviewCommand: IRequest<Result<ReviewDto>>
     {
-        public int Id { get; set; }
         public ReviewDto reviewDto { get; set; }
-        public ReviewIsApprovedDto? reviewIsApprovedDto { get; set; }
     }
 }
