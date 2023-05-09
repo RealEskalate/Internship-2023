@@ -36,14 +36,6 @@ namespace BlogApp.Application.Features.Review.CQRS.Handlers
             {
                 var review = await _unitOfWork.ReviewRepository.Get(request.Id);
 
-                if (review is null)
-                {
-                    response.Success = false;
-                    response.Message = "Deletion Failed";
-                    response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
-                    return response;
-                }
-
                 await _unitOfWork.ReviewRepository.Delete(review);
                 if (await _unitOfWork.Save() > 0)
                 {
