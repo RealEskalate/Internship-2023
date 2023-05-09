@@ -20,6 +20,7 @@ namespace BlogApp.Persistence
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<I_IndexRepository, _IndexRepository>();
             services.AddScoped<IRatingRepository, RatingRepository>();
+            services.AddScoped<IBlogRepository, BlogRepository>();
             
             return services;
         }

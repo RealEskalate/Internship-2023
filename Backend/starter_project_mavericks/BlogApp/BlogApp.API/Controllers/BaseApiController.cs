@@ -1,27 +1,30 @@
-﻿using BlogApp.Application.Responses;
-using MediatR;
+﻿using MediatR;
+using System.Net;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API.Controllers
+namespace BlogApp.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
     public class BaseApiController : ControllerBase
     {
-        private IMediator _mediatr;
+        protected readonly IMediator _mediator;
 
-        protected IMediator Mediator => _mediatr ??= HttpContext.RequestServices.GetService<IMediator>();
-
-        protected ActionResult HandleResponse<T>(BaseResponse<T> response)
+        public BaseApiController(IMediator mediator)
         {
-            if (response == null) return NotFound(response);
+            _mediator = mediator;
+        }
 
-            if (response.Success && response.Data != null)
-                return Ok(response);
-            if (response.Success && response.Data == null)
-                return NotFound(response);
+        public ActionResult getResponse<T>(HttpStatusCode status, T? payload){
 
-            return BadRequest(response);
+            if(status == HttpStatusCode.Created){
+                return Created("", payload);
+            }else if(status == HttpStatusCode.BadRequest){
+                return BadRequest(payload);
+            }else if(status == HttpStatusCode.OK){
+                return Ok(payload);
+            }
+            return NoContent();
         }
 
     }
