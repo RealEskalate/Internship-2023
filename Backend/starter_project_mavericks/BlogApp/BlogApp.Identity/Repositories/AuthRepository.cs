@@ -97,7 +97,7 @@ namespace BlogApp.Identity.Repositories
             
             var key = _configuration["Jwt:Key"];
 
-            Console.WriteLine("*******************************************************************  : " + section["Issuer"]);
+            // Console.WriteLine("*******************************************************************  : " + section["Issuer"]);
             var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key.ToString()));
 
             var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
