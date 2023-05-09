@@ -5,7 +5,7 @@ import 'package:dartz/dartz.dart';
 
 abstract class UserRepository{
 
-  Future<List<UserEntity> > getAllUsers();
+  Future<Either<Failure,List<UserEntity>>> getAllUsers();
 
   Future<Either<Failure,UserEntity>>  createUser(UserEntity user);
 
@@ -15,14 +15,14 @@ Future<Either<Failure,UserEntity>>  getFollowing(String userId);
  Future<Either<Failure,UserEntity>>  editUserProfile(UserEntity user);
  
  
-Future<Either<Failure,UserEntity>>  getNumberOfFollowers(String userId);
+Future<Either<Failure,int>>  getNumberOfFollowers(String userId);
   
 Future<Either<Failure,UserEntity>>  deleteUser(String userId);
 
 Future<Either<Failure,UserEntity>>  getUser(String userId);
 
- Future<Either<Failure,UserEntity>>  getNumberOfFollowing(String userId);
+ Future<Either<Failure,int>>  getNumberOfFollowing(String userId);
  
- Future<Either<Failure,UserEntity>>  getFollowers(String  userId);
+ Future<Either<Failure,List<UserEntity>>>  getFollowers(String  userId);
 
 }
