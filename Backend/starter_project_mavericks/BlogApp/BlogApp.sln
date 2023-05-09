@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogApp.Persistence", "Blog
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogApp.API", "BlogApp.API\BlogApp.API.csproj", "{50CFF789-9EED-4657-B5B6-CF75A46D394C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogApp.Identity", "Src\BlogApp.Identity\BlogApp.Identity.csproj", "{1A9B2D47-ED53-4371-AD7B-90674F2FCC0F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogApp.Identity", "BlogApp.Identity\BlogApp.Identity.csproj", "{1A9B2D47-ED53-4371-AD7B-90674F2FCC0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

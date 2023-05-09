@@ -104,13 +104,8 @@ namespace BlogApp.Identity.Repositories
                 }
                 catch(Exception e)
                 {
-                    await _userManager.AddToRoleAsync(user, "User");
-                    
-                    var createdUser = await _userManager.FindByNameAsync(user.UserName);
-
-                    var response = _mapper.Map<SignUpResponse>(createdUser);
-                 
-                    return response;
+                    await transaction.RollbackAsync();
+                    throw e;
                 }
             }
         }
@@ -133,9 +128,6 @@ namespace BlogApp.Identity.Repositories
             .Union(userClaims)
             .Union(roleClaims);
 
-            var section = _configuration.GetSection("Jwt");
-            
-            var key = _configuration["JwtSettings:Key"];
 
             var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetValue<string>("JwtSettings:Key")));
             var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
