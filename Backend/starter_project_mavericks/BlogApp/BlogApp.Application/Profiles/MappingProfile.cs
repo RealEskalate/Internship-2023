@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BlogApp.Application.Features._Indices.DTOs;
-using BlogApp.Application.Features.Authentication.DTO;
+using BlogApp.Application.Features.Blogs.DTOs;
+using BlogApp.Application.Features.Ratings.DTOs;
 using BlogApp.Domain;
 using System;
 using System.Collections.Generic;
@@ -14,11 +15,29 @@ namespace BlogApp.Application.Profiles
     {
         public MappingProfile()
         {
-            #region Index Mapping
             CreateMap<_Index, _IndexDto>().ReverseMap();
             CreateMap<_Index, Create_IndexDto>().ReverseMap();
-            #endregion
+            #region _index Mappings
 
+            CreateMap<_Index, _IndexDto>().ReverseMap();
+            CreateMap<_Index, Create_IndexDto>().ReverseMap();
+
+            #endregion _index
+
+            #region rating Mappings
+
+            CreateMap<Rating, RatingDto>().ReverseMap();
+
+            #endregion rating
+            
+            #region blog Mappings
+
+            CreateMap<Blog, CreateBlogDTO>().ReverseMap();
+            CreateMap<Blog, BlogDTO>().ReverseMap();
+            CreateMap<Blog, BlogListDTO>().ReverseMap();
+            CreateMap<Blog, UpdateBlogDTO>().ReverseMap();
+
+            #endregion blog
             #region Authentication Mappings
             CreateMap<SignupFormDto, User>().ReverseMap();
             CreateMap<User, SignUpResponse>().ReverseMap();

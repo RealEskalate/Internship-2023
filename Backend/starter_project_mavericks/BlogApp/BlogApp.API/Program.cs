@@ -40,7 +40,7 @@ app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BlogApp.Api
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-app.UseAuthentication();
+
 
 app.MapControllers();
 
@@ -50,10 +50,14 @@ void AddSwaggerDoc(IServiceCollection services)
 {
     services.AddSwaggerGen(c =>
     {
+
+
         c.SwaggerDoc("v1", new OpenApiInfo
         {
             Version = "v1",
             Title = "Blog APP  Api",
+
         });
+
     });
 }

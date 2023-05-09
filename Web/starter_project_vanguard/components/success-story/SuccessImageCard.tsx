@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 interface SuccessImageProps {
@@ -15,7 +16,14 @@ const SuccessImageCard: React.FC<SuccessImageProps> = ({
 }) => {
   return (
     <div className="relative inline-block">
-      <img className='max-h-[450px] lg:w-full lg:max-h-fit h-auto object-cover' src={image} alt={name} />
+      <Image
+        width={442}
+        height={662}
+        layout="responsive"
+        className="min-h-[450px] lg:w-full lg:max-h-fit h-auto object-cover rounded-xl"
+        src={image}
+        alt={name}
+      />
       <div className="absolute bottom-0 left-0 right-0 backdrop-filter backdrop-blur-md rounded-xl w-full z-10">
         {/* Container for h1, h2, h2 components */}
         <div className=" lg:m-2 lg:py-2">

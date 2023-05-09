@@ -42,6 +42,7 @@ namespace BlogApp.Persistence
         }
 
         public DbSet<_Index> _Indices { get; set; }
+        public DbSet<Rate> Rates { get; set; }
 
     }
 }
