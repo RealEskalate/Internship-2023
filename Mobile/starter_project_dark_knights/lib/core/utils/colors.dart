@@ -17,4 +17,10 @@ const Color BlueCardColor = Color(0xFF386BED);
 const Color homeBackgroundColor = Color(0xFFF8FAFF);
 const Color textColor2 = Color(0xFF424242);
 const Color textColor1 = Color(0xFF4D4A49);
-
+const Color transparentBlack = Colors.transparent;
+const Color textFieldTextColor = Color.fromARGB(255, 240, 239, 238);
+TextStyle titleTextStyle = const TextStyle(
+    color: Colors.black,
+    fontSize: 24.0,
+    fontFamily: 'Poppins', 
+  );
