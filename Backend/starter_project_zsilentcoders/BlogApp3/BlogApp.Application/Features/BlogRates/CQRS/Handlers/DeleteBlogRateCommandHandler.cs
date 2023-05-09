@@ -1,4 +1,4 @@
-﻿﻿using System.ComponentModel.DataAnnotations;
+﻿﻿﻿using System.ComponentModel.DataAnnotations;
 using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Features.Blog.DTOs.Validators;
 using BlogApp.Application.Features.Blog.CQRS.Requests.Commands;
@@ -55,6 +55,32 @@ public class DeleteBlogRateCommandHandler : IRequestHandler<DeleteBlogRateComman
                 response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
 
             }
+        }
+
+        return response;
+    }
+
+    public async Task<Result<Unit>> Handle(DeleteBlogRateCommand request, CancellationToken cancellationToken)
+    {
+        var response = new Result<Unit>();
+
+        var validator = new DeleteBlogRateDtoValidator(_unitOfWork);
+        var validationResult = await validator.ValidateAsync(request.DeleteBlogRateDto);
+
+        if (validationResult.IsValid == false)
+        {
+            response.Success = false;
+            response.Message = "Deletion Failed";
+            response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
+        }
+        else
+        {
+            response.Message = "Deletion Successful!";
+            response.Value = new Unit();
+
+            var blogRate = await _unitOfWork.BlogRateRepository.GetBlogRateByBlogAndRater(request.DeleteBlogRateDto.BlogId, request.DeleteBlogRateDto.RaterId);
+            await _unitOfWork.BlogRateRepository.Delete(blogRate);
+            await _unitOfWork.Save();
         }
 
         return response;
