@@ -21,6 +21,7 @@ namespace BlogApp.Persistence
             services.AddScoped<I_IndexRepository, _IndexRepository>();
             services.AddScoped<ICommentRepository,CommentRepository>();
             services.AddScoped<IRatingRepository, RatingRepository>();
+            services.AddScoped<IBlogRepository, BlogRepository>();
             
             return services;
         }
