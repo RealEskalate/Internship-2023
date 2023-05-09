@@ -32,11 +32,17 @@ namespace BlogApp.Application.Features.Review.CQRS.Handlers
             var validator = new DeleteReviewValidator(_unitOfWork);
             var validationResult = await validator.ValidateAsync(request.Id);
 
-            if (validationResult.IsValid == true) {
+            if (validationResult.IsValid == true)
+            {
                 var review = await _unitOfWork.ReviewRepository.Get(request.Id);
 
-                if (review == null)
-                    throw new NotFoundException(nameof(review), request.Id);
+                if (review is null)
+                {
+                    response.Success = false;
+                    response.Message = "Deletion Failed";
+                    response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
+                    return response;
+                }
 
                 await _unitOfWork.ReviewRepository.Delete(review);
                 if (await _unitOfWork.Save() > 0)
@@ -53,7 +59,8 @@ namespace BlogApp.Application.Features.Review.CQRS.Handlers
 
 
             }
-            else {
+            else
+            {
                 response.Success = false;
                 response.Message = "Deletion Failed";
                 response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
