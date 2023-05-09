@@ -1,4 +1,4 @@
-﻿﻿﻿using System.ComponentModel.DataAnnotations;
+﻿﻿using System.ComponentModel.DataAnnotations;
 using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Features.Blog.DTOs.Validators;
 using BlogApp.Application.Features.Blog.CQRS.Requests.Commands;
@@ -80,7 +80,19 @@ public class DeleteBlogRateCommandHandler : IRequestHandler<DeleteBlogRateComman
 
             var blogRate = await _unitOfWork.BlogRateRepository.GetBlogRateByBlogAndRater(request.DeleteBlogRateDto.BlogId, request.DeleteBlogRateDto.RaterId);
             await _unitOfWork.BlogRateRepository.Delete(blogRate);
-            await _unitOfWork.Save();
+            if (await _unitOfWork.Save() > 0)
+            {
+                response.Message = "Deletion Successful!";
+                response.Value = new Unit();
+
+            }
+            else
+            {
+                response.Success = false;
+                response.Message = "Deletion Failed";
+                response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
+
+            }
         }
 
         return response;
