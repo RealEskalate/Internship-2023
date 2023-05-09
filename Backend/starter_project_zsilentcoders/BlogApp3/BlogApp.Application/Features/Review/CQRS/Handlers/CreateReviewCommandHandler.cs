@@ -28,12 +28,16 @@ namespace BlogApp.Application.Features.Review.CQRS.Handlers
 
             var review = _mapper.Map<_Review>(request.reviewDto);
 
+            
+
             review = await _unitOfWork.ReviewRepository.Add(review);
             await _unitOfWork.Save();
 
             response.Success = true;
             response.Message = "Creation Successful";
             response.Id = review.Id;
+
+            // here I will send the email to requist review.ReviewId
 
             return response;
         }
