@@ -2,7 +2,7 @@ using BlogApp.Application.Responses;
 
 namespace BlogApp.Application.Models.Identity;
 
-public class LoginResponse: BaseCommandResponse
+public class LoginResponse
 {
     public string UserId {get; set;} = "";
 

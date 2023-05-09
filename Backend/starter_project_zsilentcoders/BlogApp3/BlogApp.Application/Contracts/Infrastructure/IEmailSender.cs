@@ -1,8 +1,9 @@
 using BlogApp.Application.Models.Mail;
+using BlogApp.Application.Responses;
 
 namespace BlogApp.Application.Contracts.Identity;
 
 public interface IEmailSender
 {
-    Task<bool> sendEmail(Email email);
+    Task<Result<Email>> sendEmail(Email email);
 }

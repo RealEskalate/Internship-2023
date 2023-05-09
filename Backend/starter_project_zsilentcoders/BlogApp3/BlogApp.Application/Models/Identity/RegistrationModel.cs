@@ -5,6 +5,7 @@ namespace BlogApp.Application.Models.Identity;
 public class RegistrationModel
 {
     [Required]
+    [EmailAddress]
     public string Email {get; set;} = "";
 
     [Required]
