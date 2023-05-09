@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../../core/utils/colors.dart';
 
 class TitleBar extends StatelessWidget {
@@ -32,7 +33,7 @@ class TitleBar extends StatelessWidget {
                     )),
               )),
         ),
-        const Align(
+        Align(
             alignment: Alignment.center,
             child: Text(
               'New Article',

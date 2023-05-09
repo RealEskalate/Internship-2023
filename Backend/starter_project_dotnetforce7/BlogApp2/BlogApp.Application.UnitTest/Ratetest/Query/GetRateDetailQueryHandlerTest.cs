@@ -21,8 +21,6 @@ namespace BlogApp.Application.UnitTest.Ratetest.Query
     {
 
 
-      
-
         private readonly IMapper _mapper;
         private readonly Mock<IUnitOfWork> _mockRepo;
         private int Id;

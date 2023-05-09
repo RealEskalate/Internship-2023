@@ -27,7 +27,7 @@ namespace BlogApp.Application.Features.Rates.CQRS.Handlers
         public async Task<Result<int>> Handle(CreateRateCommand request, CancellationToken cancellationToken)
         {
             var response = new Result<int>();
-            var validator = new CreateRateDtoValidator();
+            var validator = new CreateRateDtoValidator(_unitOfWork);
             var validationResult = await validator.ValidateAsync(request.RateDto);
 
             if (validationResult.IsValid == false)
@@ -38,6 +38,7 @@ namespace BlogApp.Application.Features.Rates.CQRS.Handlers
             }
             else
             {
+
                 var rate = _mapper.Map<Rate>(request.RateDto);
 
                 rate = await _unitOfWork.RateRepository.Add(rate);
