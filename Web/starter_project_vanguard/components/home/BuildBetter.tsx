@@ -17,7 +17,7 @@ const BuildBetter: React.FC  = () => {
         </div>
 
         <div className="pl-10 pr-10 mt-9">
-          <p className="text-center text-gray-700 md:text-lg">
+          <p className="text-center text-primary-text md:text-lg">
             A2SV up-skills high-potential university students, connects them
             with opportunities at top tech companies around the world, and
             creates digital solutions to urgent problems in their home

@@ -8,10 +8,10 @@ interface SuccessProp {
 const YearlySuccess:React.FC<SuccessProp> = ({ info }) => {
   
   return (
-    <div className="flex flex-col items-center justify-center w-3/5 p-5 m-4 bg-white limit_size:w-max limit_size:h-max rounded-xl aspect-auto grow">
+    <div className="flex flex-col items-center justify-center w-3/5 p-5 m-4 bg-white rounded-xl aspect-auto grow">
       <p className="mb-4 font-bold">{info.year}</p>
       <p className="font-bold">{info.success}</p>
-      <p className="text-sm text-gray-500">{info.average}</p>
+      <p className="text-sm text-secondary-text">{info.average}</p>
     </div>
   )
 }

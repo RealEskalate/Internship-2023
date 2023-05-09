@@ -7,7 +7,7 @@ import landingImage from '../../public/img/home/landing-image.png'
 
 const HeroSection: React.FC = () => {
   return (
-    <div className="my-11">
+    <div className="my-7">
       <div className="grid w-full grid-flow-row gap-16 p-10 pl-4 mx-4 mt-8 sm:gap-10 auto-rows-max sm:grid-flow-col sm:auto-cols-fr">
         <div className="w-full ml-4 mt-11">
           <div>

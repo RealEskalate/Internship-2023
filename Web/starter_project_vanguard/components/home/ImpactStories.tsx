@@ -1,7 +1,7 @@
 import React from "react"
 import Image from "next/image"
 import Link from 'next/link'
-import impactStoriesImage from "/img/home/impact-story-image.png";
+import impactStoriesImage from '../../public/img/home/impact-story-image.png'
 
 const ImpactStroies: React.FC = () => {
 
@@ -11,11 +11,11 @@ const ImpactStroies: React.FC = () => {
       <h1 className="text-5xl font-bold text-center mb:10 sm:mb-20">
         Impact strories
       </h1>
-      <div className="grid grid-flow-row gap-10 mx-4 auto-rows-max sm:grid-cols-2 small_size:mx-14 sm:mx-18">
+      <div className="grid grid-flow-row gap-10 mx-4 auto-rows-max sm:grid-cols-2 sm:mx-18">
         <div className="mt-20">
           <h1 className="mb-2 text-2xl font-semibold">Abel Tesfaye</h1>
           <p className="text-lg mb-7">Software Engineer at Google</p>
-          <p className="w-full text-base">
+          <p className="w-full text-base text-primary-text">
             &quot;When I joined A2SV in 2019, I found the concept of data structures
             and algorithms quite challenging. A2SV&apos;s smooth learning process and
             dedicated team molded me to see the peak of my abilities. Through

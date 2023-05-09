@@ -9,7 +9,7 @@ const HelpUs: React.FC  = () => {
     <div className="mb-20">
       <div className="relative mt-20 bg-fixed h-72 aspect-auto">
         <Image
-          src="/img/home-page/africa.png"
+          src="/img/home/africa.png"
           alt="African image for background"
           className="w-full bg-opacity-100 aspect-auto"
           fill
@@ -18,7 +18,7 @@ const HelpUs: React.FC  = () => {
           <h1 className="text-2xl font-bold text-center text-gray-200">
             Help us sustain our mission!
           </h1>
-          <div className="px-8 py-3 mt-6 ml-4 font-bold text-blue-700 bg-white rounded whitespace-nowrap">
+          <div className="px-8 py-3 mt-6 ml-4 font-bold text-primary bg-white rounded whitespace-nowrap">
             <Link href="/">Support Us</Link>
           </div>
         </div>

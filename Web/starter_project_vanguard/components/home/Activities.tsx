@@ -17,7 +17,7 @@ const Activities:React.FC<ActivityProp> = ({ activity }) => {
           <Image
             src={activity.url}
             alt={activity.altText}
-            className="border-8 border-gray-700 border-opacity-25 rounded-full aspect-square"
+            className="border-8 border-primary-text border-opacity-25 rounded-full aspect-square"
             width={320}
             height={320}
           />
@@ -28,7 +28,7 @@ const Activities:React.FC<ActivityProp> = ({ activity }) => {
           }`}
         >
           <h3 className="mb-6 text-3xl font-semibold">{activity.title}</h3>
-          <p className="text-lg sm:text-xl">{activity.description}</p>
+          <p className="text-lg sm:text-xl text-primary-text">{activity.description}</p>
         </div>
       </div>
     </div>

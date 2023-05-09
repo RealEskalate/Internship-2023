@@ -14,9 +14,9 @@ const SuccessRate: React.FC = () => {
         </h1>
       </div>
 
-      <div className="py-7 flex flex-col items-center mb-20 limit_size:flex-row sm:justify-center bg-zinc-200 mx-7 rounded-xl">
-        <div className="self-center w-2/4 py-3 mx-4 text-center limit_size:w-1/5 limit_size:h-1/5 aspect-auto">
-          <p className="text-lg text-gray-700">
+      <div className="py-7 flex flex-col items-center mb-20 sm:justify-center bg-zinc-200 mx-7 rounded-xl">
+        <div className="self-center w-2/4 py-3 mx-4 text-center aspect-auto">
+          <p className="text-lg text-primary-text">
             A2SV students are <span className="font-semibold">35</span> times
             more likely to pass 
             <span className="font-semibold"> Google SWE interviews </span>
