@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using BlogApp.Application.Contracts.Persistence;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,12 @@ namespace BlogApp.Application.Features.Rates.DTOs.Validators
 {
     public class CreateRateDtoValidator : AbstractValidator<CreateRateDto>
     {
-        public CreateRateDtoValidator()
+        private readonly IUnitOfWork _unitOfWork;
+
+        public CreateRateDtoValidator(IUnitOfWork UnitOfWork)
         {
-            Include(new IRateDtoValidator());
+            _unitOfWork = UnitOfWork;
+            Include(new IRateDtoValidator(_unitOfWork));
         }
     }
 

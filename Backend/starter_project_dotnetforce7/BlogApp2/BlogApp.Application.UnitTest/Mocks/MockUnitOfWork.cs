@@ -1,5 +1,5 @@
 ﻿using BlogApp.Application.Contracts.Persistence;
-using BlogApp.Application.UnitTests.Mocks;
+using BlogApp.Application.UnitTest.Mocks;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -26,9 +26,15 @@ namespace BlogApp.Application.UnitTest.Mocks
                 changes = 0;
                 return temp;
             });
+
+    
+            var mockBlogRepo = MockBlogRepository.GetBlogRepository();
+
+            mockUow.Setup(r => r.BlogRepository).Returns(mockBlogRepo.Object);
             return mockUow;
-        }
+
     }
 
      
+}
 }

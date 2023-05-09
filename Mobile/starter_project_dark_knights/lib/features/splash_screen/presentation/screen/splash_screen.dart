@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:dark_knights/features/onboarding/presentation/screen/onboarding_page.dart';
+import '../../../onboarding/presentation/screen/onboarding_page.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {

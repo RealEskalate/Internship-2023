@@ -2,6 +2,7 @@
 using BlogApp.Application.Features._Indices.DTOs;
 using BlogApp.Application.Features.Rates.DTOs;
 using BlogApp.Application.Features.Tags.DTOs;
+using BlogApp.Application.Features.Blogs.DTOs;
 using BlogApp.Domain;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,17 @@ namespace BlogApp.Application.Profiles
 
             CreateMap<_Index, _IndexDto>().ReverseMap();
             CreateMap<_Index, Create_IndexDto>().ReverseMap();
+
+            CreateMap<Blog, BlogDto>()
+            .ForMember(x => x.Rates, o => o.MapFrom(s => s.Rates))
+            .ForMember(x => x.BlogRate, o => o.MapFrom(s => s.Rates.Any() ? s.Rates.Average(r => r.RateNo) : 0));
+
+            CreateMap<Blog, CreateBlogDto>().ReverseMap();
+
+            CreateMap<Blog, UpdateBlogDto>().ReverseMap();
+
+
+
 
             #endregion _index
 
