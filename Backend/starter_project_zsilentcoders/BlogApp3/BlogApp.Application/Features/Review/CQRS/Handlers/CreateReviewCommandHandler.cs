@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
+using BlogApp.Application.Exceptions;
 using BlogApp.Application.Features._Indices.DTOs.Validators;
 using BlogApp.Application.Features.Review.CQRS.Command;
 using BlogApp.Application.Features.Review.DTOs;
@@ -33,19 +34,12 @@ namespace BlogApp.Application.Features.Review.CQRS.Handlers
             var validationResult = await validator.ValidateAsync(request.reviewDto);
 
             if (validationResult.IsValid == false)
-            {
-                response.Success = false;
-                response.Message = "Creation Failed";
-                response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
-            } else
-            {
+                throw new ValidationException(validationResult);
+             else
+                {
                 var review = _mapper.Map<_Review>(request.reviewDto);
-
-
-
                 review = await _unitOfWork.ReviewRepository.Add(review);
                 await _unitOfWork.Save();
-
                 response.Success = true;
                 response.Message = "Creation Successful";
                 response.Id = review.Id;

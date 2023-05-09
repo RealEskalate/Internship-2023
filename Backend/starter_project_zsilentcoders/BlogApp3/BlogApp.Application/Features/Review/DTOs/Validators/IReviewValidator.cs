@@ -14,7 +14,7 @@ namespace BlogApp.Application.Features.Review.DTOs.Validators
             RuleFor(p => p.Comment)
                 .NotEmpty().WithMessage("{PropertyName} is required.")
                 .NotNull()
-                .MinimumLength(500).WithMessage("{PropertyName} should not exceed 500.");
+                .MaximumLength(500).WithMessage("{PropertyName} should not exceed 500.");
             RuleFor(p => p.BlogId)
                 .NotNull().WithMessage("{PropertyName} should not be null.");
             RuleFor(p => p.ReviewerId)

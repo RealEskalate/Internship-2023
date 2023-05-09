@@ -34,7 +34,7 @@ namespace BlogApp.Application.Features.Review.CQRS.Handlers
             }
             else
             {
-                var review = await _unitOfWork.ReviewRepository.Get(request.Id);
+                var review = await _unitOfWork.ReviewRepository.Get(request.reviewDto.Id);
                 if (review is null)
                     throw new NotFoundException(nameof(review), request.reviewDto.Id);
 

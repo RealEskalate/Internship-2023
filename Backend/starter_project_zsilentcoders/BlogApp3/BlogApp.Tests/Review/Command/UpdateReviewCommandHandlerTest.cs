@@ -1,0 +1,90 @@
+﻿using AutoMapper;
+using BlogApp.Application.Contracts.Persistence;
+using BlogApp.Application.Exceptions;
+using BlogApp.Application.Features.Review.CQRS.Command;
+using BlogApp.Application.Features.Review.CQRS.Commands;
+using BlogApp.Application.Features.Review.CQRS.Handlers;
+using BlogApp.Application.Features.Review.DTOs;
+using BlogApp.Application.Profiles;
+using BlogApp.Application.Responses;
+using BlogApp.Application.Tests.Mocks;
+using Moq;
+using Shouldly;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Xunit;
+
+namespace BlogApp.Tests.Review.Command
+{
+    public class UpdateReviewCommandHandlerTest
+    {
+        private IMapper _mapper { get; set; }
+        private Mock<IUnitOfWork> _mockUnitOfWork { get; set; }
+        private UpdateReviewCommandHandler _handler { get; set; }
+
+
+        public UpdateReviewCommandHandlerTest()
+        {
+            _mockUnitOfWork = MockUnitOfWork.GetUnitOfWork();
+
+            _mapper = new MapperConfiguration(c =>
+            {
+                c.AddProfile<MappingProfile>();
+            }).CreateMapper();
+
+            _handler = new UpdateReviewCommandHandler(_mockUnitOfWork.Object, _mapper);
+        }
+
+
+        [Fact]
+        public async Task UpdateReviewValid()
+        {
+
+            var updateReviewDto = new ReviewDto()
+            {
+                Id = 2,
+                Comment = "updated",
+                BlogId = 5,
+                ReviewerId = 5,
+
+            };
+            var review = await _mockUnitOfWork.Object.ReviewRepository.Get(2);
+            bool res = await _mockUnitOfWork.Object.ReviewRepository.Exists(2);
+            res.ShouldBeTrue();
+
+            var result = await _handler.Handle(new UpdateReviewCommand() { reviewDto = updateReviewDto }, CancellationToken.None);
+
+            // should get the current review
+            review = await _mockUnitOfWork.Object.ReviewRepository.Get(2);
+            // review.Comment.ShouldBe("updated");
+
+            var reviews = await _mockUnitOfWork.Object.ReviewRepository.GetAll();
+            reviews.Count.ShouldBe(2);
+        }
+
+        [Fact]
+        public async Task UpdateReviewInvalid()
+        {
+
+            var updateReviewDto = new ReviewDto()
+            {
+                Id = 3,
+                Comment = "updated",
+                BlogId = 5,
+                ReviewerId = 5,
+
+            };
+
+            NotFoundException ex = await Should.ThrowAsync<NotFoundException>(async () =>
+            {
+               await _handler.Handle(new UpdateReviewCommand() { reviewDto = updateReviewDto }, CancellationToken.None);
+            });
+            var reviews = await _mockUnitOfWork.Object.ReviewRepository.GetAll();
+            reviews.Count.ShouldBe(2);
+
+        }
+    }
+}
