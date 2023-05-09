@@ -35,7 +35,7 @@ void main() {
       when(mockArticleRepository.getArticle(tArticleId))
           .thenAnswer((_) async => Right(tArticle));
 
-      final result = await usecase(tArticleId);
+      final result = await usecase( Params(articleId: tArticleId));
       
       expect(result, Right(tArticle));
 
