@@ -1,6 +1,6 @@
 import React from 'react'
 import { BlogData } from '@/types/blog/blog'
-import BlogFooter from './BlogCardFooter'
+import BlogFooter from '@/components/blog/BlogCardFooter'
 
 interface Props {
   blog: BlogData

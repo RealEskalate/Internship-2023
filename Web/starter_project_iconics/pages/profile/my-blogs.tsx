@@ -1,6 +1,5 @@
-import ProfileLayout from '@/components/profile/ProfileLayout'
-
-import MyBlogs from '@/components/profile/MyBlogs'
+import ProfileLayout from '@/components/profile/ProfilePageLayout'
+import MyBlogs from '@/components/profile/MyBlogsPage'
 
 const myBlogs = () => {
   return (
