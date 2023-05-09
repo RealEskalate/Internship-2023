@@ -2,7 +2,7 @@ import 'package:dartsmiths/core/utils/colors.dart';
 import 'package:dartsmiths/features/profile/presentation/widgets/user_post_view.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/app_textstyle.dart';
+import '../../../../core/utils/text_styles.dart';
 import '../widgets/about_card.dart';
 
 class ProfilePage extends StatelessWidget {
