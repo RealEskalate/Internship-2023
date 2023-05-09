@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'article_info.dart';
-import 'article_image.dart';
+
 import '../../../../core/utils/colors.dart';
+import 'article_image.dart';
+import 'article_info.dart';
 
 class ArticleCard extends StatelessWidget {
   const ArticleCard({super.key, required this.publishedDate,required this.readTime,required this.articleTitle,required this.articleType,required this.author});

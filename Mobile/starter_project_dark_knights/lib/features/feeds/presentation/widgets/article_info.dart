@@ -1,6 +1,8 @@
-import 'package:dark_knights/core/utils/colors.dart';
-import 'package:flutter/material.dart';
 import 'dart:math';
+
+import 'package:flutter/material.dart';
+
+import '../../../../core/utils/colors.dart';
 
 class ArticleInfo extends StatelessWidget {
   const ArticleInfo(
