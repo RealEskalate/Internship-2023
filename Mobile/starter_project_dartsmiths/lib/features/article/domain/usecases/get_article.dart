@@ -6,17 +6,12 @@ import '../../../../core/usecases/usecase.dart';
 import '../entities/article.dart';
 import '../repositories/article_repository.dart';
 
-class GetArticle implements UseCase<Article, Params> {
+class GetArticle implements UseCase<Article, String> {
   final ArticleRepository repository;
 
   GetArticle(this.repository);
 
-  Future<Either<Failure, Article>> call(Params params) async {
-    return await repository.getArticle(params.id);
+  Future<Either<Failure, Article>> call(id) async {
+    return await repository.getArticle(id);
   }
-}
-
-class Params {
-  String id;
-  Params({required this.id});
 }
