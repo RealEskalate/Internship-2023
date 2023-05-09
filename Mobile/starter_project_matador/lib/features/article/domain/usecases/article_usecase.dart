@@ -7,7 +7,7 @@ class GetArticle {
   final ArticleRepository repository;
 
    GetArticle(this.repository);
-
+   
   Future<Either<Failure, Article>> call(String articleId) async {
     return await repository.getArticle(articleId);
   } 
