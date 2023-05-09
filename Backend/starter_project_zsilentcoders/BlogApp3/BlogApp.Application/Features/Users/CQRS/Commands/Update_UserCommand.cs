@@ -1,16 +1,12 @@
-using BlogApp.Application.Features._Indices.DTOs;
+using BlogApp.Application.Features.Users.DTOs;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BlogApp.Application.Features._Indices.CQRS.Commands
+
+namespace BlogApp.Application.Features.Users.CQRS.Commands
 {
     public class Update_UserCommand : IRequest<Unit>
     {
-        public _UserDto _UserDto { get; set; }
+        public Update_UserDto Update_UserDto { get; set; }
 
     }
 }

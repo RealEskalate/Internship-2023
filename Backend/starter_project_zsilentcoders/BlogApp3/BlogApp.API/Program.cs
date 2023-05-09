@@ -1,4 +1,5 @@
 using BlogApp.Application;
+using BlogApp.Identity;
 using BlogApp.Persistence;
 using BlogApp.Infrastructure;
 using Microsoft.OpenApi.Models;
@@ -90,7 +91,6 @@ void AddSwaggerDoc(IServiceCollection services)
             Title = "Blog Api",
 
         });
-
     });
 }
 

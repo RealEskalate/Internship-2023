@@ -1,6 +1,6 @@
-﻿using BlogApp.Application.Features._Indices.CQRS.Commands;
-using BlogApp.Application.Features._Indices.CQRS.Queries;
-using BlogApp.Application.Features._Indices.DTOs;
+using BlogApp.Application.Features.Users.CQRS.Commands;
+using BlogApp.Application.Features.Users.CQRS.Queries;
+using BlogApp.Application.Features.Users.DTOs;
 using BlogApp.Application.Responses;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -34,11 +34,18 @@ namespace BlogApp.Api.Controllers
             return Ok(users);
         }
 
+        [HttpPost]
+        public async Task<ActionResult<BaseCommandResponse>> Post([FromBody] Create_UserDto create_UserDto)
+        {
+            var command = new Create_UserCommand { Create_UserDto = create_UserDto };
+            var repsonse = await _mediator.Send(command);
+            return Ok(repsonse);
+        }
 
         [HttpPut]
-        public async Task<ActionResult> Put([FromBody] _UserDto userDto)
+        public async Task<ActionResult> Put([FromBody] Update_UserDto userDto)
         {
-            var command = new Update_UserCommand { _UserDto = userDto };
+            var command = new Update_UserCommand { Update_UserDto = userDto };
             await _mediator.Send(command);
             return NoContent();
         }

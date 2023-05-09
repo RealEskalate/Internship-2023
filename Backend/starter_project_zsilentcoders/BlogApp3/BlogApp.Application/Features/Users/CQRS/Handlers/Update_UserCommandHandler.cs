@@ -1,8 +1,9 @@
 using AutoMapper;
+using BlogApp.Application.Responses;
 using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Exceptions;
-using BlogApp.Application.Features._Indices.CQRS.Commands;
-using BlogApp.Application.Features._Indices.DTOs.Validators;
+using BlogApp.Application.Features.Users.CQRS.Commands;
+using BlogApp.Application.Features.Users.DTOs.Validators;
 using BlogApp.Domain;
 using MediatR;
 using System;
@@ -11,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlogApp.Application.Features._Indices.CQRS.Handlers
+namespace BlogApp.Application.Features.Users.CQRS.Handlers
 {
     public class Update_UserCommandHandler : IRequestHandler<Update_UserCommand, Unit>
     {
@@ -27,17 +28,17 @@ namespace BlogApp.Application.Features._Indices.CQRS.Handlers
         public async Task<Unit> Handle(Update_UserCommand request, CancellationToken cancellationToken)
         {
             var validator = new Update_UserDtoValidator();
-            var validationResult = await validator.ValidateAsync(request._UserDto);
+            var validationResult = await validator.ValidateAsync(request.Update_UserDto);
 
             if (validationResult.IsValid == false)
                 throw new ValidationException(validationResult);
 
-            var user = await _unitOfWork._UserRepository.Get(request._UserDto.Id);
+            var user = await _unitOfWork._UserRepository.Get(request.Update_UserDto.Id);
 
             if (user is null)
-                throw new NotFoundException(nameof(User), request._UserDto.Id);
+                throw new NotFoundException(nameof(User), request.Update_UserDto.Id);
 
-            _mapper.Map(request._UserDto, user);
+            _mapper.Map(request.Update_UserDto, user);
 
             await _unitOfWork._UserRepository.Update(user);
             await _unitOfWork.Save();

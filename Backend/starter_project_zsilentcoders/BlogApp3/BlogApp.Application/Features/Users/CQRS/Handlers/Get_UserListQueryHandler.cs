@@ -1,7 +1,7 @@
 using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
-using BlogApp.Application.Features._Indices.CQRS.Queries;
-using BlogApp.Application.Features._Indices.DTOs;
+using BlogApp.Application.Features.Users.CQRS.Queries;
+using BlogApp.Application.Features.Users.DTOs;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlogApp.Application.Features._Indices.CQRS.Handlers
+namespace BlogApp.Application.Features.Users.CQRS.Handlers
 {
     public class Get_UserListQueryHandler : IRequestHandler<Get_UserListQuery, List<_UserDto>>
     {

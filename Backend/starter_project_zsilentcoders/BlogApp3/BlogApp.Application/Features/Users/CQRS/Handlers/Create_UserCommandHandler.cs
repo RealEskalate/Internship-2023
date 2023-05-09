@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
-using BlogApp.Application.Features._Indices.CQRS.Commands;
-using BlogApp.Application.Features._Indices.DTOs.Validators;
+using BlogApp.Application.Features.Users.CQRS.Commands;
+using BlogApp.Application.Features.Users.DTOs.Validators;
 using BlogApp.Application.Responses;
 using MediatR;
 using BlogApp.Domain;
@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlogApp.Application.Features._Indices.CQRS.Handlers
+namespace BlogApp.Application.Features.Users.CQRS.Handlers
 {
     public class Create_UserCommandHandler : IRequestHandler<Create_UserCommand, BaseCommandResponse>
     {
@@ -28,7 +28,7 @@ namespace BlogApp.Application.Features._Indices.CQRS.Handlers
         {
             var response = new BaseCommandResponse();
             var validator = new Create_UserDtoValidator();
-            var validationResult = await validator.ValidateAsync(request._UserDto);
+            var validationResult = await validator.ValidateAsync(request.Create_UserDto);
 
             if (validationResult.IsValid == false)
             {
@@ -38,7 +38,7 @@ namespace BlogApp.Application.Features._Indices.CQRS.Handlers
             }
             else
             {
-                var user = _mapper.Map<User>(request._UserDto);
+                var user = _mapper.Map<User>(request.Create_UserDto);
 
                 user = await _unitOfWork._UserRepository.Add(user);
                 await _unitOfWork.Save();

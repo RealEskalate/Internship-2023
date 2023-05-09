@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using BlogApp.Domain;
 using BlogApp.Application.Features.Common;
 
+
 namespace BlogApp.Application.Features.Users.DTOs
 {
-    public class Create_UserDto : I_UserDto
+    public class Update_UserDto : BaseDto,I_UserDto
     {
-        
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string AccountId { get; set; }

@@ -18,6 +18,7 @@ namespace BlogApp.Application.Profiles
         {
             CreateMap<User, _UserDto>().ReverseMap();
             CreateMap<User, Create_UserDto>().ReverseMap();
+            CreateMap<User, Update_UserDto>().ReverseMap();
             CreateMap<RegisterDto, Create_UserDto>().ReverseMap();
             CreateMap<RegisterDto, RegistrationModel>().ReverseMap();
         }
