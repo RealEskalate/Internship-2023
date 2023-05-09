@@ -8,7 +8,7 @@ class GetUser {
   final UserRepository repo;
   GetUser(this.repo);
   
-Future<Either<Failure,UserEntity>> execute(Params params)async {
+Future<Either<Failure,UserEntity>> call (Params params)async {
 
 
     return await repo.getUser(params.id);
