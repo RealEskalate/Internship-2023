@@ -12,7 +12,7 @@ abstract class UserRepository {
 
   Future<Either<Failure, UserEntity>> editUserProfile(UserEntity user);
 
-  Future<Either<Failure, UserEntity>> getNumberOfFollowers(String userId);
+  Future<Either<Failure, int>> getNumberOfFollowers(String userId);
 
   Future<Either<Failure, UserEntity>> deleteUser(String userId);
 

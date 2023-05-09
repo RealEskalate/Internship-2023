@@ -102,22 +102,22 @@ class MockUserRepository extends _i1.Mock implements _i3.UserRepository {
         )),
       ) as _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>>);
   @override
-  _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>> getNumberOfFollowers(
+  _i4.Future<_i2.Either<_i6.Failure, int>> getNumberOfFollowers(
           String? userId) =>
       (super.noSuchMethod(
         Invocation.method(
           #getNumberOfFollowers,
           [userId],
         ),
-        returnValue: _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>>.value(
-            _FakeEither_0<_i6.Failure, _i5.UserEntity>(
+        returnValue: _i4.Future<_i2.Either<_i6.Failure, int>>.value(
+            _FakeEither_0<_i6.Failure, int>(
           this,
           Invocation.method(
             #getNumberOfFollowers,
             [userId],
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>>);
+      ) as _i4.Future<_i2.Either<_i6.Failure, int>>);
   @override
   _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>> deleteUser(
           String? userId) =>
