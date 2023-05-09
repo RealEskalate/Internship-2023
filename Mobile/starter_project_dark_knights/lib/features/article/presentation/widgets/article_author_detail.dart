@@ -1,8 +1,8 @@
-import 'package:dark_knights/core/utils/colors.dart';
-import 'package:dark_knights/core/utils/converter.dart';
-import 'package:dark_knights/features/article%20reading/presentation/widgets/Article_Author_Profile_Picture.dart';
-import 'package:dark_knights/features/article%20reading/presentation/widgets/Article_Like_Button.dart';
+import '../../../../core/utils/colors.dart';
+import '../../../../core/utils/converter.dart';
 import 'package:flutter/material.dart';
+
+import 'article_author_profile_picture.dart';
 
 class ArticleAuthorDetail extends StatelessWidget {
   final String authorName;
