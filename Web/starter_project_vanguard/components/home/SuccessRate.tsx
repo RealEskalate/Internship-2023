@@ -1,9 +1,8 @@
 import React from 'react'
-import YearlySuccess from './YearlySucess'
+import YearlySuccess from './YearlySuccess'
 import successRates from '../../data/home/success_rates.json'
 import activities from '../../data/home/activities.json'
-import { Activities } from './Activities'
-
+import Activities from './Activities'
 
 const SuccessRate: React.FC = () => {
   return (

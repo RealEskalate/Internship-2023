@@ -1,12 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
 import { Activity } from '@/types/home/Activity'
-
-interface Props {
+interface ActivityProp {
   activity: Activity
 }
 
-export const Activities = ({ activity }: Props) => {
+const Activities:React.FC<ActivityProp> = ({ activity }) => {
   return (
     <div className="flex flex-row justify-center mt-36">
       <div className="grid grid-flow-row gap-10 mx-8 auto-rows-max sm:grid-flow-col sm:auto-cols-fr sm:mx-11">
@@ -17,7 +16,7 @@ export const Activities = ({ activity }: Props) => {
         >
           <Image
             src={activity.url}
-            alt={activity.alt_text}
+            alt={activity.altText}
             className="border-8 border-gray-700 border-opacity-25 rounded-full aspect-square"
             width={320}
             height={320}
@@ -35,3 +34,5 @@ export const Activities = ({ activity }: Props) => {
     </div>
   )
 }
+
+export default Activities

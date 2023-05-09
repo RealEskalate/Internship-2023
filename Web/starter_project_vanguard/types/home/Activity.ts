@@ -3,5 +3,5 @@ export type Activity = {
   title: string
   description: string
   left: boolean
-  alt_text: string
+  altText: string
 }

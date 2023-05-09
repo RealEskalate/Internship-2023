@@ -3,8 +3,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 import buildBetterImage from '../../public/img/home/bulid-better-image.jpg'
 import { AiOutlineMessage } from 'react-icons/ai'
+
 const BuildBetter: React.FC  = () => {
+
   return (
+    
     <div className="p-5">
       <div className="flex flex-col items-center justify-center">
         <div className="flex flex-col items-center justify-center">
@@ -43,4 +46,5 @@ const BuildBetter: React.FC  = () => {
     </div>
   )
 }
+
 export default BuildBetter

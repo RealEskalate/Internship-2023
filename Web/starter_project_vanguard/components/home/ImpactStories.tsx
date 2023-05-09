@@ -1,9 +1,12 @@
 import React from "react"
 import Image from "next/image"
 import Link from 'next/link'
+import impactStoriesImage from "/img/home/impact-story-image.png";
 
 const ImpactStroies: React.FC = () => {
+
   return (
+
     <div className="mb-40 mt-11 sm:mt-32">
       <h1 className="text-5xl font-bold text-center mb:10 sm:mb-20">
         Impact strories
@@ -34,7 +37,7 @@ const ImpactStroies: React.FC = () => {
         </div>
         <div className="w-full mt-11 aspect-square">
           <Image
-            src="/img/home/impact-story-image.png"
+            src={impactStoriesImage}
             alt="Picture of A2SV students"
             className="overflow-visible"
             width={1000}
