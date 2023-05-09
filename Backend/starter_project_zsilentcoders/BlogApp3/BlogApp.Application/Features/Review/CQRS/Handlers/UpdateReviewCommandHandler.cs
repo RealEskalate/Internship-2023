@@ -29,6 +29,7 @@ namespace BlogApp.Application.Features.Review.CQRS.Handlers
 
         public async Task<Result<ReviewDto>> Handle(UpdateReviewCommand request, CancellationToken cancellationToken)
         {
+<<<<<<< HEAD
             var response = new Result<ReviewDto>();
             
             if (request.reviewIsApprovedDto != null)
@@ -108,6 +109,24 @@ namespace BlogApp.Application.Features.Review.CQRS.Handlers
             }
             return response;
             
+=======
+
+            var review = await _unitOfWork.ReviewRepository.Get(request.Id);
+            if (review is null)
+                throw new NotFoundException(nameof(review), request.reviewDto.Id);
+
+            if (request.reviewIsApprovedDto != null) {
+                await _unitOfWork.ReviewRepository.ChangeApprovalStatus(review, request.reviewIsApprovedDto.IsApproved);
+            }
+            else if (request.reviewDto != null)
+            {
+                _mapper.Map(request.reviewDto, review);
+                await _unitOfWork.ReviewRepository.Update(review);
+                await _unitOfWork.Save();
+                
+            }
+            return Unit.Value;
+>>>>>>> 4c24891 (fix(Samuel.Review): resolve conflict 2)
         }
     }
 }
