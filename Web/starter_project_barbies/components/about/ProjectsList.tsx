@@ -19,7 +19,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, reverseFlex }) => {
     >
       <Image
         className="flex-initial"
-        src={`/images/about/projects/${project.image}`}
+        src={`/img/about/projects/${project.image}`}
         style={{width:'auto', height:'auto'}}
         width={700}
         height={200}

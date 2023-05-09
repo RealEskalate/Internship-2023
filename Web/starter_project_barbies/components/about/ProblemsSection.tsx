@@ -37,7 +37,7 @@ const ProblemsSection = () => {
         </div>
         <Image
           className="p-10 order-1"
-          src="/images/about/problems/amico-solve.png"
+          src="/img/about/problems/amico-solve.png"
           alt=""
           width={450}
           height={100}
@@ -46,7 +46,7 @@ const ProblemsSection = () => {
       <div className="flex justify-center gap-24 mt-20 flex-wrap">
         <Image
           className="flex-initial p-10 order-1"
-          src="/images/about/problems/amico-puzzle.png"
+          src="/img/about/problems/amico-puzzle.png"
           alt=""
           width={500}
           height={100}
