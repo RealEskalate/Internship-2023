@@ -2,10 +2,10 @@
 
 import 'package:dark_knights/core/utils/colors.dart';
 import 'package:dark_knights/core/utils/converter.dart';
-import 'package:dark_knights/features/article%20reading/presentation/widgets/Article_Author_Detail.dart';
-import 'package:dark_knights/features/article%20reading/presentation/widgets/Article_Like_Button.dart';
-import 'package:dark_knights/features/article%20reading/presentation/widgets/BookmarkIconButton.dart';
 import 'package:flutter/material.dart';
+
+import 'article_author_detail.dart';
+import 'bookmark_icon_button.dart';
 
 class Header extends StatelessWidget {
   const Header({super.key});
