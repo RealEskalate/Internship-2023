@@ -4,19 +4,17 @@ import React from 'react'
 
 interface ImpactProps {
   story: ImpactStory
-  stories: ImpactStory[]
   currentStory: ImpactStory
   setCurrentStory: React.Dispatch<React.SetStateAction<ImpactStory>>
 }
 
 const ImpactImage: React.FC<ImpactProps> = ({
   story,
-  stories,
   currentStory,
   setCurrentStory,
 }) => {
-  const handleClick = (index: number) => {
-    setCurrentStory(stories[index])
+  const handleClick = () => {
+    setCurrentStory(story)
   }
   return (
     <div
@@ -25,7 +23,7 @@ const ImpactImage: React.FC<ImpactProps> = ({
           ? 'border-dashed border-2 border-sky-500 rounded'
           : ''
       } hover:drop-shadow-lg hover:cursor-pointer hover:animate-wiggle `}
-      onClick={() => handleClick(story.id)}
+      onClick={() => handleClick()}
     >
       <Image
         src={story.image}

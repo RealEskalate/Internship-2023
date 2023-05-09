@@ -31,13 +31,11 @@ const ImpactStories: React.FC = () => {
           <div className="flex flex-col gap-y-[1.2vw] w-1/3">
             <ImpactImage
               story={impactStories[0]}
-              stories={impactStories}
               currentStory={currentStory}
               setCurrentStory={setCurrentStory}
             />
             <ImpactImage
               story={impactStories[1]}
-              stories={impactStories}
               currentStory={currentStory}
               setCurrentStory={setCurrentStory}
             />
@@ -45,19 +43,16 @@ const ImpactStories: React.FC = () => {
           <div className="flex flex-col gap-y-[1.2vw] w-1/3">
             <ImpactImage
               story={impactStories[2]}
-              stories={impactStories}
               currentStory={currentStory}
               setCurrentStory={setCurrentStory}
             />
             <ImpactImage
               story={impactStories[3]}
-              stories={impactStories}
               currentStory={currentStory}
               setCurrentStory={setCurrentStory}
             />
             <ImpactImage
               story={impactStories[4]}
-              stories={impactStories}
               currentStory={currentStory}
               setCurrentStory={setCurrentStory}
             />
@@ -65,13 +60,11 @@ const ImpactStories: React.FC = () => {
           <div className="flex flex-col gap-y-[1.2vw] w-1/3">
             <ImpactImage
               story={impactStories[5]}
-              stories={impactStories}
               currentStory={currentStory}
               setCurrentStory={setCurrentStory}
             />
             <ImpactImage
               story={impactStories[6]}
-              stories={impactStories}
               currentStory={currentStory}
               setCurrentStory={setCurrentStory}
             />
