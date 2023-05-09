@@ -28,8 +28,8 @@ namespace BlogApp.API.Controllers
         public async Task<ActionResult> Login(SigninFormDto signinFormDto)
         {
             var command = new SigninCommand { SigninFormDto = signinFormDto };
-            _ = await _mediator.Send(command);
-            return Ok();
+            var response = await _mediator.Send(command);
+            return Ok(response);
         }
     }
 }

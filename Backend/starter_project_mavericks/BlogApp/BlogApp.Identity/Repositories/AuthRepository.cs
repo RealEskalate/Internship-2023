@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BlogApp.Application.Contracts.Identity;
+using BlogApp.Application.Models.Identity;
 using BlogApp.Application.Features.Authentication.DTO;
 using BlogApp.Domain;
 using MediatR;
@@ -13,6 +14,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using BlogApp.Application.Exceptions;
 
 namespace BlogApp.Identity.Repositories
 {
@@ -33,11 +35,13 @@ namespace BlogApp.Identity.Repositories
 
         public async Task<SignInResponse> SignInAsync(SigninFormDto signInFormDto)
         {
-            // sign up user using the form dto
             var userExist = await _userManager.FindByEmailAsync(signInFormDto.Email);
-            if(userExist != null)
+            Console.WriteLine(userExist.ToString() + " " + signInFormDto.Email + "****************************************8");
+            if (userExist != null)
             {
+                //var result = await _signInManager.PasswordSignInAsync(userExist, signInFormDto.Password, false, false);
                 var result = await _signInManager.CheckPasswordSignInAsync(userExist, signInFormDto.Password, false);
+             
                 if (result.Succeeded)
                 {
                     var token = await GenerateToken(userExist);
@@ -50,10 +54,11 @@ namespace BlogApp.Identity.Repositories
                         Token = token.ToString()
                     };
                 }
-                throw new Exception("Invalid Credential" + result.Succeeded);
+                
             }
-            throw new Exception("Invalid Credential");
+            throw new BadRequestException("Invalid Credentials");
         }
+    
 
         public async Task<SignUpResponse> SignUpAsync(SignupFormDto signUpFormDto)
         {
@@ -67,9 +72,9 @@ namespace BlogApp.Identity.Repositories
                     await _userManager.AddToRoleAsync(user, "User");
                     var createdUser = await _userManager.FindByEmailAsync(user.Email);
                     var response = _mapper.Map<SignUpResponse>(createdUser);
+                 
                     return response;
                 }
-
                 throw new Exception("Something went wrong! " + result.Errors.FirstOrDefault().Description);
             }
             throw new Exception("Email is already used!");
@@ -93,20 +98,14 @@ namespace BlogApp.Identity.Repositories
             .Union(userClaims)
             .Union(roleClaims);
 
-            var section = _configuration.GetSection("Jwt");
-            
-            var key = _configuration["Jwt:Key"];
 
-            Console.WriteLine("*******************************************************************  : " + section["Issuer"]);
-            var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key.ToString()));
-
+            var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetValue<string>("JwtSettings:Key")));
             var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
-
             var jwtSecurityToken = new JwtSecurityToken(
-               issuer: _configuration["Jwt:Issuer"],
-               audience: _configuration["Jwt:Audience"],
+               issuer: _configuration.GetValue<string>("JwtSettings:Issuer"),
+               audience: _configuration.GetValue<string>("JwtSettings:Audience"),
                claims: claims,
-               expires: DateTime.Now.AddMinutes(600),
+               expires: DateTime.Now.AddMinutes(_configuration.GetValue<Int32>("JwtSettings:DurationInMinutes")),
                signingCredentials: signingCredentials);
             return jwtSecurityToken;
         }
