@@ -33,7 +33,6 @@ namespace BlogApp.Application.Features.Review.CQRS.Handlers
             var validator = new CreateReviewValidator();
             var validationResult = await validator.ValidateAsync(request.reviewDto);
 
-<<<<<<< HEAD
             if (validationResult.IsValid == true)
             {
                 var review = _mapper.Map<_Review>(request.reviewDto);
@@ -58,19 +57,6 @@ namespace BlogApp.Application.Features.Review.CQRS.Handlers
                 response.Message = "Creation Failed";
                 response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
             }
-=======
-            
-
-            review = await _unitOfWork.ReviewRepository.Add(review);
-            await _unitOfWork.Save();
-
-            response.Success = true;
-            response.Message = "Creation Successful";
-            response.Id = review.Id;
-
-            // here I will send the email to requist review.ReviewId
-
->>>>>>> 4c24891 (fix(Samuel.Review): resolve conflict 2)
             return response;
         }
     }
