@@ -1,9 +1,10 @@
-import 'package:dark_knights/core/utils/colors.dart';
-import 'package:dark_knights/features/onboarding/presentation/widgets/onboarding/description_text.dart';
-import 'package:dark_knights/features/onboarding/presentation/widgets/onboarding/stepper_dot.dart';
-import 'package:dark_knights/features/onboarding/presentation/widgets/onboarding/header_text.dart';
-import 'package:dark_knights/features/onboarding/presentation/widgets/onboarding/onboarding_row_images.dart';
-import 'package:dark_knights/main.dart';
+import '../../../../core/utils/colors.dart';
+import '../../../signup/presentation/screen/signup_page.dart';
+import '../widgets/onboarding/description_text.dart';
+import '../widgets/onboarding/stepper_dot.dart';
+import '../widgets/onboarding/header_text.dart';
+import '../widgets/onboarding/onboarding_row_images.dart';
+import '../../../../main.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -102,8 +103,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => const MyHomePage(
-                                        title: "",
+                                      builder: (context) => const SignUpPage(
                                       ),
                                     ),
                                   )
