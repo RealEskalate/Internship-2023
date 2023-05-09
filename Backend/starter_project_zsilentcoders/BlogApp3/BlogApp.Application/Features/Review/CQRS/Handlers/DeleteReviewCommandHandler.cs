@@ -39,6 +39,7 @@ namespace BlogApp.Application.Features.Review.CQRS.Handlers
                 await _unitOfWork.ReviewRepository.Delete(review);
                 if (await _unitOfWork.Save() > 0)
                 {
+                    response.Success = true;
                     response.Message = "Deletion Successful!";
                     response.Value = new Unit();
                 }
