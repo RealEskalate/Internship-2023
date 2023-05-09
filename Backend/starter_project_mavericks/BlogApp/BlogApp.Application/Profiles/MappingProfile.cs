@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BlogApp.Application.Features._Indices.DTOs;
+using BlogApp.Application.Features.Blogs.DTOs;
 using BlogApp.Application.Features.Ratings.DTOs;
 using BlogApp.Domain;
 using System;
@@ -28,6 +29,15 @@ namespace BlogApp.Application.Profiles
             CreateMap<Rating, RatingDto>().ReverseMap();
 
             #endregion rating
+            
+            #region blog Mappings
+
+            CreateMap<Blog, CreateBlogDTO>().ReverseMap();
+            CreateMap<Blog, BlogDTO>().ReverseMap();
+            CreateMap<Blog, BlogListDTO>().ReverseMap();
+            CreateMap<Blog, UpdateBlogDTO>().ReverseMap();
+
+            #endregion blog
         }
     }
 }
