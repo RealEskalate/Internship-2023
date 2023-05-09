@@ -1,7 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
+import blogsSlice from '@/slices/blogs/blogsSlice'
 
 export const store = configureStore({
-  reducer: {}
+  reducer: {
+    blogs: blogsSlice,
+  }
 })
 
 export type RootState = ReturnType<typeof store.getState>
