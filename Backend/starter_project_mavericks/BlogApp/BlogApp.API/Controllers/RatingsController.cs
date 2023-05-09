@@ -1,4 +1,5 @@
-﻿using API.Controllers;
+﻿/**
+using API.Controllers;
 using BlogApp.Application.Features.Ratings.CQRS.Commands;
 using BlogApp.Application.Features.Ratings.DTOs;
 using BlogApp.Application.Responses;
@@ -33,3 +34,4 @@ public class RatingsController : BaseApiController
         return HandleResponse<Nullable<int>>(response);
     }
 }
+**/

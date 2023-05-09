@@ -1,18 +1,18 @@
 ﻿using BlogApp.Application.Features.Authentication.CQRS.Commands;
 using BlogApp.Application.Features.Authentication.DTO;
+using BlogApp.Application.Responses;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace BlogApp.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AuthController : ControllerBase
+    public class AuthController : BaseApiController
     {
-        private readonly IMediator _mediator;
-        public AuthController(IMediator mediator)
+        public AuthController(IMediator mediator):base(mediator)
         {
-            _mediator = mediator;
         }
         
         
@@ -21,7 +21,8 @@ namespace BlogApp.API.Controllers
         {
             var command = new SignupCommand { SignupFormDto = signupFormDto };
             var response = await _mediator.Send(command);
-            return Ok(response);
+            var status = response.Success ? HttpStatusCode.Created : HttpStatusCode.BadRequest;
+            return getResponse<BaseResponse<SignUpResponse>>(status, response);
         }
 
         [HttpPost("signin")]
@@ -29,7 +30,8 @@ namespace BlogApp.API.Controllers
         {
             var command = new SigninCommand { SigninFormDto = signinFormDto };
             var response = await _mediator.Send(command);
-            return Ok(response);
+            var status = response.Success ? HttpStatusCode.OK : HttpStatusCode.BadRequest;
+            return getResponse<BaseResponse<SignInResponse>>(status, response);
         }
     }
 }

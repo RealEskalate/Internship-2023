@@ -15,6 +15,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using BlogApp.Application.Exceptions;
+using BlogApp.Persistence;
 
 namespace BlogApp.Identity.Repositories
 {
@@ -24,60 +25,90 @@ namespace BlogApp.Identity.Repositories
         private readonly SignInManager<User> _signInManager;
         private readonly IMapper _mapper;
         private readonly IConfiguration _configuration;
+        private readonly UserIdentityDbContext _context;
 
-        public AuthRepository(UserManager<User> userManager, SignInManager<User> signInManager, IMapper mapper, IConfiguration configuration)
+        public AuthRepository(UserManager<User> userManager, SignInManager<User> signInManager, IMapper mapper, IConfiguration configuration, UserIdentityDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _mapper = mapper;
             _configuration = configuration;
+            _context = context;
         }
+
+        // Delete user
+        public async Task<bool> DeleteUserAsync(string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                throw new NotFoundException(nameof(User), userId);
+            }
+            var result = await _userManager.DeleteAsync(user);
+            return result.Succeeded;
+        }        
 
         public async Task<SignInResponse> SignInAsync(SigninFormDto signInFormDto)
         {
-            var userExist = await _userManager.FindByEmailAsync(signInFormDto.Email);
-            Console.WriteLine(userExist.ToString() + " " + signInFormDto.Email + "****************************************8");
-            if (userExist != null)
-            {
-                //var result = await _signInManager.PasswordSignInAsync(userExist, signInFormDto.Password, false, false);
-                var result = await _signInManager.CheckPasswordSignInAsync(userExist, signInFormDto.Password, false);
-             
-                if (result.Succeeded)
-                {
-                    var token = await GenerateToken(userExist);
-                    return new SignInResponse
-                    {
-                        Id = userExist.Id,
-                        Email = userExist.Email,
-                        FirstName = userExist.FirstName,
-                        LastName = userExist.LastName,
-                        Token = token.ToString()
-                    };
-                }
+            
                 
+                    var userExist = await _userManager.FindByEmailAsync(signInFormDto.Email);
+                    if (userExist != null)
+                    {
+                        var result = await _signInManager.CheckPasswordSignInAsync(userExist, signInFormDto.Password, false);
+
+                        if (result.Succeeded)
+                        {
+                            var token = await GenerateToken(userExist);
+                            return new SignInResponse
+                            {
+                                Id = userExist.Id,
+                                Email = userExist.Email,
+                                FirstName = userExist.FirstName,
+                                LastName = userExist.LastName,
+                                Token = token.ToString()
+                            };
+                        }
+                    }
+                    throw new BadRequestException("Invalid Credential");
+
             }
-            throw new BadRequestException("Invalid Credentials");
-        }
+            
+            
+        
     
 
         public async Task<SignUpResponse> SignUpAsync(SignupFormDto signUpFormDto)
         {
-            var userExist = await _userManager.FindByEmailAsync(signUpFormDto.Email);
-            if (userExist == null) {
-                var user = _mapper.Map<User>(signUpFormDto);
-                user.UserName = signUpFormDto.Email;
-                var result = await _userManager.CreateAsync(user, signUpFormDto.Password);
-                if (result.Succeeded)
+            using( var transaction = _context.Database.BeginTransaction())
+            {
+                try 
                 {
-                    await _userManager.AddToRoleAsync(user, "User");
-                    var createdUser = await _userManager.FindByEmailAsync(user.Email);
-                    var response = _mapper.Map<SignUpResponse>(createdUser);
-                 
-                    return response;
+                    var userExist = await _userManager.FindByEmailAsync(signUpFormDto.Email);
+                    if (userExist == null)
+                    {
+                        var user = _mapper.Map<User>(signUpFormDto);
+                        user.UserName = signUpFormDto.Email;
+                        var result = await _userManager.CreateAsync(user, signUpFormDto.Password);
+                        if (result.Succeeded)
+                        {
+                            await _userManager.AddToRoleAsync(user, "User");
+                            var createdUser = await _userManager.FindByEmailAsync(user.Email);
+                            var response = _mapper.Map<SignUpResponse>(createdUser);
+
+                            return response;
+                            await transaction.CommitAsync();
+                        }
+                        throw new BadRequestException("Email already exists");
+                    }
+                    throw new Exception("Email is already used!");
                 }
-                throw new Exception("Something went wrong! " + result.Errors.FirstOrDefault().Description);
+                catch(Exception e)
+                {
+                    transaction.Rollback();
+                    throw new Exception("Something went wrong");
+                }
             }
-            throw new Exception("Email is already used!");
         }
 
         // get token
