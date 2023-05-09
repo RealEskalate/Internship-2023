@@ -9,6 +9,7 @@ using BlogApp.Application.Responses;
 using BlogApp.UnitTests.Mocks;
 using MediatR;
 using Moq;
+using Shouldly;
 using Xunit;
 
 namespace BlogApp.UnitTests.Blogs
@@ -17,13 +18,11 @@ namespace BlogApp.UnitTests.Blogs
     {
         private readonly IMapper _mapper;
         private readonly Mock<IUnitOfWork> _mockUow;
-        private readonly Mock<IBlogRepository> _mockBlogRepo;
         private readonly DeleteBlogCommandHandler _handler;
 
         public DeleteBlogCommandHandlerTests()
         {
             _mockUow = MockUnitOfWork.GetUnitOfWork();
-            _mockBlogRepo = MockBlogRepository.GetBlogRepository();
 
             var mapperConfig = new MapperConfiguration(c =>
             {
@@ -41,10 +40,9 @@ namespace BlogApp.UnitTests.Blogs
                 Id = 2
             }, CancellationToken.None);
 
-            var blog = await _mockBlogRepo.Object.Get(id: 2);
-
-            Assert.IsType<BaseResponse<Unit>>(response);
-            Assert.True(response.Success);        
+            response.ShouldNotBeNull();
+            response.ShouldBeOfType<BaseResponse<Unit>>();
+            response.Success.ShouldBeTrue();   
         }
 
         [Fact]
@@ -54,8 +52,9 @@ namespace BlogApp.UnitTests.Blogs
                 Id = 4000
             }, CancellationToken.None);
             
-            Assert.IsType<BaseResponse<Unit>>(response);
-            Assert.False(response.Success);        
+            response.ShouldNotBeNull();
+            response.ShouldBeOfType<BaseResponse<Unit>>();
+            response.Success.ShouldBeFalse();    
         }
     }
 }

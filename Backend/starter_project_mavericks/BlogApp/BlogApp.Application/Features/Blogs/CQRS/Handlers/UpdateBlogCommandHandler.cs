@@ -49,7 +49,15 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
             blog.ThumbnailImageUrl = request.UpdateBlogDTO.ThumbnailImageUrl ?? blog.ThumbnailImageUrl;
             
             await _unitOfWork.BlogRepository.Update(blog);
-            await _unitOfWork.Save();
+            bool successful = await _unitOfWork.Save() > 0;
+
+            if(!successful){
+                return new BaseResponse<Unit> {
+                    Success=false, 
+                    Message="Blog Update Failed", 
+                    Errors=new List<string>(){"Failed to save to database"}
+                };
+            }
             
             return new BaseResponse<Unit>{
                 Success=true, 

@@ -37,8 +37,16 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
             newBlog.Status = PublicationStatus.NotPublished;
 
             newBlog = await _unitOfWork.BlogRepository.Add(newBlog);
-            await _unitOfWork.Save();
-            
+            bool successful = await _unitOfWork.Save() > 0;
+
+            if(!successful){
+                return new BaseResponse<Nullable<int>> {
+                    Success=false, 
+                    Message="Blog Creation Failed", 
+                    Errors=new List<string>(){"Failed to save to database"}
+                };
+            }
+
             return new BaseResponse<Nullable<int>> {
                 Success=true, 
                 Message="Blog Creation Success", 

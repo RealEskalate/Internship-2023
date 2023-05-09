@@ -44,21 +44,11 @@ namespace BlogApp.UnitTests.Mocks
             };
 
             var blogRepo = new Mock<IBlogRepository>();
-
-            blogRepo.Setup(repo => repo.GetAll()).ReturnsAsync(blogs);
             
             blogRepo.Setup(repo => repo.Get(It.IsAny<int>())).ReturnsAsync((int id) => blogs.FirstOrDefault(o => o.Id == id));
 
-            blogRepo.Setup(repo => repo.GetPublishedBlogs()).ReturnsAsync(()=>{
-                return (IList<Blog>)blogs.Where(blog => blog.Status == PublicationStatus.Published);
-            });
-
-            blogRepo.Setup(repo => repo.GetUnPublishedBlogs()).ReturnsAsync(()=>{
-                return (IList<Blog>)blogs.Where(blog => blog.Status == PublicationStatus.NotPublished);
-            });
-
             blogRepo.Setup(repo => repo.Add(It.IsAny<Blog>())).ReturnsAsync((Blog blog)=>{
-                blog.Id = blogs.Count;
+                blog.Id = blogs.Count+1;
                 blogs.Add(blog);
                 return blog;
             });

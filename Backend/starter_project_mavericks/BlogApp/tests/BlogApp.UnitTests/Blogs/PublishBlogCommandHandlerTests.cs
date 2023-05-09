@@ -10,6 +10,7 @@ using BlogApp.Domain;
 using BlogApp.UnitTests.Mocks;
 using MediatR;
 using Moq;
+using Shouldly;
 using Xunit;
 
 namespace BlogApp.UnitTests.Blogs
@@ -42,10 +43,11 @@ namespace BlogApp.UnitTests.Blogs
             }, CancellationToken.None);
 
             var blog = await _mockUow.Object.BlogRepository.Get(id: 4);
-
-            Assert.IsType<BaseResponse<Unit>>(response);
-            Assert.Equal(PublicationStatus.Published, blog.Status);
-            Assert.True(response.Success);            
+     
+            response.ShouldNotBeNull();
+            response.ShouldBeOfType<BaseResponse<Unit>>();
+            blog.Status.ShouldBe(PublicationStatus.Published);
+            response.Success.ShouldBeTrue();         
         }
 
         [Fact]
@@ -55,8 +57,9 @@ namespace BlogApp.UnitTests.Blogs
                 Id = 4000
             }, CancellationToken.None);
             
-            Assert.IsType<BaseResponse<Unit>>(response);
-            Assert.False(response.Success);        
+            response.ShouldNotBeNull();
+            response.ShouldBeOfType<BaseResponse<Unit>>();
+            response.Success.ShouldBeFalse();         
         }
     }
 }

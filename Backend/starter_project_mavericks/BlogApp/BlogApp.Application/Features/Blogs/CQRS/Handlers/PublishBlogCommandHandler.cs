@@ -26,7 +26,7 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
                 var error = new NotFoundException(nameof(Blog), request.Id);
                 var response = new BaseResponse<Unit>{
                     Success=false, 
-                    Message="Publishing blog Failed",
+                    Message="Publishing Blog Failed",
                 };
                 response.Errors.Add(error.Message);
                 return response;
@@ -35,7 +35,15 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
             Blog.Status = PublicationStatus.Published;
             await _unitOfWork.BlogRepository.Update(Blog);
 
-            await _unitOfWork.Save();
+            bool successful = await _unitOfWork.Save() > 0;
+
+            if(!successful){
+                return new BaseResponse<Unit> {
+                    Success=false, 
+                    Message="Publishing Blog Failed", 
+                    Errors=new List<string>(){"Failed to save to database"}
+                };
+            }
 
             return new BaseResponse<Unit>(){
                 Success = true,

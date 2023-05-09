@@ -9,6 +9,7 @@ using BlogApp.Application.Responses;
 using BlogApp.UnitTests.Mocks;
 using MediatR;
 using Moq;
+using Shouldly;
 using Xunit;
 
 namespace BlogApp.UnitTests.Blogs
@@ -37,7 +38,7 @@ namespace BlogApp.UnitTests.Blogs
         {
             var blogUpdate = new UpdateBlogDTO{
                 Id=2,
-                Title="Fifth Blog",
+                Title="New Fifth Blog Title",
                 Content="This is the updated content of the fifth blog",
                 ThumbnailImageUrl="https://www.blogImages.com/new_fifthImage.jpg",    
             };
@@ -47,12 +48,12 @@ namespace BlogApp.UnitTests.Blogs
 
             var blog = await _mockUow.Object.BlogRepository.Get(id: 2);
 
-
-            Assert.IsType<BaseResponse<Unit>>(response);
-            Assert.True(response.Success);            
-            Assert.Equal(blogUpdate.Title, blog.Title);
-            Assert.Equal(blogUpdate.Content, blog.Content);
-            Assert.Equal(blogUpdate.ThumbnailImageUrl, blog.ThumbnailImageUrl);
+            response.ShouldNotBeNull();
+            response.ShouldBeOfType<BaseResponse<Unit>>();
+            response.Success.ShouldBeTrue(); 
+            blog.Title.ShouldBe(blogUpdate.Title);
+            blog.Content.ShouldBe(blogUpdate.Content);
+            blog.ThumbnailImageUrl.ShouldBe(blogUpdate.ThumbnailImageUrl);
         }
 
         [Fact]
@@ -65,8 +66,9 @@ namespace BlogApp.UnitTests.Blogs
                 }
             }, CancellationToken.None);
             
-            Assert.IsType<BaseResponse<Unit>>(response);
-            Assert.False(response.Success);        
+            response.ShouldNotBeNull();
+            response.ShouldBeOfType<BaseResponse<Unit>>();
+            response.Success.ShouldBeFalse();        
         }
 
         [Fact]
@@ -79,8 +81,9 @@ namespace BlogApp.UnitTests.Blogs
                 }
             }, CancellationToken.None);
             
-            Assert.IsType<BaseResponse<Unit>>(response);
-            Assert.False(response.Success);        
+            response.ShouldNotBeNull();
+            response.ShouldBeOfType<BaseResponse<Unit>>();
+            response.Success.ShouldBeFalse();       
         }
 
         [Fact]
@@ -93,8 +96,9 @@ namespace BlogApp.UnitTests.Blogs
                 }
             }, CancellationToken.None);
             
-            Assert.IsType<BaseResponse<Unit>>(response);
-            Assert.False(response.Success);        
+            response.ShouldNotBeNull();
+            response.ShouldBeOfType<BaseResponse<Unit>>();
+            response.Success.ShouldBeFalse();       
         }
 
         [Fact]
@@ -107,8 +111,9 @@ namespace BlogApp.UnitTests.Blogs
                 }
             }, CancellationToken.None);
             
-            Assert.IsType<BaseResponse<Unit>>(response);
-            Assert.False(response.Success);        
+            response.ShouldNotBeNull();
+            response.ShouldBeOfType<BaseResponse<Unit>>();
+            response.Success.ShouldBeFalse();        
         }
     }
 }

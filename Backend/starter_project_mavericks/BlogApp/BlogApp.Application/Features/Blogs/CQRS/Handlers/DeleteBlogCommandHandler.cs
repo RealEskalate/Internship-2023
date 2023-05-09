@@ -34,7 +34,16 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
                 return response;
             }
             await _unitOfWork.BlogRepository.Delete(Blog);
-            await _unitOfWork.Save();
+            
+            bool successful = await _unitOfWork.Save() > 0;
+
+            if(!successful){
+                return new BaseResponse<Unit> {
+                    Success=false, 
+                    Message="Blog Deletion Failed", 
+                    Errors=new List<string>(){"Failed to save to database"}
+                };
+            }
 
             return new BaseResponse<Unit>(){
                 Success = true,
