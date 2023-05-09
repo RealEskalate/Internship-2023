@@ -46,7 +46,7 @@ namespace BlogApp.Persistence.Repositories
 
         public async Task Update(T entity)
         {
-            _dbContext.Entry(entity).State = EntityState.Modified;
+             _dbContext.Entry(entity).State = EntityState.Modified;
         }
 
 

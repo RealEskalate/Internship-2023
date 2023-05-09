@@ -1,4 +1,5 @@
-﻿using BlogApp.Application.Features._Indices.DTOs;
+﻿using BlogApp.Application.Contracts.Persistence;
+using BlogApp.Application.Features._Indices.DTOs;
 using BlogApp.Application.Features._Indices.DTOs.Validators;
 using BlogApp.Application.Features.Rates.DTOs;
 using FluentValidation;
@@ -11,10 +12,14 @@ using System.Threading.Tasks;
 namespace BlogApp.Application.Features.Rates.DTOs.Validators
 {
     public class UpdateRateDtoValidator : AbstractValidator<UpdateRateDto>
-    {
-        public UpdateRateDtoValidator()
+    {   
+         private readonly IUnitOfWork _unitOfWork;
+
+        public UpdateRateDtoValidator(IUnitOfWork unitOfWork)
         {
-            Include(new IRateDtoValidator());
+            _unitOfWork  =unitOfWork;
+
+            Include(new IRateDtoValidator(_unitOfWork));
 
             RuleFor(p => p.Id).NotNull().WithMessage("{PropertyName} must be present");
         }
