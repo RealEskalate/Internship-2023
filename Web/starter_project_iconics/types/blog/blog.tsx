@@ -14,4 +14,6 @@ export interface Blog {
   }
   tags: string[]
   paragraph: string
+  likes?: number
+  status?: 'pending' | 'approved' | 'declined'
 }
