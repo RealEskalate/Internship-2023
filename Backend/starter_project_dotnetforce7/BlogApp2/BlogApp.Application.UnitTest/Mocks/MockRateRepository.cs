@@ -5,7 +5,7 @@ using MediatR;
 using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
 using Moq;
 
-namespace BlogApp.Application.UnitTests.Mocks
+namespace BlogApp.Application.UnitTest.Mocks
 {
     public static class MockRateRepository
     {

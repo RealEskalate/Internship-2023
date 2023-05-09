@@ -13,23 +13,23 @@ namespace BlogApp.Persistence.Configurations.Entities
     {
         public void Configure(EntityTypeBuilder<Rate> builder)
         {
-            builder.HasData(
-                new Rate
-                {
-                    Id = 1,
-                    RaterId = 1,
-                    BlogId = 1,
-                    RateNo= 5
-                },
+            // builder.HasData(
+            //     new Rate
+            //     {
+            //         Id = 1,
+            //         RaterId = 1,
+            //         BlogId = 1,
+            //         RateNo= 5
+            //     },
 
-                new Rate
-                {
-                    Id = 2,
-                    RaterId = 2,
-                    BlogId = 2,
-                    RateNo = 3
-                }
-                ); ;
+            //     new Rate
+            //     {
+            //         Id = 2,
+            //         RaterId = 2,
+            //         BlogId = 2,
+            //         RateNo = 3
+            //     }
+            //     ); ;
         }
     }
 }

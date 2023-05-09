@@ -1,4 +1,5 @@
-﻿using BlogApp.Application.Features._Indices.DTOs;
+﻿using BlogApp.Application.Contracts.Persistence;
+using BlogApp.Application.Features._Indices.DTOs;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
@@ -10,13 +11,12 @@ namespace BlogApp.Application.Features.Rates.DTOs.Validators
 {
     public class IRateDtoValidator : AbstractValidator<IRateDto>
     {
-        public IRateDtoValidator()
+        private readonly IUnitOfWork _unitOfWork;
+        public IRateDtoValidator(IUnitOfWork UnitOfWork)
         {
-            RuleFor(p => p.RaterId)
-                .NotEmpty().WithMessage("{PropertyName} is required.")
-                .NotNull();
+            _unitOfWork = UnitOfWork;
 
-            RuleFor(p => p.BlogId)
+            RuleFor(p => p.RaterId)
                 .NotEmpty().WithMessage("{PropertyName} is required.")
                 .NotNull();
 
@@ -25,6 +25,13 @@ namespace BlogApp.Application.Features.Rates.DTOs.Validators
                 .NotNull()
                 .GreaterThan(0).WithMessage("{PropertyName} must be greater than or equal to {ComparisonValue}.")
                 .LessThanOrEqualTo(5).WithMessage("{PropertyName} must not exceed {ComparisonValue}.");
+            
+            RuleFor(p => p.BlogId)
+                .GreaterThan(0)
+                .MustAsync(async (id, token) => {
+                    return  await _unitOfWork.BlogRepository.Exists(id);
+                })
+                .WithMessage("{PropertyName} does't exist");
         }
     }
 }
