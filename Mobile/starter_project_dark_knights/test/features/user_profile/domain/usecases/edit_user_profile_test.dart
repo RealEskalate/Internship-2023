@@ -43,13 +43,26 @@ void main() {
     verifyNoMoreInteractions(mockUserRepository);
   });
 
-  test("Should return a failure when it fails to update the user profile",
+  test(
+      "Should return a server failure when it fails to update the user profile due to server error",
       () async {
     when(mockUserRepository.editUserProfile(tUser))
         .thenAnswer((_) async => Left(ServerFailure("Internal Server Error")));
 
     final result = await usecase(tUser);
     expect(result, Left(ServerFailure("Internal Server Error")));
+    verify(mockUserRepository.editUserProfile(tUser));
+    verifyNoMoreInteractions(mockUserRepository);
+  });
+
+  test(
+      "Should return an input failure when it fails to update user profile due to input mismatch",
+      () async {
+    when(mockUserRepository.editUserProfile(tUser))
+        .thenAnswer((_) async => Left(InputFailure("Input Mismatch")));
+
+    final result = await usecase(tUser);
+    expect(result, Left(InputFailure("Input Mismatch")));
     verify(mockUserRepository.editUserProfile(tUser));
     verifyNoMoreInteractions(mockUserRepository);
   });

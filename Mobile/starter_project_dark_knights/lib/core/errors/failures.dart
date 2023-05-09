@@ -12,3 +12,8 @@ class ServerFailure extends Failure {
   final String message;
   ServerFailure(this.message);
 }
+
+class InputFailure extends Failure {
+  final String message;
+  InputFailure(this.message);
+}
