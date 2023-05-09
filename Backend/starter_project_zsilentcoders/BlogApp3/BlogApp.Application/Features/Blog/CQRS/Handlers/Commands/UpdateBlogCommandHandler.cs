@@ -30,26 +30,37 @@ public class UpdateBlogCommandHandler : IRequestHandler<UpdateBlogCommand, Resul
     {
 
         var response = new Result<UpdateBlogDto?>();
-        var validator = new UpdateBlogDtoValidator();
+        var validator = new UpdateBlogDtoValidator(_unitOfWork);
         var validationResult = await validator.ValidateAsync(request.UpdateBlogDto);
-        var blog = await _unitOfWork.BlogRepository.Get(request.UpdateBlogDto.Id);
 
-        if (blog is null)
-            throw new NotFoundException(nameof(blog), request.UpdateBlogDto.Id);
+        if (validationResult.IsValid == true){
+            var blog = await _unitOfWork.BlogRepository.Get(request.UpdateBlogDto.Id);
+            _mapper.Map(request.UpdateBlogDto, blog);
 
-        _mapper.Map(request.UpdateBlogDto, blog);
+            await _unitOfWork.BlogRepository.Update(blog);
 
-        await _unitOfWork.BlogRepository.Update(blog);
-           
-            if (await _unitOfWork.Save() > 0 && validationResult.IsValid == true){
-                response.Message = "Updation Successful!";
-                // response.Value = new Unit();
-                response.Value = _mapper.Map<UpdateBlogDto>(blog);
-            }else{
-                response.Success = false;
-                response.Message = "Updation Failed";
-                response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
-            }
+                if (await _unitOfWork.Save() > 0)
+                {
+                    response.Message = "Updation Successful!";
+                    // response.Value = new Unit();
+                    response.Value = _mapper.Map<UpdateBlogDto>(blog);
+                }
+                else
+                {
+                    response.Success = false;
+                    response.Message = "Updation Failed";
+                    response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
+                }
+        }
+        else{
+
+            response.Success = false;
+            response.Message = "Updation Failed";
+            response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
+
+        }
+
+
 
         return response;
     }
