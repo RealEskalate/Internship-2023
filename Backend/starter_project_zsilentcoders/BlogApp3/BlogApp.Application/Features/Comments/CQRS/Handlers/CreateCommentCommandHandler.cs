@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Features.Comments.CQRS.Commands;
+using BlogApp.Application.Features.Comments.DTOs;
 using BlogApp.Application.Features.Comments.DTOs.Validators;
 using BlogApp.Application.Responses;
 using BlogApp.Domain;
@@ -10,7 +11,7 @@ using MediatR;
 namespace BlogApp.Application.Features.Comments.CQRS.Handlers;
 
 
-public class CreateCommentCommandHandler : IRequestHandler<CreateCommentCommand, BaseCommandResponse>
+public class CreateCommentCommandHandler : IRequestHandler<CreateCommentCommand, Result<CommentDto>>
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
@@ -21,10 +22,10 @@ public class CreateCommentCommandHandler : IRequestHandler<CreateCommentCommand,
         _mapper = mapper;
         
     }
-    public async Task<BaseCommandResponse> Handle(CreateCommentCommand request, CancellationToken cancellationToken)
+    public async Task<Result<CommentDto>> Handle(CreateCommentCommand request, CancellationToken cancellationToken)
     
       {
-          var response = new BaseCommandResponse();
+            var response = new Result<CommentDto?>();
             var validator = new CreateCommentDtoValidator();
             var validationResult = await validator.ValidateAsync(request.CommentDto);
 
@@ -43,16 +44,12 @@ public class CreateCommentCommandHandler : IRequestHandler<CreateCommentCommand,
 
                 response.Success = true;
                 response.Message = "Creation Successful";
-                response.Id = comment.Id;
+                response.Value = _mapper.Map<CommentDto>(comment);
             }
 
             return response;
-
-
-
-
-
-        
       
     }
+
+    
 }

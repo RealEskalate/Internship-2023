@@ -20,6 +20,7 @@ namespace BlogApp.Persistence
 
          public DbSet<BlogRate> BlogRates { get; set; }
 
+        public DbSet<Comment> Comments { get; set; }
         
         public BlogAppDbContext(DbContextOptions<BlogAppDbContext> options)
            : base(options)
@@ -50,7 +51,7 @@ namespace BlogApp.Persistence
         }
 
         
-        public DbSet<Comment> Comments { get; set; }
+      
 
 
     }

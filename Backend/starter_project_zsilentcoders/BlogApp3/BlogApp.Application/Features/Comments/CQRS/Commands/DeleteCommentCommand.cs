@@ -1,8 +1,10 @@
+using BlogApp.Application.Features.Comments.DTOs;
+using BlogApp.Application.Responses;
 using MediatR;
 
 namespace BlogApp.Application.Features.Comments.CQRS.Commands;
 
- public class DeleteCommentCommand : IRequest
+ public class DeleteCommentCommand : IRequest<Result<Unit>>
 {
-    public int Id { get; set; }
+     public DeleteCommentDto? CommentDto;
 }

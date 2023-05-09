@@ -4,11 +4,12 @@ using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Exceptions;
 using BlogApp.Application.Features.Comments.CQRS.Commands;
 using BlogApp.Application.Features.Comments.DTOs.Validators;
+using BlogApp.Application.Responses;
 using MediatR;
 
 namespace BlogApp.Application.Features.Comments.CQRS.Handlers;
 
-public class UpdateCommentCommandHandler : IRequestHandler<UpdateCommentCommand, Unit>
+public class UpdateCommentCommandHandler : IRequestHandler<UpdateCommentCommand, Result<Unit>>
 {
 
     private readonly IUnitOfWork _unitOfWork;
@@ -21,8 +22,9 @@ public class UpdateCommentCommandHandler : IRequestHandler<UpdateCommentCommand,
         
     }
 
-    public async Task<Unit> Handle(UpdateCommentCommand request, CancellationToken cancellationToken)
+    public async Task<Result<Unit>> Handle(UpdateCommentCommand request, CancellationToken cancellationToken)
     {
+
         var validator = new UpdateCommentDtoValidator();
             var validationResult = await validator.ValidateAsync(request.CommentDto);
 
@@ -39,6 +41,6 @@ public class UpdateCommentCommandHandler : IRequestHandler<UpdateCommentCommand,
             await _unitOfWork._CommentRepository.Update(comment);
             await _unitOfWork.Save();
 
-            return Unit.Value;
+            return new Result<Unit>();
     }
 }

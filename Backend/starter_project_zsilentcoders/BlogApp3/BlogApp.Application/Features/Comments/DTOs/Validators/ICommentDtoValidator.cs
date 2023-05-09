@@ -13,7 +13,8 @@ namespace BlogApp.Application.Features.Comments.DTOs.Validators;
     {
         RuleFor(p => p.CommenterId)
         .NotEmpty().WithMessage("{PropertyName} is required")
-        .NotNull();
+        .NotNull()
+        .GreaterThan(0);
        
         RuleFor(p => p.Content)
         .NotEmpty().WithMessage("{PropertyName} is required")

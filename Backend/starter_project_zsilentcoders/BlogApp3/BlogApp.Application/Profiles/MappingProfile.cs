@@ -70,6 +70,8 @@ namespace BlogApp.Application.Profiles
             CreateMap<Comment, CommentDto>().ReverseMap();
             CreateMap<Comment, CreateCommentDto>().ReverseMap();
             CreateMap<Comment, UpdateCommentDto>().ReverseMap();
+            CreateMap<Comment, DeleteCommentDto>().ReverseMap();
+
             #endregion comment
 
 

@@ -3,11 +3,12 @@ using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Features._Indices.DTOs;
 using BlogApp.Application.Features.Comments.CQRS.Queries;
 using BlogApp.Application.Features.Comments.DTOs;
+using BlogApp.Application.Responses;
 using MediatR;
 
 namespace BlogApp.Application.Features.Comments.CQRS.Handlers;
 
-public class GetCommentDetailQueryHandler : IRequestHandler<GetCommentDetailQuery, CommentDto>
+public class GetCommentDetailQueryHandler : IRequestHandler<GetCommentDetailQuery, Result<CommentDto>>
 {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -17,10 +18,12 @@ public class GetCommentDetailQueryHandler : IRequestHandler<GetCommentDetailQuer
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-        public async Task<CommentDto> Handle(GetCommentDetailQuery request, CancellationToken cancellationToken)
+        public async Task<Result<CommentDto?>> Handle(GetCommentDetailQuery request, CancellationToken cancellationToken)
         {
             var comment = await _unitOfWork._CommentRepository.Get(request.Id);
-            return _mapper.Map<CommentDto>(comment);
+            var commentDto = _mapper.Map<CommentDto>(comment);
+             
+            return new Result<CommentDto?>() { Value = commentDto, Message = "Successful", Success = true, };
         }
 
      

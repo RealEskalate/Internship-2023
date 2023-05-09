@@ -46,9 +46,9 @@ public class CommentController : ControllerBase
         return NoContent(); 
     }
 
-     [HttpDelete]
-      public async Task<ActionResult> Delete(int id){
-         await _mediator.Send(new DeleteCommentCommand{Id = id});
+     [HttpDelete("{id}")]
+      public async Task<ActionResult> Delete(DeleteCommentDto commentDto){
+         await _mediator.Send(new DeleteCommentCommand{ CommentDto = commentDto});
         return NoContent(); 
     }
 }
