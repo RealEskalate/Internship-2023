@@ -1,15 +1,8 @@
-import 'package:dark_knights/features/article/presentation/screen/article_reading_page.dart';
-
-import 'features/Authentication/presentation/screen/login_page.dart';
-import 'features/article/presentation/screen/write_article_page.dart';
-import 'features/feeds/presentation/screen/home_page.dart';
 import 'features/splash_screen/presentation/screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'features/user_profile/presentation/screen/profile_page.dart';
-
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -32,7 +25,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const LoginPage(),
+      home: const SplashScreen(),
     );
   }
 }
