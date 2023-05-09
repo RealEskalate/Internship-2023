@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Application.Features.Users.DTOs.Validators
 {
-    public class Update_UserDtoValidator : AbstractValidator<_UserDto>
+    public class Update_UserDtoValidator : AbstractValidator<Update_UserDto>
     {
         public Update_UserDtoValidator()
         {

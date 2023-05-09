@@ -28,7 +28,7 @@ namespace BlogApp.Application.Features.Users.CQRS.Handlers
         {
             var response = new BaseCommandResponse();
             var validator = new Create_UserDtoValidator();
-            var validationResult = await validator.ValidateAsync(request._UserDto);
+            var validationResult = await validator.ValidateAsync(request.Create_UserDto);
 
             if (validationResult.IsValid == false)
             {
@@ -38,7 +38,7 @@ namespace BlogApp.Application.Features.Users.CQRS.Handlers
             }
             else
             {
-                var user = _mapper.Map<User>(request._UserDto);
+                var user = _mapper.Map<User>(request.Create_UserDto);
 
                 user = await _unitOfWork._UserRepository.Add(user);
                 await _unitOfWork.Save();

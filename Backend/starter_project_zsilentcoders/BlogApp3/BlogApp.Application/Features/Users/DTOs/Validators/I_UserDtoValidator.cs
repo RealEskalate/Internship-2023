@@ -19,7 +19,9 @@ namespace BlogApp.Application.Features.Users.DTOs.Validators
         RuleFor(user => user.LastName)
             .NotEmpty().WithMessage("{PropertyName} is required.")
             .Length(2, 50).WithMessage("{PropertyName} must be between 2 and 50 characters.");
-
+        RuleFor(user => user.Email)
+            .NotEmpty().WithMessage("{PropertyName} is required.")
+            .EmailAddress().WithMessage("{PropertyName} is not valid.");
         }
     }
 }

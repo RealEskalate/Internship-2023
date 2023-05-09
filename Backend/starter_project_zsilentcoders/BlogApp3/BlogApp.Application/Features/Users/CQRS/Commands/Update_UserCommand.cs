@@ -6,7 +6,7 @@ namespace BlogApp.Application.Features.Users.CQRS.Commands
 {
     public class Update_UserCommand : IRequest<Unit>
     {
-        public _UserDto _UserDto { get; set; }
+        public Update_UserDto Update_UserDto { get; set; }
 
     }
 }

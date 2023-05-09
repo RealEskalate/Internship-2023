@@ -37,15 +37,15 @@ namespace BlogApp.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<BaseCommandResponse>> Post([FromBody] Create_UserDto create_UserDto)
         {
-            var command = new Create_UserCommand { _UserDto = create_UserDto };
+            var command = new Create_UserCommand { Create_UserDto = create_UserDto };
             var repsonse = await _mediator.Send(command);
             return Ok(repsonse);
         }
 
         [HttpPut]
-        public async Task<ActionResult> Put([FromBody] _UserDto userDto)
+        public async Task<ActionResult> Put([FromBody] Update_UserDto userDto)
         {
-            var command = new Update_UserCommand { _UserDto = userDto };
+            var command = new Update_UserCommand { Update_UserDto = userDto };
             await _mediator.Send(command);
             return NoContent();
         }

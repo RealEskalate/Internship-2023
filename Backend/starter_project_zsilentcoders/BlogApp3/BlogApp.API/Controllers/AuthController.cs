@@ -41,8 +41,8 @@ public class AuthController : ControllerBase
     public async Task<ActionResult<RegistrationResponse>> Register([FromBody] RegisterDto registerDto)
     {
         var registrationResponse = await _authService.Register(_mapper.Map<RegistrationModel>(registerDto));
-        var command = new Create_UserCommand {_UserDto = _mapper.Map<Create_UserDto>(registerDto)};
-        command._UserDto.AccountId = registrationResponse.Id;
+        var command = new Create_UserCommand {Create_UserDto = _mapper.Map<Create_UserDto>(registerDto)};
+        command.Create_UserDto.AccountId = registrationResponse.Id;
         try
         {
             var response = await _mediator.Send(command);
