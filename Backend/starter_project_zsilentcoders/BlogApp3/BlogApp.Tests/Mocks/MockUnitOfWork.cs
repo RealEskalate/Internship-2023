@@ -28,6 +28,7 @@ namespace BlogApp.Application.Tests.Mocks
             mockUow.Setup(r => r.BlogRateRepository).Returns(mockBlogRateRepo.Object);
 
             mockUow.Setup(r => r.Save()).ReturnsAsync(1);
+            mockUow.Setup(r => r.BlogRateRepository).Returns(mockBlogRateRepo.Object);
             return mockUow;
         }
     }

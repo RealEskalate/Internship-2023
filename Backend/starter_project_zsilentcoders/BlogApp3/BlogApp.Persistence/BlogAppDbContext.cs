@@ -18,7 +18,6 @@ namespace BlogApp.Persistence
         public DbSet<Review> _Review { get; set; }
 
          public DbSet<BlogRate> BlogRates { get; set; }
-        public DbSet<BlogRate> BlogRates { get; set; }
 
         
         public BlogAppDbContext(DbContextOptions<BlogAppDbContext> options)
