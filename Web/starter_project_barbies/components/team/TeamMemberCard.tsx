@@ -39,7 +39,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
           {name}
         </h3>
         <p className="m-3 tracking-widest text-base uppercase">{jobTitle}</p>
-        <p className="text-sm mt-5 mb-3 text-gray-400 font-light px-4 tracking-wide">
+        <p className="text-sm mt-5 mb-3 text-secondarytext font-light px-4 tracking-wide">
           {description}
         </p>
       </div>

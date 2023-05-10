@@ -9,10 +9,10 @@ const Index = () => {
     <div className="px-12 my-8 md:px-20 lg:px-28">
       <div className="flex flex-col md:flex-row">
         <div className="w-full md:w-2/5">
-          <h1 className="text-5xl text-gray-700 font-extrabold lg:leading-snug my-8 md:text-3xl lg:text-5xl">
+          <h1 className="text-5xl text-secondarytext font-extrabold lg:leading-snug my-8 md:text-3xl lg:text-5xl">
             THE TEAM WE&apos;RE CURRENTLY WORKING WITH
           </h1>
-          <p className="text-base md:text-sm lg:text-base lg:leading-7 text-gray-400 font-light">
+          <p className="text-base md:text-sm lg:text-base lg:leading-7 text-secondarytext font-light">
             Meet our development team is a small but highly skilled and
             experienced group of professionals. We have a talented mix of web
             developers, software engineers, project managers and quality
