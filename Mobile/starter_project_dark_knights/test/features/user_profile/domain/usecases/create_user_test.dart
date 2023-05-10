@@ -1,7 +1,8 @@
 import 'package:dark_knights/core/errors/failures.dart';
 import 'package:dark_knights/features/user_profile/domain/entities/user_entity.dart';
 import 'package:dark_knights/features/user_profile/domain/repositories/user_repository.dart';
-import 'package:dark_knights/features/user_profile/domain/usecases/edit_user_profile.dart';
+import 'package:dark_knights/features/user_profile/domain/usecases/create_user.dart';
+import 'package:dark_knights/features/user_profile/domain/usecases/delete_user.dart';
 import 'package:dartz/dartz.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -9,13 +10,14 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'create_user_test.mocks.dart';
 
+@GenerateMocks([UserRepository])
 void main() {
-  late EditUserProfile usecase;
+  late CreateUser usecase;
   late MockUserRepository mockUserRepository;
 
   setUp(() {
     mockUserRepository = MockUserRepository();
-    usecase = EditUserProfile(mockUserRepository);
+    usecase = CreateUser(mockUserRepository);
   });
 
   final tUser = UserEntity(
@@ -28,39 +30,36 @@ void main() {
       password: "testPassword",
       image: "testImage");
 
-  test(
-      "Should provide the details of the updated user profile to the repository",
+  test("Should Create the user with the given data and return the created user",
       () async {
-    when(mockUserRepository.editUserProfile(tUser))
+    when(mockUserRepository.createUser(tUser))
         .thenAnswer((_) async => Right(tUser));
-    final result = await usecase(tUser);
 
+    final result = await usecase(tUser);
     expect(result, Right(tUser));
-    verify(mockUserRepository.editUserProfile(tUser));
+    verify(mockUserRepository.createUser(tUser));
     verifyNoMoreInteractions(mockUserRepository);
   });
 
-  test(
-      "Should return a server failure when it fails to update the user profile due to server error",
-      () async {
-    when(mockUserRepository.editUserProfile(tUser))
+  test("Should return Server failure when user is not create", () async {
+    when(mockUserRepository.createUser(tUser))
         .thenAnswer((_) async => Left(ServerFailure("Internal Server Error")));
 
     final result = await usecase(tUser);
     expect(result, Left(ServerFailure("Internal Server Error")));
-    verify(mockUserRepository.editUserProfile(tUser));
+    verify(mockUserRepository.createUser(tUser));
     verifyNoMoreInteractions(mockUserRepository);
   });
 
   test(
-      "Should return an input failure when it fails to update user profile due to input mismatch",
+      "Should return an input failure when it fails to create user profile due to input mismatch",
       () async {
-    when(mockUserRepository.editUserProfile(tUser))
+    when(mockUserRepository.createUser(tUser))
         .thenAnswer((_) async => Left(InputFailure("Input Mismatch")));
 
     final result = await usecase(tUser);
     expect(result, Left(InputFailure("Input Mismatch")));
-    verify(mockUserRepository.editUserProfile(tUser));
+    verify(mockUserRepository.createUser(tUser));
     verifyNoMoreInteractions(mockUserRepository);
   });
 }

@@ -7,9 +7,8 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'get_user_test.mocks.dart';
+import 'create_user_test.mocks.dart';
 
-@GenerateMocks([UserRepository])
 void main() {
   late DeleteUser usecase;
   late MockUserRepository mockUserRepository;

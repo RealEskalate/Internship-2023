@@ -1,14 +1,11 @@
 import 'package:dark_knights/core/errors/failures.dart';
-import 'package:dark_knights/features/user_profile/domain/repositories/user_repository.dart';
 import 'package:dark_knights/features/user_profile/domain/usecases/get_number_of_followers.dart';
 import 'package:dartz/dartz.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'get_user_test.mocks.dart';
+import 'create_user_test.mocks.dart';
 
-@GenerateMocks([UserRepository])
 void main() {
   late GetNumberOfFollowers usecase;
   late MockUserRepository mockUserRepository;

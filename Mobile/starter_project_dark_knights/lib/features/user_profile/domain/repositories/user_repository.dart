@@ -4,7 +4,7 @@ import 'package:dark_knights/features/user_profile/domain/entities/user_entity.d
 import 'package:dartz/dartz.dart';
 
 abstract class UserRepository {
-  Future<List<UserEntity>> getAllUsers();
+  Future<Either<Failure, List<UserEntity>>> getAllUsers();
 
   Future<Either<Failure, UserEntity>> createUser(UserEntity user);
 
@@ -18,7 +18,7 @@ abstract class UserRepository {
 
   Future<Either<Failure, UserEntity>> getUser(String userId);
 
-  Future<Either<Failure, UserEntity>> getNumberOfFollowing(String userId);
+  Future<Either<Failure, int>> getNumberOfFollowing(String userId);
 
-  Future<Either<Failure, UserEntity>> getFollowers(String userId);
+  Future<Either<Failure, List<UserEntity>>> getFollowers(String userId);
 }
