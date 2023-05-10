@@ -3,6 +3,7 @@ using BlogApp.Application.Features._Indices.DTOs;
 using BlogApp.Application.Features.Comments.DTOs;
 using BlogApp.Application.Features.Tags.DTOs;
 using BlogApp.Application.Features.Blogs.DTOs;
+using BlogApp.Application.Features.Authentication.DTO;
 using BlogApp.Application.Features.Ratings.DTOs;
 using BlogApp.Domain;
 using System;
@@ -29,6 +30,12 @@ namespace BlogApp.Application.Profiles
             CreateMap<Comment,UpdateCommentDto>().ReverseMap();
 
             #endregion _index
+            #region Authentication Mappings
+            CreateMap<SignupFormDto, User>().ReverseMap();
+            CreateMap<User, SignUpResponse>().ReverseMap();
+            #endregion Authentication Mappings
+
+            CreateMap<Rating, RatingDto>().ReverseMap();
         }
     }
 }
