@@ -10,8 +10,6 @@ import 'package:matador/features/signup/domain/usecases/signup_user.dart';
 import 'signup_user_test.mocks.dart';
 
 @GenerateMocks([AuthRepository])
-// class MockAuthRepository extends Mock implements AuthRepository {}
-
 void main() {
   late SignUpUser signUpUser;
   late MockAuthRepository mockAuthRepository;
@@ -42,5 +40,3 @@ void main() {
     verifyNoMoreInteractions(mockAuthRepository);
   });
 }
-
-
