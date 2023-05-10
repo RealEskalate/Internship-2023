@@ -2,7 +2,7 @@ import React from 'react'
 import heroImage from '../../public/image/team/hero-image.svg'
 import Image from 'next/image'
 import TeamMemberCard from '@/components/team/TeamMemberCard'
-import teamMembers from '@/data/team-members.json'
+import teamMembers from '@/data/team/team-members.json'
 
 const Index = () => {
   return (
