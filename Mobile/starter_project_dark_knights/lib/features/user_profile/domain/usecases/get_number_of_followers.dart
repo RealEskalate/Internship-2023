@@ -6,13 +6,13 @@ import 'package:dark_knights/features/user_profile/domain/usecases/get_user.dart
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 
-class GetNumberOfFollowing implements UseCase<int,Params> {
+class GetNumberOfFollowing implements UseCase<int,String> {
   final UserRepository repo;
  GetNumberOfFollowing(this.repo);
   
 @override
-  Future<Either<Failure,int >> call(Params params) async {
-   return await repo.getNumberOfFollowing(params.id);
+  Future<Either<Failure,int >> call(String id) async {
+   return await repo.getNumberOfFollowing(id);
   }
 }
   
