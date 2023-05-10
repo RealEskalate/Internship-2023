@@ -1,3 +1,4 @@
+import BlogDetail from '@/types/blog/blog-detail'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React from 'react'
@@ -7,9 +8,8 @@ const SingleBlog: React.FC = () => {
   const router = useRouter()
   const { id } = router.query
   const blogList = blogs
-  console.log(id)
-  const currBlog = blogList.blogs.filter((item) => {
-    // TODO 
+  const currBlog: BlogDetail[] = blogList.filter((item) => {
+    // TODO
     // This Will be fixed on another PR
     return item.blogId === '1'
   })
