@@ -4,7 +4,6 @@ using BlogApp.Application.Features.Blog.DTOs;
 using BlogApp.Application.Features.Blog.CQRS.Requests.Commands;
 using BlogApp.Application.Profiles;
 using AutoMapper;
-using BlogApp.Application.Tests.Mocks;
 using Shouldly;
 using Moq;
 using BlogApp.Tests.Mocks;
