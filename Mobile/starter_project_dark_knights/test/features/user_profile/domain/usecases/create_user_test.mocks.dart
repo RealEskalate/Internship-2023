@@ -77,22 +77,23 @@ class MockUserRepository extends _i1.Mock implements _i3.UserRepository {
         )),
       ) as _i4.Future<_i2.Either<_i5.Failure, _i6.UserEntity>>);
   @override
-  _i4.Future<_i2.Either<_i5.Failure, _i6.UserEntity>> getFollowing(
+  _i4.Future<_i2.Either<_i5.Failure, List<_i6.UserEntity>>> getFollowing(
           String? userId) =>
       (super.noSuchMethod(
         Invocation.method(
           #getFollowing,
           [userId],
         ),
-        returnValue: _i4.Future<_i2.Either<_i5.Failure, _i6.UserEntity>>.value(
-            _FakeEither_0<_i5.Failure, _i6.UserEntity>(
+        returnValue:
+            _i4.Future<_i2.Either<_i5.Failure, List<_i6.UserEntity>>>.value(
+                _FakeEither_0<_i5.Failure, List<_i6.UserEntity>>(
           this,
           Invocation.method(
             #getFollowing,
             [userId],
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i5.Failure, _i6.UserEntity>>);
+      ) as _i4.Future<_i2.Either<_i5.Failure, List<_i6.UserEntity>>>);
   @override
   _i4.Future<_i2.Either<_i5.Failure, _i6.UserEntity>> editUserProfile(
           _i6.UserEntity? user) =>

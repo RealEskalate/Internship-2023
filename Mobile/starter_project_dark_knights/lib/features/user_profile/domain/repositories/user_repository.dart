@@ -8,7 +8,7 @@ abstract class UserRepository {
 
   Future<Either<Failure, UserEntity>> createUser(UserEntity user);
 
-  Future<Either<Failure, UserEntity>> getFollowing(String userId);
+  Future<Either<Failure, List<UserEntity>>> getFollowing(String userId);
 
   Future<Either<Failure, UserEntity>> editUserProfile(UserEntity user);
 
