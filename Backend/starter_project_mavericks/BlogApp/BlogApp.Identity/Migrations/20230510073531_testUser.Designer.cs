@@ -3,6 +3,7 @@ using System;
 using BlogApp.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BlogApp.Identity.Migrations
 {
     [DbContext(typeof(UserIdentityDbContext))]
-    partial class UserIdentityDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230510073531_testUser")]
+    partial class testUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -98,7 +101,7 @@ namespace BlogApp.Identity.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "51ae5874-509d-4c05-9377-be8f219f7543",
+                            ConcurrencyStamp = "321ecfe6-aab5-4781-bb14-572c44ed87a9",
                             Email = "admin@localhost.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -106,9 +109,9 @@ namespace BlogApp.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDu0gV2GEgTZNQrc648C9qNPDEMzlBoYSN3YKk/tGnfVdjazuDh5hkyE+t8xaV+vLA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMzhl8X9TRM3Sx1k0sSKN6O7Aya6l1hLddjjLHdp1EThdieY9Z5R5hUVHFFcbS24KQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "308d4a00-713d-41f9-a043-99275f7e25c8",
+                            SecurityStamp = "d40682bb-4f1c-4576-a27f-4317d4476fe9",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         },
@@ -116,7 +119,7 @@ namespace BlogApp.Identity.Migrations
                         {
                             Id = "9e224968-33e4-4652-b7b7-8574d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3e5ab19e-438b-4d0b-aa0c-4a5f677a05a1",
+                            ConcurrencyStamp = "39d014f0-9ff0-4d79-837e-90241d894ab1",
                             Email = "user@localhost.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -124,9 +127,9 @@ namespace BlogApp.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@LOCALHOST.COM",
                             NormalizedUserName = "USER@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKEc03f4lBUHQH/9h055GKzPPM2suTPxhkWVjuQ0gdBoZWm+RsueDddoFoF6O8MTIw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKh8NWM0TQUJIP0GQ3pitGWnooXq1d0XfLqLCuBOuderCFnrbuLg9GX/WN7Ewhm6/Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0b4986a5-564c-4382-91c1-b331f9e66af8",
+                            SecurityStamp = "bbf55727-9695-4ff6-87ea-24c3d525aaac",
                             TwoFactorEnabled = false,
                             UserName = "user@localhost.com"
                         });

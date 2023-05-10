@@ -65,11 +65,12 @@ namespace BlogApp.Identity.Repositories
                 if (result.Succeeded)
                 {
                     await _userManager.AddToRoleAsync(user, "User");
-                    var createdUser = await _userManager.FindByEmailAsync(user.Email);
+                    
+                    var createdUser = await _userManager.FindByNameAsync(user.UserName);
+
                     var response = _mapper.Map<SignUpResponse>(createdUser);
                     return response;
                 }
-
                 throw new Exception("Something went wrong! " + result.Errors.FirstOrDefault().Description);
             }
             throw new Exception("Email is already used!");
@@ -95,9 +96,8 @@ namespace BlogApp.Identity.Repositories
 
             var section = _configuration.GetSection("Jwt");
             
-            var key = _configuration["Jwt:Key"];
+            var key = _configuration["JwtSettings:Key"];
 
-            // Console.WriteLine("*******************************************************************  : " + section["Issuer"]);
             var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key.ToString()));
 
             var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
@@ -108,6 +108,7 @@ namespace BlogApp.Identity.Repositories
                claims: claims,
                expires: DateTime.Now.AddMinutes(600),
                signingCredentials: signingCredentials);
+
             return jwtSecurityToken;
         }
 

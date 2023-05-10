@@ -45,7 +45,7 @@ public class CreateRatingCommandHandler : IRequestHandler<CreateRatingCommand, B
         var rating = _mapper.Map<Rating>(request.RatingDto);
         rating.BlogId = request.BlogId;
         /* rating.raterId = _httpContextAccessor.HttpContext.User.Claims.FirstOrDefault(
-         *      q => q.Type == CustomClaimTypes.Uid)?.Value;
+            *      q => q.Type == CustomClaimTypes.Uid)?.Value;
         **/
 
         await _unitOfWork.RatingRepository.Add(rating);
@@ -57,7 +57,6 @@ public class CreateRatingCommandHandler : IRequestHandler<CreateRatingCommand, B
                 Success = false,
                 Message = "ServerErrorException",
             };
-            return response;
         }
 
         var ratings = _unitOfWork.RatingRepository.GetByBlog(rating.BlogId);
