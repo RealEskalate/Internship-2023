@@ -11,6 +11,7 @@ module.exports = {
       colors: {
         primary: '#264FAD',
         secondary: '#E1E7EC',
+        lightPrimary: '#019CFA',
         accent: '#FF9F43',
         danger: '#b91c1c',
         'primary-text': '#353535',
@@ -21,6 +22,11 @@ module.exports = {
         poppins: ['Poppins', 'sans-serif'],
         imfell: ['IM Fell French Canon', 'serif'],
         DMSans: ['Dm Sans'],
+      },
+
+      fontFamily:{
+        montserrat: ['Montserrat', 'sans-serif'],
+        imfell : ['IM Fell French Canon', 'serif']
       },
     },
   },
