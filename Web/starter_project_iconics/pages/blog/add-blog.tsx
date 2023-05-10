@@ -54,7 +54,7 @@ const AddBlog: React.FC = () => {
         className="col-span-1 border-l-2 border-indigo-100 mt-8"
         style={{ height: '575px' }}
       >
-        <h3 className='font-bold ml-4'>Select Tag</h3>
+        <h3 className="font-bold ml-4">Select Tag</h3>
       </div>
     </div>
   )
