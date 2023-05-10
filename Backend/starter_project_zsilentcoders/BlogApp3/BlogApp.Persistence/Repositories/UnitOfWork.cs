@@ -73,12 +73,8 @@ namespace BlogApp.Persistence.Repositories
 
         public void Dispose()
         {
-            get
-            {
-                if (_blogRateRepository == null)
-                    _blogRateRepository = new BlogRateRepository(_context);
-                return _blogRateRepository;
-            }
+            _context.Dispose();
+            GC.SuppressFinalize(this);
         }
         
         public async Task<int> Save()

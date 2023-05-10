@@ -60,41 +60,5 @@ public class DeleteBlogRateCommandHandler : IRequestHandler<DeleteBlogRateComman
         return response;
     }
 
-    public async Task<Result<Unit>> Handle(DeleteBlogRateCommand request, CancellationToken cancellationToken)
-    {
-        var response = new Result<Unit>();
-
-        var validator = new DeleteBlogRateDtoValidator(_unitOfWork);
-        var validationResult = await validator.ValidateAsync(request.DeleteBlogRateDto);
-
-        if (validationResult.IsValid == false)
-        {
-            response.Success = false;
-            response.Message = "Deletion Failed";
-            response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
-        }
-        else
-        {
-            response.Message = "Deletion Successful!";
-            response.Value = new Unit();
-
-            var blogRate = await _unitOfWork.BlogRateRepository.GetBlogRateByBlogAndRater(request.DeleteBlogRateDto.BlogId, request.DeleteBlogRateDto.RaterId);
-            await _unitOfWork.BlogRateRepository.Delete(blogRate);
-            if (await _unitOfWork.Save() > 0)
-            {
-                response.Message = "Deletion Successful!";
-                response.Value = new Unit();
-
-            }
-            else
-            {
-                response.Success = false;
-                response.Message = "Deletion Failed";
-                response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
-
-            }
-        }
-
-        return response;
-    }
+   
 }
