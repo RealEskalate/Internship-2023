@@ -1,4 +1,3 @@
-
 interface PaginationProps{
     pagesCount: number
     currentPage: number
@@ -6,8 +5,6 @@ interface PaginationProps{
 }
 
 const Pagination : React.FC<PaginationProps> = ({pagesCount, currentPage, setCurrentPage}) => {
-
-  
   let pages: JSX.Element[] = []
   const visible = 2
 
