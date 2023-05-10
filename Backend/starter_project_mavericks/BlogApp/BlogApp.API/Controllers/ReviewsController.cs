@@ -67,7 +67,7 @@ public class ReviewsController : BaseApiController
         var command = new UpdateReviewCommand { UpdateReviewDto = updateReviewDto };
         var response = await _mediator.Send(command);
         return response.Success
-            ? getResponse(HttpStatusCode.NoContent, response)
+            ? getResponse(HttpStatusCode.OK, response)
             : getResponse(HttpStatusCode.BadRequest, response);
     }
 
