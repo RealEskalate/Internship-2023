@@ -22,4 +22,6 @@ const defaultIconColor = Colors.white;
 
 // Button colors
 const defaultButtonColor = Color.fromRGBO(102, 154, 255, 1);
+
 const borderShadow = Color.fromRGBO(79, 91, 121, 0.1);
+

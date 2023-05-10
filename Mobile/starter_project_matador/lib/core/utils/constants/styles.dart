@@ -145,3 +145,4 @@ const signupInButtonTextStyle = TextStyle(
   color: profileAvatarCircularRingColor,
   letterSpacing: 1.5,
 );
+
