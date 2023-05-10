@@ -1,5 +1,4 @@
-﻿
-namespace BlogApp.Application.Features.Reviews.DTOs;
+﻿namespace BlogApp.Application.Features.Reviews.DTOs;
 public interface IReviewDto
 {
     string ReviewerId { get; set; }
