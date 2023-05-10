@@ -24,8 +24,7 @@ const TeamsHero: React.FC = () => {
                     </div>
                 </div>
             </div>
-<div className="flex justify-around"><hr className='my-4 mx-4 w-[80%] color-black'></hr></div>
-            
+            <div className="flex justify-around"><hr className='my-4 mx-4 w-[80%] color-black'></hr></div> 
         </div>
     )
 }
