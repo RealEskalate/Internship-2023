@@ -21,7 +21,7 @@ namespace BlogApp.API.Controllers
         [HttpGet]
         public async Task<ActionResult<List<_TagDto>>> Get()
         {
-            var Tags = await _mediator.Send(new Get_TagListQuery());
+            var Tags = await _mediator.Send(new getTagListQuery());
             return Ok(Tags);
         }
 
