@@ -42,6 +42,7 @@ namespace BlogApp.Application.Features.Review.CQRS.Handlers
                     await _unitOfWork.ReviewRepository.ChangeApprovalStatus(review, request.reviewIsApprovedDto.IsApproved);
                     if (await _unitOfWork.Save() > 0)
                     {
+                        response.Success = true;
                         response.Message = "Updation Successful!";
                         response.Value = _mapper.Map<ReviewDto>(review);
                     }
@@ -80,6 +81,7 @@ namespace BlogApp.Application.Features.Review.CQRS.Handlers
                     await _unitOfWork.ReviewRepository.Update(review);
                     if (await _unitOfWork.Save() > 0)
                     {
+                        response.Success = true;
                         response.Message = "Updation Successful!";
                         response.Value = _mapper.Map<ReviewDto>(review);
                     }
