@@ -19,8 +19,6 @@ namespace BlogApp.Application.Profiles
         {
             CreateMap<_Index, _IndexDto>().ReverseMap();
             CreateMap<_Index, Create_IndexDto>().ReverseMap();
-            CreateMap<_Tag, _TagDto>().ReverseMap();
-            CreateMap<_Tag, Create_TagDto>().ReverseMap();
             #region _index Mappings
 
             CreateMap<_Index, _IndexDto>().ReverseMap();
