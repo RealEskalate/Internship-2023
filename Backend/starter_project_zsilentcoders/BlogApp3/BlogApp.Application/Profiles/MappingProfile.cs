@@ -23,7 +23,7 @@ namespace BlogApp.Application.Profiles
             CreateMap<UpdateTagDto, Tag>().ReverseMap();
             CreateMap<TagListDto, Tag>().ReverseMap();
 
-             #endregion Blog
+             #endregion tag
             
             #region _index Mappings
 
