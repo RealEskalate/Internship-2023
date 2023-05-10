@@ -1,4 +1,4 @@
-import services from '@/data/home/service'
+import services from '@/data/home/service.json'
 import React from 'react'
 import IndividualService from './IndividualService'
 
