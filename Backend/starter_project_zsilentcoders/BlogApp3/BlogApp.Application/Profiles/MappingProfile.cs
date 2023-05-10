@@ -2,6 +2,7 @@
 using BlogApp.Application.Features._Indices.DTOs;
 using BlogApp.Application.Features.Tags.DTOs;
 using BlogApp.Application.Features.Reviews.DTOs;
+using BlogApp.Application.Features.BlogRates.DTOs;
 using BlogApp.Domain;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,12 @@ namespace BlogApp.Application.Profiles
             CreateMap<TagListDto, Tag>().ReverseMap();
 
              #endregion tag
+             #region BlogRate Mappings
             
+            
+            CreateMap<BlogRate, BlogRateDto>().ReverseMap();
+            #endregion BlogRateMappings
+           
             #region _index Mappings
 
             CreateMap<_Index, _IndexDto>().ReverseMap();
