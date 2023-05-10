@@ -1,4 +1,4 @@
-import successes from '@/data/home/success-rate'
+import successes from '@/data/home/success-rate.json'
 import SuccessCard from './SuccessCard'
 
 const SuccessRate = () => {
