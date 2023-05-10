@@ -13,7 +13,7 @@ const SingleBlog: React.FC = () => {
     // This Will be fixed on another PR
     return item.id === '1'
   })
-  const { title, smallBlogTitle, imgUrl, heading, author, paragraphs } =
+  const { title, smallBlogTitle, imgUrl, heading, author, paragraph } =
     currBlog[0]
 
   if (currBlog[0] == null) {
@@ -63,13 +63,26 @@ const SingleBlog: React.FC = () => {
       </div>
       <div className="mx-auto pt-8 text-left w-4/6 font-imfell font-medium text-xl text-primary-text leading-10">
         <b className="bold-text">{heading}</b>
-        {paragraphs.map((text, index) => (
-          <div className="mt-4" key={index}>
-            <small className="font-light font-montserrat text-base text-secondary-text">
-              {text}
-            </small>
-          </div>
-        ))}
+        <div className="mt-4">
+          <small className="font-light font-montserrat text-base text-secondary-text">
+            {paragraph}
+          </small>
+        </div>
+        <div className="mt-4">
+          <small className="font-light font-montserrat text-base text-secondary-text">
+            {paragraph}
+          </small>
+        </div>
+        <div className="mt-4">
+          <small className="font-light font-montserrat text-base text-secondary-text">
+            {paragraph}
+          </small>
+        </div>
+        <div className="mt-4">
+          <small className="font-light font-montserrat text-base text-secondary-text">
+            {paragraph}
+          </small>
+        </div>
       </div>
     </div>
   )

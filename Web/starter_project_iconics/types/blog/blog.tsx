@@ -13,5 +13,5 @@ export interface Blog {
     socialMediaLink: string
   }
   tags: string[]
-  paragraphs: string[]
+  paragraph: string
 }
