@@ -14,16 +14,15 @@ import 'get_followers_test.mocks.dart';
 
 @GenerateMocks([UserRepository])
 void main(){
-    
+     late MockUserRepository mockUserRepository;
+  late GetFollower usecase;
     setUp(() {
-final mockUserRepository = MockUserRepository();
-final usecase = GetFollower(mockUserRepository);
+ mockUserRepository = MockUserRepository();
+ usecase = GetFollower(mockUserRepository);
     });
     test(
       'should get followers',
       ()async{
-        final mockUserRepository = MockUserRepository();
-final usecase = GetFollower(mockUserRepository);
 final  List<UserEntity> followers = [
   UserEntity(
     id: "1",

@@ -1,27 +1,34 @@
 
-class UserModel {
-  String username;
-  String firstName;
-  String lastName;
-  String occupation;
-  String selfDescription;
-  String image;
-  String password;
+import 'package:dark_knights/features/user_profile/domain/entities/user_entity.dart';
+
+class UserModel extends UserEntity{
+   final String id;
+  final String username;
+  final String firstName;
+  final String lastName;
+  final String occupation;
+  final String selfDescription;
+  final String password;
+  final String image;
+
 
   // Constructor
   UserModel({
+    required this.id,
     required this.username,
     required this.firstName,
     required this.lastName,
     required this.occupation,
     required this.selfDescription,
+    required this.password,
     required this.image,
-    required this.password
-  });
+  }): super(id:id,username: username,firstName: firstName,lastName: lastName,
+  occupation: occupation,selfDescription: selfDescription,password: password,image:image );
 
   // Convert JSON to the model
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
+      id:json['id'],
       username: json['username'],
       firstName: json['firstName'],
       lastName: json['lastName'],
