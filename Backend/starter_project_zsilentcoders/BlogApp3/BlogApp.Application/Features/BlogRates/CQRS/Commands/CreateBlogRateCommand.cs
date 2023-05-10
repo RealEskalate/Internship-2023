@@ -9,7 +9,7 @@ using System.Threading.Tasks;
     
 namespace BlogApp.Application.Features.BlogRates.CQRS.Commands
 {
-    public class CreateBlogRateCommand : IRequest<BaseCommandResponse>
+    public class CreateBlogRateCommand : IRequest<Result<CreateBlogRateDto>>
     {
         public CreateBlogRateDto CreateBlogRateDto { get; set; }
        

@@ -71,12 +71,7 @@ namespace BlogApp.Persistence.Repositories
             }
         }
 
-        public void Dispose()
-        {
-            _context.Dispose();
-            GC.SuppressFinalize(this);
-        }
-
+        
         public async Task<int> Save()
         {
             return await _context.SaveChangesAsync();

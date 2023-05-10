@@ -2,6 +2,7 @@
 using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Features.BlogRates.CQRS.Queries;
 using BlogApp.Application.Features.BlogRates.DTOs;
+using BlogApp.Application.Responses;
 using BlogApp.Domain;
 using MediatR;
 using System;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Application.Features.BlogRates.CQRS.Handlers
 {
-    public class GetBlogRateListByBlogRequestHandler : IRequestHandler<GetBlogRateListByBlogRequest, List<BlogRateDto>>
+    public class GetBlogRateListByBlogRequestHandler : IRequestHandler<GetBlogRateListByBlogRequest, Result<List<BlogRateDto>>>
 
     {
         private readonly IMapper _mapper;
@@ -22,12 +23,29 @@ namespace BlogApp.Application.Features.BlogRates.CQRS.Handlers
             _mapper = mapper;
         }
 
-        public async Task<List<BlogRateDto>> Handle(GetBlogRateListByBlogRequest request, CancellationToken cancellationToken)
+        public async Task<Result<List<BlogRateDto>>> Handle(GetBlogRateListByBlogRequest request, CancellationToken cancellationToken)
         {
+            var response = new Result<List<BlogRateDto>>();
 
             var blogRates = await _unitOfWork.BlogRateRepository.GetBlogRatesByBlog(request.BlogId);
-            var blogRateDtos = _mapper.Map<List<BlogRateDto>>(blogRates);
-            return blogRateDtos;
+            if (blogRates == null)
+            {
+                response.Value = null;
+                response.Success = false;
+                response.Message = "Fetch Failed";
+            }
+            else
+            {
+                var blogRateDtos = _mapper.Map<List<BlogRateDto>>(blogRates);
+                response.Value = blogRateDtos;
+                response.Success = true;
+                response.Message = "Fetch Succesful";
+
+            }
+            
+
+
+            return response;
 
             
 

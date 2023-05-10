@@ -24,6 +24,20 @@ namespace BlogApp.Persistence.Repositories
             return blogRates;
         }
 
+        public async Task<BlogRate> GetBlogRateByBlogAndRater(int blogId, int raterId)
+        {
+            var blogRate =  _dbContext.BlogRates.FirstOrDefault( rate => rate.BlogId == blogId &&  rate.RaterId == raterId);
+            return blogRate;
+        }
+
+        public async Task<bool> BlogExists(int blogId)
+        {
+            return _dbContext.BlogRates.FirstOrDefault(rate => rate.BlogId == blogId) != null;
+        }
+        public async Task<bool> RaterExists(int raterId)
+        {
+            return _dbContext.BlogRates.FirstOrDefault(rate => rate.RaterId == raterId) != null;
+        }
 
     }
 }

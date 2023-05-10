@@ -20,6 +20,9 @@ namespace BlogApp.Application.Tests.Mocks
             var mockTagRepo = MockTagRepository.GetTagRepository();
             mockUow.Setup(r => r.TagRepository).Returns(mockTagRepo.Object);
             var mockReviewRepo = MockReviewRepository.GetReviewRepository();
+            var mockBlogRateRepo = MockBlogRateRepository.GetBlogRateRepository();
+            
+            
             mockUow.Setup(r => r.BlogRepository).Returns(mockBlogRepo.Object);
             mockUow.Setup(r=>r.ReviewRepository).Returns(mockReviewRepo.Object);
             mockUow.Setup(r => r.Save()).ReturnsAsync(1);

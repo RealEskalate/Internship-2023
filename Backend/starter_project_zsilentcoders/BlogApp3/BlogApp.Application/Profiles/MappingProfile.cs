@@ -25,11 +25,15 @@ namespace BlogApp.Application.Profiles
             CreateMap<TagListDto, Tag>().ReverseMap();
 
              #endregion tag
+             
              #region BlogRate Mappings
-            
-            
+            CreateMap<BlogRate, CreateBlogRateDto>().ReverseMap();
+            CreateMap<BlogRate, DeleteBlogRateDto>().ReverseMap();
             CreateMap<BlogRate, BlogRateDto>().ReverseMap();
             #endregion BlogRateMappings
+       
+         
+           
            
             #region _index Mappings
 

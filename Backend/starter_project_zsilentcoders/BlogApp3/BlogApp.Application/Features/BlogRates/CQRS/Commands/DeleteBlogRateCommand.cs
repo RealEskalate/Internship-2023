@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using BlogApp.Application.Features.BlogRates.DTOs;
+using BlogApp.Application.Responses;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Application.Features.BlogRates.CQRS.Commands
 {
-    public class DeleteBlogRateCommand : IRequest
+    public class DeleteBlogRateCommand : IRequest<Result<Unit>>
     {
-        public int Id { get; set; }
+        public DeleteBlogRateDto DeleteBlogRateDto { get; set; }
     }
 }

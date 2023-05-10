@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Application.Features.BlogRates.CQRS.Handlers
 {
-    public class CreateBlogRateCommandHandler : IRequestHandler<CreateBlogRateCommand, BaseCommandResponse>
+    public class CreateBlogRateCommandHandler : IRequestHandler<CreateBlogRateCommand, Result<CreateBlogRateDto>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -26,10 +26,10 @@ namespace BlogApp.Application.Features.BlogRates.CQRS.Handlers
             _mapper = mapper;
            
         }
-        public async Task<BaseCommandResponse> Handle(CreateBlogRateCommand request, CancellationToken cancellationToken)
+        public async Task<Result<CreateBlogRateDto>> Handle(CreateBlogRateCommand request, CancellationToken cancellationToken)
         {
-            var response = new BaseCommandResponse();
-            var validator = new CreateBlogRateDtoValidator();
+            var response = new Result<CreateBlogRateDto>();
+            var validator = new CreateBlogRateDtoValidator(_unitOfWork);
             var validationResult = await validator.ValidateAsync(request.CreateBlogRateDto);
 
             if (validationResult.IsValid == false)
@@ -42,11 +42,25 @@ namespace BlogApp.Application.Features.BlogRates.CQRS.Handlers
             }
             else
             {
-                var blogRate = _mapper.Map<BlogRate>(request.CreateBlogRateDto);
+                var blogRate= _mapper.Map<BlogRate>(request.CreateBlogRateDto);
+
                 blogRate = await _unitOfWork.BlogRateRepository.Add(blogRate);
-                response.Success = true;
-                response.Message = "Creation Successful";
-                response.Id = blogRate.Id;
+
+                if (await _unitOfWork.Save() > 0)
+                {
+                    response.Success = true;
+                    response.Message = "Creation Successful";
+                    response.Value = _mapper.Map<CreateBlogRateDto>(blogRate);
+
+                }
+                else
+                {
+                    response.Success = false;
+                    response.Message = "Creation Failed";
+                    response.Errors = validationResult.Errors.Select(x => x.ErrorMessage).ToList();
+
+                }
+                
 
             }
               
