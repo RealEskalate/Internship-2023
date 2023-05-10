@@ -14,7 +14,7 @@ const TeamsHero: React.FC = () => {
                 </div>
                 
                 <div className=" w-[85%] md:w-[85%] lg:w-[100%] relative p-8 m-auto">
-                    {images.map((image, index) => <Image key={index} src={image.src} alt="" width={image.width} height={image.height} className={image.className}/>)}
+                    {images.map((image, index) => <Image key={index} src={image.src} alt={image.alt} width={image.width} height={image.height} className={image.className}/>)}
                     
                     <div className="absolute top-[30%] left-[30%] flex flex-col flex flex-col font-bold xs:text-3xl sm:text-4xl leading-10 text-black uppercase h-[40%] justify-evenly items-left">
 
