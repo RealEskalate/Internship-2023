@@ -12,37 +12,23 @@ namespace BlogApp.Application.UnitTest.Mocks
 {
     public static class MockUnitOfWork
     {
-        public static int changes = 0;
         public static Mock<IUnitOfWork> GetUnitOfWork()
         {   var mockUow = new Mock<IUnitOfWork>();
             var mockRateRepo = MockRateRepository.GetRateRepository();
             var mockTagRepo = MockTagRepository.GetTagRepository();
-
-            var mockCommentRepo = MockCommentRepository.GetCommentRepository();
-
-            mockUow.Setup(r => r.RateRepository).Returns(mockRateRepo.Object);
-            mockUow.Setup(t => t.TagRepository).Returns(mockTagRepo.Object);
-
-            mockUow.Setup(r => r.CommentRepository).Returns(mockCommentRepo.Object);
-
-            mockUow.Setup(r => r.Save()).ReturnsAsync(() =>
-            {
-                var temp = changes;
-                changes = 0;
-                return temp;
-            });
-
-    
             var mockBlogRepo = MockBlogRepository.GetBlogRepository();
-
-            mockUow.Setup(r => r.BlogRepository).Returns(mockBlogRepo.Object);
-
-
+            var mockCommentRepo = MockCommentRepository.GetCommentRepository();
             var mockReviewRepo = UnitTests.Mocks.MockReviewRepository.GetReviewRepository();
 
             mockUow.Setup(r => r.ReviewRepository).Returns(mockReviewRepo.Object);
-  
+            mockUow.Setup(r => r.RateRepository).Returns(mockRateRepo.Object);
+            mockUow.Setup(t => t.TagRepository).Returns(mockTagRepo.Object);
+            mockUow.Setup(r => r.CommentRepository).Returns(mockCommentRepo.Object);
 
+            mockUow.Setup(r => r.BlogRepository).Returns(mockBlogRepo.Object);
+
+            mockUow.Setup(r => r.Save()).ReturnsAsync(1);
+            
             return mockUow;
 
     }

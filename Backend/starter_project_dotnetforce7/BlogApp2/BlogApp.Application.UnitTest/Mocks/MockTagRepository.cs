@@ -48,7 +48,6 @@ namespace BlogApp.Application.UnitTest.Mocks
             {
                 tag.Id = tags.Count() + 1;
                 tags.Add(tag);
-                MockUnitOfWork.changes += 1;
                 return tag;
             });
 
@@ -57,13 +56,11 @@ namespace BlogApp.Application.UnitTest.Mocks
                 var newTags = tags.Where((t) => t.Id != tag.Id);
                 tags = newTags.ToList();
                 tags.Add(tag);
-                MockUnitOfWork.changes += 1;
             });
 
             mockRepo.Setup(t => t.Delete(It.IsAny<Tag>())).Callback((Tag tag) =>
             {
-                if (tags.Remove(tag))
-                    MockUnitOfWork.changes += 1;
+                tags.Remove(tag);
             });
 
 
