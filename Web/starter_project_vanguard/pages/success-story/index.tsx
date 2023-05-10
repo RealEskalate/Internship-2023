@@ -2,6 +2,7 @@ import Partners from '@/components/success-story/Partners'
 import SuccessDescription from '@/components/success-story/SuccessDescription'
 import SuccessImageCard from '@/components/success-story/SuccessImageCard'
 import { useFetchSuccessStoryQuery } from '@/features/success-story/success-story-api-slice'
+import Link from 'next/link'
 export default function SucessStory() {
   const { data = [], isFetching } = useFetchSuccessStoryQuery()
   if (isFetching) {
@@ -27,19 +28,19 @@ export default function SucessStory() {
               <span className="sr-only">Error</span>404
             </h2>
             <p className="text-2xl font-semibold md:text-3xl">
-              Sorry, we couldn't find this page.
+              Sorry, we couldn&apos;t find this page.
             </p>
             <p className="mt-4 mb-8 dark:text-gray-400">
               But dont worry, you can find plenty of other things on our
               homepage.
             </p>
-            <a
+            <Link
               rel="noopener noreferrer"
               href="/"
               className="px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
             >
               Back to homepage
-            </a>
+            </Link>
           </div>
         </div>
       </section>

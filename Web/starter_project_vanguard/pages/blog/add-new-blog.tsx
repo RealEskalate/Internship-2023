@@ -47,8 +47,6 @@ const AddNewBlog = () => {
 
   const handleContentChange = (value: string): void => {
     setContent(value)
-        const modifiedContent = content.replace(/<\/?p>/gi, "");
-
   }
 
   return (
