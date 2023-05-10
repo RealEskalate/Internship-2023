@@ -93,4 +93,4 @@ cython_debug/
 **/net7.0/
 **/bin/
 **/.vs/
-/Backend/starter_project_mavericks/BlogApp/.idea/.idea.BlogApp/.idea
+**/.idea
