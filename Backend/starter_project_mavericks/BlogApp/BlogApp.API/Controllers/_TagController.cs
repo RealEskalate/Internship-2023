@@ -28,7 +28,7 @@ namespace BlogApp.API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<_TagDto>> Get(int id)
         {
-            var Tags = await _mediator.Send(new Get_TagDetailQuery { Id = id });
+            var Tags = await _mediator.Send(new getTagDetailQuery { Id = id });
             return Ok(Tags);
         }
 
