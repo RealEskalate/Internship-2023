@@ -1,4 +1,5 @@
 
+using BlogApp.Application.Features._Tags.DTOs;
 using BlogApp.Application.Features.Common;
 
 namespace BlogApp.Application.Features.Blogs.DTOs
@@ -9,6 +10,10 @@ namespace BlogApp.Application.Features.Blogs.DTOs
         public string Content { get; set; }
         
         public string? ThumbnailImageUrl { get; set; }
-        
+
+        public static implicit operator CreateBlogDTO(Create_TagDto v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
