@@ -32,7 +32,7 @@ void main() {
     when(mockUserProfileRepository.getUserProfile(id))
         .thenAnswer((_) async => Right(userProfile));
 
-    final result = await usecase.execute(id: id);
+    final result = await usecase(id);
 
     expect(result, Right(userProfile));
     verify(mockUserProfileRepository.getUserProfile(id));
