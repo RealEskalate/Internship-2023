@@ -3,6 +3,7 @@ using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Features.Reviews.CQRS.Queries;
 using BlogApp.Application.Features.Reviews.DTOs;
 using BlogApp.Application.Responses;
+using BlogApp.Application.Exceptions;
 using MediatR;
 
 namespace BlogApp.Application.Features.Reviews.CQRS.Handlers;
@@ -21,18 +22,21 @@ public class GetBlogReviewListQueryHandler : IRequestHandler<GetBlogReviewListQu
     public async Task<BaseResponse<List<ReviewDto>>> Handle(GetBlogReviewListQuery request, CancellationToken cancellationToken)
     {
         var reviews = await _unitOfWork.ReviewRepository.GetReviewsByBlogId(request.BlogId);
-        return reviews == null || !reviews.Any()?
-            new BaseResponse<List<ReviewDto>>()
+        if (reviews == null || !reviews.Any()){
+            var error = new NotFoundException(nameof(reviews),request.BlogId);
+            return new BaseResponse<List<ReviewDto>>()
             {
                 Success = false,
                 Message = "Blog reviews not found",
                 Errors = new List<string>()
                 {
-                    $"blog with id {request.BlogId} not found ",
-                    $"blog with id {request.BlogId} has no reviews"
+                   $"{error}"
                 }
-            }
-            : new BaseResponse<List<ReviewDto>>()
+            };
+
+        }
+        
+        return new BaseResponse<List<ReviewDto>>()
             {
                 Data = _mapper.Map<List<ReviewDto>>(reviews),
                 Success = true,
