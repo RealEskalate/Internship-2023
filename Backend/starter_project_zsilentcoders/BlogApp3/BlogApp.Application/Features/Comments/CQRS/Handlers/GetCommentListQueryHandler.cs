@@ -2,11 +2,12 @@ using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Features.Comments.CQRS.Queries;
 using BlogApp.Application.Features.Comments.DTOs;
+using BlogApp.Application.Responses;
 using MediatR;
 
 namespace BlogApp.Application.Features.Comments.CQRS.Handlers;
 
-public class GetCommentListQueryHandler : IRequestHandler<GetCommentListQuery, List<CommentDto>>
+public class GetCommentListQueryHandler : IRequestHandler<GetCommentListQuery, Result<List<CommentDto>>>
 {
     private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -17,10 +18,12 @@ public class GetCommentListQueryHandler : IRequestHandler<GetCommentListQuery, L
             _mapper = mapper;
         }
 
-        public async Task<List<CommentDto>> Handle(GetCommentListQuery request, CancellationToken cancellationToken)
+        public async Task<Result<List<CommentDto>>> Handle(GetCommentListQuery request, CancellationToken cancellationToken)
         {
             var comment = await _unitOfWork._CommentRepository.GetAll();
            
-            return _mapper.Map<List<CommentDto>>(comment);
+            var commentList =  _mapper.Map<List<CommentDto>>(comment);
+
+        return new Result<List<CommentDto>>() { Value = commentList, Message = "Successful", Success = true, };
         }
 }

@@ -52,6 +52,12 @@ public class MockCommentRepository
                 comments.Remove(comments.Find(b => b.Id == comment.Id)!);
         });
 
+         mockRepo.Setup(r => r.Exists(It.IsAny<int>())).ReturnsAsync((int id) =>
+        {
+            var comment = comments.FirstOrDefault((r) => r.Id == id);
+            return comment != null;
+        });
+
         
         mockRepo.Setup(r => r.Get(It.IsAny<int>()))!.ReturnsAsync((int id) =>
         {

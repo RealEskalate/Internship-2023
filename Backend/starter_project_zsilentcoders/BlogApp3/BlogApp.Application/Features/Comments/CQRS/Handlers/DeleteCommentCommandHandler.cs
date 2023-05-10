@@ -27,24 +27,30 @@ namespace BlogApp.Application.Features.Comments.CQRS.Handlers;
 
         var response = new Result<Unit>();
         
-        var validator = new DeleteCommentDtoValidator();
+        var validator = new DeleteCommentDtoValidator(_unitOfWork);
         var validationResult = await validator.ValidateAsync(request.CommentDto);
-        
-        if (validationResult.IsValid == false)
-        {
+
+         if (validationResult.IsValid == true){
+            var comment = await _unitOfWork._CommentRepository.Get(request.CommentDto.Id);
+            await _unitOfWork._CommentRepository.Delete(comment);
+            if (await _unitOfWork.Save() > 0)
+            {
+                
+                response.Message = "Deletion Successful!";
+                response.Value = new Unit();
+            }
+            else
+            {
+                response.Success = false;
+                response.Message = "Deletion Failed";
+                response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
+            }
+        }else{
             response.Success = false;
             response.Message = "Deletion Failed";
             response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
         }
-        else
-        {
-            response.Message = "Deletion Successful!";
-            response.Value = new Unit();
         
-            await _unitOfWork._CommentRepository.Delete(await _unitOfWork._CommentRepository.Get(request.CommentDto.Id));
-            await _unitOfWork.Save();
-        }
-         
         return response;
          
          

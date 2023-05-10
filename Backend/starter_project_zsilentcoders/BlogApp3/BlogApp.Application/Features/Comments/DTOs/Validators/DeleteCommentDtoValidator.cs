@@ -8,10 +8,10 @@ public class DeleteCommentDtoValidator: AbstractValidator<DeleteCommentDto>
 {
      
 
-    public DeleteCommentDtoValidator()
+    public DeleteCommentDtoValidator(IUnitOfWork  unitOfWork)
     {
         RuleFor(p => p.Id)
-            .GreaterThan(0);
-            // .MustAsync(async (id, token) => await unitOfWork._CommentRepository.Exists(id)).WithMessage($"Comment not found");
+            .GreaterThan(0)
+            .MustAsync(async (id, token) => await unitOfWork._CommentRepository.Exists(id)).WithMessage($"Comment not found");
     }
 }

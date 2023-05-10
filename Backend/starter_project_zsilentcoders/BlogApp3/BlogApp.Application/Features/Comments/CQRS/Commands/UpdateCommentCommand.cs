@@ -4,7 +4,7 @@ using MediatR;
 
 namespace BlogApp.Application.Features.Comments.CQRS.Commands;
 
-public class UpdateCommentCommand : IRequest<Result<Unit>>
+public class UpdateCommentCommand : IRequest<Result<UpdateCommentDto>>
 {
     public UpdateCommentDto CommentDto{ get; set; }
 }

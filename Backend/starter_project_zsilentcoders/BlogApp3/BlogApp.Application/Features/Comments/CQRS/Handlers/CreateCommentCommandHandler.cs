@@ -29,25 +29,34 @@ public class CreateCommentCommandHandler : IRequestHandler<CreateCommentCommand,
             var validator = new CreateCommentDtoValidator();
             var validationResult = await validator.ValidateAsync(request.CommentDto);
 
-            if (validationResult.IsValid == false)
+             
+        if (validationResult.IsValid == true){
+            var comment = _mapper.Map<Domain.Comment>(request.CommentDto);
+            comment = await _unitOfWork._CommentRepository.Add(comment);
+            if (await _unitOfWork.Save() > 0)
+            {
+                response.Success = true;
+                response.Message = "Creation Successful";
+                response.Value = _mapper.Map<CommentDto>(comment);
+            }
+            else
             {
                 response.Success = false;
                 response.Message = "Creation Failed";
                 response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
             }
-            else
-            {
-                var comment = _mapper.Map<Comment>(request.CommentDto);
+        }
+        else
+        {
+            response.Success = false;
+            response.Message = "Creation Failed";
+            response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
+        }
+      
+        return response;
 
-                comment = await _unitOfWork._CommentRepository.Add(comment);
-                await _unitOfWork.Save();
 
-                response.Success = true;
-                response.Message = "Creation Successful";
-                response.Value = _mapper.Map<CommentDto>(comment);
-            }
 
-            return response;
       
     }
 
