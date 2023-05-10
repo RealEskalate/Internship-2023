@@ -1,9 +1,15 @@
-import Teams from '@/components/team/Teams'
+import TeamMembersList from '@/components/teams/TeamMembersList'
+import TeamsHero from '@/components/teams/TeamsHero'
 
 
-function TeamsPage() {
+const TeamsPage: React.FC = () => {
   return (
-    <Teams></Teams>
+    <div className='flex'>
+    <div className='max-w-screen-2xl mx-auto'>
+    <TeamsHero/>
+    <TeamMembersList/>
+    </div>
+    </div>
   )
 }
 

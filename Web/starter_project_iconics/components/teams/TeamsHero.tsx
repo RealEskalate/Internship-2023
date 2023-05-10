@@ -1,7 +1,7 @@
-import Image from "next/image"
+import Image, { ImageProps } from "next/image"
 
-function TeamsHero() {
-    
+const TeamsHero: React.FC = () => {
+    const images: ImageProps[] = [{src: "/img/teams/team-work/team-work-1.png", alt:"", className:'contain absolute top-0 left-0 w-[35%]' ,width:322,height:316.7}, {src: "/img/teams/team-work/team-work-2.png", alt:"", className: 'contain absolute top-0 right-0 w-[35%]', width:322,height:316.7}, {src:"/img/teams/team-work/team-work-3.png",alt:"",width:322,height:316.7, className:'contain absolute bottom-0 left-0 w-[35%]'}, {src:"/img/teams/hero-background.png", alt:"", className: "",width:800,height:710.7}]
     return (
         <div>
             <div className="grid md:grid-cols-1 lg:grid-cols-2 p-8">
@@ -14,22 +14,14 @@ function TeamsHero() {
                 </div>
                 
                 <div className=" w-[85%] md:w-[85%] lg:w-[100%] relative p-8 m-auto">
-                    <Image src="/img/teams/team-work/team-work-1.png" alt="" width={322} height={316.7} className='contain absolute top-0 left-0 w-[35%]'/>
-                    <Image src="/img/teams/team-work/team-work-2.png" alt=""  width={322} height={316.7} className='contain absolute top-0 right-0 w-[35%]'/>
-                    <Image src="/img/teams/team-work/team-work-3.png" alt=""  width={322} height={316.7} className='contain absolute bottom-0 left-0 w-[35%]'/>
-                    <Image src="/img/teams/hero-background.png" alt=""  width={800} height={710.7} className="src" />
-
+                    {images.map((image) => <Image src={image.src} alt="" width={image.width} height={image.height} className={image.className}/>)}
+                    
                     <div className="absolute top-[30%] left-[30%] flex flex-col flex flex-col font-bold xs:text-3xl sm:text-4xl leading-10 text-black uppercase h-[40%] justify-evenly items-left">
 
                         <span> <span className="text-primary">Team</span>  work</span>
                         <span> Collaboration </span>
                         <span> <span className="text-primary">hard</span>  work</span>
-                   
-                    
-
                     </div>
-                    
-                    
                 </div>
             </div>
 <div className="flex justify-around"><hr className='my-4 mx-4 w-[80%] color-black'></hr></div>
