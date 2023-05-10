@@ -4,7 +4,7 @@ import Image from 'next/image'
 import TeamMemberCard from '@/components/team/TeamMemberCard'
 import teamMembers from '@/data/team/team-members.json'
 
-const Index = () => {
+export const TeamPage: React.FC = () => {
   return (
     <div className="px-12 my-8 md:px-20 lg:px-28">
       <div className="flex flex-col md:flex-row">
@@ -36,4 +36,4 @@ const Index = () => {
   )
 }
 
-export default Index
+export default TeamPage
