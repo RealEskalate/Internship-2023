@@ -16,18 +16,20 @@ namespace BlogApp.Application.UnitTest.Mocks
                     Id = 1,
                     Title = "blog title 1",
                     Content = "Blog Content",
-                    CoverImage = "blog image",
-                    PublicationStatus= true
+                    CoverImage = null,
+                    PublicationStatus= true,
+                    Rates  = new List<Rate>()
                     
                 },
 
                 new Blog
                 {
-                     Id = 1,
+                    Id = 2,
                     Title = "blog title21",
                     Content = "Blog Content",
-                    CoverImage = "blog image",
-                    PublicationStatus= true
+                    CoverImage = null,
+                    PublicationStatus= true,
+                    Rates  = new List<Rate>()
 
                 }
             };
@@ -36,11 +38,13 @@ namespace BlogApp.Application.UnitTest.Mocks
 
             mockRepo.Setup(r => r.GetAll()).ReturnsAsync(Blogs);
 
+            mockRepo.Setup(r => r.GetBlogsWithRate()).ReturnsAsync(Blogs);
+
+
             mockRepo.Setup(r => r.Add(It.IsAny<Blog>())).ReturnsAsync((Blog Blog) =>
             {
                 Blog.Id = Blogs.Count() + 1;
                 Blogs.Add(Blog);
-                MockUnitOfWork.changes += 1;
                 return Blog;
             });
 
@@ -49,13 +53,17 @@ namespace BlogApp.Application.UnitTest.Mocks
                 var newBlogs = Blogs.Where((r) => r.Id != Blog.Id);
                 Blogs = newBlogs.ToList();
                 Blogs.Add(Blog);
-                MockUnitOfWork.changes += 1;
+            });
+
+            mockRepo.Setup(r => r.Exists(It.IsAny<int>())).ReturnsAsync((int Id) =>
+            {
+                var blog = Blogs.FirstOrDefault((r) => r.Id == Id);
+                return blog != null;
             });
 
             mockRepo.Setup(r => r.Delete(It.IsAny<Blog>())).Callback((Blog Blog) =>
             {
-                 if (Blogs.Remove(Blog))
-                    MockUnitOfWork.changes += 1;
+                Blogs.Remove(Blog);
             });
 
             mockRepo.Setup(r => r.Get(It.IsAny<int>())).ReturnsAsync((int Id) =>

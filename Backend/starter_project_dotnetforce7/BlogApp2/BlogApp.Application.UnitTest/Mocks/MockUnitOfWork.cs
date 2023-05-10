@@ -11,26 +11,16 @@ namespace BlogApp.Application.UnitTest.Mocks
 {
     public static class MockUnitOfWork
     {
-        public static int changes = 0;
         public static Mock<IUnitOfWork> GetUnitOfWork()
         {   var mockUow = new Mock<IUnitOfWork>();
             var mockRateRepo = MockRateRepository.GetRateRepository();
-            var mockTagRepo = MockTagRepository.GetTagRepository();
-
-            mockUow.Setup(r => r.RateRepository).Returns(mockRateRepo.Object);
-            mockUow.Setup(t => t.TagRepository).Returns(mockTagRepo.Object);
-
-            mockUow.Setup(r => r.Save()).ReturnsAsync(() =>
-            {
-                var temp = changes;
-                changes = 0;
-                return temp;
-            });
-
-    
             var mockBlogRepo = MockBlogRepository.GetBlogRepository();
 
+            mockUow.Setup(r => r.RateRepository).Returns(mockRateRepo.Object);
             mockUow.Setup(r => r.BlogRepository).Returns(mockBlogRepo.Object);
+
+            mockUow.Setup(r => r.Save()).ReturnsAsync(1);
+            
             return mockUow;
 
     }

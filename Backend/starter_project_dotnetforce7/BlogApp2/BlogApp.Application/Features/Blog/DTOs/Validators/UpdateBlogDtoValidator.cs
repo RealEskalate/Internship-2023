@@ -1,10 +1,6 @@
-using BlogApp.Application.Features.Blogs.DTOs;
 using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+
 
 namespace BlogApp.Application.Features.Blogs.DTOs.Validators
 {
@@ -13,8 +9,15 @@ namespace BlogApp.Application.Features.Blogs.DTOs.Validators
         public UpdateBlogDtoValidator()
         {
             Include(new IBlogDtoValidator());
+              RuleFor(p => p.File)
+            .Must(file => file == null || IsImageFile(file))
+            .WithMessage("{PropertyName} must be null or an image file.");
 
-            // RuleFor(p => p.Id).NotNull().WithMessage("{PropertyName} must be present");
         }
+
+          private bool IsImageFile(IFormFile file)
+            {
+            return file.ContentType.Contains("image/");
+            }
     }
 }

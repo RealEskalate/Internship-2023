@@ -27,7 +27,12 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
         {
             var response = new Result<BlogDto>();
             var blog = await _unitOfWork.BlogRepository.Get(request.Id);
-            response.Success = true;
+            if(blog == null)  {
+                response.Message = "No Blog with the given Id";
+                response.Success = false;
+                return response;
+            };
+
             response.Message = "Fetch Success";
             response.Value = _mapper.Map<BlogDto>(blog);
 

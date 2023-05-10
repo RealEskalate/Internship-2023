@@ -1,28 +1,21 @@
 using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Features.Blogs.CQRS.Commands;
-using BlogApp.Application.Features.Blogs.DTOs.Validators;
 using BlogApp.Application.Responses;
 using MediatR;
-using BlogApp.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BlogApp.Application.Exceptions;
 
 namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
 {
     public class DeleteBlogCommandHandler : IRequestHandler<DeleteBlogCommand, Result<int>>
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IMapper _mapper;
+            private readonly IPhotoAccessor _photoAccessor;
 
-        public DeleteBlogCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+
+        public DeleteBlogCommandHandler(IUnitOfWork unitOfWork, IPhotoAccessor photoAccessor)
         {
             _unitOfWork = unitOfWork;
-            _mapper = mapper;
+            _photoAccessor = photoAccessor;
         }
 
         public async Task<Result<int>> Handle(DeleteBlogCommand request, CancellationToken cancellationToken)
@@ -33,10 +26,16 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
 
             if (blog is null){
                 response.Success = false;
-                response.Message = "Delete Failed";
+                response.Message = "Blog with the given Id does not exist!";
             }
             else{
-
+                
+                if(blog.CoverImage != null){
+                var result = await _photoAccessor.DeletePhoto(blog.CoverImage.Id);
+                response.Success = false;
+                response.Message = "Failed to delete blog image!";
+                if(result == null) return response;
+                }
                 await _unitOfWork.BlogRepository.Delete(blog);
 
 

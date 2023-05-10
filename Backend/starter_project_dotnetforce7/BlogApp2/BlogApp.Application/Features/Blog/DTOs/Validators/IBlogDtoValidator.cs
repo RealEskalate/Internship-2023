@@ -1,5 +1,6 @@
 using BlogApp.Application.Features.Blogs.DTOs;
 using FluentValidation;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,10 +24,16 @@ namespace BlogApp.Application.Features.Blogs.DTOs.Validators
                 .NotNull()
                 .MaximumLength(400).WithMessage("{PropertyName} must not exceed {ComparisonValue} characters.");
 
+            
+          
 
-             RuleFor(p => p.PublicationStatus)
+        RuleFor(p => p.PublicationStatus)
                 .Must(x => (x == false || x == true))
                 .WithMessage("{PropertyName} is required.");
         }
+      
+
+
+     
     }
 }
