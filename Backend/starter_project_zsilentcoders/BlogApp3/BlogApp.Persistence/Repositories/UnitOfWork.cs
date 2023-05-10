@@ -71,6 +71,15 @@ namespace BlogApp.Persistence.Repositories
             }
         }
 
+        public void Dispose()
+        {
+            get
+            {
+                if (_blogRateRepository == null)
+                    _blogRateRepository = new BlogRateRepository(_context);
+                return _blogRateRepository;
+            }
+        }
         
         public async Task<int> Save()
         {

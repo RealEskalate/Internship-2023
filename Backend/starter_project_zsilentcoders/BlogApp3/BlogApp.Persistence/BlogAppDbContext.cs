@@ -17,6 +17,7 @@ namespace BlogApp.Persistence
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Review> _Review { get; set; }
 
+         public DbSet<BlogRate> BlogRates { get; set; }
         public DbSet<BlogRate> BlogRates { get; set; }
 
         
