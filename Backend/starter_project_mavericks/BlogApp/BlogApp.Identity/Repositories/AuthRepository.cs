@@ -93,7 +93,7 @@ namespace BlogApp.Identity.Repositories
                         if (result.Succeeded)
                         {
                             await _userManager.AddToRoleAsync(user, "User");
-                            var createdUser = await _userManager.FindByEmailAsync(user.Email);
+                            var createdUser = await _userManager.FindByNameAsync(user.UserName);
                             var response = _mapper.Map<SignUpResponse>(createdUser);
 
                             return response;

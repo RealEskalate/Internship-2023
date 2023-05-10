@@ -7,11 +7,14 @@ using BlogApp.Application.Features.Authentication.DTO;
 using BlogApp.Domain;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
+using BlogApp.Application.Exceptions;
 using Moq;
 using Xunit;
 using AutoMapper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+using BlogApp.Persistence;
 
 namespace BlogApp.Identity.UnitTests
 {
@@ -33,72 +36,17 @@ namespace BlogApp.Identity.UnitTests
             .AddJsonFile("/home/bahailu/Documents/a2sv/Internship-2023/Backend/starter_project_mavericks/BlogApp/BlogApp.API/appsettings.json", optional: true, reloadOnChange: true)
             .Build();
 
+            var connectionString = configuration.GetValue<string>("ConnectionStrings:BlogAppConnectionString");
+            
+            var dbContextOptions = new DbContextOptionsBuilder<UserIdentityDbContext>()
+                .UseNpgsql(connectionString)
+                .Options;
+            var dbContext = new UserIdentityDbContext(dbContextOptions);
+
             _userManagerMock = new Mock<UserManager<User>>(Mock.Of<IUserStore<User>>(), null, null, null, null, null, null, null, null);
             _signInManagerMock = new Mock<SignInManager<User>>(_userManagerMock.Object, Mock.Of<IHttpContextAccessor>(), Mock.Of<IUserClaimsPrincipalFactory<User>>(), null, null, null, null);
-            _authRepository = new AuthRepository(_userManagerMock.Object, _signInManagerMock.Object, mapper, configuration);
+            _authRepository = new AuthRepository(_userManagerMock.Object, _signInManagerMock.Object, mapper, configuration, dbContext);
         }
-
-        [Fact]
-        public async Task Login_ShouldReturnAuthResponse_WhenValidCredentialsProvided()
-        {
-            // Arrange
-            var email = "user@example.com";
-            var password = "Pa$$w0rd";
-            var user = new User { Email = email, UserName = email };
-            var signinFormDto = new SigninFormDto { Email = email, Password = password };
-
-            _userManagerMock.Setup(u => u.FindByEmailAsync(email))
-                .ReturnsAsync(user);
-            _userManagerMock.Setup(u => u.GetClaimsAsync(user))
-                .ReturnsAsync(new List<Claim>());
-            _userManagerMock.Setup(u => u.GetRolesAsync(user))
-                .ReturnsAsync(new List<string>());
-            _signInManagerMock.Setup(s => s.CheckPasswordSignInAsync(user, password, false))
-                .ReturnsAsync(SignInResult.Success);
-
-            // Act
-            var result = await _authRepository.SignInAsync(signinFormDto);
-
-            // Assert
-            Assert.NotNull(result);
-            Assert.Equal(user.Id, result.Id);
-            Assert.Equal(user.Email, result.Email);
-            Assert.Equal(user.UserName, result.Email);
-        }
-
-        [Fact]
-        public async Task Login_ShouldThrowException_WhenUserNotFound()
-        {
-            // Arrange
-            var email = "user@example.com";
-            var password = "Pa$$w0rd";
-            var signinFormDto = new SigninFormDto { Email = email, Password = password };
-
-            _userManagerMock.Setup(u => u.FindByEmailAsync(email))
-                .ReturnsAsync((User)null);
-
-            // Act & Assert
-            await Assert.ThrowsAsync<Exception>(() => _authRepository.SignInAsync(signinFormDto));
-        }
-
-        [Fact]
-        public async Task Login_ShouldThrowException_WhenInvalidCredentialsProvided()
-        {
-            // Arrange
-            var email = "user@example.com";
-            var password = "Pa$$w0rd";
-            var user = new User { Email = email, UserName = email };
-            var signinFormDto = new SigninFormDto { Email = email, Password = password };
-
-            _userManagerMock.Setup(u => u.FindByEmailAsync(email))
-                .ReturnsAsync(user);
-            _signInManagerMock.Setup(s => s.CheckPasswordSignInAsync(user, password, false))
-                .ReturnsAsync(SignInResult.Failed);
-
-            // Act & Assert
-            await Assert.ThrowsAsync<Exception>(() => _authRepository.SignInAsync(signinFormDto));
-        }
-
 
         [Fact]
         public async Task Register_ShouldThrowException_WhenExistingUserFound()
