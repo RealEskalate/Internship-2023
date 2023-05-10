@@ -12,10 +12,10 @@ namespace BlogApp.Api.Controllers;
 [ApiController]
 public class ReviewsController : BaseApiController
 {
-    private readonly IMediator _mediator;
+   
     public ReviewsController(IMediator mediator) : base(mediator)
     {
-        _mediator = mediator;
+    
     }
 
     [HttpGet("blogReviews{blogId}")]
@@ -30,7 +30,7 @@ public class ReviewsController : BaseApiController
 
     [HttpGet("userReviews{reviewerId}")]
     
-    public async Task<ActionResult<List<ReviewDto>>> GetUserReviews(int reviewerId)
+    public async Task<ActionResult<List<ReviewDto>>> GetUserReviews(string reviewerId)
     {
         var query = new GetUserReviewListQuery { ReviewerId = reviewerId };
         var response = await _mediator.Send(query);
