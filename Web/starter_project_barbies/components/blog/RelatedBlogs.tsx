@@ -1,4 +1,5 @@
 import BlogCard from '@/components/blog/BlogCard';
+import { selectMultipleBlogsByID } from '@/slices/blogs/blogsSlice';
 import { useAppSelector } from "@/store/hooks";
 import { Blog } from '@/types/blog';
 
@@ -7,12 +8,7 @@ interface RelatedBlogsProps {
 }
 
 export const RelatedBlogs: React.FC<RelatedBlogsProps> = ({ blogs }) => {
-  // Fetch related blogs
-  const relatedBlogs = useAppSelector((state) => {
-    return state.blogs.blogs.filter((blog) => {
-      return blogs.includes(blog.blogID)
-    })
-  })
+  const relatedBlogs = useAppSelector(selectMultipleBlogsByID(blogs))
 
   return (
     <div className='font-montserrat'>

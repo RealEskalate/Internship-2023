@@ -95,6 +95,12 @@ const blogsSlice = createSlice({
 
 export const selectAllBlogs = (state: RootState) => state.blogs.blogs
 
-export const selectBlogByID = (blogID: string) => (state: RootState) => state.blogs.blogs.find(blog => blog.blogID === blogID)
+export const selectBlogByID = (blogID: string) => (state: RootState) => {
+  return state.blogs.blogs.find(blog => blog.blogID === blogID)
+}
+
+export const selectMultipleBlogsByID = (blogIDs: string[]) => (state: RootState) => {
+  return state.blogs.blogs.filter(blog => blogIDs.includes(blog.blogID))
+}
 
 export default blogsSlice.reducer
