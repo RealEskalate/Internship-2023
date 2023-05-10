@@ -5,9 +5,9 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i4;
 
-import 'package:dark_knights/core/errors/failures.dart' as _i6;
+import 'package:dark_knights/core/errors/failures.dart' as _i5;
 import 'package:dark_knights/features/user_profile/domain/entities/user_entity.dart'
-    as _i5;
+    as _i6;
 import 'package:dark_knights/features/user_profile/domain/repositories/user_repository.dart'
     as _i3;
 import 'package:dartz/dartz.dart' as _i2;
@@ -43,146 +43,156 @@ class MockUserRepository extends _i1.Mock implements _i3.UserRepository {
   }
 
   @override
-  _i4.Future<List<_i5.UserEntity>> getAllUsers() => (super.noSuchMethod(
+  _i4.Future<_i2.Either<_i5.Failure, List<_i6.UserEntity>>> getAllUsers() =>
+      (super.noSuchMethod(
         Invocation.method(
           #getAllUsers,
           [],
         ),
-        returnValue: _i4.Future<List<_i5.UserEntity>>.value(<_i5.UserEntity>[]),
-      ) as _i4.Future<List<_i5.UserEntity>>);
+        returnValue:
+            _i4.Future<_i2.Either<_i5.Failure, List<_i6.UserEntity>>>.value(
+                _FakeEither_0<_i5.Failure, List<_i6.UserEntity>>(
+          this,
+          Invocation.method(
+            #getAllUsers,
+            [],
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.Failure, List<_i6.UserEntity>>>);
   @override
-  _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>> createUser(
-          _i5.UserEntity? user) =>
+  _i4.Future<_i2.Either<_i5.Failure, _i6.UserEntity>> createUser(
+          _i6.UserEntity? user) =>
       (super.noSuchMethod(
         Invocation.method(
           #createUser,
           [user],
         ),
-        returnValue: _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>>.value(
-            _FakeEither_0<_i6.Failure, _i5.UserEntity>(
+        returnValue: _i4.Future<_i2.Either<_i5.Failure, _i6.UserEntity>>.value(
+            _FakeEither_0<_i5.Failure, _i6.UserEntity>(
           this,
           Invocation.method(
             #createUser,
             [user],
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>>);
+      ) as _i4.Future<_i2.Either<_i5.Failure, _i6.UserEntity>>);
   @override
-  _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>> getFollowing(
+  _i4.Future<_i2.Either<_i5.Failure, _i6.UserEntity>> getFollowing(
           String? userId) =>
       (super.noSuchMethod(
         Invocation.method(
           #getFollowing,
           [userId],
         ),
-        returnValue: _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>>.value(
-            _FakeEither_0<_i6.Failure, _i5.UserEntity>(
+        returnValue: _i4.Future<_i2.Either<_i5.Failure, _i6.UserEntity>>.value(
+            _FakeEither_0<_i5.Failure, _i6.UserEntity>(
           this,
           Invocation.method(
             #getFollowing,
             [userId],
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>>);
+      ) as _i4.Future<_i2.Either<_i5.Failure, _i6.UserEntity>>);
   @override
-  _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>> editUserProfile(
-          _i5.UserEntity? user) =>
+  _i4.Future<_i2.Either<_i5.Failure, _i6.UserEntity>> editUserProfile(
+          _i6.UserEntity? user) =>
       (super.noSuchMethod(
         Invocation.method(
           #editUserProfile,
           [user],
         ),
-        returnValue: _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>>.value(
-            _FakeEither_0<_i6.Failure, _i5.UserEntity>(
+        returnValue: _i4.Future<_i2.Either<_i5.Failure, _i6.UserEntity>>.value(
+            _FakeEither_0<_i5.Failure, _i6.UserEntity>(
           this,
           Invocation.method(
             #editUserProfile,
             [user],
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>>);
+      ) as _i4.Future<_i2.Either<_i5.Failure, _i6.UserEntity>>);
   @override
-  _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>> getNumberOfFollowers(
+  _i4.Future<_i2.Either<_i5.Failure, int>> getNumberOfFollowers(
           String? userId) =>
       (super.noSuchMethod(
         Invocation.method(
           #getNumberOfFollowers,
           [userId],
         ),
-        returnValue: _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>>.value(
-            _FakeEither_0<_i6.Failure, _i5.UserEntity>(
+        returnValue: _i4.Future<_i2.Either<_i5.Failure, int>>.value(
+            _FakeEither_0<_i5.Failure, int>(
           this,
           Invocation.method(
             #getNumberOfFollowers,
             [userId],
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>>);
+      ) as _i4.Future<_i2.Either<_i5.Failure, int>>);
   @override
-  _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>> deleteUser(
+  _i4.Future<_i2.Either<_i5.Failure, _i6.UserEntity>> deleteUser(
           String? userId) =>
       (super.noSuchMethod(
         Invocation.method(
           #deleteUser,
           [userId],
         ),
-        returnValue: _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>>.value(
-            _FakeEither_0<_i6.Failure, _i5.UserEntity>(
+        returnValue: _i4.Future<_i2.Either<_i5.Failure, _i6.UserEntity>>.value(
+            _FakeEither_0<_i5.Failure, _i6.UserEntity>(
           this,
           Invocation.method(
             #deleteUser,
             [userId],
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>>);
+      ) as _i4.Future<_i2.Either<_i5.Failure, _i6.UserEntity>>);
   @override
-  _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>> getUser(String? userId) =>
+  _i4.Future<_i2.Either<_i5.Failure, _i6.UserEntity>> getUser(String? userId) =>
       (super.noSuchMethod(
         Invocation.method(
           #getUser,
           [userId],
         ),
-        returnValue: _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>>.value(
-            _FakeEither_0<_i6.Failure, _i5.UserEntity>(
+        returnValue: _i4.Future<_i2.Either<_i5.Failure, _i6.UserEntity>>.value(
+            _FakeEither_0<_i5.Failure, _i6.UserEntity>(
           this,
           Invocation.method(
             #getUser,
             [userId],
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>>);
+      ) as _i4.Future<_i2.Either<_i5.Failure, _i6.UserEntity>>);
   @override
-  _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>> getNumberOfFollowing(
+  _i4.Future<_i2.Either<_i5.Failure, int>> getNumberOfFollowing(
           String? userId) =>
       (super.noSuchMethod(
         Invocation.method(
           #getNumberOfFollowing,
           [userId],
         ),
-        returnValue: _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>>.value(
-            _FakeEither_0<_i6.Failure, _i5.UserEntity>(
+        returnValue: _i4.Future<_i2.Either<_i5.Failure, int>>.value(
+            _FakeEither_0<_i5.Failure, int>(
           this,
           Invocation.method(
             #getNumberOfFollowing,
             [userId],
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>>);
+      ) as _i4.Future<_i2.Either<_i5.Failure, int>>);
   @override
-  _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>> getFollowers(
+  _i4.Future<_i2.Either<_i5.Failure, List<_i6.UserEntity>>> getFollowers(
           String? userId) =>
       (super.noSuchMethod(
         Invocation.method(
           #getFollowers,
           [userId],
         ),
-        returnValue: _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>>.value(
-            _FakeEither_0<_i6.Failure, _i5.UserEntity>(
+        returnValue:
+            _i4.Future<_i2.Either<_i5.Failure, List<_i6.UserEntity>>>.value(
+                _FakeEither_0<_i5.Failure, List<_i6.UserEntity>>(
           this,
           Invocation.method(
             #getFollowers,
             [userId],
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i6.Failure, _i5.UserEntity>>);
+      ) as _i4.Future<_i2.Either<_i5.Failure, List<_i6.UserEntity>>>);
 }
