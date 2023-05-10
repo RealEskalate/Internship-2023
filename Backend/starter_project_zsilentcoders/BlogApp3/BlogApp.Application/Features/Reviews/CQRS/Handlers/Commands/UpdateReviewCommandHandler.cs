@@ -16,7 +16,7 @@ using MediatR;
 
 namespace BlogApp.Application.Features.Reviews.CQRS.Handlers.Commands
 {
-    public class UpdateReviewCommandHandler : IRequestHandler<UpdateReviewCommand, Result<ReviewDto>>
+    public class UpdateReviewCommandHandler : IRequestHandler<UpdateReviewCommand, Result<UpdateReviewDto>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -27,9 +27,9 @@ namespace BlogApp.Application.Features.Reviews.CQRS.Handlers.Commands
             _mapper = mapper;
         }
 
-        public async Task<Result<ReviewDto>> Handle(UpdateReviewCommand request, CancellationToken cancellationToken)
+        public async Task<Result<UpdateReviewDto>> Handle(UpdateReviewCommand request, CancellationToken cancellationToken)
         {
-            var response = new Result<ReviewDto>();
+            var response = new Result<UpdateReviewDto>();
 
             if (request.reviewIsApprovedDto != null)
             {
@@ -44,7 +44,7 @@ namespace BlogApp.Application.Features.Reviews.CQRS.Handlers.Commands
                     {
                         response.Success = true;
                         response.Message = "Updation Successful!";
-                        response.Value = _mapper.Map<ReviewDto>(review);
+                        response.Value = _mapper.Map<UpdateReviewDto>(review);
                     }
                     else
                     {
@@ -84,7 +84,7 @@ namespace BlogApp.Application.Features.Reviews.CQRS.Handlers.Commands
                     {
                         response.Success = true;
                         response.Message = "Updation Successful!";
-                        response.Value = _mapper.Map<ReviewDto>(review);
+                        response.Value = _mapper.Map<UpdateReviewDto>(review);
                     }
                     else
                     {

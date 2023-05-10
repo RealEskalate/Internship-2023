@@ -8,10 +8,10 @@ using MediatR;
 
 namespace BlogApp.Application.Features.Reviews.CQRS.Commands
 {
-    public class UpdateReviewCommand: IRequest<Result<ReviewDto>>
+    public class UpdateReviewCommand: IRequest<Result<UpdateReviewDto>>
     {
         public int Id { get; set; }
-        public ReviewDto reviewDto { get; set; }
+        public UpdateReviewDto reviewDto { get; set; }
         public ReviewIsApprovedDto? reviewIsApprovedDto { get; set; }
     }
 }

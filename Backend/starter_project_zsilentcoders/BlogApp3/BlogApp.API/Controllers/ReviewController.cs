@@ -25,7 +25,7 @@ namespace BlogApp.API.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet("{reivewerId}")]
+        [HttpGet("reviewsByUserId/{reivewerId}")]
         public async Task<ActionResult<List<Review>>> GetReviewsByReviewerId(int reivewerId)
         {
             var reviews = await _mediator.Send(new GetReviewListQuery { ReviewerId= reivewerId });
@@ -48,7 +48,7 @@ namespace BlogApp.API.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult> Put([FromBody] ReviewDto reviewDto)
+        public async Task<ActionResult> Put([FromBody] UpdateReviewDto reviewDto)
         {
             var command = new UpdateReviewCommand { reviewDto = reviewDto };
             await _mediator.Send(command);

@@ -12,6 +12,8 @@ namespace BlogApp.Application.Features.Reviews.DTOs.Validators
     {
         public UpdateIsResolvedValidator(IUnitOfWork unitOfWork)
         {
+            RuleFor(p => p.Id)
+            .MustAsync(async (id, token) => await unitOfWork.ReviewRepository.Exists(id)).WithMessage($"Blog not found");
             RuleFor(p => p.IsApproved).NotNull().WithMessage("{PropertyName} must be present");
         }
     }

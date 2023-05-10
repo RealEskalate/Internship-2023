@@ -43,13 +43,11 @@ namespace BlogApp.Tests.Reviews.Command
         public async Task UpdateReviewValid()
         {
 
-            var updateReviewDto = new ReviewDto()
+            var updateReviewDto = new UpdateReviewDto()
             {
                 Id = 2,
                 Comment = "updated",
-                BlogId = 5,
                 ReviewerId = 5,
-
             };
             var review = await _mockUnitOfWork.Object.ReviewRepository.Get(2);
             bool res = await _mockUnitOfWork.Object.ReviewRepository.Exists(2);
@@ -83,11 +81,10 @@ namespace BlogApp.Tests.Reviews.Command
         public async Task UpdateReviewInvalid()
         {
 
-            var updateReviewDto = new ReviewDto()
+            var updateReviewDto = new UpdateReviewDto()
             {
                 Id = 3,
                 Comment = "updated",
-                BlogId = 5,
                 ReviewerId = 5,
 
             };

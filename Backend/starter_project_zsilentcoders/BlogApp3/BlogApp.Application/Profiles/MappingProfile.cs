@@ -52,6 +52,7 @@ namespace BlogApp.Application.Profiles
             CreateMap<Review, ReviewDto>().ReverseMap();
             CreateMap<Review, CreateReviewDto>().ReverseMap();
             CreateMap<Review, IReviewDto>().ReverseMap();
+            CreateMap<Review, UpdateReviewDto>().ReverseMap();
             #endregion
         }
     }
