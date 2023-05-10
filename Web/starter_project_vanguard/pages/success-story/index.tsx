@@ -1,10 +1,9 @@
 import Partners from '@/components/success-story/Partners'
 import SuccessDescription from '@/components/success-story/SuccessDescription'
 import SuccessImageCard from '@/components/success-story/SuccessImageCard'
-import { SuccessStory } from '@/types/success-story'
-import successStoryjsonData from '../../data/success-story.json'
+import { useFetchSuccessStoryQuery } from '@/features/success-story/success-story-api-slice'
 export default function SucessStory() {
-  const successStories: SuccessStory[] = successStoryjsonData
+  const { data = [], isFetching } = useFetchSuccessStoryQuery()
   return (
     <>
       <main>
@@ -27,7 +26,7 @@ export default function SucessStory() {
         <div className="flex justify-center">
           <div className="max-w-5xl">
             <div>
-              {successStories.map((successStory, index) => (
+              {data.map((successStory, index) => (
                 <div
                   key={index}
                   className={`flex flex-col lg:flex-row justify-center lg:items-center ml-2 mt-20 ${
