@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
+using BlogApp.Application.Exceptions;
 using BlogApp.Application.Features.Reviews.CQRS.Queries;
 using BlogApp.Application.Features.Reviews.DTOs;
 using BlogApp.Application.Responses;
@@ -22,19 +23,21 @@ public class GetUserReviewListQueryHandler : IRequestHandler<GetUserReviewListQu
         CancellationToken cancellationToken)
     {
         var reviews =await _unitOfWork.ReviewRepository.GetReviewsByUserId(request.ReviewerId);
-        return reviews == null || !reviews.Any()
-            ? new BaseResponse<List<ReviewDto>>()
+        if( reviews == null || !reviews.Any()){
+            var error = new NotFoundException(nameof(reviews),request.ReviewerId);
+
+             return new BaseResponse<List<ReviewDto>>()
             {
                 Success = false,
                 Message = "User has no reviews",
                 Errors = new List<string>()
                 {
-                    $"User with id {request.ReviewerId} not found",
-                    $"User with id {request.ReviewerId} has no reviews"
+                    $"{error}"
                 }
 
-            }
-            : new BaseResponse<List<ReviewDto>>()
+            };}
+
+            return new BaseResponse<List<ReviewDto>>()
             {
                 Data = _mapper.Map<List<ReviewDto>>(reviews),
                 Success = true,

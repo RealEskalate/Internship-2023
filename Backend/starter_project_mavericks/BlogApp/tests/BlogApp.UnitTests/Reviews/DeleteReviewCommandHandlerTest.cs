@@ -34,10 +34,11 @@ namespace BlogApp.UnitTests.Blogs
         [Fact]
         public async Task ValidReviewDeletionTest()
         {
+            
             var response = await _handler.Handle(new DeleteReviewCommand() {
                 Id = 2
             }, CancellationToken.None);
-
+            
             response.ShouldNotBeNull();
             response.ShouldBeOfType<BaseResponse<Unit>>();
             response.Success.ShouldBeTrue();   
