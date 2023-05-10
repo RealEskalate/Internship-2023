@@ -39,6 +39,13 @@ namespace BlogApp.Application.Features.Reviews.CQRS.Handlers.Commands
                 if (validationResult.IsValid == true)
                 {
                     var review = await _unitOfWork.ReviewRepository.Get(request.reviewIsApprovedDto.Id);
+                    if (review is null)
+                    {
+                        response.Success = false;
+                        response.Message = "Updation Failed";
+                        response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
+                        return response;
+                    }
                     await _unitOfWork.ReviewRepository.ChangeApprovalStatus(review, request.reviewIsApprovedDto.IsApproved);
                     if (await _unitOfWork.Save() > 0)
                     {
