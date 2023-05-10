@@ -1,0 +1,112 @@
+[
+    {
+      "id": "1",
+      "name": "John Doe",
+      "jobTitle": "Software Engineer",
+      "description":
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus.",
+      "profileImg": "https://picsum.photos/200",
+      "socialMediaLinks": [
+        {
+          "type": "facebook",
+          "url": "https://www.facebook.com/"
+        },
+        {
+          "type": "linkedin",
+          "url": "https://www.linkedin.com/"
+        },
+        {
+          "type": "instagram",
+          "url": "https://www.instagram.com/"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "John Doe",
+      "jobTitle": "Software Engineer",
+      "description":
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus.",
+      "profileImg": "https://picsum.photos/200",
+      "socialMediaLinks": [
+        {
+          "type": "facebook",
+          "url": "https://www.facebook.com/"
+        },
+        {
+          "type": "linkedin",
+          "url": "https://www.linkedin.com/"
+        },
+        {
+          "type": "instagram",
+          "url": "https://www.instagram.com/"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "John Doe",
+      "jobTitle": "Software Engineer",
+      "description":
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus.",
+      "profileImg": "https://picsum.photos/200",
+      "socialMediaLinks": [
+        {
+          "type": "facebook",
+          "url": "https://www.facebook.com/"
+        },
+        {
+          "type": "linkedin",
+          "url": "https://www.linkedin.com/"
+        },
+        {
+          "type": "instagram",
+          "url": "https://www.instagram.com/"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "John Doe",
+      "jobTitle": "Software Engineer",
+      "description":
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus.",
+      "profileImg": "https://picsum.photos/200",
+      "socialMediaLinks": [
+        {
+          "type": "facebook",
+          "url": "https://www.facebook.com/"
+        },
+        {
+          "type": "linkedin",
+          "url": "https://www.linkedin.com/"
+        },
+        {
+          "type": "instagram",
+          "url": "https://www.instagram.com/"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "John Doe",
+      "jobTitle": "Software Engineer",
+      "description":
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac suscipit nisl. Nullam euismod, purus vel maximus.",
+      "profileImg": "https://picsum.photos/200",
+      "socialMediaLinks": [
+        {
+          "type": "facebook",
+          "url": "https://www.facebook.com/"
+        },
+        {
+          "type": "linkedin",
+          "url": "https://www.linkedin.com/"
+        },
+        {
+          "type": "instagram",
+          "url": "https://www.instagram.com/"
+        }
+      ]
+    }
+]
