@@ -27,7 +27,7 @@ public class UpdateCommentCommandHandler : IRequestHandler<UpdateCommentCommand,
     {
 
         var response = new Result<UpdateCommentDto?>();
-        var validator = new UpdateCommentDtoValidator();
+        var validator = new UpdateCommentDtoValidator(_unitOfWork);
         var validationResult = await validator.ValidateAsync(request.CommentDto);
  
         if (validationResult.IsValid == true){

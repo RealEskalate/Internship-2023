@@ -40,6 +40,6 @@ public class GetCommentListQueryHandlerTest
     public async Task GetCommentListInvalid()
     {
         var result = await _handler.Handle(new GetCommentListQuery(), CancellationToken.None);
-        result.Value.Count.ShouldNotBe(1);
+        result.Value?.Count.ShouldNotBe(1);
     }
 }

@@ -42,8 +42,6 @@ public class UpdateCommentCommandHandlerTest
         UpdateCommentDto commentDto = new()
         {
             Id=1,
-            CommenterId = 1,
-            BlogId = 1,
             Content = "This is new comment",
             
         };
