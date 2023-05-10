@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BlogApp.Application.Features.Common;
 using BlogApp.Application.Features.Rates.DTOs;
+using BlogApp.Application.Features.Tags.DTOs;
 using BlogApp.Domain;
 
 namespace BlogApp.Application.Features.Blogs.DTOs
@@ -19,6 +20,8 @@ namespace BlogApp.Application.Features.Blogs.DTOs
         public ICollection<RateDto> Rates { get; set; }
 
         public double BlogRate { get; set; }
+
+        public ICollection<TagDto>? Tags { get; set; }
 
     }
 }

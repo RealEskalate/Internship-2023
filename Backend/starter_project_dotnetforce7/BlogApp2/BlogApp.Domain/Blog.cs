@@ -12,5 +12,6 @@ namespace BlogApp.Domain
 
         public ICollection<Rate> Rates { get; set; } // One-to-many relationship with Rate
 
+        public ICollection<Tag> Tags { get; set; } = new List<Tag>();
     }
 }

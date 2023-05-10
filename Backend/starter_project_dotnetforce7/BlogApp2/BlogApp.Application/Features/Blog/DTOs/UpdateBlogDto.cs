@@ -17,6 +17,8 @@ namespace BlogApp.Application.Features.Blogs.DTOs
         public bool? PublicationStatus { get; set; }
 
         public double BlogRate { get; set; }
+        public ICollection<int>? blogTags { get; set; }
+
 
     }
 }

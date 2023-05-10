@@ -22,6 +22,9 @@ namespace BlogApp.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(BlogAppDbContext).Assembly);
+            modelBuilder.Entity<Blog>()
+            .HasMany(b => b.Tags)
+            .WithMany(t => t.Blogs);
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
@@ -43,11 +46,13 @@ namespace BlogApp.Persistence
 
         public DbSet<_Index> _Indices { get; set; }
         public DbSet<Rate> Rates { get; set; }
-        public DbSet<Rate> Review { get; set; }
-        public DbSet<Tag> Tags {get;set;}
+        public DbSet<Tag> Tags { get; set; }
         public DbSet<Blog> Blogs { get; set; }
 
         public DbSet<Comment> Comments { get; set; }
+
+
+
 
     }
 }

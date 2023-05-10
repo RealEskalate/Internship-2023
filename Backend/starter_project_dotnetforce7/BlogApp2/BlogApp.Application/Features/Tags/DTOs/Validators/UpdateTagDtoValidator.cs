@@ -12,6 +12,7 @@ namespace BlogApp.Application.Features.Tags.DTOs.Validators
         {
             Include(new ITagDtoValidator());
             RuleFor(a => a.Id)
+            .NotEmpty()
             .NotNull()
             .WithMessage("{PropertyName} must be present");
 

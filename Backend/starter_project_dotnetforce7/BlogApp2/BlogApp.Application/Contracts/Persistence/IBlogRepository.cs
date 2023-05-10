@@ -9,7 +9,7 @@ namespace BlogApp.Application.Contracts.Persistence
 {
     public interface IBlogRepository : IGenericRepository<Blog>
     {
-        Task<List<Blog>> GetBlogsWithRate();
+        Task<List<Blog>> GetBlogs();
 
     }
 }

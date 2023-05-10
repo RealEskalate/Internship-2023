@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BlogApp.Application.Responses;
+using BlogApp.Domain;
 
 namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
 {
@@ -30,32 +31,47 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
             var response = new Result<Unit>();
 
 
-            var validator = new UpdateBlogDtoValidator();
+            var validator = new UpdateBlogDtoValidator(_unitOfWork);
             var validationResult = await validator.ValidateAsync(request.BlogDto);
 
             if (validationResult.IsValid == false)
-                {
+            {
                 response.Success = false;
                 response.Message = "Update Failed";
                 response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
 
-                    // throw new ValidationException(validationResult);
-                }
+            }
             else
             {
-            
-            var blog = await _unitOfWork.BlogRepository.Get(request.BlogDto.Id);
 
-            if (blog == null){
-                 return null;
-            }
-            
-            //     throw new NotFoundException(nameof(blog), request.BlogDto.Id);
+                var blog = await _unitOfWork.BlogRepository.Get(request.BlogDto.Id);
 
-            _mapper.Map(request.BlogDto, blog);
+                if (blog == null)
+                {
+                    return null;
+                }
 
-            await _unitOfWork.BlogRepository.Update(blog);
-             if (await _unitOfWork.Save() > 0)
+
+                _mapper.Map(request.BlogDto, blog);
+
+                blog.Tags = new List<Tag>();
+
+                if (request.BlogDto.blogTags != null && request.BlogDto.blogTags.Any())
+                {
+                    foreach (var id in request.BlogDto.blogTags)
+                    {
+                        var existingTag = await _unitOfWork.TagRepository.Get(id);
+                        if (existingTag != null)
+                        {
+                            blog.Tags.Add(existingTag);
+
+                        }
+                    }
+                }
+
+
+                await _unitOfWork.BlogRepository.Update(blog);
+                if (await _unitOfWork.Save() > 0)
                 {
                     response.Success = true;
                     response.Message = "Updated Successful";
@@ -65,13 +81,11 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
                 {
                     response.Success = false;
                     response.Message = "Update Failed";
-                }    
+                }
 
 
             }
 
-           
-            // return Unit.Value;
 
             return response;
 

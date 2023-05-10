@@ -19,14 +19,14 @@ namespace BlogApp.Persistence.Repositories
         }
 
 
-         public async Task<List<Blog>> GetBlogsWithRate()
+         public async Task<List<Blog>> GetBlogs()
         {
-            return await _dbContext.Set<Blog>().Include(x => x.Rates).AsNoTracking().ToListAsync();
+            return await _dbContext.Set<Blog>().Include(x => x.Rates).Include(t => t.Tags).AsNoTracking().ToListAsync();
         }
 
          public async Task<Blog> Get(int id)
         {
-            return await _dbContext.Set<Blog>().Include(x => x.Rates).FirstOrDefaultAsync(b => b.Id == id);
+            return await _dbContext.Set<Blog>().Include(x => x.Rates).Include(t => t.Tags).FirstOrDefaultAsync(b => b.Id == id);
         }
 
     }

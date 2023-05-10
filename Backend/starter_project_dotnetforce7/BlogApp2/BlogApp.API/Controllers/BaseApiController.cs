@@ -15,14 +15,13 @@ namespace API.Controllers
         protected ActionResult HandleResult<T>(Result<T> result)
         {
             if (result == null)
-                return NotFound(new Result<int>{ Success=false ,Message="Item not found"});
+                return NotFound(new Result<int> { Success = false, Message = "Item not found" });
 
             if (result.Success && result.Value != null)
                 return Ok(result);
             if (result.Success && result.Value == null)
                 return NotFound(result);
-           
-
+                
             return BadRequest(result);
         }
 

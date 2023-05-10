@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BlogApp.Application.Features.Common;
+using BlogApp.Domain;
 
 namespace BlogApp.Application.Features.Blogs.DTOs
 {
@@ -13,5 +14,8 @@ namespace BlogApp.Application.Features.Blogs.DTOs
         public string Content { get; set; }
         public string? CoverImage { get; set; }
         public bool? PublicationStatus { get; set; }
+
+        public ICollection<int>? BlogTags { get; set; }
+
     }
 }

@@ -29,24 +29,25 @@ namespace BlogApp.Api.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-        return HandleResult(await _mediator.Send(new GetBlogDetailQuery { Id = id }));
-          
+            return HandleResult(await _mediator.Send(new GetBlogDetailQuery { Id = id }));
+
         }
 
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateBlogDto createBlog)
         {
+
             var command = new CreateBlogCommand { BlogDto = createBlog };
-            return  HandleResult(await _mediator.Send(command));
+            return HandleResult(await _mediator.Send(command));
         }
 
         [HttpPut]
         public async Task<IActionResult> Put([FromBody] UpdateBlogDto blogDto)
         {
 
-      
+
             var command = new UpdateBlogCommand { BlogDto = blogDto };
-            return HandleResult( await _mediator.Send(command));
+            return HandleResult(await _mediator.Send(command));
         }
 
         [HttpDelete("{id}")]
