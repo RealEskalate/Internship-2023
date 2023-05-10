@@ -11,7 +11,7 @@ namespace BlogApp.Api.Controllers
 {
     [Route("api/[Controller]")]
     [ApiController]
-    public class TagController :   ControllerBase
+    public class TagController :   BaseController
     {
         private readonly IMediator _mediator;
 
@@ -21,74 +21,38 @@ namespace BlogApp.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<TagDto>>> Get()
-        {
-            var Tags = await _mediator.Send(new GetTagListQuery());
-            return Ok(Tags);
-        }
-        
+        [HttpGet]
+    public async Task<ActionResult<List<TagListDto>>> Get()
+    {
+        return HandleResult(await _mediator.Send(new GetTagListQuery()));
+    }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // 
-
-        [HttpGet("{id}")]
-        public async Task<ActionResult<TagDto>> Get(int id)
-        {
-            var Tags = await _mediator.Send(new GetTagDetailQuery { Id = id });
-            return Ok(Tags);
-        }
+         [HttpGet("{id:int}")]
+    public async Task<ActionResult> Get(int id)
+    {
+        return HandleResult(await _mediator.Send(new GetTagDetailsQuery { Id = id }));
+    }
 
         [HttpPost]
-        public async Task<ActionResult<BaseCommandResponse>> Post([FromBody] CreateTagDto createTagDto)
+        public async Task<ActionResult<Result<CreateTagDto>>> Post([FromBody] CreateTagDto createTagDto)
         {
-            var command = new CreateTagCommand { TagDto = createTagDto };
+            var command = new CreateTagCommand { CreateTagDto = createTagDto };
             var repsonse = await _mediator.Send(command);
-            return Ok(repsonse);
+            return HandleResult(repsonse);
         }
 
         [HttpPut]
-        public async Task<ActionResult> Put([FromBody] UpdateTagDto tagDto)
-        {
-            var command = new UpdateTagCommand { TagDto = tagDto };
-            await _mediator.Send(command);
-            return NoContent();
-        }
+    public async Task<ActionResult> UpdateTag([FromBody] UpdateTagDto updateTagDto)
+    {
+        return HandleResult(await _mediator.Send(new UpdateTagCommand() { UpdateTagDto = updateTagDto }));
+    }
 
-        [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(int id)
-        {
-            var command = new DeleteTagCommand { Id = id };
-            await _mediator.Send(command);
-            return NoContent();
-        }
+       [HttpDelete("{id:int}")]
+    public async Task<ActionResult> DeleteTag(int id)
+    {
+        return HandleResult(
+            await _mediator.Send(new DeleteTagCommand { DeleteTagDto = new DeleteTagDto { Id = id } }));
+    }
     }
 }

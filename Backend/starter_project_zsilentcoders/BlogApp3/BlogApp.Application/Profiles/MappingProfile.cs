@@ -14,7 +14,16 @@ namespace BlogApp.Application.Profiles
     public class MappingProfile : Profile
     {
         public MappingProfile()
-        {           
+        {
+             #region tag Mappings
+            CreateMap<Tag, TagDto>().ReverseMap();
+            CreateMap<Tag, CreateTagDto>().ReverseMap();
+            CreateMap<TagDetailsDto, Tag>().ReverseMap();
+            CreateMap<UpdateTagDto, Tag>().ReverseMap();
+            CreateMap<TagListDto, Tag>().ReverseMap();
+
+             #endregion tag
+            
             #region _index Mappings
 
             CreateMap<_Index, _IndexDto>().ReverseMap();
@@ -36,15 +45,6 @@ namespace BlogApp.Application.Profiles
             CreateMap<BlogListDto, Blog>().ReverseMap();
 
             #endregion Blog
-
-            #region tag Mappings
-            CreateMap<Tag, TagDto>().ReverseMap();
-            CreateMap<Tag, CreateTagDto>().ReverseMap();
-            CreateMap<TagDetailsDto, Tag>().ReverseMap();
-            CreateMap<UpdateTagDto, Tag>().ReverseMap();
-            CreateMap<TagListDto, Tag>().ReverseMap();
-
-             #endregion tag
         }
     }
 }

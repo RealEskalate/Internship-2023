@@ -1,38 +1,54 @@
-using AutoMapper;
+using System.ComponentModel.DataAnnotations;
 using BlogApp.Application.Contracts.Persistence;
-using BlogApp.Application.Exceptions;
+using BlogApp.Application.Features.Tags.DTOs.Validators;
 using BlogApp.Application.Features.Tags.CQRS.Commands;
+using AutoMapper;
+using BlogApp.Application.Exceptions;
+using BlogApp.Application.Responses;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BlogApp.Application.Features.Tags.CQRS.Handlers
+namespace Application.Features.Tags.CQRS.Handlers;
+
+public class DeleteTagCommandHandler: IRequestHandler<DeleteTagCommand, Result<Unit>>
 {
-    public class DeleteTagCommandHandler : IRequestHandler<DeleteTagCommand>
+
+    private readonly IUnitOfWork _unitOfWork;
+    private readonly IMapper _mapper;
+
+    public DeleteTagCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
     {
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IMapper _mapper;
+        _unitOfWork = unitOfWork;
+        _mapper = mapper;
+    }
 
-        public DeleteTagCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
-        {
-            _unitOfWork = unitOfWork;
-            _mapper = mapper;
+    public async Task<Result<Unit>> Handle(DeleteTagCommand request, CancellationToken cancellationToken)
+    {
+        var response = new Result<Unit>();
+        
+        var validator = new DeleteTagDtoValidator(_unitOfWork);
+        var validationResult = await validator.ValidateAsync(request.DeleteTagDto);
+       
+        if (validationResult.IsValid == true){
+            var tag = await _unitOfWork.TagRepository.Get(request.DeleteTagDto.Id);
+            await _unitOfWork.TagRepository.Delete(tag);
+            if (await _unitOfWork.Save() > 0)
+            {
+                
+                response.Message = "Deletion Successful!";
+                response.Value = new Unit();
+            }
+            else
+            {
+                response.Success = false;
+                response.Message = "Deletion Failed";
+                response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
+            }
+        }else{
+            response.Success = false;
+            response.Message = "Deletion Failed";
+            response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
         }
-
-        public async Task<Unit> Handle(DeleteTagCommand request, CancellationToken cancellationToken)
-        {
-            var Tag = await _unitOfWork.TagRepository.Get(request.Id);
-
-            if (Tag == null)
-                throw new NotFoundException(nameof(Tag), request.Id);
-
-            await _unitOfWork.TagRepository.Delete(Tag);
-            await _unitOfWork.Save();
-
-            return Unit.Value;
-        }
+        
+        return response;
     }
 }

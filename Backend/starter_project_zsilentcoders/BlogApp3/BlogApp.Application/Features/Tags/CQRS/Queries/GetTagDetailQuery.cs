@@ -1,15 +1,10 @@
-using BlogApp.Application.Features.Tags.DTOs;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using BlogApp.Application.Features.Tags.DTOs;
+using BlogApp.Application.Responses;
 
-namespace BlogApp.Application.Features.Tags.CQRS.Queries
+namespace BlogApp.Application.Features.Tags.CQRS.Queries;
+
+public class GetTagDetailsQuery: IRequest<Result<TagDetailsDto?>>
 {
-    public class GetTagDetailQuery : IRequest<TagDto>
-    {
-        public int Id { get; set; }
-    }
+    public int Id { get; set; }
 }

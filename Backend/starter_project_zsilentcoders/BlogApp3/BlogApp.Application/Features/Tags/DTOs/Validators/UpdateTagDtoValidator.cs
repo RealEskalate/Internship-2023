@@ -1,3 +1,4 @@
+using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Features.Tags.DTOs;
 using FluentValidation;
 using System;
@@ -8,16 +9,13 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Application.Features.Tags.DTOs.Validators
 {
-    public class UpdateTagDtoValidator : AbstractValidator<TagDto>
+    public class UpdateTagDtoValidator : AbstractValidator<UpdateTagDto>
     {
-        public UpdateTagDtoValidator()
+        public UpdateTagDtoValidator(IUnitOfWork unitOfWork)
         {
-            RuleFor(p => p.Title)
-                .NotEmpty().WithMessage("{PropertyName} is required.")
-                .NotNull()
-                .MaximumLength(50).WithMessage("{PropertyName} must not exceed {ComparisonValue} characters.");
-
-            RuleFor(p => p.Id).NotNull().WithMessage("{PropertyName} must be present");
-        }
+            RuleFor(p => p.Id)
+           .GreaterThan(0)
+           .MustAsync(async (id, token) => await unitOfWork.BlogRepository.Exists(id)).WithMessage($"Tag not found");
+        } 
     }
 }

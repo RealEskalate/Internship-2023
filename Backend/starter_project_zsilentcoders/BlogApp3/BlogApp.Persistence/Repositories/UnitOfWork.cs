@@ -13,8 +13,8 @@ namespace BlogApp.Persistence.Repositories
         private readonly BlogAppDbContext _context;
 
         private I_IndexRepository _indexRepository;
-        private IBlogRepository _blogRepository;
         private ITagRepository _tagRepository;
+        private IBlogRepository _blogRepository;
 
         public UnitOfWork(BlogAppDbContext context)
         {

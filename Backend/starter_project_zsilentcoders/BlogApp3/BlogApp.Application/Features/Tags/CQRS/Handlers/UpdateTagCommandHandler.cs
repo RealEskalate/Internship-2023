@@ -2,6 +2,7 @@ using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Exceptions;
 using BlogApp.Application.Features.Tags.CQRS.Commands;
+using BlogApp.Application.Features.Tags.CQRS.Handlers;
 using BlogApp.Application.Features.Tags.DTOs.Validators;
 using MediatR;
 using System;
@@ -9,39 +10,59 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BlogApp.Application.Responses;
+using BlogApp.Application.Features.Tags.DTOs;
+using FluentValidation;
 
-namespace BlogApp.Application.Features.Tags.CQRS.Handlers
+namespace BlogApp.Application.Features.Tags.CQRS.Handlers;
+
+public class UpdateTagCommandHandler : IRequestHandler<UpdateTagCommand, Result<UpdateTagDto?>>
 {
-    public class UpdateTagCommandHandler : IRequestHandler<UpdateTagCommand, Unit>
+    private readonly IUnitOfWork _unitOfWork;
+    private readonly IMapper _mapper;
+
+    public UpdateTagCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
     {
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IMapper _mapper;
+        _unitOfWork = unitOfWork;
+        _mapper = mapper;
+    }
 
-        public UpdateTagCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
-        {
-            _unitOfWork = unitOfWork;
-            _mapper = mapper;
+    public async Task<Result<UpdateTagDto?>> Handle(UpdateTagCommand request, CancellationToken cancellationToken)
+    {
+
+        var response = new Result<UpdateTagDto?>();
+        var validator = new UpdateTagDtoValidator(_unitOfWork);
+        var validationResult = await validator.ValidateAsync(request.UpdateTagDto);
+
+        if (validationResult.IsValid == true){
+            var tag = await _unitOfWork.TagRepository.Get(request.UpdateTagDto.Id);
+            _mapper.Map(request.UpdateTagDto, tag);
+
+            await _unitOfWork.TagRepository.Update(tag);
+
+                if (await _unitOfWork.Save() > 0)
+                {
+                    response.Message = "Updation Successful!";
+                    // response.Value = new Unit();
+                    response.Value = _mapper.Map<UpdateTagDto>(tag);
+                }
+                else
+                {
+                    response.Success = false;
+                    response.Message = "Updation Failed";
+                    response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
+                }
+        }
+        else{
+
+            response.Success = false;
+            response.Message = "Updation Failed";
+            response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
+
         }
 
-        public async Task<Unit> Handle(UpdateTagCommand request, CancellationToken cancellationToken)
-        {
-            var validator = new UpdateTagDtoValidator();
-            var validationResult = await validator.ValidateAsync(request.TagDto);
 
-            if (validationResult.IsValid == false)
-                throw new ValidationException(validationResult);
 
-            var Tag = await _unitOfWork.TagRepository.Get(request.TagDto.Id);
-
-            if (Tag is null)
-                throw new NotFoundException(nameof(Tag), request.TagDto.Id);
-
-            _mapper.Map(request.TagDto, Tag);
-
-            await _unitOfWork.TagRepository.Update(Tag);
-            await _unitOfWork.Save();
-
-            return Unit.Value;
-        }
+        return response;
     }
 }

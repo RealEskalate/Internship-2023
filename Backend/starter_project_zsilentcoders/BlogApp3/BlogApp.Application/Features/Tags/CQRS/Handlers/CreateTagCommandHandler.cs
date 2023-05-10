@@ -10,10 +10,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BlogApp.Application.Features.Tags.DTOs;
 
 namespace BlogApp.Application.Features.Tags.CQRS.Handlers
 {
-    public class CreateTagCommandHandler : IRequestHandler<CreateTagCommand, BaseCommandResponse>
+    public class CreateTagCommandHandler : IRequestHandler<CreateTagCommand, Result<CreateTagDto>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -24,11 +25,11 @@ namespace BlogApp.Application.Features.Tags.CQRS.Handlers
             _mapper = mapper;
         }
 
-        public async Task<BaseCommandResponse> Handle(CreateTagCommand request, CancellationToken cancellationToken)
+        public async Task<Result<CreateTagDto>> Handle(CreateTagCommand request, CancellationToken cancellationToken)
         {
-            var response = new BaseCommandResponse();
+            var response = new Result<CreateTagDto>();
             var validator = new CreateTagDtoValidator();
-            var validationResult = await validator.ValidateAsync(request.TagDto);
+            var validationResult = await validator.ValidateAsync(request.CreateTagDto);
 
             if (validationResult.IsValid == false)
             {
@@ -38,14 +39,14 @@ namespace BlogApp.Application.Features.Tags.CQRS.Handlers
             }
             else
             {
-                var Tag = _mapper.Map<Tag>(request.TagDto);
+                var Tag = _mapper.Map<Tag>(request.CreateTagDto);
 
                 Tag = await _unitOfWork.TagRepository.Add(Tag);
                 await _unitOfWork.Save();
 
                 response.Success = true;
                 response.Message = "Creation Successful";
-                response.Id = Tag.Id;
+                response.Value = _mapper.Map<CreateTagDto>(Tag);
             }
 
             return response;

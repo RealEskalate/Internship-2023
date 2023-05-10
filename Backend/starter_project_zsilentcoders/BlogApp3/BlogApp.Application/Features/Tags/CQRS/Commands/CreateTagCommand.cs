@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Application.Features.Tags.CQRS.Commands
 {
-    public class CreateTagCommand: IRequest<BaseCommandResponse>
+    public class CreateTagCommand: IRequest<Result<CreateTagDto>>
     {
-        public CreateTagDto TagDto { get; set; }
+        public CreateTagDto CreateTagDto { get; set; }
     }
 }
