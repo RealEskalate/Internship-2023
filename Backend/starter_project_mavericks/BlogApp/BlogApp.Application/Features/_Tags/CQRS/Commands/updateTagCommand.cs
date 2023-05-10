@@ -1,4 +1,5 @@
-﻿using BlogApp.Application.Responses;
+﻿using BlogApp.Application.Features._Tags.DTOs;
+using BlogApp.Application.Responses;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -8,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Application.Features._Tags.CQRS.Commands
 {
-    public class Delete_TagCommand : IRequest<BaseResponse<Unit>>
+    public class updateTagCommand : IRequest<BaseResponse<Unit>>
     {
-        public int Id { get; set; }
+        public updateTagDto _TagDto { get; set; }
     }
 }

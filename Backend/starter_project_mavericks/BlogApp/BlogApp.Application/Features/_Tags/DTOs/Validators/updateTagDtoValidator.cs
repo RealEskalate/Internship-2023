@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Application.Features._Tags.DTOs.Validators
 {
-    public class Create_TagDtoValidator : AbstractValidator<Create_TagDto>
+    public class updateTagDtoValidator : AbstractValidator<updateTagDto>
     {
-        public Create_TagDtoValidator()
+        public updateTagDtoValidator()
         {
             Include(new I_TagDtoValidator());
+
+            RuleFor(p => p.Id).NotNull().WithMessage("{PropertyName} must be present");
         }
     }
 }

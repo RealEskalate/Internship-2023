@@ -14,19 +14,19 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Application.Features._Tags.CQRS.Handlers
 {
-    public class Update_TagCommandHandler : IRequestHandler<Update_TagCommand, BaseResponse<Unit>>
+    public class updateTagCommandHandler : IRequestHandler<updateTagCommand, BaseResponse<Unit>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public Update_TagCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public updateTagCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-        public async Task<BaseResponse<Unit>> Handle(Update_TagCommand request, CancellationToken cancellationToken)
+        public async Task<BaseResponse<Unit>> Handle(updateTagCommand request, CancellationToken cancellationToken)
         {
-            var validator = new Update_TagDtoValidator();
+            var validator = new updateTagDtoValidator();
             var validationResult = await validator.ValidateAsync(request._TagDto);
 
             if (validationResult.IsValid == false)

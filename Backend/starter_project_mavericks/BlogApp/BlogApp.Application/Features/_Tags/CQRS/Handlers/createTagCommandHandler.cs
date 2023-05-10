@@ -13,21 +13,21 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Application.Features._Tags.CQRS.Handlers
 {
-    public class Create_TagCommandHandler : IRequestHandler<Create_TagCommand, BaseResponse<Nullable<int>>>
+    public class createTagCommandHandler : IRequestHandler<createTagCommand, BaseResponse<Nullable<int>>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public Create_TagCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public createTagCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
 
-        public async Task<BaseResponse<Nullable<int>>> Handle(Create_TagCommand request, CancellationToken cancellationToken)
+        public async Task<BaseResponse<Nullable<int>>> Handle(createTagCommand request, CancellationToken cancellationToken)
         {
             var response = new BaseResponse<Nullable<int>>();
-            var validator = new Create_TagDtoValidator();
+            var validator = new createTagDtoValidator();
             var validationResult = await validator.ValidateAsync(request._TagDto);
 
             if (validationResult.IsValid == false)
