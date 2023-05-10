@@ -257,5 +257,4 @@ public class AuthService: IAuthService
         return result.Succeeded;
     }
 
-
 }

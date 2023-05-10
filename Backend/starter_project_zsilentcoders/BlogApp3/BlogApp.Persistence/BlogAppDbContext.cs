@@ -41,7 +41,6 @@ namespace BlogApp.Persistence
                 }
             }
 
-
             return base.SaveChangesAsync(cancellationToken);
         }
 

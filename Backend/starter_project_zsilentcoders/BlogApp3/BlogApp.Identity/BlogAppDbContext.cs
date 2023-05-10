@@ -3,7 +3,6 @@ using BlogApp.Identity.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace BlogApp.Identity;
 
 public class BlogAppIdentityDbContext : IdentityDbContext<BlogUser>

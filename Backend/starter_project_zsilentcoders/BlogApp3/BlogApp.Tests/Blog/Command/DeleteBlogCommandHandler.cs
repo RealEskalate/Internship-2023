@@ -27,13 +27,12 @@
 //                      c.AddProfile<MappingProfile>();
 //               }).CreateMapper();
 
-//               _handler = new DeleteBlogCommandHandler(_mockUnitOfWork.Object, _mapper);
-//        }
-       
-       
-//        [Fact]
-//        public async Task DeleteBlogValid()
-//        {
+       //        _handler = new DeleteBlogCommandHandler(_mockUnitOfWork.Object, _mapper);
+       // }
+ 
+       // [Fact]
+       // public async Task DeleteBlogValid()
+       // {
        
 //               DeleteBlogDto deleteBlogDto = new() { Id = 1 };
               

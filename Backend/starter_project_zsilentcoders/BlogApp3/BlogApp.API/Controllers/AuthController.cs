@@ -95,6 +95,4 @@ public class AuthController : BaseController
         var response = await _authService.DeleteUser(email);
         return Ok(response);  
     }
-
-
 }
