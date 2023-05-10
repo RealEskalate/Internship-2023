@@ -1,17 +1,16 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using BlogApp.Domain.Common;
 
 namespace BlogApp.Domain;
 
-public class Review
+public class Review : BaseDomainEntity
 {
-    public int Id { get; set; }
-    [Required]
+    
     public int BlogId { get; set; }
-    [Required]
-    public int ReviewerId { get; set; }
-    [Required]
+    
+    public string ReviewerId { get; set; }
+    
     public string Comment { get; set; }
-    [DefaultValue(false)]
-    public bool IsResolved { get; set; }
+    public bool IsResolved { get; set; } = false;
 }

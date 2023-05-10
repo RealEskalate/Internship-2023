@@ -2,7 +2,7 @@
 
 public interface IReviewDto
 {
-    int ReviewerId { get; set; }
+    string ReviewerId { get; set; }
     int BlogId { get; set; }
     string Comment { get; set; }
     bool IsResolved { get; set; }

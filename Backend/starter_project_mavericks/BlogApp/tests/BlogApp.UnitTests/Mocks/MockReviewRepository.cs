@@ -13,7 +13,7 @@ namespace BlogApp.UnitTests.Mocks
                 new Review
                 {
                     Id = 1,
-                    ReviewerId = 1,
+                    ReviewerId = "1",
                     Comment = "Good work",
                     BlogId = 1,
                     IsResolved = true
@@ -23,7 +23,7 @@ namespace BlogApp.UnitTests.Mocks
                 {
 
                     Id = 2,
-                    ReviewerId = 2,
+                    ReviewerId = "2",
                     Comment = "Terrible code",
                     BlogId = 2,
                     IsResolved = false
@@ -33,7 +33,7 @@ namespace BlogApp.UnitTests.Mocks
                 {
 
                     Id = 3,
-                    ReviewerId = 2,
+                    ReviewerId = "2",
                     Comment = "Cool! ",
                     BlogId = 2,
                     IsResolved = true

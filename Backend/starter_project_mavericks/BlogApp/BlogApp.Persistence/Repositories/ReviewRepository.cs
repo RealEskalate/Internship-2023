@@ -25,7 +25,7 @@ public class ReviewRepository : GenericRepository<Review>, IReviewRepository
         return reviews;
     }
 
-    public async Task<List<Review>> GetReviewsByUserId(int ReviewerId)
+    public async Task<List<Review>> GetReviewsByUserId(string ReviewerId)
     {
         var reviews = await _dbContext.Reviews.Where(r => r.ReviewerId == ReviewerId).ToListAsync();
         return reviews;

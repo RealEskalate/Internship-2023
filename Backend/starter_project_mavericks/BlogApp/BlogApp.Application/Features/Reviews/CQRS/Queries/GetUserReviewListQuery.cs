@@ -7,5 +7,5 @@ namespace BlogApp.Application.Features.Reviews.CQRS.Queries;
 
 public class GetUserReviewListQuery : IRequest<BaseResponse<List<ReviewDto>>>
 {
-    public int ReviewerId { get; set; }
+    public string ReviewerId { get; set; }
 }

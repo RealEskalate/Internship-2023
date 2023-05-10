@@ -39,7 +39,7 @@ namespace BlogApp.UnitTests.Reviews
                 CreateReviewDto = new CreateReviewDto
                 {
                     BlogId = 1,
-                    ReviewerId = 1,
+                    ReviewerId = "1",
                     Comment = "Nice work",
                     IsResolved = false
                 }
@@ -64,7 +64,7 @@ namespace BlogApp.UnitTests.Reviews
                 CreateReviewDto = new CreateReviewDto
                 {
                     BlogId = 1,
-                    ReviewerId = 1,
+                    ReviewerId = "1",
                     Comment = "Nice",
                 }
             };
@@ -88,7 +88,7 @@ namespace BlogApp.UnitTests.Reviews
                 CreateReviewDto = new CreateReviewDto
                 {
                     BlogId = 0,
-                    ReviewerId = 0,
+                    ReviewerId = "0",
                     Comment = "",
                     IsResolved = false
                 },
@@ -112,7 +112,7 @@ namespace BlogApp.UnitTests.Reviews
                 CreateReviewDto = new CreateReviewDto
                 {
                     BlogId = 1,
-                    ReviewerId = 1,
+                    ReviewerId = "1",
                     Comment = "",
                 },
             };
@@ -135,7 +135,7 @@ namespace BlogApp.UnitTests.Reviews
                 CreateReviewDto = new CreateReviewDto
                 {
                     BlogId = 0,
-                    ReviewerId = 0,
+                    ReviewerId = "0",
                     Comment = "",
                 },
             };
