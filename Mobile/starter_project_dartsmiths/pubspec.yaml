@@ -36,6 +36,10 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   flutter_svg: ^2.0.5
+  equatable: ^2.0.5
+  dartz: ^0.10.1
+  mockito: ^5.4.0
+  build_runner: ^2.3.3
   
 dev_dependencies:
   flutter_test:
@@ -71,21 +75,21 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-        
-  fonts:
-  - family: Poppins
-    fonts:
-      - asset: assets/fonts/Poppins-Bold.ttf
-        weight: 600
-      - asset: assets/fonts/Poppins-Light.ttf
-        weight: 100
-      - asset: assets/fonts/Poppins-Medium.ttf
-        weight: 400
-      - asset: assets/fonts/Poppins-Regular.ttf
+  fonts:      
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Bold.ttf
+          weight: 600
+        - asset: assets/fonts/Poppins-Light.ttf
+          weight: 100
+        - asset: assets/fonts/Poppins-Medium.ttf
+          weight: 400
+        - asset: assets/font/Poppins-Regular.ttf
 
-  - family: Urbanist
-    fonts:
-      - asset: assets/fonts/Urbanist-VariableFont_wght.ttf
-        
+    - family: Urbanist
+      fonts:
+        - asset: assets/font/Urbanist-VariableFont_wght.ttf
+
+
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

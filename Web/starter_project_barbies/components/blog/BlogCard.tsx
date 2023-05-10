@@ -59,7 +59,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
           {/* Pending/Likes and Read More buttons */}
           <div className="flex justify-between items-center mt-4">
             <LikeButton />
-            <Link className="text-indigo-500" href={`blog/${blog.blogID}`}>
+            <Link className="text-indigo-500" href={`/blogs/${blog.blogID}`}>
               Read more
             </Link>
           </div>
