@@ -17,8 +17,6 @@ namespace BlogApp.Application.Profiles
     {
         public MappingProfile()
         {
-            CreateMap<Tag, TagDto>().ReverseMap();
-            CreateMap<Tag, createTagDto>().ReverseMap();
             #region _index Mappings
 
             CreateMap<_Index, _IndexDto>().ReverseMap();

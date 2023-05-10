@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlogApp.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Application.Contracts.Persistence
 {
-    internal interface I_TagRepository
+    public interface I_TagRepository : IGenericRepository<_Tag>
     {
+        
     }
 }

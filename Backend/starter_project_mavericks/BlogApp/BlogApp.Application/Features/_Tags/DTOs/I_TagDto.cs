@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Application.Features._Tags.DTOs
 {
-    internal interface I_TagDto
+    public interface I_TagDto
     {
+        public string Title { get; set; }
+        public string Description { get; set; }
     }
 }
