@@ -9,7 +9,8 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'get_user_test.mocks.dart';
+import 'get_followers_test.mocks.dart';
+
 
 @GenerateMocks([UserRepository])
 void main(){
@@ -26,7 +27,7 @@ final usecase = GetUser(mockUserRepository);
 final usecase = GetUser(mockUserRepository);
 when(mockUserRepository.getUser("user_123")).thenAnswer((_) async => Right(user));
 
-final result = await usecase( Params(id: "user_123"));
+final result = await usecase( "user_123");
 
 expect(result,Right(user));
 verify(mockUserRepository.getUser("user_123"));
