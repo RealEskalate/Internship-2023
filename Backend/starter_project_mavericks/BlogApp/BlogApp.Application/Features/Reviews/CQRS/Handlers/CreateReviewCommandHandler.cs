@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
+using BlogApp.Application.Exceptions;
 using BlogApp.Application.Features.Reviews.CQRS.Commands;
 using BlogApp.Application.Features.Reviews.DTOs;
 using BlogApp.Application.Features.Reviews.DTOs.Validators;
@@ -27,14 +28,20 @@ public class CreateReviewCommandHandler : IRequestHandler<CreateReviewCommand,Ba
         if (validationResult.IsValid == false)
             return new BaseResponse<int?>()
             {
-                Data = null,
                 Success = false,
-                Message = "Creation failed",
+                Message = nameof(ValidationException),
                 Errors = validationResult.Errors.Select(e => e.ErrorMessage).ToList()
             };
-        var review = _mapper.Map<Review>(request.CreateReviewDto);
+        Review review = _mapper.Map<Review>(request.CreateReviewDto);
         review = await _unitOfWork.ReviewRepository.Add(review);
-        await _unitOfWork.Save();
+        
+        if ( await _unitOfWork.Save()==0 ){
+            return new BaseResponse<int?>(){
+                Success=false,
+                Message = "creation failed "
+            };
+        }
+
         return new BaseResponse<int?>()
         {
             Data = review.Id,

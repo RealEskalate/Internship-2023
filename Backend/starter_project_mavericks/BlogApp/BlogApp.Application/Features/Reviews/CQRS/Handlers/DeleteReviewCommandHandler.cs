@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
+using BlogApp.Application.Exceptions;
 using BlogApp.Application.Features.Reviews.CQRS.Commands;
 using BlogApp.Application.Responses;
 using MediatR;
@@ -19,18 +20,28 @@ public class DeleteReviewCommandHandler : IRequestHandler<DeleteReviewCommand,Ba
     public async Task<BaseResponse<Unit>> Handle(DeleteReviewCommand request, CancellationToken cancellationToken)
     {
         var review = await _unitOfWork.ReviewRepository.GetReviewDetail(request.Id);
-        if (review == null)
+        if (review == null){
+            var error = new NotFoundException(nameof(review),request.Id);
             return new BaseResponse<Unit>()
             {
                 Success = false,
                 Message = "deletion failed",
                 Errors = new List<string>()
                 {
-                    $"review with id {request.Id} not found"
+                    $"{error}"
                 }
-            };
+            };}
+            
         await _unitOfWork.ReviewRepository.Delete(review);
-        await _unitOfWork.Save();
+
+        if(await _unitOfWork.Save()==0 )
+        {
+            return new BaseResponse<Unit>(){
+                Success =false,
+                Message = "delete failed due server",
+            
+            };
+        }
         return new BaseResponse<Unit>()
         {
             Success = true,

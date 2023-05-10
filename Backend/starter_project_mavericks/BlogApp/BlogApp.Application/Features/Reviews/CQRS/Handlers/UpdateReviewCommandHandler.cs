@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
+using BlogApp.Application.Exceptions;
 using BlogApp.Application.Features._Indices.DTOs.Validators;
 using BlogApp.Application.Features.Reviews.CQRS.Commands;
 using BlogApp.Application.Features.Reviews.DTOs;
@@ -29,28 +30,39 @@ public class UpdateReviewCommandHandler : IRequestHandler<UpdateReviewCommand, B
             return new BaseResponse<Unit>()
             {
                 Success = false,
-                Message = "Update failed",
+                Message =nameof(ValidationException),
                 Errors = validationResult.Errors.Select(e => e.ErrorMessage).ToList()
             };
         }
         var review = await _unitOfWork.ReviewRepository.GetReviewDetail(request.UpdateReviewDto.Id);
-        if (review == null)
+        
+        if (review == null){
+            var error = new NotFoundException(nameof(review),request.UpdateReviewDto.Id);
             return new BaseResponse<Unit>()
             {
                 Success = false,
-                Message = "Creation failed",
+                Message = "update failed",
                 Errors = new List<string>()
                 {
-                    $"review with {request.UpdateReviewDto.Id} not found"
+                    $"{error}"
                 }
-            };
+            };}
+
         _mapper.Map(request.UpdateReviewDto, review);
+
         await _unitOfWork.ReviewRepository.Update(review);
-        await _unitOfWork.Save();
+
+        if (await _unitOfWork.Save()==0){
+            return new BaseResponse<Unit>(){
+                Success= false,
+                Message = "data base update failed",
+
+            };
+        }
         return new BaseResponse<Unit>()
         {
             Success = true,
-            Message = "Creation succeed",
+            Message = "update succeed",
 
         };
 
