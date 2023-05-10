@@ -12,18 +12,18 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Application.Features._Tags.CQRS.Handlers
 {
-    public class Delete_TagCommandHandler : IRequestHandler<Delete_TagCommand, BaseResponse<Unit>>
+    public class deleteTagCommandHandler : IRequestHandler<deleteTagCommand, BaseResponse<Unit>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public Delete_TagCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public deleteTagCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
 
-        public async Task<BaseResponse<Unit>> Handle(Delete_TagCommand request, CancellationToken cancellationToken)
+        public async Task<BaseResponse<Unit>> Handle(deleteTagCommand request, CancellationToken cancellationToken)
         {
             var _Tag = await _unitOfWork._TagRepository.Get(request.Id);
 

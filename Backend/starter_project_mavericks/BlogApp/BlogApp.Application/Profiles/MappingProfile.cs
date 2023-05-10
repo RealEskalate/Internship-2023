@@ -51,8 +51,8 @@ namespace BlogApp.Application.Profiles
             #region tag Mapping
 
             CreateMap<_Tag, _TagDto>().ReverseMap();
-            CreateMap<_Tag, Update_TagDto>().ReverseMap();
-            CreateMap<_Tag, Create_TagDto>().ReverseMap();
+            CreateMap<_Tag, updateTagDto>().ReverseMap();
+            CreateMap<_Tag, createTagDto>().ReverseMap();
 
             #endregion tag
         }

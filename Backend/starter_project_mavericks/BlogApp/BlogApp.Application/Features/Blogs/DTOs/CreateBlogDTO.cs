@@ -11,7 +11,7 @@ namespace BlogApp.Application.Features.Blogs.DTOs
         
         public string? ThumbnailImageUrl { get; set; }
 
-        public static implicit operator CreateBlogDTO(Create_TagDto v)
+        public static implicit operator CreateBlogDTO(createTagDto v)
         {
             throw new NotImplementedException();
         }

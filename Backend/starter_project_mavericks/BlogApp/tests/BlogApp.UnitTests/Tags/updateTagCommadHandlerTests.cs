@@ -21,13 +21,13 @@ using Xunit;
 
 namespace BlogApp.UnitTests.Tags
 {
-    public class Update_TagCommadHandlerTests
+    public class updateTagCommadHandlerTests
     {
         private readonly IMapper _mapper;
         private readonly Mock<IUnitOfWork> _mockUow;
-        private readonly Update_TagCommandHandler _handler;
+        private readonly updateTagCommandHandler _handler;
 
-        public Update_TagCommadHandlerTests()
+        public updateTagCommadHandlerTests()
         {
             _mockUow = MockUnitOfWork.GetUnitOfWork();
 
@@ -37,20 +37,20 @@ namespace BlogApp.UnitTests.Tags
             });
 
             _mapper = mapperConfig.CreateMapper();
-            _handler = new Update_TagCommandHandler(_mockUow.Object, _mapper);
+            _handler = new updateTagCommandHandler(_mockUow.Object, _mapper);
         }
 
         [Fact]
         public async Task Valid_TagUpdateTest()
         {
-            var TagUpdate = new Update_TagDto
+            var TagUpdate = new updateTagDto
             {
                 Id = 2,
                 Title = "New Fifth Tag Title",
                 Description = "This is the updated content of the fifth tag description"
                 
             };
-            var response = await _handler.Handle(new Update_TagCommand()
+            var response = await _handler.Handle(new updateTagCommand()
             {
                 _TagDto = TagUpdate
             }, CancellationToken.None);
@@ -68,9 +68,9 @@ namespace BlogApp.UnitTests.Tags
         [Fact]
         public async Task Invalid_TagUpdateWithInvalidIdTest()
         {
-            var response = await _handler.Handle(new Update_TagCommand()
+            var response = await _handler.Handle(new updateTagCommand()
             {
-                _TagDto = new Update_TagDto
+                _TagDto = new updateTagDto
                 {
                     Id = 2000,
                     Description = "This is the updated content of the fifth blog"
@@ -87,9 +87,9 @@ namespace BlogApp.UnitTests.Tags
         [Fact]
         public async Task Invalid_TagUpdateWithEmptyTitleTest()
         {
-            var response = await _handler.Handle(new Update_TagCommand()
+            var response = await _handler.Handle(new updateTagCommand()
             {
-                _TagDto = new Update_TagDto
+                _TagDto = new updateTagDto
                 {
                     Id = 2,
                     Title = ""
@@ -104,9 +104,9 @@ namespace BlogApp.UnitTests.Tags
         [Fact]
         public async Task Invalid_TagUpdateWithEmptyDescriptionTest()
         {
-            var response = await _handler.Handle(new Update_TagCommand()
+            var response = await _handler.Handle(new updateTagCommand()
             {
-                _TagDto = new Update_TagDto
+                _TagDto = new updateTagDto
                 {
                     Id = 2,
                     Description = ""

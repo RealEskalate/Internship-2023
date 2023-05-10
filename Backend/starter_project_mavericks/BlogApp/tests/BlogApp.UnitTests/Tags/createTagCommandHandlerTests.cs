@@ -20,13 +20,13 @@ using Xunit;
 
 namespace BlogApp.UnitTests.Tags
 {
-    public class Create_TagCommandHandlerTests
+    public class createTagCommandHandlerTests
     {
         private readonly IMapper _mapper;
         private readonly Mock<IUnitOfWork> _mockUow;
-        private readonly Create_TagCommandHandler _handler;
+        private readonly createTagCommandHandler _handler;
 
-        public Create_TagCommandHandlerTests()
+        public createTagCommandHandlerTests()
         {
             _mockUow = MockUnitOfWork.GetUnitOfWork();
 
@@ -36,15 +36,15 @@ namespace BlogApp.UnitTests.Tags
             });
 
             _mapper = mapperConfig.CreateMapper();
-            _handler = new Create_TagCommandHandler(_mockUow.Object, _mapper);
+            _handler = new createTagCommandHandler(_mockUow.Object, _mapper);
         }
 
         [Fact]
         public async Task Valid_TagCreationTest()
         {
-            var response = await _handler.Handle(new Create_TagCommand()
+            var response = await _handler.Handle(new createTagCommand()
             {
-                _TagDto = new Create_TagDto
+                _TagDto = new createTagDto
                 {
                     Title = "Fifth Tag Title",
                     Description = "This is the content of the fifth tag description"
@@ -62,9 +62,9 @@ namespace BlogApp.UnitTests.Tags
         [Fact]
         public async Task Invalid_TagCreationWithEmptyTitleTest()
         {
-            var response = await _handler.Handle(new Create_TagCommand()
+            var response = await _handler.Handle(new createTagCommand()
             {
-                _TagDto = new Create_TagDto
+                _TagDto = new createTagDto
                 {
                     Title = "",
                     Description = "This is the content of an invalid tag description"
@@ -80,9 +80,9 @@ namespace BlogApp.UnitTests.Tags
         [Fact]
         public async Task Invalid_TagCreationWithEmptyDescriptionTest()
         {
-            var response = await _handler.Handle(new Create_TagCommand()
+            var response = await _handler.Handle(new createTagCommand()
             {
-                _TagDto = new Create_TagDto
+                _TagDto = new createTagDto
                 {
                     Title = "This is an invalid tag title",
                     Description = ""

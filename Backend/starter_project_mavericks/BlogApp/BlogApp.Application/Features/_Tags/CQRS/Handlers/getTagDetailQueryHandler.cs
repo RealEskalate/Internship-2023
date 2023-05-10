@@ -11,12 +11,12 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Application.Features._Tags.CQRS.Handlers
 {
-    public class Get_TagDetailQueryHandler : IRequestHandler<Get_TagDetailQuery, _TagDto>
+    public class getTagDetailQueryHandler : IRequestHandler<Get_TagDetailQuery, _TagDto>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public Get_TagDetailQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public getTagDetailQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;

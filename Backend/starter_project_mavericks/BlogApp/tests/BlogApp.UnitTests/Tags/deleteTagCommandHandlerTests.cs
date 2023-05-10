@@ -19,13 +19,13 @@ using Xunit;
 
 namespace BlogApp.UnitTests.Tags
 {
-    public class Delete_TagCommandHandlerTests
+    public class deleteTagCommandHandlerTests
     {
         private readonly IMapper _mapper;
         private readonly Mock<IUnitOfWork> _mockUow;
-        private readonly Delete_TagCommandHandler _handler;
+        private readonly deleteTagCommandHandler _handler;
 
-        public Delete_TagCommandHandlerTests()
+        public deleteTagCommandHandlerTests()
         {
             _mockUow = MockUnitOfWork.GetUnitOfWork();
 
@@ -35,13 +35,13 @@ namespace BlogApp.UnitTests.Tags
             });
 
             _mapper = mapperConfig.CreateMapper();
-            _handler = new Delete_TagCommandHandler(_mockUow.Object, _mapper);
+            _handler = new deleteTagCommandHandler(_mockUow.Object, _mapper);
         }
 
         [Fact]
         public async Task Valid_TagDeletionTest()
         {
-            var response = await _handler.Handle(new Delete_TagCommand()
+            var response = await _handler.Handle(new deleteTagCommand()
             {
                 Id = 2
             }, CancellationToken.None);
@@ -54,7 +54,7 @@ namespace BlogApp.UnitTests.Tags
         [Fact]
         public async Task Invalid_TagDeletionTest()
         {
-            var response = await _handler.Handle(new Delete_TagCommand()
+            var response = await _handler.Handle(new deleteTagCommand()
             {
                 Id = 4000
             }, CancellationToken.None);

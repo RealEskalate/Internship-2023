@@ -33,17 +33,17 @@ namespace BlogApp.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<BaseCommandResponse>> Post([FromBody] Create_TagDto create_TagDto)
+        public async Task<ActionResult<BaseCommandResponse>> Post([FromBody] createTagDto create_TagDto)
         {
-            var command = new Create_TagCommand { _TagDto = create_TagDto };
+            var command = new createTagCommand { _TagDto = create_TagDto };
             var repsonse = await _mediator.Send(command);
             return Ok(repsonse);
         }
 
         [HttpPut]
-        public async Task<ActionResult> Put([FromBody] Update_TagDto tagDto)
+        public async Task<ActionResult> Put([FromBody] updateTagDto tagDto)
         {
-            var command = new Update_TagCommand { _TagDto = tagDto };
+            var command = new updateTagCommand { _TagDto = tagDto };
             await _mediator.Send(command);
             return NoContent();
         }
@@ -51,7 +51,7 @@ namespace BlogApp.API.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
-            var command = new Delete_TagCommand { Id = id };
+            var command = new deleteTagCommand { Id = id };
             await _mediator.Send(command);
             return NoContent();
         }
