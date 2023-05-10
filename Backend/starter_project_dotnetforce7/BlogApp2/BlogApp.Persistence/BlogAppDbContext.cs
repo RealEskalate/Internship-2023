@@ -35,7 +35,7 @@ namespace BlogApp.Persistence
                 {
                     entry.Entity.DateCreated = DateTime.Now;
                 }
-            }
+            }  
 
 
             return base.SaveChangesAsync(cancellationToken);
@@ -43,6 +43,7 @@ namespace BlogApp.Persistence
 
         public DbSet<_Index> _Indices { get; set; }
         public DbSet<Rate> Rates { get; set; }
+        public DbSet<Rate> Review { get; set; }
         public DbSet<Tag> Tags {get;set;}
         public DbSet<Blog> Blogs { get; set; }
 
