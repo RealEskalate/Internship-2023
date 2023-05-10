@@ -18,25 +18,29 @@ namespace BlogApp.Identity.Services
 
         public async Task<User?> GetUser(string userId)
         {
-            var User = await _userManager.FindByIdAsync(userId);
-            if (User == null)
-            {
+            var user = await _userManager.FindByIdAsync(userId);
+
+            if (user == null)
                 return null;
-            }
+
             return new User
             {
-                Email = User.Email,
-                Id = User.Id,
-                Firstname = User.Firstname,
-                Lastname = User.Lastname
+                Email = user.Email,
+                Id = user.Id,
+                Firstname = user.Firstname,
+                Lastname = user.Lastname,
+                Roles = await _userManager.GetRolesAsync(user),
             };
         }
 
 
         public async Task<List<User>> GetUsers()
         {
-            var Users = await _userManager.GetUsersInRoleAsync("User");
-            return Users.Select(q => new User
+            var users = await _userManager.GetUsersInRoleAsync("User");
+            if (users == null)
+                return new List<User>();
+
+            return users.Select(q => new User
             {
                 Id = q.Id,
                 Email = q.Email,

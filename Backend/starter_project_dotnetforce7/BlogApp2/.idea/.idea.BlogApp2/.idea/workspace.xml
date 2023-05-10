@@ -7,16 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98d5ced8-a642-4e88-b848-cef8d2e67e7c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.BlogApp2/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.BlogApp2/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.BlogApp2/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlogApp.Application/Exceptions/IdentityException.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.BlogApp2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BlogApp2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlogApp.Application/BlogApp.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BlogApp.Application/BlogApp.Application.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlogApp.Identity/Services/AuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlogApp.Identity/Services/AuthService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlogApp.Identity/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlogApp.Identity/Services/UserService.cs" afterDir="false" />
-    </list>
+    <list default="true" id="98d5ced8-a642-4e88-b848-cef8d2e67e7c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,8 +22,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Users/leultefera/Internship-2023/Backend/starter_project_dotnetforce7/BlogApp2/BlogApp.Identity/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/leultefera/Internship-2023/Backend/starter_project_dotnetforce7/BlogApp2/BlogApp.Identity/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/3abbb8a65cee4b82acb42ac44dae538ab57800/76/1330c9b3/020000ACpdb99.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1710675a798f4518645e5ce556b62d6833b638ef7babf186538cdd8929dd08/IdentityResult.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/70f6cb289db4d7e757a680e3a4c85bc0fffc41f9d4b64d78f13be8b917fdddb/IdentityError.cs" root0="SKIP_HIGHLIGHTING" />
@@ -57,7 +46,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Color Scheme Font&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -104,8 +93,7 @@
       <workItem from="1683711208427" duration="25000" />
       <workItem from="1683711384401" duration="189000" />
       <workItem from="1683716477265" duration="848000" />
-      <workItem from="1683717382634" duration="6061000" />
-      <workItem from="1683787451895" duration="324000" />
+      <workItem from="1683717382634" duration="4038000" />
     </task>
     <servers />
   </component>
