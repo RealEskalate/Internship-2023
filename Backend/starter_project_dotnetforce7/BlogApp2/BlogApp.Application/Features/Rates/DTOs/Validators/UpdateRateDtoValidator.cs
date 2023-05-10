@@ -13,13 +13,14 @@ namespace BlogApp.Application.Features.Rates.DTOs.Validators
 {
     public class UpdateRateDtoValidator : AbstractValidator<UpdateRateDto>
     {   
-         private readonly IUnitOfWork _unitOfWork;
-
-        public UpdateRateDtoValidator(IUnitOfWork unitOfWork)
+        public UpdateRateDtoValidator()
         {
-            _unitOfWork  =unitOfWork;
 
-            Include(new IRateDtoValidator(_unitOfWork));
+             RuleFor(p => p.RateNo)
+                .NotEmpty().WithMessage("{PropertyName} is required.")
+                .NotNull()
+                .GreaterThan(0).WithMessage("{PropertyName} must be greater than or equal to {ComparisonValue}.")
+                .LessThanOrEqualTo(5).WithMessage("{PropertyName} must not exceed {ComparisonValue}.");
 
             RuleFor(p => p.Id).NotNull().WithMessage("{PropertyName} must be present");
         }

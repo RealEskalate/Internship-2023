@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Application.Features.Rates.DTOs
 {
-    public class UpdateRateDto:BaseDto,IRateDto
+    public class UpdateRateDto:BaseDto
     {
-        public int RaterId { get; set; }
-        public int BlogId { get; set; }
         public int RateNo { get; set; }
     }
 }

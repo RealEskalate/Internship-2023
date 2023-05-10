@@ -36,8 +36,6 @@ namespace BlogApp.Application.UnitTest.Ratetest.Command
             {
                 Id = 1,
                 RateNo = 5,
-                RaterId = 3,
-                BlogId = 4
             };
 
             _handler = new UpdateRateCommandHandler(_mockRepo.Object, _mapper);
@@ -54,9 +52,7 @@ namespace BlogApp.Application.UnitTest.Ratetest.Command
 
             var rate = await _mockRepo.Object.RateRepository.Get(_rateDto.Id);
             rate.Id.Equals(_rateDto.Id);
-            rate.BlogId.Equals(_rateDto.BlogId);
             rate.RateNo.Equals(_rateDto.RateNo);
-            rate.RaterId.Equals(_rateDto.RaterId);
         }
 
         [Fact]

@@ -17,17 +17,19 @@ namespace BlogApp.Application.UnitTest.Mocks
                     Title = "blog title 1",
                     Content = "Blog Content",
                     CoverImage = "blog image",
-                    PublicationStatus= true
+                    PublicationStatus= true,
+                    Rates  = new List<Rate>()
                     
                 },
 
                 new Blog
                 {
-                     Id = 2,
+                    Id = 2,
                     Title = "blog title21",
                     Content = "Blog Content",
                     CoverImage = "blog image",
-                    PublicationStatus= true
+                    PublicationStatus= true,
+                    Rates  = new List<Rate>()
 
                 }
             };
@@ -48,6 +50,12 @@ namespace BlogApp.Application.UnitTest.Mocks
                 var newBlogs = Blogs.Where((r) => r.Id != Blog.Id);
                 Blogs = newBlogs.ToList();
                 Blogs.Add(Blog);
+            });
+
+            mockRepo.Setup(r => r.Exists(It.IsAny<int>())).ReturnsAsync((int Id) =>
+            {
+                var blog = Blogs.FirstOrDefault((r) => r.Id == Id);
+                return blog != null;
             });
 
             mockRepo.Setup(r => r.Delete(It.IsAny<Blog>())).Callback((Blog Blog) =>

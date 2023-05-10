@@ -38,7 +38,7 @@ namespace BlogApp.Application.UnitTest.Ratetest.Command
             {
                 RateNo=5,
                 RaterId=3,
-                BlogId = 4
+                BlogId = 1
             };
 
             _handler = new CreateRateCommandHandler(_mockRepo.Object, _mapper);
