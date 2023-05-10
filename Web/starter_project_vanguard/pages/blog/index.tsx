@@ -1,0 +1,50 @@
+import React, { useEffect } from 'react'
+import BlogsCard from '@/components/blog/BlogsCard'
+import Search from '@/components/blog/Search'
+import blogs from '../../data/blogs.json'
+import { useState } from 'react'
+import Pagination from '@/components/common/pagination'
+import { Blog } from '../../types/blog/blog'
+
+
+
+function Blogs() {
+  const [currentPage, setCurrentPage] = useState(1)
+  const [currentBlogs, setBlogs] = useState(blogs)
+
+  const onPageChange = (page: number) => {
+    setCurrentPage(page)
+  }
+  useEffect(() => {
+    const start = (currentPage - 1) * 8
+    const end = start + 8
+    setBlogs(blogs.slice(start, end))
+  }, [currentPage])
+
+  return (
+    <div className="justify-center min-h-screen mb-10">
+      <div className="h-44 ">
+        <Search />
+      </div>
+
+      <div>
+        <ul>
+          {currentBlogs.map((item: Blog) => (
+            <li key={item._id} className="text-2xl font-bold">
+              <BlogsCard blog={item} />
+            </li>
+          ))}
+          <div className="mt-16">
+            <Pagination
+              currentPage={currentPage}
+              totalPages={Math.ceil(blogs.length / 7)}
+              onPageChange={onPageChange}
+            />
+          </div>
+        </ul>
+      </div>
+    </div>
+  )
+}
+
+export default Blogs

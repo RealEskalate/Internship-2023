@@ -4,7 +4,7 @@ interface Props {}
 const Button: React.FC<Props> = () => {
   return (
     <div className="w-60 ">
-      <button className="bg-blue-800 hover:bg-blue-700 text-white py-4 h-16  px-10 rounded-full flex items-center font-montserrat btn-pill">
+      <button className="btn btn-lg btn-pill flex mt-2">
         <i>
           <span className="text-lg font-semibold font-montserrat">
             + New Blog
