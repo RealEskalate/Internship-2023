@@ -1,10 +1,17 @@
-export interface BlogData {
-  name: string
-  profileImg: string
-  profession: string
-  datePosted: string
-  title: String
+export interface Blog {
+  id: string
+  title: string
   description: string
+  datePosted: string
+  smallBlogTitle: string
+  imgUrl: string
+  heading: string
+  author: {
+    name: string
+    imageUrl: string
+    profession: string
+    socialMediaLink: string
+  }
   tags: string[]
-  blogImg: string
+  paragraphs: string[]
 }
