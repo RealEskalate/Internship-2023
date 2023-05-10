@@ -1,15 +1,14 @@
+import projects from '@/data/about/projects.json'
 import { Project } from '@/types/about'
 import Image from 'next/image'
 import { IconContext } from 'react-icons'
 import { FiGithub } from 'react-icons/fi'
 import { IoMdOpen } from 'react-icons/io'
-import projects from '../../data/about/projects.json'
 
 interface ProjectCardProps {
   project: Project
   reverseFlex: boolean
 }
-
 const ProjectCard: React.FC<ProjectCardProps> = ({ project:{image, name, description}, reverseFlex }) => {
   return (
     <div

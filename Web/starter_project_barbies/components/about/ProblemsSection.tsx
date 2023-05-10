@@ -1,14 +1,14 @@
-import problemItemList from '../../data/about/problem-items.json'
-import solutionItemList from '../../data/about/solution-items.json'
+import problemItemList from '@/data/about/problem-items.json'
+import solutionItemList from '@/data/about/solution-items.json'
 
 import { ProblemItem } from '@/types/about'
 import Image from 'next/image'
 
-interface ProblemItemCardProps {
-  Item: ProblemItem
+interface ItemCardProps {
+  item: ProblemItem
 }
 
-const ProblemItemCard: React.FC<ProblemItemCardProps> = ({ Item:{icon, description} }) => {
+const ItemCard: React.FC<ItemCardProps> = ({ item:{icon, description} }) => {
   return (
     <div className="p-3">
       <Image className='my-5' src={`/img/about/problems/${icon}`} width={50} height={50} alt='' />
@@ -25,8 +25,8 @@ const ProblemsSection:React.FC = () => {
           <div className="font-bold text-center md:text-left lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl max-w-lg">
             The Problem We <span className="text-primary">Are Solving</span>
           </div>
-          {problemItemList.map((Item, index) => (
-            <ProblemItemCard key={index} Item={Item} />
+          {problemItemList.map((problemItem, index) => (
+            <ItemCard key={index} item={problemItem} />
           ))}
         </div>
         <Image
@@ -49,8 +49,8 @@ const ProblemsSection:React.FC = () => {
           <div className="font-bold text-center md:text-left lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl max-w-lg">
             How We Are <span className="text-primary">Solving it</span>
           </div>
-          {solutionItemList.map((Item, index) => (
-            <ProblemItemCard key={index} Item={Item} />
+          {solutionItemList.map((solutionItem, index) => (
+            <ItemCard key={index} item={solutionItem} />
           ))}
         </div>
       </div>

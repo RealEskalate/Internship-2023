@@ -1,7 +1,7 @@
-import HeroSection from '../../components/about/HeroSection'
-import ProblemsSection from '../../components/about/ProblemsSection'
-import ProjectsList from '../../components/about/ProjectsList'
-import SessionsList from '../../components/about/SessionsList'
+import HeroSection from '@/components/about/HeroSection'
+import ProblemsSection from '@/components/about/ProblemsSection'
+import ProjectsList from '@/components/about/ProjectsList'
+import SessionsList from '@/components/about/SessionsList'
 
 const About = () => {
   return (

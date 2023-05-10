@@ -1,6 +1,6 @@
+import sessions from '@/data/about/sessions.json'
 import { Session } from '@/types/about'
 import Image from 'next/image'
-import sessions from '../../data/about/sessions.json'
 
 interface SessionCardProps {
   session: Session
