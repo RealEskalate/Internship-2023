@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using BlogApp.Application.Responses;
 using MediatR;
 
-namespace BlogApp.Application.Features.Review.CQRS.Commands
+namespace BlogApp.Application.Features.Reviews.CQRS.Commands
 {
     public class DeleteReviewCommand: IRequest<Result<Unit>>
     {

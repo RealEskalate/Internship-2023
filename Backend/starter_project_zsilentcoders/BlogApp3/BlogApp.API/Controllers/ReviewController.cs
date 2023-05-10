@@ -1,10 +1,10 @@
 ﻿using BlogApp.Application.Features._Indices.CQRS.Commands;
 using BlogApp.Application.Features._Indices.CQRS.Queries;
 using BlogApp.Application.Features._Indices.DTOs;
-using BlogApp.Application.Features.Review.CQRS.Command;
-using BlogApp.Application.Features.Review.CQRS.Commands;
-using BlogApp.Application.Features.Review.CQRS.Queries;
-using BlogApp.Application.Features.Review.DTOs;
+using BlogApp.Application.Features.Reviews.CQRS.Command;
+using BlogApp.Application.Features.Reviews.CQRS.Commands;
+using BlogApp.Application.Features.Reviews.CQRS.Queries;
+using BlogApp.Application.Features.Reviews.DTOs;
 using BlogApp.Application.Responses;
 using BlogApp.Domain;
 using MediatR;
@@ -26,7 +26,7 @@ namespace BlogApp.API.Controllers
         }
 
         [HttpGet("{reivewerId}")]
-        public async Task<ActionResult<List<_Review>>> GetReviewsByReviewerId(int reivewerId)
+        public async Task<ActionResult<List<Review>>> GetReviewsByReviewerId(int reivewerId)
         {
             var reviews = await _mediator.Send(new GetReviewListQuery { ReviewerId= reivewerId });
             return Ok(reviews);

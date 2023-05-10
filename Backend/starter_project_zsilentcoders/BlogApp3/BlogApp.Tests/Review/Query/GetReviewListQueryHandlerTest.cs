@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Exceptions;
-using BlogApp.Application.Features.Review.CQRS.Handlers;
-using BlogApp.Application.Features.Review.CQRS.Queries;
+using BlogApp.Application.Features.Reviews.CQRS.Handlers.Queries;
+using BlogApp.Application.Features.Reviews.CQRS.Queries;
 using BlogApp.Application.Profiles;
 using BlogApp.Application.Tests.Mocks;
 using Moq;
@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace BlogApp.Tests.Review.Query
+namespace BlogApp.Tests.Reviews.Query
 {
     public class GetReviewListQueryHandlerTest
     {

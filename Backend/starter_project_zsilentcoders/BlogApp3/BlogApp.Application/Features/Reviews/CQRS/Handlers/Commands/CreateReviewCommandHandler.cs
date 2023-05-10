@@ -6,14 +6,14 @@ using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Exceptions;
 using BlogApp.Application.Features._Indices.DTOs.Validators;
-using BlogApp.Application.Features.Review.CQRS.Command;
-using BlogApp.Application.Features.Review.DTOs;
-using BlogApp.Application.Features.Review.DTOs.Validators;
+using BlogApp.Application.Features.Reviews.CQRS.Command;
+using BlogApp.Application.Features.Reviews.DTOs;
+using BlogApp.Application.Features.Reviews.DTOs.Validators;
 using BlogApp.Application.Responses;
 using BlogApp.Domain;
 using MediatR;
 
-namespace BlogApp.Application.Features.Review.CQRS.Handlers
+namespace BlogApp.Application.Features.Reviews.CQRS.Handlers.Commands
 {
     public class CreateReviewCommandHandler : IRequestHandler<CreateReviewCommand, Result<ReviewDto?>>
     {
@@ -35,7 +35,7 @@ namespace BlogApp.Application.Features.Review.CQRS.Handlers
 
             if (validationResult.IsValid == true)
             {
-                var review = _mapper.Map<_Review>(request.reviewDto);
+                var review = _mapper.Map<Review>(request.reviewDto);
                 review = await _unitOfWork.ReviewRepository.Add(review);
 
                 if (await _unitOfWork.Save() > 0)

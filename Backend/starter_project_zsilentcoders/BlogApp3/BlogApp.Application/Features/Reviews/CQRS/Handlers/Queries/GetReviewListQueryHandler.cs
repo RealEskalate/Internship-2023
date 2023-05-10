@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Exceptions;
-using BlogApp.Application.Features.Review.CQRS.Queries;
-using BlogApp.Application.Features.Review.DTOs;
+using BlogApp.Application.Features.Reviews.CQRS.Queries;
+using BlogApp.Application.Features.Reviews.DTOs;
 using BlogApp.Application.Responses;
 using MediatR;
 
-namespace BlogApp.Application.Features.Review.CQRS.Handlers
+namespace BlogApp.Application.Features.Reviews.CQRS.Handlers.Queries
 {
     public class GetReviewListQueryHandler : IRequestHandler<GetReviewListQuery, Result<List<ReviewDto>>>
     {

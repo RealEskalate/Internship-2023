@@ -6,13 +6,13 @@ using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Exceptions;
 using BlogApp.Application.Features._Indices.CQRS.Commands;
-using BlogApp.Application.Features.Review.CQRS.Commands;
-using BlogApp.Application.Features.Review.DTOs.Validators;
+using BlogApp.Application.Features.Reviews.CQRS.Commands;
+using BlogApp.Application.Features.Reviews.DTOs.Validators;
 using BlogApp.Application.Responses;
 using BlogApp.Domain;
 using MediatR;
 
-namespace BlogApp.Application.Features.Review.CQRS.Handlers
+namespace BlogApp.Application.Features.Reviews.CQRS.Handlers.Commands
 {
     public class DeleteReviewCommandHandler : IRequestHandler<DeleteReviewCommand, Result<Unit>>
     {

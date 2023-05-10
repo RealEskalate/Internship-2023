@@ -7,14 +7,14 @@ using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Exceptions;
 using BlogApp.Application.Features.Blog.DTOs;
-using BlogApp.Application.Features.Review.CQRS.Commands;
-using BlogApp.Application.Features.Review.DTOs;
-using BlogApp.Application.Features.Review.DTOs.Validators;
+using BlogApp.Application.Features.Reviews.CQRS.Commands;
+using BlogApp.Application.Features.Reviews.DTOs;
+using BlogApp.Application.Features.Reviews.DTOs.Validators;
 using BlogApp.Application.Responses;
 using BlogApp.Domain;
 using MediatR;
 
-namespace BlogApp.Application.Features.Review.CQRS.Handlers
+namespace BlogApp.Application.Features.Reviews.CQRS.Handlers.Commands
 {
     public class UpdateReviewCommandHandler : IRequestHandler<UpdateReviewCommand, Result<ReviewDto>>
     {
@@ -30,7 +30,7 @@ namespace BlogApp.Application.Features.Review.CQRS.Handlers
         public async Task<Result<ReviewDto>> Handle(UpdateReviewCommand request, CancellationToken cancellationToken)
         {
             var response = new Result<ReviewDto>();
-            
+
             if (request.reviewIsApprovedDto != null)
             {
                 var validator = new UpdateIsResolvedValidator(_unitOfWork);
@@ -60,15 +60,16 @@ namespace BlogApp.Application.Features.Review.CQRS.Handlers
                     response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
                 }
 
-                
+
             }
             else
             {
                 var validator = new UpdateReviewValidator(_unitOfWork);
                 var validationResult = await validator.ValidateAsync(request.reviewDto);
-               
 
-                if (validationResult.IsValid == true) { 
+
+                if (validationResult.IsValid == true)
+                {
                     var review = await _unitOfWork.ReviewRepository.Get(request.reviewDto.Id);
                     if (review is null)
                     {
@@ -99,10 +100,10 @@ namespace BlogApp.Application.Features.Review.CQRS.Handlers
                     response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
                 }
 
-                
+
             }
             return response;
-            
+
         }
     }
 }

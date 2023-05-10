@@ -6,9 +6,9 @@ using BlogApp.Domain;
 
 namespace BlogApp.Application.Contracts.Persistence
 {
-    public interface IReviewRepository: IGenericRepository<_Review>
+    public interface IReviewRepository: IGenericRepository<Review>
     {
-        Task<IReadOnlyList<_Review>> GetAllByReviewerId(int id);
-        Task ChangeApprovalStatus(_Review review, bool? IsResolved);
+        Task<IReadOnlyList<Review>> GetAllByReviewerId(int id);
+        Task ChangeApprovalStatus(Review review, bool? IsResolved);
     }
 }

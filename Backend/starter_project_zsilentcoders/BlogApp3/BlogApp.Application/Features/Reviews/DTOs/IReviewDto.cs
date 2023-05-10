@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BlogApp.Application.Features.Review.DTOs
+namespace BlogApp.Application.Features.Reviews.DTOs
 {
     public interface IReviewDto
     {

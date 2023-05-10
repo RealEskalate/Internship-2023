@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlogApp.Application.Features.Review.DTOs
+namespace BlogApp.Application.Features.Reviews.DTOs
 {
     public class ReviewIsApprovedDto: BaseDto
     {

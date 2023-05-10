@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Exceptions;
-using BlogApp.Application.Features.Review.CQRS.Command;
-using BlogApp.Application.Features.Review.CQRS.Commands;
-using BlogApp.Application.Features.Review.CQRS.Handlers;
-using BlogApp.Application.Features.Review.DTOs;
+using BlogApp.Application.Features.Reviews.CQRS.Command;
+using BlogApp.Application.Features.Reviews.CQRS.Commands;
+using BlogApp.Application.Features.Reviews.CQRS.Handlers.Commands;
+using BlogApp.Application.Features.Reviews.DTOs;
 using BlogApp.Application.Profiles;
 using BlogApp.Application.Tests.Mocks;
 using Moq;
@@ -16,7 +16,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace BlogApp.Tests.Review.Command
+namespace BlogApp.Tests.Reviews.Command
 {
     public class DeleteReviewCommandHandlerTest
     {

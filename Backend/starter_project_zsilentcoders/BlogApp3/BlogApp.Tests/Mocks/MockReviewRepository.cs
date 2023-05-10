@@ -13,7 +13,7 @@ namespace BlogApp.Tests.Mocks
     {
         public static Mock<IReviewRepository> GetReviewRepository()
         {
-            var reviews = new List<_Review>{
+            var reviews = new List<Domain.Review>{
                 new (){
                     Id=1,
                     BlogId = 1,
@@ -34,20 +34,20 @@ namespace BlogApp.Tests.Mocks
 
             mockRepo.Setup(r => r.GetAll()).ReturnsAsync(reviews);
 
-            mockRepo.Setup(r => r.Add(It.IsAny<_Review>())).ReturnsAsync((_Review review) =>
+            mockRepo.Setup(r => r.Add(It.IsAny<Review>())).ReturnsAsync((Review review) =>
             {
                 reviews.Add(review);
                 return review;
             });
 
-            mockRepo.Setup(r => r.Update(It.IsAny<_Review>())).Callback((_Review review) =>
+            mockRepo.Setup(r => r.Update(It.IsAny<Domain.Review>())).Callback((Domain.Review review) =>
             {
                 var newReviews = reviews.Where((r) => r.Id != review.Id);
                 reviews = newReviews.ToList();
                 reviews.Add(review);
             });
 
-            mockRepo.Setup(r => r.Delete(It.IsAny<_Review>())).Callback((_Review review) =>
+            mockRepo.Setup(r => r.Delete(It.IsAny<Domain.Review>())).Callback((Domain.Review review) =>
             {
                 if (reviews.Exists(b => b.Id == review.Id))
                     reviews.Remove(reviews.Find(b => b.Id == review.Id)!);

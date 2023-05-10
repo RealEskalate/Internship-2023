@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Persistence.Configurations.Entities
 {
-    public class ReviewConfiguration: IEntityTypeConfiguration<_Review>
+    public class ReviewConfiguration: IEntityTypeConfiguration<Review>
     {
-        public void Configure(EntityTypeBuilder<_Review> builder)
+        public void Configure(EntityTypeBuilder<Review> builder)
     {
         builder.HasData(
-            new _Review
+            new Review
             {
              Id=1,
              BlogId=1,
@@ -24,7 +24,7 @@ namespace BlogApp.Persistence.Configurations.Entities
              Comment = "this is the first reveiw"
             },
 
-            new _Review
+            new Review
             {
                 Id = 2,
                 BlogId = 2,
