@@ -17,7 +17,7 @@ function Blogs() {
   }
   useEffect(() => {
     const start = (currentPage - 1) * 8
-    const end = start + 8
+    const end = start + 4
     setBlogs(blogs.slice(start, end))
   }, [currentPage])
 
@@ -37,7 +37,7 @@ function Blogs() {
           <div className="mt-16">
             <Pagination
               currentPage={currentPage}
-              totalPages={Math.ceil(blogs.length / 7)}
+              totalPages={Math.ceil(blogs.length / 8)}
               onPageChange={onPageChange}
             />
           </div>
