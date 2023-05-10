@@ -25,7 +25,6 @@ namespace BlogApp.Application.Features._Tags.CQRS.Handlers
         public async Task<List<_TagDto>> Handle(Get_TagListQuery request, CancellationToken cancellationToken)
         {
             var _Tags = await _unitOfWork._TagRepository.GetAll();
-            Console.Write(_Tags);
             return _mapper.Map<List<_TagDto>>(_Tags);
         }
     }
