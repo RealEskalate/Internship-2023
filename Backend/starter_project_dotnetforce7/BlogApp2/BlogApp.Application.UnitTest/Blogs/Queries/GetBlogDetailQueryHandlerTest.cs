@@ -53,14 +53,14 @@ namespace BlogApp.Application.UnitTest.Blogs.Queries
        public async Task GetNonExistingBlog()
 {
     // Set a non-existing Id
-    var nonExistingId = 0;
+      var nonExistingId = 0;
 
     // Invoke the handler with the non-existing Id
-    var result = await _handler.Handle(new GetBlogDetailQuery() { Id = nonExistingId }, CancellationToken.None);
+     var result = await _handler.Handle(new GetBlogDetailQuery() { Id = nonExistingId }, CancellationToken.None);
 
-    // Assert that the response is a NotFound result
-    result.ShouldBeOfType<Result<BlogDto>>();
-        result.Success.ShouldBeTrue();
+     // Assert that the response is a NotFound result
+      result.ShouldBeOfType<Result<BlogDto>>();
+    result.Success.ShouldBeFalse();
     result.Value.ShouldBe(null);
 }
     }

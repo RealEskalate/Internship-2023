@@ -23,10 +23,17 @@ namespace BlogApp.Application.UnitTest.Blogs.Commands
         private readonly IMapper _mapper;
         private readonly Mock<IUnitOfWork> _mockRepo;
         private readonly UpdateBlogDto _BlogDto;
+
+        
+
+        private readonly Mock<IPhotoAccessor> _photoAccessorMock;
+
         private readonly UpdateBlogCommandHandler _handler;
         public UpdateBlogCommandHandlerTest()
         {
             _mockRepo = MockUnitOfWork.GetUnitOfWork();
+        _photoAccessorMock = new Mock<IPhotoAccessor>();
+
             var mapperConfig = new MapperConfiguration(c =>
             {
                 c.AddProfile<MappingProfile>();
@@ -35,14 +42,14 @@ namespace BlogApp.Application.UnitTest.Blogs.Commands
 
             _BlogDto = new UpdateBlogDto
             {
-                 Id = 1,
-                Title = "blog title21 updated",
+                Id = 1,
+                Title = "updated",
                 Content = "Blog Content updated",
-                CoverImage = "blog image",
+                File = null,
                 PublicationStatus= true
             };
 
-            _handler = new UpdateBlogCommandHandler(_mockRepo.Object, _mapper);
+            _handler = new UpdateBlogCommandHandler(_mockRepo.Object, _mapper, _photoAccessorMock.Object);
 
         }
 

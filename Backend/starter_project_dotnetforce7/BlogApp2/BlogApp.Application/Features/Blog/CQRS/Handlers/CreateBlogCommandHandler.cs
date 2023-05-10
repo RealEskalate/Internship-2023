@@ -5,11 +5,6 @@ using BlogApp.Application.Features.Blogs.DTOs.Validators;
 using BlogApp.Application.Responses;
 using MediatR;
 using BlogApp.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
 {
@@ -17,53 +12,59 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+         private readonly IPhotoAccessor _photoAccessor;
 
-        public CreateBlogCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public CreateBlogCommandHandler(IUnitOfWork unitOfWork, IMapper mapper, IPhotoAccessor photoAccessor)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _photoAccessor = photoAccessor;
         }
 
         public async Task<Result<int>> Handle(CreateBlogCommand request, CancellationToken cancellationToken)
-        {
+        {   
+
             var response = new Result<int>();
             var validator = new CreateBlogDtoValidator();
             var validationResult = await validator.ValidateAsync(request.BlogDto);
-            Console.WriteLine("publcation: ");
-
-            Console.WriteLine(request.BlogDto.PublicationStatus);
+           
 
             if (validationResult.IsValid == false)
             {
                 response.Success = false;
                 response.Message = "Creation Failed";
                 response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
-                Console.WriteLine("Failed Validation", response.Message);
-                Console.WriteLine(response.Errors[0]);
 
+                return response;
+            }
+
+                var blog = _mapper.Map<Blog>(request.BlogDto);
+
+            if(request.BlogDto.File?.Length > 0){
+                var photoUploadResult = await _photoAccessor.AddPhoto(request.BlogDto.File);
+                if (photoUploadResult.Success && photoUploadResult.Value != null)
+                    blog.CoverImage = photoUploadResult.Value;
+                else{
+                    response.Success = false;
+                    response.Message = photoUploadResult.Message;
+                    return response;
+                };
+            }                
+            
+            blog = await _unitOfWork.BlogRepository.Add(blog);
+                if (await _unitOfWork.Save() > 0)
+            {
+
+                response.Message = "Creation Successful";
+                response.Value = blog.Id;
             }
             else
             {
-                var blog = _mapper.Map<Blog>(request.BlogDto);
 
-                blog = await _unitOfWork.BlogRepository.Add(blog);
-
-                 if (await _unitOfWork.Save() > 0)
-                {
-                    response.Success = true;
-                    response.Message = "Creation Successful";
-                    response.Value = blog.Id;
-                }
-                else
-                {
-                    response.Success = false;
-                    response.Message = "Creation Failed";
-                Console.WriteLine("Failed 0");
-
-                }
+                response.Success = false;
+                response.Message = "Creation Failed";
 
             }
-
             return response;
         }
     }

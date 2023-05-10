@@ -1,11 +1,6 @@
 using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Domain;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BlogApp.Persistence.Repositories
 {
@@ -21,12 +16,12 @@ namespace BlogApp.Persistence.Repositories
 
          public async Task<List<Blog>> GetBlogsWithRate()
         {
-            return await _dbContext.Set<Blog>().Include(x => x.Rates).AsNoTracking().ToListAsync();
+            return await _dbContext.Set<Blog>().Include(x => x.Rates).Include(p => p.CoverImage).AsNoTracking().ToListAsync();
         }
 
          public async Task<Blog> Get(int id)
         {
-            return await _dbContext.Set<Blog>().Include(x => x.Rates).FirstOrDefaultAsync(b => b.Id == id);
+            return await _dbContext.Set<Blog>().Include(x => x.Rates).Include(p => p.CoverImage).FirstOrDefaultAsync(b => b.Id == id);
         }
 
     }

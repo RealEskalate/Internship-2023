@@ -45,6 +45,9 @@ namespace BlogApp.Persistence
         public DbSet<Rate> Rates { get; set; }
         public DbSet<Blog> Blogs { get; set; }
 
+        public DbSet<Photo> Photos { get; set; }
+
+
 
     }
 }

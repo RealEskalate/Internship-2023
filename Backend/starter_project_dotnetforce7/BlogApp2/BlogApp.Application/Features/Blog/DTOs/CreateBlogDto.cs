@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BlogApp.Application.Features.Common;
+using Microsoft.AspNetCore.Http;
 
 namespace BlogApp.Application.Features.Blogs.DTOs
 {
@@ -11,7 +6,7 @@ namespace BlogApp.Application.Features.Blogs.DTOs
     {
         public string Title { get; set; }
         public string Content { get; set; }
-        public string? CoverImage { get; set; }
+        public IFormFile? File { get; set; }
         public bool? PublicationStatus { get; set; }
     }
 }

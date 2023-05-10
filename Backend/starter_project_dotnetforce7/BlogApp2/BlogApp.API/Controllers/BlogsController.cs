@@ -34,14 +34,14 @@ namespace BlogApp.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] CreateBlogDto createBlog)
+        public async Task<IActionResult> Post([FromForm]  CreateBlogDto createBlog)
         {
             var command = new CreateBlogCommand { BlogDto = createBlog };
             return  HandleResult(await _mediator.Send(command));
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody] UpdateBlogDto blogDto)
+        public async Task<IActionResult> Put([FromForm] UpdateBlogDto blogDto)
         {
 
       
