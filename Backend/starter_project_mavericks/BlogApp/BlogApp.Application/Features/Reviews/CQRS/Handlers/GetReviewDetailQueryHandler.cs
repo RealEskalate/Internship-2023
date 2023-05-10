@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
+using BlogApp.Application.Exceptions;
 using BlogApp.Application.Features.Reviews.CQRS.Queries;
 using BlogApp.Application.Features.Reviews.DTOs;
 using BlogApp.Application.Responses;
@@ -21,17 +22,19 @@ public class GetReviewDetailQueryHandler : IRequestHandler<GetReviewDetailQuery,
     public async Task<BaseResponse<ReviewDto>> Handle(GetReviewDetailQuery request, CancellationToken cancellationToken)
     {
         var review = await _unitOfWork.ReviewRepository.GetReviewDetail(request.Id);
-        return review == null
-            ? new BaseResponse<ReviewDto>()
+        if( review == null){
+            var error = new NotFoundException(nameof(review),request.Id);
+             return new BaseResponse<ReviewDto>()
             {
                 Success = true,
                 Message = "review not found",
                 Errors = new List<string>()
                 {
-                    $"review with id {request.Id} not found"
+                    $"{error}"
                 }
-            }
-            : new BaseResponse<ReviewDto>()
+            };}
+
+            return new BaseResponse<ReviewDto>()
             {
                 Data = _mapper.Map<ReviewDto>(review),
                 Success = true,
