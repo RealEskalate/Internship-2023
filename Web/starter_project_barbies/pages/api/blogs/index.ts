@@ -1,10 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-
-interface Blog {
-  id: string;
-  title: string;
-  content: string;
-}
+import { Blog } from '@/types/blog';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
