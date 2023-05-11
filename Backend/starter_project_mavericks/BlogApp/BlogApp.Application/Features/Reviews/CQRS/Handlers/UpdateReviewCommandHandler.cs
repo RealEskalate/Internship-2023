@@ -1,12 +1,9 @@
 ﻿using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Exceptions;
-using BlogApp.Application.Features._Indices.DTOs.Validators;
 using BlogApp.Application.Features.Reviews.CQRS.Commands;
-using BlogApp.Application.Features.Reviews.DTOs;
 using BlogApp.Application.Features.Reviews.DTOs.Validators;
 using BlogApp.Application.Responses;
-using BlogApp.Domain;
 using MediatR;
 
 namespace BlogApp.Application.Features.Reviews.CQRS.Handlers;
@@ -41,15 +38,15 @@ public class UpdateReviewCommandHandler : IRequestHandler<UpdateReviewCommand, B
             return new BaseResponse<Unit>()
             {
                 Success = false,
-                Message = "update failed",
+                Message = nameof(NotFoundException),
                 Errors = new List<string>()
                 {
-                    $"{error}"
+                    $"{error.Message}"
                 }
             };}
 
-        _mapper.Map(request.UpdateReviewDto, review);
-
+        review.Comment = request.UpdateReviewDto.Comment ?? review.Comment;
+        review.IsResolved = request.UpdateReviewDto.IsResolved;
         await _unitOfWork.ReviewRepository.Update(review);
 
         if (await _unitOfWork.Save()==0){
