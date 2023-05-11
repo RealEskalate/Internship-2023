@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace BlogApp.Identity.Migrations
 {
-    public partial class initialmigration : Migration
+    public partial class identityMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -160,8 +160,8 @@ namespace BlogApp.Identity.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "51aa4c19-c079-4beb-b223-f3b2b6d3d71c", "b63039fa-31a2-426b-972c-6cdd6d9e409b", "User", "USER" },
-                    { "a9b1000b-3331-4e6d-8777-cc1251eb68d6", "1a24b2ec-3b70-40f7-bd2f-17b96ffb4b39", "Admin", "ADMIN" }
+                    { "51aa4c19-c079-4beb-b223-f3b2b6d3d71c", "210e0967-ce46-4640-ab10-236b6d67e24b", "User", "USER" },
+                    { "a9b1000b-3331-4e6d-8777-cc1251eb68d6", "eb5d7722-088c-485e-b363-df59dc6662b5", "Admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
@@ -169,8 +169,8 @@ namespace BlogApp.Identity.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "4000b844-74ca-479b-badb-4f41850ae07e", 0, "cf95aaca-85f1-4828-8e5c-61cb92ef0e22", "Admin@HR.com", false, false, null, "ADMIN@HR.COM", "ADMIN@HR.COM", "AQAAAAEAACcQAAAAENRZ3z4ERuhHuPPBxhq8lve5VFTI6AMj/4l6kJAIrIxjZ3xx4f1NeKcmLyrvpVz6cw==", null, false, "39253c61-f940-42a3-b0ab-223bbd7a2984", false, "Admin@HR.com" },
-                    { "efa06a55-d0cc-4e01-abbf-870f21d91441", 0, "743e7649-0b71-489d-8495-6eea4b2c5802", "User@HR.com", false, false, null, "USER@HR.COM", "USER@HR.COM", "AQAAAAEAACcQAAAAEM3Pfd0zDPJXKuzKyL5F7rs2wWi9bzcX9GJQHEF/+ODSFvD2BB8FVTITJg+qM6YzzA==", null, false, "30f75900-c7f2-4c76-b55d-e351a2343edd", false, "User@HR.com" }
+                    { "4000b844-74ca-479b-badb-4f41850ae07e", 0, "415db573-63ab-4243-9b22-cea6f38bf9a4", "Admin@HR.com", false, false, null, "ADMIN@HR.COM", "ADMIN@HR.COM", "AQAAAAEAACcQAAAAEFUamxbP8XO2yb+Zn7Q9ItnG97NtEUUy5lu8DlnvsZd8T74lllWdppUUD1p6IaXY3Q==", null, false, "580c5eda-1d11-4d18-9819-274c4346c68e", false, "Admin@HR.com" },
+                    { "efa06a55-d0cc-4e01-abbf-870f21d91441", 0, "6d7c402c-893f-4e45-92e2-320af06aed05", "User@HR.com", false, false, null, "USER@HR.COM", "USER@HR.COM", "AQAAAAEAACcQAAAAEJkSDlaL/UcjTMZ6UV0RP6FFdvK8zgXBHneLCJJExBZouAc8iJXnixYyLgsRB8XZKg==", null, false, "480888bf-c713-4104-94e0-f2e0759969ed", false, "User@HR.com" }
                 });
 
             migrationBuilder.InsertData(

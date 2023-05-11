@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BlogApp.Identity.Migrations
 {
     [DbContext(typeof(BlogAppIdentityDbContext))]
-    [Migration("20230503203007_initial migration")]
-    partial class initialmigration
+    [Migration("20230511131137_identityMigration")]
+    partial class identityMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -92,15 +92,15 @@ namespace BlogApp.Identity.Migrations
                         {
                             Id = "4000b844-74ca-479b-badb-4f41850ae07e",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "cf95aaca-85f1-4828-8e5c-61cb92ef0e22",
+                            ConcurrencyStamp = "415db573-63ab-4243-9b22-cea6f38bf9a4",
                             Email = "Admin@HR.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@HR.COM",
                             NormalizedUserName = "ADMIN@HR.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAENRZ3z4ERuhHuPPBxhq8lve5VFTI6AMj/4l6kJAIrIxjZ3xx4f1NeKcmLyrvpVz6cw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFUamxbP8XO2yb+Zn7Q9ItnG97NtEUUy5lu8DlnvsZd8T74lllWdppUUD1p6IaXY3Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "39253c61-f940-42a3-b0ab-223bbd7a2984",
+                            SecurityStamp = "580c5eda-1d11-4d18-9819-274c4346c68e",
                             TwoFactorEnabled = false,
                             UserName = "Admin@HR.com"
                         },
@@ -108,15 +108,15 @@ namespace BlogApp.Identity.Migrations
                         {
                             Id = "efa06a55-d0cc-4e01-abbf-870f21d91441",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "743e7649-0b71-489d-8495-6eea4b2c5802",
+                            ConcurrencyStamp = "6d7c402c-893f-4e45-92e2-320af06aed05",
                             Email = "User@HR.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@HR.COM",
                             NormalizedUserName = "USER@HR.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEM3Pfd0zDPJXKuzKyL5F7rs2wWi9bzcX9GJQHEF/+ODSFvD2BB8FVTITJg+qM6YzzA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJkSDlaL/UcjTMZ6UV0RP6FFdvK8zgXBHneLCJJExBZouAc8iJXnixYyLgsRB8XZKg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "30f75900-c7f2-4c76-b55d-e351a2343edd",
+                            SecurityStamp = "480888bf-c713-4104-94e0-f2e0759969ed",
                             TwoFactorEnabled = false,
                             UserName = "User@HR.com"
                         });
@@ -151,14 +151,14 @@ namespace BlogApp.Identity.Migrations
                         new
                         {
                             Id = "51aa4c19-c079-4beb-b223-f3b2b6d3d71c",
-                            ConcurrencyStamp = "b63039fa-31a2-426b-972c-6cdd6d9e409b",
+                            ConcurrencyStamp = "210e0967-ce46-4640-ab10-236b6d67e24b",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
                             Id = "a9b1000b-3331-4e6d-8777-cc1251eb68d6",
-                            ConcurrencyStamp = "1a24b2ec-3b70-40f7-bd2f-17b96ffb4b39",
+                            ConcurrencyStamp = "eb5d7722-088c-485e-b363-df59dc6662b5",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });

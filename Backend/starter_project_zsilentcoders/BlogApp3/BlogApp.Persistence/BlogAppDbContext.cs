@@ -30,11 +30,11 @@ namespace BlogApp.Persistence
 
             foreach (var entry in ChangeTracker.Entries<BaseDomainEntity>())
             {
-                entry.Entity.LastModifiedDate = DateTime.Now;
+                entry.Entity.LastModifiedDate = DateTime.UtcNow;
 
                 if (entry.State == EntityState.Added)
                 {
-                    entry.Entity.DateCreated = DateTime.Now;
+                    entry.Entity.DateCreated = DateTime.UtcNow;
                 }
             }
 

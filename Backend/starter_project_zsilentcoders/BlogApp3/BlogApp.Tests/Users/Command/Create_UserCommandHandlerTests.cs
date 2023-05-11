@@ -27,7 +27,6 @@ namespace BlogApp.Tests.Users.Command
         private readonly Mock<IUnitOfWork> _mockUow;
         private readonly Create_UserDto _userDto;
         private readonly Create_UserDto _invalidUserDto;
-
         private readonly Create_UserCommandHandler _handler;
 
         public Create_UserCommandHandlerTests()
