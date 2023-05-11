@@ -31,17 +31,13 @@ dependencies:
   build_runner: ^2.3.3
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1
-  data_connection_checker: ^0.3.4
   equatable: ^2.0.5
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.2
   flutter_svg: ^2.0.5
-  get_it: ^7.6.0
   http: ^0.13.6
-  internet_connection_checker: ^1.0.0+1
   mockito: ^5.4.0
-  http: ^0.13.6
   data_connection_checker: ^0.3.4
   internet_connection_checker: ^1.0.0+1
   
@@ -83,8 +79,6 @@ flutter:
 
     - family: Urbanist
       fonts:
-        - asset: assets/font/Urbanist-VariableFont_wght.ttf
-
-
+        - asset: assets/fonts/Urbanist-VariableFont_wght.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
