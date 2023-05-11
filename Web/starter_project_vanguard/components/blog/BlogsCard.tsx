@@ -1,5 +1,4 @@
 import 'tailwindcss/base.css'
-import Avatar from '../common/Avatar'
 import Image from 'next/image'
 import { Blog } from '../../types/blog/blog'
 import Link from 'next/link'
@@ -17,7 +16,13 @@ const BlogsCard: React.FC<BlogProps> = ({ blog }) => {
           <div className="flex items-start">
             <div className="items-start my-4 mx-0">
               <div>
-                <Avatar src={blog.authorPhoto} alt="Avatar" size="md" />
+                <Image
+                  src={blog.authorPhoto}
+                  alt={''}
+                  width={50}
+                  height={50}
+                  className={`rounded-full object-cover `}
+                />
               </div>
             </div>
             <div className="self-center mx-3">
