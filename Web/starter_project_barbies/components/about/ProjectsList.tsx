@@ -1,4 +1,4 @@
-import projects from '@/data/about/projects.json'
+import { useGetProjectsQuery } from '@/slices/api/about-api'
 import { Project } from '@/types/about'
 import Image from 'next/image'
 import { IconContext } from 'react-icons'
@@ -50,13 +50,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project:{image, name, descrip
 }
 
 const ProjectsList:React.FC = () => {
+  const {data: projects, isLoading, error} = useGetProjectsQuery()
   return (
     <div>
       <div className="font-bold lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl text-center mx-auto mb-12">
         Social <span className="text-primary">Projects</span>
       </div>
       <div className="flex flex-col gap-5">
-        {projects.map((project, index) => (
+        {projects?.map((project, index) => (
           <ProjectCard
             key={index}
             reverseFlex={index % 2 !== 0}

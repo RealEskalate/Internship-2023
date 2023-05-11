@@ -1,4 +1,4 @@
-import sessions from '@/data/about/sessions.json'
+import { useGetSessionsQuery } from '@/slices/api/about-api'
 import { Session } from '@/types/about'
 import Image from 'next/image'
 
@@ -17,13 +17,14 @@ const SessionCard: React.FC<SessionCardProps> = ({ session:{name, icon, descript
 }
 
 const SessionsList:React.FC = () => {
+  const {data:sessions, isLoading, error} = useGetSessionsQuery()
   return (
     <div>
       <div className="font-bold lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl text-center mx-auto mb-10">
         A2SV <span className="text-primary ">Sessions</span>
       </div>
       <div className="grid lg:grid-cols-3 gap-2 px-16 ">
-        {sessions.map((session, index) => (
+        {sessions?.map((session, index) => (
           <SessionCard key={index} session={session} />
         ))}
       </div>
