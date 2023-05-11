@@ -65,22 +65,10 @@ const SingleBlog: React.FC = () => {
         <b className="bold-text">{heading}</b>
         <div className="mt-4">
           <small className="font-light font-montserrat text-base text-secondary-text">
-            {paragraph}
-          </small>
-        </div>
-        <div className="mt-4">
-          <small className="font-light font-montserrat text-base text-secondary-text">
-            {paragraph}
-          </small>
-        </div>
-        <div className="mt-4">
-          <small className="font-light font-montserrat text-base text-secondary-text">
-            {paragraph}
-          </small>
-        </div>
-        <div className="mt-4">
-          <small className="font-light font-montserrat text-base text-secondary-text">
-            {paragraph}
+            <div
+              className="content"
+              dangerouslySetInnerHTML={{ __html: paragraph }}
+            ></div>
           </small>
         </div>
       </div>
