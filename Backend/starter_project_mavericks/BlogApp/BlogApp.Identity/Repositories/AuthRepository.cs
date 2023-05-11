@@ -95,13 +95,12 @@ namespace BlogApp.Identity.Repositories
                             await _userManager.AddToRoleAsync(user, "User");
                             var createdUser = await _userManager.FindByNameAsync(user.UserName);
                             var response = _mapper.Map<SignUpResponse>(createdUser);
-
-                            return response;
                             await transaction.CommitAsync();
+                            return response;
                         }
-                        throw new BadRequestException("Email already exists");
+                        throw new ServerErrorException("Server Error");
                     }
-                    throw new Exception("Email is already used!");
+                    throw new BadRequestException("Email is already used!");
                 }
                 catch(Exception e)
                 {

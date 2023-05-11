@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Application.Exceptions
 {
-    internal class ServerError
+    public class ServerErrorException : Exception
     {
+        public ServerErrorException(string message) : base(message)
+        {
+        }
     }
 }

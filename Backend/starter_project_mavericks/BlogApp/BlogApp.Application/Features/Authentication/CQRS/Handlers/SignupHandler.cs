@@ -1,4 +1,5 @@
 ﻿using BlogApp.Application.Contracts.Identity;
+using BlogApp.Application.Exceptions;
 using BlogApp.Application.Features.Authentication.CQRS.Commands;
 using BlogApp.Application.Features.Authentication.DTO;
 using BlogApp.Application.Features.Authentication.DTO.Validators;
@@ -40,6 +41,7 @@ namespace BlogApp.Application.Features.Authentication.CQRS.Handlers
                     response.Message = "User Registration Failed";
                     response.Errors = new List<string>() { e.Message };
                 }
+                
             }
             else
             {
