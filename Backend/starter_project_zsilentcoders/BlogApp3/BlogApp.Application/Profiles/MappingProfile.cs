@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using BlogApp.Application.Features._Indices.DTOs;
 using BlogApp.Application.Features.Tags.DTOs;
-using BlogApp.Application.Features.Review.DTOs;
 using BlogApp.Application.Features.Reviews.DTOs;
 using BlogApp.Domain;
 using System;
