@@ -5,7 +5,7 @@ using BlogApp.Application.Features.BlogRates.CQRS.Handlers;
 using BlogApp.Application.Features.BlogRates.CQRS.Queries;
 using BlogApp.Application.Features.BlogRates.DTOs;
 using BlogApp.Application.Profiles;
-using BlogApp.Application.Tests.Mocks;
+using BlogApp.Tests.Mocks;
 using Moq;
 using Shouldly;
 using System;

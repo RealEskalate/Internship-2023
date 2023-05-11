@@ -7,6 +7,7 @@
   <ItemGroup>
     <PackageReference Include="MediatR" Version="11" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.5">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -20,5 +21,8 @@
   <ItemGroup>
     <ProjectReference Include="..\BlogApp.Domain\BlogApp.Domain.csproj" />
     <ProjectReference Include="..\BlogApp.Persistence\BlogApp.Persistence.csproj" />
+    <ProjectReference Include="..\BlogApp.Identity\BlogApp.Identity.csproj" />
+    <ProjectReference Include="..\BlogApp.Application\BlogApp.Application.csproj" />
+    <ProjectReference Include="..\BlogApp.Infrastructure\BlogApp.Infrastructure.csproj" />
   </ItemGroup>
 </Project>

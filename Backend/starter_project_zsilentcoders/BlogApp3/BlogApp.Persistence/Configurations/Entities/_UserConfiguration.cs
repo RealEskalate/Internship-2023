@@ -9,21 +9,25 @@ using BlogApp.Domain;
 
 namespace BlogApp.Persistence.Configurations.Entities
 {
-    public class LeaveTypeConfiguration : IEntityTypeConfiguration<_Index>
+    public class UserConfiguration : IEntityTypeConfiguration<User>
     {
-        public void Configure(EntityTypeBuilder<_Index> builder)
+        public void Configure(EntityTypeBuilder<User> builder)
         {
             builder.HasData(
-                new _Index
+                new User
                 {
                     Id = 1,
-                    Name = "First Index"
+                    FirstName = "Abebe",
+                    LastName = "kebede",
+                    AccountId = "abe1"
                 },
 
-                new _Index
+                new User
                 {
                     Id = 2,
-                    Name = "Second Index"
+                    FirstName = "Alemu",
+                    LastName = "Lula",
+                    AccountId = "Lula1"
                 }
                 );
         }

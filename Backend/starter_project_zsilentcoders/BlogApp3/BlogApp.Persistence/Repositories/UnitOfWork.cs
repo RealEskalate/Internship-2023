@@ -19,18 +19,19 @@ namespace BlogApp.Persistence.Repositories
         private IBlogRateRepository _blogRateRepository;
         private ICommentRepository _commentRepository;
 
+        private I_UserRepository _userRepository;
+    
         public UnitOfWork(BlogAppDbContext context)
         {
             _context = context;
         }
 
-
-        public I_IndexRepository _IndexRepository { 
+        public I_UserRepository _UserRepository { 
             get 
             {
-                if (_indexRepository == null)
-                    _indexRepository = new _IndexRepository(_context);
-                return _indexRepository; 
+                if (_userRepository == null)
+                    _userRepository = new _UserRepository(_context);
+                return _userRepository;
             } 
          }
           public ITagRepository TagRepository { 
@@ -80,12 +81,21 @@ namespace BlogApp.Persistence.Repositories
             } 
          }
 
+        public I_IndexRepository _IndexRepository { 
+            get 
+            {
+                if (_indexRepository == null)
+                    _indexRepository = new _IndexRepository(_context);
+                return _indexRepository; 
+            } 
+        }
+
+
         public void Dispose()
         {
             _context.Dispose();
             GC.SuppressFinalize(this);
         }
-        
         public async Task<int> Save()
         {
             return await _context.SaveChangesAsync();
