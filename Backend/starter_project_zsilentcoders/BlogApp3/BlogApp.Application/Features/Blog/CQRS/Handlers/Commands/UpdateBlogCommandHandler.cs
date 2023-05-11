@@ -59,9 +59,6 @@ public class UpdateBlogCommandHandler : IRequestHandler<UpdateBlogCommand, Resul
             response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
 
         }
-
-
-
         return response;
     }
 }

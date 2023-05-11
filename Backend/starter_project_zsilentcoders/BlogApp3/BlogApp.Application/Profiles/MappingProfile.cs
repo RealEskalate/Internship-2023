@@ -3,6 +3,7 @@ using BlogApp.Application.Features._Indices.DTOs;
 using BlogApp.Application.Features.Tags.DTOs;
 using BlogApp.Application.Features.Reviews.DTOs;
 using BlogApp.Application.Features.BlogRates.DTOs;
+using BlogApp.Application.Features.Comments.DTOs;
 using BlogApp.Domain;
 using System;
 using System.Collections.Generic;
@@ -63,6 +64,17 @@ namespace BlogApp.Application.Profiles
             CreateMap<Review, IReviewDto>().ReverseMap();
             CreateMap<Review, UpdateReviewDto>().ReverseMap();
             #endregion
+
+            #region  comment mappping
+
+            CreateMap<Comment, CommentDto>().ReverseMap();
+            CreateMap<Comment, CreateCommentDto>().ReverseMap();
+            CreateMap<Comment, UpdateCommentDto>().ReverseMap();
+            CreateMap<Comment, DeleteCommentDto>().ReverseMap();
+
+            #endregion comment
+
+
         }
     }
 }
