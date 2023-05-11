@@ -5,5 +5,5 @@ namespace BlogApp.Application.Features.Reviews.DTOs;
 public class UpdateReviewDto : BaseDto
 {
     public string Comment { get; set; }
-    public bool IsResolved { get; set; }
+    public bool IsResolved { get; set; } 
 }

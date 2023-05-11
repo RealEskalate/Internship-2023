@@ -45,8 +45,8 @@ public class UpdateReviewCommandHandler : IRequestHandler<UpdateReviewCommand, B
                 }
             };}
 
-        review.Comment = request.UpdateReviewDto.Comment ?? review.Comment;
-        review.IsResolved = request.UpdateReviewDto.IsResolved;
+        
+        _mapper.Map(request.UpdateReviewDto,review);
         await _unitOfWork.ReviewRepository.Update(review);
 
         if (await _unitOfWork.Save()==0){
