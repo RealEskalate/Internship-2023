@@ -6,12 +6,13 @@
     "status": "approved",
     "likes": 2300,
     "description": "A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose. A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose.A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose.",
-    "name": "Fred Boone",
+    "author": {
+      "name": "Fred Boone",
 
-    "profileImage": "https://res.cloudinary.com/drowvugep/image/upload/v1682327009/user1Photo_j83qgp.png",
-
+      "imageUrl": "https://res.cloudinary.com/drowvugep/image/upload/v1682327009/user1Photo_j83qgp.png"
+    },
     "datePosted": "April 6, 2023",
-    "blogImg": "https://res.cloudinary.com/drowvugep/image/upload/v1682327011/card1Photo_m7nf3c.png"
+    "imgUrl": "https://res.cloudinary.com/drowvugep/image/upload/v1682327011/card1Photo_m7nf3c.png"
   },
   {
     "id": 1,
@@ -20,12 +21,13 @@
     "status": "declined",
     "likes": 2300500,
     "description": "A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose. A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose.A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose.",
-    "name": "Fred Boone",
+    "author": {
+      "name": "Fred Boone",
 
-    "profileImage": "https://res.cloudinary.com/drowvugep/image/upload/v1682327009/user1Photo_j83qgp.png",
-
+      "imageUrl": "https://res.cloudinary.com/drowvugep/image/upload/v1682327009/user1Photo_j83qgp.png"
+    },
     "datePosted": "April 6, 2023",
-    "blogImg": "https://res.cloudinary.com/drowvugep/image/upload/v1682327011/card1Photo_m7nf3c.png"
+    "imgUrl": "https://res.cloudinary.com/drowvugep/image/upload/v1682327011/card1Photo_m7nf3c.png"
   },
   {
     "id": 1,
@@ -34,12 +36,13 @@
     "status": "pending",
     "likes": 230,
     "description": "A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose. A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose.A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose.",
-    "name": "Fred Boone",
+    "author": {
+      "name": "Fred Boone",
 
-    "profileImg": "https://res.cloudinary.com/drowvugep/image/upload/v1682327009/user1Photo_j83qgp.png",
-
+      "imageUrl": "https://res.cloudinary.com/drowvugep/image/upload/v1682327009/user1Photo_j83qgp.png"
+    },
     "datePosted": "April 6, 2023",
-    "blogImg": "https://res.cloudinary.com/drowvugep/image/upload/v1682327011/card1Photo_m7nf3c.png"
+    "imgUrl": "https://res.cloudinary.com/drowvugep/image/upload/v1682327011/card1Photo_m7nf3c.png"
   },
   {
     "id": 1,
@@ -48,12 +51,13 @@
     "status": "declined",
     "likes": 2300,
     "description": "A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose. A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose.A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose.",
-    "name": "Fred Boone",
+    "author": {
+      "name": "Fred Boone",
 
-    "profileImage": "https://res.cloudinary.com/drowvugep/image/upload/v1682327009/user1Photo_j83qgp.png",
-
+      "imageUrl": "https://res.cloudinary.com/drowvugep/image/upload/v1682327009/user1Photo_j83qgp.png"
+    },
     "datePosted": "April 6, 2023",
-    "blogImg": "https://res.cloudinary.com/drowvugep/image/upload/v1682327011/card1Photo_m7nf3c.png"
+    "imgUrl": "https://res.cloudinary.com/drowvugep/image/upload/v1682327011/card1Photo_m7nf3c.png"
   },
   {
     "id": 1,
@@ -62,12 +66,13 @@
     "status": "approved",
     "likes": 2300,
     "description": "A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose. A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose.A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose.",
-    "name": "Fred Boone",
+    "author": {
+      "name": "Fred Boone",
 
-    "profileImage": "https://res.cloudinary.com/drowvugep/image/upload/v1682327009/user1Photo_j83qgp.png",
-
+      "imageUrl": "https://res.cloudinary.com/drowvugep/image/upload/v1682327009/user1Photo_j83qgp.png"
+    },
     "datePosted": "April 6, 2023",
-    "blogImg": "https://res.cloudinary.com/drowvugep/image/upload/v1682327011/card1Photo_m7nf3c.png"
+    "imgUrl": "https://res.cloudinary.com/drowvugep/image/upload/v1682327011/card1Photo_m7nf3c.png"
   },
   {
     "id": 1,
@@ -76,12 +81,13 @@
     "status": "pending",
     "likes": 2300,
     "description": "A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose. A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose.A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose.",
-    "name": "Fred Boone",
+    "author": {
+      "name": "Fred Boone",
 
-    "profileImage": "https://res.cloudinary.com/drowvugep/image/upload/v1682327009/user1Photo_j83qgp.png",
-
+      "imageUrl": "https://res.cloudinary.com/drowvugep/image/upload/v1682327009/user1Photo_j83qgp.png"
+    },
     "datePosted": "April 6, 2023",
-    "blogImg": "https://res.cloudinary.com/drowvugep/image/upload/v1682327011/card1Photo_m7nf3c.png"
+    "imgUrl": "https://res.cloudinary.com/drowvugep/image/upload/v1682327011/card1Photo_m7nf3c.png"
   },
   {
     "id": 1,
@@ -90,11 +96,12 @@
     "status": "approved",
     "likes": 2300,
     "description": "A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose. A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose.A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose.",
-    "name": "Fred Boone",
+    "author": {
+      "name": "Fred Boone",
 
-    "profileImage": "https://res.cloudinary.com/drowvugep/image/upload/v1682327009/user1Photo_j83qgp.png",
-
+      "imageUrl": "https://res.cloudinary.com/drowvugep/image/upload/v1682327009/user1Photo_j83qgp.png"
+    },
     "datePosted": "April 6, 2023",
-    "blogImg": "https://res.cloudinary.com/drowvugep/image/upload/v1682327011/card1Photo_m7nf3c.png"
+    "imgUrl": "https://res.cloudinary.com/drowvugep/image/upload/v1682327011/card1Photo_m7nf3c.png"
   }
 ]
