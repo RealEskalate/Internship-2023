@@ -25,10 +25,10 @@ public class DeleteReviewCommandHandler : IRequestHandler<DeleteReviewCommand,Ba
             return new BaseResponse<Unit>()
             {
                 Success = false,
-                Message = "deletion failed",
+                Message = nameof(NotFoundException),
                 Errors = new List<string>()
                 {
-                    $"{error}"
+                    $"{error.Message}"
                 }
             };}
             

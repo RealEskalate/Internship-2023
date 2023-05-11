@@ -24,15 +24,15 @@ public class GetUserReviewListQueryHandler : IRequestHandler<GetUserReviewListQu
     {
         var reviews =await _unitOfWork.ReviewRepository.GetReviewsByUserId(request.ReviewerId);
         if( reviews == null || !reviews.Any()){
-            var error = new NotFoundException(nameof(reviews),request.ReviewerId);
+            var error = new NotFoundException("reviewer",request.ReviewerId);
 
              return new BaseResponse<List<ReviewDto>>()
             {
                 Success = false,
-                Message = "User has no reviews",
+                Message = nameof(NotFoundException),
                 Errors = new List<string>()
                 {
-                    $"{error}"
+                    $"{error.Message}"
                 }
 
             };}

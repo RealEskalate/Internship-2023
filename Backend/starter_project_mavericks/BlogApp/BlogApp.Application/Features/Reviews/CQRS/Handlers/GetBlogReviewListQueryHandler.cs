@@ -23,14 +23,14 @@ public class GetBlogReviewListQueryHandler : IRequestHandler<GetBlogReviewListQu
     {
         var reviews = await _unitOfWork.ReviewRepository.GetReviewsByBlogId(request.BlogId);
         if (reviews == null || !reviews.Any()){
-            var error = new NotFoundException(nameof(reviews),request.BlogId);
+            var error = new NotFoundException("blog",request.BlogId);
             return new BaseResponse<List<ReviewDto>>()
             {
                 Success = false,
-                Message = "Blog reviews not found",
+                Message = nameof(NotFoundException),
                 Errors = new List<string>()
                 {
-                   $"{error}"
+                   $"{error.Message}"
                 }
             };
 

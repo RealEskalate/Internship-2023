@@ -27,10 +27,10 @@ public class GetReviewDetailQueryHandler : IRequestHandler<GetReviewDetailQuery,
              return new BaseResponse<ReviewDto>()
             {
                 Success = true,
-                Message = "review not found",
+                Message = nameof(NotFoundException),
                 Errors = new List<string>()
                 {
-                    $"{error}"
+                    $"{error.Message}"
                 }
             };}
 
