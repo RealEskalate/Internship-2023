@@ -7,7 +7,6 @@ namespace BlogApp.Application.Features.Authentication.CQRS.Commands
 {
     public class SignupCommand : IRequest<BaseResponse<SignUpResponse>>
     {
-        
         public SignupFormDto SignupFormDto { get; set; }
     }
 }

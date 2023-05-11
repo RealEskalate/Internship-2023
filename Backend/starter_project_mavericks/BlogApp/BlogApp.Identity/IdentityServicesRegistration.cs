@@ -19,8 +19,8 @@ namespace BlogApp.Persistence
         {
             services.AddDbContext<UserIdentityDbContext>(opt =>
             opt.UseNpgsql(configuration.GetConnectionString("BlogAppConnectionString")));
-
             services.Configure<JwtSettings>(configuration.GetSection("JwtSettings"));
+            services.Configure<IdentityOptions>(opt => opt.SignIn.RequireConfirmedEmail = true);
             services.AddIdentity<User, IdentityRole>()
                     .AddEntityFrameworkStores<UserIdentityDbContext>()
                     .AddDefaultTokenProviders();

@@ -1,4 +1,5 @@
 ﻿using BlogApp.Application.Features.Authentication.DTO;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,6 @@ namespace BlogApp.Application.Contracts.Identity
     {
         Task<SignUpResponse> SignUpAsync(SignupFormDto signUpFormDto);
         Task<SignInResponse> SignInAsync(SigninFormDto signInFormDto);
+        Task<Unit> ConfirmEmailAsync(ConfirmEmailDto confirmEmailDto);
     }
 }

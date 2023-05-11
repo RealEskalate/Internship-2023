@@ -16,6 +16,8 @@ using System.Text;
 using System.Threading.Tasks;
 using BlogApp.Application.Exceptions;
 using BlogApp.Persistence;
+using System.Security.Policy;
+using BlogApp.Application.Contracts.Infrastructure;
 
 namespace BlogApp.Identity.Repositories
 {
@@ -26,14 +28,20 @@ namespace BlogApp.Identity.Repositories
         private readonly IMapper _mapper;
         private readonly IConfiguration _configuration;
         private readonly UserIdentityDbContext _context;
+        private readonly IEmailSender _emailSender;
 
-        public AuthRepository(UserManager<User> userManager, SignInManager<User> signInManager, IMapper mapper, IConfiguration configuration, UserIdentityDbContext context)
+        public AuthRepository(UserManager<User> userManager, 
+                              SignInManager<User> signInManager, 
+                              IMapper mapper, IConfiguration configuration, 
+                              UserIdentityDbContext context,
+                              IEmailSender emailSender)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _mapper = mapper;
             _configuration = configuration;
             _context = context;
+            _emailSender = emailSender;
         }
 
         // Delete user
@@ -60,19 +68,21 @@ namespace BlogApp.Identity.Repositories
                         if (result.Succeeded)
                         {
                             var token = await GenerateToken(userExist);
+                    
                             return new SignInResponse
                             {
                                 Id = userExist.Id,
                                 Email = userExist.Email,
                                 FirstName = userExist.FirstName,
                                 LastName = userExist.LastName,
-                                Token = token.ToString()
+                                Token = new JwtSecurityTokenHandler().WriteToken(token),
                             };
-                        }
+                        }else
+                            throw new BadRequestException("Email confiramtion is required");
                     }
                     throw new BadRequestException("Invalid Credential");
 
-            }
+        }
             
             
         
@@ -90,8 +100,12 @@ namespace BlogApp.Identity.Repositories
                         var user = _mapper.Map<User>(signUpFormDto);
                         user.UserName = signUpFormDto.Email;
                         var result = await _userManager.CreateAsync(user, signUpFormDto.Password);
+                        
                         if (result.Succeeded)
                         {
+                            var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                            var confirmationLink = _configuration["AppUrl"] + "/api/auth/confirmemail?userid=" + user.Id + "&token=" + token;
+                            await _emailSender.SendEmail(signUpFormDto.Email, "Email Confirmation", confirmationLink);
                             await _userManager.AddToRoleAsync(user, "User");
                             var createdUser = await _userManager.FindByEmailAsync(user.Email);
                             var response = _mapper.Map<SignUpResponse>(createdUser);
@@ -101,7 +115,7 @@ namespace BlogApp.Identity.Repositories
                         }
                         throw new BadRequestException("Email already exists");
                     }
-                    throw new Exception("Email is already used!");
+                    throw new BadRequestException("Email is already used!");
                 }
                 catch(Exception e)
                 {
@@ -109,6 +123,23 @@ namespace BlogApp.Identity.Repositories
                     throw new Exception("Something went wrong");
                 }
             }
+        }
+
+
+        //confirm email
+        public async Task<Unit> ConfirmEmailAsync(ConfirmEmailDto confirmEmailDto)
+        {
+            var user = await _userManager.FindByIdAsync(confirmEmailDto.UserId);
+            if (user == null)
+            {
+                throw new NotFoundException(nameof(User), confirmEmailDto.UserId);
+            }
+            var result = await _userManager.ConfirmEmailAsync(user, confirmEmailDto.Token);
+            if (result.Succeeded)
+            {
+                return Unit.Value;
+            }
+            throw new BadRequestException("Invalid Token");
         }
 
         // get token

@@ -1,4 +1,5 @@
 ﻿using BlogApp.Application.Features.Authentication.CQRS.Commands;
+using BlogApp.Application.Features.Authentication.CQRS.Queries;
 using BlogApp.Application.Features.Authentication.DTO;
 using BlogApp.Application.Responses;
 using MediatR;
@@ -33,5 +34,16 @@ namespace BlogApp.API.Controllers
             var status = response.Success ? HttpStatusCode.OK : HttpStatusCode.BadRequest;
             return getResponse<BaseResponse<SignInResponse>>(status, response);
         }
+
+        // confirm email
+        [HttpGet("/auth/confirmemail")]
+        public async Task<ActionResult> ConfirmEmail([FromQuery] string userId, [FromQuery] string token)
+        {
+            var dto = new ConfirmEmailDto { UserId = userId, Token = token };
+            var response = await _mediator.Send(new ConfirmEmailQuery { ConfirmEmailDto = dto });
+            var status = response.Success ? HttpStatusCode.OK : HttpStatusCode.BadRequest;
+            return getResponse<BaseResponse<Unit>>(status, response);
+        }
+
     }
 }

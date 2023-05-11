@@ -1,4 +1,5 @@
 using BlogApp.Application;
+using BlogApp.Infrastructure;
 using BlogApp.Persistence;
 using Microsoft.OpenApi.Models;
 
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.ConfigureApplicationServices();
 builder.Services.ConfigurePersistenceServices(builder.Configuration);
 builder.Services.ConfigureIdentityServices(builder.Configuration);
+builder.Services.ConfigureInfrastructureServices(builder.Configuration);
 builder.Services.AddHttpContextAccessor();
 AddSwaggerDoc(builder.Services);
 builder.Services.AddControllers();
@@ -40,6 +42,7 @@ app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BlogApp.Api
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+// remove ssl verification
 
 
 app.MapControllers();

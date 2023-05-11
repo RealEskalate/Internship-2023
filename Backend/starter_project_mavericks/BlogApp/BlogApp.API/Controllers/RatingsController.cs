@@ -32,7 +32,6 @@ public class RatingsController : BaseApiController
     {
         var command = new UpdateRatingCommand { BlogId = blogId, RatingDto = ratingDto };
         var response = await _mediator.Send(command);
-
         var status = response.Success ? HttpStatusCode.OK : HttpStatusCode.BadRequest;
         return getResponse<BaseResponse<Nullable<int>>>(status, response);
     }

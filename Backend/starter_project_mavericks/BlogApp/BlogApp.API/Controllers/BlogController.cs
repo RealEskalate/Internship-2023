@@ -6,6 +6,7 @@ using BlogApp.Application.Features.Blogs.DTOs;
 using BlogApp.Application.Features.Blogs.CQRS.Commands;
 using BlogApp.Application.Features.Blogs.CQRS.Queries;
 using BlogApp.API.Controllers;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,6 +14,7 @@ namespace BlogApp.API.Controllers
 {
     [Route("api/[Controller]")]
     [ApiController]
+    [Authorize(Roles = "User")]
     public class BlogsController : BaseApiController
     {
         public BlogsController(IMediator mediator) : base(mediator)
