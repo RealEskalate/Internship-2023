@@ -16,6 +16,7 @@ namespace BlogApp.Persistence
         public DbSet<_Index> _Indices { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Review> _Review { get; set; }
+        public DbSet<Tag> Tags {get; set;}
 
          public DbSet<BlogRate> BlogRates { get; set; }
 
