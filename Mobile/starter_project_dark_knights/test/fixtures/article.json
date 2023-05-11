@@ -1,0 +1,9 @@
+{
+    "id": "1",
+    "title": "First Article", 
+    "subtitle":"first subtitle", 
+    "description":"this is first article", 
+    "postedBy":"user102",
+    "publishedDate":"2023-05-11T15:30:00", 
+    "tag": "Art" 
+}
