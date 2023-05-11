@@ -7,7 +7,7 @@ import {
   BsLinkedin,
 } from 'react-icons/bs';
 
-export interface TeamMembersCardProps {
+export interface TeamMemberCardProps {
   teamMember : TeamMember
 }
 
@@ -18,7 +18,7 @@ const SocialMediaIcon: { [index: string]: any } = {
   default: <BsEmojiSmileUpsideDown className="fill-gray-400 w-8 h-8" />,
 }
 
-const TeamMembersCard: React.FC<TeamMembersCardProps> = ({teamMember}) => {
+const TeamMemberCard: React.FC<TeamMemberCardProps> = ({teamMember}) => {
   return (
     <div className="flex flex-col self-start bg-white rounded-lg p-6 m-2 items-center justify-center shadow-xl max-w-[500px]">
       <Image
@@ -47,4 +47,4 @@ const TeamMembersCard: React.FC<TeamMembersCardProps> = ({teamMember}) => {
   )
 }
 
-export default TeamMembersCard
+export default TeamMemberCard
