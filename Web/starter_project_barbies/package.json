@@ -12,7 +12,8 @@
     "lint": "next lint",
     "prettier": "prettier --write .",
     "cy:run": "cypress run",
-    "cy:open": "cypress open"
+    "cy:open": "cypress open",
+    "server": "json-server -p 5000 --w db.json"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
@@ -24,6 +25,7 @@
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
     "formik": "^2.2.9",
+    "json-server": "^0.17.3",
     "moment": "^2.29.4",
     "next": "13.3.0",
     "postcss": "8.4.21",
