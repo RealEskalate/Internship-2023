@@ -31,6 +31,13 @@ namespace BlogApp.Application.UnitTest.Mocks
             var mockBlogRepo = MockBlogRepository.GetBlogRepository();
 
             mockUow.Setup(r => r.BlogRepository).Returns(mockBlogRepo.Object);
+
+
+            var mockReviewRepo = UnitTests.Mocks.MockReviewRepository.GetReviewRepository();
+
+            mockUow.Setup(r => r.ReviewRepository).Returns(mockReviewRepo.Object);
+  
+
             return mockUow;
 
     }

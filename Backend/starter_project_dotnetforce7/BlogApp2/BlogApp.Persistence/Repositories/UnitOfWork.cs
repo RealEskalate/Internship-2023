@@ -17,10 +17,12 @@ namespace BlogApp.Persistence.Repositories
         private ITagRepository _tagRepository;
 
         private IBlogRepository _BlogRepository;
+        private IReviewRepository _ReviewRepository;
 
 
 
 
+        private IReviewRepository _reviewRepository;
         public UnitOfWork(BlogAppDbContext context)
         {
             _context = context;
@@ -67,6 +69,15 @@ namespace BlogApp.Persistence.Repositories
         }
 
 
+        public IReviewRepository ReviewRepository {
+            get
+            {
+                if (_reviewRepository == null)
+                    _reviewRepository = new ReviewRepository(_context);
+                return _reviewRepository;
+            }
+        }
+        
         public void Dispose()
         {
             _context.Dispose();
