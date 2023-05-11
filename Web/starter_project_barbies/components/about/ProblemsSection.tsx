@@ -1,4 +1,4 @@
-import { useGetProblemItemsQuery, useGetSolutionItemsQuery } from '@/slices/api/about-api'
+import { useGetProblemItemsQuery, useGetSolutionItemsQuery } from '@/store/features/about/about-api'
 
 import { ProblemItem } from '@/types/about'
 import Image from 'next/image'
