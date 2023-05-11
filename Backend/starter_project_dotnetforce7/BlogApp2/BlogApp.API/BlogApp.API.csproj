@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.5">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -18,6 +19,9 @@
   <ItemGroup>
     <ProjectReference Include="..\BlogApp.Domain\BlogApp.Domain.csproj" />
     <ProjectReference Include="..\BlogApp.Persistence\BlogApp.Persistence.csproj" />
+    <ProjectReference Include="..\BlogApp.Identity\BlogApp.Identity.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
 
 </Project>
