@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../core/utils/text_style.dart';
+import 'package:dark_knights/core/utils/text_style.dart';
 import '../../../../core/utils/colors.dart';
 
 class LoginSignUpNavigation extends StatelessWidget {

@@ -1,4 +1,4 @@
-import '../../../../core/utils/text_style.dart';
+import 'package:dark_knights/core/utils/text_style.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/utils/colors.dart';
 import 'log_in_button.dart';
