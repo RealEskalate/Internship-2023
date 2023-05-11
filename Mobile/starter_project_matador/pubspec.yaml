@@ -36,9 +36,7 @@ dependencies:
   # Bloc for state management
   flutter_bloc: ^0.21.0
   # Value equality
-  equatable: ^2.0.3
-  # Functional programming thingies
-  dartz: ^0.10.0-nullsafety.2
+
   # Remote API
   connectivity: ^0.4.3+7
   http: ^0.13.0
