@@ -1,10 +1,10 @@
 import BlogTile from '@/components/blog/BlogTile'
+import { Blog } from '@/types/blog/blog'
 import { FaPlus } from 'react-icons/fa'
+import data from '../../data/blog/blog.json'
 
-import { BlogData } from '@/types/blog/blog'
-import data from '../../data/blog/blog-tile.json'
 const blogs = () => {
-  const blogsData: BlogData[] = data
+  const blogsData: Blog[] = data
   return (
     <div className="bg-white pt-4 text-primary-text">
       <div className="flex flex-col items-center gap-y-4 mt-5 mx-10 md:flex-row">
