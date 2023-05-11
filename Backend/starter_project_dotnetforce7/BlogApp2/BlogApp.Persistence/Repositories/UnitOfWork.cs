@@ -23,6 +23,7 @@ namespace BlogApp.Persistence.Repositories
 
 
         private IReviewRepository _reviewRepository;
+        private ICommentRepository _commentRepository;
         public UnitOfWork(BlogAppDbContext context)
         {
             _context = context;
@@ -78,6 +79,17 @@ namespace BlogApp.Persistence.Repositories
             }
         }
         
+        public ICommentRepository CommentRepository
+        {
+            get
+            {
+                if (_commentRepository == null)
+                    _commentRepository = new CommentRepository(_context);
+                return _commentRepository;
+            }
+        }
+
+
         public void Dispose()
         {
             _context.Dispose();
