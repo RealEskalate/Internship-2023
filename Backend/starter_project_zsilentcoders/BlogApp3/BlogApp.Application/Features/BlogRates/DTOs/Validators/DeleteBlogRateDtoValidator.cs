@@ -15,6 +15,6 @@ public class DeleteBlogRateDtoValidator : AbstractValidator<DeleteBlogRateDto>
             .MustAsync(async (id, token) => await unitOfWork.BlogRateRepository.BlogExists(id)).WithMessage($"Blog not found");
         RuleFor(p => p.RaterId)
             .GreaterThan(0)
-            .MustAsync(async (id, token) => await unitOfWork.BlogRateRepository.RaterExists(id)).WithMessage($"Blo not found");
+            .MustAsync(async (id, token) => await unitOfWork.BlogRateRepository.RaterExists(id)).WithMessage($"Rater not found");
     }
 }

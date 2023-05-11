@@ -27,7 +27,7 @@ namespace BlogApp.Application.Features.BlogRates.CQRS.Handlers
         public async Task<Result<Unit>> Handle(UpdateBlogRateCommand request, CancellationToken cancellationToken)
         {
             var response = new Result<Unit>();
-            var validator = new BlogRateDtoValidator();
+            var validator = new BlogRateDtoValidator(_unitOfWork);
             var validationResult = await validator.ValidateAsync(request.BlogRateDto);
 
             if (validationResult.IsValid == false)
