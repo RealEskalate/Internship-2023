@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../core/utils/colors.dart';
-import '../widgets/log_in_form.dart';
+import '../widgets/login_form.dart';
 import '../widgets/navigation_bar.dart';
 
 class LoginPage extends StatelessWidget {
