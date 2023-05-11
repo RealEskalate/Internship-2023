@@ -1,7 +1,14 @@
 import Image, { ImageProps } from "next/image"
 
 const TeamsHero: React.FC = () => {
-    const images: ImageProps[] = [{src: "/img/teams/team-work/team-work-1.png", alt:"", className:'contain absolute top-0 left-0 w-[35%]' ,width:322,height:316.7}, {src: "/img/teams/team-work/team-work-2.png", alt:"", className: 'contain absolute top-0 right-0 w-[35%]', width:322,height:316.7}, {src:"/img/teams/team-work/team-work-3.png",alt:"",width:322,height:316.7, className:'contain absolute bottom-0 left-0 w-[35%]'}, {src:"/img/teams/hero-background.png", alt:"", className: "",width:800,height:710.7}]
+    
+    const images: ImageProps[] = [
+        {src: "/img/teams/team-work/team-work-1.png", alt:"", className:'contain absolute top-0 left-0 w-[35%]' ,width:322,height:316.7}, 
+        {src: "/img/teams/team-work/team-work-2.png", alt:"", className: 'contain absolute top-0 right-0 w-[35%]', width:322,height:316.7}, 
+        {src:"/img/teams/team-work/team-work-3.png",alt:"",width:322,height:316.7, className:'contain absolute bottom-0 left-0 w-[35%]'}, 
+        {src:"/img/teams/hero-background.png", alt:"", className: "",width:800,height:710.7}
+    ]
+
     return (
         <div>
             <div className="grid md:grid-cols-1 lg:grid-cols-2 p-8">
