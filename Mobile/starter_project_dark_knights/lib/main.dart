@@ -1,4 +1,4 @@
-import 'features/splash_screen/presentation/screen/splash_screen.dart';
+import 'package:dark_knights/features/splash_screen/presentation/screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
