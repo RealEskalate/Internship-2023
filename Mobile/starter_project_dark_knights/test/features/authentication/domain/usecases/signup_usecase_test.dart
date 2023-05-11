@@ -1,6 +1,5 @@
 import 'package:dark_knights/features/Authentication/domain/entities/authentication_entitiy.dart';
 import 'package:dark_knights/features/Authentication/domain/repositories/authentication_repository.dart';
-import 'package:dark_knights/features/Authentication/domain/usecases/loginUsecase.dart';
 import 'package:dark_knights/features/Authentication/domain/usecases/signupUsecase.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
