@@ -3,6 +3,10 @@ using BlogApp.Application.Features._Indices.DTOs;
 using BlogApp.Application.Features.Rates.DTOs;
 using BlogApp.Application.Features.Tags.DTOs;
 using BlogApp.Application.Features.Blogs.DTOs;
+using BlogApp.Application.Features.Reviews.DTOs;
+using BlogApp.Application.Features.Blogs.DTOs;
+using BlogApp.Application.Features.Reviews.DTOs;
+using BlogApp.Application.Features.Tags.DTOs;
 using BlogApp.Domain;
 using System;
 using System.Collections.Generic;
@@ -40,7 +44,6 @@ namespace BlogApp.Application.Profiles
             CreateMap<Rate, CreateRateDto>().ReverseMap();
             #endregion rate
 
-
             #region tag Mappings
 
             CreateMap<Tag, TagDto>().ReverseMap();
@@ -50,6 +53,11 @@ namespace BlogApp.Application.Profiles
             CreateMap<Tag, CreateTagDto>().ReverseMap();
 
             #endregion Tag
+            #region review Mappings
+            CreateMap<Review, ReviewDto>().ReverseMap();
+            CreateMap<Review, UpdateReviewDto>().ReverseMap();
+            CreateMap<Review, CreateReviewDto>().ReverseMap();
+            #endregion review
         }
     }
 }
