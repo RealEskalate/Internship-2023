@@ -1,11 +1,12 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
+import 'package:matador/core/error/failures.dart';
+import 'package:matador/core/usecases/usecases.dart';
+import 'package:matador/features/signup/domain/entities/user.dart';
+import 'package:matador/features/signup/domain/repositories/auth_repository.dart';
 import 'package:meta/meta.dart';
 
-import '../../../../core/errors/failures.dart';
-import '../../../../core/usecases/usecase.dart';
-import '../entities/user.dart';
-import '../repositories/auth_repository.dart';
+
 
 class SignUpUser implements UseCase<User, SignUpParams> {
   final AuthRepository repository;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:matador/features/Article/presentation/widgets/article_detail.dart';
-import 'package:matador/features/Article/presentation/widgets/user_card.dart';
+import 'package:matador/features/article/presentation/widgets/article_detail.dart';
+import 'package:matador/features/article/presentation/widgets/user_card.dart';
 
 class ArticleReading extends StatelessWidget {
   const ArticleReading({super.key});

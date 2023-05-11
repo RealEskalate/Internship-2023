@@ -1,7 +1,7 @@
 import 'dart:async' as _i4;
 
 import 'package:dartz/dartz.dart' as _i2;
-import 'package:matador/core/errors/failures.dart' as _i5;
+import 'package:matador/core/error/failures.dart' as _i5;
 import 'package:matador/features/signup/domain/entities/user.dart' as _i6;
 import 'package:matador/features/signup/domain/repositories/auth_repository.dart'
     as _i3;
