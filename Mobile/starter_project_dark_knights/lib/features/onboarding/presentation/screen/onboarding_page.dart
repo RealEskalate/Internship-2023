@@ -1,10 +1,9 @@
 import '../../../../core/utils/colors.dart';
-import '../../../signup/presentation/screen/signup_page.dart';
+import '../../../Authentication/presentation/screen/signup_page.dart';
 import '../widgets/onboarding/description_text.dart';
 import '../widgets/onboarding/stepper_dot.dart';
 import '../widgets/onboarding/header_text.dart';
 import '../widgets/onboarding/onboarding_row_images.dart';
-import '../../../../main.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -103,8 +102,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => const SignUpPage(
-                                      ),
+                                      builder: (context) => const SignUpPage(),
                                     ),
                                   )
                                 }
