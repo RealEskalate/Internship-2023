@@ -11,10 +11,8 @@ namespace BlogApp.API.Controllers;
 [ApiController]
 public class RatingsController : BaseApiController
 {
-    private readonly IMediator _mediator;
     public RatingsController(IMediator mediator) : base(mediator)
     {
-        _mediator = mediator;
     }
 
     [HttpPost("{blogId}/Rate")]
