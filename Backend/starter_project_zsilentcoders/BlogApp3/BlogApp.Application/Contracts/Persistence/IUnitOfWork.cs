@@ -8,6 +8,7 @@ namespace BlogApp.Application.Contracts.Persistence
 {
     public interface IUnitOfWork : IDisposable
     {
+        I_UserRepository _UserRepository { get; }
         I_IndexRepository _IndexRepository { get; }
         ITagRepository TagRepository {get;}
 

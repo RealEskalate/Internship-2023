@@ -3,7 +3,7 @@ using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Features.Comments.CQRS.Handlers;
 using BlogApp.Application.Features.Comments.CQRS.Queries;
 using BlogApp.Application.Profiles;
-using BlogApp.Application.Tests.Mocks;
+using BlogApp.Tests.Mocks;
 using Moq;
 using Shouldly;
 using Xunit;

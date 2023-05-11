@@ -4,13 +4,13 @@ using BlogApp.Application.Features.Blog.DTOs;
 using BlogApp.Application.Features.Blog.CQRS.Requests.Commands;
 using BlogApp.Application.Profiles;
 using AutoMapper;
-using BlogApp.Application.Tests.Mocks;
 using Shouldly;
 using Moq;
 using Xunit;
 using BlogApp.Application.Features.BlogRates.CQRS.Commands;
 using BlogApp.Application.Features.BlogRates.DTOs;
 using Application.Features.BlogRates.Handlers.Commands;
+using BlogApp.Tests.Mocks;
 
 namespace BlogApp.Tests.Blog.Command;
 

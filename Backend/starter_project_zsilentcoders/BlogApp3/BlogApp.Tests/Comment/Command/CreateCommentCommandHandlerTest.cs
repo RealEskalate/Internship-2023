@@ -4,7 +4,7 @@ using BlogApp.Application.Features.Comments.CQRS.Commands;
 using BlogApp.Application.Features.Comments.CQRS.Handlers;
 using BlogApp.Application.Features.Comments.DTOs;
 using BlogApp.Application.Profiles;
-using BlogApp.Application.Tests.Mocks;
+using BlogApp.Tests.Mocks;
 using Moq;
 using Shouldly;
 using Xunit;
