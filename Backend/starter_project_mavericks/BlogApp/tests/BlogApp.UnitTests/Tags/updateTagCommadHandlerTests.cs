@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
-using BlogApp.Application.Features._Tags.CQRS.Commands;
-using BlogApp.Application.Features._Tags.CQRS.Handlers;
-using BlogApp.Application.Features._Tags.DTOs;
+using BlogApp.Application.Features.Tags.CQRS.Commands;
+using BlogApp.Application.Features.Tags.CQRS.Handlers;
+using BlogApp.Application.Features.Tags.DTOs;
 using BlogApp.Application.Features.Blogs.CQRS.Commands;
 using BlogApp.Application.Features.Blogs.CQRS.Handlers;
 using BlogApp.Application.Features.Blogs.DTOs;
@@ -18,6 +18,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
+using BlogApp.Application.Features._Tags.CQRS.Handlers;
 
 namespace BlogApp.UnitTests.Tags
 {
@@ -52,10 +53,10 @@ namespace BlogApp.UnitTests.Tags
             };
             var response = await _handler.Handle(new updateTagCommand()
             {
-                _TagDto = TagUpdate
+                TagDto = TagUpdate
             }, CancellationToken.None);
 
-            var blog = await _mockUow.Object._TagRepository.Get(id: 2);
+            var blog = await _mockUow.Object.TagRepository.Get(id: 2);
 
             response.ShouldNotBeNull();
             response.ShouldBeOfType<BaseResponse<Unit>>();
@@ -70,7 +71,7 @@ namespace BlogApp.UnitTests.Tags
         {
             var response = await _handler.Handle(new updateTagCommand()
             {
-                _TagDto = new updateTagDto
+                TagDto = new updateTagDto
                 {
                     Id = 2000,
                     Description = "This is the updated content of the fifth blog"
@@ -89,7 +90,7 @@ namespace BlogApp.UnitTests.Tags
         {
             var response = await _handler.Handle(new updateTagCommand()
             {
-                _TagDto = new updateTagDto
+                TagDto = new updateTagDto
                 {
                     Id = 2,
                     Title = ""
@@ -106,7 +107,7 @@ namespace BlogApp.UnitTests.Tags
         {
             var response = await _handler.Handle(new updateTagCommand()
             {
-                _TagDto = new updateTagDto
+                TagDto = new updateTagDto
                 {
                     Id = 2,
                     Description = ""

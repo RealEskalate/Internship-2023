@@ -1,13 +1,13 @@
-﻿using BlogApp.Domain.Common;
+﻿using BlogApp.Application.Features.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlogApp.Domain
+namespace BlogApp.Application.Features.Tags.DTOs
 {
-    public class _Tag : BaseDomainEntity
+    public class updateTagDto :BaseDto, ITagDto
     {
         public string Title { get; set; }
         public string Description { get; set; }

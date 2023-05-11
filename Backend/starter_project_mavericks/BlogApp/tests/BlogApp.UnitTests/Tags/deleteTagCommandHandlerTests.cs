@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
-using BlogApp.Application.Features._Tags.CQRS.Commands;
-using BlogApp.Application.Features._Tags.CQRS.Handlers;
+using BlogApp.Application.Features.Tags.CQRS.Commands;
+using BlogApp.Application.Features.Tags.CQRS.Handlers;
 using BlogApp.Application.Features.Blogs.CQRS.Commands;
 using BlogApp.Application.Features.Blogs.CQRS.Handlers;
 using BlogApp.Application.Profiles;

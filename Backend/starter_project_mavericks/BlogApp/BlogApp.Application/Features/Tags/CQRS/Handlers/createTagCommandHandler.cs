@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
-using BlogApp.Application.Features._Tags.CQRS.Commands;
-using BlogApp.Application.Features._Tags.DTOs.Validators;
+using BlogApp.Application.Features.Tags.CQRS.Commands;
+using BlogApp.Application.Features.Tags.DTOs.Validators;
 using BlogApp.Application.Responses;
 using BlogApp.Domain;
 using MediatR;
@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlogApp.Application.Features._Tags.CQRS.Handlers
+namespace BlogApp.Application.Features.Tags.CQRS.Handlers
 {
     public class createTagCommandHandler : IRequestHandler<createTagCommand, BaseResponse<Nullable<int>>>
     {
@@ -28,7 +28,7 @@ namespace BlogApp.Application.Features._Tags.CQRS.Handlers
         {
             var response = new BaseResponse<Nullable<int>>();
             var validator = new createTagDtoValidator();
-            var validationResult = await validator.ValidateAsync(request._TagDto);
+            var validationResult = await validator.ValidateAsync(request.TagDto);
 
             if (validationResult.IsValid == false)
             {
@@ -38,9 +38,9 @@ namespace BlogApp.Application.Features._Tags.CQRS.Handlers
             }
             else
             {
-                var Tag = _mapper.Map<_Tag>(request._TagDto);
+                var Tag = _mapper.Map<Tag>(request.TagDto);
 
-                Tag = await _unitOfWork._TagRepository.Add(Tag);
+                Tag = await _unitOfWork.TagRepository.Add(Tag);
                 await _unitOfWork.Save();
 
                 response.Success = true;

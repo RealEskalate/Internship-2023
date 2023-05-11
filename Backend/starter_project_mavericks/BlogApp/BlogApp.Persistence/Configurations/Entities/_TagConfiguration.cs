@@ -9,19 +9,19 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Persistence.Configurations.Entities
 {
-    public class _TagConfiguration : IEntityTypeConfiguration<_Tag>
+    public class _TagConfiguration : IEntityTypeConfiguration<Tag>
     {
-        public void Configure(EntityTypeBuilder<_Tag> builder)
+        public void Configure(EntityTypeBuilder<Tag> builder)
         {
             builder.HasData(
-                new _Tag
+                new Tag
                 {
                     Id = 1,
                     Title = "First Title",
                     Description = "First Description"
                 },
 
-                new _Tag
+                new Tag
                 {
                     Id = 2,
                     Title = "First Title",

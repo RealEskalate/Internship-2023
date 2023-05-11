@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Persistence.Repositories
 {
-    public class _TagRepository : GenericRepository<_Tag>, I_TagRepository
+    public class TagRepository : GenericRepository<Tag>, ITagRepository
     {
         private readonly BlogAppDbContext _dbContext;
-        public _TagRepository(BlogAppDbContext dbContext) : base(dbContext)
+        public TagRepository(BlogAppDbContext dbContext) : base(dbContext)
         {
             _dbContext = dbContext;
         }

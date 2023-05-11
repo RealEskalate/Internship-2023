@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Exceptions;
-using BlogApp.Application.Features._Tags.CQRS.Commands;
-using BlogApp.Application.Features._Tags.DTOs.Validators;
+using BlogApp.Application.Features.Tags.CQRS.Commands;
+using BlogApp.Application.Features.Tags.DTOs.Validators;
 using BlogApp.Application.Responses;
 using BlogApp.Domain;
 using MediatR;
@@ -27,7 +27,7 @@ namespace BlogApp.Application.Features._Tags.CQRS.Handlers
         public async Task<BaseResponse<Unit>> Handle(updateTagCommand request, CancellationToken cancellationToken)
         {
             var validator = new updateTagDtoValidator();
-            var validationResult = await validator.ValidateAsync(request._TagDto);
+            var validationResult = await validator.ValidateAsync(request.TagDto);
 
             if (validationResult.IsValid == false)
             {
@@ -40,11 +40,11 @@ namespace BlogApp.Application.Features._Tags.CQRS.Handlers
                 };
             }
 
-            bool tagExists = await _unitOfWork._TagRepository.Exists(request._TagDto.Id);
+            bool tagExists = await _unitOfWork.TagRepository.Exists(request.TagDto.Id);
 
             if (tagExists == false)
             {
-                var error = new NotFoundException(nameof(_Tag), request._TagDto.Id);
+                var error = new NotFoundException(nameof(Domain.Tag), request.TagDto.Id);
 
                 return new BaseResponse<Unit>
                 {
@@ -55,9 +55,9 @@ namespace BlogApp.Application.Features._Tags.CQRS.Handlers
             }
 
 
-            var Tag  = _mapper.Map<_Tag>(request._TagDto);
+            var Tag  = _mapper.Map<Tag>(request.TagDto);
 
-            await _unitOfWork._TagRepository.Update(Tag);
+            await _unitOfWork.TagRepository.Update(Tag);
             bool success = await _unitOfWork.Save() > 0;
             if (success == false)
             {

@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlogApp.Application.Features._Tags.DTOs.Validators
+namespace BlogApp.Application.Features.Tags.DTOs.Validators
 {
-    public class I_TagDtoValidator : AbstractValidator<I_TagDto>
+    public class ITagDtoValidator : AbstractValidator<ITagDto>
     {
-        public I_TagDtoValidator()
+        public ITagDtoValidator()
         {
             RuleFor(p => p.Title)
                 .NotNull()

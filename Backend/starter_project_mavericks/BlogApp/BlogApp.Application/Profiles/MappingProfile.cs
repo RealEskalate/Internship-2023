@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using BlogApp.Application.Features._Indices.DTOs;
-using BlogApp.Application.Features._Tags.DTOs;
+using BlogApp.Application.Features.Tags.DTOs;
 using BlogApp.Application.Features.Blogs.DTOs;
 using BlogApp.Application.Features.Ratings.DTOs;
 using BlogApp.Domain;
@@ -50,9 +50,9 @@ namespace BlogApp.Application.Profiles
             #endregion
             #region tag Mapping
 
-            CreateMap<_Tag, _TagDto>().ReverseMap();
-            CreateMap<_Tag, updateTagDto>().ReverseMap();
-            CreateMap<_Tag, createTagDto>().ReverseMap();
+            CreateMap<Tag, TagDto>().ReverseMap();
+            CreateMap<Tag, updateTagDto>().ReverseMap();
+            CreateMap<Tag, createTagDto>().ReverseMap();
 
             #endregion tag
         }

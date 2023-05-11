@@ -1,5 +1,5 @@
 
-using BlogApp.Application.Features._Tags.DTOs;
+using BlogApp.Application.Features.Tags.DTOs;
 using BlogApp.Application.Features.Common;
 
 namespace BlogApp.Application.Features.Blogs.DTOs

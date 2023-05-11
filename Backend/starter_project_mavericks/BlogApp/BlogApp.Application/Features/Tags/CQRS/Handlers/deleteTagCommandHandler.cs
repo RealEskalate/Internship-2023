@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Exceptions;
-using BlogApp.Application.Features._Tags.CQRS.Commands;
+using BlogApp.Application.Features.Tags.CQRS.Commands;
 using BlogApp.Application.Responses;
+using BlogApp.Domain;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlogApp.Application.Features._Tags.CQRS.Handlers
+namespace BlogApp.Application.Features.Tags.CQRS.Handlers
 {
     public class deleteTagCommandHandler : IRequestHandler<deleteTagCommand, BaseResponse<Unit>>
     {
@@ -25,11 +26,11 @@ namespace BlogApp.Application.Features._Tags.CQRS.Handlers
 
         public async Task<BaseResponse<Unit>> Handle(deleteTagCommand request, CancellationToken cancellationToken)
         {
-            var _Tag = await _unitOfWork._TagRepository.Get(request.Id);
+            var _Tag = await _unitOfWork.TagRepository.Get(request.Id);
 
             if (_Tag == null)
             {
-                var error = new NotFoundException(nameof(_Tag), request.Id);
+                var error = new NotFoundException(nameof(Tag), request.Id);
                 return new BaseResponse<Unit>
                 {
                     Success = false,
@@ -38,7 +39,7 @@ namespace BlogApp.Application.Features._Tags.CQRS.Handlers
                 };
             }
 
-            await _unitOfWork._TagRepository.Delete(_Tag);
+            await _unitOfWork.TagRepository.Delete(_Tag);
             bool success = await _unitOfWork.Save() > 0;
             if(success == false)
             {

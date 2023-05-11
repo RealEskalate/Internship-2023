@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using BlogApp.Application.Contracts.Persistence;
-using BlogApp.Application.Features._Tags.CQRS.Commands;
-using BlogApp.Application.Features._Tags.CQRS.Handlers;
-using BlogApp.Application.Features._Tags.DTOs;
+using BlogApp.Application.Features.Tags.CQRS.Commands;
+using BlogApp.Application.Features.Tags.CQRS.Handlers;
+using BlogApp.Application.Features.Tags.DTOs;
 using BlogApp.Application.Features.Blogs.CQRS.Commands;
 using BlogApp.Application.Features.Blogs.CQRS.Handlers;
 using BlogApp.Application.Features.Blogs.DTOs;
@@ -44,7 +44,7 @@ namespace BlogApp.UnitTests.Tags
         {
             var response = await _handler.Handle(new createTagCommand()
             {
-                _TagDto = new createTagDto
+                TagDto = new createTagDto
                 {
                     Title = "Fifth Tag Title",
                     Description = "This is the content of the fifth tag description"
@@ -64,7 +64,7 @@ namespace BlogApp.UnitTests.Tags
         {
             var response = await _handler.Handle(new createTagCommand()
             {
-                _TagDto = new createTagDto
+                TagDto = new createTagDto
                 {
                     Title = "",
                     Description = "This is the content of an invalid tag description"
@@ -82,7 +82,7 @@ namespace BlogApp.UnitTests.Tags
         {
             var response = await _handler.Handle(new createTagCommand()
             {
-                _TagDto = new createTagDto
+                TagDto = new createTagDto
                 {
                     Title = "This is an invalid tag title",
                     Description = ""

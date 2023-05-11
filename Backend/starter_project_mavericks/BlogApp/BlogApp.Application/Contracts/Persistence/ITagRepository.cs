@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Application.Contracts.Persistence
 {
-    public interface I_TagRepository : IGenericRepository<_Tag>
+    public interface ITagRepository : IGenericRepository<Tag>
     {
         
     }
