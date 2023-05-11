@@ -1,7 +1,7 @@
 import { BlogsList } from "@/components/blog/BlogsList";
 import { Pagination } from "@/components/common/Pagination";
 import { SearchForm } from "@/components/common/SearchForm";
-import { useGetBlogsQuery } from "@/store/features/blogs-api";
+import { useGetBlogsQuery } from "@/store/blog/blogs-api";
 
 const Blogs = () => {
   const result = useGetBlogsQuery()

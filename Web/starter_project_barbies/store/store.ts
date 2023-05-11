@@ -1,4 +1,4 @@
-import { blogApi } from '@/store/features/blogs-api'
+import { blogApi } from '@/store/blog/blogs-api'
 import { configureStore } from '@reduxjs/toolkit'
 
 export const store = configureStore({

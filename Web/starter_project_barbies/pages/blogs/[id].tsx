@@ -1,9 +1,9 @@
 import { BlogAuthorDetail } from '@/components/blog/BlogAuthorDetail'
 import { BlogContent } from '@/components/blog/BlogContent'
 import { RelatedBlogs } from '@/components/blog/RelatedBlogs'
-import { useGetBlogByIDQuery } from '@/store/features/blogs-api'
-import { useRouter } from 'next/router'
+import { useGetBlogByIDQuery } from '@/store/blog/blogs-api'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 
 const BlogDetail = () => {
   const router = useRouter()

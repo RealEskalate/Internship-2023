@@ -1,5 +1,5 @@
 import BlogCard from '@/components/blog/BlogCard';
-import { useGetBlogsQuery } from '@/store/features/blogs-api';
+import { useGetBlogsQuery } from '@/store/blog/blogs-api';
 import { Blog } from '@/types/blog';
 
 interface RelatedBlogsProps {
