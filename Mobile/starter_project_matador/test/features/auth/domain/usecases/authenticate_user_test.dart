@@ -7,7 +7,7 @@ import 'package:matador/features/login/Domain/usecases/login_use_case.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-// import 'authenticate_user_test.mocks.dart';
+import 'authenticate_user_test.mocks.dart';
 
 @GenerateMocks([UserRepository])
 void main() {
@@ -25,7 +25,8 @@ void main() {
     when(mockUserRepository!.authenticate('test@gmail.com', 'password'))
         .thenAnswer((_) async => Right(tuser));
     //act
-    final result = await usecase(Params(email: email, password: password));
+    final result =
+        await usecase!(const AuthParams(email: email, password: password));
     //assert
     expect(result, Right(tuser));
     verify(mockUserRepository!.authenticate(email, password));
