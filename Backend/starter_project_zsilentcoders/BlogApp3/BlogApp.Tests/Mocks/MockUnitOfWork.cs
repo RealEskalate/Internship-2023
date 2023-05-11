@@ -23,12 +23,14 @@ namespace BlogApp.Application.Tests.Mocks
             var mockBlogRateRepo = MockBlogRateRepository.GetBlogRateRepository();
             
             
+            var mockCommentRepo = MockCommentRepository.GetCommentRepository();
             mockUow.Setup(r => r.BlogRepository).Returns(mockBlogRepo.Object);
             mockUow.Setup(r=>r.ReviewRepository).Returns(mockReviewRepo.Object);
             mockUow.Setup(r => r.BlogRateRepository).Returns(mockBlogRateRepo.Object);
 
             mockUow.Setup(r => r.Save()).ReturnsAsync(1);
             mockUow.Setup(r => r.BlogRateRepository).Returns(mockBlogRateRepo.Object);
+            mockUow.Setup(r => r._CommentRepository).Returns(mockCommentRepo.Object);
             return mockUow;
         }
     }
