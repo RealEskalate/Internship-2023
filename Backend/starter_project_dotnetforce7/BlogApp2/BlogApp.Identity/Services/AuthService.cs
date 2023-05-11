@@ -5,11 +5,14 @@ using BlogApp.Application.Constants;
 using BlogApp.Application.Contracts.Identity;
 using BlogApp.Application.Exceptions;
 using BlogApp.Application.Models.Identity;
+using BlogApp.Application.Models.Identity.Validators;
 using BlogApp.Application.Responses;
 using BlogApp.Identity.Models;
+using FluentValidation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using ValidationException = BlogApp.Application.Exceptions.ValidationException;
 
 namespace BlogApp.Identity.Services
 {
@@ -62,6 +65,11 @@ namespace BlogApp.Identity.Services
 
         public async Task<Result<RegistrationResponse>> Register(RegistrationRequest request)
         {
+            var validator = new RegistrationRequestValidator();
+            var validationResult = await validator.ValidateAsync(request);
+            if (!validationResult.IsValid)
+                throw new ValidationException(validationResult);
+
             var existingUser = await _userManager.FindByNameAsync(request.Username);
 
             if (existingUser != null)

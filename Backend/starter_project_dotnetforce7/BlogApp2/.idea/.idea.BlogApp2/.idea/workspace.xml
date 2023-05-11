@@ -8,14 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98d5ced8-a642-4e88-b848-cef8d2e67e7c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.BlogApp2/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.BlogApp2/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.BlogApp2/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlogApp.Application/Exceptions/IdentityException.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BlogApp2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BlogApp2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlogApp.Application/BlogApp.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BlogApp.Application/BlogApp.Application.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlogApp.Identity/Services/AuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlogApp.Identity/Services/AuthService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlogApp.Identity/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlogApp.Identity/Services/UserService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +18,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/../../.." value="biruktas.mail_service_inf" />
+        <entry key="$PROJECT_DIR$/../../.." value="biruk.tassew.identity" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
@@ -46,36 +39,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;biruk.tassew.identity&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Color Scheme Font&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "bruk.tedla.add__global__error__handler",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ],
-    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
-      &quot;directory&quot;,
-      &quot;module&quot;,
-      &quot;repository&quot;
+    "GitStage.ChangesTree.GroupingKeys": [
+      "directory",
+      "module",
+      "repository"
     ],
-    &quot;rider.external.source.directories&quot;: [
-      &quot;/Users/leultefera/Library/Application Support/JetBrains/Rider2023.1/resharper-host/DecompilerCache&quot;,
-      &quot;/Users/leultefera/Library/Application Support/JetBrains/Rider2023.1/resharper-host/SourcesCache&quot;,
-      &quot;/Users/leultefera/.local/share/Symbols/src&quot;
+    "rider.external.source.directories": [
+      "/Users/leultefera/Library/Application Support/JetBrains/Rider2023.1/resharper-host/DecompilerCache",
+      "/Users/leultefera/Library/Application Support/JetBrains/Rider2023.1/resharper-host/SourcesCache",
+      "/Users/leultefera/.local/share/Symbols/src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="BlogApp.API" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/BlogApp.API/BlogApp.API.csproj" />
@@ -106,7 +99,23 @@
       <workItem from="1683716477265" duration="848000" />
       <workItem from="1683717382634" duration="6061000" />
       <workItem from="1683787451895" duration="324000" />
+      <workItem from="1683801972488" duration="820000" />
     </task>
+    <task id="LOCAL-00001" summary="fix(dotnetforce7): fix gitignore config">
+      <created>1683792128166</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1683792128166</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fix(dotnetforce7): remove .idea folder">
+      <created>1683792297092</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1683792297092</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,6 +135,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="fix(dotnetforce7): fix gitignore config" />
+    <MESSAGE value="fix(dotnetforce7): remove .idea folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(dotnetforce7): remove .idea folder" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
