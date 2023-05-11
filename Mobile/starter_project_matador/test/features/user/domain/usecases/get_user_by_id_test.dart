@@ -9,9 +9,7 @@ import 'package:mockito/mockito.dart';
 import 'get_user_by_id_test.mocks.dart';
 
 @GenerateMocks([UserRepository])
-
 void main() {
-
   GetUserById? usecase;
   MockUserRepository? mockUserRepository;
 
