@@ -1,5 +1,5 @@
-using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using BlogApp.Application.Exceptions;
 using BlogApp.Application.Models.Identity;
 using BlogApp.Identity.Models;
 using BlogApp.Identity.Services;
@@ -7,7 +7,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Moq;
-namespace BlogApp.Identity.UnitTests
+
+namespace BlogApp.Identity.UnitTest.Services
 {
     public class AuthServiceTests
     {
@@ -17,10 +18,14 @@ namespace BlogApp.Identity.UnitTests
 
         public AuthServiceTests()
         {
-            _userManagerMock = new Mock<UserManager<ApplicationUser>>(Mock.Of<IUserStore<ApplicationUser>>(), null, null, null, null, null, null, null, null);
-            _signInManagerMock = new Mock<SignInManager<ApplicationUser>>(_userManagerMock.Object, Mock.Of<IHttpContextAccessor>(), Mock.Of<IUserClaimsPrincipalFactory<ApplicationUser>>(), null, null, null, null);
+            _userManagerMock = new Mock<UserManager<ApplicationUser>>(Mock.Of<IUserStore<ApplicationUser>>(), null,
+                null, null, null, null, null, null, null);
+            _signInManagerMock = new Mock<SignInManager<ApplicationUser>>(_userManagerMock.Object,
+                Mock.Of<IHttpContextAccessor>(), Mock.Of<IUserClaimsPrincipalFactory<ApplicationUser>>(), null, null,
+                null, null);
 
-            _authService = new AuthService(_userManagerMock.Object, Options.Create(new JwtSettings() { Key = "superdupersecretkey" }), _signInManagerMock.Object);
+            _authService = new AuthService(_userManagerMock.Object,
+                Options.Create(new JwtSettings() { Key = "superdupersecretkey" }), _signInManagerMock.Object);
         }
 
         [Fact]
@@ -46,9 +51,9 @@ namespace BlogApp.Identity.UnitTests
 
             // Assert
             Assert.NotNull(result);
-            Assert.Equal(user.Id, result.Id);
-            Assert.Equal(user.Email, result.Email);
-            Assert.Equal(user.UserName, result.Username);
+            Assert.Equal(user.Id, result.Value.Id);
+            Assert.Equal(user.Email, result.Value.Email);
+            Assert.Equal(user.UserName, result.Value.Username);
         }
 
         [Fact]
@@ -63,7 +68,7 @@ namespace BlogApp.Identity.UnitTests
                 .ReturnsAsync((ApplicationUser)null);
 
             // Act & Assert
-            await Assert.ThrowsAsync<Exception>(() => _authService.Login(authRequest));
+            await Assert.ThrowsAsync<BadRequestException>(() => _authService.Login(authRequest));
         }
 
         [Fact]
@@ -81,7 +86,7 @@ namespace BlogApp.Identity.UnitTests
                 .ReturnsAsync(SignInResult.Failed);
 
             // Act & Assert
-            await Assert.ThrowsAsync<Exception>(() => _authService.Login(authRequest));
+            await Assert.ThrowsAsync<BadRequestException>(() => _authService.Login(authRequest));
         }
 
 
@@ -103,7 +108,7 @@ namespace BlogApp.Identity.UnitTests
                 .ReturnsAsync(new ApplicationUser());
 
             // Act & Assert
-            await Assert.ThrowsAsync<Exception>(() => _authService.Register(request));
+            await Assert.ThrowsAsync<BadRequestException>(() => _authService.Register(request));
         }
 
         [Fact]
@@ -129,7 +134,7 @@ namespace BlogApp.Identity.UnitTests
                 .ReturnsAsync(new ApplicationUser());
 
             // Act & Assert
-            await Assert.ThrowsAsync<Exception>(() => _authService.Register(request));
+            await Assert.ThrowsAsync<BadRequestException>(() => _authService.Register(request));
         }
 
         [Fact]
@@ -147,7 +152,6 @@ namespace BlogApp.Identity.UnitTests
 
             _userManagerMock
                 .SetupSequence(x => x.FindByNameAsync(request.Username))
-                .ReturnsAsync((ApplicationUser)null)
                 .ReturnsAsync((ApplicationUser)null);
 
             _userManagerMock
@@ -167,10 +171,7 @@ namespace BlogApp.Identity.UnitTests
 
             // Assert
             Assert.NotNull(response);
-            Assert.NotEqual(Guid.Empty.ToString(), response.UserId);
+            Assert.NotEqual(Guid.Empty.ToString(), response.Value.UserId);
         }
-
-
     }
-
 }
