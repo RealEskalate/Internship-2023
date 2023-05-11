@@ -29,7 +29,7 @@ void main() {
     when(mockUserRepository!.getUserById(tId))
         .thenAnswer((realInvocation) async => Right(tUser));
 
-    final result = await usecase!(Params(id: tId));
+    final result = await usecase!(tId);
     // UseCase should simply return whatever was returned from the Repository
     expect(result, Right(tUser));
     // Verify that the method has been called on the Repository
