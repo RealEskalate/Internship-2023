@@ -3,7 +3,6 @@ using BlogApp.Application.Features.BlogRates.DTOs;
 using BlogApp.Application.Features.BlogRates.CQRS.Commands;
 using BlogApp.Application.Profiles;
 using AutoMapper;
-using BlogApp.Application.Tests.Mocks;
 using Shouldly;
 using Moq;
 using Xunit;

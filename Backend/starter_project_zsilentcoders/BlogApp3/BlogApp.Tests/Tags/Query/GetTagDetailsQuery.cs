@@ -3,7 +3,7 @@ using BlogApp.Application.Features.Tags.CQRS.Handlers;
 using BlogApp.Application.Features.Tags.CQRS.Queries;
 using BlogApp.Application.Profiles;
 using AutoMapper;
-using BlogApp.Application.Tests.Mocks;
+using BlogApp.Tests.Mocks;
 using Shouldly;
 using Moq;
 using BlogApp.Tests.Mocks;

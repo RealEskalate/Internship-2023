@@ -6,7 +6,7 @@ using BlogApp.Application.Features.Reviews.CQRS.Commands;
 using BlogApp.Application.Features.Reviews.CQRS.Handlers.Commands;
 using BlogApp.Application.Features.Reviews.DTOs;
 using BlogApp.Application.Profiles;
-using BlogApp.Application.Tests.Mocks;
+using BlogApp.Tests.Mocks;
 using Moq;
 using Shouldly;
 using System;

@@ -4,7 +4,7 @@ using BlogApp.Application.Exceptions;
 using BlogApp.Application.Features.Reviews.CQRS.Handlers.Queries;
 using BlogApp.Application.Features.Reviews.CQRS.Queries;
 using BlogApp.Application.Profiles;
-using BlogApp.Application.Tests.Mocks;
+using BlogApp.Tests.Mocks;
 using Moq;
 using Shouldly;
 using System;

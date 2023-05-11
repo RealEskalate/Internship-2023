@@ -4,7 +4,7 @@ using BlogApp.Application.Features.Tags.CQRS.Commands;
 using BlogApp.Application.Features.Tags.CQRS.Handlers;
 using BlogApp.Application.Profiles;
 using AutoMapper;
-using BlogApp.Application.Tests.Mocks;
+using BlogApp.Tests.Mocks;
 using Shouldly;
 using Moq;
 using Xunit;
