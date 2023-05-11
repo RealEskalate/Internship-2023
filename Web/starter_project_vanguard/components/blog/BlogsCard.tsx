@@ -10,7 +10,7 @@ interface BlogProps {
 const BlogsCard: React.FC<BlogProps> = ({ blog }) => {
   const encodedId = encodeURIComponent(blog._id)
   return (
-    <div className="font-montserrat flex flex-wrap justify-center w-6/5 ">
+    <div className=" flex flex-wrap justify-center w-6/5 ">
       <div className="flex border-t-2  w-3/4 border-gray-300 pl-10">
         <div className=" items-start w-3/5 pt-4 pb-4 pr-0">
           <div className="flex items-start">
@@ -82,7 +82,7 @@ interface MyTagProps {
 
 const Tags: React.FC<MyTagProps> = ({ tags }) => {
   return (
-    <div className="flex flex-wrap justify-start items-end font-montserrat">
+    <div className="flex flex-wrap justify-start items-end">
       {tags.map((tag, index) => (
         <button
           key={index}

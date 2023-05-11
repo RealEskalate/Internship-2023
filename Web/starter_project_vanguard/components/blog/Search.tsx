@@ -4,7 +4,7 @@ import React from 'react'
 
 const Search: React.FC = () => {
   return (
-    <div className="bg-white flex pt-16 min-h-screen pl-14 font-montserrat">
+    <div className="bg-white flex pt-16 min-h-screen pl-14">
       <div className=" flex flex-wrap justify-center h-20 ">
         <div className="justify-center pr-14 w-1/4">
           <span className="font-semibold text-4xl">Blogs</span>

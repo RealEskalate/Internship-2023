@@ -22,7 +22,7 @@ const Blogs: React.FC = () => {
   }, [currentPage])
 
   return (
-    <div className="justify-center min-h-screen mb-10">
+    <div className="font-montserrat justify-center min-h-screen mb-10">
       <div className="h-44 ">
         <Search />
       </div>
