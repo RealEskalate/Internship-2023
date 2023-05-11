@@ -10,7 +10,7 @@ class DeleteArticle {
   final ArticleRepository repository;
   DeleteArticle({required this.repository});
 
-  Future<Either<Failure, Article>> call(Params params) async {
+  Future<Either<Failure, Article>> call (Params params) async {
     return await repository.deleteArticle(params.id);
   }
 }

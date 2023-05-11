@@ -14,23 +14,22 @@ enum tags {
   news, sports, movies
 }
 void main(){
-
+  late MockArticleRepository mockArticleRepository;
+  late GetArticleById usecase;
   setUp(() {
-    final mockArticleRepository = MockArticleRepository();
-    final usecase = GetArticleById(repository: mockArticleRepository);
+    mockArticleRepository = MockArticleRepository();
+    usecase = GetArticleById(repository: mockArticleRepository);
   });
   
-  final Article articles = Article(id: 'article1', title: "New Article", subtitle: "new article", description: "this is new article", postedBy: "alex", publishedDate: DateTime(2022, 9, 7, 19), tag: tags.movies, imageUrl: 'imageUrl', likeCount: 2, timeEstimate: 3,);
-
+  final Article article = Article(id: 'article1', title: "New Article", subtitle: "new article", description: "this is new article", postedBy: "alex", publishedDate: DateTime(2022, 9, 7, 19), tag: tags.movies, imageUrl: 'imageUrl', likeCount: 2, timeEstimate: 3,);
+  const String id = "article1";
   test ('should get single article detail', ()async {
-    final mockArticleRepository = MockArticleRepository();
-    final usecase = GetArticleById(repository: mockArticleRepository);
-    when(mockArticleRepository.getArticleById('article1')).thenAnswer((_) async => Right(articles));
+    when(mockArticleRepository.getArticleById(id)).thenAnswer((_) async => Right(article));
 
-    final result = await usecase(const Params(id: 'article1'));
+    final result = await usecase(const Params(id: id));
 
-    expect(result, Right(articles));
-    verify(mockArticleRepository.getArticleById('article1'));
+    expect(result, Right(article));
+    verify(mockArticleRepository.getArticleById(id));
     verifyNoMoreInteractions(mockArticleRepository);
   });
 }

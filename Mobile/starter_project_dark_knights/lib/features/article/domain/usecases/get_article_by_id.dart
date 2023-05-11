@@ -11,7 +11,6 @@ class GetArticleById {
   final ArticleRepository repository;
   GetArticleById({required this.repository});
 
-  @override
   Future<Either<Failure, Article>> call(Params params) async {
     return await repository.getArticleById(params.id);
   }

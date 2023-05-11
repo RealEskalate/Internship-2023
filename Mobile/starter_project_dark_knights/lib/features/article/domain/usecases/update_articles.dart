@@ -20,5 +20,5 @@ class Params extends Equatable{
   const Params({required this.id, required this.article});
 
   @override
-  List<Object> get props => [article];
+  List<Object> get props => [id, article];
 }

@@ -14,19 +14,17 @@ enum tags {
   news, sports, movies
 }
 void main(){
-
+  late GetArticles usecase;
+  late MockArticleRepository mockArticleRepository;
   setUp(() {
-    final mockArticleRepository = MockArticleRepository();
-    final usecase = GetArticles(repository: mockArticleRepository);
+    mockArticleRepository = MockArticleRepository();
+    usecase = GetArticles(repository: mockArticleRepository);
   });
   
   final List<Article> articles = [Article(id: 'article1', title: "New Article", subtitle: "new article", description: "this is new article", postedBy: "alex", publishedDate: DateTime(2022, 9, 7, 19), tag: tags.movies, imageUrl: 'imageUrl', likeCount: 2, timeEstimate: 3,)];
 
   test ('should get list of articles', ()async {
-    final mockArticleRepository = MockArticleRepository();
-    final usecase = GetArticles(repository: mockArticleRepository);
     when(mockArticleRepository.getArticles()).thenAnswer((_) async => Right(articles));
-
     final result = await usecase(NoParams());
 
     expect(result, Right(articles));

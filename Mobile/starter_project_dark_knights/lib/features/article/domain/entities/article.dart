@@ -25,7 +25,6 @@ class Article extends Equatable {
     required this.timeEstimate,
   }) : super();
 
-  @override
-  // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
+    @override
+    List<Object> get props => [id, title, subtitle];
 }
