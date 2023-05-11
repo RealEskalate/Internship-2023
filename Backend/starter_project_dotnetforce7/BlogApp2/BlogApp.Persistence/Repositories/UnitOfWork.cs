@@ -17,10 +17,13 @@ namespace BlogApp.Persistence.Repositories
         private ITagRepository _tagRepository;
 
         private IBlogRepository _BlogRepository;
+        private IReviewRepository _ReviewRepository;
 
 
 
 
+        private IReviewRepository _reviewRepository;
+        private ICommentRepository _commentRepository;
         public UnitOfWork(BlogAppDbContext context)
         {
             _context = context;
@@ -63,6 +66,26 @@ namespace BlogApp.Persistence.Repositories
                 if (_tagRepository == null)
                     _tagRepository = new TagRepository(_context);
                 return _tagRepository;
+            }
+        }
+
+
+        public IReviewRepository ReviewRepository {
+            get
+            {
+                if (_reviewRepository == null)
+                    _reviewRepository = new ReviewRepository(_context);
+                return _reviewRepository;
+            }
+        }
+        
+        public ICommentRepository CommentRepository
+        {
+            get
+            {
+                if (_commentRepository == null)
+                    _commentRepository = new CommentRepository(_context);
+                return _commentRepository;
             }
         }
 
