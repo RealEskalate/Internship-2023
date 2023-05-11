@@ -1,5 +1,4 @@
-﻿using BlogApp.Application.Features.Common;
-using BlogApp.Application.Features.Reviews.DTOs;
+﻿using BlogApp.Application.Features.Reviews.DTOs;
 using BlogApp.Application.Responses;
 using MediatR;
 

@@ -1,5 +1,6 @@
 ﻿using BlogApp.Application.Features.Reviews.DTOs;
 using BlogApp.Application.Responses;
+using BlogApp.Domain;
 using MediatR;
 
 namespace BlogApp.Application.Features.Reviews.CQRS.Queries;
