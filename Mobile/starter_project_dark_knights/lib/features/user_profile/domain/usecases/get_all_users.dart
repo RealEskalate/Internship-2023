@@ -9,7 +9,7 @@ class GetAllUsers implements UseCase<List<UserEntity>, NoParams> {
 
   GetAllUsers(this.userRepository);
   @override
-  Future<Either<Failure, List<UserEntity>>> call(NoParams params) async {
+  Future<Either<Failure, List<UserEntity>>> call(NoParams noParams) async {
     return await userRepository.getAllUsers();
   }
 }

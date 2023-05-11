@@ -10,7 +10,7 @@ class EditUserProfile implements UseCase<UserEntity, UserEntity> {
   EditUserProfile(this.userRepository);
 
   @override
-  Future<Either<Failure, UserEntity>> call(UserEntity params) async {
-    return await userRepository.editUserProfile(params);
+  Future<Either<Failure, UserEntity>> call(UserEntity userEntity) async {
+    return await userRepository.editUserProfile(userEntity);
   }
 }

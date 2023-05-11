@@ -9,7 +9,7 @@ class GetNumberOfFollowers implements UseCase<int, String> {
   GetNumberOfFollowers(this.userRepository);
 
   @override
-  Future<Either<Failure, int>> call(String id) async {
-    return await userRepository.getNumberOfFollowers(id);
+  Future<Either<Failure, int>> call(String userId) async {
+    return await userRepository.getNumberOfFollowers(userId);
   }
 }
