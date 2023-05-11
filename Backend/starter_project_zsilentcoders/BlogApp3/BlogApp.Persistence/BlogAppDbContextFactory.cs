@@ -15,7 +15,7 @@ namespace BlogApp.Persistence
         public BlogAppDbContext CreateDbContext(string[] args)
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
-                 .SetBasePath(Directory.GetCurrentDirectory() + "../../BlogApp3")
+                 .SetBasePath(Path.Combine( Directory.GetCurrentDirectory() , "../BlogApp.API"))
                  .AddJsonFile("appsettings.json")
                  .Build();
 

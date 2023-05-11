@@ -9,6 +9,7 @@ namespace BlogApp.Application.Contracts.Persistence
     public interface IUnitOfWork : IDisposable
     {
         I_IndexRepository _IndexRepository { get; }
+        ITagRepository TagRepository {get;}
 
         IBlogRepository BlogRepository { get; }
         Task <int> Save();
