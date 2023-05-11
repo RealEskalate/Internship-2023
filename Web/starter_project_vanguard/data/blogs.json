@@ -1,7 +1,7 @@
 {
   "blogs": [
     {
-      "_id": "644b788907d74878251cfc02",
+      "id": "644b788907d74878251cfc02",
       "img": "https://picsum.photos/id/7/400/300",
       "authorName": "Segni Desta",
       "profession": "Software Engineering",
@@ -21,7 +21,7 @@
       ]
     },
     {
-      "_id": "644b7889dfd484f5f7ff7f5a",
+      "id": "644b7889dfd484f5f7ff7f5a",
       "img": "https://picsum.photos/id/151/400/300",
       "authorName": "Jebessa Dejene",
       "profession": "Software Engineering",
@@ -41,7 +41,7 @@
       ]
     },
     {
-      "_id": "644b7889d36afedee06305da",
+      "id": "644b7889d36afedee06305da",
       "img": "https://picsum.photos/id/55/400/300",
       "authorName": "Zelalem Desta",
       "profession": "Electrical Engineering",
@@ -61,7 +61,7 @@
       ]
     },
     {
-      "_id": "644b78892e53af63603c1d45",
+      "id": "644b78892e53af63603c1d45",
       "img": "https://picsum.photos/id/8/400/300",
       "authorName": "Rediet Tsegaye",
       "profession": "Electrical Engineering",
@@ -81,7 +81,7 @@
       ]
     },
     {
-      "_id": "644b788939c42d6b607b8e77",
+      "id": "644b788939c42d6b607b8e77",
       "img": "https://picsum.photos/id/10/400/300",
       "authorName": "Tseganesh Yifru",
       "profession": "Electrical Engineering",
@@ -101,7 +101,7 @@
       ]
     },
     {
-      "_id": "644b788912b304ac56f87bcc",
+      "id": "644b788912b304ac56f87bcc",
       "img": "https://picsum.photos/id/188/400/300",
       "authorName": "Rediet Tsegaye",
       "profession": "Machine Learning",
@@ -121,7 +121,7 @@
       ]
     },
     {
-      "_id": "644b78898d49dca0892a1f9e",
+      "id": "644b78898d49dca0892a1f9e",
       "img": "https://picsum.photos/id/22/400/300",
       "authorName": "Tseganesh Yifru",
       "profession": "Electrical Engineering",
@@ -141,7 +141,7 @@
       ]
     },
     {
-      "_id": "644b788965e1bd36ae28e8a2",
+      "id": "644b788965e1bd36ae28e8a2",
       "img": "https://picsum.photos/id/35/400/300",
       "authorName": "Yared Tsegaye",
       "profession": "Machine Learning",
@@ -161,7 +161,7 @@
       ]
     },
     {
-      "_id": "644b78891ebb9d34237b9281",
+      "id": "644b78891ebb9d34237b9281",
       "img": "https://picsum.photos/id/46/400/300",
       "authorName": "Jebessa Dejene",
       "profession": "Software Engineering",
@@ -181,7 +181,7 @@
       ]
     },
     {
-      "_id": "644b7889dbd7e1b45fe064af",
+      "id": "644b7889dbd7e1b45fe064af",
       "img": "https://picsum.photos/id/37/400/300",
       "authorName": "Tseganesh Yifru",
       "profession": "Machine Learning",
@@ -201,7 +201,7 @@
       ]
     },
     {
-      "_id": "644b788991e991e9a1590b6b",
+      "id": "644b788991e991e9a1590b6b",
       "img": "https://picsum.photos/id/41/400/300",
       "authorName": "Jebessa Dejene",
       "profession": "Electrical Engineering",
@@ -221,7 +221,7 @@
       ]
     },
     {
-      "_id": "644b788940c4bc9979c87ba1",
+      "id": "644b788940c4bc9979c87ba1",
       "img": "https://picsum.photos/id/25/400/300",
       "authorName": "Tseganesh Yifru",
       "profession": "Software Engineering",
@@ -241,7 +241,7 @@
       ]
     },
     {
-      "_id": "644b78894decbed545462cee",
+      "id": "644b78894decbed545462cee",
       "img": "https://picsum.photos/id/73/400/300",
       "authorName": "Jebessa Dejene",
       "profession": "Machine Learning",
@@ -261,7 +261,7 @@
       ]
     },
     {
-      "_id": "644b7889464814b4c3378a7c",
+      "id": "644b7889464814b4c3378a7c",
       "img": "https://picsum.photos/id/11/400/300",
       "authorName": "Rediet Tsegaye",
       "profession": "Electrical Engineering",
@@ -281,7 +281,7 @@
       ]
     },
     {
-      "_id": "644b7889a94d66d6e1ef3af9",
+      "id": "644b7889a94d66d6e1ef3af9",
       "img": "https://picsum.photos/id/145/400/300",
       "authorName": "Tseganesh Yifru",
       "profession": "Cyber security",
@@ -301,7 +301,7 @@
       ]
     },
     {
-      "_id": "644b78899f61206debce4e73",
+      "id": "644b78899f61206debce4e73",
       "img": "https://picsum.photos/id/123/400/300",
       "authorName": "Endale yohannes",
       "profession": "Machine Learning",
@@ -321,7 +321,7 @@
       ]
     },
     {
-      "_id": "644b7889e4ebd85876b1a160",
+      "id": "644b7889e4ebd85876b1a160",
       "img": "https://picsum.photos/id/10/400/300",
       "authorName": "Yared Tsegaye",
       "profession": "Electrical Engineering",
@@ -341,7 +341,7 @@
       ]
     },
     {
-      "_id": "644b78891f686b6c0578d99b",
+      "id": "644b78891f686b6c0578d99b",
       "img": "https://picsum.photos/id/85/400/300",
       "authorName": "Yared Tsegaye",
       "profession": "Cyber security",
@@ -361,7 +361,7 @@
       ]
     },
     {
-      "_id": "644b7889df85047b94637193",
+      "id": "644b7889df85047b94637193",
       "img": "https://picsum.photos/id/17/400/300",
       "authorName": "Endale yohannes",
       "profession": "Cyber security",
@@ -381,7 +381,7 @@
       ]
     },
     {
-      "_id": "644b7889493e1cf42123a1ce",
+      "id": "644b7889493e1cf42123a1ce",
       "img": "https://picsum.photos/id/75/400/300",
       "authorName": "Endale yohannes",
       "profession": "Software Engineering",
@@ -401,7 +401,7 @@
       ]
     },
     {
-      "_id": "644b7889b334ea284054f458",
+      "id": "644b7889b334ea284054f458",
       "img": "https://picsum.photos/id/15/400/300",
       "authorName": "Zelalem Desta",
       "profession": "Electrical Engineering",
@@ -421,7 +421,7 @@
       ]
     },
     {
-      "_id": "644b7889b1ec7acf0c27d9bb",
+      "id": "644b7889b1ec7acf0c27d9bb",
       "img": "https://picsum.photos/id/3/400/300",
       "authorName": "Tseganesh Yifru",
       "profession": "Electrical Engineering",
@@ -441,7 +441,7 @@
       ]
     },
     {
-      "_id": "644b78892e8b0bc62984e5ee",
+      "id": "644b78892e8b0bc62984e5ee",
       "img": "https://picsum.photos/id/198/400/300",
       "authorName": "Rediet Tsegaye",
       "profession": "Cyber security",
@@ -461,7 +461,7 @@
       ]
     },
     {
-      "_id": "644b78896626eef36be541b1",
+      "id": "644b78896626eef36be541b1",
       "img": "https://picsum.photos/id/40/400/300",
       "authorName": "Zelalem Desta",
       "profession": "Cyber security",
