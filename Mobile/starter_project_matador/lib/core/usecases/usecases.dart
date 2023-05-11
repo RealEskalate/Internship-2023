@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 import 'package:matador/core/error/failures.dart';
 
 abstract class UseCase<Type, Params> {
-  Future<Either<Failure, Type>> call(String id);
+  Future<Either<Failure, Type>> call(Params params);
 }
 
 // This will be used by the code calling the use case whenever the use case
@@ -11,5 +11,5 @@ abstract class UseCase<Type, Params> {
 class NoParams extends Equatable {
   @override
   // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props => [];
 }
