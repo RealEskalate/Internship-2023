@@ -611,3 +611,4 @@ msbuild.wrn
 **/.vs/
 
 **/Migrations/
+**/.idea/
