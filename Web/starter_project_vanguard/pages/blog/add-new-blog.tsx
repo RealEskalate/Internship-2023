@@ -1,7 +1,9 @@
+import { useAddBlogMutation } from '@/api/blog/add-new-blog'
 import FileUpload from '@/components/blog/FileUpload'
 import TagSelection from '@/components/blog/TagSelection'
 import TextEditor from '@/components/blog/TextEditor'
-import React, { useState } from 'react'
+import router from 'next/router'
+import React, { useEffect, useState } from 'react'
 
 const AddNewBlog = () => {
   const tags = [
@@ -16,31 +18,87 @@ const AddNewBlog = () => {
   ]
 
   const [title, setTitle] = useState('')
+  const [imageSrc, setImageSrc] = useState()
   const [selectedTags, setSelectedTags] = useState<string[]>([])
   const [content, setContent] = useState('')
   const [selectedImage, setSelectedImage] = useState<File | null>(null)
 
   const handleImageUpload = (file: File) => {
     setSelectedImage(file)
-    // Perform any additional operations with the selected file
-    console.log('Uploaded file:', file)
   }
   const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value)
   }
+  useEffect(() => {
+    const getImageUrl = async () => {
+      try {
+        if (selectedImage) {
+          const formData = new FormData()
+          formData.append('file', selectedImage)
+          formData.append('upload_preset', 'blog-img')
 
-  // Function to handle form submission
-  const handleSubmit = (event: React.FormEvent) => {
+          const response = await fetch(
+            'https://api.cloudinary.com/v1_1/dfmpk2qfp/image/upload',
+            {
+              method: 'POST',
+              body: formData,
+            }
+          )
+
+          if (response.ok) {
+            const data = await response.json()
+            const imageUrl = data.url
+            setImageSrc(imageUrl)
+          } else {
+            console.error('Image upload failed:', response.statusText)
+          }
+        }
+      } catch (error) {
+        console.error('Error:', error)
+      }
+    }
+
+    getImageUrl()
+  }, [selectedImage])
+
+  const [
+    addNewBlog,
+    {
+      data: addBlogData,
+      isError: isAddBlogError,
+      isSuccess: isAddBlogSuccess,
+      error: addBlogError,
+    },
+  ] = useAddBlogMutation()
+
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
-    
-    // Perform your form submission logic here, including the selected tags
-    console.log('Selected Tags:', selectedTags)
-    console.log('Content:', content)
-    console.log('image:', selectedImage)
-    console.log('title:', title)
+    const currentDate = new Date()
+    await addNewBlog({
+      title: title,
+      img: imageSrc || '',
+      skills: selectedTags,
+      description: content,
+      authorName: 'Segni Desta',
+      id: '122222',
+      profession: 'Software Engineering',
+      authorUserName: 'segni',
+      authorPhoto: 'https://picsum.photos/id/165/200',
+      isPending: true,
+      company: 'BIOTICA',
+      descriptionTitle:
+        'Network traffic passes through the front-end can seem hard at first glance. And you may not be familiar with advanced algorithms, but there are simple steps you can follow to see outstanding results in a short period of time.',
+      likes: 1722,
+      time: currentDate.getTime(),
+      date: 'Dec 13,2014',
+    })
   }
+  useEffect(() => {
+    if (isAddBlogSuccess) {
+      router.push('/blog')
+    }
+  }, [isAddBlogSuccess])
 
-  // Callback function to update selected tags
   const handleTagSelection = (tags: string[]) => {
     setSelectedTags(tags)
   }
