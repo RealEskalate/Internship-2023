@@ -8,7 +8,7 @@ import { Blog } from '../../types/blog/blog'
 
 
 
-function Blogs() {
+const Blogs: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1)
   const [currentBlogs, setBlogs] = useState(blogs)
 
@@ -29,9 +29,9 @@ function Blogs() {
 
       <div>
         <ul>
-          {currentBlogs.map((item: Blog) => (
-            <li key={item._id} className="text-2xl font-bold">
-              <BlogsCard blog={item} />
+          {currentBlogs.map((blog: Blog) => (
+            <li key={blog._id} className="text-2xl font-bold">
+              <BlogsCard blog={blog} />
             </li>
           ))}
           <div className="mt-16">
