@@ -37,6 +37,8 @@ dependencies:
   flutter_svg: ^2.0.5
   equatable: ^2.0.5
   dartz: ^0.10.1
+  mockito: ^5.4.0
+  build_runner: ^2.3.3
 
 dev_dependencies:
   flutter_test:

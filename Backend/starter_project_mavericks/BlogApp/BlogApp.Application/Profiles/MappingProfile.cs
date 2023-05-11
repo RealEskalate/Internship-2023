@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BlogApp.Application.Features.Reviews.DTOs;
 
 namespace BlogApp.Application.Profiles
 {
@@ -42,6 +43,14 @@ namespace BlogApp.Application.Profiles
             CreateMap<Blog, UpdateBlogDTO>().ReverseMap();
 
             #endregion blog
+
+            #region review Mappings
+
+            CreateMap<Review, CreateReviewDto>().ReverseMap();
+            CreateMap<Review, ReviewDto>().ReverseMap();
+            CreateMap<Review, UpdateReviewDto>().ReverseMap();
+
+            #endregion
         }
     }
 }

@@ -23,18 +23,16 @@ namespace BlogApp.Persistence.Repositories
             return entity;
         }
 
-        public async Task Delete(T entity)
-        {
-            _dbContext.Set<T>().Remove(entity);
-        }
+        
 
-        public async Task<bool> Exists(int id)
-        {
-            var entity = await Get(id);
-            return entity != null;
-        }
+        
+         public async Task<bool> Exists(int id)
+    {
+        return (await _dbContext.Set<T>().FindAsync(id)) != null;
+       
+    }
 
-        public async Task<T> Get(int id)
+        public async Task<T?> Get(int id)
         {
             return await _dbContext.Set<T>().FindAsync(id);
         }
@@ -49,6 +47,11 @@ namespace BlogApp.Persistence.Repositories
             _dbContext.Entry(entity).State = EntityState.Modified;
         }
 
+        public async Task Delete(T entity)
+        {
+            _dbContext.Set<T>().Remove(entity);
+        await _dbContext.SaveChangesAsync();
+        }
 
     }
 }

@@ -12,6 +12,7 @@ namespace BlogApp.Application.Contracts.Persistence
         I_IndexRepository _IndexRepository { get; }
         ICommentRepository CommentRepository {get;}
         IBlogRepository BlogRepository { get; }
+        IReviewRepository ReviewRepository { get; }
 
         Task<int> Save();
         

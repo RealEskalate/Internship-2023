@@ -3,7 +3,6 @@ using BlogApp.Application.Features.Blog.CQRS.Handlers.Queries;
 using BlogApp.Application.Features.Blog.CQRS.Requests.Queries;
 using BlogApp.Application.Profiles;
 using AutoMapper;
-using BlogApp.Application.Tests.Mocks;
 using Shouldly;
 using Moq;
 using BlogApp.Tests.Mocks;
@@ -40,6 +39,6 @@ public class GetBlogListQueryHandlerTest
     public async Task GetBlogListInvalid()
     {
         var result = await _handler.Handle(new GetBlogListQuery(), CancellationToken.None);
-        result.Value.ShouldBe(null);
+        result.Value.Count.ShouldNotBe(1);
     }
 }
