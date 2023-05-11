@@ -9,9 +9,7 @@ import 'package:mockito/mockito.dart';
 
 import 'get_articles_test.mocks.dart';
 
-enum tags {
-  Art, Music, 
-}
+
 @GenerateMocks([ArticleRepository])
 void main(){
   late PostArticle usecase;
@@ -29,7 +27,7 @@ void main(){
     description: "description 2", 
     postedBy: "x", 
     publishedDate: DateTime(2017, 5, 3, 17, 30), 
-    tag: tags.Art, 
+    tag: "Art", 
     imageUrl: "imageUrl", 
     likeCount: 2, 
     timeEstimate: 1

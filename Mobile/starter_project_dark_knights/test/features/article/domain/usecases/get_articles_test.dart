@@ -10,9 +10,7 @@ import 'package:mockito/mockito.dart';
 import 'get_articles_test.mocks.dart';
 
 @GenerateMocks([ArticleRepository])
-enum tags {
-  news, sports, movies
-}
+
 void main(){
   late GetArticles usecase;
   late MockArticleRepository mockArticleRepository;
@@ -21,7 +19,7 @@ void main(){
     usecase = GetArticles(repository: mockArticleRepository);
   });
   
-  final List<Article> articles = [Article(id: 'article1', title: "New Article", subtitle: "new article", description: "this is new article", postedBy: "alex", publishedDate: DateTime(2022, 9, 7, 19), tag: tags.movies, imageUrl: 'imageUrl', likeCount: 2, timeEstimate: 3,)];
+  final List<Article> articles = [Article(id: 'article1', title: "New Article", subtitle: "new article", description: "this is new article", postedBy: "alex", publishedDate: DateTime(2022, 9, 7, 19), tag: "movies", imageUrl: 'imageUrl', likeCount: 2, timeEstimate: 3,)];
 
   test ('should get list of articles', ()async {
     when(mockArticleRepository.getArticles()).thenAnswer((_) async => Right(articles));

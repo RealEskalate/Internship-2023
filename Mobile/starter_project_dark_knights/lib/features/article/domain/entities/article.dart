@@ -7,7 +7,7 @@ class Article extends Equatable {
   final String description;
   final String postedBy;
   final DateTime publishedDate;
-  final Enum tag;
+  final String tag;
   final String imageUrl;
   final int likeCount;
   final int timeEstimate;
