@@ -6,8 +6,9 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlogApp.Api.Controllers;
-
-public class BlogsController : BaseController
+[ApiController]
+[Route("api/[controller]")]
+public class BlogsController: BaseController
 {
     private IMediator _mediator { get; set; }
 
