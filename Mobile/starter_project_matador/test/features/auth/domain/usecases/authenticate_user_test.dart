@@ -7,7 +7,7 @@ import 'package:matador/features/login/Domain/usecases/login_use_case.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import 'authenticate_user_test.mocks.dart';
+// import 'authenticate_user_test.mocks.dart';
 
 @GenerateMocks([UserRepository])
 void main() {
