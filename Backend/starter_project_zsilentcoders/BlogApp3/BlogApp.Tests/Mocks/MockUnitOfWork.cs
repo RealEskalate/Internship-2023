@@ -17,6 +17,8 @@ namespace BlogApp.Application.Tests.Mocks
         {
             var mockUow = new Mock<IUnitOfWork>();
             var mockBlogRepo = MockBlogRepository.GetBlogRepository();
+            var mockTagRepo = MockTagRepository.GetTagRepository();
+            mockUow.Setup(r => r.TagRepository).Returns(mockTagRepo.Object);
             mockUow.Setup(r => r.BlogRepository).Returns(mockBlogRepo.Object);
             mockUow.Setup(r => r.Save()).ReturnsAsync(1);
             return mockUow;
