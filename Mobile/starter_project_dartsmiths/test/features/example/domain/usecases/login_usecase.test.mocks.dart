@@ -5,7 +5,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i4;
 
-import 'package:dartsmiths/core/errors/failures.dart' as _i5;
+import 'package:dartsmiths/core/error/failures.dart' as _i5;
 import 'package:dartsmiths/features/authentication/domain/entity/authentication_payload.dart'
     as _i6;
 import 'package:dartsmiths/features/authentication/domain/repository/login_repository.dart'
