@@ -17,3 +17,9 @@ class InputFailure extends Failure {
   final String message;
   InputFailure(this.message);
 }
+
+class CacheFailure extends Failure {
+  final String message;
+
+  CacheFailure(this.message);
+}

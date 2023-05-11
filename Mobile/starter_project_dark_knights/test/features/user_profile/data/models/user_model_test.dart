@@ -20,15 +20,14 @@ void main() {
   test("Should be a subclass of User Entity", () async {
     expect(tUserModel, isA<UserEntity>());
   });
-  test("Should return a valid model when the JSON number is an integer",
-      () async {
+  test("Should return a valid model when the JSON is valid", () async {
     final Map<String, dynamic> jsonMap = json.decode(fixture("user.json"));
 
     final result = UserModel.fromJson(jsonMap);
     expect(result, tUserModel);
   });
 
-  test('Should return a JSON map with proper data', () async {
+  test('Should return a JSON map with the proper data', () async {
     final result = tUserModel.toJson();
     final expectedMap = {
       "id": "1",
