@@ -15,11 +15,13 @@ namespace BlogApp.Persistence.Repositories
         private I_IndexRepository _indexRepository;
         private ITagRepository _tagRepository;
         private IBlogRepository _blogRepository;
+        private IReviewRepository _reviewRepository;
 
         public UnitOfWork(BlogAppDbContext context)
         {
             _context = context;
         }
+
 
         public I_IndexRepository _IndexRepository { 
             get 
@@ -47,6 +49,16 @@ namespace BlogApp.Persistence.Repositories
                 return _blogRepository;
             }
         }
+         public IReviewRepository ReviewRepository { 
+            get 
+            {
+                if (_reviewRepository == null)
+                    _reviewRepository = new ReviewRepository(_context);
+                return _reviewRepository; 
+            } 
+         }
+
+
 
         public void Dispose()
         {
