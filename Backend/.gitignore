@@ -566,8 +566,6 @@ venv.bak/
 # Cython debug symbols
 cython_debug/
 
-<<<<<<< HEAD
-
 ##############
 # From .NET Core 3.0 you can use the command: `dotnet new gitignore` to generate a customizable .gitignore file
 
@@ -609,8 +607,7 @@ msbuild.wrn
 **/net7.0/
 **/bin/
 **/.vs/
-
-<<<<<<< HEAD
+**/migrations/
 
 ##############
 # From .NET Core 3.0 you can use the command: `dotnet new gitignore` to generate a customizable .gitignore file
