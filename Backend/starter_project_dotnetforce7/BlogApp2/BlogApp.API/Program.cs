@@ -1,3 +1,4 @@
+using BlogApp.API.Middlewares;
 using BlogApp.Application;
 using BlogApp.Persistence;
 using BlogApp.Identity;
@@ -17,7 +18,6 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequiredLength = 8;
     options.Password.RequiredUniqueChars = 1;
 });
-
 // Add services to the container.
 builder.Services.ConfigureApplicationServices();
 builder.Services.ConfigurePersistenceServices(builder.Configuration);
@@ -33,18 +33,15 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCors(o =>
 {
     o.AddPolicy("CorsPolicy",
-        builder => builder.AllowAnyOrigin()
-        .AllowAnyMethod()
-        .AllowAnyHeader());
+        configurePolicy => configurePolicy.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
 });
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseDeveloperExceptionPage();
-}
+app.UseMiddleware<ErrorHandlingMiddleware>();
 
 
 app.UseCors("CorsPolicy");
@@ -55,7 +52,6 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-
 app.MapControllers();
 
 app.Run();
@@ -64,14 +60,10 @@ void AddSwaggerDoc(IServiceCollection services)
 {
     services.AddSwaggerGen(c =>
     {
-
-
         c.SwaggerDoc("v1", new OpenApiInfo
         {
             Version = "v1",
             Title = "HR Leave Management Api",
-
         });
-
     });
 }
