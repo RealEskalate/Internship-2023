@@ -11,15 +11,7 @@ class GetArticleById {
   final ArticleRepository repository;
   GetArticleById({required this.repository});
 
-  Future<Either<Failure, Article>> call(Params params) async {
-    return await repository.getArticleById(params.id);
+  Future<Either<Failure, Article>> call(String id) async {
+    return await repository.getArticleById(id);
   }
-}
-
-class Params extends Equatable{
-  final String id;
-  const Params({required this.id});
-
-  @override
-  List<Object> get props => [id];
 }

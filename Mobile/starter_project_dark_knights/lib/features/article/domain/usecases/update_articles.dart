@@ -9,16 +9,7 @@ class UpdateArticle {
   final ArticleRepository repository;
   UpdateArticle({required this.repository});
 
-  Future<Either<Failure, Article>> call(Params params) async {
-    return await repository.updateArticle(params.id, params.article);
+  Future<Either<Failure, Article>> call(String id, Article article) async {
+    return await repository.updateArticle(id, article);
   }
-}
-
-class Params extends Equatable{
-  final String id;
-  final Article article;
-  const Params({required this.id, required this.article});
-
-  @override
-  List<Object> get props => [id, article];
 }

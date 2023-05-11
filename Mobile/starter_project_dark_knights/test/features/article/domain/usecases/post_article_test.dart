@@ -36,7 +36,7 @@ void main(){
   );
   test("should get the created article", ()async{
     when(mockArticleRepository.postArticle(article)).thenAnswer((_) async => Right(article));
-    final result = await usecase(Params(article: article));
+    final result = await usecase(article);
     expect(result, Right(article));
     verify(mockArticleRepository.postArticle(article));
     verifyNoMoreInteractions(mockArticleRepository);

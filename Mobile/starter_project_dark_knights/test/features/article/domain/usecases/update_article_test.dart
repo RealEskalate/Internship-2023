@@ -25,7 +25,7 @@ void main(){
   String id = "1";
   test("should get the updated article", ()async {
     when(mockArticleRepository.updateArticle(id, article)).thenAnswer((_) async => Right(article));
-    final result = await usecase(Params(id: id, article: article));
+    final result = await usecase(id, article);
     expect(result, Right(article));
     verify(mockArticleRepository.updateArticle(id, article));
     verifyNoMoreInteractions(mockArticleRepository);

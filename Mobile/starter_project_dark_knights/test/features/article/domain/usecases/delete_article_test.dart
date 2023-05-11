@@ -26,7 +26,7 @@ void main(){
     String id = "article1";
     test("should delete article with the given id", () async{
       when(mockArticleRepository.deleteArticle(id)).thenAnswer((_) async => Right(article));
-      final result = await usecase(Params(id:id));
+      final result = await usecase(id);
       expect(result, Right(article));
       verify(mockArticleRepository.deleteArticle(id));
       verifyNoMoreInteractions(mockArticleRepository);

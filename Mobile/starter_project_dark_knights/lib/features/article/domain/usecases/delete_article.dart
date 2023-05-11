@@ -10,15 +10,7 @@ class DeleteArticle {
   final ArticleRepository repository;
   DeleteArticle({required this.repository});
 
-  Future<Either<Failure, Article>> call (Params params) async {
-    return await repository.deleteArticle(params.id);
+  Future<Either<Failure, Article>> call (String id) async {
+    return await repository.deleteArticle(id);
   }
-}
-
-class Params extends Equatable{
-  final String id;
-  const Params({required this.id});
-
-  @override
-  List<Object> get props => [id];
 }

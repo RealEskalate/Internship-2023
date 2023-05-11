@@ -26,7 +26,7 @@ void main(){
   test ('should get single article detail', ()async {
     when(mockArticleRepository.getArticleById(id)).thenAnswer((_) async => Right(article));
 
-    final result = await usecase(const Params(id: id));
+    final result = await usecase(id);
 
     expect(result, Right(article));
     verify(mockArticleRepository.getArticleById(id));

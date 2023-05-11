@@ -29,7 +29,7 @@ void main(){
   test('should get list of articles by the given user id', () async {
     when(mockArticleRepository.getArticlesByUserId("x")).thenAnswer((_) async =>  Right(articles));
 
-    final result = await usecase(const Params(userId: userId));
+    final result = await usecase(userId);
     expect(result, Right(articles));
     verify(mockArticleRepository.getArticlesByUserId(userId));
     verifyNoMoreInteractions(mockArticleRepository);
