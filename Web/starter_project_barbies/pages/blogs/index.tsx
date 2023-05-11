@@ -1,11 +1,20 @@
 import { BlogsList } from "@/components/blog/BlogsList";
 import { Pagination } from "@/components/common/Pagination";
 import { SearchForm } from "@/components/common/SearchForm";
-import { selectAllBlogs } from "@/slices/blogs/blogsSlice";
-import { useAppSelector } from "@/store/hooks";
+import { useGetBlogsQuery } from "@/store/features/blogs-api";
 
 const Blogs = () => {
-  const blogs = useAppSelector(selectAllBlogs)
+  const result = useGetBlogsQuery()
+
+  let content
+
+  if (result.isLoading) {
+    content = <div>loading...</div>
+  } else if (result.isError) {
+    content = <div>{result.error.toString()}</div>
+  } else if (result.isSuccess) {
+    content = <BlogsList blogs={result.data} />
+  }
 
   return (
     <div className='bg-white text-primary-text font-montserrat'>
@@ -27,7 +36,7 @@ const Blogs = () => {
 
       {/* Blog list */}
       <div className="mt-10 px-56">
-        <BlogsList blogs={blogs} />
+        { content }
       </div>
 
       {/* Pagination */}
