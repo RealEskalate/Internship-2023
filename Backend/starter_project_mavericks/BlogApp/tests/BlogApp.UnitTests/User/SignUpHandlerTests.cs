@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Security.Claims;
 using BlogApp.Application.Models.Identity;
 using BlogApp.Identity.Repositories;
@@ -32,7 +33,8 @@ namespace BlogApp.Identity.UnitTests
                 cfg.CreateMap<SignupFormDto, User>();
                 cfg.CreateMap<User, SignUpResponse>();
             }).CreateMapper();
-            var configuration = new ConfigurationBuilder()
+
+             var configuration = new ConfigurationBuilder()
             .AddJsonFile("/home/bahailu/Documents/a2sv/Internship-2023/Backend/starter_project_mavericks/BlogApp/BlogApp.API/appsettings.json", optional: true, reloadOnChange: true)
             .Build();
 
@@ -65,7 +67,7 @@ namespace BlogApp.Identity.UnitTests
                 .ReturnsAsync(new User());
 
             // Act & Assert
-            await Assert.ThrowsAsync<Exception>(() => _authRepository.SignUpAsync(request));
+            await Assert.ThrowsAsync<BadRequestException>(() => _authRepository.SignUpAsync(request));
         }
 
         [Fact]
@@ -90,7 +92,7 @@ namespace BlogApp.Identity.UnitTests
                 .ReturnsAsync(new User());
 
             // Act & Assert
-            await Assert.ThrowsAsync<Exception>(() => _authRepository.SignUpAsync(request));
+            await Assert.ThrowsAsync<BadRequestException>(() => _authRepository.SignUpAsync(request));
         }
 
         [Fact]

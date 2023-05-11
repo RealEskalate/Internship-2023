@@ -27,8 +27,8 @@ namespace BlogApp.Identity.UnitTests
         {
             var services = new ServiceCollection();
             var configuration = new ConfigurationBuilder()
-                .AddJsonFile("/home/bahailu/Documents/a2sv/Internship-2023/Backend/starter_project_mavericks/BlogApp/BlogApp.API/appsettings.json", optional: true, reloadOnChange: true)
-                .Build();
+            .AddJsonFile("/home/bahailu/Documents/a2sv/Internship-2023/Backend/starter_project_mavericks/BlogApp/BlogApp.API/appsettings.json", optional: true, reloadOnChange: true)
+            .Build();
 
             services.AddDbContext<UserIdentityDbContext>(options =>
             {
