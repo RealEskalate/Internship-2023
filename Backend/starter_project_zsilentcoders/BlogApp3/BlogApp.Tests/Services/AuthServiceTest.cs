@@ -36,7 +36,12 @@ public class AuthServiceTests
             DurationInMinutes = 60
         });
 
-        _authService = new AuthService(_userManagerMock.Object, _signInManagerMock.Object, jwtOptions, _emailSenderMock.Object);
+        var serverOptions = Options.Create(new ServerSettings()
+        {
+            BaseApiUrl = "test"
+        });
+
+        _authService = new AuthService(_userManagerMock.Object, _signInManagerMock.Object, jwtOptions, serverOptions, _emailSenderMock.Object);
     }
 
     #region  Login tests
@@ -191,6 +196,88 @@ public class AuthServiceTests
         Assert.Equal(result.Success, true);
         Assert.NotNull(result.Value);
 
+    }
+
+    #endregion
+
+
+    #region ResendConfirmEmailToken tests
+    [Fact]
+    public async Task sendConfirmEmailLink_ShouldReturnTrue_WhenUserFoundAndHasNotConfirmedEmail()
+    {
+        // Arrange
+        var email = "user@example.com";
+        var user = new BlogUser 
+        { 
+            Email = email, 
+            UserName = email,
+            EmailConfirmed = false
+        };
+        var expectedToken = "TOKEN123";
+
+        var emailResult = new Result<Email>()
+        {
+            Success = true
+        };
+
+        _userManagerMock.Setup(u => u.FindByEmailAsync(email))
+            .ReturnsAsync(user);
+        _userManagerMock.Setup(u => u.GeneratePasswordResetTokenAsync(user))
+            .ReturnsAsync(expectedToken);
+        _emailSenderMock.Setup(u => u.sendEmail(It.IsAny<Email>()))
+            .ReturnsAsync(emailResult);
+
+        // Act
+        var result = await _authService.sendConfirmEmailLink(email);
+
+        // Assert
+        Assert.NotNull(result);
+        Assert.Equal(result.Success, true);
+        Assert.Equal(result.Value, email);
+    }
+
+    [Fact]
+    public async Task sendConfirmEmailLink_ShouldReturnFalse_WhenUserNotFound()
+    {
+        // Arrange
+        var email = "user@example.com";
+
+        _userManagerMock.Setup(u => u.FindByEmailAsync(email))
+            .ReturnsAsync((BlogUser)null);
+
+        // Act
+        var result = await _authService.sendConfirmEmailLink(email);
+
+        // Assert
+        Assert.NotNull(result);
+        Assert.Equal(result.Success, false);
+        Assert.Equal(result.Value, null);
+        
+    }
+
+    [Fact]
+    public async Task sendConfirmEmailLink_ShouldReturnFalse_WhenEmailConfirmed()
+    {
+        // Arrange
+        var email = "user@example.com";
+        var user = new BlogUser 
+        { 
+            Email = email, 
+            UserName = email,
+            EmailConfirmed = true
+        };
+
+        _userManagerMock.Setup(u => u.FindByEmailAsync(email))
+            .ReturnsAsync(user);
+
+        // Act
+        var result = await _authService.sendConfirmEmailLink(email);
+
+        // Assert
+        Assert.NotNull(result);
+        Assert.Equal(result.Success, false);
+        Assert.Equal(result.Value, null);
+        
     }
 
     #endregion

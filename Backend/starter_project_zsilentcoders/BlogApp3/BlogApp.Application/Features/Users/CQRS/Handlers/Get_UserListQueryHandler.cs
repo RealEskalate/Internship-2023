@@ -25,7 +25,6 @@ namespace BlogApp.Application.Features.Users.CQRS.Handlers
         public async Task<List<_UserDto>> Handle(Get_UserListQuery request, CancellationToken cancellationToken)
         {
             var users = await _unitOfWork._UserRepository.GetAll();
-            Console.Write(users);
             return _mapper.Map<List<_UserDto>>(users);
         }
     }

@@ -1,6 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Web;
 using BlogApp.Application.Contracts.Identity;
 using BlogApp.Application.Models.Identity;
 using BlogApp.Application.Models.Mail;
@@ -16,16 +17,19 @@ public class AuthService: IAuthService
 {
     private readonly UserManager<BlogUser> _userManager;
     private readonly SignInManager<BlogUser> _signInManager;
+    private readonly ServerSettings _serverSettings;
     private readonly IEmailSender _emailSender;
     private readonly JwtSettings _jwtSettings;
 
     public AuthService(UserManager<BlogUser> userManager,
                        SignInManager<BlogUser> signInManager,
                        IOptions<JwtSettings> jwtSettings,
+                       IOptions<ServerSettings> serverSettings,
                        IEmailSender emailSender)
     {
         _userManager = userManager;
         _signInManager = signInManager;
+        _serverSettings = serverSettings.Value;
         _emailSender = emailSender;
         _jwtSettings = jwtSettings.Value;
     }
@@ -155,27 +159,68 @@ public class AuthService: IAuthService
         }
 
         var createdUser = await _userManager.FindByNameAsync(request.UserName);
-        var token = await _userManager.GenerateEmailConfirmationTokenAsync(createdUser);
-
-        string connectionLink = "todo";
-
-        var message = new Email{
-            To = request.Email,
-            Subject = "Email Confirmation",
-            Body = $"Email Confirmation link: {connectionLink}\n token: {token}"
-        };
-        
-        
         await _userManager.AddToRolesAsync(createdUser, request.Roles);
-        var emailResult = await _emailSender.sendEmail(message);
-        result.Errors.AddRange(emailResult.Errors);
+
+        var confirmResult = await sendConfirmEmailLink(createdUser.Email);
+        if (!confirmResult.Success)
+        {
+            result.Message += "\n Warning: Email not confirmed\n";
+            result.Errors.AddRange(confirmResult.Errors);
+        }
         
         result.Success = true;
         result.Value = new RegistrationResponse
         {
             UserId = createdUser.Id,
-            email = emailResult.Value
+            email = createdUser.Email
         };
+
+        return result;
+    }
+
+    public async Task<Result<string>> sendConfirmEmailLink(string Email)
+    {
+        var result = new Result<string>();
+
+        var user = await _userManager.FindByEmailAsync(Email);
+        if (user == null)
+        {
+            result.Success = false;
+            result.Errors.Add($"User with given email ({Email}) not found!");
+            result.Message = "Could not find user!";
+            return result;
+        }
+
+
+        if(user.EmailConfirmed)
+        {
+            result.Success = false;
+            result.Errors.Add($"User with given email ({Email}) has already confirmed their email!");
+            result.Message = "User has already confirmed email!";
+            return result;
+        }
+
+        var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+        string connectionLink = _serverSettings.BaseApiUrl + $"Auth/Confirm/?email={HttpUtility.UrlEncode(Email)}&token={HttpUtility.UrlEncode(token)}";
+
+        var message = new Email{
+            To = Email,
+            Subject = "Email Confirmation",
+            Body = $"Email Confirmation link: {connectionLink}\n token: {token}"
+        };
+        
+        var emailResult = await _emailSender.sendEmail(message);
+        if(!emailResult.Success)
+        {
+            result.Success = false;
+            result.Errors.AddRange(emailResult.Errors);
+            result.Message = "Could not send Email!";
+            return result;
+        }
+        
+        result.Success = true;
+        result.Value = Email;
+        result.Message = "Email Confirmation link successfully sent!";
 
         return result;
     }
@@ -199,7 +244,8 @@ public class AuthService: IAuthService
         }
         
         var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-        string resetLink = "#todo";
+        string resetLink = "# todo: A page where they reset password";
+
         var message = new Email{
             To =Email,
             Subject = "Password Reset",

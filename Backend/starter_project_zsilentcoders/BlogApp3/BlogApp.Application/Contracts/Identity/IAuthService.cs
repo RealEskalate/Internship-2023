@@ -9,6 +9,8 @@ public interface IAuthService
 
     public Task<Result<LoginResponse>> Login(LoginModel request);
 
+    public Task<Result<string>> sendConfirmEmailLink(string Email);
+
     public  Task<Result<string>> ConfirmEmail(string token, string email);
     
     public  Task<Result<string>> ForgotPassword(string Email);

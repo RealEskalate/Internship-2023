@@ -62,8 +62,16 @@ public class AuthController : BaseController
     }
 
     [HttpGet]
+    [Route("ResendConfirmLink")]
+    public async Task<ActionResult<Result<string>>> ResendConfirmEmailLink(string email)
+    {
+        var response = await _authService.sendConfirmEmailLink(email);
+        return HandleResult(response);
+    }
+
+    [HttpGet]
     [Route("Confirm")]
-    public async Task<ActionResult<Result<string>>> ConfirmEmail(string token, string email)
+    public async Task<ActionResult<Result<string>>> ConfirmEmail(string email, string token)
     {
         var response = await _authService.ConfirmEmail(token, email);
         return HandleResult(response);

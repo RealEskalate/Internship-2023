@@ -19,6 +19,7 @@ public static class IdentityServiceRegistration
                                                                   IConfiguration configuration)
     {
         services.Configure<JwtSettings>(configuration.GetSection("JwtSettings"));
+        services.Configure<ServerSettings>(configuration.GetSection("ServerSettings"));
         services.AddDbContext<BlogAppIdentityDbContext>(options =>
         options.UseNpgsql(
             configuration.GetConnectionString("BlogIdentityConnectionString"

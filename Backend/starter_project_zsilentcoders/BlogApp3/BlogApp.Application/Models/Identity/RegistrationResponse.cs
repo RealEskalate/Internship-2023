@@ -7,5 +7,5 @@ public class RegistrationResponse
 {
     public string UserId {get; set;} = "";
 
-    public Email email {get; set;}
+    public string email {get; set;}
 }
