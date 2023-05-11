@@ -20,10 +20,18 @@ public class GetCommentDetailQueryHandler : IRequestHandler<GetCommentDetailQuer
         }
         public async Task<Result<CommentDto?>> Handle(GetCommentDetailQuery request, CancellationToken cancellationToken)
         {
-            var comment = await _unitOfWork._CommentRepository.Get(request.Id);
-            var commentDto = _mapper.Map<CommentDto>(comment);
+
+            var isComment = await _unitOfWork._CommentRepository.Exists(request.Id);
+            if ( isComment){
+                var comment = await _unitOfWork._CommentRepository.Get(request.Id);
+                 var commentDto = _mapper.Map<CommentDto>(comment);
              
             return new Result<CommentDto?>() { Value = commentDto, Message = "Successful", Success = true, };
+            }
+            else{
+                return new Result<CommentDto?>() { Value = null, Message = "UnSuccessful", Success = false, };
+            }
+           
         }
 
      

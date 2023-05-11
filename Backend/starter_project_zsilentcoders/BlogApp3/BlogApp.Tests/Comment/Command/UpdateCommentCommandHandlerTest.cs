@@ -44,7 +44,7 @@ public class UpdateCommentCommandHandlerTest
             Id=1,
             Content = "This is new comment",
             
-        };
+                   };
 
         var result = await _handler.Handle(new UpdateCommentCommand() {CommentDto  = commentDto }, CancellationToken.None);
 
