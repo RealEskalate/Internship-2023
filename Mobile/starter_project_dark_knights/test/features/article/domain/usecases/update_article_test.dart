@@ -9,9 +9,7 @@ import 'package:mockito/mockito.dart';
 import 'get_articles_test.mocks.dart';
 
 
-enum tags {
-  Art, Philosophy
-}
+
 @GenerateMocks([ArticleRepository])
 void main(){
   late UpdateArticle usecase;
@@ -21,7 +19,7 @@ void main(){
     usecase = UpdateArticle(repository: mockArticleRepository);
   });
 
-  Article article = Article(id: "1", title: "Article 1", subtitle: "article", description: "description", postedBy: "x", publishedDate: DateTime(2023, 5, 10, 15, 27), tag: tags.Philosophy, imageUrl: "img/", likeCount: 2, timeEstimate: 4);
+  Article article = Article(id: "1", title: "Article 1", subtitle: "article", description: "description", postedBy: "x", publishedDate: DateTime(2023, 5, 10, 15, 27), tag: "Philosophy", imageUrl: "img/", likeCount: 2, timeEstimate: 4);
   String id = "1";
   test("should get the updated article", ()async {
     when(mockArticleRepository.updateArticle(id, article)).thenAnswer((_) async => Right(article));

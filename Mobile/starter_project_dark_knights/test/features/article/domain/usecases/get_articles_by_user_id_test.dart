@@ -10,9 +10,7 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'get_articles_test.mocks.dart';
 
-enum tags {
-  Sports, Art, Music
-}
+
 @GenerateMocks([ArticleRepository])
 void main(){
   late GetArticlesByUserId usecase;
@@ -23,8 +21,8 @@ void main(){
     usecase = GetArticlesByUserId(repository: mockArticleRepository);
   });
 
-  List<Article> articles = [Article(id: "id", title: "title", subtitle: "subtitle", description: "description", postedBy: "x", publishedDate: DateTime(2023, 5, 10, 11,24), tag: tags.Music, imageUrl: "imageUrl", likeCount: 2, timeEstimate: 6),
-                   Article(id: "id", title: "title", subtitle: "subtitle", description: "description", postedBy: "x", publishedDate: DateTime(2023, 4, 3, 6, 30,3), tag: tags.Art, imageUrl: "imageUrl", likeCount: 2, timeEstimate: 1)];
+  List<Article> articles = [Article(id: "id", title: "title", subtitle: "subtitle", description: "description", postedBy: "x", publishedDate: DateTime(2023, 5, 10, 11,24), tag: "Music", imageUrl: "imageUrl", likeCount: 2, timeEstimate: 6),
+                   Article(id: "id", title: "title", subtitle: "subtitle", description: "description", postedBy: "x", publishedDate: DateTime(2023, 4, 3, 6, 30,3), tag: "Art", imageUrl: "imageUrl", likeCount: 2, timeEstimate: 1)];
   const userId = "x";
   test('should get list of articles by the given user id', () async {
     when(mockArticleRepository.getArticlesByUserId("x")).thenAnswer((_) async =>  Right(articles));

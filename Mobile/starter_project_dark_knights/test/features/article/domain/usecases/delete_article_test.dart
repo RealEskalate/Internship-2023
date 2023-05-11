@@ -10,9 +10,7 @@ import 'package:mockito/mockito.dart';
 
 import 'get_articles_test.mocks.dart';
 
-enum tags {
-  Sports, Art, 
-}
+
 @GenerateMocks([ArticleRepository])
 void main(){
   late DeleteArticle usecase;
@@ -22,7 +20,7 @@ void main(){
     mockArticleRepository = MockArticleRepository();
     usecase = DeleteArticle(repository: mockArticleRepository);
   });
-    Article article = Article(id: 'article1', title: "Article", subtitle: "article", description: "description of article", postedBy: "user", publishedDate: DateTime(2023, 5, 10, 17, 30), tag: tags.Art, imageUrl: 'https://..', likeCount: 2, timeEstimate: 2);
+    Article article = Article(id: 'article1', title: "Article", subtitle: "article", description: "description of article", postedBy: "user", publishedDate: DateTime(2023, 5, 10, 17, 30), tag: "art", imageUrl: 'https://..', likeCount: 2, timeEstimate: 2);
     String id = "article1";
     test("should delete article with the given id", () async{
       when(mockArticleRepository.deleteArticle(id)).thenAnswer((_) async => Right(article));
