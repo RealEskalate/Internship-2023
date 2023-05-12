@@ -1,5 +1,5 @@
 import Image from "next/image"
-const AboutSection = () => {
+const AboutSection:React.FC = () => {
     return (
 
 <div >
@@ -22,7 +22,7 @@ const AboutSection = () => {
         </div>
 
         <div className = "container img3 ">
-        <Image src = "/img/about/about-section/rectangle-3.png" alt = "img3" width={800} height={212}/>      
+    <Image src = "/img/about/about-section/rectangle-3.png" alt = "img3" width={800} height={212}/>      
         </div>
     </div>
 
