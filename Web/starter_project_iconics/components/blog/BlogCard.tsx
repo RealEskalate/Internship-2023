@@ -4,7 +4,7 @@ import BlogFooter from '@/components/blog/BlogCardFooter'
 
 interface BlogCardProps {
   blog: Blog
-  isMyBlogsPage: boolean
+  pageName: 'MyBlogs' | 'RelatedBlogs'
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({
@@ -18,7 +18,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
     likes = 0,
     status = 'pending',
   },
-  isMyBlogsPage,
+  pageName,
 }) => {
   return (
     <div className="w-[400px] font-montserrat flex flex-col border border-gray-300 rounded-lg overflow-hidden shadow-md bg-white h-543 my-8 font-bold">
@@ -72,9 +72,9 @@ const BlogCard: React.FC<BlogCardProps> = ({
         <br />
         <hr className="border-gray-200" />
         <BlogFooter
-          numberOfLikes={likes == undefined ? 0 : likes}
-          blogStatus={status == undefined ? 'pending' : status}
-          myBlog={isMyBlogsPage}
+          numberOfLikes={likes}
+          blogStatus={status}
+          pageName={pageName}
         />
       </div>
     </div>
