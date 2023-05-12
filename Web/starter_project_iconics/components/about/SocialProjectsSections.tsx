@@ -1,5 +1,5 @@
 import Image from "next/image"
-const SocialProjectsSections = () => {
+const SocialProjectsSections:React.FC  = () => {
   return (
     <>
 <h1 className="social-section-title p-12 lg"> <div className="font-poppins text-6xl justify-items-center content-center"> Social <span className = "text-primary">Projects </span></div></h1>
