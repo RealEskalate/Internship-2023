@@ -1,13 +1,14 @@
 import 'package:dark_knights/features/user_profile/data/models/user_model.dart';
+import 'package:dark_knights/features/user_profile/domain/entities/user_entity.dart';
 
 abstract class UserRemoteDataSource {
   Future<List<UserModel>> getAllUsers();
 
-  Future<UserModel> createUser(UserModel user);
+  Future<UserModel> createUser(UserEntity user);
 
   Future<List<UserModel>> getFollowing(String userId);
 
-  Future<UserModel> editUserProfile(UserModel user);
+  Future<UserModel> editUserProfile(UserEntity user);
 
   Future<int> getNumberOfFollowers(String userId);
 
