@@ -5,9 +5,6 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-
-import '../../../../../lib/features/home/domain/repository/home_repository.dart';
-import '../../../../../lib/features/home/domain/usecase/home_usecase.dart';
 import 'home_test.mocks.dart';
 
 @GenerateMocks([HomeRepository])
