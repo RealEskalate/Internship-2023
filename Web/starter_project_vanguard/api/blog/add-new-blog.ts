@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const addNewBlogApi = createApi({
   reducerPath: 'blog/add',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3004' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/api' }),
   endpoints(builder) {
     return {
       addBlog: builder.mutation({

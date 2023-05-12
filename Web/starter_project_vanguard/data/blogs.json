@@ -15,10 +15,7 @@
       "likes": 1722,
       "time": 2,
       "date": "Dec 13,2014",
-      "skills": [
-        "DEVELOPMENT",
-        "MOBILE"
-      ]
+      "skills": ["DEVELOPMENT", "MOBILE"]
     },
     {
       "id": "644b7889dfd484f5f7ff7f5a",
@@ -35,10 +32,7 @@
       "likes": 1555,
       "time": 15,
       "date": "Jan 26,2022",
-      "skills": [
-        "BACKEND",
-        "PRODUCT"
-      ]
+      "skills": ["BACKEND", "PRODUCT"]
     },
     {
       "id": "644b7889d36afedee06305da",
@@ -55,10 +49,7 @@
       "likes": 6718,
       "time": 26,
       "date": "Jun 15,2018",
-      "skills": [
-        "PRODUCT",
-        "UI/UX"
-      ]
+      "skills": ["PRODUCT", "UI/UX"]
     },
     {
       "id": "644b78892e53af63603c1d45",
@@ -75,10 +66,7 @@
       "likes": 7342,
       "time": 3,
       "date": "Feb 13,2022",
-      "skills": [
-        "PRODUCT",
-        "DEVELOPMENT"
-      ]
+      "skills": ["PRODUCT", "DEVELOPMENT"]
     },
     {
       "id": "644b788939c42d6b607b8e77",
@@ -95,10 +83,7 @@
       "likes": 8499,
       "time": 15,
       "date": "Jan 01,2015",
-      "skills": [
-        "MOBILE",
-        "BACKEND"
-      ]
+      "skills": ["MOBILE", "BACKEND"]
     },
     {
       "id": "644b788912b304ac56f87bcc",
@@ -115,10 +100,7 @@
       "likes": 5673,
       "time": 2,
       "date": "Sep 13,2018",
-      "skills": [
-        "MOBILE",
-        "PRODUCT"
-      ]
+      "skills": ["MOBILE", "PRODUCT"]
     },
     {
       "id": "644b78898d49dca0892a1f9e",
@@ -135,10 +117,7 @@
       "likes": 1334,
       "time": 22,
       "date": "Feb 23,2018",
-      "skills": [
-        "DEVELOPMENT",
-        "UI/UX"
-      ]
+      "skills": ["DEVELOPMENT", "UI/UX"]
     },
     {
       "id": "644b788965e1bd36ae28e8a2",
@@ -155,10 +134,7 @@
       "likes": 9760,
       "time": 29,
       "date": "Sep 15,2016",
-      "skills": [
-        "MOBILE",
-        "BACKEND"
-      ]
+      "skills": ["MOBILE", "BACKEND"]
     },
     {
       "id": "644b78891ebb9d34237b9281",
@@ -175,10 +151,7 @@
       "likes": 5095,
       "time": 2,
       "date": "Apr 18,2023",
-      "skills": [
-        "DEVELOPMENT",
-        "BACKEND"
-      ]
+      "skills": ["DEVELOPMENT", "BACKEND"]
     },
     {
       "id": "644b7889dbd7e1b45fe064af",
@@ -195,10 +168,7 @@
       "likes": 7718,
       "time": 7,
       "date": "May 11,2021",
-      "skills": [
-        "PRODUCT",
-        "BACKEND"
-      ]
+      "skills": ["PRODUCT", "BACKEND"]
     },
     {
       "id": "644b788991e991e9a1590b6b",
@@ -215,10 +185,7 @@
       "likes": 9566,
       "time": 20,
       "date": "Jun 05,2015",
-      "skills": [
-        "DEVELOPMENT",
-        "PRODUCT"
-      ]
+      "skills": ["DEVELOPMENT", "PRODUCT"]
     },
     {
       "id": "644b788940c4bc9979c87ba1",
@@ -235,10 +202,7 @@
       "likes": 3263,
       "time": 15,
       "date": "Apr 10,2019",
-      "skills": [
-        "PRODUCT",
-        "PRODUCT"
-      ]
+      "skills": ["PRODUCT", "PRODUCT"]
     },
     {
       "id": "644b78894decbed545462cee",
@@ -255,10 +219,7 @@
       "likes": 1894,
       "time": 14,
       "date": "Feb 04,2016",
-      "skills": [
-        "MOBILE",
-        "DEVELOPMENT"
-      ]
+      "skills": ["MOBILE", "DEVELOPMENT"]
     },
     {
       "id": "644b7889464814b4c3378a7c",
@@ -275,10 +236,7 @@
       "likes": 5219,
       "time": 30,
       "date": "Apr 02,2014",
-      "skills": [
-        "PRODUCT",
-        "DEVELOPMENT"
-      ]
+      "skills": ["PRODUCT", "DEVELOPMENT"]
     },
     {
       "id": "644b7889a94d66d6e1ef3af9",
@@ -295,10 +253,7 @@
       "likes": 8391,
       "time": 22,
       "date": "Dec 23,2019",
-      "skills": [
-        "PRODUCT",
-        "DEVELOPMENT"
-      ]
+      "skills": ["PRODUCT", "DEVELOPMENT"]
     },
     {
       "id": "644b78899f61206debce4e73",
@@ -315,10 +270,7 @@
       "likes": 7731,
       "time": 11,
       "date": "Jul 05,2017",
-      "skills": [
-        "UI/UX",
-        "BACKEND"
-      ]
+      "skills": ["UI/UX", "BACKEND"]
     },
     {
       "id": "644b7889e4ebd85876b1a160",
@@ -335,10 +287,7 @@
       "likes": 5782,
       "time": 16,
       "date": "Sep 24,2017",
-      "skills": [
-        "UI/UX",
-        "DEVELOPMENT"
-      ]
+      "skills": ["UI/UX", "DEVELOPMENT"]
     },
     {
       "id": "644b78891f686b6c0578d99b",
@@ -355,10 +304,7 @@
       "likes": 1831,
       "time": 1,
       "date": "Dec 08,2014",
-      "skills": [
-        "BACKEND",
-        "BACKEND"
-      ]
+      "skills": ["BACKEND", "BACKEND"]
     },
     {
       "id": "644b7889df85047b94637193",
@@ -375,10 +321,7 @@
       "likes": 7623,
       "time": 16,
       "date": "Oct 12,2019",
-      "skills": [
-        "PRODUCT",
-        "DEVELOPMENT"
-      ]
+      "skills": ["PRODUCT", "DEVELOPMENT"]
     },
     {
       "id": "644b7889493e1cf42123a1ce",
@@ -395,10 +338,7 @@
       "likes": 3036,
       "time": 3,
       "date": "May 30,2019",
-      "skills": [
-        "MOBILE",
-        "MOBILE"
-      ]
+      "skills": ["MOBILE", "MOBILE"]
     },
     {
       "id": "644b7889b334ea284054f458",
@@ -415,10 +355,7 @@
       "likes": 6803,
       "time": 26,
       "date": "Jun 30,2021",
-      "skills": [
-        "DEVELOPMENT",
-        "MOBILE"
-      ]
+      "skills": ["DEVELOPMENT", "MOBILE"]
     },
     {
       "id": "644b7889b1ec7acf0c27d9bb",
@@ -435,10 +372,7 @@
       "likes": 9153,
       "time": 11,
       "date": "Sep 15,2021",
-      "skills": [
-        "BACKEND",
-        "UI/UX"
-      ]
+      "skills": ["BACKEND", "UI/UX"]
     },
     {
       "id": "644b78892e8b0bc62984e5ee",
@@ -455,10 +389,7 @@
       "likes": 2015,
       "time": 13,
       "date": "Aug 02,2021",
-      "skills": [
-        "UI/UX",
-        "UI/UX"
-      ]
+      "skills": ["UI/UX", "UI/UX"]
     },
     {
       "id": "644b78896626eef36be541b1",
@@ -475,20 +406,12 @@
       "likes": 9616,
       "time": 25,
       "date": "Jul 07,2019",
-      "skills": [
-        "MOBILE",
-        "UI/UX"
-      ]
+      "skills": ["MOBILE", "UI/UX"]
     },
     {
       "title": "The Complete 2023 Web Development Bootcamp",
       "img": "http://res.cloudinary.com/dfmpk2qfp/image/upload/v1683805363/blog-img/pwro6g2b2au1ql1kz2oc.jpg",
-      "skills": [
-        "Writing",
-        "Programming",
-        "Self Improvement",
-        "Datascience"
-      ],
+      "skills": ["Writing", "Programming", "Self Improvement", "Datascience"],
       "description": "<p><strong>Hello world</strong></p><p><strong><u>What is your</u></strong></p>",
       "authorName": "Segni Desta",
       "id": "122222",

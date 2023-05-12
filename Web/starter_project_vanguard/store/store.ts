@@ -1,15 +1,15 @@
 import { addNewBlogApi } from '@/api/blog/add-new-blog'
-import { apiSlice } from '@/features/success-story/success-story-api-slice'
 import { configureStore } from '@reduxjs/toolkit'
+import { successStoryApi } from './features/success-story/success-story-api'
 
 export const store = configureStore({
   reducer: {
-    [apiSlice.reducerPath]: apiSlice.reducer,
+    [successStoryApi.reducerPath]: successStoryApi.reducer,
     [addNewBlogApi.reducerPath]: addNewBlogApi.reducer,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware()
-      .concat(apiSlice.middleware)
+      .concat(successStoryApi.middleware)
       .concat(addNewBlogApi.middleware)
   },
 })
