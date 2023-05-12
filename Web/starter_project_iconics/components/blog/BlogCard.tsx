@@ -2,12 +2,12 @@ import React from 'react'
 import { Blog } from '@/types/blog/blog'
 import BlogFooter from '@/components/blog/BlogCardFooter'
 
-interface Props {
+interface BlogCardProps {
   blog: Blog
   isMyBlogsPage: boolean
 }
 
-const BlogCard: React.FC<Props> = ({ blog, isMyBlogsPage }) => {
+const BlogCard: React.FC<BlogCardProps> = ({ blog, isMyBlogsPage }) => {
   let { author, description, datePosted, title, tags, imgUrl, likes, status } =
     blog
   if (likes == undefined) likes = 0
