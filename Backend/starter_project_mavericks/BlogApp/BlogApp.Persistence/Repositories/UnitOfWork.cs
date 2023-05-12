@@ -16,6 +16,7 @@ namespace BlogApp.Persistence.Repositories
         private IRatingRepository _ratingRepository;
         private IBlogRepository _blogRepository;
         private IReviewRepository _reviewRepository;
+        private ITagRepository _tagRepository;
 
         public UnitOfWork(BlogAppDbContext context)
         {
@@ -46,6 +47,16 @@ namespace BlogApp.Persistence.Repositories
                 if(_blogRepository == null)
                     _blogRepository = new BlogRepository(_context);
                 return _blogRepository;
+            }
+        }
+        public ITagRepository TagRepository
+
+        {
+            get
+            {
+                if (_tagRepository == null)
+                    _tagRepository = new TagRepository(_context);
+                return _tagRepository;
             }
         }
 
