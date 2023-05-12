@@ -1,15 +1,18 @@
-class Authentication {
+import '../../domain/entities/authentication_entitiy.dart';
+
+class AuthenticationModel extends Authentication {
   String id;
   String userName;
   String password;
 
-  Authentication(
-      {required this.id, required this.userName, required this.password});
+  AuthenticationModel(
+      {required this.id, required this.userName, required this.password})
+      : super(password: '123', userName: 'USER');
 
-  factory Authentication.fromJson(Map<String, dynamic> json) {
-    return Authentication(
+  factory AuthenticationModel.fromJson(Map<String, dynamic> json) {
+    return AuthenticationModel(
       id: json['id'],
-      userName: json['UserName'],
+      userName: json['userName'],
       password: json['password'],
     );
   }
@@ -17,7 +20,7 @@ class Authentication {
   Map<String, dynamic> toJson() {
     return {
       'id': id,
-      'UserName': userName,
+      'userName': userName,
       'password': password,
     };
   }
