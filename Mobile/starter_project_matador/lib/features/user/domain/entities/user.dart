@@ -7,8 +7,8 @@ class User extends Equatable {
   final String fullName;
   final String? expertise;
   final String? aboutMe;
-  final int followers;
-  final int following;
+  final int followersCount;
+  final int followingCount;
   final String? profilePicture;
 
   const User(
@@ -18,8 +18,8 @@ class User extends Equatable {
         required this.fullName,
         this.expertise,
         this.aboutMe,
-        this.followers = 0,
-        this.following = 0,
+        this.followersCount = 0,
+        this.followingCount = 0,
         this.profilePicture})
       : super();
 
@@ -30,8 +30,8 @@ class User extends Equatable {
     email,
     fullName,
     expertise,
-    followers,
-    following,
+    followersCount,
+    followingCount,
     profilePicture
   ];
 }
