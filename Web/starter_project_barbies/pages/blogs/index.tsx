@@ -5,13 +5,13 @@ import { SearchForm } from "@/components/common/SearchForm";
 import { useGetBlogsQuery } from "@/store/blog/blogs-api";
 
 const Blogs = () => {
-  const result = useGetBlogsQuery()
+  const blogsResult = useGetBlogsQuery()
   
-  if (result.isError) {
-    return <div>Error: {result.error.toString()}</div>
+  if (blogsResult.isError) {
+    return <div>Error: {blogsResult.error.toString()}</div>
   }
   
-  if (result.isSuccess || result.isLoading) {
+  if (blogsResult.isSuccess || blogsResult.isLoading) {
     return (
       <div className='bg-white text-primary-text font-montserrat'>
 
@@ -34,9 +34,11 @@ const Blogs = () => {
         <div className="mt-10 px-56">
           <div className='bg-white text-primary-text'>
             {/* Render Shimmer component if loading */}
-            { result.isLoading && Array.from({ length: 3 }).map((_, index) => ( <BlogCardWideShimmer key={index} /> )) }
-            {/* Render result list if success */}
-            { result.isSuccess && result.data.map((blog, index) => <BlogCardWide blog={blog} key={index} />) }
+            { blogsResult.isLoading &&
+                Array.from({ length: 3 }).map((_, index) => ( <BlogCardWideShimmer key={index} /> )) }
+            {/* Render blogsResult list if success */}
+            { blogsResult.isSuccess &&
+                blogsResult.data.map((blog, index) => <BlogCardWide blog={blog} key={index} />) }
           </div>
         </div>
 

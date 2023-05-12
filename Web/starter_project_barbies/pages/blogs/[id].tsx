@@ -10,18 +10,18 @@ const BlogDetail = () => {
   const router = useRouter()
   const blogID = router.query.id as string
 
-  const result = useGetBlogByIDQuery(blogID)
+  const blogDetailResult = useGetBlogByIDQuery(blogID)
 
-  if (result.isLoading) {
+  if (blogDetailResult.isLoading) {
     return <div> <LoadingSpinner /> </div>
   }
   
-  if (result.isError) {
-    return <div>{result.error.toString()}</div>
+  if (blogDetailResult.isError) {
+    return <div>{blogDetailResult.error.toString()}</div>
   }
   
-  if (result.isSuccess) {
-    const { title, tags, readTime, blogImage, content, author, relatedBlogs } = result.data
+  if (blogDetailResult.isSuccess) {
+    const { title, tags, readTime, blogImage, content, author, relatedBlogs } = blogDetailResult.data
 
     return (
       <div className='bg-white text-black'>
