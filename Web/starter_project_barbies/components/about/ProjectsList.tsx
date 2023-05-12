@@ -1,4 +1,4 @@
-import { useGetProjectsQuery } from '@/store/features/about/about-api'
+import { useGetProjectsQuery } from '@/store/about/about-api'
 import { Project } from '@/types/about'
 import Image from 'next/image'
 import { IconContext } from 'react-icons'

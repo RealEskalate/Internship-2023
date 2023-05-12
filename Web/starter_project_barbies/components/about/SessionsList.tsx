@@ -1,4 +1,4 @@
-import { useGetSessionsQuery } from '@/store/features/about/about-api'
+import { useGetSessionsQuery } from '@/store/about/about-api'
 import { Session } from '@/types/about'
 import Image from 'next/image'
 
