@@ -8,13 +8,13 @@ import { MdOutlineModeComment } from 'react-icons/md'
 interface BlogFooterProps {
   numberOfLikes: number
   blogStatus: 'approved' | 'pending' | 'declined'
-  myBlog: boolean
+  pageName: 'MyBlogs' | 'RelatedBlogs'
 }
 
 const BlogFooter: React.FC<BlogFooterProps> = ({
   numberOfLikes,
   blogStatus,
-  myBlog,
+  pageName,
 }) => {
   const statusIcon = {
     approved: <AiFillCheckCircle size={18} />,
@@ -31,7 +31,7 @@ const BlogFooter: React.FC<BlogFooterProps> = ({
     <div>
       <div className="card_footer flex justify-between items-center">
         {(() => {
-          if (!myBlog) {
+          if (pageName == 'MyBlogs') {
             let val: string = ''
             for (const [value, abbreviation] of abbreviations) {
               if (numberOfLikes >= value) {
