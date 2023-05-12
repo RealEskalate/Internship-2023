@@ -11,7 +11,7 @@ class GetBytag extends UseCase<Home, Params> {
 
   @override
   Future<Either<Failure, Home>> call(Params params) async {
-    return await homeRepository.filterByTag(params.tag);
+    return await homeRepository.filterByTag(params.tag!);
   }
 }
 
@@ -21,12 +21,12 @@ class Search extends UseCase<Home, Params> {
   Search({required this.homeRepository});
   @override
   Future<Either<Failure, Home>> call(Params params) async {
-    return await homeRepository.search(params.term, params.tag);
+    return await homeRepository.search(params.term!, params.tag!);
   }
 }
 
 class Params {
-  String term;
-  String tag;
-  Params({required this.tag, required this.term});
+  String? term;
+  String? tag;
+  Params({this.tag, this.term});
 }
