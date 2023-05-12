@@ -10,6 +10,7 @@ interface RelatedBlogsProps {
 export const RelatedBlogs: React.FC<RelatedBlogsProps> = ({ relatedBlogs }): React.ReactElement | null => {
   const relatedBlogsResult = useGetBlogsQuery();
   
+  // in case of error, the component shouldn't be rendered
   if (relatedBlogsResult.isError) {
     return null
   }
