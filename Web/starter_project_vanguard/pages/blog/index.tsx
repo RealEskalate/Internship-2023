@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react'
 import BlogsCard from '@/components/blog/BlogsCard'
-import Search from '@/components/blog/Search'
+import Search from '@/components/common/Search'
 import blogs from '../../data/blogs.json'
 import { useState } from 'react'
 import Pagination from '@/components/common/pagination'
 import { Blog } from '../../types/blog/blog'
-
-
 
 const Blogs: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1)
