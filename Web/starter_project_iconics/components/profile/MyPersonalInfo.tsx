@@ -1,12 +1,8 @@
-import { User } from '@/types/profile/user'
 import React, { useRef, useState } from 'react'
 import { AiOutlineCloudUpload } from 'react-icons/ai'
+import user from '@/data/profile/user-profile.json'
 
-type FormProps = {
-  user: User
-}
-
-const Form: React.FC<FormProps> = ({ user }) => {
+const Form: React.FC = () => {
   const [firstName, setFirstName] = useState<string>('')
   const [lastName, setLastName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
