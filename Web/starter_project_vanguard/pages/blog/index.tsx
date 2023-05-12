@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react'
 import BlogsCard from '@/components/blog/BlogsCard'
 import Search from '@/components/common/Search'
-import blogs from '../../data/blogs.json'
-import { useState } from 'react'
 import Pagination from '@/components/common/pagination'
+import React, { useEffect, useState } from 'react'
+import blogs from '../../data/blogs.json'
 import { Blog } from '../../types/blog/blog'
 
 const Blogs: React.FC = () => {
@@ -21,15 +20,15 @@ const Blogs: React.FC = () => {
 
   return (
     <div className="font-montserrat justify-center min-h-screen mb-10">
-      <div className="h-44 ">
-        <Search />
+      <div className="h-44">
+        <Search title={'Blogs'} />
       </div>
 
       <div>
         <ul>
-          {currentBlogs.map((blog: Blog) => (
-            <li key={blog._id} className="text-2xl font-bold">
-              <BlogsCard blog={blog} />
+          {currentBlogs.map((currentBlog: Blog) => (
+            <li key={currentBlog._id} className="text-2xl font-bold">
+              <BlogsCard blog={currentBlog} />
             </li>
           ))}
           <div className="mt-16">

@@ -1,11 +1,15 @@
 import React from 'react'
 
-const Search: React.FC = () => {
+interface SearchProps {
+  title: string
+}
+
+const Search: React.FC<SearchProps> = ({title}) => {
   return (
     <div className="bg-white flex pt-16 min-h-screen pl-14">
-      <div className=" flex flex-wrap justify-center h-20 ">
+      <div className="flex flex-wrap justify-center h-20">
         <div className="justify-center pr-14 w-1/4">
-          <span className="font-semibold text-4xl">Blogs</span>
+          <span className="font-semibold text-4xl">{title}</span>
         </div>
         <div className="flex pl-80 pb-5 w-2/3">
           <div>
@@ -23,7 +27,7 @@ const Search: React.FC = () => {
             <div className="w-60 ">
               <button className="btn btn-lg btn-pill flex mt-2">
                 <i>
-                  <span className="text-lg font-semibold ">+ New Blog</span>
+                  <span className="text-lg font-semibold">+ New Blog</span>
                 </i>
               </button>
             </div>
