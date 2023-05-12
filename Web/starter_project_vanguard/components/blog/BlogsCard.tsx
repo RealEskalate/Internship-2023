@@ -2,7 +2,7 @@ import 'tailwindcss/base.css'
 import Image from 'next/image'
 import { Blog } from '../../types/blog/blog'
 import Link from 'next/link'
-import { Tags } from '../common/tag'
+import { Tags } from '../common/Tag'
 
 interface BlogProps {
   blog: Blog
@@ -21,7 +21,6 @@ const BlogsCard: React.FC<BlogProps> = ({
     profession,
   },
 }) => {
-  const encodedId = encodeURIComponent(_id)
   return (
     <div className=" flex flex-wrap justify-center w-6/5 ">
       <div className="flex border-t-2  w-3/4 border-gray-300 pl-10">
@@ -74,7 +73,7 @@ const BlogsCard: React.FC<BlogProps> = ({
         </div>
 
         <div className="flex justify-center items-center w-1/4 pl-0 ">
-          <Link href={`./single-blog?id=${encodedId}`} passHref>
+          <Link href={""} passHref>
             <Image
               src={img}
               className={`object-cover rounded`}
