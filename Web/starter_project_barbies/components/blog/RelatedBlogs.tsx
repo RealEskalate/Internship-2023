@@ -26,7 +26,7 @@ export const RelatedBlogs: React.FC<RelatedBlogsProps> = ({ blogs }): React.Reac
         {/* Related blogs */}
         <div className='flex items-center gap-8 justify-center mt-6 text-xs'>
           {/* Render Shimmer component if loading */}
-          { result.isSuccess &&
+          { result.isLoading &&
               Array.from({ length: 3 }).map((_, index) => ( <BlogCardLoading key={index} /> ))}
           {/* Render result list if success */}
           { result.isSuccess && result.data
