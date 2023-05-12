@@ -10,66 +10,56 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'create_user_test.mocks.dart';
 
-
-
-
-
 @GenerateMocks([UserRepository])
-void main(){
-     late MockUserRepository mockUserRepository;
+void main() {
+  late MockUserRepository mockUserRepository;
   late GetFollower usecase;
-    setUp(() {
- mockUserRepository = MockUserRepository();
- usecase = GetFollower(mockUserRepository);
-    });
-    test(
-      'should get followers',
-      ()async{
-final  List<UserEntity> followers = [
-  UserEntity(
-    id: "1",
-    username: 'johndoe',
-    firstName: 'John',
-    lastName: 'Doe',
-    occupation: 'Software Developer',
-    selfDescription: 'I love coding and building cool stuff!',
-    password: 'password',
-    image: 'https://example.com/johndoe.jpg',
-  ),
-  UserEntity(
-    id: "2",
-    username: 'janedoe',
-    firstName: 'Jane',
-    lastName: 'Doe',
-    occupation: 'UX Designer',
-    selfDescription: 'I create beautiful and intuitive designs.',
-    password: 'password',
-    image: 'https://example.com/janedoe.jpg',
-  ),
-  UserEntity(
-    id: "3",
-    username: 'bobsmith',
-    firstName: 'Bob',
-    lastName: 'Smith',
-    occupation: 'Product Manager',
-    selfDescription: 'I love creating great products that delight customers.',
-    password: 'password',
-    image: 'https://example.com/bobsmith.jpg',
-  ),
-];
+  setUp(() {
+    mockUserRepository = MockUserRepository();
+    usecase = GetFollower(mockUserRepository);
+  });
+  test('should get followers', () async {
+    final List<UserEntity> followers = [
+      UserEntity(
+        id: "1",
+        username: 'johndoe',
+        firstName: 'John',
+        lastName: 'Doe',
+        occupation: 'Software Developer',
+        selfDescription: 'I love coding and building cool stuff!',
+        password: 'password',
+        image: 'https://example.com/johndoe.jpg',
+      ),
+      UserEntity(
+        id: "2",
+        username: 'janedoe',
+        firstName: 'Jane',
+        lastName: 'Doe',
+        occupation: 'UX Designer',
+        selfDescription: 'I create beautiful and intuitive designs.',
+        password: 'password',
+        image: 'https://example.com/janedoe.jpg',
+      ),
+      UserEntity(
+        id: "3",
+        username: 'bobsmith',
+        firstName: 'Bob',
+        lastName: 'Smith',
+        occupation: 'Product Manager',
+        selfDescription:
+            'I love creating great products that delight customers.',
+        password: 'password',
+        image: 'https://example.com/bobsmith.jpg',
+      ),
+    ];
 
-when(mockUserRepository.getFollowers("user_123")).thenAnswer((_) async => Right(followers) );
+    when(mockUserRepository.getFollowers("user_123"))
+        .thenAnswer((_) async => Right(followers));
 
-final result = await usecase("user_123");
+    final result = await usecase("user_123");
 
-expect(result,Right(followers));
-verify(mockUserRepository.getFollowers("user_123"));
-verifyNoMoreInteractions(mockUserRepository);
-      }
-    );
-    
- 
+    expect(result, Right(followers));
+    verify(mockUserRepository.getFollowers("user_123"));
+    verifyNoMoreInteractions(mockUserRepository);
+  });
 }
-
-
-

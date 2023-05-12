@@ -5,14 +5,12 @@ import 'package:dark_knights/features/user_profile/domain/repositories/user_repo
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 
-class GetUser implements UseCase<UserEntity,String> {
+class GetUser implements UseCase<UserEntity, String> {
   final UserRepository repo;
   GetUser(this.repo);
-  
-@override
+
+  @override
   Future<Either<Failure, UserEntity>> call(String id) async {
-   return await repo.getUser(id);
+    return await repo.getUser(id);
   }
 }
-  
-
