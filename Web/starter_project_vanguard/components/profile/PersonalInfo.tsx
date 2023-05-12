@@ -129,12 +129,3 @@ const PersonalInfo: React.FC = () => {
     </>
   )
 }
-
-export default PersonalInfo
-function dispatch(arg0: any) {
-  throw new Error('Function not implemented.')
-}
-
-function fetchUser(): any {
-  throw new Error('Function not implemented.')
-}
