@@ -6,7 +6,6 @@ import '../entities/authentication_entitiy.dart';
 import '../repositories/authentication_repository.dart';
 
 
-
 class LoginUseCase implements UseCase<Authentication, Authentication> {
   final AuthenticationRepository repository;
   LoginUseCase(this.repository);
