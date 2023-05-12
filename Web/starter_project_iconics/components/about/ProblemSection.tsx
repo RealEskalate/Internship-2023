@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-const ProblemSection = () => {
+const ProblemSection:React.FC = () => {
     return (
         <div className='problem-section grid grid-cols-2 p-12 font-poppins lg'>
             <div className = "col p-2.5">
