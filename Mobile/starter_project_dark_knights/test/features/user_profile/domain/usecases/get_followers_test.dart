@@ -29,28 +29,7 @@ void main() {
         selfDescription: 'I love coding and building cool stuff!',
         password: 'password',
         image: 'https://example.com/johndoe.jpg',
-      ),
-      UserEntity(
-        id: "2",
-        username: 'janedoe',
-        firstName: 'Jane',
-        lastName: 'Doe',
-        occupation: 'UX Designer',
-        selfDescription: 'I create beautiful and intuitive designs.',
-        password: 'password',
-        image: 'https://example.com/janedoe.jpg',
-      ),
-      UserEntity(
-        id: "3",
-        username: 'bobsmith',
-        firstName: 'Bob',
-        lastName: 'Smith',
-        occupation: 'Product Manager',
-        selfDescription:
-            'I love creating great products that delight customers.',
-        password: 'password',
-        image: 'https://example.com/bobsmith.jpg',
-      ),
+      )
     ];
 
     when(mockUserRepository.getFollowers("user_123"))
