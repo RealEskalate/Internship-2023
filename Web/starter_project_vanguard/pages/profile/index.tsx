@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect, useState } from 'react'
 
-import AccountSetting from '@/components/profile/AccountSetting'
-import MyBlogs from '@/components/profile/MyBlogs'
+// import AccountSetting from '@/components/profile/AccountSetting'
+// import MyBlogs from '@/components/profile/MyBlogs'
 import PersonalInfo from '@/components/profile/PersonalInfo'
 
 const Profile: React.FC = () => {
@@ -15,8 +15,8 @@ const Profile: React.FC = () => {
 
   const profiles: ReactNode[] = [
     <PersonalInfo key={0} />,
-    <MyBlogs key={1} />,
-    <AccountSetting key={2} />,
+    // <MyBlogs key={1} />,
+    // <AccountSetting key={2} />,
   ]
 
   return (
