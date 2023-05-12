@@ -1,9 +1,10 @@
 import { BlogAuthorDetail } from '@/components/blog/BlogAuthorDetail'
 import { BlogContent } from '@/components/blog/BlogContent'
 import { RelatedBlogs } from '@/components/blog/RelatedBlogs'
+import { LoadingSpinner } from '@/components/common/LoadingSpinner'
 import { useGetBlogByIDQuery } from '@/store/blog/blogs-api'
-import Image from 'next/image'
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 
 const BlogDetail = () => {
   const router = useRouter()
@@ -12,7 +13,7 @@ const BlogDetail = () => {
   const result = useGetBlogByIDQuery(blogID)
 
   if (result.isLoading) {
-    return <div>loading...</div>
+    return <div> <LoadingSpinner /> </div>
   }
   
   else if (result.isError) {
