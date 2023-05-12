@@ -45,7 +45,8 @@ void main() {
     verifyNoMoreInteractions(mockFeedRepository);
   });
 
-  test('should return Server Failure when not getting list of articles', () async {
+  test('should return Server Failure when not getting list of articles',
+      () async {
     when(mockFeedRepository.getArticles())
         .thenAnswer((_) async => Left(ServerFailure("Server Failure")));
     final result = await usecase(NoParams());
@@ -54,6 +55,4 @@ void main() {
     verify(mockFeedRepository.getArticles());
     verifyNoMoreInteractions(mockFeedRepository);
   });
-
-
 }
