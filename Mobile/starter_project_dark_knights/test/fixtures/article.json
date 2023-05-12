@@ -1,9 +1,12 @@
 {
     "id": "1",
-    "title": "First Article", 
-    "subtitle":"first subtitle", 
-    "description":"this is first article", 
-    "postedBy":"user102",
-    "publishedDate":"2023-05-11T15:30:00", 
-    "tag": "Art" 
+    "title": "Article 1",
+    "subtitle": "article 1",
+    "description": "This is article 1",
+    "postedBy": "user121",
+    "publishedDate": "2023-05-11T16:00:00",
+    "tag": "Art",
+    "imageUrl": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.simplilearn.com%2Fadvantages-and-disadvantages-of-artificial-intelligence-article&psig=AOvVaw16W5CNCoKGx4vcFhNqgLsL&ust=1683894518812000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCNjP7oii7f4CFQAAAAAdAAAAABAE",
+    "likeCount": 213,
+    "timeEstimate": 30
 }
