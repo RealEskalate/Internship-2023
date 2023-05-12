@@ -3,10 +3,13 @@ import React, { useEffect, useState } from 'react'
 import { AiOutlineCloudUpload } from 'react-icons/ai'
 import { HiOutlineMail } from 'react-icons/hi'
 
+import {LoadingPage} from '@/components/common/Loading'
 import { useFetchUserQuery, useUpdateUserMutation } from '@/pages/api/profile'
 import { User } from '@/types/profile'
 const PersonalInfo: React.FC = () => {
+  
   const { data: user, isLoading, isError } = useFetchUserQuery()
+
   const [firstName, setFirstName] = useState<string>('')
   const [lastName, setLastName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
@@ -26,7 +29,7 @@ const PersonalInfo: React.FC = () => {
   return (
     <>
       {!user ? (
-        <h1 className="text-center">Loading...</h1>
+        <LoadingPage />
       ) : (
         <div className="flex flex-col gap-5 mt-4  text-secondary-text">
           <div className="flex justify-between">
@@ -49,7 +52,7 @@ const PersonalInfo: React.FC = () => {
 
           <div className="flex py-5 gap-10 ">
             <label htmlFor="" className="pt-3 relative">
-              Name{' '}
+              Name
               <span className="text-red-500 absolute top-3 -right-3">*</span>
             </label>
             <div className="flex gap-10 ml-10 flex-wrap">
@@ -129,3 +132,4 @@ const PersonalInfo: React.FC = () => {
     </>
   )
 }
+export default PersonalInfo
