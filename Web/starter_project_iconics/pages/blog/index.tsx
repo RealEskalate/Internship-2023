@@ -1,5 +1,5 @@
 import BlogTile from '@/components/blog/BlogTile'
-import { Blog } from '@/types/blog/blog'
+import { Blog } from '@/types/blog'
 import { FaPlus } from 'react-icons/fa'
 import data from '../../data/blog/blog.json'
 

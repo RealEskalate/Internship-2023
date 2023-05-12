@@ -1,4 +1,4 @@
-import { Blog } from '@/types/blog/blog'
+import { Blog } from '@/types/blog'
 import React from 'react'
 import BlogCard from '@/components/blog/BlogCard'
 import blogs from '@/data/profile/blogs.json'

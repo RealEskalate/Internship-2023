@@ -1,5 +1,5 @@
 import React from 'react'
-import { Blog } from '@/types/blog/blog'
+import { Blog } from '@/types/blog'
 import BlogFooter from '@/components/blog/BlogCardFooter'
 
 interface BlogCardProps {
