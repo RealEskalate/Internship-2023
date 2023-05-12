@@ -2,7 +2,7 @@ import MyBlogs from '@/components/profile/MyBlogs'
 import Link from 'next/link'
 import React, { useState } from 'react'
 
-const Index: React.FC = () => {
+const ProfilePage: React.FC = () => {
   const [activeLink, setActiveLink] = useState('myBlogs')
   const bodyElement: {
     [key: string]: React.ReactNode
@@ -18,7 +18,7 @@ const Index: React.FC = () => {
           className={`text-lg font-semibold  text-third pl-0 pr-4 pt-2 pb-5 hover:text-primary ${
             activeLink === 'myInformation'
               ? 'border-b-2 border-primary text-primary'
-              : 'border-b-2 border-transparent text-third'
+              : 'border-b-2 border-transparent text-tertiary'
           }`}
           onClick={() => setActiveLink('myInformation')}
         >
@@ -29,7 +29,7 @@ const Index: React.FC = () => {
           className={`text-lg font-semibold text-third px-4 pt-2 pb-5 hover:text-primary ${
             activeLink === 'myBlogs'
               ? 'border-b-2 border-primary text-primary'
-              : 'border-b-2 border-transparent text-third'
+              : 'border-b-2 border-transparent text-tertiary'
           }`}
           onClick={() => setActiveLink('myBlogs')}
         >
@@ -40,7 +40,7 @@ const Index: React.FC = () => {
           className={`text-lg font-semibold  px-4 pt-2 pb-5 hover:text-primary ${
             activeLink === 'myAccount'
               ? 'border-b-2 border-primary text-primary'
-              : 'border-b-2 border-transparent text-third'
+              : 'border-b-2 border-transparent text-tertiary'
           }`}
           onClick={() => setActiveLink('myAccount')}
         >
@@ -56,4 +56,4 @@ const Index: React.FC = () => {
   )
 }
 
-export default Index
+export default ProfilePage
