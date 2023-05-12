@@ -2,6 +2,7 @@ using BlogApp.Application;
 using BlogApp.Identity;
 using BlogApp.Persistence;
 using BlogApp.Infrastructure;
+using BlogApp.API.Middleware;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -36,7 +37,7 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
-
+app.UseMiddleware<ExceptionMiddleware>();
 app.UseCors("CorsPolicy");
 app.UseAuthentication();
 app.UseSwagger();
