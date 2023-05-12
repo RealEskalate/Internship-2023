@@ -18,8 +18,8 @@ const SocialMediaIcon: { [index: string]: any } = {
   default: <BsEmojiSmileUpsideDown className="fill-gray-400 w-8 h-8" />,
 }
 
-const TeamMemberCard: React.FC<TeamMemberCardProps> = ({teamMember}) => {
-  const {name, job, avatar, description, socialMedia} = teamMember
+const TeamMemberCard: React.FC<TeamMemberCardProps> = ({teamMember: {name, job, avatar, description, socialMedia}}) => {
+  
   return (
     <div className="flex flex-col self-start bg-white rounded-lg p-6 m-2 items-center justify-center shadow-xl max-w-[500px]">
       <Image
