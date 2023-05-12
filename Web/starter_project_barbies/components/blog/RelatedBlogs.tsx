@@ -1,7 +1,7 @@
 import BlogCard from '@/components/blog/BlogCard';
 import { useGetBlogsQuery } from '@/store/blog/blogs-api';
 import { Blog } from '@/types/blog';
-import { BlogCardLoading } from './BlogCardShimmer';
+import { BlogCardShimmer } from './BlogCardShimmer';
 
 interface RelatedBlogsProps {
   relatedBlogs: Blog['relatedBlogs']
@@ -27,7 +27,7 @@ export const RelatedBlogs: React.FC<RelatedBlogsProps> = ({ relatedBlogs }): Rea
         <div className='flex items-center gap-8 justify-center mt-6 text-xs'>
           {/* Render Shimmer component if loading */}
           { result.isLoading &&
-              Array.from({ length: 3 }).map((_, index) => ( <BlogCardLoading key={index} /> ))}
+              Array.from({ length: 3 }).map((_, index) => ( <BlogCardShimmer key={index} /> ))}
           {/* Render result list if success */}
           { result.isSuccess && result.data
               .filter(blog => relatedBlogs.includes(blog.id))

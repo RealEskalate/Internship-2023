@@ -1,5 +1,5 @@
 import { BlogCardWide } from "@/components/blog/BlogCardWide";
-import { BlogCardWideLoading } from "@/components/blog/BlogCardWideShimmer";
+import { BlogCardWideShimmer } from "@/components/blog/BlogCardWideShimmer";
 import { Pagination } from "@/components/common/Pagination";
 import { SearchForm } from "@/components/common/SearchForm";
 import { useGetBlogsQuery } from "@/store/blog/blogs-api";
@@ -34,7 +34,7 @@ const Blogs = () => {
         <div className="mt-10 px-56">
           <div className='bg-white text-primary-text'>
             {/* Render Shimmer component if loading */}
-            { result.isLoading && Array.from({ length: 3 }).map((_, index) => ( <BlogCardWideLoading key={index} /> )) }
+            { result.isLoading && Array.from({ length: 3 }).map((_, index) => ( <BlogCardWideShimmer key={index} /> )) }
             {/* Render result list if success */}
             { result.isSuccess && result.data.map((blog, index) => <BlogCardWide blog={blog} key={index} />) }
           </div>

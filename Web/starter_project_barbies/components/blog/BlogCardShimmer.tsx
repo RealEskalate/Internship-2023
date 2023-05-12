@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const BlogCardLoading = () => {
+export const BlogCardShimmer = () => {
   return (
     <div className="w-full sm:w-72 h-full bg-white hover:bg-gray-200 m-2 rounded-lg shadow-lg overflow-hidden">
       {/* Image part */}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const BlogCardWideLoading = () => {
+export const BlogCardWideShimmer = () => {
   return (
     <div className="mb-6">
       {/* Horizontal divider */}
