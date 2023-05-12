@@ -10,7 +10,6 @@ interface BlogProps {
 
 const BlogsCard: React.FC<BlogProps> = ({
   blog: {
-    _id,
     authorPhoto,
     authorName,
     img,
@@ -23,7 +22,7 @@ const BlogsCard: React.FC<BlogProps> = ({
 }) => {
   return (
     <div className="flex flex-wrap justify-center w-6/5">
-      <div className="flex border-t-2  w-3/4 border-gray-300 pl-10">
+      <div className="flex border-t-2 w-3/4 border-gray-300 pl-10">
         <div className="items-start w-3/5 pt-4 pb-4 pr-0">
           <div className="flex items-start">
             <div className="items-start my-4 mx-0">
@@ -33,13 +32,13 @@ const BlogsCard: React.FC<BlogProps> = ({
                   alt={''}
                   width={50}
                   height={50}
-                  className={`rounded-full object-cover `}
+                  className={`rounded-full object-cover`}
                 />
               </div>
             </div>
             <div className="self-center mx-3">
               <div className="flex flex-col justify-center">
-                <span className="text-sm  text-black font-semibold block">
+                <span className="text-sm text-black font-semibold block">
                   {authorName}
                 </span>
                 <span className="text-sm text-gray-500 flex font-medium">
@@ -55,7 +54,7 @@ const BlogsCard: React.FC<BlogProps> = ({
           <div className="flex flex-wrap">
             <div>
               <div>
-                <span className="text-2xl font-bold ">{title}</span>
+                <span className="text-2xl font-bold">{title}</span>
               </div>
             </div>
             <div>

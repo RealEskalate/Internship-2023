@@ -21,7 +21,25 @@ const Blogs: React.FC = () => {
   return (
     <div className="font-montserrat justify-center min-h-screen mb-10">
       <div className="h-44">
-        <Search title={'Blogs'} />
+        <div className="bg-white flex pt-16 min-h-screen pl-14">
+          <div className="flex flex-wrap justify-center h-20">
+            <div className="justify-center pr-14 w-1/4">
+              <span className="font-semibold text-4xl">Blogs</span>
+            </div>
+            <div className="flex pl-80 pb-5 w-2/3">
+              <Search />
+              <div className="items-center justify-center mt-4 ml-8">
+                <div className="w-60 ">
+                  <button className="btn btn-lg btn-pill flex mt-2">
+                    <i>
+                      <span className="text-lg font-semibold">+ New Blog</span>
+                    </i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div>
