@@ -1,7 +1,7 @@
 import BlogCard from '@/components/blog/BlogCard';
 import { useGetBlogsQuery } from '@/store/blog/blogs-api';
 import { Blog } from '@/types/blog';
-import { BlogCardLoading } from './BlogCardLoading';
+import { BlogCardLoading } from './BlogCardShimmer';
 
 interface RelatedBlogsProps {
   blogs: Blog['relatedBlogs']

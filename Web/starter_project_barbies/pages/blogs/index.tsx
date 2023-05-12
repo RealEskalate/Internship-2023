@@ -1,5 +1,5 @@
 import { BlogCardWide } from "@/components/blog/BlogCardWide";
-import { BlogCardWideLoading } from "@/components/blog/BlogCardWideLoading";
+import { BlogCardWideLoading } from "@/components/blog/BlogCardWideShimmer";
 import { Pagination } from "@/components/common/Pagination";
 import { SearchForm } from "@/components/common/SearchForm";
 import { useGetBlogsQuery } from "@/store/blog/blogs-api";
