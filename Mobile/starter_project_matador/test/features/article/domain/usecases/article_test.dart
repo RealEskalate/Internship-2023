@@ -12,11 +12,17 @@ import 'article_test.mocks.dart';
 
 void main() {
   late GetArticle usecase;
+  late UpdateArticle usecase2;
+  late DeleteArticle usecase3;
+  late PostArticle usecase4;
   late MockArticleRepository mockArticleRepository;
 
   setUp(() {
     mockArticleRepository = MockArticleRepository();
     usecase = GetArticle(mockArticleRepository);
+    usecase2 = UpdateArticle(mockArticleRepository);
+    usecase3 = DeleteArticle(mockArticleRepository);
+    usecase4 = PostArticle(mockArticleRepository);
   });
 
   const tArticleId = "1";
@@ -44,4 +50,52 @@ void main() {
       verifyNoMoreInteractions(mockArticleRepository);
     },  
   );
-}
+
+  test(
+      'should update article in the repository',
+      () async {
+        when(mockArticleRepository.updateArticle(tArticle))
+            .thenAnswer((_) async =>  Right(tArticle));
+
+        final result = await usecase2(tArticle);
+
+        expect(result, Right(tArticle));
+
+        verify(mockArticleRepository.updateArticle(tArticle));
+
+        verifyNoMoreInteractions(mockArticleRepository);
+      },
+    );
+
+    test(
+      'should delete article from the repository',
+      () async {
+        when(mockArticleRepository.deleteArticle(tArticleId))
+            .thenAnswer((_) async => Right(tArticle));
+
+        final result = await usecase3(tArticleId);
+
+        expect(result, Right(tArticle));
+
+        verify(mockArticleRepository.deleteArticle(tArticleId));
+
+        verifyNoMoreInteractions(mockArticleRepository);
+      },
+    );
+
+    test(
+      'should post article to the repository',
+      () async {
+        when(mockArticleRepository.postArticle(tArticle))
+            .thenAnswer((_) async => Right(tArticle));
+
+        final result = await usecase4(tArticle);
+
+        expect(result, Right(tArticle));
+
+        verify(mockArticleRepository.postArticle(tArticle));
+
+        verifyNoMoreInteractions(mockArticleRepository);
+      },
+    );
+  }
