@@ -36,8 +36,8 @@ const BuildBetter: React.FC  = () => {
         <div className="w-10/12 mt-14 aspect-video">
           <Image
             src={buildBetterImage}
-            alt="Picture of the author"
-            className=""
+            alt="Picture of a group of students"
+            
             width={1000}
             height={1000}
           />

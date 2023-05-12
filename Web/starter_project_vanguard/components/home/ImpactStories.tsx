@@ -29,7 +29,7 @@ const ImpactStories: React.FC = () => {
           </p>
           <div>
             <div className="px-5 py-3 mt-4 text-base text-center text-white bg-primary rounded w-max whitespace-nowrap">
-              <Link href="/">See More</Link>
+              <Link href="/success-story">See More</Link>
             </div>
           </div>
         </div>
