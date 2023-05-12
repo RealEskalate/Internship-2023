@@ -8,10 +8,15 @@ import 'package:mockito/mockito.dart';
 
 import 'home_test.mocks.dart';
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3c40e5a6 ([Mobile] home page domain layer)
 @GenerateMocks([HomeRepository])
 void main() {
   late MockHomeRepository mockHomeRepository;
   late Search usecase;
+<<<<<<< HEAD
   late GetBytag getBytag;
   setUp(() => {
         mockHomeRepository = MockHomeRepository(),
@@ -19,6 +24,14 @@ void main() {
         getBytag = GetBytag(homeRepository: mockHomeRepository),
       });
 
+=======
+  
+  setUp(() => {
+        mockHomeRepository = MockHomeRepository(),
+        usecase = Search(homeRepository: mockHomeRepository),
+      });
+      
+>>>>>>> 3c40e5a6 ([Mobile] home page domain layer)
   String term = 'Education';
   String author = 'Jeal';
   String title = 'Education';
@@ -33,8 +46,11 @@ void main() {
       imageUrl: imageUrl,
       dateTime: dateTime,
       tag: tag);
+<<<<<<< HEAD
   group('Search and GetByTag usecases', () {
 
+=======
+>>>>>>> 3c40e5a6 ([Mobile] home page domain layer)
   test("Shoud search a data using term and tag", () async {
     when(mockHomeRepository.search(term, tag))
         .thenAnswer((_) async => Right(home));
@@ -45,6 +61,7 @@ void main() {
     verifyNoMoreInteractions(mockHomeRepository);
 
   });
+<<<<<<< HEAD
   test("Shoud get a data by tag", () async {
     when(mockHomeRepository.filterByTag(tag))
         .thenAnswer((_) async => Right(home));
@@ -55,4 +72,6 @@ void main() {
     verifyNoMoreInteractions(mockHomeRepository);
   });
   });
+=======
+>>>>>>> 3c40e5a6 ([Mobile] home page domain layer)
 }
