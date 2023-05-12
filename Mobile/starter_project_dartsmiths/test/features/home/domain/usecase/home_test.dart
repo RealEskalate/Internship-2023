@@ -8,17 +8,17 @@ import 'package:mockito/mockito.dart';
 
 import 'home_test.mocks.dart';
 
-
 @GenerateMocks([HomeRepository])
 void main() {
   late MockHomeRepository mockHomeRepository;
   late Search usecase;
-  
+  late GetBytag getBytag;
   setUp(() => {
         mockHomeRepository = MockHomeRepository(),
         usecase = Search(homeRepository: mockHomeRepository),
+        getBytag = GetBytag(homeRepository: mockHomeRepository),
       });
-      
+
   String term = 'Education';
   String author = 'Jeal';
   String title = 'Education';
@@ -33,6 +33,8 @@ void main() {
       imageUrl: imageUrl,
       dateTime: dateTime,
       tag: tag);
+  group('Search and GetByTag usecases', () {
+
   test("Shoud search a data using term and tag", () async {
     when(mockHomeRepository.search(term, tag))
         .thenAnswer((_) async => Right(home));
@@ -42,5 +44,15 @@ void main() {
     verify(mockHomeRepository.search(term, tag));
     verifyNoMoreInteractions(mockHomeRepository);
 
+  });
+  test("Shoud get a data by tag", () async {
+    when(mockHomeRepository.filterByTag(tag))
+        .thenAnswer((_) async => Right(home));
+
+    final result = await getBytag.call(Params(tag: tag));
+    expect(result, Right(home));
+    verify(mockHomeRepository.filterByTag(tag));
+    verifyNoMoreInteractions(mockHomeRepository);
+  });
   });
 }
