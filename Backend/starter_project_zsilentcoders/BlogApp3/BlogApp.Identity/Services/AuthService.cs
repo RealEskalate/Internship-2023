@@ -57,6 +57,7 @@ public class AuthService: IAuthService
 
         result.Success = true;
         result.Value = email;
+
         return result;
 
     }

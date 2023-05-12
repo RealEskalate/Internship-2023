@@ -1,5 +1,5 @@
-using BlogApp.Application.Contracts.Identity;
 using BlogApp.Application.Models.Mail;
+using BlogApp.Application.Contracts.Identity;
 using BlogApp.Infrastructure.Mail;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

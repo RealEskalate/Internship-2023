@@ -1,5 +1,5 @@
-using BlogApp.Application.Contracts.Identity;
 using BlogApp.Application.Models.Mail;
+using BlogApp.Application.Contracts.Identity;
 using BlogApp.Application.Responses;
 using MailKit.Net.Smtp;
 using MailKit.Security;
