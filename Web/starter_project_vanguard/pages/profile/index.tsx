@@ -1,10 +1,15 @@
-import React, { ReactNode, useState } from 'react'
+import React, { ReactNode, useEffect, useState } from 'react'
 
 import AccountSetting from '@/components/profile/AccountSetting'
 import PersonalInfo from '@/components/profile/PersonalInfo'
 import MyBlogs from '@/components/profile/MyBlogs'
 
 const Profile: React.FC = () => {
+  useEffect(()=>{
+    const fetchUsers =() =>{
+      
+    }
+  },[])
   const [tab, setTab] = useState<number>(0)
   const handleTabChange = (tab: number) => {
     setTab(tab)
