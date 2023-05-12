@@ -34,8 +34,9 @@ namespace BlogApp.Identity.UnitTests
                 cfg.CreateMap<User, SignUpResponse>();
             }).CreateMapper();
 
-             var configuration = new ConfigurationBuilder()
-            .AddJsonFile("/home/bahailu/Documents/a2sv/Internship-2023/Backend/starter_project_mavericks/BlogApp/BlogApp.API/appsettings.json", optional: true, reloadOnChange: true)
+            var configuration = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory() + "../../../../../../BlogApp.API")
+            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
             .Build();
 
             var connectionString = configuration.GetValue<string>("ConnectionStrings:BlogAppConnectionString");
