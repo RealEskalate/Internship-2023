@@ -4,10 +4,10 @@ import { Blog } from '@/types/blog';
 import { BlogCardLoading } from './BlogCardShimmer';
 
 interface RelatedBlogsProps {
-  blogs: Blog['relatedBlogs']
+  relatedBlogs: Blog['relatedBlogs']
 }
 
-export const RelatedBlogs: React.FC<RelatedBlogsProps> = ({ blogs }): React.ReactElement | null => {
+export const RelatedBlogs: React.FC<RelatedBlogsProps> = ({ relatedBlogs }): React.ReactElement | null => {
   const result = useGetBlogsQuery();
   
   if (result.isError) {
@@ -30,7 +30,7 @@ export const RelatedBlogs: React.FC<RelatedBlogsProps> = ({ blogs }): React.Reac
               Array.from({ length: 3 }).map((_, index) => ( <BlogCardLoading key={index} /> ))}
           {/* Render result list if success */}
           { result.isSuccess && result.data
-              .filter(blog => blogs.includes(blog.id))
+              .filter(blog => relatedBlogs.includes(blog.id))
               .map((blog, index) => <BlogCard blog={blog} key={index} />) }
         </div>
 

@@ -57,7 +57,7 @@ const BlogDetail = () => {
 
         {/* Related blogs */}
         <div className='flex items-center justify-center pb-20 font-light'>
-          <RelatedBlogs blogs={relatedBlogs} />
+          <RelatedBlogs relatedBlogs={relatedBlogs} />
         </div>
 
       </div>
