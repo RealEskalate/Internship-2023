@@ -12,10 +12,8 @@ const PersonalInfo: React.FC = () => {
   const [email, setEmail] = useState<string>('')
   const [updateUser, { isLoading: isUpdatingUser }] = useUpdateUserMutation()
   const handleUserUpdate = (updatedUser: User) => {
-    console.log(updatedUser)
     updateUser(updatedUser)
   }
-
 
   useEffect(() => {
     if (user) {
@@ -140,4 +138,3 @@ function dispatch(arg0: any) {
 function fetchUser(): any {
   throw new Error('Function not implemented.')
 }
-
