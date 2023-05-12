@@ -71,11 +71,11 @@ flutter:
           weight: 100
         - asset: assets/fonts/Poppins-Medium.ttf
           weight: 400
-        - asset: assets/font/Poppins-Regular.ttf
+        - asset: assets/fonts/Poppins-Regular.ttf
 
     - family: Urbanist
       fonts:
-        - asset: assets/font/Urbanist-VariableFont_wght.ttf
+        - asset: assets/fonts/Urbanist-VariableFont_wght.ttf
 
 
   # For details regarding fonts from package dependencies,

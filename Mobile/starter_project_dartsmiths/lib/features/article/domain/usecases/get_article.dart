@@ -11,6 +11,7 @@ class GetArticle implements UseCase<Article, String> {
 
   GetArticle(this.repository);
 
+  @override
   Future<Either<Failure, Article>> call(id) async {
     return await repository.getArticle(id);
   }

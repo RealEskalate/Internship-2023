@@ -1,6 +1,4 @@
 import 'package:mockito/annotations.dart';
-
-import 'package:dartsmiths/core/usecases/usecase.dart';
 import 'package:dartsmiths/features/article/domain/entities/article.dart';
 import 'package:dartsmiths/features/article/domain/repositories/article_repository.dart';
 import 'package:dartsmiths/features/article/domain/usecases/get_article.dart';
@@ -41,7 +39,7 @@ void main() {
       when(mockArticleRepository.getArticle(tid))
           .thenAnswer((_) async => Right(tArticle));
 
-      final result = await usecase.call(Params(id: tid));
+      final result = await usecase.call(tid);
       // assert
       expect(result, Right(tArticle));
       verify(mockArticleRepository.getArticle(tid));
