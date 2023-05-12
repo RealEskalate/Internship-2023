@@ -1,6 +1,6 @@
 import React from 'react'
 import YearlySuccess from './YearlySuccess'
-import successRates from '../../data/home/success_rates.json'
+import successRates from '../../data/home/success-rates.json'
 import activities from '../../data/home/activities.json'
 import Activities from './Activities'
 

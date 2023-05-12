@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { Activity } from '@/types/home/activity'
+import { Activity } from '@/types/home/activity-model'
 interface ActivityProp {
   activity: Activity
 }
