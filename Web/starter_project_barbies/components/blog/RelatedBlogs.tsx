@@ -14,7 +14,7 @@ export const RelatedBlogs: React.FC<RelatedBlogsProps> = ({ relatedBlogs }): Rea
     return null
   }
   
-  else if (result.isSuccess || result.isLoading) {
+  if (result.isSuccess || result.isLoading) {
     return (
       <div className='font-montserrat'>
 

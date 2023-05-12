@@ -16,11 +16,11 @@ const BlogDetail = () => {
     return <div> <LoadingSpinner /> </div>
   }
   
-  else if (result.isError) {
+  if (result.isError) {
     return <div>{result.error.toString()}</div>
   }
   
-  else if (result.isSuccess) {
+  if (result.isSuccess) {
     const { title, tags, readTime, blogImage, content, author, relatedBlogs } = result.data
 
     return (

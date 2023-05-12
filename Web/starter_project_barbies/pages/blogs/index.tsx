@@ -11,7 +11,7 @@ const Blogs = () => {
     return <div>Error: {result.error.toString()}</div>
   }
   
-  else if (result.isSuccess || result.isLoading) {
+  if (result.isSuccess || result.isLoading) {
     return (
       <div className='bg-white text-primary-text font-montserrat'>
 
