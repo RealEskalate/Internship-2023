@@ -11,6 +11,7 @@ namespace BlogApp.Domain
         public bool? PublicationStatus { get; set; }
 
         public ICollection<Rate> Rates { get; set; } // One-to-many relationship with Rate
+        public ICollection<Review> Reviews { get; set; } // One-to-many relationship with Review
 
     }
 }

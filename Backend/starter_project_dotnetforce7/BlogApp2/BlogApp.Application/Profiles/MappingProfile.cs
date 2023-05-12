@@ -24,6 +24,7 @@ namespace BlogApp.Application.Profiles
             CreateMap<_Index, Create_IndexDto>().ReverseMap();
 
             CreateMap<Blog, BlogDto>()
+            .ForMember(x => x.Reviews, o => o.MapFrom(s => s.Reviews))
             .ForMember(x => x.Rates, o => o.MapFrom(s => s.Rates))
             .ForMember(x => x.BlogRate, o => o.MapFrom(s => s.Rates.Any() ? s.Rates.Average(r => r.RateNo) : 0));
 

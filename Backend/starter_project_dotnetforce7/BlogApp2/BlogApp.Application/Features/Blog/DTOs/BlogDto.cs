@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using BlogApp.Application.Features.Common;
 using BlogApp.Application.Features.Rates.DTOs;
+using BlogApp.Application.Features.Reviews.DTOs;
+
 using BlogApp.Domain;
 
 namespace BlogApp.Application.Features.Blogs.DTOs
@@ -17,6 +19,7 @@ namespace BlogApp.Application.Features.Blogs.DTOs
         public bool? PublicationStatus { get; set; }
 
         public ICollection<RateDto> Rates { get; set; }
+        public ICollection<ReviewDto> Reviews { get; set; } 
 
         public double BlogRate { get; set; }
 

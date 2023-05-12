@@ -36,14 +36,14 @@ namespace BlogApp.Persistence
                     entry.Entity.DateCreated = DateTime.Now;
                 }
             }  
-
+            
 
             return base.SaveChangesAsync(cancellationToken);
         }
 
         public DbSet<_Index> _Indices { get; set; }
         public DbSet<Rate> Rates { get; set; }
-        public DbSet<Rate> Review { get; set; }
+        public DbSet<Review> Reviews { get; set; }
         public DbSet<Tag> Tags {get;set;}
         public DbSet<Blog> Blogs { get; set; }
 

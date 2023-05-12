@@ -13,26 +13,26 @@ namespace BlogApp.Persistence.Configurations.Entities
     {
         public void Configure(EntityTypeBuilder<Review> builder)
         {
-            builder.HasData(
-                new Review
-                {
-                    Id = 1,
-                    ReviewerId = 1,
-                    ReviewContent = "good",
-                    BlogId= 2,
-                    isResolved = false
+            // builder.HasData(
+            //     new Review
+            //     {
+            //         Id = 1,
+            //         ReviewerId = 1,
+            //         ReviewContent = "good",
+            //         BlogId= 2,
+            //         isResolved = false
 
-                },
+            //     },
 
-                new Review
-                {
-                    Id = 2,
-                    ReviewerId = 3,
-                    ReviewContent = "bad",
-                    BlogId= 4,
-                    isResolved = true
-                }
-                ); ;
+            //     new Review
+            //     {
+            //         Id = 2,
+            //         ReviewerId = 3,
+            //         ReviewContent = "bad",
+            //         BlogId= 4,
+            //         isResolved = true
+            //     }
+            //     ); ;
         }
     }
 }
