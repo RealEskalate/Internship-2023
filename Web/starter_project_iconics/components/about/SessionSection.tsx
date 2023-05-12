@@ -1,5 +1,5 @@
 import Image from "next/image"
-const SessionSection = () => {
+const SessionSection:React.FC  = () => {
     return (
         <div className = "session-section grid grid-cols-2 p-12 font-poppins lg">
             <div className="col img-col flex justify-center items-center">
