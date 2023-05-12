@@ -1,10 +1,12 @@
 import { Blog } from '@/types/blog';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
+const BASE_URL = 'http://localhost:5000/'
+
 // Define a service using API routes
 export const blogApi = createApi({
   reducerPath: 'blogApi',
-  baseQuery: fetchBaseQuery({ baseUrl: '/api', mode: 'cors' }),
+  baseQuery: fetchBaseQuery({ baseUrl: BASE_URL, mode: 'cors' }),
   endpoints: (builder) => ({
     getBlogs: builder.query<Blog[], void>({
       query: () => '/blogs',
