@@ -30,7 +30,7 @@ const HeroSection: React.FC = () => {
             <Image
               src="/about/education_process.png"
               alt="education"
-              style={{width:'auto', height:'auto'}}
+              style={{ width: 'auto', height: 'auto' }}
               width={300}
               height={50}
             />
@@ -42,7 +42,7 @@ const HeroSection: React.FC = () => {
             <Image
               src="/about/development_phase.png"
               alt="development"
-              style={{width:'auto', height:'auto'}}
+              style={{ width: 'auto', height: 'auto' }}
               width={300}
               height={50}
             />

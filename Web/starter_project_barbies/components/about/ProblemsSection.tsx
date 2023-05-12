@@ -1,4 +1,7 @@
-import { useGetProblemItemsQuery, useGetSolutionItemsQuery } from '@/store/features/about/about-api'
+import {
+  useGetProblemItemsQuery,
+  useGetSolutionItemsQuery,
+} from '@/store/features/about/about-api'
 
 import { ProblemItem } from '@/types/about'
 import Image from 'next/image'
@@ -7,18 +10,24 @@ interface ItemCardProps {
   item: ProblemItem
 }
 
-const ItemCard: React.FC<ItemCardProps> = ({ item:{icon, description} }) => {
+const ItemCard: React.FC<ItemCardProps> = ({ item: { icon, description } }) => {
   return (
     <div className="p-3">
-      <Image className='my-5' src={`/img/about/problems/${icon}`} width={50} height={50} alt='' />
+      <Image
+        className="my-5"
+        src={`/img/about/problems/${icon}`}
+        width={50}
+        height={50}
+        alt=""
+      />
       <div className="max-w-md text-gray-400">{description}</div>
     </div>
   )
 }
 
-const ProblemsSection:React.FC = () => {
-  const {data:problemItemList} = useGetProblemItemsQuery()
-  const {data:solutionItemList} = useGetSolutionItemsQuery()
+const ProblemsSection: React.FC = () => {
+  const { data: problemItemList } = useGetProblemItemsQuery()
+  const { data: solutionItemList } = useGetSolutionItemsQuery()
 
   return (
     <div>

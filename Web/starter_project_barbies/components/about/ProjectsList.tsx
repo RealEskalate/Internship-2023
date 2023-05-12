@@ -9,7 +9,10 @@ interface ProjectCardProps {
   project: Project
   reverseFlex: boolean
 }
-const ProjectCard: React.FC<ProjectCardProps> = ({ project:{image, name, description}, reverseFlex }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({
+  project: { image, name, description },
+  reverseFlex,
+}) => {
   return (
     <div
       className={`flex flex-wrap justify-around ${
@@ -19,7 +22,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project:{image, name, descrip
       <Image
         className="flex-initial"
         src={`/img/about/projects/${image}`}
-        style={{width:'auto', height:'auto'}}
+        style={{ width: 'auto', height: 'auto' }}
         width={700}
         height={200}
         alt=""
@@ -28,9 +31,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project:{image, name, descrip
         className={`mx-5 ${!reverseFlex ? 'lg:text-right' : 'lg:text-left'}`}
       >
         <div className="text-primary">Social Project</div>
-        <div className="text-primary font-bold text-3xl mt-2 mb-5">
-          {name}
-        </div>
+        <div className="text-primary font-bold text-3xl mt-2 mb-5">{name}</div>
         <div className="lg:max-w-sm text-gray-600">{description}</div>
         <div
           className={`flex gap-5 mt-5 ${
@@ -49,8 +50,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project:{image, name, descrip
   )
 }
 
-const ProjectsList:React.FC = () => {
-  const {data: projects, isLoading, error} = useGetProjectsQuery()
+const ProjectsList: React.FC = () => {
+  const { data: projects, isLoading, error } = useGetProjectsQuery()
   return (
     <div>
       <div className="font-bold lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl text-center mx-auto mb-12">

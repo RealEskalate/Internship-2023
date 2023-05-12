@@ -6,18 +6,26 @@ interface SessionCardProps {
   session: Session
 }
 
-const SessionCard: React.FC<SessionCardProps> = ({ session:{name, icon, description} }) => {
+const SessionCard: React.FC<SessionCardProps> = ({
+  session: { name, icon, description },
+}) => {
   return (
     <div className="rounded-lg border-gray-200 border-2 px-10 py-5">
-      <Image className='my-5' src={`/img/about/sessions/${icon}`} width={50} height={50} alt='' />
+      <Image
+        className="my-5"
+        src={`/img/about/sessions/${icon}`}
+        width={50}
+        height={50}
+        alt=""
+      />
       <div className="font-bold my-2">{name}</div>
       <div>{description}</div>
     </div>
   )
 }
 
-const SessionsList:React.FC = () => {
-  const {data:sessions, isLoading, error} = useGetSessionsQuery()
+const SessionsList: React.FC = () => {
+  const { data: sessions, isLoading, error } = useGetSessionsQuery()
   return (
     <div>
       <div className="font-bold lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl text-center mx-auto mb-10">
