@@ -38,7 +38,6 @@ namespace BlogApp.Application.UnitTests.Mocks
             {
                 comment.Id = Comments.Count() + 1;
                 Comments.Add(comment);
-                MockUnitOfWork.changes += 1;
                 return comment;
             });
 
@@ -47,13 +46,12 @@ namespace BlogApp.Application.UnitTests.Mocks
                 var newRates = Comments.Where((r) => r.Id != comment.Id);
                 Comments = newRates.ToList();
                 Comments.Add(comment);
-                MockUnitOfWork.changes += 1;
             });
 
             mockRepo.Setup(r => r.Delete(It.IsAny<Comment>())).Callback((Comment comment) =>
             {
-                if (Comments.Remove(comment))
-                    MockUnitOfWork.changes += 1;
+                Comments.Remove(comment);
+
             });
 
             mockRepo.Setup(r => r.Exists(It.IsAny<int>())).ReturnsAsync((int Id) =>

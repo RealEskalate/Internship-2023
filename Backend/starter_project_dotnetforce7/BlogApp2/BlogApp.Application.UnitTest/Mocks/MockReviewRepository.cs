@@ -51,7 +51,6 @@ namespace BlogApp.Application.UnitTests.Mocks
             {   
                 Review.Id = reviews.Count() + 1;
                 reviews.Add(Review);
-                MockUnitOfWork.changes += 1;
                 return Review;
             }); 
 
@@ -60,13 +59,12 @@ namespace BlogApp.Application.UnitTests.Mocks
                 var newReviews = reviews.Where((r) => r.Id != Review.Id);
                 reviews = newReviews.ToList();
                 reviews.Add(Review);
-                MockUnitOfWork.changes += 1;
             });
 
             mockRepo.Setup(r => r.Delete(It.IsAny<Review>())).Callback((Review Review) =>
             {
-                if (reviews.Remove(Review))
-                    MockUnitOfWork.changes += 1;
+                reviews.Remove(Review);
+
             });
 
             mockRepo.Setup(r => r.Exists(It.IsAny<int>())).ReturnsAsync((int Id) =>
