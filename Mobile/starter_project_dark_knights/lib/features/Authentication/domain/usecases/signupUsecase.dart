@@ -5,7 +5,6 @@ import '../../../../core/errors/failures.dart';
 import '../../../../core/usecases/usecase.dart';
 import '../repositories/authentication_repository.dart';
 
-
 class SignupUseCase implements UseCase<Authentication, Authentication> {
   final AuthenticationRepository repository;
   SignupUseCase(this.repository);

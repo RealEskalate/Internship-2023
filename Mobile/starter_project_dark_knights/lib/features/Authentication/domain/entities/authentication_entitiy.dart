@@ -13,3 +13,4 @@ class Authentication extends Equatable {
 
   List<Object?> get props => [userName];
 }
+ 
