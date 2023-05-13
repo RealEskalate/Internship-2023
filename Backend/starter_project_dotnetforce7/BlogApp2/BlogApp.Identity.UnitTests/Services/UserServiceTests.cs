@@ -4,11 +4,14 @@ using System.Threading.Tasks;
 using AutoMapper;
 using BlogApp.Application.Contracts.Identity;
 using BlogApp.Domain.Models.Identity;
-using BlogApp.Identity.Models;
+using BlogApp.Domain;
 using BlogApp.Identity.Services;
 using Microsoft.AspNetCore.Identity;
 using Moq;
 using Xunit;
+using BlogApp.Identity.Models;
+using Microsoft.AspNetCore.Http;
+using BlogApp.Application.Models.Identity;
 
 namespace BlogApp.Identity.UnitTests
 {
@@ -16,7 +19,7 @@ namespace BlogApp.Identity.UnitTests
     {
         private readonly IMapper _mapper;
         private readonly Mock<UserManager<ApplicationUser>> _userManagerMock;
-
+        private readonly Mock<IHttpContextAccessor> _mockHttp;
         public UserServiceTests()
         {
             // Create a mock IMapper and configure any necessary mappings
@@ -24,7 +27,11 @@ namespace BlogApp.Identity.UnitTests
             {
                 config.CreateMap<ApplicationUser, User>();
             });
+
             _mapper = mapperConfig.CreateMapper();
+            var httpContextMock = new Mock<HttpContext>();
+            _mockHttp = new Mock<IHttpContextAccessor>();
+            _mockHttp.Setup(x => x.HttpContext).Returns(httpContextMock.Object);
 
             // Create a mock UserManager<ApplicationUser> and set up any necessary methods
             _userManagerMock = new Mock<UserManager<ApplicationUser>>(new Mock<IUserStore<ApplicationUser>>().Object,
@@ -34,8 +41,9 @@ namespace BlogApp.Identity.UnitTests
         [Fact]
         public async Task GetUser_Returns_User()
         {
+
             // Arrange
-            var userService = new UserService(_userManagerMock.Object);
+            var userService = new UserService(_userManagerMock.Object, _mockHttp.Object, _mapper);
             var userId = "123";
 
             var user = new ApplicationUser
@@ -64,7 +72,7 @@ namespace BlogApp.Identity.UnitTests
         public async Task GetUsers_Returns_List_Of_Users()
         {
             // Arrange
-            var userService = new UserService(_userManagerMock.Object);
+            var userService = new UserService(_userManagerMock.Object, _mockHttp.Object, _mapper);
 
             var users = new List<ApplicationUser>
             {
@@ -107,7 +115,7 @@ namespace BlogApp.Identity.UnitTests
         public async Task GetUser_Returns_Null_When_User_Doesnt_Exist()
         {
             // Arrange
-            var userService = new UserService(_userManagerMock.Object);
+            var userService = new UserService(_userManagerMock.Object, _mockHttp.Object, _mapper);
             var userId = "123";
 
             _userManagerMock.Setup(u => u.FindByIdAsync(userId))
