@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BlogApp.Application.Exceptions;
 using BlogApp.Application.Responses;
+using BlogApp.Application.Contracts.Identity;
 
 namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
 {
@@ -17,11 +18,13 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly IUserService _userService;
 
-        public GetBlogDetailQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public GetBlogDetailQueryHandler(IUnitOfWork unitOfWork, IMapper mapper, IUserService userService)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _userService = userService;
         }
         public async Task<Result<BlogDto>> Handle(GetBlogDetailQuery request, CancellationToken cancellationToken)
         {
@@ -30,7 +33,8 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
             response.Success = true;
             response.Message = "Fetch Success";
             response.Value = _mapper.Map<BlogDto>(blog);
-
+            response.Value.User = await _userService.GetUser(blog.CreatorId);
+            
             return response;
         }
     }

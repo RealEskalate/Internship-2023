@@ -1,8 +1,10 @@
 using AutoMapper;
+using BlogApp.Application.Contracts.Identity;
 using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.Features.Blogs.CQRS.Handlers;
 using BlogApp.Application.Features.Blogs.CQRS.Queries;
 using BlogApp.Application.Features.Blogs.DTOs;
+using BlogApp.Application.Models.Identity;
 using BlogApp.Application.Profiles;
 using BlogApp.Application.Responses;
 using BlogApp.Application.UnitTest.Mocks;
@@ -22,6 +24,8 @@ namespace BlogApp.Application.UnitTest.Blogs.Queries
         private readonly IMapper _mapper;
         private readonly Mock<IUnitOfWork> _mockRepo;
         private readonly GetBlogListQueryHandler _handler;
+
+        private readonly Mock<IUserService> _mockUserService;
         public GetBlogListQueryHandlerTest()
         {
             _mockRepo = MockUnitOfWork.GetUnitOfWork();
@@ -30,8 +34,14 @@ namespace BlogApp.Application.UnitTest.Blogs.Queries
                 c.AddProfile<MappingProfile>();
             });
             _mapper = mapperConfig.CreateMapper();
+            _mockUserService = new Mock<IUserService>();
 
-            _handler = new GetBlogListQueryHandler(_mockRepo.Object, _mapper);
+            _mockUserService
+            .Setup(us => us.GetUser(It.IsAny<string>()))
+            .ReturnsAsync(new ApplicationUserDTO { Id = "1", UserName = "JohnDoe", Firstname="John",  Lastname="Doe", Email="John@Doe.com"});
+
+
+            _handler = new GetBlogListQueryHandler(_mockRepo.Object, _mapper, _mockUserService.Object);
 
         }
 

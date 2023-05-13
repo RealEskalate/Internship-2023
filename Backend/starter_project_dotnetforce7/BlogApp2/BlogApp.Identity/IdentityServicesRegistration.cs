@@ -3,10 +3,12 @@ using BlogApp.Application.Models.Identity;
 using BlogApp.Identity.Models;
 using BlogApp.Identity.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -24,10 +26,8 @@ namespace BlogApp.Identity
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<BlogIdentityDbContext>().AddDefaultTokenProviders();
-
             services.AddTransient<IAuthService, AuthService>();
             services.AddTransient<IUserService, UserService>();
-
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

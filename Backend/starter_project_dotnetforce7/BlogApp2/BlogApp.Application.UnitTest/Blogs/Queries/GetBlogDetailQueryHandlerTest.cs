@@ -15,6 +15,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using BlogApp.Application.Contracts.Identity;
+using BlogApp.Application.Models.Identity;
 
 namespace BlogApp.Application.UnitTest.Blogs.Queries
 {
@@ -23,6 +25,7 @@ namespace BlogApp.Application.UnitTest.Blogs.Queries
 
         private readonly IMapper _mapper;
         private readonly Mock<IUnitOfWork> _mockRepo;
+        private readonly Mock<IUserService> _mockUserService;
         private int Id;
         private readonly GetBlogDetailQueryHandler _handler;
         public GetBlogDetailQueryHandlerTest()
@@ -32,11 +35,17 @@ namespace BlogApp.Application.UnitTest.Blogs.Queries
             {
                 c.AddProfile<MappingProfile>();
             });
+
             _mapper = mapperConfig.CreateMapper();
+            _mockUserService = new Mock<IUserService>();
+
+            _mockUserService
+            .Setup(us => us.GetUser(It.IsAny<string>()))
+            .ReturnsAsync(new ApplicationUserDTO { Id = "1", UserName = "JohnDoe", Firstname="John",  Lastname="Doe", Email="John@Doe.com"});
 
             Id = 1;
 
-            _handler = new GetBlogDetailQueryHandler(_mockRepo.Object, _mapper);
+            _handler = new GetBlogDetailQueryHandler(_mockRepo.Object, _mapper, _mockUserService.Object);
 
         }
 

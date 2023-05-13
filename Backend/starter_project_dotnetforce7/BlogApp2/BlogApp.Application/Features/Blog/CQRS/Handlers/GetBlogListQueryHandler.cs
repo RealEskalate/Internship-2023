@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-
+using BlogApp.Application.Contracts.Identity;
 
 namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
 {
@@ -18,11 +18,13 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly IUserService _userService;
 
-        public GetBlogListQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public GetBlogListQueryHandler(IUnitOfWork unitOfWork, IMapper mapper, IUserService userService)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _userService = userService;
         }
 
         public async Task<Result<List<BlogDto>>> Handle(GetBlogListQuery request, CancellationToken cancellationToken)
@@ -34,7 +36,9 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
             response.Success = true;
             response.Message = "Fetch Success";
             response.Value = _mapper.Map<List<BlogDto>>(Blogs);
-
+            for (int i = 0; i < Blogs.Count; i++)
+                response.Value[i].User = await _userService.GetUser(Blogs[i].CreatorId);
+    
             return response;
         }
     }

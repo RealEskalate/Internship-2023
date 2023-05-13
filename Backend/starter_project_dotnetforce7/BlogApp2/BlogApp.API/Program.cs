@@ -46,9 +46,10 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
-
 app.UseCors("CorsPolicy");
 app.UseAuthentication();
+
+
 app.UseSwagger();
 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BlogApp.Api v1"));
 app.UseHttpsRedirection();

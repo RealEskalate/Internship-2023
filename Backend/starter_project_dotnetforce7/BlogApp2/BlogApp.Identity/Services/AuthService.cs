@@ -97,8 +97,13 @@ namespace BlogApp.Identity.Services
             var userClaims = await _userManager.GetClaimsAsync(user);
             var roles = await _userManager.GetRolesAsync(user);
 
-            var roleClaims = roles.Select(role => new Claim(ClaimTypes.Role, role, "string")).ToList();
+            var roleClaims = new List<Claim>();
 
+            for (int i = 0; i < roles.Count; i++)
+            {
+                roleClaims.Add(new Claim(ClaimTypes.Role, roles[i]));
+            }
+            
             var claims = new[]
                 {
                     new Claim(JwtRegisteredClaimNames.Sub, user.UserName),

@@ -5,6 +5,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using BlogApp.Application.Features.Blogs.CQRS.Commands;
 using API.Controllers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BlogApp.Api.Controllers
 {
@@ -34,6 +35,7 @@ namespace BlogApp.Api.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Post([FromBody] CreateBlogDto createBlog)
         {
             var command = new CreateBlogCommand { BlogDto = createBlog };
@@ -50,6 +52,7 @@ namespace BlogApp.Api.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> Delete(int id)
         {
             var command = new DeleteBlogCommand { Id = id };
