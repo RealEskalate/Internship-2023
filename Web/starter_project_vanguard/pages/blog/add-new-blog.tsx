@@ -1,7 +1,7 @@
 import FileUpload from '@/components/blog/FileUpload'
 import TagSelection from '@/components/blog/TagSelection'
 import TextEditor from '@/components/blog/TextEditor'
-import { useAddBlogMutation } from '@/api/blog/add-new-blog'
+import { useAddBlogMutation } from '@/store/features/blog/add-new-blog-api'
 import router from 'next/router'
 import React, { useEffect, useState } from 'react'
 
@@ -95,7 +95,7 @@ const AddNewBlog = () => {
   }
   useEffect(() => {
     if (isAddBlogSuccess) {
-      router.push('/blog')
+      // router.push("/home")
     }
   }, [isAddBlogSuccess])
 

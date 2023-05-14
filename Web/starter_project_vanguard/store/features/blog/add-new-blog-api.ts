@@ -7,9 +7,15 @@ export const addNewBlogApi = createApi({
   endpoints(builder) {
     return {
       addBlog: builder.mutation({
-        query: (body: Blog) => {
-          return { url: '/blogs', method: 'POST', body }
-        },
+        query: (body: Blog) => ({
+          headers: {
+            'Accept-Encoding': 'gzip, deflate',
+            'Content-Type': 'application/json',
+          },
+          url: '/blogs',
+          method: 'POST',
+          body: body,
+        }),
       }),
     }
   },

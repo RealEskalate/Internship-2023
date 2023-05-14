@@ -1,7 +1,7 @@
 import Partners from '@/components/success-story/Partners'
 import SuccessDescription from '@/components/success-story/SuccessDescription'
 import SuccessImageCard from '@/components/success-story/SuccessImageCard'
-import { useFetchSuccessStoryQuery } from '@/features/success-story/success-story-api-slice'
+import { useFetchSuccessStoryQuery } from '@/store/features/success-story/success-story-api'
 import Link from 'next/link'
 export default function SucessStory() {
   const { data = [], isFetching } = useFetchSuccessStoryQuery()

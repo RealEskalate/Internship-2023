@@ -1,4 +1,4 @@
-import { addNewBlogApi } from '@/api/blog/add-new-blog'
+import { addNewBlogApi } from '@/store/features/blog/add-new-blog-api'
 import { configureStore } from '@reduxjs/toolkit'
 import { successStoryApi } from './features/success-story/success-story-api'
 
