@@ -48,6 +48,7 @@ namespace BlogApp.Persistence
         public DbSet<Blog> Blogs { get; set; }
 
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<BlogUser> BlogUser {get; set;}
 
     }
 }
