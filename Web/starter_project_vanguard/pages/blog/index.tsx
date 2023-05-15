@@ -29,7 +29,7 @@ const Blogs: React.FC = () => {
             <div className="flex pl-80 pb-5 w-2/3">
               <Search />
               <div className="items-center justify-center mt-4 ml-8">
-                <div className="w-60 ">
+                <div className="w-60">
                   <button className="btn btn-lg btn-pill flex mt-2">
                     <i>
                       <span className="text-lg font-semibold">+ New Blog</span>
