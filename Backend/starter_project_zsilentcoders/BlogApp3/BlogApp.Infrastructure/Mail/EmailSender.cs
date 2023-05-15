@@ -30,7 +30,6 @@ public class EmailSender : IEmailSender
     public async Task<Result<Email>> sendEmail(Email email)
     {
         var result = new Result<Email>();
-        result.Success = true;
 
         using var client = new SmtpClient();
         try
@@ -39,12 +38,16 @@ public class EmailSender : IEmailSender
             client.AuthenticationMechanisms.Remove("XOAUTH2");
             await client.AuthenticateAsync(_emailSettings.UserName, _emailSettings.Password);
             var sent = await client.SendAsync(CreateEmailMessage(email));
+            result.Success = true;
         }
         catch(Exception ex)
         {
-            //log an error message or throw an exception or both.
             result.Success = false;
             result.Errors.Add(ex.Message);
+            // throw new Exception(ex.ToString() + $"{result.Message}");
+            
+            //log an error message or throw an exception or both.
+            
             
         }
         finally
