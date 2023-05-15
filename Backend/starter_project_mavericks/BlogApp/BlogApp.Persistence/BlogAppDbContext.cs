@@ -42,6 +42,7 @@ namespace BlogApp.Persistence
         }
 
         public DbSet<_Index> _Indices { get; set; }
+        public DbSet<Comment> Comments { get; set; }
         public DbSet<Rating> Ratings { get; set; }
         public DbSet<Tag> _Tags { get; set; }
         public DbSet<Blog> Blogs { get; set; }
