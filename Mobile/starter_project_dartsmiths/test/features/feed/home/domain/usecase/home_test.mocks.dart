@@ -6,8 +6,8 @@
 import 'dart:async' as _i4;
 
 import 'package:dartsmiths/core/error/failures.dart' as _i5;
-import 'package:dartsmiths/features/home/domain/entity/home.dart' as _i6;
-import 'package:dartsmiths/features/home/domain/repository/home_repository.dart'
+import 'package:dartsmiths/features/feed/home/domain/entity/home.dart' as _i6;
+import 'package:dartsmiths/features/feed/home/domain/repository/home_repository.dart'
     as _i3;
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;

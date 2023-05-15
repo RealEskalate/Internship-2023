@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:dartsmiths/core/error/failures.dart';
-import 'package:dartsmiths/features/home/domain/entity/home.dart';
+import 'package:dartsmiths/features/feed/home/domain/entity/home.dart';
 import 'package:http/http.dart' as http;
 
 import '../model/home.dart';
