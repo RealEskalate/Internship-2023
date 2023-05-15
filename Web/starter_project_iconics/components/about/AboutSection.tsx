@@ -7,7 +7,7 @@ const AboutSection:React.FC = () => {
 
     <div className='col'>
         <h1 className="font-extrabold  text-5xl p-12"><div> <span className = "text-primary"> Africa </span> to Silicon Valley</div></h1>
-        <p className="font-sans font-normal text-2xl p-12">A2SV is a social enterprise that enables high-potential university students to create digital solutions to Africa’s most pressing problems.</p>
+        <p className="font-sans-serif font-normal text-2xl p-12">A2SV is a social enterprise that enables high-potential university students to create digital solutions to Africa’s most pressing problems.</p>
         <div className='button pl-12'>Meet our Team</div>
         <p className="font-sans text-2xl p-12 italic font-light">A2SV is a social enterprise that enables high-potential university students to create digital solutions to Africa’s most pressing problems.</p>
     </div>
