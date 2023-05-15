@@ -52,20 +52,52 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
   @override
   Future<UserModel> editUserProfile(UserEntity user) {
     // TODO: implement editUserProfile
+  Future<UserModel> deleteUser(String userId) {
+    // TODO: implement deleteUser
     throw UnimplementedError();
   }
 
   @override
-  Future<List<UserModel>> getAllUsers() async {
-    final response = await client.get(Uri.parse('$uri/getAllUsers'),
-        headers: {'Content-Type': 'application/json'});
+  Future<UserModel> editUserProfile(UserEntity user) async {
+    final response = await client.put(
+      Uri.parse("http://localhost:3000/"),
+      body: user,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    );
+
+    if (response.statusCode == 200) {
+      return UserModel.fromJson(json.decode(response.body));
+    } else {
+      throw ServerException("Request Succesful");
+    }
+  }
+
+  @override
+  Future<List<UserModel>> getAllUsers() {
+    // TODO: implement getAllUsers
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<List<UserModel>> getFollowers(String userId) async {
+    final response = await client.get(
+      Uri.parse("http://localhost:3000/$userId"),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    );
+
     if (response.statusCode == 200) {
       final jsonResponse = json.decode(response.body);
       final userList = List<Map<String, dynamic>>.from(jsonResponse);
-      final users = userList.map((json) => UserModel.fromJson(json)).toList();
-      return users;
+      final followers = userList
+          .map((jsonInstance) => UserModel.fromJson(jsonInstance))
+          .toList();
+      return followers;
     } else {
-      throw ServerException('Failed to load users');
+      throw ServerException("Request Succesful");
     }
   }
 
