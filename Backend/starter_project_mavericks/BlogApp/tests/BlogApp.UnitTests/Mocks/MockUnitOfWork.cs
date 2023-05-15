@@ -14,14 +14,20 @@ public class MockUnitOfWork
         var mockUow = new Mock<IUnitOfWork>();
         var mockRatingRepository = MockRatingRepository.GetRatingRepository();
         var mockBlogRepository = MockBlogRepository.GetBlogRepository();
-        var mockReviewRepository = MockReviewRepository.GetReviewRepository();        
+
+        var mockCommentRepository = MockCommentRepository.GetCommentRepository();
+        var mockReviewRepository = MockReviewRepository.GetReviewRepository();       
         var mockTagRepository = MockTagRepository.GetTagRepository();
 
+
+        mockUow.Setup(c=>c.CommentRepository).Returns(mockCommentRepository.Object);
         mockUow.Setup(r => r.RatingRepository).Returns(mockRatingRepository.Object);
         mockUow.Setup(uow => uow.BlogRepository).Returns(mockBlogRepository.Object);
         mockUow.Setup(uow => uow.ReviewRepository).Returns(mockReviewRepository.Object);
         mockUow.Setup(uow => uow.TagRepository).Returns(mockTagRepository.Object);
         mockUow.Setup(r => r.Save()).ReturnsAsync(1);
+        
+        
 
         return mockUow;
     }
