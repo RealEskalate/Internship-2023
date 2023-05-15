@@ -4,8 +4,6 @@ import BlogCard from '@/components/blog/BlogCard'
 import blogs from '@/data/profile/personal-blogs.json'
 
 const MyBlogs: React.FC = () => {
-  const blogsArray: Blog[] = JSON.parse(JSON.stringify(blogs))
-
   return (
     <div>
       <div className="flex flex-col md:flex-row justify-center my-5 py-4 items-center bg-white">
@@ -23,7 +21,7 @@ const MyBlogs: React.FC = () => {
         </button>
       </div>
       <div className="flex mt-3 justify-between flex-wrap items-center">
-        {blogsArray?.map((blog, index) => {
+        {JSON.parse(JSON.stringify(blogs))?.map((blog: Blog, index: number) => {
           return <BlogCard blog={blog} key={index} pageName={'MyBlogs'} />
         })}
       </div>
