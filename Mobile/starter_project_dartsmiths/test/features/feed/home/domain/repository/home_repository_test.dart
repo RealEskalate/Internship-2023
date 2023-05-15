@@ -1,6 +1,6 @@
-import 'package:dartsmiths/features/home/data/datasource/home_remote.dart';
-import 'package:dartsmiths/features/home/data/repository/home_repository.dart';
-import 'package:dartsmiths/features/home/domain/entity/home.dart';
+import 'package:dartsmiths/features/feed/home/data/datasource/home_remote.dart';
+import 'package:dartsmiths/features/feed/home/data/repository/home_repository.dart';
+import 'package:dartsmiths/features/feed/home/domain/entity/home.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';

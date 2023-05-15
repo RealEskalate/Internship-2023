@@ -1,6 +1,6 @@
-import 'package:dartsmiths/features/home/domain/entity/home.dart';
-import 'package:dartsmiths/features/home/domain/repository/home_repository.dart';
-import 'package:dartsmiths/features/home/domain/usecase/home_usecase.dart';
+import 'package:dartsmiths/features/feed/home/domain/entity/home.dart';
+import 'package:dartsmiths/features/feed/home/domain/repository/home_repository.dart';
+import 'package:dartsmiths/features/feed/home/domain/usecase/home_usecase.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
