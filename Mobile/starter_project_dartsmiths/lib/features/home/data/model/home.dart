@@ -6,17 +6,18 @@ class HomeModel extends Home {
     required super.title,
     required super.description,
     required super.tag,
-    required super.imageUrl,
-    required super.dateTime,
+    super.imageUrl,
+    super.dateTime,
   });
   factory HomeModel.fromJson(Map<String, dynamic> json) {
     return HomeModel(
-        author: json['author'],
-        title: json['title'],
-        description: json['description'],
-        tag: json['tag'],
-        imageUrl: json['imageUrl'],
-        dateTime: json['dateTime']);
+      author: json['author'],
+      title: json['title'],
+      description: json['description'],
+      tag: json['tag'],
+      imageUrl: json['imageUrl'],
+      dateTime: json['dateTime'],
+    );
   }
   Map<String, dynamic> toJson() {
     return {

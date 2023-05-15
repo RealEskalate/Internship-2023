@@ -4,15 +4,15 @@ class Home extends Equatable {
   final String author;
   final String title;
   final String description;
-  final String imageUrl;
-  final DateTime dateTime;
+  final String? imageUrl;
+  final String? dateTime;
   final String tag;
   const Home({
     required this.author,
     required this.title,
     required this.description,
-    required this.imageUrl,
-    required this.dateTime,
+    this.imageUrl,
+    this.dateTime,
     required this.tag,
   });
   @override

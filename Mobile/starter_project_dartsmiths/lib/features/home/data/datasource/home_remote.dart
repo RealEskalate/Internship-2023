@@ -1,50 +1,44 @@
 import 'dart:convert';
-
 import 'package:dartsmiths/core/error/failures.dart';
-import 'package:dartsmiths/features/home/data/model/home.dart';
 import 'package:dartsmiths/features/home/domain/entity/home.dart';
-import 'package:dartz/dartz.dart';
 import 'package:http/http.dart' as http;
 
+import '../model/home.dart';
+
 abstract class HomeRemoteDataSource {
-  Future<Either<Failure, Home>> search(String term, String tag);
-  Future<Either<Failure, Home>> filterByTag(String tag);
+  Future<Home> search(String term, String tag);
+  Future<Home> filterByTag(String tag);
 }
 
 class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   final http.Client client;
   HomeRemoteDataSourceImpl({required this.client});
   @override
-  Future<Either<Failure, Home>> filterByTag(String tag) async {
+  Future<Home> filterByTag(String tag) async {
     final queryParameters = {'tag': tag};
     const unencodedPath = "/api/v1/test", authority = 'http://localhost:3000';
     final uri = _getUri(authority, unencodedPath, queryParameters);
-    try {
-      return Right(await _filterFromUrl(uri));
-    } on ServerFailure {
-      return Left(ServerFailure());
+    final response = await _filterFromUrl(uri);
+    if (response.statusCode == 200) {
+      return HomeModel.fromJson(jsonDecode(response.body));
     }
+    throw ServerFailure();
   }
 
   @override
-  Future<Either<Failure, Home>> search(String term, String tag) async {
-    final queryParameters = {'tag': tag, "term": term};
+  Future<Home> search(String term, String tag) async {
     const unencodedPath = "/api/v1/test", authority = 'www.myurl.com';
+    final queryParameters = {'tag': tag, "term": term};
     final uri = _getUri(authority, unencodedPath, queryParameters);
-    try {
-      return Right(await _filterFromUrl(uri));
-    } on ServerFailure {
-      return Left(ServerFailure());
+    final response = await _filterFromUrl(uri);
+    if (response.statusCode == 200) {
+      return HomeModel.fromJson(jsonDecode(response.body));
     }
+    throw ServerFailure();
   }
 
-  Future<Home> _filterFromUrl(Uri uri) async {
-    try {
-      final response = await client.get(uri, headers: {});
-      return HomeModel.fromJson(jsonDecode(response.body));
-    } on ServerFailure {
-      throw ServerFailure;
-    }
+  Future<dynamic> _filterFromUrl(Uri uri) {
+    return client.get(uri, headers: {});
   }
 
   Uri _getUri(String authority, String unencodedPath,

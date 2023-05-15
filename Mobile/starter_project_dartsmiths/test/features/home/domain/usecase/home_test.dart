@@ -22,7 +22,7 @@ void main() {
   String title = 'Education';
   String description = "You can reach your goal if you love working";
   String imageUrl = "https://www.images/fake.jpg";
-  DateTime dateTime = DateTime(2023, 5, 12);
+  String dateTime = "2023-05-12T12:00:00";
   String tag = "Techs";
   final home = Home(
       author: author,
