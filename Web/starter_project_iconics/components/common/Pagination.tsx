@@ -17,7 +17,7 @@ const Pagination : React.FC<PaginationProps> = ({totalItems, itemsPerPage, curre
   useEffect(()=>{
     setStartIndex((currentPage-1)*itemsPerPage)
     setEndIndex((currentPage-1)*itemsPerPage+itemsPerPage)
-  }, [currentPage])
+  }, [currentPage, itemsPerPage, setEndIndex, setStartIndex])
 
   for (let page:number = 1; page <= pagesCount; page++) {
     
