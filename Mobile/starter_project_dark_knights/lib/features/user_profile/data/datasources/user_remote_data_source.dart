@@ -31,9 +31,20 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
   String uri = "https://api";
   UserRemoteDataSourceImpl({required this.client});
   @override
-  Future<UserModel> createUser(UserEntity user) {
-    // TODO: implement createUser
-    throw UnimplementedError();
+  Future<UserModel> createUser(UserEntity user) async {
+    final response = await client.post(
+      Uri.parse("http://localhost:3000/"),
+      body: user,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    );
+
+    if (response.statusCode == 200) {
+      return UserModel.fromJson(json.decode(response.body));
+    } else {
+      throw ServerException("Request Succesful");
+    }
   }
 
   @override
@@ -47,14 +58,6 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
     } else {
       throw ServerException('Failed to delete user');
     }
-  }
-
-  @override
-  Future<UserModel> editUserProfile(UserEntity user) {
-    // TODO: implement editUserProfile
-  Future<UserModel> deleteUser(String userId) {
-    // TODO: implement deleteUser
-    throw UnimplementedError();
   }
 
   @override
@@ -75,9 +78,17 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
   }
 
   @override
-  Future<List<UserModel>> getAllUsers() {
-    // TODO: implement getAllUsers
-    throw UnimplementedError();
+  Future<List<UserModel>> getAllUsers() async {
+    final response = await client.get(Uri.parse('$uri/getAllUsers'),
+        headers: {'Content-Type': 'application/json'});
+    if (response.statusCode == 200) {
+      final jsonResponse = json.decode(response.body);
+      final userList = List<Map<String, dynamic>>.from(jsonResponse);
+      final users = userList.map((json) => UserModel.fromJson(json)).toList();
+      return users;
+    } else {
+      throw ServerException('Failed to load users');
+    }
   }
 
   @override
@@ -99,12 +110,6 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
     } else {
       throw ServerException("Request Succesful");
     }
-  }
-
-  @override
-  Future<List<UserModel>> getFollowers(String userId) {
-    // TODO: implement getFollowers
-    throw UnimplementedError();
   }
 
   @override
