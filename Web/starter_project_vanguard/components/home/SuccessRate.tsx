@@ -18,7 +18,7 @@ const SuccessRate: React.FC = () => {
         <div className="self-center w-2/4 py-3 mx-4 text-center aspect-auto">
           <p className="text-lg text-primary-text">
             A2SV students are <span className="font-semibold">35</span> times
-            more likely to pass 
+            more likely to pass
             <span className="font-semibold"> Google SWE interviews </span>
             than average candiadates.
           </p>
@@ -26,13 +26,26 @@ const SuccessRate: React.FC = () => {
 
         <div className="flex flex-col items-center w-full grow sm:flex-row sm:justify-center">
           {successRates.map((info) => (
-            <YearlySuccess info={info} key={info.id} />
+            <YearlySuccess
+              id={info.id}
+              year={info.year}
+              success={info.success}
+              average={info.average}
+              key={info.id}
+            />
           ))}
         </div>
       </div>
 
       {activities.map((activity) => (
-        <Activities activity={activity} key={activity.url} />
+        <Activities
+          id={activity.id}
+          url={activity.url}
+          title={activity.title}
+          description={activity.description}
+          altText={activity.altText}
+          key={activity.id}
+        />
       ))}
     </div>
   )

@@ -4,7 +4,7 @@ import SuccessRate from '@/components/home/SuccessRate'
 import HelpUs from '@/components/home/HelpUs'
 import ImpactStories from '@/components/home/ImpactStories'
 
-export default function Home() {
+const Home: React.FC = () => {
   return (
     <div className="min-h-screen bg-white font-{poppins} scroll-smooth">
       <HeroSection />
@@ -15,3 +15,4 @@ export default function Home() {
     </div>
   )
 }
+export default Home
