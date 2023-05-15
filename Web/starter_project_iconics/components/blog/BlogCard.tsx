@@ -7,12 +7,19 @@ interface BlogCardProps {
   isMyBlogsPage: boolean
 }
 
-const BlogCard: React.FC<BlogCardProps> = ({ blog, isMyBlogsPage }) => {
-  let { author, description, datePosted, title, tags, imgUrl, likes, status } =
-    blog
-  if (likes == undefined) likes = 0
-
-  if (status == undefined) status = 'pending'
+const BlogCard: React.FC<BlogCardProps> = ({
+  blog: {
+    author,
+    description,
+    datePosted,
+    title,
+    tags,
+    imgUrl,
+    likes = 0,
+    status = 'pending',
+  },
+  isMyBlogsPage,
+}) => {
   return (
     <div className="blog w-[400px] font-montserrat flex flex-col border border-gray-300 rounded-lg overflow-hidden shadow-md bg-white h-543 my-8 font-bold">
       <img
@@ -35,7 +42,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog, isMyBlogsPage }) => {
           />
 
           <div className="blog_writter_details flex flex-col items-start">
-            <span className="blog_writter_name m-0   text-gray-600 leading-5">
+            <span className="blog_writter_name m-0 text-gray-600 leading-5">
               <b className="font-thin">&nbsp;{' by '}</b>&nbsp;
               <b>{author.name}</b>
               <b className="font-thin">
@@ -65,8 +72,8 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog, isMyBlogsPage }) => {
         <br />
         <hr className="line border-gray-200" />
         <BlogFooter
-          numberOfLikes={likes}
-          blogStatus={status}
+          numberOfLikes={likes == undefined ? 0 : likes}
+          blogStatus={status == undefined ? 'pending' : status}
           myBlog={isMyBlogsPage}
         />
       </div>

@@ -1,7 +1,7 @@
 import { Blog } from '@/types/blog'
 import React from 'react'
 import BlogCard from '@/components/blog/BlogCard'
-import blogs from '@/data/profile/blogs.json'
+import blogs from '@/data/profile/personal-blogs.json'
 
 const MyBlogs: React.FC = () => {
   const blogsArray: Blog[] = JSON.parse(JSON.stringify(blogs))
