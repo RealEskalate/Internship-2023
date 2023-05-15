@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 
 const Index: React.FC = () => {
-  const [activeLink, setActiveLink] = useState('My_Blogs')
+  const [activeLink, setActiveLink] = useState('myBlogs')
   const bodyElement: {
     [key: string]: React.ReactNode
   } = { My_Blogs: <MyBlogs /> }
@@ -16,33 +16,33 @@ const Index: React.FC = () => {
         <Link
           href="#"
           className={`text-lg font-semibold  text-third pl-0 pr-4 pt-2 pb-5 hover:text-primary ${
-            activeLink === 'My_Information'
+            activeLink === 'myInformation'
               ? 'border-b-2 border-primary text-primary'
               : 'border-b-2 border-transparent text-third'
           }`}
-          onClick={() => setActiveLink('My_Information')}
+          onClick={() => setActiveLink('myInformation')}
         >
           Personal Information
         </Link>
         <Link
           href="#"
           className={`text-lg font-semibold text-third px-4 pt-2 pb-5 hover:text-primary ${
-            activeLink === 'My_Blogs'
+            activeLink === 'myBlogs'
               ? 'border-b-2 border-primary text-primary'
               : 'border-b-2 border-transparent text-third'
           }`}
-          onClick={() => setActiveLink('My_Blogs')}
+          onClick={() => setActiveLink('myBlogs')}
         >
           My Blogs
         </Link>
         <Link
           href="#"
           className={`text-lg font-semibold  px-4 pt-2 pb-5 hover:text-primary ${
-            activeLink === 'My_Account'
+            activeLink === 'myAccount'
               ? 'border-b-2 border-primary text-primary'
               : 'border-b-2 border-transparent text-third'
           }`}
-          onClick={() => setActiveLink('My_Account')}
+          onClick={() => setActiveLink('myAccount')}
         >
           Account Settings
         </Link>
