@@ -1,12 +1,16 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using AutoMapper;
 using BlogApp.Application.Constants;
 using BlogApp.Application.Contracts.Identity;
 using BlogApp.Application.Exceptions;
 using BlogApp.Application.Models.Identity;
 using BlogApp.Application.Responses;
+using BlogApp.Domain;
+using BlogApp.Domain.Models.Identity;
 using BlogApp.Identity.Models;
+using BlogApp.Persistence;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -18,14 +22,20 @@ namespace BlogApp.Identity.Services
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly JwtSettings _jwtSettings;
+        private readonly BlogAppDbContext _blogDbContext;
+        private IMapper _mapper;
 
         public AuthService(UserManager<ApplicationUser> userManager,
             IOptions<JwtSettings> jwtSettings,
-            SignInManager<ApplicationUser> signInManager)
+            SignInManager<ApplicationUser> signInManager, 
+            IMapper mapper,
+            BlogAppDbContext blogDbContext)
         {
             _userManager = userManager;
             _jwtSettings = jwtSettings.Value;
             _signInManager = signInManager;
+            _mapper = mapper;
+            _blogDbContext = blogDbContext;
         }
 
         public async Task<Result<AuthResponse>> Login(AuthRequest request)
@@ -85,10 +95,27 @@ namespace BlogApp.Identity.Services
                 throw new IdentityException("An error occured while creating the user.", result.Errors.ToList());
 
             await _userManager.AddToRoleAsync(user, "User");
+            var Roles = await _userManager.GetRolesAsync(user);
+            var blogUser = new BlogUser
+            {
+                AppUserId = user.Id,
+                Email = request.Email,
+                Firstname = request.Firstname,
+                Lastname = request.Lastname,
+                Username = request.Username,
+                Role = Roles[0]
+            };
+
+            _blogDbContext.Add(blogUser);
+            await _blogDbContext.SaveChangesAsync();
+            user.blogUserId = blogUser.Id;
+            await _userManager.UpdateAsync(user);
+            
+
             return new Result<RegistrationResponse>()
             {
                 Success = true, Message = "User created successfully.",
-                Value = new RegistrationResponse() { UserId = user.Id }
+                Value = new RegistrationResponse() { UserId = user.Id, blogUserId = blogUser.Id }
             };
         }
 
@@ -104,7 +131,8 @@ namespace BlogApp.Identity.Services
                     new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                     new Claim(JwtRegisteredClaimNames.Email, user.Email),
-                    new Claim(CustomClaimTypes.Uid, user.Id.ToString())
+                    new Claim(CustomClaimTypes.Uid, user.Id.ToString()),
+                    new Claim(CustomClaimTypes.BlogUserId, user.blogUserId.ToString()),
                 }
                 .Union(userClaims)
                 .Union(roleClaims);

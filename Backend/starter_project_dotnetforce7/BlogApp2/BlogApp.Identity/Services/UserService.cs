@@ -25,7 +25,7 @@ namespace BlogApp.Identity.Services
             return new User
             {
                 Email = user.Email,
-                Id = user.Id,
+                AppUserId = user.Id,
                 Firstname = user.Firstname,
                 Lastname = user.Lastname,
                 Roles = await _userManager.GetRolesAsync(user),
@@ -41,7 +41,7 @@ namespace BlogApp.Identity.Services
 
             return users.Select(q => new User
             {
-                Id = q.Id,
+                AppUserId = q.Id,
                 Email = q.Email,
                 Firstname = q.Firstname,
                 Lastname = q.Lastname
