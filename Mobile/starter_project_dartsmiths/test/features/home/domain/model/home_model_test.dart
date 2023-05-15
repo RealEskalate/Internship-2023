@@ -12,7 +12,7 @@ void main() {
     description: 'description',
     imageUrl: 'imageUrl',
     dateTime: "2023-05-12T12:00:00",
-    tag: 'tag',
+    tag: 'Techs',
   );
 
   group("Model testing", () {
