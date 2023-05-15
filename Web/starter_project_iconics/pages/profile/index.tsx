@@ -1,4 +1,5 @@
 import MyBlogs from '@/components/profile/MyBlogs'
+import MyInformation from '@/components/profile/MyPersonalInfo'
 import Link from 'next/link'
 import React, { useState } from 'react'
 
@@ -6,7 +7,7 @@ const ProfilePage: React.FC = () => {
   const [activeLink, setActiveLink] = useState('myBlogs')
   const bodyElement: {
     [key: string]: React.ReactNode
-  } = { My_Blogs: <MyBlogs /> }
+  } = { myBlogs: <MyBlogs />, myInformation: <MyInformation /> }
   return (
     <div className="min-h-screen bg-white flex p-10 flex-col">
       <div className="flex py-4">
