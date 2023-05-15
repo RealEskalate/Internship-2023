@@ -14,7 +14,7 @@ const TeamMembersList: React.FC = () => {
 
     useEffect(() => {
         setTeamMembers(allTeamMembers.slice(startIndex,endIndex))
-    }, [startIndex, endIndex])
+    }, [startIndex, endIndex, teamMembers])
 
     return (
 
