@@ -5,9 +5,9 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i4;
 
-import 'package:dartsmiths/features/home/data/datasource/home_remote.dart'
+import 'package:dartsmiths/features/feed/home/data/datasource/home_remote.dart'
     as _i3;
-import 'package:dartsmiths/features/home/domain/entity/home.dart' as _i2;
+import 'package:dartsmiths/features/feed/home/domain/entity/home.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint

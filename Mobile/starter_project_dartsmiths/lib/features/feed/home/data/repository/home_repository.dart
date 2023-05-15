@@ -1,7 +1,7 @@
 import 'package:dartsmiths/core/error/failures.dart';
-import 'package:dartsmiths/features/home/data/datasource/home_remote.dart';
-import 'package:dartsmiths/features/home/domain/entity/home.dart';
-import 'package:dartsmiths/features/home/domain/repository/home_repository.dart';
+import 'package:dartsmiths/features/feed/home/data/datasource/home_remote.dart';
+import 'package:dartsmiths/features/feed/home/domain/entity/home.dart';
+import 'package:dartsmiths/features/feed/home/domain/repository/home_repository.dart';
 import 'package:dartz/dartz.dart';
 
 class HomeRepositoryImpl implements HomeRepository {
