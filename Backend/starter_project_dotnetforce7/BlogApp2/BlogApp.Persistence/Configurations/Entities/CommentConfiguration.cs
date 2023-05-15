@@ -15,23 +15,23 @@ namespace BlogApp.Persistence.Configurations.Entities
     {
         public void Configure(EntityTypeBuilder<Comment> builder)
         {
-            builder.HasData(
-                new Comment
-                {
-                    Id = 1,
-                    Content = "Sample Content",
-                    UserId = 1,
-                    BlogId = 1,
-                },
+            // builder.HasData(
+            //     new Comment
+            //     {
+            //         Id = 1,
+            //         Content = "Sample Content",
+            //         UserId = 1,
+            //         BlogId = 1,
+            //     },
 
-                 new Comment
-                 {
-                     Id = 2,
-                     Content = "Sample Content",
-                     UserId = 2,
-                     BlogId = 2,
-                 }
-                ); ;
+            //      new Comment
+            //      {
+            //          Id = 2,
+            //          Content = "Sample Content",
+            //          UserId = 2,
+            //          BlogId = 2,
+            //      }
+            //     ); ;
         }
 
 

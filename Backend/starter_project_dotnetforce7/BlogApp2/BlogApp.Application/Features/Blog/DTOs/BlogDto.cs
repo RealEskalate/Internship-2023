@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BlogApp.Application.Features.Comments.DTOs;
 using BlogApp.Application.Features.Common;
 using BlogApp.Application.Features.Rates.DTOs;
 using BlogApp.Domain;
@@ -18,6 +19,7 @@ namespace BlogApp.Application.Features.Blogs.DTOs
 
         public ICollection<RateDto> Rates { get; set; }
 
+        public ICollection<CommentDto> Comments { get; set; }
         public double BlogRate { get; set; }
 
     }
