@@ -65,7 +65,7 @@ const SingleBlog = () => {
             Related Blogs
         </h1>
 
-        <div className="grid grid-rows-3 md:grid-cols-3 gap-10 mt-10 mb-14">
+        <div className="grid grid-cols-1 gap-10 mt-10 mb-14 md:grid-cols-3">
           {blog.relatedBlogs.map((item: string) => (
             <Related id={item} />
           ))}
