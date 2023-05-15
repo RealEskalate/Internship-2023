@@ -1,12 +1,23 @@
+import { useEffect } from "react"
+
 interface PaginationProps{
-    pagesCount: number
+    totalItems: number
+    itemsPerPage: number
     currentPage: number
     setCurrentPage: (page: number) => void
+    setStartIndex: (index: number) => void
+    setEndIndex: (index: number) => void
 }
 
-const Pagination : React.FC<PaginationProps> = ({pagesCount, currentPage, setCurrentPage}) => {
+const Pagination : React.FC<PaginationProps> = ({totalItems, itemsPerPage, currentPage, setCurrentPage, setStartIndex, setEndIndex}) => {
+  const pagesCount = Math.ceil(totalItems/itemsPerPage)
   let pages: JSX.Element[] = []
   const visible = 2
+  
+  useEffect(()=>{
+    setStartIndex((currentPage-1)*itemsPerPage)
+    setEndIndex((currentPage-1)*itemsPerPage+itemsPerPage)
+  }, [currentPage])
 
   for (let page:number = 1; page <= pagesCount; page++) {
     
