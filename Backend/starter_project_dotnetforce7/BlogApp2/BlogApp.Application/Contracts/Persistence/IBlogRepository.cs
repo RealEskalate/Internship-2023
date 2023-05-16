@@ -11,5 +11,8 @@ namespace BlogApp.Application.Contracts.Persistence
     {
         Task<List<Blog>> GetBlogsWithRate();
 
+        Task<List<Blog>> GetBlogs();
+
+
     }
 }

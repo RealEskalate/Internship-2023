@@ -29,7 +29,7 @@ namespace BlogApp.Application.Features.Blogs.CQRS.Handlers
         {
 
             var response = new Result<List<BlogDto>>();
-            var Blogs = await _unitOfWork.BlogRepository.GetAll();
+            var Blogs = await _unitOfWork.BlogRepository.GetBlogs();
             
             response.Success = true;
             response.Message = "Fetch Success";
