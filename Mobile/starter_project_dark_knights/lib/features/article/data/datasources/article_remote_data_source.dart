@@ -27,7 +27,7 @@ class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSource {
   ArticleRemoteDataSourceImpl({required this.client});
   @override
   Future<List<ArticleModel>> getArticles() async {
-    final response = await http.get(
+    final response = await client.get(
       Uri.parse(uriString),
       headers: {
         'Content-Type': 'application/json',
@@ -35,8 +35,9 @@ class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSource {
     );
     if (response.statusCode == 200) {
       final jsonResponse = json.decode(response.body);
+      final articlesList = List<Map<String, dynamic>>.from(jsonResponse);
       final articles =
-          jsonResponse.map((json) => ArticleModel.fromJson(json)).toList();
+          articlesList.map((json) => ArticleModel.fromJson(json)).toList();
       return articles;
     } else {
       throw ServerException('Internal Server Error');
@@ -45,7 +46,7 @@ class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSource {
 
   @override
   Future<ArticleModel> deleteArticle(String id) async {
-    final response = await http.delete(
+    final response = await client.delete(
       Uri.parse('$uriString$id'),
     );
     if (response.statusCode == 200) {
@@ -58,7 +59,7 @@ class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSource {
 
   @override
   Future<ArticleModel> getArticleById(String id) async {
-    final response = await http.get(
+    final response = await client.get(
       Uri.parse('$uriString$id'),
     );
     if (response.statusCode == 200) {
@@ -71,7 +72,7 @@ class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSource {
 
   @override
   Future<List<ArticleModel>> getArticlesByUserId(String userId) async {
-    final response = await http.get(
+    final response = await client.get(
       Uri.parse('$uriString$userId'),
     );
     if (response.statusCode == 200) {
@@ -100,7 +101,7 @@ class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSource {
     );
 
     final jsonBody = json.encode(articleModel.toJson());
-    final response = await http.post(
+    final response = await client.post(
       Uri.parse(uriString),
       body: jsonBody,
     );
@@ -127,7 +128,8 @@ class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSource {
       timeEstimate: article.timeEstimate,
     );
     final jsonBody = json.encode(articleModel.toJson());
-    final response = await http.put(Uri.parse('$uriString$id'), body: jsonBody);
+    final response =
+        await client.put(Uri.parse('$uriString$id'), body: jsonBody);
     if (response.statusCode == 200) {
       final jsonResponse = json.decode(response.body);
       return ArticleModel.fromJson(jsonResponse);
