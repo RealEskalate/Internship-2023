@@ -31,5 +31,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BlogApp.Identity\BlogApp.Identity.csproj" />
+    <ProjectReference Include="..\BlogApp.Persistence\BlogApp.Persistence.csproj" />
   </ItemGroup>
 </Project>

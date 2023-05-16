@@ -54,7 +54,7 @@ namespace BlogApp.Identity.UnitTests
 
             // Assert
             Assert.NotNull(result);
-            Assert.Equal(userId, result.Id);
+            Assert.Equal(userId, result.AppUserId);
             Assert.Equal(user.Email, result.Email);
             Assert.Equal(user.Firstname, result.Firstname);
             Assert.Equal(user.Lastname, result.Lastname);
@@ -93,11 +93,11 @@ namespace BlogApp.Identity.UnitTests
             // Assert
             Assert.NotNull(result);
             Assert.Equal(users.Count, result.Count);
-            Assert.Equal(users[0].Id, result[0].Id);
+            Assert.Equal(users[0].Id, result[0].AppUserId);
             Assert.Equal(users[0].Email, result[0].Email);
             Assert.Equal(users[0].Firstname, result[0].Firstname);
             Assert.Equal(users[0].Lastname, result[0].Lastname);
-            Assert.Equal(users[1].Id, result[1].Id);
+            Assert.Equal(users[1].Id, result[1].AppUserId);
             Assert.Equal(users[1].Email, result[1].Email);
             Assert.Equal(users[1].Firstname, result[1].Firstname);
             Assert.Equal(users[1].Lastname, result[1].Lastname);
