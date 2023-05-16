@@ -1,7 +1,8 @@
 import 'dart:convert';
 
 import 'package:dark_knights/features/article/presentation/widgets/add_article_content.dart';
-import 'package:dark_knights/features/user_profile/data/datasources/user_remote_data_source.dart';
+
+import 'package:dark_knights/features/user_profile/data/datasources/user_remote_data_sources.dart';
 import 'package:dark_knights/features/user_profile/data/models/user_model.dart';
 import 'package:dark_knights/features/user_profile/domain/entities/user_entity.dart';
 import 'package:http/http.dart' as http;
@@ -19,6 +20,8 @@ void main() {
     mockHttpClient = MockClient();
     datasource = UserRemoteDataSourceImpl(client: mockHttpClient);
   });
+
+
 
   group('get Following', () {
     test('should return the following users using the user id', () async {
@@ -41,6 +44,10 @@ void main() {
       ));
       expect(result, equals(sampledata));
     });
+
+
+
+
     group('get Number Of Following', () {
       test(''' should return 
       an integer which is the number of ''', () async {
@@ -62,28 +69,26 @@ void main() {
       });
     });
   });
-  group ('get Number of followers',(){
- test('return integer which is the number of followers',() async{
-
- const userId = "1";
-        // Mock the HTTP response from the remote data source
-        when(mockHttpClient.get(
-                Uri.parse('https://api/getNumberOfFollowers/$userId'),
-                headers: {'Content-Type': 'application/json'}))
-            .thenAnswer((_) async =>
-                http.Response(json.encode({'NumberOfFollowers': 20}), 200));
-
-        final result = await datasource.getNumberOfFollowers(userId);
-        verify(mockHttpClient.get(
-          Uri.parse('https://api/getNumberOfFollowers/$userId'),
-          headers: {'Content-Type': 'application/json'},
-        ));
-        // Call the function with the mock client and expect it to return the correct number of followers
-        expect(result, 20);
 
 
- });
+  
+  group('get Number of followers', () {
+    test('return integer which is the number of followers', () async {
+      const userId = "1";
+      // Mock the HTTP response from the remote data source
+      when(mockHttpClient.get(
+              Uri.parse('https://api/getNumberOfFollowers/$userId'),
+              headers: {'Content-Type': 'application/json'}))
+          .thenAnswer((_) async =>
+              http.Response(json.encode({'NumberOfFollowers': 20}), 200));
 
+      final result = await datasource.getNumberOfFollowers(userId);
+      verify(mockHttpClient.get(
+        Uri.parse('https://api/getNumberOfFollowers/$userId'),
+        headers: {'Content-Type': 'application/json'},
+      ));
+      // Call the function with the mock client and expect it to return the correct number of followers
+      expect(result, 20);
+    });
   });
-
 }
