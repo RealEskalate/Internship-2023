@@ -1,23 +1,14 @@
 import React from 'react'
-import { Blog } from '@/types/blog'
+import { Blog, BlogStatus } from '@/types/blog'
 import BlogFooter from '@/components/blog/BlogCardFooter'
 
 interface BlogCardProps {
   blog: Blog
-  pageName: 'MyBlogs' | 'RelatedBlogs'
+  pageName: 'MYBLOGS' | 'RELATEDBLOGS'
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({
-  blog: {
-    author,
-    description,
-    datePosted,
-    title,
-    tags,
-    imgUrl,
-    likes = 0,
-    status = 'pending',
-  },
+  blog: { author, description, datePosted, title, tags, imgUrl, likes, status },
   pageName,
 }) => {
   return (

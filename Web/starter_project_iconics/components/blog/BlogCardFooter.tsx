@@ -1,3 +1,4 @@
+import { BlogStatus } from '@/types/blog'
 import {
   AiFillCheckCircle,
   AiFillClockCircle,
@@ -7,8 +8,8 @@ import { MdOutlineModeComment } from 'react-icons/md'
 
 interface BlogFooterProps {
   numberOfLikes: number
-  blogStatus: 'approved' | 'pending' | 'declined'
-  pageName: 'MyBlogs' | 'RelatedBlogs'
+  blogStatus: BlogStatus
+  pageName: 'MYBLOGS' | 'RELATEDBLOGS'
 }
 
 const BlogFooter: React.FC<BlogFooterProps> = ({
@@ -17,9 +18,9 @@ const BlogFooter: React.FC<BlogFooterProps> = ({
   pageName,
 }) => {
   const statusIcon = {
-    approved: <AiFillCheckCircle size={18} />,
-    declined: <AiFillWarning size={18} />,
-    pending: <AiFillClockCircle size={18} />,
+    [BlogStatus.approved]: <AiFillCheckCircle size={18} />,
+    [BlogStatus.declined]: <AiFillWarning size={18} />,
+    [BlogStatus.pending]: <AiFillClockCircle size={18} />,
   }
 
   const abbreviations: [number, string][] = [
@@ -31,7 +32,7 @@ const BlogFooter: React.FC<BlogFooterProps> = ({
     <div>
       <div className="card_footer flex justify-between items-center">
         {(() => {
-          if (pageName == 'MyBlogs') {
+          if (pageName == 'MYBLOGS') {
             let val: string = ''
             for (const [value, abbreviation] of abbreviations) {
               if (numberOfLikes >= value) {
@@ -63,9 +64,9 @@ const BlogFooter: React.FC<BlogFooterProps> = ({
                 {
                   <span
                     className={
-                      blogStatus === 'approved'
+                      blogStatus === BlogStatus.approved
                         ? 'text-green-600 '
-                        : blogStatus === 'declined'
+                        : blogStatus === BlogStatus.declined
                         ? 'text-red-600 '
                         : 'text-orange-500 '
                     }
@@ -74,20 +75,20 @@ const BlogFooter: React.FC<BlogFooterProps> = ({
                       marginRight: '10px',
                     }}
                   >
-                    {statusIcon[blogStatus || 'pending']}
+                    {statusIcon[blogStatus || BlogStatus.pending]}
                   </span>
                 }
                 <span
                   className={
-                    blogStatus === 'approved'
+                    blogStatus === BlogStatus.approved
                       ? 'text-green-600 text-sm'
-                      : blogStatus === 'declined'
+                      : blogStatus === BlogStatus.declined
                       ? 'text-red-600 text-sm'
                       : 'text-orange-500 text-sm'
                   }
                   style={{ display: 'inline-block' }}
                 >
-                  {blogStatus.toUpperCase()}
+                  {blogStatus}
                 </span>
               </span>
             )

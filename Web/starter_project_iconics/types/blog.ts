@@ -1,3 +1,8 @@
+export enum BlogStatus {
+  'approved',
+  'pending',
+  'declined',
+}
 export interface Blog {
   id: string
   title: string
@@ -14,6 +19,6 @@ export interface Blog {
   }
   tags: string[]
   paragraph: string
-  likes?: number
-  status?: 'pending' | 'approved' | 'declined'
+  likes: number
+  status: BlogStatus
 }

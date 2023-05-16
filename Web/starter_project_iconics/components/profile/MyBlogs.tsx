@@ -22,7 +22,7 @@ const MyBlogs: React.FC = () => {
       </div>
       <div className="flex mt-3 justify-between flex-wrap items-center">
         {JSON.parse(JSON.stringify(blogs))?.map((blog: Blog, index: number) => {
-          return <BlogCard blog={blog} key={index} pageName={'MyBlogs'} />
+          return <BlogCard blog={blog} key={index} pageName={'MYBLOGS'} />
         })}
       </div>
     </div>

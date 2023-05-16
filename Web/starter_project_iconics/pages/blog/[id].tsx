@@ -7,8 +7,8 @@ import blogsData from '../../data/blog/blog.json'
 const SingleBlog: React.FC = () => {
   const router = useRouter()
   const { id } = router.query
-  const blogList = blogsData
-  const currBlog: Blog[] = blogList.filter((item) => {
+  const blogList = JSON.parse(JSON.stringify(blogsData))
+  const currBlog: Blog[] = blogList.filter((item: Blog) => {
     // TODO
     // This Will be fixed on another PR
     return item.id === '1'

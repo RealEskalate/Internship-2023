@@ -1,6 +1,6 @@
 [
   {
-    "id": "1",
+    "id": "5",
     "title": "The essential guide to Competitive Programming",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea ",
     "datePosted": "Apr 16, 2022",
@@ -8,13 +8,15 @@
     "imgUrl": "dummy-blog-img.png",
     "heading": "We know that data structure and algorithm can seem hard at first glance. And you may not be familiar with advanced algorithms, but there are simple steps you can follow to see outstanding results in a short period of time.",
     "author": {
-      "name": "Yididiya Kebede",
-      "imageUrl": "profile-img.jpg",
+      "name": "Chaltu Kebede",
+      "imageUrl": "dummy-author-img.png",
       "profession": "software engineer",
-      "socialMediaLink": "@yididiya_kebede"
+      "socialMediaLink": "@chaltu_kebede"
     },
     "tags": ["UI/UX", "Development"],
-    "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "likes": 2300,
+    "status": "approved"
   },
   {
     "id": "2",
@@ -25,13 +27,15 @@
     "imgUrl": "dummy-blog-img.png",
     "heading": "We know that data structure and algorithm can seem hard at first glance. And you may not be familiar with advanced algorithms, but there are simple steps you can follow to see outstanding results in a short period of time.",
     "author": {
-      "name": "Yididiya Kebede",
-      "imageUrl": "profile-img.jpg",
+      "name": "Chaltu Kebede",
+      "imageUrl": "dummy-author-img.png",
       "profession": "software engineer",
-      "socialMediaLink": "@yididiya_kebede"
+      "socialMediaLink": "@chaltu_kebede"
     },
     "tags": ["UI/UX", "Development"],
-    "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "likes": 2300,
+    "status": "approved"
   },
   {
     "id": "3",
@@ -42,13 +46,15 @@
     "imgUrl": "dummy-blog-img.png",
     "heading": "We know that data structure and algorithm can seem hard at first glance. And you may not be familiar with advanced algorithms, but there are simple steps you can follow to see outstanding results in a short period of time.",
     "author": {
-      "name": "Yididiya Kebede",
-      "imageUrl": "profile-img.jpg",
+      "name": "Chaltu Kebede",
+      "imageUrl": "dummy-author-img.png",
       "profession": "software engineer",
-      "socialMediaLink": "@yididiya_kebede"
+      "socialMediaLink": "@chaltu_kebede"
     },
     "tags": ["UI/UX", "Development"],
-    "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "likes": 2300,
+    "status": "approved"
   },
   {
     "id": "4",
@@ -65,23 +71,8 @@
       "socialMediaLink": "@chaltu_kebede"
     },
     "tags": ["UI/UX", "Development"],
-    "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-  },
-  {
-    "id": "5",
-    "title": "The essential guide to Competitive Programming",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea ",
-    "datePosted": "Apr 16, 2022",
-    "smallBlogTitle": "Programming, tech | 6 min Read",
-    "imgUrl": "dummy-blog-img.png",
-    "heading": "We know that data structure and algorithm can seem hard at first glance. And you may not be familiar with advanced algorithms, but there are simple steps you can follow to see outstanding results in a short period of time.",
-    "author": {
-      "name": "Chaltu Kebede",
-      "imageUrl": "dummy-author-img.png",
-      "profession": "software engineer",
-      "socialMediaLink": "@chaltu_kebede"
-    },
-    "tags": ["UI/UX", "Development"],
-    "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "likes": 2300,
+    "status": "approved"
   }
 ]
