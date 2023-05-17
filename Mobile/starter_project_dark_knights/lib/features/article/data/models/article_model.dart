@@ -26,6 +26,7 @@ class ArticleModel extends Article {
         );
 
   factory ArticleModel.fromJson(Map<String, dynamic> json) {
+
     return ArticleModel(
       id: json['id'],
       title: json['title'],

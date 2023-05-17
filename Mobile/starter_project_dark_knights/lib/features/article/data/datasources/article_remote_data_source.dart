@@ -47,7 +47,10 @@ class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSource {
   @override
   Future<ArticleModel> deleteArticle(String id) async {
     final response = await client.delete(
-      Uri.parse('$uriString$id'),
+      Uri.parse('${uriString}deleteArticle/$id'),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     );
     if (response.statusCode == 200) {
       final jsonResponse = json.decode(response.body);
@@ -61,6 +64,9 @@ class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSource {
   Future<ArticleModel> getArticleById(String id) async {
     final response = await client.get(
       Uri.parse('$uriString$id'),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     );
     if (response.statusCode == 200) {
       final jsonResponse = json.decode(response.body);
@@ -74,6 +80,9 @@ class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSource {
   Future<List<ArticleModel>> getArticlesByUserId(String userId) async {
     final response = await client.get(
       Uri.parse('$uriString$userId'),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     );
     if (response.statusCode == 200) {
       final jsonResponse = json.decode(response.body);
@@ -102,8 +111,11 @@ class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSource {
 
     final jsonBody = json.encode(articleModel.toJson());
     final response = await client.post(
-      Uri.parse(uriString),
+      Uri.parse('${uriString}postArticle'),
       body: jsonBody,
+      headers: {
+        'Content-Type': 'application/json',
+      },
     );
     if (response.statusCode == 200) {
       final jsonResponse = json.decode(response.body);
@@ -128,8 +140,13 @@ class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSource {
       timeEstimate: article.timeEstimate,
     );
     final jsonBody = json.encode(articleModel.toJson());
-    final response =
-        await client.put(Uri.parse('$uriString$id'), body: jsonBody);
+    final response = await client.put(
+      Uri.parse('${uriString}updateArticle/$id'),
+      body: jsonBody,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    );
     if (response.statusCode == 200) {
       final jsonResponse = json.decode(response.body);
       return ArticleModel.fromJson(jsonResponse);
