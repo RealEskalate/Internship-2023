@@ -5,21 +5,30 @@ import 'package:dartsmiths/features/authentication/domain/entity/authentication_
 
 import 'package:dartsmiths/core/error/failures.dart';
 
+import '../../../../core/network/network_info.dart';
 import '../../domain/repository/login_repository.dart';
 import '../datasource/authentication_remote_datasource.dart';
 
 class AuthenticationRepositoryImpl implements AuthenticationRepository {
   AuthenticationRemoteDataSource remotedataSource;
+  NetworkInfo networkInfo;
 
-  AuthenticationRepositoryImpl(this.remotedataSource);
+  AuthenticationRepositoryImpl(
+      {required this.remotedataSource, required this.networkInfo});
 
   @override
   Future<Either<Failure, UserAuthCredential>> login(
       {required String username, required String password}) async {
-    try {
-      return Right(remotedataSource.login(username, password) as UserAuthCredential);
-    } on ServerException {
-      return Left(ServerFailure());
+    
+    if (await networkInfo.isConnected) {
+      try {
+        return Right(
+            await remotedataSource.login(username, password));
+      } on ServerException {
+        return Left(ServerFailure());
+      }
+    } else {
+      return Left(NetworkFailure());
     }
   }
 }

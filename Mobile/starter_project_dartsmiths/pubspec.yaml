@@ -31,11 +31,14 @@ dependencies:
   build_runner: ^2.3.3
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1
+  data_connection_checker: ^0.3.4
   equatable: ^2.0.5
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.1.2
   flutter_svg: ^2.0.5
   http: ^0.13.6
+  internet_connection_checker: ^1.0.0+1
   mockito: ^5.4.0
   bloc: ^8.1.1
   
@@ -73,10 +76,10 @@ flutter:
           weight: 100
         - asset: assets/fonts/Poppins-Medium.ttf
           weight: 400
-        - asset: assets/font/Poppins-Regular.ttf
+        - asset: assets/fonts/Poppins-Regular.ttf
 
     - family: Urbanist
       fonts:
-        - asset: assets/font/Urbanist-VariableFont_wght.ttf
+        - asset: assets/fonts/Urbanist-VariableFont_wght.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

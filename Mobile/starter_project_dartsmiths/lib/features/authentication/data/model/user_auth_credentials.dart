@@ -9,6 +9,6 @@ class UserAuthCredentialsModel extends UserAuthCredential {
         password: json["password"], username: json["username"]);
   }
   Map<String, dynamic> toJson() {
-    return {username: username, password: password};
+    return {"username": username, "password": password};
   }
 }
