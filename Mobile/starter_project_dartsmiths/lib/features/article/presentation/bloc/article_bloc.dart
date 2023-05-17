@@ -20,7 +20,7 @@ class ArticleBloc extends Bloc<ArticleEvent, ArticleState> {
   ArticleBloc(this.postArticle, this.updateArticle, this.getArticle) : super(ArticleInitial()) {
 
     on<ArticleEvent>((event, emit) {
-      
+      emit(ArticleLoading());
     });
 
     on<PostArticleEvent>((event, emit) async {
