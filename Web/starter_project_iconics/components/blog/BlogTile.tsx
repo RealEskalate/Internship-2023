@@ -1,4 +1,4 @@
-import { Blog } from '@/types/blog/blog'
+import { Blog } from '@/types/blog'
 import Image from 'next/image'
 import { GoPrimitiveDot } from 'react-icons/go'
 
