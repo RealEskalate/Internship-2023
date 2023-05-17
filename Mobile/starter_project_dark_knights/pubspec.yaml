@@ -39,7 +39,8 @@ dependencies:
   dartz: ^0.10.1
   mockito: ^5.4.0
   build_runner: ^2.3.3
-  
+  internet_connection_checker: ^1.0.0+1
+  http: ^0.13.6
 dev_dependencies:
   flutter_test:
     sdk: flutter
