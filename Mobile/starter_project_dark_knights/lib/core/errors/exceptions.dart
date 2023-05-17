@@ -10,9 +10,14 @@ class CacheException implements Exception {
   CacheException(this.message);
 }
 
-class UserNotFoundException implements Exception{
+class UserNotFoundException implements Exception {
   final String message;
 
   UserNotFoundException(this.message);
-  
+}
+
+class InputException implements Exception {
+  final String message;
+
+  InputException(this.message);
 }
