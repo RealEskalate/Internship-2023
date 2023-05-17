@@ -41,6 +41,8 @@ dependencies:
   build_runner: ^2.3.3
   internet_connection_checker: ^1.0.0+1
   http: ^0.13.6
+  shared_preferences: ^2.1.1
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
