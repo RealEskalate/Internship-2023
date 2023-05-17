@@ -1,24 +1,31 @@
 import 'package:dartz/dartz.dart';
 
-import '../../../../core/error/failures.dart';
-import '../../../../core/network_info.dart';
+import '../../../../core/error/profile_failures.dart';
 import '../../domain/entities/user_profile.dart';
 import '../../domain/repositories/user_profile_repository.dart';
 import '../datasources/user_profile_remote_data_source.dart';
 
 class UserProfleRepositoryImpl implements UserProfileRepository {
   final UserProfileRemoteDataSource remoteDataSource;
-  final NetworkInfo networkInfo;
 
-  UserProfleRepositoryImpl(this.remoteDataSource, this.networkInfo);
+  UserProfleRepositoryImpl(
+    this.remoteDataSource,
+  );
 
   @override
   Future<Either<Failure, UserProfile>> getUserProfile(String id) async {
-    if (await networkInfo.isNetworkAvailable()) {
+    try {
       final userProfile = await remoteDataSource.getUserProfile(id);
       return Right(userProfile);
-    } else {
+    } on ServerFailure {
       return Left(ServerFailure());
     }
+    //   if (await networkInfo.isNetworkAvailable()) {
+    //     final userProfile = await remoteDataSource.getUserProfile(id);
+    //     return Right(userProfile);
+    //   } else {
+    //     return Left(ServerFailure());
+    //   }
+    // }
   }
 }

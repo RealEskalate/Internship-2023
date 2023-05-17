@@ -2,9 +2,9 @@ import 'package:dartsmiths/features/profile/domain/entities/user_profile.dart';
 import 'package:dartsmiths/features/profile/domain/repositories/user_profile_repository.dart';
 import 'package:dartsmiths/features/profile/domain/usecases/get_user_profile.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 import 'get_user_profile_test.mocks.dart';
 
