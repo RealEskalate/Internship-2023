@@ -43,6 +43,40 @@ class MockArticleRepository extends _i1.Mock implements _i3.ArticleRepository {
   }
 
   @override
+  _i4.Future<_i2.Either<_i5.Failure, _i6.Article>> postArticle(
+          _i6.Article? article) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #postArticle,
+          [article],
+        ),
+        returnValue: _i4.Future<_i2.Either<_i5.Failure, _i6.Article>>.value(
+            _FakeEither_0<_i5.Failure, _i6.Article>(
+          this,
+          Invocation.method(
+            #postArticle,
+            [article],
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.Failure, _i6.Article>>);
+  @override
+  _i4.Future<_i2.Either<_i5.Failure, _i6.Article>> updateArticle(
+          _i6.Article? article) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #updateArticle,
+          [article],
+        ),
+        returnValue: _i4.Future<_i2.Either<_i5.Failure, _i6.Article>>.value(
+            _FakeEither_0<_i5.Failure, _i6.Article>(
+          this,
+          Invocation.method(
+            #updateArticle,
+            [article],
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.Failure, _i6.Article>>);
+  @override
   _i4.Future<_i2.Either<_i5.Failure, _i6.Article>> getArticle(String? id) =>
       (super.noSuchMethod(
         Invocation.method(

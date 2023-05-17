@@ -1,6 +1,7 @@
 part of 'home_bloc.dart';
 
 abstract class HomeState extends Equatable {
+
   const HomeState();
 
   @override
@@ -22,8 +23,7 @@ class SuccessState extends HomeState {
 class FailureState extends HomeState {
   final String message;
 
-  const FailureState(this.message);
+  const FailureState({required this.message});
   @override
   List<Object> get props => [message];
-  
 }
