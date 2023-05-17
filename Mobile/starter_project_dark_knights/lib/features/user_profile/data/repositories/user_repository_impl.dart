@@ -24,6 +24,8 @@ class UserRepositoryImpl implements UserRepository {
       return Right(createdUser);
     } on ServerException {
       return Left(ServerFailure("Internal Server Error."));
+    } on InputException {
+      return Left(InputFailure("Input mismatch"));
     }
   }
 
@@ -44,6 +46,8 @@ class UserRepositoryImpl implements UserRepository {
       return Right(editedUser);
     } on ServerException {
       return Left(ServerFailure("Internal Server Error."));
+    } on InputException {
+      return Left(InputFailure("Input Mismatch"));
     }
   }
 
