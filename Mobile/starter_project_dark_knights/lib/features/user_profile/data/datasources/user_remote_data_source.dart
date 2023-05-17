@@ -113,22 +113,61 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
   }
 
   @override
-  Future<List<UserModel>> getFollowing(String userId) {
-    // TODO: implement getFollowing
-    throw UnimplementedError();
+   Future<List<UserModel>> getFollowing(String userId) async {
+    final response = await client.get(
+      Uri.parse("$uri/getFollowing/$userId"),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    );
+
+    if (response.statusCode == 200) {
+      final jsonResponse = json.decode(response.body);
+      final followingList = List<Map<String, dynamic>>.from(jsonResponse);
+      final following = followingList
+          .map((jsonInstance) => UserModel.fromJson(jsonInstance))
+          .toList();
+      return following;
+    } else {
+      throw ServerException("Request Succesful");
+    }
   }
 
-  @override
-  Future<int> getNumberOfFollowers(String userId) {
-    // TODO: implement getNumberOfFollowers
-    throw UnimplementedError();
+
+   @override
+  Future<int> getNumberOfFollowers(String userId) async {
+    final response = await client.get(
+      Uri.parse('$uri/getNumberOfFollowers/$userId'),
+      headers: {'Content-Type': 'application/json'},
+    );
+    if (response.statusCode == 200) {
+      final data = json.decode(response.body);
+      return data['NumberOfFollowers'];
+    } else if (response.statusCode == 404) {
+      throw UserNotFoundException('User with ID $userId not found');
+    } else {
+      throw ServerException(
+          'Failed to get user with ID $userId: ${response.reasonPhrase}');
+    }
   }
 
-  @override
-  Future<int> getNumberOfFollowing(String userId) {
-    // TODO: implement getNumberOfFollowing
-    throw UnimplementedError();
+ @override
+  Future<int> getNumberOfFollowing(String userId) async {
+    final response = await client.get(
+      Uri.parse('$uri/getNumberOfFollowing/$userId'),
+      headers: {'Content-Type': 'application/json'},
+    );
+    if (response.statusCode == 200) {
+      final data = json.decode(response.body);
+      return data['NumberOfFollowing'];
+    } else if (response.statusCode == 404) {
+      throw UserNotFoundException('User with ID $userId not found');
+    } else {
+      throw ServerException(
+          'Failed to get user with ID $userId: ${response.reasonPhrase}');
+    }
   }
+
 
   @override
   Future<UserModel> getUser(String userId) async {
