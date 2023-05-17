@@ -9,5 +9,5 @@ abstract class ArticleRepository {
   Future<Either<Failure, List<Article>>> getArticlesByUserId(String userId);
   Future<Either<Failure, Article>> postArticle(Article article);
   Future<Either<Failure, Article>> updateArticle(String id, Article article);
-  Future<Either<Failure, Article>> deleteArticle(String);
+  Future<Either<Failure, Article>> deleteArticle(String id);
 }
