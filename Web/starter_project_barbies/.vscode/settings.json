@@ -4,6 +4,5 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": true,
     "source.organizeImports": true
-  },
-  "editor.fontFamily": "Cascadia Code, 'JetBrains Mono', Consolas, 'Courier New', monospace"
+  }
 }
