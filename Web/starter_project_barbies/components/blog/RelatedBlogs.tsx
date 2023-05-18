@@ -29,8 +29,11 @@ export const RelatedBlogs: React.FC<RelatedBlogsProps> = ({ relatedBlogs }): Rea
           {/* Render Shimmer component if loading */}
           { isLoading &&
               Array.from({ length: 3 }).map((_, index) => ( <BlogCardShimmer key={index} /> ))}
+          {/* Render empty list if result is empty */}
+          { (isSuccess && data.length == 0) &&
+              <div>No related blogs</div> }
           {/* Render result list if success */}
-          { isSuccess && data
+          { (isSuccess && data.length > 0) && data
               .filter(blog => relatedBlogs.includes(blog.id))
               .map((blog, index) => <BlogCard blog={blog} key={index} />) }
         </div>
