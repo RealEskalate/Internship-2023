@@ -14,6 +14,8 @@ module.exports = {
         danger: '#b91c1c',
         primarytext: '#353535',
         secondarytext: '#717171',
+        darktonewhite: "#F6F6FC",
+        backgroundblue:"#A35DE9"
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

@@ -1,0 +1,27 @@
+[
+    {
+        "year":2019,
+        "passed":"founded",
+        "average":5,
+        "id":1
+    },
+    {
+        "year":2020,
+        "passed":"27",
+        "average":5.2,
+        "id":2
+    },
+    {
+        "year":2021,
+        "passed":"70",
+        "average":2.6,
+        "id":3
+    },
+    {
+        "year":2022,
+        "passed":"70",
+        "average":2.6,
+        "id":4
+
+    }
+]
