@@ -17,7 +17,7 @@ class DeleteArticleEvent extends ArticleEvent {
 
 class UpdateArticleEvent extends ArticleEvent {
   final String articleId;
-  final ArticleModel article;
+  final Article article;
 
   UpdateArticleEvent({required this.articleId, required this.article});
 
@@ -25,7 +25,7 @@ class UpdateArticleEvent extends ArticleEvent {
 }
 
 class PostArticleEvent extends ArticleEvent {
-  final ArticleModel article;
+  final Article article;
   PostArticleEvent({required this.article});
 
   List<Object?> get props => [article];
