@@ -7,8 +7,8 @@ import 'dart:async' as _i4;
 
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:matador/core/error/failures.dart' as _i5;
-import 'package:matador/features/login/Domain/entities/user.dart' as _i6;
-import 'package:matador/features/login/Domain/repositories/user_repository.dart'
+import 'package:matador/features/auth/domain/entities/user.dart' as _i6;
+import 'package:matador/features/auth/domain/repositories/login_repository.dart'
     as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 
@@ -33,16 +33,17 @@ class _FakeEither_0<L, R> extends _i1.SmartFake implements _i2.Either<L, R> {
         );
 }
 
-/// A class which mocks [UserRepository].
+/// A class which mocks [LoginUserRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockUserRepository extends _i1.Mock implements _i3.UserRepository {
-  MockUserRepository() {
+class MockLoginUserRepository extends _i1.Mock
+    implements _i3.LoginUserRepository {
+  MockLoginUserRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, _i6.User>> authenticate(
+  _i4.Future<_i2.Either<_i5.Failure, _i6.AuthUser>> authenticate(
     String? email,
     String? password,
   ) =>
@@ -54,8 +55,8 @@ class MockUserRepository extends _i1.Mock implements _i3.UserRepository {
             password,
           ],
         ),
-        returnValue: _i4.Future<_i2.Either<_i5.Failure, _i6.User>>.value(
-            _FakeEither_0<_i5.Failure, _i6.User>(
+        returnValue: _i4.Future<_i2.Either<_i5.Failure, _i6.AuthUser>>.value(
+            _FakeEither_0<_i5.Failure, _i6.AuthUser>(
           this,
           Invocation.method(
             #authenticate,
@@ -65,5 +66,5 @@ class MockUserRepository extends _i1.Mock implements _i3.UserRepository {
             ],
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i5.Failure, _i6.User>>);
+      ) as _i4.Future<_i2.Either<_i5.Failure, _i6.AuthUser>>);
 }
