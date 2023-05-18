@@ -41,7 +41,9 @@ dependencies:
   http: ^0.13.6
   internet_connection_checker: ^1.0.0+1
   mockito: ^5.4.0
-  bloc: ^8.1.1
+  http: ^0.13.6
+  data_connection_checker: ^0.3.4
+  internet_connection_checker: ^1.0.0+1
   
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -81,6 +83,8 @@ flutter:
 
     - family: Urbanist
       fonts:
-        - asset: assets/fonts/Urbanist-VariableFont_wght.ttf
+        - asset: assets/font/Urbanist-VariableFont_wght.ttf
+
+
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
