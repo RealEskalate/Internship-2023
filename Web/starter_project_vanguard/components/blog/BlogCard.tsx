@@ -15,7 +15,7 @@ const BlogCard: React.FC<Props> = ({
   isMyBlog = false,
   handleDelete,
 }) => {
-  const numberFormater = (num: number) => {
+  const numberFormatter = (num: number) => {
     if (num >= 1e6) return +(num / 1e6).toFixed(1) + 'm'
     if (num >= 1e3) return +(num / 1e3).toFixed(1) + 'k'
     if (num < 1e3) return num
@@ -89,7 +89,7 @@ const BlogCard: React.FC<Props> = ({
               <FiMessageSquare />
 
               <p className="text-xs text-primary-text font-semibold">
-                {numberFormater(blog.likes)} Likes
+                {numberFormatter(blog.likes)} Likes
               </p>
             </div>
           )}
