@@ -20,7 +20,7 @@ class AuthenticationBloc
   AuthenticationBloc({
     required this.loginUseCase,
     required this.signupUseCase,
-  }) : super(UnAuthenticated()) {
+  }) : super(AuthenticationInitial()) {
     on<LoginEvent>(_login);
     on<SignupEvent>(_signup);
   }
