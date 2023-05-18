@@ -11,3 +11,4 @@ export interface SuccessStory {
     
     story: Story[]
 }
+
