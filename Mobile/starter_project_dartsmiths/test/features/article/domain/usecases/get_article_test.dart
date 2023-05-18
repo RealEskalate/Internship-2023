@@ -41,7 +41,7 @@ void main() {
       when(mockArticleRepository.getArticle(tid))
           .thenAnswer((_) async => Right(tArticle));
 
-      final result = await usecase.call(Params(id: tid));
+      final result = await usecase.call(tid);
       // assert
       expect(result, Right(tArticle));
       verify(mockArticleRepository.getArticle(tid));
