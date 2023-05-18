@@ -27,7 +27,6 @@ namespace BlogApp.Application.Features.Tags.CQRS.Handlers
             var tag = await _unitOfWork.TagRepository.Get(request.Id);
 
             if (tag == null) {
-                Console.WriteLine(tag);
                 return null; }
                 
 

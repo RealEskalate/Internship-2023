@@ -19,10 +19,12 @@ namespace BlogApp.Persistence
             opt.UseNpgsql(configuration.GetConnectionString("BlogAppConnectionString")));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<I_IndexRepository, _IndexRepository>();
+            services.AddScoped<ICommentRepository,CommentRepository>();
             services.AddScoped<IRatingRepository, RatingRepository>();
             services.AddScoped<IBlogRepository, BlogRepository>();
             services.AddScoped<IReviewRepository, ReviewRepository>();
-            
+            services.AddScoped<ITagRepository, TagRepository>();
+
             return services;
         }
     }

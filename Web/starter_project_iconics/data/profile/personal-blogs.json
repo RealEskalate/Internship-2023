@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "title": "Design Liberalized Exchange Rate Management",
+    "tags": ["UI/UX", "Development"],
+    "status": "approved",
+    "likes": 2300,
+    "description": "A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose. A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose.A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose.",
+    "author": {
+      "name": "Fred Boone",
+
+      "imageUrl": "https://res.cloudinary.com/drowvugep/image/upload/v1682327009/user1Photo_j83qgp.png"
+    },
+    "datePosted": "April 6, 2023",
+    "imgUrl": "https://res.cloudinary.com/drowvugep/image/upload/v1682327011/card1Photo_m7nf3c.png"
+  },
+  {
+    "id": 2,
+    "title": "Design Liberalized Exchange Rate Management",
+    "tags": ["UI/UX", "Development"],
+    "status": "declined",
+    "likes": 2300500,
+    "description": "A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose. A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose.A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose.",
+    "author": {
+      "name": "Fred Boone",
+
+      "imageUrl": "https://res.cloudinary.com/drowvugep/image/upload/v1682327009/user1Photo_j83qgp.png"
+    },
+    "datePosted": "April 6, 2023",
+    "imgUrl": "https://res.cloudinary.com/drowvugep/image/upload/v1682327011/card1Photo_m7nf3c.png"
+  },
+  {
+    "id": 3,
+    "title": "Design Liberalized Exchange Rate Management",
+    "tags": ["UI/UX", "Development"],
+    "status": "pending",
+    "likes": 230,
+    "description": "A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose. A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose.A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose.",
+    "author": {
+      "name": "Fred Boone",
+
+      "imageUrl": "https://res.cloudinary.com/drowvugep/image/upload/v1682327009/user1Photo_j83qgp.png"
+    },
+    "datePosted": "April 6, 2023",
+    "imgUrl": "https://res.cloudinary.com/drowvugep/image/upload/v1682327011/card1Photo_m7nf3c.png"
+  },
+  {
+    "id": 4,
+    "title": "Design Liberalized Exchange Rate Management",
+    "tags": ["UI/UX", "Development"],
+    "status": "declined",
+    "likes": 2300,
+    "description": "A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose. A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose.A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose.",
+    "author": {
+      "name": "Fred Boone",
+
+      "imageUrl": "https://res.cloudinary.com/drowvugep/image/upload/v1682327009/user1Photo_j83qgp.png"
+    },
+    "datePosted": "April 6, 2023",
+    "imgUrl": "https://res.cloudinary.com/drowvugep/image/upload/v1682327011/card1Photo_m7nf3c.png"
+  },
+  {
+    "id": 5,
+    "title": "Design Liberalized Exchange Rate Management",
+    "tags": ["UI/UX", "Development"],
+    "status": "approved",
+    "likes": 2300,
+    "description": "A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose. A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose.A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose.",
+    "author": {
+      "name": "Fred Boone",
+
+      "imageUrl": "https://res.cloudinary.com/drowvugep/image/upload/v1682327009/user1Photo_j83qgp.png"
+    },
+    "datePosted": "April 6, 2023",
+    "imgUrl": "https://res.cloudinary.com/drowvugep/image/upload/v1682327011/card1Photo_m7nf3c.png"
+  },
+  {
+    "id": 6,
+    "title": "Design Liberalized Exchange Rate Management",
+    "tags": ["UI/UX", "Development"],
+    "status": "pending",
+    "likes": 2300,
+    "description": "A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose. A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose.A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose.",
+    "author": {
+      "name": "Fred Boone",
+
+      "imageUrl": "https://res.cloudinary.com/drowvugep/image/upload/v1682327009/user1Photo_j83qgp.png"
+    },
+    "datePosted": "April 6, 2023",
+    "imgUrl": "https://res.cloudinary.com/drowvugep/image/upload/v1682327011/card1Photo_m7nf3c.png"
+  },
+  {
+    "id": 7,
+    "title": "Design Liberalized Exchange Rate Management",
+    "tags": ["UI/UX", "Development"],
+    "status": "approved",
+    "likes": 2300,
+    "description": "A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose. A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose.A little personality goes a long way, especially on a business blog. So don’t be afraid to let loose.",
+    "author": {
+      "name": "Fred Boone",
+
+      "imageUrl": "https://res.cloudinary.com/drowvugep/image/upload/v1682327009/user1Photo_j83qgp.png"
+    },
+    "datePosted": "April 6, 2023",
+    "imgUrl": "https://res.cloudinary.com/drowvugep/image/upload/v1682327011/card1Photo_m7nf3c.png"
+  }
+]

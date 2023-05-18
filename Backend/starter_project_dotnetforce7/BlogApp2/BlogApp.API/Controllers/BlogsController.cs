@@ -5,6 +5,9 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using BlogApp.Application.Features.Blogs.CQRS.Commands;
 using API.Controllers;
+using System.Security.Claims;
+using BlogApp.Application.Constants;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BlogApp.Api.Controllers
 {
@@ -34,8 +37,11 @@ namespace BlogApp.Api.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Post([FromBody] CreateBlogDto createBlog)
         {
+            var currentUser = HttpContext.User;
+            createBlog.CreatorId = currentUser.FindFirst(CustomClaimTypes.BlogUserId)?.Value;
             var command = new CreateBlogCommand { BlogDto = createBlog };
             return  HandleResult(await _mediator.Send(command));
         }
