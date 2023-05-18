@@ -20,7 +20,7 @@ class AuthenticationBloc
   AuthenticationBloc({
     required this.loginUseCase,
     required this.signupUseCase,
-  }) : super(AuthenticationInitial()) {
+  }) : super(UnAuthenticated()) {
     on<LoginEvent>(_login);
     on<SignupEvent>(_signup);
   }
@@ -40,12 +40,12 @@ class AuthenticationBloc
   AuthenticationState _loginSuccessOrFailure(
       Either<Failure, Authentication> data) {
     return data.fold((failure) => AuthenticationFailure(error: failure),
-        (success) => AuthenticationSuccess(authentication: success));
+        (success) => Authenticated(authentication: success));
   }
 
   AuthenticationState _signupSuccessOrFailure(
       Either<Failure, Authentication> data) {
     return data.fold((failure) => AuthenticationFailure(error: failure),
-        (success) => AuthenticationSuccess(authentication: success));
+        (success) => Authenticated(authentication: success));
   }
 }
