@@ -8,14 +8,14 @@ interface RelatedBlogsProps {
 }
 
 export const RelatedBlogs: React.FC<RelatedBlogsProps> = ({ relatedBlogs }): React.ReactElement | null => {
-  const relatedBlogsResult = useGetBlogsQuery();
+  const { data, isSuccess, isLoading, isError, error } = useGetBlogsQuery()
   
-  // in case of error, the component shouldn't be rendered
-  if (relatedBlogsResult.isError) {
-    return null
+  // In case of error, the component shouldn't be rendered
+  if (isError) {
+    return <div>{error.toString()}</div>
   }
   
-  if (relatedBlogsResult.isSuccess || relatedBlogsResult.isLoading) {
+  if (isSuccess || isLoading) {
     return (
       <div className='font-montserrat'>
 
@@ -27,10 +27,10 @@ export const RelatedBlogs: React.FC<RelatedBlogsProps> = ({ relatedBlogs }): Rea
         {/* Related blogs */}
         <div className='flex items-center gap-8 justify-center mt-6 text-xs'>
           {/* Render Shimmer component if loading */}
-          { relatedBlogsResult.isLoading &&
+          { isLoading &&
               Array.from({ length: 3 }).map((_, index) => ( <BlogCardShimmer key={index} /> ))}
           {/* Render result list if success */}
-          { relatedBlogsResult.isSuccess && relatedBlogsResult.data
+          { isSuccess && data
               .filter(blog => relatedBlogs.includes(blog.id))
               .map((blog, index) => <BlogCard blog={blog} key={index} />) }
         </div>
