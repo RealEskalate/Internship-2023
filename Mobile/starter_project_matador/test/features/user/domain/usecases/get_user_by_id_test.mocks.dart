@@ -42,6 +42,22 @@ class MockUserRepository extends _i1.Mock implements _i3.UserRepository {
   }
 
   @override
+  _i4.Future<_i2.Either<_i5.Failure, _i6.User>> addUser(_i6.User? user) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #addUser,
+          [user],
+        ),
+        returnValue: _i4.Future<_i2.Either<_i5.Failure, _i6.User>>.value(
+            _FakeEither_0<_i5.Failure, _i6.User>(
+          this,
+          Invocation.method(
+            #addUser,
+            [user],
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.Failure, _i6.User>>);
+  @override
   _i4.Future<_i2.Either<_i5.Failure, _i6.User>> getUserById(String? id) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -57,4 +73,36 @@ class MockUserRepository extends _i1.Mock implements _i3.UserRepository {
           ),
         )),
       ) as _i4.Future<_i2.Either<_i5.Failure, _i6.User>>);
+  @override
+  _i4.Future<_i2.Either<_i5.Failure, _i6.User>> editUserById(_i6.User? user) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #editUserById,
+          [user],
+        ),
+        returnValue: _i4.Future<_i2.Either<_i5.Failure, _i6.User>>.value(
+            _FakeEither_0<_i5.Failure, _i6.User>(
+          this,
+          Invocation.method(
+            #editUserById,
+            [user],
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.Failure, _i6.User>>);
+  @override
+  _i4.Future<_i2.Either<_i5.Failure, void>> deleteUserById(String? id) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #deleteUserById,
+          [id],
+        ),
+        returnValue: _i4.Future<_i2.Either<_i5.Failure, void>>.value(
+            _FakeEither_0<_i5.Failure, void>(
+          this,
+          Invocation.method(
+            #deleteUserById,
+            [id],
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.Failure, void>>);
 }
