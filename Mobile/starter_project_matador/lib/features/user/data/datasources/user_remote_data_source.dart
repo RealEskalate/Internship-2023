@@ -43,6 +43,7 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
     if (response.statusCode != 200) {
       throw ServerException();
     }
+
   }
 
   @override

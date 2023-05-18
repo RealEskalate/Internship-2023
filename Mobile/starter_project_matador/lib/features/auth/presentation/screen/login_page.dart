@@ -5,7 +5,7 @@ import '../bloc/login_bloc.dart';
 import 'package:flutter/material.dart';
 import '../bloc/login_bloc.dart';
 import '../bloc/login_event.dart';
-import '../widgets/login/forgot_password.dart';
+import '../widgets/login/forgot_pass.dart';
 import '../widgets/login/input_form_field.dart';
 import '../widgets/login/login_signup.dart';
 import '../widgets/login/logo.dart';
