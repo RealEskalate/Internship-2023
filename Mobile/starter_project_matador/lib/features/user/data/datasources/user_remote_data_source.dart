@@ -5,9 +5,9 @@ import 'package:matador/features/user/domain/entities/user.dart';
 import 'package:http/http.dart' as http;
 
 abstract class UserRemoteDataSource {
-  Future<UserModel> addUser(User user);
+  Future<UserModel> addUser(UserModel user);
   Future<UserModel> getUserById(String id);
-  Future<UserModel> editUserById(User user);
+  Future<UserModel> editUserById(UserModel user);
   Future<void> deleteUserById(String id);
 }
 
@@ -17,13 +17,13 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
   UserRemoteDataSourceImpl({required this.client});
 
   @override
-  Future<UserModel> addUser(User user) async {
+  Future<UserModel> addUser(UserModel user) async {
     final url = Uri.parse("http://blogsapi.com/users/${user.id}");
-    final userToUserModel = user as UserModel;
+
     final response = await client.post(
       url,
       headers: {'Content-Type': 'application/json'},
-      body: json.encode(userToUserModel.toJson()),
+      body: json.encode(user.toJson()),
     );
     if (response.statusCode == 200) {
       return UserModel.fromJson(json.decode(response.body));
@@ -46,13 +46,13 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
   }
 
   @override
-  Future<UserModel> editUserById(User user) async {
+  Future<UserModel> editUserById(UserModel user) async {
     final url = Uri.parse("http://blogsapi.com/users/${user.id}");
-    final userToUserModel = user as UserModel;
+
     final response = await client.put(
       url,
       headers: {'Content-Type': 'application/json'},
-      body: json.encode(userToUserModel.toJson()),
+      body: json.encode(user.toJson()),
     );
 
     if (response.statusCode == 200) {
