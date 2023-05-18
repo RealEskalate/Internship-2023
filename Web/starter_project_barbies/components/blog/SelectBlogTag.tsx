@@ -1,8 +1,12 @@
-// import react-select library
-import Select from 'react-select';
+import Select, { MultiValue } from 'react-select';
 
 // tag options
-const tagOptions = [
+export interface TagOption {
+  value: string;
+  label: string;
+}
+
+const tagOptions: TagOption[] = [
   { value: "Development", label: "Development" },
   { value: "Sports", label: "Sports" },
   { value: "Writing", label: "Writing" },
@@ -13,16 +17,31 @@ const tagOptions = [
   { value: "Programming", label: "Programming" }
 ];
 
-const SelectBlogTag: React.FC = () => {
+interface SelectBlogTagProps {
+  selectedTags: MultiValue<TagOption>;
+  onChange: (selectedOptions: MultiValue<TagOption>) => void;
+}
+
+const SelectBlogTag: React.FC<SelectBlogTagProps> = ({ selectedTags, onChange }) => {
+  const handleTagChange = (selectedOptions: MultiValue<TagOption>): void => {
+    if (selectedOptions) {
+      onChange(selectedOptions);
+    } else {
+      onChange([]);
+    }
+  };
+
   return (
     <div>
-        <h2 className="text-xl font-bold mb-4">Select Tag</h2>
+      <h2 className="text-xl font-bold mb-4">Select Tag</h2>
       <Select
         isMulti
         name="tags"
         options={tagOptions}
         className="select-tag"
         classNamePrefix="select-tag"
+        value={selectedTags}
+        onChange={handleTagChange}
       />
     </div>
   );
