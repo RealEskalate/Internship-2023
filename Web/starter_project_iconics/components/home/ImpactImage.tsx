@@ -1,3 +1,5 @@
+import { AppDispatch } from '@/store'
+import { selectStory } from '@/store/features/home/impact-stories/impact-stories-slice'
 import { ImpactStory } from '@/types/home/impact-story'
 import Image from 'next/image'
 import React from 'react'
@@ -5,24 +7,24 @@ import React from 'react'
 interface ImpactProps {
   story: ImpactStory
   currentStory: ImpactStory
-  setCurrentStory: React.Dispatch<React.SetStateAction<ImpactStory>>
+  dispatch: AppDispatch
 }
 
 const ImpactImage: React.FC<ImpactProps> = ({
   story,
   currentStory,
-  setCurrentStory,
+  dispatch,
 }) => {
   const handleClick = () => {
-    setCurrentStory(story)
+    dispatch(selectStory(story))
   }
   return (
     <div
-      className={`${
+      className={`transition-all duration-1000 ${
         story.id === currentStory.id
-          ? 'border-dashed border-2 border-sky-500 rounded'
-          : ''
-      } hover:drop-shadow-lg hover:cursor-pointer hover:animate-wiggle `}
+          ? 'border-dashed border-2 border-sky-500 rounded rotate-6'
+          : 'hover:animate-wiggle'
+      } hover:drop-shadow-lg hover:cursor-pointer`}
       onClick={() => handleClick()}
     >
       <Image
