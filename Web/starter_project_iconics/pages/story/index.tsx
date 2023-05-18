@@ -8,7 +8,7 @@ const StoryPage: React.FC = () => {
     return <div>Loading...</div>;
   }
   if(error) {
-    return <div>Error</div>;
+    return <div>Page Error</div>;
   }
 
   return (
