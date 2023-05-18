@@ -1,11 +1,12 @@
 
 
-export interface SuccessStoryCardProps{
+export type SuccessStoryCard = {
     title: string;
     detail: string;
 }
 
-export interface SuccessStoriesProps{
+export type Story = {
+    id : string;
     image: string;
     name: string;
     profession: string;
@@ -15,3 +16,7 @@ export interface SuccessStoriesProps{
     a2svImpact: string;
 }
 
+export type Company = {
+    name: string;
+    image: string;
+  }
