@@ -16,7 +16,9 @@ abstract class AuthenticationRemoteDataSource {
 class AuthenticationRemoteDataSourceImpl
     implements AuthenticationRemoteDataSource {
   final baseUrl = 'https://mocki.io/v1/a1c63369-aaee-437c-a86a-ee544f50268a';
-  final client = http.Client();
+  final http.Client client;
+
+  AuthenticationRemoteDataSourceImpl(this.client);
 
   @override
   Future<UserAuthCredentialsModel> login(username, password) async {
@@ -28,7 +30,6 @@ class AuthenticationRemoteDataSourceImpl
 
       return UserAuthCredentialsModel.fromJson(decodedResponse);
     } on Exception catch (_, e) {
-      
       throw ServerException();
     }
   }
