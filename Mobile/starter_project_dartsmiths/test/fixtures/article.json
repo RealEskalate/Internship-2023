@@ -1,0 +1,8 @@
+{
+    "id": "id",
+    "title": "title",
+    "subTitle": "subTitle",
+    "content": "content",
+    "tags": ["tags1", "tags2"],
+    "authorId": "authorId"
+  }
