@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:matador/core/error/exception.dart';
-import 'package:matador/features/login/data/datasources/login_remote_datasource.dart';
-import 'package:matador/features/login/data/models/login_model.dart';
+import 'package:matador/features/auth/data/datasources/login_remote_datasource.dart';
+import 'package:matador/features/auth/data/models/login_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
