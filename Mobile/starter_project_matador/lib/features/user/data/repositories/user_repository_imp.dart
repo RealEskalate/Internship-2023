@@ -9,10 +9,8 @@ import 'package:matador/features/user/domain/repositories/user_repository.dart';
 
 class UserRepositoryImpl implements UserRepository {
   final UserRemoteDataSource remoteDataSource;
-  final UserLocalDataSource localDataSource;
 
   UserRepositoryImpl({
-    required this.localDataSource,
     required this.remoteDataSource,
   });
 
@@ -21,7 +19,7 @@ class UserRepositoryImpl implements UserRepository {
     try {
       final userToUserModel = user as UserModel;
       final addedUser = await remoteDataSource.addUser(userToUserModel);
-      localDataSource.cacheUser(addedUser);
+      // localDataSource.cacheUser(addedUser);
       return Right(addedUser);
     } on ServerException {
       return Left(ServerFailure());
@@ -32,7 +30,7 @@ class UserRepositoryImpl implements UserRepository {
   Future<Either<Failure, User>> getUserById(String id) async {
     try {
       final remoteUser = await remoteDataSource.getUserById(id);
-      localDataSource.cacheUser(remoteUser);
+      // localDataSource.cacheUser(remoteUser);
       return Right(remoteUser);
     } on ServerException {
       return Left(ServerFailure());
@@ -44,7 +42,7 @@ class UserRepositoryImpl implements UserRepository {
     try {
       final userToUserModel = user as UserModel;
       final updatedUser = await remoteDataSource.editUserById(userToUserModel);
-      localDataSource.cacheUser(updatedUser);
+      // localDataSource.cacheUser(updatedUser);
       return Right(updatedUser);
     } on ServerException {
       return Left(ServerFailure());

@@ -42,6 +42,7 @@ class UserModel extends User {
       aboutMe: json['aboutMe'],
       followersCount: json['followersCount'],
       followingCount: json['followingCount'],
+      profilePicture: json['profilePicture']
     );
   }
 
@@ -55,6 +56,8 @@ class UserModel extends User {
       "aboutMe": aboutMe,
       "followersCount": followersCount,
       "followingCount": followingCount,
+      "profilePicture": profilePicture,
+
     };
   }
 }
