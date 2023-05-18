@@ -7,7 +7,7 @@ import SuccessRate from '@/components/home/SuccessRate'
 
 export default function Home() {
   return (
-    <main className="bg-white flex min-h-screen flex-col justify-between">
+    <main className="bg-white flex flex-col">
       <Landing />
       <BuildBetter />
       <SuccessRate />
