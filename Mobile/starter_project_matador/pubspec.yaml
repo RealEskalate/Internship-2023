@@ -27,6 +27,8 @@ dependencies:
     sdk: flutter
   equatable: ^2.0.5
   dartz: ^0.10.1
+  flutter_bloc: ^8.1.2
+  data_connection_checker: ^0.3.4
 
   google_fonts: ^4.0.3
 
