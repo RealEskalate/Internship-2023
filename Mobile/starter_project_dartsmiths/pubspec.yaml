@@ -36,6 +36,7 @@ dependencies:
   equatable: ^2.0.5
   dartz: ^0.10.1
   mockito: ^5.4.0
+  bloc: ^8.1.1
   
 dev_dependencies:
   flutter_lints: ^2.0.0
