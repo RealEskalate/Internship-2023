@@ -1,4 +1,4 @@
-import { useGetCompaniesQuery } from '@/store/story/companies-api'
+import { useGetCompaniesQuery } from './../../store/story/companies-api'
 import Image from 'next/image'
 import { Company } from './../../types/story'
 

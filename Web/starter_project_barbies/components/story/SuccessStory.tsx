@@ -1,5 +1,5 @@
 import { Story } from '@/types/story'
-import { useGetStoriesQuery } from '../../store/story/story-api'
+import { useGetStoriesQuery } from './../../store/story/story-api'
 import style from './../../styles/story/style.module.css'
 import SuccessStoryCard from './SuccessStoryCard'
 
