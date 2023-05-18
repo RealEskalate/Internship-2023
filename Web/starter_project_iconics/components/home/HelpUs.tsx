@@ -1,6 +1,6 @@
 const HelpUs: React.FC = () => {
   return (
-    <div className="bg-gradient-to-r from-primary to-lightPrimary">
+    <div className=" w-full bg-gradient-to-r from-primary to-lightPrimary">
       <div
         className="flex flex-col items-center justify-center gap-12 py-32"
         style={{
