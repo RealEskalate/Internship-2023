@@ -93,7 +93,6 @@ const ImpactStories: React.FC = () => {
   ) {
     return <Error />
   }
-
   return (
     <div className="flex flex-col items-center px-20 py-16 gap-20">
       <h2 className="capitalize text-5xl font-bold font-montserrat text-center">
