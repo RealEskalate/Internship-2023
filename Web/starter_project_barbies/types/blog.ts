@@ -1,7 +1,7 @@
 // Each blog has these properties
 export type Blog = {
     userID : string;
-    blogID: string;
+    id: string;
     title: string;
     content: string;
     tags: string[];
@@ -16,5 +16,5 @@ export type Blog = {
     blogImage: string;
     readTime: number;
     shortDescription: string;
-    // we can add other properties here as needed
+    relatedBlogs: string[];
   };

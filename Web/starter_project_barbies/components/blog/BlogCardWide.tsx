@@ -10,7 +10,7 @@ interface BlogCardWideProps {
 
 export const BlogCardWide: React.FC<BlogCardWideProps> = ({ blog }) => {
   return (
-    <Link href={`blogs/${blog.blogID}`}>
+    <Link href={`blogs/${blog.id}`}>
 
       <div className="mb-6">
         {/* Horizontal divider */}
