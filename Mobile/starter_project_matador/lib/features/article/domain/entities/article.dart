@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class Article extends Equatable {
+  final String id;
   final String title;
   final String subtitle;
   final String content;
@@ -15,8 +16,9 @@ class Article extends Equatable {
     required this.date,
     required this.likesCount,
     required this.tags,
+    required this.id,
   });
 
   @override
-  List<Object?> get props => [title, subtitle, content, date, likesCount, tags];
+  List<Object?> get props => [id,title, subtitle, content, date, likesCount, tags];
 }
