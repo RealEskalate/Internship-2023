@@ -9,15 +9,15 @@ import { nanoid } from "nanoid";
 // props for file uploads
 interface FileInputProps {
   text: string;
-  identity: string;
+  id: string;
 }
 
 // File input conponent for file uploads
-const FileInput: React.FC<FileInputProps> = ({ text, identity }) => {
+const FileInput: React.FC<FileInputProps> = ({ text, id }) => {
   return (
-    <label htmlFor={identity} className="bg-white text-gray rounded-md px-4 py-2 hover:bg-gray-200">
+    <label htmlFor={id} className="bg-white text-gray rounded-md px-4 py-2 hover:bg-gray-200">
       {text}
-      <input id={identity} type="file" className="sr-only" />
+      <input id={id} type="file" className="sr-only" />
     </label>
   );
 };
@@ -109,9 +109,9 @@ const BlogForm: React.FC = () => {
 
             <div className="flex flex-wrap flex-col md:flex-row gap-2 items-center mt-3">
               <p>Please,</p>
-              <FileInput text="Upload File" identity="upload-file" />
+              <FileInput text="Upload File" id="upload-file" />
               <p>Or choose file from</p>
-              <FileInput text="My Files" identity="my-files" />
+              <FileInput text="My Files" id="my-files" />
             </div>
           </div>
           
