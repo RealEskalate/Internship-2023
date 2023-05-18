@@ -11,11 +11,9 @@ import 'home_test.mocks.dart';
 void main() {
   late MockHomeRepository mockHomeRepository;
   late Search usecase;
-  // late GetBytag getBytag;
   setUp(() => {
         mockHomeRepository = MockHomeRepository(),
         usecase = Search(homeRepository: mockHomeRepository),
-        // getBytag = GetBytag(homeRepository: mockHomeRepository),
       });
   String term = 'Education';
   String author = 'Jeal';
@@ -39,7 +37,7 @@ void main() {
       dateTime: dateTime,
       tag: tag);
   final List<Home> home = [data1, data2];
-  group('Search and GetByTag usecases', () {
+  group('Search usecase', () {
     test("Shoud search a data using term and tag", () async {
       when(mockHomeRepository.search(term, tag))
           .thenAnswer((_) async => Right(home));
@@ -49,14 +47,6 @@ void main() {
       verify(mockHomeRepository.search(term, tag));
       verifyNoMoreInteractions(mockHomeRepository);
     });
-    // test("Shoud get a data by tag", () async {
-    //   when(mockHomeRepository.filterByTag(tag))
-    //       .thenAnswer((_) async => Right(home));
 
-    //   final result = await getBytag.call(Params(tag: tag));
-    //   expect(result, Right(home));
-    //   verify(mockHomeRepository.filterByTag(tag));
-    //   verifyNoMoreInteractions(mockHomeRepository);
-    // });
   });
 }

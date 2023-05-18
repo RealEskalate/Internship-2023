@@ -4,5 +4,4 @@ import 'package:dartz/dartz.dart';
 
 abstract class HomeRepository {
   Future<Either<Failure, List<Home>>> search(String term, String tag);
-  // Future<Either<Failure, Home>> filterByTag(String tag);
 }

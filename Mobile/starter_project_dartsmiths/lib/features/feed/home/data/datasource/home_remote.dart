@@ -6,24 +6,12 @@ import '../model/home.dart';
 
 abstract class HomeRemoteDataSource {
   Future<List<Home>> search(String term, String tag);
-  // Future<Home> filterByTag(String tag);
 }
 
 class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   final http.Client client;
   HomeRemoteDataSourceImpl({required this.client});
   @override
-  // Future<List<Home>> filterByTag(String tag) async {
-  //   final queryParameters = {'tag': tag};
-  //   const unencodedPath = "/api/v1/test", authority = 'http://localhost:3000';
-  //   final uri = _getUri(authority, unencodedPath, queryParameters);
-  //   final response = await _filterFromUrl(uri);
-  //   if (response.statusCode == 200) {
-  //     return List<Home>.from(response).map((e)=>HomeModel.fromJson(jsonDecode(e)));
-  //   }
-  //   throw ServerFailure();
-  // }
-
   @override
   Future<List<Home>> search(String term, String tag) async {
     const unencodedPath = "/api/v1/test", authority = 'www.myurl.com';

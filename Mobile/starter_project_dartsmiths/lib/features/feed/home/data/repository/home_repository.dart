@@ -8,16 +8,6 @@ class HomeRepositoryImpl implements HomeRepository {
   final HomeRemoteDataSource homeRemoteDataSource;
   HomeRepositoryImpl({required this.homeRemoteDataSource});
   @override
-  // Future<Either<Failure, Home>> filterByTag(String tag) async {
-  //   final response = await homeRemoteDataSource.filterByTag(tag);
-  //   try {
-  //     return Right(response);
-  //   } on ServerFailure {
-  //     return Left(ServerFailure());
-  //   }
-  // }
-
-  @override
   Future<Either<Failure, List<Home>>> search(String term, String tag) async {
     final response = await homeRemoteDataSource.search(term, tag);
     try {
