@@ -112,8 +112,9 @@ const EditBlog = () => {
                 Add Preferences 
                 {showTags && (
                   <div className="absolute z-10 top-full mt-2 py-2 w-56 bg-white rounded-md shadow-xl">
-                    {tags.map((tag) => (
+                    {tags.map((tag, index) => (
                       <button
+                        key={index}
                         type='button'
                         onClick={() => addTag(tag)}
                         className="text-left w-full px-4 py-2 text-gray-800 hover:bg-primary hover:text-white"
@@ -127,8 +128,8 @@ const EditBlog = () => {
             </div>
             <div className='flex flex-wrap gap-2 '>
               {
-                selectedTags?.map(tag => (
-                  <div className='flex items-center relative px-7 py-2 rounded-full bg-gray-200'>
+                selectedTags?.map((tag, index) => (
+                  <div key={index} className='flex items-center relative px-7 py-2 rounded-full bg-gray-200'>
                     {tag}
                     <button type='button' className='absolute right-2' onClick={() => {removeTag(tag)}}>
                       <CgClose  />
