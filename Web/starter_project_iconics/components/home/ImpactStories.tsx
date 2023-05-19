@@ -16,6 +16,10 @@ const ImpactStories: React.FC = () => {
     error,
   } = useGetStoriesQuery()
 
+  function getRandom(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+
   const { currentStory } = useSelector(
     (state: RootState) => state.impactStories
   )
@@ -35,40 +39,46 @@ const ImpactStories: React.FC = () => {
         <div className="flex flex-row justify-around gap-20 font-poppins w-full animate-pulse">
           <div className="flex flex-col gap-9 w-full md:w-5/12">
             <div className="flex flex-col gap-3">
-              <div className="bg-gray-400 h-8 rounded-md w-1/3 mb-2"></div>
-              <div className="bg-gray-400 h-8 rounded-md w-1/2 mb-2"></div>
+              <div className="bg-gray-200 h-4 rounded-full w-1/3 mb-2"></div>
+              <div className="bg-gray-200 h-4 rounded-full w-1/2 mb-2"></div>
             </div>
-            <div className="">
-              <div className="bg-gray-400 h-6 rounded-md mb-2 mr-[3vw] xl:mr-8"></div>
-              <div className="bg-gray-400 h-6 rounded-md mb-2 mr-[4vw] xl:mr-16"></div>
-              <div className="bg-gray-400 h-6 rounded-md mb-2 mr-[3.5vw] xl:mr-10"></div>
-              <div className="bg-gray-400 h-6 rounded-md mb-2 mr-[3.5vw] xl:mr-10"></div>
-              <div className="bg-gray-400 h-6 rounded-md mb-2 mr-[5vw] xl:mr-20"></div>
-              <div className="bg-gray-400 h-6 rounded-md mb-2 mr-[3vw] xl:mr-8"></div>
-              <div className="bg-gray-400 h-6 rounded-md mb-2 mr-[3vw] xl:mr-16"></div>
-              <div className="bg-gray-400 h-6 rounded-md mb-2 mr-[3vw] xl:mr-10"></div>
-              <div className="bg-gray-400 h-6 rounded-md mb-2 mr-[3vw] xl:mr-10"></div>
-              <div className="bg-gray-400 h-6 rounded-md mb-2 mr-[3vw] xl:mr-20"></div>
-              <div className="bg-gray-400 h-6 rounded-md mb-2 mr-[3vw] xl:mr-16"></div>
-              <div className="bg-gray-400 h-6 rounded-md mb-2 mr-[3vw] xl:mr-10"></div>
-              <div className="bg-gray-400 h-6 rounded-md mb-2 mr-[3vw] xl:mr-10"></div>
-              <div className="bg-gray-400 h-6 rounded-md mb-2 mr-[3vw] xl:mr-20"></div>
+            <div>
+              {Array.from({ length: 24 }).map((_, index) => (
+                <div
+                  key={index}
+                  className={`bg-gray-200 h-2 rounded-full mb-2 mr-[${getRandom(
+                    3,
+                    5
+                  )}vw] xl:mr-${getRandom(8, 20)}}`}
+                ></div>
+              ))}
             </div>
-            <div className="bg-gray-400 h-10 rounded-md w-1/3 mb-2"></div>
+            <div className="bg-gray-200 h-10 rounded-sm w-1/3 mb-2"></div>
           </div>
           <div className="flex flex-row gap-[1.2vw] xl:gap-4 w-full md:w-5/12 items-center -mt-6">
             <div className="flex flex-col gap-y-[1.2vw] xl:gap-y-4 w-1/3">
-              <div className="bg-gray-400 h-60 w-full rounded-sm"></div>
-              <div className="bg-gray-400 h-60 w-full rounded-sm"></div>
+              {Array.from({ length: 2 }).map((_, index) => (
+                <div
+                  key={index}
+                  className="bg-gray-300 h-60 w-full rounded-sm"
+                ></div>
+              ))}
             </div>
             <div className="flex flex-col gap-y-[1.2vw] xl:gap-y-4 w-1/3">
-              <div className="bg-gray-400 h-60 w-full rounded-sm"></div>
-              <div className="bg-gray-400 h-60 w-full rounded-sm"></div>
-              <div className="bg-gray-400 h-60 w-full rounded-sm"></div>
+              {Array.from({ length: 3 }).map((_, index) => (
+                <div
+                  key={index}
+                  className="bg-gray-300 h-60 w-full rounded-sm"
+                ></div>
+              ))}
             </div>
             <div className="flex flex-col gap-y-[1.2vw] xl:gap-y-4 w-1/3">
-              <div className="bg-gray-400 h-60 w-full rounded-sm"></div>
-              <div className="bg-gray-400 h-60 w-full rounded-sm"></div>
+              {Array.from({ length: 2 }).map((_, index) => (
+                <div
+                  key={index}
+                  className="bg-gray-300 h-60 w-full rounded-sm"
+                ></div>
+              ))}
             </div>
           </div>
         </div>
@@ -108,45 +118,34 @@ const ImpactStories: React.FC = () => {
         </div>
         <div className="flex flex-row gap-[1.2vw] xl:gap-4 w-full md:w-5/12 items-center -mt-6">
           <div className="flex flex-col gap-y-[1.2vw] xl:gap-y-4 w-1/3">
-            <ImpactImage
-              story={impactStories[0]}
-              currentStory={currentStory}
-              dispatch={dispatch}
-            />
-            <ImpactImage
-              story={impactStories[1]}
-              currentStory={currentStory}
-              dispatch={dispatch}
-            />
+            {Array.from({ length: 2 }).map((_, index) => (
+              <ImpactImage
+                key={index}
+                story={impactStories[index]}
+                currentStory={currentStory}
+                dispatch={dispatch}
+              />
+            ))}
           </div>
           <div className="flex flex-col gap-y-[1.2vw] xl:gap-y-4 w-1/3">
-            <ImpactImage
-              story={impactStories[2]}
-              currentStory={currentStory}
-              dispatch={dispatch}
-            />
-            <ImpactImage
-              story={impactStories[3]}
-              currentStory={currentStory}
-              dispatch={dispatch}
-            />
-            <ImpactImage
-              story={impactStories[4]}
-              currentStory={currentStory}
-              dispatch={dispatch}
-            />
+            {Array.from({ length: 3 }).map((_, index) => (
+              <ImpactImage
+                key={index + 2}
+                story={impactStories[index + 2]}
+                currentStory={currentStory}
+                dispatch={dispatch}
+              />
+            ))}
           </div>
           <div className="flex flex-col gap-y-[1.2vw] xl:gap-y-4 w-1/3">
-            <ImpactImage
-              story={impactStories[5]}
-              currentStory={currentStory}
-              dispatch={dispatch}
-            />
-            <ImpactImage
-              story={impactStories[6]}
-              currentStory={currentStory}
-              dispatch={dispatch}
-            />
+            {Array.from({ length: 2 }).map((_, index) => (
+              <ImpactImage
+                key={index + 5}
+                story={impactStories[index + 5]}
+                currentStory={currentStory}
+                dispatch={dispatch}
+              />
+            ))}
           </div>
         </div>
       </div>
