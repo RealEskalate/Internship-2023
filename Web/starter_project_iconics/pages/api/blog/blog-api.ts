@@ -1,5 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { Blog } from '@/types/blog/blog'
+import { Blog } from '@/types/blog'
 import type { NextApiRequest, NextApiResponse } from 'next'
 import blogsData from '../../../data/blog/blog.json'
 
