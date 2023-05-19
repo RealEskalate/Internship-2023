@@ -5,7 +5,7 @@ import 'package:mockito/annotations.dart';
 
 @GenerateMocks([UserProfileModel])
 void main() {
-  final userProfile = UserProfileModel(
+  const userProfile = UserProfileModel(
       profilePicture: "profilePicture",
       fullName: "fullName",
       userName: "userName",

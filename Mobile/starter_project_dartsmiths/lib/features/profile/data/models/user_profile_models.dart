@@ -1,7 +1,7 @@
 import '../../domain/entities/user_profile.dart';
 
 class UserProfileModel extends UserProfile {
-  UserProfileModel(
+  const UserProfileModel(
       {required super.profilePicture,
       required super.fullName,
       required super.userName,

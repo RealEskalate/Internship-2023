@@ -1,5 +1,3 @@
-import 'package:dartsmiths/core/error/failures.dart';
-import 'package:dartsmiths/core/network_info.dart';
 import 'package:dartsmiths/features/profile/data/datasources/user_profile_remote_data_source.dart';
 import 'package:dartsmiths/features/profile/data/models/user_profile_models.dart';
 import 'package:dartsmiths/features/profile/data/repositories/user_profile_repo_impl.dart';
@@ -29,7 +27,7 @@ void main() {
     test('should return user profile when network is available', () async {
       // Arrange
 
-      final userProfile = UserProfileModel(
+      const userProfile = UserProfileModel(
           profilePicture: "profilePicture",
           fullName: "fullName",
           userName: "userName",

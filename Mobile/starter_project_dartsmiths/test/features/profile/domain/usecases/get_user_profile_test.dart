@@ -18,7 +18,7 @@ void main() {
   });
 
   String id = 'id';
-  final userProfile = UserProfile(
+  const userProfile = UserProfile(
       profilePicture: "profilePicture",
       fullName: "fullName",
       userName: "userName",
@@ -30,11 +30,11 @@ void main() {
 
   test('Should get user profile', () async {
     when(mockUserProfileRepository.getUserProfile(id))
-        .thenAnswer((_) async => Right(userProfile));
+        .thenAnswer((_) async => const Right(userProfile));
 
     final result = await usecase(id);
 
-    expect(result, Right(userProfile));
+    expect(result, const Right(userProfile));
     verify(mockUserProfileRepository.getUserProfile(id));
   });
 }

@@ -10,7 +10,7 @@ class UserProfile extends Equatable {
   final int userFollowing;
   final int numberOfPosts;
 
-  UserProfile(
+  const UserProfile(
       {required this.profilePicture,
       required this.fullName,
       required this.userName,

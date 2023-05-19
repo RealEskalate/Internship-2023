@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:dartsmiths/core/error/exceptions.dart';
 import 'package:http/http.dart' as http;
 
 import '../../../../core/error/failures.dart';
@@ -23,7 +24,7 @@ class UserProfileRemoteDataSourceImpl implements UserProfileRemoteDataSource {
     if (response.statusCode == 200) {
       return UserProfileModel.fromJson(json.decode(response.body));
     } else {
-      throw ServerFailure();
+      throw ServerException();
     }
   }
 }
