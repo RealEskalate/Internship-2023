@@ -5,11 +5,11 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i4;
 
+import 'package:dartsmiths/core/network/network_info.dart' as _i3;
 import 'package:dartsmiths/features/article/data/datasources/article_remote_data_source.dart'
     as _i5;
 import 'package:dartsmiths/features/article/data/models/article_model.dart'
     as _i2;
-import 'package:dartsmiths/platform/network_info.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
