@@ -1,7 +1,7 @@
 import { addNewBlogApi } from '@/store/features/blog/add-new-blog-api'
 import { configureStore } from '@reduxjs/toolkit'
 import { aboutApi } from './about/about-api'
-import { successStoryApi } from './features/success-story/success-story-api'
+import { successStoryApi } from '@/store/features/success-story/success-story-api'
 import { getBlogs } from '@/store/features/blog/blogs-api'
 
 export const store = configureStore({

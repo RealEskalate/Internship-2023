@@ -2,13 +2,8 @@ import BlogsCard from '@/components/blog/BlogsCard'
 import Search from '@/components/common/Search'
 import Pagination from '@/components/common/pagination'
 import React, { useEffect, useState } from 'react'
-<<<<<<< HEAD
-import {blogs} from '../../data/blogs.json'
-import { Blog } from '../../types/blog/blog'
-=======
-import { Blog } from '../../types/blog/blog'
+import { Blog } from '@/types/blog/blog'
 import { useGetBlogsQuery } from '@/store/features/blog/blogs-api'
->>>>>>> 2803de1 (fix conflict)
 import Link from 'next/link'
 
 const Blogs: React.FC = () => {
@@ -101,15 +96,9 @@ const Blogs: React.FC = () => {
 
       <div>
         <ul>
-<<<<<<< HEAD
-          {currentBlogs.map((currentBlog:Blog) => (
-            <li key={currentBlog.id} className="text-2xl font-bold">
-              <BlogsCard blog={currentBlog} />
-=======
           {currentBlogs.map((blog: Blog) => (
             <li key={blog.id} className="text-2xl font-bold">
               <BlogsCard blog={blog} />
->>>>>>> 2803de1 (fix conflict)
             </li>
           ))}
           <div className="mt-16">
