@@ -9,9 +9,12 @@ const AccountInfo: React.FC = () => {
   const [confirmed, setConfirmed] = useState('')
   const [confirmedView, setConfirmedView] = useState(false)
 
+  /**
+   * @param event
+   * Do something with form data, e.g. submit to a server
+   */
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    // Do something with form data, e.g. submit to a server
   }
 
   const handleTogglePassword = (
