@@ -2,120 +2,92 @@ import { AiFillEye } from 'react-icons/ai'
 import React, { useState } from 'react'
 
 const AccountInfo: React.FC = () => {
-  const [old, setOld] = useState<string>('')
-  const [oldShow, setOldShow] = useState<boolean>(false)
-  const [newPassword, setNewPassword] = useState<string>('')
-  const [newPasswordShow, setNewPasswordShow] = useState<boolean>(false)
-  const [confirmed, setConfirmed] = useState<string>('')
-  const [confirmedShow, setConfirmedShow] = useState<boolean>(false)
+  const [old, setOld] = useState('')
+  const [oldView, setOldView] = useState(false)
+  const [newPassword, setNewPassword] = useState('')
+  const [newPasswordVew, setNewPasswordView] = useState(false)
+  const [confirmed, setConfirmed] = useState('')
+  const [confirmedView, setConfirmedView] = useState(false)
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     // Do something with form data, e.g. submit to a server
   }
 
+  const handleTogglePassword = (
+    setState: React.Dispatch<React.SetStateAction<boolean>>
+  ) => {
+    setState((prevValue) => !prevValue)
+  }
+
   return (
     <div>
       <div className="flex flex-col md:flex-row justify-center my-5 py-4 items-center bg-white">
-        <span>
-          <h2 className={`text-2xl font-bold text-gray-500`}>
-            {'Manage Your Account'}
+        <div>
+          <h2 className="text-2xl font-bold text-gray-500">
+            Manage Your Account
           </h2>
-          <h3 className={`text--.1xl text-gray-400`}>
-            {'You can change your password here'}
+          <h3 className="text-sm text-gray-400">
+            You can change your password here
           </h3>
-        </span>
+        </div>
         <div className="flex-1"></div>
         <button className="text-sm font-semibold text-white bg-primary px-8 py-2 rounded-md float-right">
-          {'Save changes'}
+          Save changes
         </button>
       </div>
       <form className="mx-auto max-w-[70%] ml-[30%]" onSubmit={handleSubmit}>
-        <div className="mb-4"></div>
-        <div className="mb-4  flex flex-direction-row">
-          <label
-            htmlFor="password"
-            className=" mb-4 w-[60%] font-bold text-gray-700"
-          >
-            Current Password
-          </label>
-          <div className="flex flex-direction-row w-[70%] px-4 py-2 mr-[30%] rounded-lg bg-gray-100 border-transparent ">
-            <input
-              type={oldShow ? 'text' : 'password'}
-              id="password"
-              name="password"
-              value={old}
-              onChange={(event) => setOld(event.target.value)}
-              className="bg-gray-100 text-black w-[95%] focus:outline-none"
-              placeholder={'Enter Your Current Password'}
-              required
-            />
-            <AiFillEye
-              className="mt-1 ml-1"
-              color="gray"
-              size={20}
-              onClick={() => {
-                setOldShow(!oldShow)
-              }}
-            />
+        {[
+          {
+            label: 'Current Password',
+            state: old,
+            viewName: oldView,
+            view: setOldView,
+            setState: setOld,
+          },
+          {
+            label: 'New Password',
+            state: newPassword,
+            viewName: newPasswordVew,
+            view: setNewPasswordView,
+            setState: setNewPassword,
+          },
+          {
+            label: 'Confirm Password',
+            state: confirmed,
+            viewName: confirmedView,
+            view: setConfirmedView,
+            setState: setConfirmed,
+          },
+        ].map(({ label, state, viewName, view, setState }) => (
+          <div key={label} className="mb-4 flex items-center">
+            <label
+              htmlFor={label.toLowerCase().replace(/\s/g, '-')}
+              className="mb-2 mr-20 font-bold text-gray-700 w-36"
+            >
+              {label}
+            </label>
+            <div className="flex items-center w-[35%] px-4 py-2 rounded-lg bg-gray-100 border-transparent">
+              <input
+                type={viewName ? 'text' : 'password'}
+                id={label.toLowerCase().replace(/\s/g, '-')}
+                name={label.toLowerCase().replace(/\s/g, '-')}
+                value={state}
+                onChange={(event) => setState(event.target.value)}
+                className="bg-gray-100 text-black w-full focus:outline-none"
+                placeholder={`Enter ${label}`}
+                required
+              />
+              <AiFillEye
+                className="mt-1 ml-1"
+                color="gray"
+                size={20}
+                onClick={() => handleTogglePassword(view)}
+                aria-label={state === '' ? 'Show password' : 'Hide password'}
+              />
+            </div>
           </div>
-        </div>
-        <div className="mb-4  flex flex-direction-row">
-          <label
-            htmlFor="password"
-            className=" mb-2 w-[60%] font-bold text-gray-700"
-          >
-            New Password
-          </label>
-          <div className="flex flex-direction-row w-[70%] px-4 py-2 mr-[30%] rounded-lg bg-gray-100 border-transparent focus:border-transparent">
-            <input
-              type={newPasswordShow ? 'text' : 'password'}
-              id="password"
-              name="password"
-              value={newPassword}
-              onChange={(event) => setNewPassword(event.target.value)}
-              className="bg-gray-100 text-black w-[95%] focus:outline-none"
-              placeholder={'Enter New Password'}
-              required
-            />
-            <AiFillEye
-              className="mt-1 ml-1"
-              color="gray"
-              size={20}
-              onClick={() => {
-                setNewPasswordShow(!newPasswordShow)
-              }}
-            />
-          </div>
-        </div>
-        <div className="mb-4 flex flex-direction-row">
-          <label
-            htmlFor="password"
-            className="mb-2 w-[60%] font-bold text-gray-700"
-          >
-            Confirm Password
-          </label>
-          <div className="flex flex-direction-row w-[70%] px-4 py-2 mr-[30%] rounded-lg bg-gray-100 border-transparent">
-            <input
-              type={confirmedShow ? 'text' : 'password'}
-              id="password"
-              name="password"
-              className="bg-gray-100 text-black w-[95%]"
-              value={confirmed}
-              onChange={(event) => setConfirmed(event.target.value)}
-              placeholder={`Confirm New Password`}
-              required
-            />
-            <AiFillEye
-              className="mt-1 ml-1"
-              color="gray"
-              size={20}
-              onClick={() => {
-                setConfirmedShow(!confirmedShow)
-              }}
-            />
-          </div>
-        </div>
+        ))}
       </form>
     </div>
   )
