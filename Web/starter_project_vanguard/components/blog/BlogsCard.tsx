@@ -10,7 +10,7 @@ interface BlogProps {
 
 const BlogsCard: React.FC<BlogProps> = ({
   blog: {
-    _id,
+    id,
     authorPhoto,
     authorName,
     img,
@@ -73,7 +73,7 @@ const BlogsCard: React.FC<BlogProps> = ({
         </div>
 
         <div className="flex justify-center items-center w-1/4 pl-0">
-          <Link href={`./blog/${_id}`} passHref>
+          <Link href={`./blog/${id}`} passHref>
             <Image
               src={img}
               className={`object-cover rounded`}

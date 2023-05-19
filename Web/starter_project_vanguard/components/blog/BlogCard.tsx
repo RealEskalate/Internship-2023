@@ -73,7 +73,7 @@ const BlogCard: React.FC<Props> = ({ blog }) => {
               </p>
             </div>
           )}
-          <Link href={`./${blog._id}`} passHref>
+          <Link href={`./${blog.id}`} passHref>
             <button
               className="text-indigo-700 text-xs font-semibold" 
             >

@@ -4,7 +4,7 @@ import {blogs} from '../../data/blogs.json'
 import { useRouter } from 'next/router'
 import RelatedBlogCard from '@/components/blog/RelatedBlog'
 
-const SingleBlog = () => {
+const SingleBlog:React.FC = () => {
   const router = useRouter()
   let { id } = router.query
 

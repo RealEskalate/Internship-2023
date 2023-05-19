@@ -7,7 +7,7 @@ interface Props{
   id:string;
 }
 
-const RelatedBlogCard = (props:Props) => {
+const RelatedBlogCard:React.FC<Props> = (props) => {
  
   const blog =  Blogs.blogs.filter((item:Blog) => item.id === props.id)[0]
   
