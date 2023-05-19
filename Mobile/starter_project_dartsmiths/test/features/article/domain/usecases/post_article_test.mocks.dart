@@ -76,4 +76,20 @@ class MockArticleRepository extends _i1.Mock implements _i3.ArticleRepository {
           ),
         )),
       ) as _i4.Future<_i2.Either<_i5.Failure, _i6.Article>>);
+  @override
+  _i4.Future<_i2.Either<_i5.Failure, _i6.Article>> getArticle(String? id) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getArticle,
+          [id],
+        ),
+        returnValue: _i4.Future<_i2.Either<_i5.Failure, _i6.Article>>.value(
+            _FakeEither_0<_i5.Failure, _i6.Article>(
+          this,
+          Invocation.method(
+            #getArticle,
+            [id],
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.Failure, _i6.Article>>);
 }

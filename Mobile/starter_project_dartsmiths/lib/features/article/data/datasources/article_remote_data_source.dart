@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:dartsmiths/core/error/exception.dart';
 import 'package:dartsmiths/core/error/failures.dart';
 import 'package:dartsmiths/features/article/domain/usecases/get_article.dart';
 import 'package:http/http.dart' as http;
@@ -25,7 +26,7 @@ class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSource {
     if (response.statusCode == 200) {
       return ArticleModel.fromJson(json.decode(response.body));
     } else {
-      throw ServerFailure();
+      throw ServerException();
     }
   }
 
@@ -38,7 +39,7 @@ class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSource {
     if (response.statusCode == 200) {
       return ArticleModel.fromJson(json.decode(response.body));
     } else {
-      throw ServerFailure();
+      throw ServerException();
     }
   }
 
@@ -51,7 +52,7 @@ class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSource {
     if (response.statusCode == 200) {
       return ArticleModel.fromJson(json.decode(response.body));
     } else {
-      throw ServerFailure();
+      throw ServerException();
     }
   }
 }

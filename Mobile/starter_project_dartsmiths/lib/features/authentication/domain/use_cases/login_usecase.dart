@@ -1,12 +1,12 @@
-import 'package:dartsmiths/core/usecase/usecase.dart';
+import 'package:dartsmiths/core/error/failures.dart';
 import 'package:dartsmiths/features/authentication/domain/entity/authentication_payload.dart';
 import 'package:dartsmiths/features/authentication/domain/repository/login_repository.dart';
 import 'package:dartz/dartz.dart';
 
-import '../../../../core/errors/failures.dart';
+import '../../../../core/usecases/usecase.dart';
 
 class LoginUsecase
-    implements Usecase<UserAuthCredential, UserAuthCredentialParams> {
+    implements UseCase<UserAuthCredential, UserAuthCredentialParams> {
   final AuthenticationRepository repository;
   @override
   Future<Either<Failure, UserAuthCredential>> call(

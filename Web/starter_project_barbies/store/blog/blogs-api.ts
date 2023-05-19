@@ -14,8 +14,18 @@ export const blogApi = createApi({
     getBlogByID: builder.query<Blog, string>({
       query: (id) => `/blogs/${id}`,
     }),
+    addBlog: builder.mutation<Blog, Partial<Blog>>({
+      query: (blog) => ({
+        url: '/blogs',
+        method: 'POST',
+        body: blog,
+      }),
+    }),
+    getBlogsByUserID: builder.query<Blog[], string>({
+      query: (userID) => `/blogs?userID=${userID}`,
+    }),
   }),
 })
 
 // Export hooks for usage
-export const { useGetBlogsQuery, useGetBlogByIDQuery } = blogApi
+export const { useGetBlogsQuery, useGetBlogByIDQuery, useAddBlogMutation,useGetBlogsByUserIDQuery } = blogApi
