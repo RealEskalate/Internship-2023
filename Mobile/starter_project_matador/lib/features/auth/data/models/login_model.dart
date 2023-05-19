@@ -9,6 +9,7 @@ class LoginModel extends AuthUser {
     return LoginModel(
         email: json["email"], password: json["password"], id: json["id"]);
   }
+
   Map<String, dynamic> toJson() {
     return {"email": email, "password": password, "id": id};
   }
