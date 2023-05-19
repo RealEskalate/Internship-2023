@@ -8,7 +8,7 @@ const ImagePragraph: React.FC<ImageParagraphComponent> = ({
 }: ImageParagraphComponent) => {
   return (
     <div className="py-7">
-      <Image src={image} alt={text} className="w-[10%]"></Image>
+      <Image src={image} alt={text} className="w-[10%]" />
       <p className="pt-5">{text}</p>
     </div>
   )

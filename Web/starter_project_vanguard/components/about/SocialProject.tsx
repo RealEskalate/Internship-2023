@@ -13,12 +13,12 @@ const SocialProject: React.FC<SocialProjectComponent> = ({
   return isImageLeft ? (
     <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-10">
       <Image
-        src={`/img/about/${image}`}
+        src={`/img/about/projects/${image}`}
         width={1}
         height={1}
         className="w-[100%] h-[100%]"
         alt={title}
-      ></Image>
+      />
       <SocialProjectDescription
         leftAligned={leftAligned}
         title={title}
@@ -33,12 +33,12 @@ const SocialProject: React.FC<SocialProjectComponent> = ({
         content={content}
       />
       <Image
-        src={`/img/about/${image}`}
+        src={`/img/about/projects/${image}`}
         width={1}
         height={1}
         className="w-[100%] h-[100%]"
         alt={title}
-      ></Image>
+      />
     </div>
   )
 }
