@@ -3,9 +3,11 @@ import Activities from '@/components/about/Activities'
 import CenteredImage from '@/components/about/CenteredImage'
 import ImagePragraph from '@/components/about/ImagePragraph'
 import SocialProject from '@/components/about/SocialProject'
+import {
+  useGetA2SVSessionsQuery,
+  useGetSocialProjectsQuery,
+} from '@/store/about/about-api'
 import React from 'react'
-import { a2svSessions } from '../../data/about/a2sv-sessions'
-import { socialProjects } from '../../data/about/social-projects'
 import africaIcon from '../../public/img/about/icons/africa-icon.svg'
 import codingIcon from '../../public/img/about/icons/coding-icon.svg'
 import lightIcon from '../../public/img/about/icons/light-icon.svg'
@@ -13,6 +15,9 @@ import howWeAreSolving from '../../public/img/about/problems/how-we-are-solving.
 import problemImage from '../../public/img/about/problems/problem-image.svg'
 
 const AboutPage: React.FC = () => {
+  const { data: socialProjects } = useGetSocialProjectsQuery()
+  const { data: a2svSessions } = useGetA2SVSessionsQuery()
+
   return (
     <div className="bg-white p-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -90,7 +95,7 @@ const AboutPage: React.FC = () => {
         <p className="font-extrabold text-secondary text-4xl my-10 col-span-2 text-center">
           <span className="font-lato text-primary">Social </span> Projects
         </p>
-        {socialProjects.map((project) => {
+        {socialProjects?.map((project: any) => {
           return (
             <div className="col-span-2" key={project.title}>
               <SocialProject
@@ -109,7 +114,7 @@ const AboutPage: React.FC = () => {
         <span className="font-lato text-primary">A2SV </span> Sessions
       </p>
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 bg-white text-size">
-        {a2svSessions.map((session) => {
+        {a2svSessions?.map((session: any) => {
           return (
             <A2SVSession
               image={session.image}
