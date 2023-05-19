@@ -15,93 +15,109 @@ const AccountInfo: React.FC = () => {
   }
 
   return (
-    <form className="mx-auto max-w-[70%] ml-[30%]" onSubmit={handleSubmit}>
-      <div className="mb-4"></div>
-      <div className="mb-4  flex flex-direction-row">
-        <label
-          htmlFor="password"
-          className=" mb-4 w-[60%] font-bold text-gray-700"
-        >
-          Current Password
-        </label>
-        <div className="flex flex-direction-row w-[70%] px-4 py-2 mr-[30%] rounded-lg bg-gray-100 border-transparent ">
-          <input
-            type={oldShow ? 'text' : 'password'}
-            id="password"
-            name="password"
-            value={old}
-            onChange={(event) => setOld(event.target.value)}
-            className="bg-gray-100 text-black w-[95%] focus:outline-none"
-            placeholder={'Enter Your Current Password'}
-            required
-          />
-          <AiFillEye
-            className="mt-1 ml-1"
-            color="gray"
-            size={20}
-            onClick={() => {
-              setOldShow(!oldShow)
-            }}
-          />
-        </div>
+    <div>
+      <div className="flex flex-col md:flex-row justify-center my-5 py-4 items-center bg-white">
+        <span>
+          <h2 className={`text-2xl font-bold text-gray-500`}>
+            {'Manage Your Account'}
+          </h2>
+          <h3 className={`text--.1xl text-gray-400`}>
+            {'You can change your password here'}
+          </h3>
+        </span>
+        <div className="flex-1"></div>
+        <button className="text-sm font-semibold text-white bg-primary px-8 py-2 rounded-md float-right">
+          {'Save changes'}
+        </button>
       </div>
-      <div className="mb-4  flex flex-direction-row">
-        <label
-          htmlFor="password"
-          className=" mb-2 w-[60%] font-bold text-gray-700"
-        >
-          New Password
-        </label>
-        <div className="flex flex-direction-row w-[70%] px-4 py-2 mr-[30%] rounded-lg bg-gray-100 border-transparent focus:border-transparent">
-          <input
-            type={newPasswordShow ? 'text' : 'password'}
-            id="password"
-            name="password"
-            value={newPassword}
-            onChange={(event) => setNewPassword(event.target.value)}
-            className="bg-gray-100 text-black w-[95%] focus:outline-none"
-            placeholder={'Enter New Password'}
-            required
-          />
-          <AiFillEye
-            className="mt-1 ml-1"
-            color="gray"
-            size={20}
-            onClick={() => {
-              setNewPasswordShow(!newPasswordShow)
-            }}
-          />
+      <form className="mx-auto max-w-[70%] ml-[30%]" onSubmit={handleSubmit}>
+        <div className="mb-4"></div>
+        <div className="mb-4  flex flex-direction-row">
+          <label
+            htmlFor="password"
+            className=" mb-4 w-[60%] font-bold text-gray-700"
+          >
+            Current Password
+          </label>
+          <div className="flex flex-direction-row w-[70%] px-4 py-2 mr-[30%] rounded-lg bg-gray-100 border-transparent ">
+            <input
+              type={oldShow ? 'text' : 'password'}
+              id="password"
+              name="password"
+              value={old}
+              onChange={(event) => setOld(event.target.value)}
+              className="bg-gray-100 text-black w-[95%] focus:outline-none"
+              placeholder={'Enter Your Current Password'}
+              required
+            />
+            <AiFillEye
+              className="mt-1 ml-1"
+              color="gray"
+              size={20}
+              onClick={() => {
+                setOldShow(!oldShow)
+              }}
+            />
+          </div>
         </div>
-      </div>
-      <div className="mb-4 flex flex-direction-row">
-        <label
-          htmlFor="password"
-          className="mb-2 w-[60%] font-bold text-gray-700"
-        >
-          Confirm Password
-        </label>
-        <div className="flex flex-direction-row w-[70%] px-4 py-2 mr-[30%] rounded-lg bg-gray-100 border-transparent">
-          <input
-            type={confirmedShow ? 'text' : 'password'}
-            id="password"
-            name="password"
-            className="bg-gray-100 text-black w-[95%]"
-            value={confirmed}
-            onChange={(event) => setConfirmed(event.target.value)}
-            placeholder={`Confirm New Password`}
-            required
-          />
-          <AiFillEye
-            className="mt-1 ml-1"
-            color="gray"
-            size={20}
-            onClick={() => {
-              setConfirmedShow(!confirmedShow)
-            }}
-          />
+        <div className="mb-4  flex flex-direction-row">
+          <label
+            htmlFor="password"
+            className=" mb-2 w-[60%] font-bold text-gray-700"
+          >
+            New Password
+          </label>
+          <div className="flex flex-direction-row w-[70%] px-4 py-2 mr-[30%] rounded-lg bg-gray-100 border-transparent focus:border-transparent">
+            <input
+              type={newPasswordShow ? 'text' : 'password'}
+              id="password"
+              name="password"
+              value={newPassword}
+              onChange={(event) => setNewPassword(event.target.value)}
+              className="bg-gray-100 text-black w-[95%] focus:outline-none"
+              placeholder={'Enter New Password'}
+              required
+            />
+            <AiFillEye
+              className="mt-1 ml-1"
+              color="gray"
+              size={20}
+              onClick={() => {
+                setNewPasswordShow(!newPasswordShow)
+              }}
+            />
+          </div>
         </div>
-      </div>
-    </form>
+        <div className="mb-4 flex flex-direction-row">
+          <label
+            htmlFor="password"
+            className="mb-2 w-[60%] font-bold text-gray-700"
+          >
+            Confirm Password
+          </label>
+          <div className="flex flex-direction-row w-[70%] px-4 py-2 mr-[30%] rounded-lg bg-gray-100 border-transparent">
+            <input
+              type={confirmedShow ? 'text' : 'password'}
+              id="password"
+              name="password"
+              className="bg-gray-100 text-black w-[95%]"
+              value={confirmed}
+              onChange={(event) => setConfirmed(event.target.value)}
+              placeholder={`Confirm New Password`}
+              required
+            />
+            <AiFillEye
+              className="mt-1 ml-1"
+              color="gray"
+              size={20}
+              onClick={() => {
+                setConfirmedShow(!confirmedShow)
+              }}
+            />
+          </div>
+        </div>
+      </form>
+    </div>
   )
 }
 
