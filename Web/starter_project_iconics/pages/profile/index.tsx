@@ -1,5 +1,6 @@
 import AccountInfo from '@/components/profile/AccountInfo'
 import MyBlogs from '@/components/profile/MyBlogs'
+import MyInformation from '@/components/profile/PersonalInfo'
 import Link from 'next/link'
 import React, { useState } from 'react'
 
@@ -7,7 +8,11 @@ const Index: React.FC = () => {
   const [activeLink, setActiveLink] = useState('myBlogs')
   const bodyElement: {
     [key: string]: React.ReactNode
-  } = { myBlogs: <MyBlogs />, myAccount: <AccountInfo /> }
+  } = {
+    myBlogs: <MyBlogs />,
+    myAccount: <AccountInfo />,
+    myInformation: <MyInformation />,
+  }
   return (
     <div className="min-h-screen bg-white flex p-10 flex-col">
       <div className="flex py-4">
