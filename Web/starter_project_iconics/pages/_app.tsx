@@ -1,18 +1,18 @@
 import Footer from '@/components/layout/Footer'
 import Navbar from '@/components/layout/Navbar'
+import { store } from '@/store'
 import '@/styles/globals.css'
-import { ApiProvider } from '@reduxjs/toolkit/dist/query/react'
 import type { AppProps } from 'next/app'
-import { blogApi } from '../store/features/api/blog-api'
+import { Provider } from 'react-redux'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
-      <ApiProvider api={blogApi}>
+    <Provider store={store}>
+      <div className="max-w-screen-2xl mx-auto">
         <Navbar />
         <Component {...pageProps} />
         <Footer />
-      </ApiProvider>
-    </>
+      </div>
+    </Provider>
   )
 }

@@ -7,5 +7,5 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Blog[]>
 ) {
-  res.status(200).json(blogsData.blogs)
+  res.status(200).json(blogsData)
 }
