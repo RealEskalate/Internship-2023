@@ -4,7 +4,7 @@ import Image from 'next/image';
 import TeamMemberCard from '@/components/team/TeamMemberCard';
 import {useGetTeamMembersQuery} from "@/store/team/team-api";
 export const TeamPage: React.FC = () => {
-    const { data, isLoading, error } = useGetTeamMembersQuery();
+    const { isSuccess, data, isLoading, error } = useGetTeamMembersQuery();
 
     return (
         <div className="px-12 my-8 md:px-20 lg:px-28">
@@ -37,7 +37,7 @@ export const TeamPage: React.FC = () => {
             }
 
             {
-                data && <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                isSuccess && <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     {data?.map((data, index) => (
                         <TeamMemberCard key={index} teamMember={data} />
                     ))}
