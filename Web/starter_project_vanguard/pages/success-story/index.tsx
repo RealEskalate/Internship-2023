@@ -4,7 +4,7 @@ import SuccessImageCard from '@/components/success-story/SuccessImageCard'
 import { useFetchSuccessStoryQuery } from '@/store/features/success-story/success-story-api'
 import Link from 'next/link'
 export default function SucessStory() {
-  const { data = [], isFetching } = useFetchSuccessStoryQuery()
+  const { data:successData = [], isFetching } = useFetchSuccessStoryQuery()
   if (isFetching) {
     return (
       <div className=" h-screen flex justify-center items-center">
@@ -19,7 +19,7 @@ export default function SucessStory() {
       </div>
     )
   }
-  if (data.length === 0) {
+  if (successData.length === 0) {
     return (
       <section className="flex items-center h-full p-16 dark:bg-gray-900 dark:text-gray-100">
         <div className="container flex flex-col items-center justify-center px-5 mx-auto my-8">
@@ -68,7 +68,7 @@ export default function SucessStory() {
         <div className="flex justify-center">
           <div className="max-w-5xl">
             <div>
-              {data.map((successStory, index) => (
+              {successData.map((successStory, index) => (
                 <div
                   key={index}
                   className={`flex flex-col lg:flex-row justify-center lg:items-center ml-2 mt-20 ${

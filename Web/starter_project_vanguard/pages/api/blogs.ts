@@ -1,6 +1,6 @@
 import { Blog } from '@/types/blog/blog'
 import type { NextApiRequest, NextApiResponse } from 'next'
-import blogsJsonData from '../../data/blogs.json'
+import blogsJsonData from '@/data/blogs.json'
 
 export default function handler(
   req: NextApiRequest,

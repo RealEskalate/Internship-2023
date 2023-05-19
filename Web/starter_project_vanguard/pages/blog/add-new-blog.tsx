@@ -2,8 +2,8 @@ import FileUpload from '@/components/blog/FileUpload'
 import TagSelection from '@/components/blog/TagSelection'
 import TextEditor from '@/components/blog/TextEditor'
 import { useAddBlogMutation } from '@/store/features/blog/add-new-blog-api'
-import router from 'next/router'
 import React, { useEffect, useState } from 'react'
+import { date } from 'yup'
 
 const AddNewBlog = () => {
   const tags = [
@@ -80,7 +80,7 @@ const AddNewBlog = () => {
       skills: selectedTags,
       description: content,
       authorName: 'Segni Desta',
-      id: '122222',
+      id: currentDate.getSeconds().toString(),
       profession: 'Software Engineering',
       authorUserName: 'segni',
       authorPhoto: 'https://picsum.photos/id/165/200',
@@ -95,7 +95,7 @@ const AddNewBlog = () => {
   }
   useEffect(() => {
     if (isAddBlogSuccess) {
-      // router.push("/home")
+      //move to the blog page
     }
   }, [isAddBlogSuccess])
 
@@ -115,7 +115,7 @@ const AddNewBlog = () => {
             <input
               type="search"
               id="search"
-              className="block w-full px-4 text-2xl md:text-3xl border-l-2 outline-none border-blue-700 font-montserrat"
+              className="block w-full px-4 text-2xl md:text-3xl border-l-2 outline-none border-primary font-montserrat"
               placeholder="Enter the title of the blog"
               required
               value={title}

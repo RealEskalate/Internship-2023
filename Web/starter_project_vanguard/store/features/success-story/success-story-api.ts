@@ -1,10 +1,10 @@
 import { SuccessStory } from '@/types/success-story'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-const url = 'http://localhost:3000/api'
+const API_BASE_URL = 'http://localhost:3004'
 export const successStoryApi = createApi({
   reducerPath: 'success-story/api',
   baseQuery: fetchBaseQuery({
-    baseUrl: url,
+    baseUrl: API_BASE_URL,
   }),
   endpoints(builder) {
     return {
