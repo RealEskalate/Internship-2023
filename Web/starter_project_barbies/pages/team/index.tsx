@@ -3,6 +3,7 @@ import heroImage from '../../public/image/team/hero-image.svg';
 import Image from 'next/image';
 import TeamMemberCard from '@/components/team/TeamMemberCard';
 import {useGetTeamMembersQuery} from "@/store/team/team-api";
+import TeamMemberCardShimmer from "@/components/team/TeamMemberCardShimmer";
 export const TeamPage: React.FC = () => {
     const { isSuccess, data, isLoading, error } = useGetTeamMembersQuery();
 
@@ -29,7 +30,11 @@ export const TeamPage: React.FC = () => {
             <hr className="h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-100 block w-5/6 my-8 m-auto" />
 
             {
-                isLoading && <div>Loading...</div>
+                isLoading && <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    {[1,2,3,4].map((index) => (
+                        <TeamMemberCardShimmer key={index}/>
+                    ))}
+                </div>
             }
 
             {
