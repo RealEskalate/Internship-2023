@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:matador/features/article/domain/entities/article.dart';
-import 'package:matador/features/article/domain/usecases/article_usecase.dart';
+import 'package:matador/features/article/domain/usecases/get_article_by_id.dart';
 
 import 'article_event.dart';
 import 'article_state.dart';

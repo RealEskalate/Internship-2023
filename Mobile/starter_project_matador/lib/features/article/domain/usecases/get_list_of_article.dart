@@ -4,14 +4,12 @@ import 'package:matador/core/usecases/usecases.dart';
 import 'package:matador/features/article/domain/entities/article.dart';
 import 'package:matador/features/article/domain/repositories/article_repository.dart';
 
-class GetArticle implements UseCase<Article,String>{
-  
+class GetArticles implements UseCase<List<Article>, NoParams> {
   final ArticleRepository repository;
+  GetArticles(this.repository);
 
-   GetArticle(this.repository);
-   
   @override
-  Future<Either<Failure, Article>> call(String articleId) async {
-    return await repository.getArticle(articleId);
-  } 
+  Future<Either<Failure, List<Article>>> call(NoParams params) async {
+    return await repository.getArticles();
+  }
 }

@@ -16,14 +16,28 @@ class ArticleRepositoryImpl implements ArticleRepository {
   });
 
   @override
-  Future<Either<Failure, Article>> getArticle(String articleId) async {
+  Future<Either<Failure, Article>> getArticleById(String articleId) async {
     try {
-      final remoteArticle = await remoteDataSource.getArticle(articleId);
+      final remoteArticle = await remoteDataSource.getArticleById(articleId);
       // Cache the article locally
-      
+
       return Right(remoteArticle);
     } on ServerException {
       return Left(ServerFailure());
     }
   }
+
+  @override
+  Future<Either<Failure, List<Article>>> getArticles() async {
+    try {
+      final remoteArticles = await remoteDataSource.getArticles();
+      // Cache the articles locally
+
+      return Right(remoteArticles);
+    } on ServerException {
+      return Left(ServerFailure());
+    }
+  }
 }
+
+

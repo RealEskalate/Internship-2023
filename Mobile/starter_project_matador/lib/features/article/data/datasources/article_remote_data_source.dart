@@ -4,10 +4,11 @@ import '../models/article_model.dart';
 import 'package:http/http.dart' as http;
 
 abstract class ArticleRemoteDataSource {
-  Future<ArticleModel> getArticle(String articleId);
+  Future<ArticleModel> getArticleById(String articleId);
   Future<ArticleModel> addArticle(ArticleModel article);
   Future<ArticleModel> editArticleById(ArticleModel article);
   Future<void> deleteArticleById(String articleId);
+  Future<List<ArticleModel>> getArticles();
 }
 
 class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSource {
@@ -15,13 +16,29 @@ class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSource {
   ArticleRemoteDataSourceImpl(this.client);
 
   @override
-  Future<ArticleModel> getArticle(String articleId) async {
+  Future<ArticleModel> getArticleById(String articleId) async {
     final url = Uri.parse("http://blogspapi/articles/$articleId");
     final response =
         await client.get(url, headers: {'Content-Type': 'application/json'});
 
     if (response.statusCode == 200) {
       return ArticleModel.fromJson(json.decode(response.body));
+    } else {
+      throw ServerException();
+    }
+  }
+
+  @override
+  Future<List<ArticleModel>> getArticles() async {
+    final url = Uri.parse("http://blogsapi.com/articles");
+    final response =
+    await client.get(url, headers: {'Content-Type': 'application/json'});
+
+    if (response.statusCode == 200) {
+      final List<dynamic> articleJsonList = json.decode(response.body);
+      return articleJsonList
+          .map((articleJson) => ArticleModel.fromJson(articleJson))
+          .toList();
     } else {
       throw ServerException();
     }
@@ -71,4 +88,6 @@ class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSource {
       throw ServerException();
     }
   }
+
+
 }
