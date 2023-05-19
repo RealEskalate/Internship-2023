@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { Blog } from '../../types/blog/blog'
 import {blogs} from '../../data/blogs.json'
 import { useRouter } from 'next/router'
-import Related from '@/components/blog/RelatedBlog'
+import RelatedBlogCard from '@/components/blog/RelatedBlog'
 
 const SingleBlog = () => {
   const router = useRouter()
@@ -17,8 +17,8 @@ const SingleBlog = () => {
           {blog.title}
         </h1>
 
-        <p className="mt-4 tracking-widest font-montserrat">
-          PROGRAMMING, TECH | {blog.time} MIN READ
+        <p className="mt-4 tracking-widest font-montserrat uppercase">
+          {blog.tags} | {blog.time} MIN READ
         </p>
 
         <Image
@@ -55,7 +55,7 @@ const SingleBlog = () => {
 
         <div className="font-montserrat text-sm text-gray-400 flex  flex-col gap-5 ">
           <p className="text-left">
-            {blog.description}
+            {blog.description} 
           </p>
         </div> 
       </div>
@@ -67,7 +67,7 @@ const SingleBlog = () => {
 
         <div className="grid grid-cols-1 gap-10 mt-10 mb-14 md:grid-cols-3">
           {blog.relatedBlogs.map((item: string) => (
-            <Related id={item} />
+            <RelatedBlogCard key = "item" id={item} />
           ))}
         </div>
 

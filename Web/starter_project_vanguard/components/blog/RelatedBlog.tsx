@@ -7,7 +7,7 @@ interface Props{
   id:string;
 }
 
-const Related = (props:Props) => {
+const RelatedBlogCard = (props:Props) => {
  
   const blog =  Blogs.blogs.filter((item:Blog) => item.id === props.id)[0]
   
@@ -18,4 +18,4 @@ const Related = (props:Props) => {
   )
 }
 
-export default Related
+export default RelatedBlogCard
