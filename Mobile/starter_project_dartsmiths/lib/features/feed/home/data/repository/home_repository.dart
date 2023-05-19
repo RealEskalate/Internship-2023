@@ -1,3 +1,4 @@
+import 'package:dartsmiths/core/error/exception.dart';
 import 'package:dartsmiths/core/error/failures.dart';
 import 'package:dartsmiths/features/feed/home/data/datasource/home_remote.dart';
 import 'package:dartsmiths/features/feed/home/domain/entity/home.dart';
@@ -12,7 +13,7 @@ class HomeRepositoryImpl implements HomeRepository {
     final response = await homeRemoteDataSource.search(term, tag);
     try {
       return Right(response);
-    } on ServerFailure {
+    } on ServerException {
       return Left(ServerFailure());
     }
   }

@@ -1,6 +1,7 @@
 import 'package:dartsmiths/core/error/failures.dart';
 import 'package:dartsmiths/features/feed/home/domain/entity/home.dart';
 import 'package:http/http.dart' as http;
+import '../../../../../core/error/exception.dart';
 import '../model/home.dart';
 
 abstract class HomeRemoteDataSource {
@@ -20,7 +21,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
     if (response.statusCode == 200) {
       return List<Home>.from(response.body).map((home)=>HomeModel.fromJson(home as Map<String, dynamic>)).toList();
     }
-    throw ServerFailure();
+    throw ServerException();
   }
 
   Future<dynamic> _filterFromUrl(Uri uri) {
