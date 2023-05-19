@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'features/feed/presentation/screen/home_page.dart';
-import 'package:dartsmiths/injection/article_injection.dart'  as injection;
+import 'package:dartsmiths/injection/injection.dart'  as injection;
 
 void main() {
   injection.init();

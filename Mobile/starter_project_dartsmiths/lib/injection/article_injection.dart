@@ -13,7 +13,7 @@ import '../features/article/domain/usecases/update_article.dart';
 
 final sl = GetIt.instance;
 
-Future<void> init() async {
+Future<void> articleInit() async {
   sl.registerFactory(() => ArticleBloc(postArticle: sl(), updateArticle: sl(), getArticle: sl()));
 
   // Use cases
