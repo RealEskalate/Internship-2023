@@ -18,7 +18,7 @@ const MyBlogs: React.FC = () => {
       <hr />
 
       <div className="grid grid-cols-4 mt-2 gap-8">
-        {blogs.map((blog: Blog, index) => {
+        {blogs.blogs.map((blog: Blog, index) => {
           return <BlogCard key={index} blog={blog} />
         })}
       </div>
