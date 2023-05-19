@@ -5,7 +5,6 @@ import { Story } from '@/types/story'
 
 const SuccessStory = () => {
 const { data: successStories, isError, isLoading } = useGetStoriesQuery();
-console.log(successStories)
   if (isError) {
     return <div>Error: {isError.toString()}</div>;
   }
