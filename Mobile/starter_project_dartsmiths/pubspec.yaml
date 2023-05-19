@@ -2,7 +2,7 @@ name: dartsmiths
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.19.2 <3.0.0'
+  sdk: ">=2.19.2 <3.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -31,7 +31,6 @@ dependencies:
   build_runner: ^2.3.3
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1
-  data_connection_checker: ^0.3.4
   equatable: ^2.0.5
   flutter:
     sdk: flutter
@@ -41,10 +40,7 @@ dependencies:
   http: ^0.13.6
   internet_connection_checker: ^1.0.0+1
   mockito: ^5.4.0
-  http: ^0.13.6
-  data_connection_checker: ^0.3.4
-  internet_connection_checker: ^1.0.0+1
-  
+
 dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_test:
@@ -54,7 +50,6 @@ dev_dependencies:
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -83,8 +78,6 @@ flutter:
 
     - family: Urbanist
       fonts:
-        - asset: assets/font/Urbanist-VariableFont_wght.ttf
-
-
+        - asset: assets/fonts/Urbanist-VariableFont_wght.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

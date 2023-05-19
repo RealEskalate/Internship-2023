@@ -1,7 +1,5 @@
 import 'package:dartsmiths/core/utils/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 import '../../../../core/utils/ui_converter.dart';
 
@@ -16,7 +14,7 @@ class ProfileAvatar extends StatelessWidget {
             top: UIConverter.getComponentHeight(context, 5)),
         child: Stack(
           children: [
-            CircleAvatar(
+            const CircleAvatar(
                 backgroundImage: AssetImage("assets/images/backgrd.jpg")),
             Padding(
               padding: EdgeInsets.only(
