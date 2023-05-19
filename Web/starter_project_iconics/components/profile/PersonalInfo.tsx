@@ -7,13 +7,14 @@ const MyInformation: React.FC = () => {
   const [lastName, setLastName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
   const photo: any = useRef(null)
-
+  /**
+   * @param event
+   * Does something with form data, e.g. submit to a server
+   */
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    // Do something with form data, e.g. submit to a server
   }
   const handleClick = () => {
-    // 👇️ open file input box on click of another element
     photo.current?.click()
   }
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
