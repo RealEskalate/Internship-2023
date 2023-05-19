@@ -4,18 +4,10 @@ import TextEditor from '@/components/blog/TextEditor'
 import { useAddBlogMutation } from '@/store/features/blog/add-new-blog-api'
 import React, { useEffect, useState } from 'react'
 import { date } from 'yup'
+import jsontags from '../../data/tags.json'
 
 const AddNewBlog = () => {
-  const tags = [
-    'Development',
-    'Sports',
-    'Writing',
-    'Self Improvement',
-    'Technology',
-    'Social',
-    'Datascience',
-    'Programming',
-  ]
+  const tags = jsontags
 
   const [title, setTitle] = useState('')
   const [imageSrc, setImageSrc] = useState()
@@ -114,7 +106,7 @@ const AddNewBlog = () => {
   }
 
   return (
-    <div className="flex flex-col lg:flex-row pl-20 mb-36 md:mb-44 lg:mb-72 pr-6 pt-6 min-h-screen">
+    <div className="flex flex-col lg:flex-row pl-20 mt-8 mb-36 md:mb-28 lg:mb-20 pr-6 pt-6 min-h-screen">
       <div className="w-full lg:w-3/4 pr-10 pb-10 mr-10">
         <div>
           <form className="mb-10" onSubmit={handleSubmit}>
@@ -134,7 +126,7 @@ const AddNewBlog = () => {
 
             <div className="flex flex-row gap-4 mt-14 lg:mt-20 p-4 justify-end">
               <button className="btn btn-outline border-none">Cancel</button>
-              <button type="submit" className="btn">
+              <button  className="btn" type="submit">
                 Save Changes
               </button>
             </div>
