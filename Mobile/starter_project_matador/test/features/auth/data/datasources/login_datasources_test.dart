@@ -12,16 +12,16 @@ import 'login_datasources_test.mocks.dart';
 
 @GenerateMocks([http.Client])
 void main() {
-  late LoginUserRemoteDataSourceImpl dataSource;
+  late LoginRemoteDataSourceImpl dataSource;
   late MockClient mockHttpClient;
 
   setUp(() {
     mockHttpClient = MockClient();
-    dataSource = LoginUserRemoteDataSourceImpl(client: mockHttpClient);
+    dataSource = LoginRemoteDataSourceImpl(httpClient: mockHttpClient);
   });
 
   final tLoginModel =
-      LoginModel(email: 'test@example.com', password: 'password');
+      LoginModel(id: '1', email: 'test@example.com', password: 'password');
   final tUser = {'email': 'test@gmail.com', 'password': 'password'};
 
   test(
@@ -34,7 +34,7 @@ void main() {
               headers: anyNamed('headers'), body: anyNamed('body')))
           .thenAnswer((_) async => response);
       // act
-      final result = await dataSource.authenticate(tLoginModel);
+      final result = await dataSource.authenticate(tLoginModel.id);
       // assert
       expect(result, equals(expectedResponse));
     },
@@ -51,7 +51,8 @@ void main() {
       // act
       final call = dataSource.authenticate;
       // assert
-      expect(() => call(tLoginModel), throwsA(isInstanceOf<ServerException>()));
+      expect(
+          () => call(tLoginModel.id), throwsA(isInstanceOf<ServerException>()));
     },
   );
 }

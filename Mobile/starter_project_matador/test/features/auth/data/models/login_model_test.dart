@@ -7,7 +7,8 @@ import 'package:flutter_test/flutter_test.dart';
 
 @GenerateMocks([LoginModel])
 void main() {
-  final loginModel = LoginModel(email: "test@gmail.com", password: "password");
+  final loginModel =
+      LoginModel(id: '1', email: "test@gmail.com", password: "password");
   test(
     'should be a subclass of User entity',
     () async {

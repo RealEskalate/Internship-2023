@@ -1,29 +1,39 @@
 import 'dart:convert';
 
 import 'package:matador/core/error/exception.dart';
-import 'package:matador/features/auth/domain/entities/user.dart';
 import 'package:http/http.dart' as http;
 
 import '../models/login_model.dart';
 
-abstract class LoginUserRemoteDataSource {
-  Future<LoginModel> authenticate(LoginModel loginModel);
+abstract class LoginRemoteDataSource {
+  Future<LoginModel> authenticate(String email, String password);
 }
 
-class LoginUserRemoteDataSourceImpl implements LoginUserRemoteDataSource {
-  final http.Client client;
-  final String _baseUrl = 'https://blogapi/';
-  LoginUserRemoteDataSourceImpl({required this.client});
+class LoginRemoteDataSourceImpl implements LoginRemoteDataSource {
+  final http.Client httpClient;
+  final String baseUrl =
+      'https://run.mocky.io/v3/f4fece13-9df3-49ca-a9a4-32b4ba317277';
+
+  LoginRemoteDataSourceImpl({required this.httpClient});
+
   @override
-  Future<LoginModel> authenticate(LoginModel loginModel) async {
-    final response = await client.post(
-      Uri.parse('${_baseUrl}login'),
-      headers: {'Content-Type': 'application/json'},
-      body: json.encode(loginModel.toJson()),
+  Future<LoginModel> authenticate(String email, String password) async {
+    // Make API call and handle response, deserializing the data
+    // Assume the API returns a JSON object with the user ID
+    final response = await httpClient.post(
+      Uri.parse('$baseUrl/authenticate'),
+      body: {'email': email, 'password': password},
     );
+
     if (response.statusCode == 200) {
-      return LoginModel.fromJson(json.decode(response.body));
+      final responseBody = json.decode(response.body);
+      return LoginModel(
+        email: email,
+        password: password,
+        id: responseBody['id'],
+      );
     } else {
+      // Handle error
       throw ServerException();
     }
   }

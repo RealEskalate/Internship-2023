@@ -5,12 +5,13 @@ import 'package:matador/core/error/failures.dart';
 import 'package:matador/features/auth/data/datasources/login_remote_datasource.dart';
 import 'package:matador/features/auth/data/models/login_model.dart';
 import 'package:matador/features/auth/data/repositories/login_user_repository_impl.dart';
+import 'package:matador/features/auth/domain/entities/user.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
 import 'login_repository_test.mocks.dart';
 
-@GenerateMocks([LoginUserRemoteDataSource])
+@GenerateMocks([LoginRemoteDataSource])
 void main() {
   LoginUserRepositoryImpl? repository;
   MockLoginUserRemoteDataSource? mockRemoteDataSource;
@@ -27,11 +28,12 @@ void main() {
     // arrange
     final tEmail = 'test@test.com';
     final tPassword = 'test123';
-    final tLoginModel = LoginModel(email: tEmail, password: tPassword);
+    final tLoginModel = LoginModel(id: '1', email: tEmail, password: tPassword);
+    final tUser = AuthUser(email: tEmail, password: tPassword);
     when(mockRemoteDataSource!.authenticate(tLoginModel))
         .thenAnswer((_) async => tLoginModel);
     // act
-    final result = await repository!.authenticate(tEmail, tPassword);
+    final result = await repository!.authenticate(tUser);
     // assert
     verify(mockRemoteDataSource!.authenticate(tLoginModel));
     expect(result, equals(Right(tLoginModel)));
@@ -42,12 +44,13 @@ void main() {
     // arrange
     final tEmail = 'test@test.com';
     final tPassword = 'test123';
+    final tUser = AuthUser(email: tEmail, password: tPassword);
     when(mockRemoteDataSource!.authenticate(any)).thenThrow(ServerException());
     // act
-    final result = await repository!.authenticate(tEmail, tPassword);
+    final result = await repository!.authenticate(tUser);
     // assert
     verify(mockRemoteDataSource!
-        .authenticate(LoginModel(email: tEmail, password: tPassword)));
+        .authenticate(LoginModel(id: '1', email: tEmail, password: tPassword)));
     expect(result, equals(Left(ServerFailure())));
   });
 }

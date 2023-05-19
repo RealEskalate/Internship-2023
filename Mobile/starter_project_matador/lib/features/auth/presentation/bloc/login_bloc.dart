@@ -20,7 +20,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
       result.fold(
         (error) => emit(LoginFailureState(error: error.toString())),
-        (user) => emit(LoginSuccessState(authUser: user)),
+        (id) => emit(LoginSuccessState(id: id)),
       );
     });
   }
