@@ -21,8 +21,11 @@ export const blogApi = createApi({
         body: blog,
       }),
     }),
+    getBlogsByUserID: builder.query<Blog[], string>({
+      query: (userID) => `/blogs?userID=${userID}`,
+    }),
   }),
 })
 
 // Export hooks for usage
-export const { useGetBlogsQuery, useGetBlogByIDQuery, useAddBlogMutation } = blogApi
+export const { useGetBlogsQuery, useGetBlogByIDQuery, useAddBlogMutation,useGetBlogsByUserIDQuery } = blogApi
