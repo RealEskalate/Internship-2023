@@ -5,15 +5,23 @@ import 'package:http/http.dart' as http;
 
 abstract class ArticleRemoteDataSource {
   Future<ArticleModel> getArticleById(String articleId);
+
   Future<ArticleModel> addArticle(ArticleModel article);
+
   Future<ArticleModel> editArticleById(ArticleModel article);
+
   Future<void> deleteArticleById(String articleId);
-  Future<List<ArticleModel>> getArticles();
+
+  Future<List<ArticleModel>> getAllArticles();
 }
 
 class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSource {
   final http.Client client;
-  ArticleRemoteDataSourceImpl(this.client);
+
+  ArticleRemoteDataSourceImpl({required this.client});
+
+  final String baseUrl =
+      "https://mockbin.org/bin/5b4a41b5-320f-4df0-b1e4-9c1f2aa0650d";
 
   @override
   Future<ArticleModel> getArticleById(String articleId) async {
@@ -29,13 +37,14 @@ class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSource {
   }
 
   @override
-  Future<List<ArticleModel>> getArticles() async {
-    final url = Uri.parse("http://blogsapi.com/articles");
+  Future<List<ArticleModel>> getAllArticles() async {
+    final url = Uri.parse(baseUrl);
     final response =
-    await client.get(url, headers: {'Content-Type': 'application/json'});
+        await client.get(url, headers: {'Content-Type': 'application/json'});
 
     if (response.statusCode == 200) {
-      final List<dynamic> articleJsonList = json.decode(response.body);
+      final responsebody = json.decode(response.body);
+      final List<dynamic> articleJsonList = responsebody["articles"];
       return articleJsonList
           .map((articleJson) => ArticleModel.fromJson(articleJson))
           .toList();
@@ -88,6 +97,4 @@ class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSource {
       throw ServerException();
     }
   }
-
-
 }

@@ -4,5 +4,5 @@ import '../../../../core/error/failures.dart';
 
 abstract class ArticleRepository {
   Future<Either<Failure,Article>> getArticleById(String articleId);
-  Future<Either<Failure, List<Article>>> getArticles();
+  Future<Either<Failure, List<Article>>> getAllArticles();
 }
