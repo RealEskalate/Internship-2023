@@ -1,11 +1,13 @@
 import React from 'react'
 import Image from 'next/image'
 import { Activity } from '@/types/home/Activity'
+
 interface ActivityProp {
   activity: Activity
 }
 
 const Activities:React.FC<ActivityProp> = ({ activity }) => {
+  
   return (
     <div className="flex flex-row justify-center mt-36">
       <div className="grid grid-flow-row gap-10 mx-8 auto-rows-max sm:grid-flow-col sm:auto-cols-fr sm:mx-11">

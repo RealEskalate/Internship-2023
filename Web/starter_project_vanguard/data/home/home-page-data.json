@@ -1,4 +1,4 @@
-[
+{ "activities": [
     {
       "url": "/img/home/activity-1.jpg",
       "title": "Internships",
@@ -25,5 +25,37 @@
       "altText":"Picture of students participating in social activities"
   
     }
-  ]
+  ],
   
+
+
+  "success-rates": [
+    {
+      "id": 1,
+      "year": "2019",
+      "success": "Founded",
+      "average": "5% average"
+    },
+    {
+      "id": 2,
+      "year": "2020",
+      "success": "27%",
+      "average": "5.2% average"
+    },
+    {
+      "id": 3,
+      "year": "2021",
+      "success": "59%",
+      "average": "3.9% average"
+    },
+    {
+      "id": 4,
+      "year": "2022",
+      "success": "70%",
+      "average": "2.6% average"
+    }
+]
+
+
+
+}
