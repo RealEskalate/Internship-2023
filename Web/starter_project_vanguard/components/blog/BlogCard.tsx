@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { FiMessageSquare } from 'react-icons/fi'
 import { TbClockFilled } from 'react-icons/tb'
 import { Blog } from '../../types/blog/blog'
+import Link from 'next/link'
 interface Props {
   blog: Blog
 }
@@ -72,12 +73,13 @@ const BlogCard: React.FC<Props> = ({ blog }) => {
               </p>
             </div>
           )}
-          <button
-            className="text-indigo-700 text-xs font-semibold"
-            onClick={() => null}
-          >
-            Read More
-          </button>
+          <Link href={`./${blog._id}`} passHref>
+            <button
+              className="text-indigo-700 text-xs font-semibold" 
+            >
+              Read More
+            </button>
+          </Link>
         </div>
       </div>
     </div>

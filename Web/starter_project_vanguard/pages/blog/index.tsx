@@ -2,7 +2,7 @@ import BlogsCard from '@/components/blog/BlogsCard'
 import Search from '@/components/common/Search'
 import Pagination from '@/components/common/pagination'
 import React, { useEffect, useState } from 'react'
-import blogs from '../../data/blogs.json'
+import {blogs} from '../../data/blogs.json'
 import { Blog } from '../../types/blog/blog'
 
 const Blogs: React.FC = () => {
@@ -44,8 +44,8 @@ const Blogs: React.FC = () => {
 
       <div>
         <ul>
-          {currentBlogs.map((currentBlog: Blog) => (
-            <li key={currentBlog._id} className="text-2xl font-bold">
+          {currentBlogs.map((currentBlog:Blog) => (
+            <li key={currentBlog.id} className="text-2xl font-bold">
               <BlogsCard blog={currentBlog} />
             </li>
           ))}

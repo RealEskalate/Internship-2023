@@ -89,6 +89,11 @@ const AddNewBlog = () => {
       descriptionTitle:
         'Network traffic passes through the front-end can seem hard at first glance. And you may not be familiar with advanced algorithms, but there are simple steps you can follow to see outstanding results in a short period of time.',
       likes: 1722,
+      relatedBlogs: [
+        "644b7889dfd484f5f7ff7f5a",
+        "644b7889d36afedee06305da",
+        "644b78892e53af63603c1d45"
+      ],
       time: currentDate.getTime(),
       date: 'Dec 13,2014',
     })

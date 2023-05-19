@@ -12,6 +12,7 @@ export interface Blog {
     descriptionTitle:string,
     description: string,
     likes: number,
+    relatedBlogs: string[],
     date: string,
     skills: string[]
   }
