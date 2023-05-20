@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:dartsmiths/features/feed/home/data/model/home.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../../../../core/utils/fixture_reader.dart';
+import '../../../../../core/fixture/user_credential_reader.dart';
 
 void main() {
   const homeModel = HomeModel(
