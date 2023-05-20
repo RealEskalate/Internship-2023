@@ -1,19 +1,13 @@
-part of 'home_bloc.dart';
+abstract class SearchNewEvent {}
 
-abstract class HomeEvent extends Equatable {
+class SearchTermChanged extends SearchNewEvent {
   final String term;
+  SearchTermChanged({required this.term});
+}
+
+class SearchTagChanged extends SearchNewEvent {
   final String tag;
-
-  const HomeEvent(this.term, this.tag);
-  
-
-  @override
-  List<Object> get props => [];
+  SearchTagChanged({required this.tag});
 }
 
-class SearchEvent extends HomeEvent {
-  const SearchEvent(super.term, super.tag);
-
-  @override
-  List<Object> get props => [term, tag];
-}
+class SearchSubmitted extends SearchNewEvent {}

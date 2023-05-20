@@ -8,6 +8,7 @@ import '../model/home.dart';
 abstract class HomeRemoteDataSource {
   Future<List<Home>> search(String term, String tag);
 }
+
 class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   final http.Client client;
   HomeRemoteDataSourceImpl({required this.client});
@@ -30,7 +31,8 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
     return client.get(uri, headers: {});
   }
 
-  Uri _getUri(String authority, String unencodedPath, Object?queryParameters) {
-    return Uri.https(authority, unencodedPath, queryParameters as Map<String, dynamic>?);
+  Uri _getUri(String authority, String unencodedPath, Object? queryParameters) {
+    return Uri.https(
+        authority, unencodedPath, queryParameters as Map<String, dynamic>?);
   }
 }

@@ -1,12 +1,15 @@
 import 'package:dartsmiths/core/utils/colors.dart';
 import 'package:dartsmiths/core/utils/ui_converter.dart';
+import 'package:dartsmiths/features/feed/presentation/bloc/home_bloc.dart';
+import 'package:dartsmiths/features/feed/presentation/bloc/home_event.dart';
+import 'package:dartsmiths/features/feed/presentation/bloc/home_state.dart';
+import 'package:dartsmiths/features/feed/presentation/bloc/search_status.dart';
 import 'package:dartsmiths/features/feed/presentation/widgets/search_bar.dart';
 import 'package:dartsmiths/injection/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../../core/utils/style.dart';
-import '../bloc/home_bloc.dart';
 import '../widgets/add_button.dart';
 import '../widgets/filter_button.dart';
 import '../widgets/article_card.dart';
@@ -20,14 +23,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<String> filterText = ["All", "Sports", "Tech", "Politics"];
-  int seletedIndex = 0;
+
   final TextEditingController _controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => serviceLocator<HomeBloc>()
-        ..add(SearchEvent(_controller.text, filterText[seletedIndex])),
+      create: (context) => serviceLocator<SearchBloc>()..add(SearchSubmitted()),
       child: Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
         appBar: AppBar(
@@ -52,35 +53,30 @@ class _HomePageState extends State<HomePage> {
                       fontWeight: FontWeight.w800))),
           actions: const [ProfileAvatar()],
         ),
-        body: BlocConsumer<HomeBloc, HomeState>(
+        body: BlocConsumer<SearchBloc, SearchState>(
           listener: (context, state) {},
           builder: (context, state) {
-            if (state is LoadingState) {
+            if (state.searchSubmissionStatus is SearchSubmittingStatus) {
               return CircularProgressIndicator(
                 color: contentBgColor,
                 backgroundColor: Colors.orange[900],
               );
             }
-            if (state is SuccessState) {
+            if (state.searchSubmissionStatus is SearchSubmissionSuccess) {
               return SizedBox(
                 height: double.infinity,
                 child: Column(
                   children: [
                     Searchbar(controller: _controller),
                     Padding(
-                        padding: EdgeInsets.only(
-                          top: UIConverter.getComponentHeight(context, 20),
-                          right: UIConverter.getComponentWidth(context, 25),
-                          left: UIConverter.getComponentWidth(context, 25),
-                        ),
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              for (var i = 0; i < filterText.length; i++)
-                                FilterButton(
-                                    text: filterText[i],
-                                    isActive: i == 0 ? true : false)
-                            ])),
+                      padding: EdgeInsets.only(
+                        top: UIConverter.getComponentHeight(context, 20),
+                        right: UIConverter.getComponentWidth(context, 25),
+                        left: UIConverter.getComponentWidth(context, 25),
+                      ),
+                      child: const FilterButton(
+                      ),
+                    ),
                     Expanded(
                       child: ListView(
                         children: [

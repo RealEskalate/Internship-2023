@@ -3,6 +3,7 @@ import 'package:dartsmiths/features/feed/home/data/datasource/home_remote.dart';
 import 'package:dartsmiths/features/feed/home/data/repository/home_repository.dart';
 import 'package:dartsmiths/features/feed/home/domain/repository/home_repository.dart';
 import 'package:dartsmiths/features/feed/home/domain/usecase/home_usecase.dart';
+import 'package:dartsmiths/features/feed/presentation/bloc/home_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:http/http.dart' as http;
@@ -11,7 +12,6 @@ import '../features/authentication/data/repository/authentication_repository_imp
 import '../features/authentication/domain/repository/login_repository.dart';
 import '../features/authentication/domain/use_cases/login_usecase.dart';
 import '../features/authentication/presentation/bloc/auth_bloc.dart';
-import '../features/feed/presentation/bloc/home_bloc.dart';
 
 final serviceLocator = GetIt.instance;
 
@@ -20,7 +20,8 @@ void init() {
 
   //?Bloc
   serviceLocator.registerFactory(() => AuthBloc(serviceLocator()));
-  serviceLocator.registerFactory(() => HomeBloc(usecase: serviceLocator()));
+  serviceLocator.registerFactory(() => SearchBloc(usecase: serviceLocator()));
+  
   //?Usecase
   serviceLocator.registerSingleton(() => LoginUsecase(serviceLocator()));
   serviceLocator.registerLazySingleton(() => Search(homeRepository: serviceLocator()));

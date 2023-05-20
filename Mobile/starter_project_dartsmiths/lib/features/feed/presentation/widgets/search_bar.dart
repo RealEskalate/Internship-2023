@@ -2,9 +2,11 @@ import 'package:dartsmiths/core/utils/colors.dart';
 import 'package:dartsmiths/core/utils/style.dart';
 import 'package:dartsmiths/core/utils/ui_converter.dart';
 import 'package:dartsmiths/features/feed/presentation/bloc/home_bloc.dart';
+import 'package:dartsmiths/features/feed/presentation/bloc/home_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+// ignore: must_be_immutable
 class Searchbar extends StatelessWidget {
   Searchbar({super.key, required this.controller});
   TextEditingController controller;
@@ -52,9 +54,10 @@ class Searchbar extends StatelessWidget {
                     height: UIConverter.getComponentHeight(context, 60),
                     child: TextField(
                       onSubmitted: (value) {
-                        controller.text = value;
-                        context.read<HomeBloc>()
-                          .add(SearchEvent(controller.text, 'Techs'));
+                        context
+                            .read<SearchBloc>()
+                            .add(SearchTermChanged(term: value));
+                        context.read<SearchBloc>().add(SearchSubmitted());
                       },
                       decoration: InputDecoration(
                         hintText: "Search and article ..",

@@ -1,29 +1,32 @@
-part of 'home_bloc.dart';
+import 'package:dartsmiths/features/feed/home/domain/entity/home.dart';
 
-abstract class HomeState extends Equatable {
+import 'search_status.dart';
 
-  const HomeState();
-
-  @override
-  List<Object> get props => [];
-}
-
-class InitialState extends HomeState {}
-
-class LoadingState extends HomeState {}
-
-class SuccessState extends HomeState {
+class SearchState {
+  final String term;
+  final String tag;
   final List<Home> homeData;
-  const SuccessState({required this.homeData});
+  final SearchSubmissionStatus searchSubmissionStatus;
 
-  @override
-  List<Object> get props => [homeData];
-}
+  SearchState({
+    this.tag = '',
+    this.term = '',
+    this.homeData = const [],
+    this.searchSubmissionStatus = const InitialSearchStatus(),
+  });
 
-class FailureState extends HomeState {
-  final String message;
-
-  const FailureState({required this.message});
-  @override
-  List<Object> get props => [message];
+  SearchState copyWith({
+    String? term,
+    String? tag,
+    List<Home>? homeData,
+    SearchSubmissionStatus? searchSubmissionStatus,
+  }) {
+    return SearchState(
+      tag: tag ?? this.tag,
+      term: term ?? this.term,
+      homeData: homeData ?? this.homeData,
+      searchSubmissionStatus:
+          searchSubmissionStatus ?? this.searchSubmissionStatus,
+    );
+  }
 }
