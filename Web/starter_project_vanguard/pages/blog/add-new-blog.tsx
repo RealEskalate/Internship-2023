@@ -4,18 +4,10 @@ import TextEditor from '@/components/blog/TextEditor'
 import { useAddBlogMutation } from '@/store/features/blog/add-new-blog-api'
 import React, { useEffect, useState } from 'react'
 import { date } from 'yup'
+import jsontags from '../../data/tags.json'
 
 const AddNewBlog = () => {
-  const tags = [
-    'Development',
-    'Sports',
-    'Writing',
-    'Self Improvement',
-    'Technology',
-    'Social',
-    'Datascience',
-    'Programming',
-  ]
+  const tags = jsontags
 
   const [title, setTitle] = useState('')
   const [imageSrc, setImageSrc] = useState()
@@ -88,7 +80,13 @@ const AddNewBlog = () => {
       company: 'BIOTICA',
       descriptionTitle:
         'Network traffic passes through the front-end can seem hard at first glance. And you may not be familiar with advanced algorithms, but there are simple steps you can follow to see outstanding results in a short period of time.',
+      tags:"programming,tech",
       likes: 1722,
+      relatedBlogs:[
+        "644b7889dfd484f5f7ff7f5a",
+        "644b7889d36afedee06305da",
+        "644b78892e53af63603c1d45"
+      ],
       time: currentDate.getTime(),
       date: 'Dec 13,2014',
     })
@@ -108,7 +106,7 @@ const AddNewBlog = () => {
   }
 
   return (
-    <div className="flex flex-col lg:flex-row pl-20 mb-36 md:mb-44 lg:mb-72 pr-6 pt-6 min-h-screen">
+    <div className="flex flex-col lg:flex-row pl-20 mt-8 mb-36 md:mb-28 lg:mb-20 pr-6 pt-6 min-h-screen">
       <div className="w-full lg:w-3/4 pr-10 pb-10 mr-10">
         <div>
           <form className="mb-10" onSubmit={handleSubmit}>
@@ -128,7 +126,7 @@ const AddNewBlog = () => {
 
             <div className="flex flex-row gap-4 mt-14 lg:mt-20 p-4 justify-end">
               <button className="btn btn-outline border-none">Cancel</button>
-              <button type="submit" className="btn">
+              <button  className="btn" type="submit">
                 Save Changes
               </button>
             </div>
