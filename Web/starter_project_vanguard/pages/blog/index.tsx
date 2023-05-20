@@ -2,8 +2,9 @@ import BlogsCard from '@/components/blog/BlogsCard'
 import Search from '@/components/common/Search'
 import Pagination from '@/components/common/pagination'
 import React, { useEffect, useState } from 'react'
-import blogs from '../../data/blogs.json'
+import {blogs} from '../../data/blogs.json'
 import { Blog } from '../../types/blog/blog'
+import Link from 'next/link'
 
 const Blogs: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1)
@@ -30,11 +31,13 @@ const Blogs: React.FC = () => {
               <Search />
               <div className="items-center justify-center mt-4 ml-8">
                 <div className="w-60">
+                <Link href={`./blog/add-new-blog`} passHref>
                   <button className="btn btn-lg btn-pill flex mt-2">
                     <i>
                       <span className="text-lg font-semibold">+ New Blog</span>
                     </i>
                   </button>
+                </Link>
                 </div>
               </div>
             </div>
@@ -44,8 +47,8 @@ const Blogs: React.FC = () => {
 
       <div>
         <ul>
-          {currentBlogs.map((currentBlog: Blog) => (
-            <li key={currentBlog._id} className="text-2xl font-bold">
+          {currentBlogs.map((currentBlog:Blog) => (
+            <li key={currentBlog.id} className="text-2xl font-bold">
               <BlogsCard blog={currentBlog} />
             </li>
           ))}

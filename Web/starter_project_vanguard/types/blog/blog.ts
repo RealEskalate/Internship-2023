@@ -11,7 +11,9 @@ export interface Blog {
     title: string,
     descriptionTitle:string,
     description: string,
+    tags: string,
     likes: number,
+    relatedBlogs: string[],
     date: string,
     skills: string[]
   }
