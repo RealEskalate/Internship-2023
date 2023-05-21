@@ -16,7 +16,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
 final sl = GetIt.instance;
-void userDependencyInjection() async {
+Future<void> userDependencyInjection() async {
 //Bloc
   sl.registerFactory(() => UserProfileBloc(getUser: sl(), editUser: sl()));
 // usecases
