@@ -7,9 +7,9 @@ final sl = GetIt.instance;
 
 Future<void> init() async{
   //! Features - Number Trivia
-  await userDependencyInjection();
-  await articleDependencyInjection();
-  
+  await userInjectionInit();
+  await articleInjectionInit();
+
   //! Core
 
   //! External
