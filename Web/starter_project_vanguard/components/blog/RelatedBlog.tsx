@@ -1,5 +1,5 @@
-import BlogCard from './BlogCard'
-import Blogs from '../../data/blogs.json'
+import { useGetSingleBlogQuery } from '@/store/features/blog/single-blog-api';
+import BlogCard from '@/components/blog/BlogCard'
 import { Blog } from '@/types/blog/blog'
 import React from 'react'
 
@@ -8,8 +8,15 @@ interface Props{
 }
 
 const RelatedBlogCard:React.FC<Props> = (props) => {
+  const {data:blog,isLoading} = useGetSingleBlogQuery(props.id)
+  if (isLoading){
+    return <div> is loading </div>
+  }
+  if (!blog) {
+    return <div>Blog not found</div>;
+  }
  
-  const blog =  Blogs.blogs.filter((item:Blog) => item.id === props.id)[0]
+ 
   
   return (
     <div>

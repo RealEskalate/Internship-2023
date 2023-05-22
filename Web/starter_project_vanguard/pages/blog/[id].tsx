@@ -1,14 +1,23 @@
 import Image from 'next/image'
 import { Blog } from '../../types/blog/blog'
-import {blogs} from '../../data/blogs.json'
 import { useRouter } from 'next/router'
 import RelatedBlogCard from '@/components/blog/RelatedBlog'
+import { useGetSingleBlogQuery } from '@/store/features/blog/single-blog-api'
 
 const SingleBlog:React.FC = () => {
   const router = useRouter()
   let { id } = router.query
-
-  const blog = blogs.filter((item: Blog) => item.id === id)[0]
+  id = id as string
+  
+  const {data,isLoading} = useGetSingleBlogQuery(id)
+  if (isLoading){
+    return <div> loading ... </div>
+  }
+  if (!data) {
+    return <div>Blog not found</div>;
+  }
+  
+  const blog:Blog =  data;
   
   return (
     <div className="w-3/4 m-auto">
