@@ -12,7 +12,7 @@ abstract class LoginRemoteDataSource {
 class LoginRemoteDataSourceImpl implements LoginRemoteDataSource {
   final http.Client httpClient;
   final String baseUrl =
-      'https://run.mocky.io/v3/f4fece13-9df3-49ca-a9a4-32b4ba317277';
+      'https://6140a0c9-6919-4996-ae1b-2f2fd8abba5a.mock.pstmn.io';
 
   LoginRemoteDataSourceImpl({required this.httpClient});
 
@@ -21,7 +21,7 @@ class LoginRemoteDataSourceImpl implements LoginRemoteDataSource {
     // Make API call and handle response, deserializing the data
     // Assume the API returns a JSON object with the user ID
     final response = await httpClient.post(
-      Uri.parse('$baseUrl/authenticate'),
+      Uri.parse('$baseUrl/user'),
       body: {'email': email, 'password': password},
     );
 
