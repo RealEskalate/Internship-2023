@@ -13,7 +13,7 @@ export const store = configureStore({
     [storyApi.reducerPath]: storyApi.reducer,
     [partnersApi.reducerPath]: partnersApi.reducer,
   },
-  
+
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(blogApi.middleware, aboutApi.middleware, teamApi.middleware,storyApi.middleware,partnersApi.middleware),
 })
