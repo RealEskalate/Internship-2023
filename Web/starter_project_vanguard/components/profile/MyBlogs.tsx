@@ -1,7 +1,7 @@
-import data from '../../data/blogs.json'
-import { Blog } from '../../types/blog/blog'
+import data from '@/data/blogs.json'
+import { Blog } from '@/types/blog/blog'
 
-import BlogCard from '../blog/BlogCard'
+import BlogCard from '@/components/blog/BlogCard'
 const MyBlogs: React.FC = () => {
   const blogs = data.blogs
   const handleDelete: (id: string) => void = (id) => {

@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { FiMessageSquare } from 'react-icons/fi'
 import { TbClockFilled } from 'react-icons/tb'
 import { MdOutlineCancel, MdOutlineModeEditOutline } from 'react-icons/md'
-import { Blog } from '../../types/blog/blog'
+import { Blog } from '@/types/blog/blog'
 import Link from 'next/link'
 interface Props {
   blog: Blog
