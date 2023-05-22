@@ -2,6 +2,7 @@ import BlogTile from '@/components/blog/BlogTile'
 import { useGetBlogsQuery } from '@/store/features/blog/blog-api'
 import Link from 'next/link'
 import { FaPlus } from 'react-icons/fa'
+import Error from '../../components/common/Error'
 
 const Blogs: React.FC = () => {
   const { data: blogsData, isLoading, isError } = useGetBlogsQuery()
