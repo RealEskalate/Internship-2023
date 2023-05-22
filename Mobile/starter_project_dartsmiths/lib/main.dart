@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'features/feed/presentation/screen/home_page.dart';
-import 'injection/injection.dart' as dependency_injection;
+import 'package:dartsmiths/injection/injection.dart'  as injection;
 
 void main() {
-  dependency_injection.init();
+  injection.init();
   runApp(const MyApp());
 }
 
