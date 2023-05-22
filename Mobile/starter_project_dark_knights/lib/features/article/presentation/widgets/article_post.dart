@@ -6,7 +6,11 @@ import 'package:dark_knights/core/utils/images.dart';
 import 'package:flutter/material.dart';
 
 class ArticlePost extends StatelessWidget {
-  const ArticlePost({super.key});
+  final String description;
+  final String imageUrl;
+
+  const ArticlePost(
+      {super.key, required this.description, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -16,15 +20,6 @@ class ArticlePost extends StatelessWidget {
 
     double imageSize = convertPixle(219, "width", context);
     double fontSize = convertPixle(16, "width", context);
-
-    String text =
-        "The webpage at https://search.brave.com/search source=web"
-        "might be temporarily down or it may have moved permanently to a new web address."
-        "The webpage at https://search.brave.com/search source=web"
-        "might be temporarily down or it may have moved permanently to a new web address."
-        "The webpage at https://search.brave.com/search source=web"
-        "might be temporarily down or it may have moved permanently to a new web address."
-        "The webpage at https://search.brave.com/search source=web";
 
     return Column(children: [
       Padding(
@@ -38,14 +33,14 @@ class ArticlePost extends StatelessWidget {
             fit: BoxFit.cover,
             height: imageSize,
             width: double.infinity,
-            image: const AssetImage(postImage),
+            image: AssetImage(imageUrl),
           ),
         ),
       ),
       Padding(
         padding: EdgeInsets.symmetric(horizontal: left),
         child: Text(
-          text,
+          description,
           style: TextStyle(
               fontSize: fontSize,
               fontWeight: FontWeight.w400,

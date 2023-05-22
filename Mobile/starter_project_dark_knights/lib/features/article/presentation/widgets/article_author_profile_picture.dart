@@ -5,7 +5,8 @@ import 'package:dark_knights/core/utils/images.dart';
 import 'package:flutter/material.dart';
 
 class ArticleAuthorProfilePicture extends StatelessWidget {
-  const ArticleAuthorProfilePicture({super.key});
+  final profileImage;
+  const ArticleAuthorProfilePicture({super.key, required this.profileImage});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class ArticleAuthorProfilePicture extends StatelessWidget {
       height: imageSize,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        image: const DecorationImage(
+        image: DecorationImage(
           fit: BoxFit.cover,
           image: AssetImage(profileImage),
         ),

@@ -2,16 +2,14 @@ import 'package:dark_knights/features/article/domain/repositories/article_reposi
 import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/errors/failures.dart';
-import '../../../../core/usecases/usecase.dart';
+import '../../../user_profile/domain/usecases/get_user.dart';
 import '../../domain/entities/article.dart';
 import '../../domain/usecases/delete_article.dart';
-import '../../domain/usecases/get_articles.dart';
 import '../../domain/usecases/get_article_by_id.dart';
 import '../../domain/usecases/post_article.dart';
 import '../../domain/usecases/update_articles.dart';
 import '../../domain/usecases/get_articles_by_user_id.dart';
 import 'package:equatable/equatable.dart';
-import '../../data/models/article_model.dart';
 
 part 'article_event.dart';
 part 'article_state.dart';

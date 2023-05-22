@@ -3,7 +3,13 @@ import 'package:flutter/material.dart';
 import '../../../../core/utils/colors.dart';
 
 class AddTitleAndSubtitle extends StatelessWidget {
-  const AddTitleAndSubtitle({super.key});
+  final TextEditingController titleController;
+  final TextEditingController subTitleController;
+
+  const AddTitleAndSubtitle(
+      {super.key,
+      required this.subTitleController,
+      required this.titleController});
 
   @override
   Widget build(BuildContext context) {
@@ -12,6 +18,7 @@ class AddTitleAndSubtitle extends StatelessWidget {
         Container(
           margin: const EdgeInsets.fromLTRB(33, 20, 33, 20),
           child: TextFormField(
+            controller: titleController,
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
               labelText: 'Add title',
@@ -25,6 +32,7 @@ class AddTitleAndSubtitle extends StatelessWidget {
         Container(
           margin: const EdgeInsets.fromLTRB(33, 20, 33, 20),
           child: TextFormField(
+            controller: subTitleController,
             decoration: const InputDecoration(
               border: UnderlineInputBorder(),
               labelText: 'Add subtitle',

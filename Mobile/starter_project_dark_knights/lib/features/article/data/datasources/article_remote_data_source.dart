@@ -22,7 +22,7 @@ abstract class ArticleRemoteDataSource {
 
 class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSource {
   final http.Client client;
-  final uriString = 'http://api/article/';
+  final uriString = "https://mocki.io/v1/66080818-3345-4c30-9978-907a4f05d096";
 
   ArticleRemoteDataSourceImpl({required this.client});
   @override
@@ -62,8 +62,9 @@ class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSource {
 
   @override
   Future<ArticleModel> getArticleById(String id) async {
+    
     final response = await client.get(
-      Uri.parse('$uriString$id'),
+      Uri.parse('https://mocki.io/v1/66080818-3345-4c30-9978-907a4f05d096'),
       headers: {
         'Content-Type': 'application/json',
       },

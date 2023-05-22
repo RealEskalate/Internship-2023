@@ -6,9 +6,13 @@ import 'article_author_profile_picture.dart';
 
 class ArticleAuthorDetail extends StatelessWidget {
   final String authorName;
+  final String profileImageUrl;
   final String postedAt;
   const ArticleAuthorDetail(
-      {super.key, required this.authorName, required this.postedAt});
+      {super.key,
+      required this.authorName,
+      required this.postedAt,
+      required this.profileImageUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +23,11 @@ class ArticleAuthorDetail extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Padding(
-              padding: EdgeInsets.only(right: 10),
-              child: ArticleAuthorProfilePicture(),
+            Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: ArticleAuthorProfilePicture(
+                profileImage: profileImageUrl,
+              ),
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

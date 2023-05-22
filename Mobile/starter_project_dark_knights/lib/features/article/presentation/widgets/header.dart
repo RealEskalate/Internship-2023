@@ -8,7 +8,8 @@ import 'article_author_detail.dart';
 import 'bookmark_icon_button.dart';
 
 class Header extends StatelessWidget {
-  const Header({super.key});
+  final userInfo;
+  const Header({super.key, required this.userInfo});
 
   @override
   Widget build(BuildContext context) {
@@ -19,28 +20,31 @@ class Header extends StatelessWidget {
 
     return Padding(
       padding: EdgeInsets.only(left: left, right: right),
-      child: Column(children: [
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: textPadding),
-          child: Text(
-            'Four Things Eveyone Needs To Know',
-            style: TextStyle(
-                fontSize: fontSize,
-                fontWeight: FontWeight.w700,
-                color: primaryTextColor),
-          ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-            ArticleAuthorDetail(
-              authorName: "Richard ",
-              postedAt: "2m",
+      child: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: textPadding),
+            child: Text(
+              'Four Things Eveyone Needs To Know',
+              style: TextStyle(
+                  fontSize: fontSize,
+                  fontWeight: FontWeight.w700,
+                  color: primaryTextColor),
             ),
-            BookmarkButton()
-          ],
-        )
-      ]),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              ArticleAuthorDetail(
+                authorName: userInfo.authorName,
+                postedAt: "2m",
+                profileImageUrl: userInfo.image,
+              ),
+              BookmarkButton()
+            ],
+          )
+        ],
+      ),
     );
   }
 }

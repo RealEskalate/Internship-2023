@@ -11,16 +11,13 @@ import '../datasources/article_remote_data_source.dart';
 class ArticleRepositoryImpl implements ArticleRepository {
   final ArticleRemoteDataSource remoteDataSource;
   final ArticleLocalDataSource localDataSource;
-  final NetworkInfo networkInfo;
 
   ArticleRepositoryImpl({
     required this.localDataSource,
     required this.remoteDataSource,
-    required this.networkInfo,
   });
   @override
   Future<Either<Failure, List<Article>>> getArticles() async {
-    if (await networkInfo.isConnected) {
       try {
         final remoteArticles = await remoteDataSource.getArticles();
         localDataSource.cacheArticles(remoteArticles);
@@ -28,14 +25,14 @@ class ArticleRepositoryImpl implements ArticleRepository {
       } on ServerException {
         return Left(ServerFailure("Internal Server Failure!"));
       }
-    } else {
-      try {
-        final localArticles = await localDataSource.getLastArticles();
-        return Right(localArticles);
-      } on CacheException {
-        return Left(CacheFailure("Local Catch Sever Failure"));
-      }
-    }
+    // } else {
+    //   try {
+    //     final localArticles = await localDataSource.getLastArticles();
+    //     return Right(localArticles);
+    //   } on CacheException {
+    //     return Left(CacheFailure("Local Catch Sever Failure"));
+    //   }
+    // }
   }
 
   @override

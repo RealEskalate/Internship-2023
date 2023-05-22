@@ -19,13 +19,16 @@ final sl = GetIt.instance;
 Future<void> articleInjectionInit() async {
   // Bloc
   sl.registerFactory(
-    () => ArticleBloc(
+    () => [
+      ArticleBloc(
         getArticleById: sl(),
         deleteArticle: sl(),
         getArticleByUserId: sl(),
         postArticle: sl(),
         updateArticle: sl(),
-        repository: sl()),
+        repository: sl(),
+      ),
+    ],
   );
 
   // usecases
@@ -54,7 +57,6 @@ Future<void> articleInjectionInit() async {
     () => ArticleRepositoryImpl(
       localDataSource: sl(),
       remoteDataSource: sl(),
-      networkInfo: sl(),
     ),
   );
 
@@ -68,9 +70,9 @@ Future<void> articleInjectionInit() async {
   );
 
   //core
-  sl.registerLazySingleton<NetworkInfo>(
-    () => NetworkInfoImpl(sl()),
-  );
+  // sl.registerLazySingleton<NetworkInfo>(
+  //   () => NetworkInfoImpl(sl()),
+  // );
 
   //external
   final sharedPreferences = await SharedPreferences.getInstance();
