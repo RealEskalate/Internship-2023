@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react'
+import React, { ReactNode, useEffect, useState } from 'react'
 
 import AccountSetting from '@/components/profile/AccountSetting'
 import PersonalInfo from '@/components/profile/PersonalInfo'

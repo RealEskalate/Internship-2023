@@ -2,7 +2,7 @@ import { Blog } from '@/types/blog'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React from 'react'
-import blogsData from '../../data/blog/blog.json'
+import blogsData from '../../data/blogs/blogs.json'
 
 const SingleBlog: React.FC = () => {
   const router = useRouter()
@@ -34,7 +34,7 @@ const SingleBlog: React.FC = () => {
       </p>
       <div className="flex h-auto w-5/6 justify-center items-center mx-auto p-8">
         <Image
-          src={`/img/blog/${imgUrl}`}
+          src={`/img/blogs/${imgUrl}`}
           className="mx-auto"
           alt="blog image"
           width={1000}
@@ -44,7 +44,7 @@ const SingleBlog: React.FC = () => {
 
       <div className="mx-auto p-4">
         <Image
-          src={`/img/blog/${author.imageUrl}`}
+          src={`/img/blogs/${author.imageUrl}`}
           className="mx-auto p-4 rounded-full w-28 h-28"
           alt="author image"
           width={100}
