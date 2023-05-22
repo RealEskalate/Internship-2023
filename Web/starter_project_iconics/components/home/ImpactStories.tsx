@@ -1,6 +1,7 @@
 import { RootState } from '@/store'
 import { useGetStoriesQuery } from '@/store/features/home/impact-stories/impact-stories-api'
 import { selectStory } from '@/store/features/home/impact-stories/impact-stories-slice'
+import getRandom from '@/utils/random-range'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Error from '../common/Error'
@@ -15,10 +16,6 @@ const ImpactStories: React.FC = () => {
     isError,
     error,
   } = useGetStoriesQuery()
-
-  function getRandom(min: number, max: number): number {
-    return Math.floor(Math.random() * (max - min + 1) + min)
-  }
 
   const { currentStory } = useSelector(
     (state: RootState) => state.impactStories
