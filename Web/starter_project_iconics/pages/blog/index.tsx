@@ -10,7 +10,12 @@ const Blogs: React.FC = () => {
     return <div className="m-auto">Loading...</div>
   }
   if (isError) {
-    return <div>No blogs</div>
+    return (
+      <div>
+        {' '}
+        <Error />{' '}
+      </div>
+    )
   }
   return (
     <div className="bg-white pt-4 text-primary-text">
