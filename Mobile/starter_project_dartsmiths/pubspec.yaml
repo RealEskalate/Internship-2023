@@ -28,29 +28,30 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  build_runner: ^2.3.3
+  cupertino_icons: ^1.0.2
+  dartz: ^0.10.1
+  data_connection_checker: ^0.3.4
+  equatable: ^2.0.5
   flutter:
     sdk: flutter
-
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
+  flutter_bloc: ^8.1.2
   flutter_svg: ^2.0.5
+  get_it: ^7.6.0
+  http: ^0.13.6
+  internet_connection_checker: ^1.0.0+1
+  mockito: ^5.4.0
+  http: ^0.13.6
+  data_connection_checker: ^0.3.4
+  internet_connection_checker: ^1.0.0+1
   
 dev_dependencies:
+  flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
 
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
-  flutter_lints: ^2.0.0
-
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter packages.
 flutter:
 
@@ -62,30 +63,28 @@ flutter:
     - assets/images/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
-
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
-
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-        
   fonts:
-  - family: Poppins
-    fonts:
-      - asset: assets/fonts/Poppins-Bold.ttf
-        weight: 600
-      - asset: assets/fonts/Poppins-Light.ttf
-        weight: 100
-      - asset: assets/fonts/Poppins-Medium.ttf
-        weight: 400
-      - asset: assets/fonts/Poppins-Regular.ttf
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Bold.ttf
+          weight: 600
+        - asset: assets/fonts/Poppins-Light.ttf
+          weight: 100
+        - asset: assets/fonts/Poppins-Medium.ttf
+          weight: 400
+        - asset: assets/fonts/Poppins-Regular.ttf
 
-  - family: Urbanist
-    fonts:
-      - asset: assets/fonts/Urbanist-VariableFont_wght.ttf
-        
+    - family: Urbanist
+      fonts:
+        - asset: assets/font/Urbanist-VariableFont_wght.ttf
+
+
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

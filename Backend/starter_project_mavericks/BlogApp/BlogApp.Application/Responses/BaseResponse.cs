@@ -12,5 +12,6 @@ namespace BlogApp.Application.Responses
         public bool Success { get; set; } = true;
         public string Message { get; set; }
         public List<string> Errors { get; set; } = new List<string>();
+        public string ErrorMessage { get; internal set; }
     }
 }

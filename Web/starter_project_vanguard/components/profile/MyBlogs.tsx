@@ -1,8 +1,13 @@
-import blogs from '../../data/blogs.json'
-import { Blog } from '../../types/blog/blog'
+import data from '@/data/blogs.json'
+import { Blog } from '@/types/blog/blog'
 
-import BlogCard from '../blog/BlogCard'
+import BlogCard from '@/components/blog/BlogCard'
 const MyBlogs: React.FC = () => {
+  const blogs = data.blogs
+  const handleDelete: (id: string) => void = (id) => {
+    null
+  }
+
   return (
     <div className="flex flex-col gap-5 mt-4  text-secondary-text">
       <div>
@@ -17,9 +22,16 @@ const MyBlogs: React.FC = () => {
       </div>
       <hr />
 
-      <div className="grid grid-cols-4 mt-2 gap-8">
-        {blogs.map((blog: Blog, index) => {
-          return <BlogCard key={index} blog={blog} />
+      <div className="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-4 mt-2 gap-8">
+        {blogs.map((blog: Blog) => {
+          return (
+            <BlogCard
+              key={blog.id}
+              blog={blog}
+              isMyBlog={true}
+              handleDelete={handleDelete}
+            />
+          )
         })}
       </div>
     </div>

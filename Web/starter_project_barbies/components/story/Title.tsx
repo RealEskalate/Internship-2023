@@ -8,7 +8,7 @@ const Title = () => {
         </div>
         <hr className='w-12 h-0 border-2 border-solid border-blue-500 mx-auto top-150'/>
         </div>
-      )
-}
+      );
+};
 
 export default Title

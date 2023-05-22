@@ -1,6 +1,6 @@
-import 'package:dartsmiths/core/utils/app_textstyle.dart';
 import 'package:dartsmiths/core/utils/colors.dart';
 import 'package:flutter/material.dart';
+import '../../../../core/utils/text_styles.dart';
 import 'post_card.dart';
 
 class UserPostView extends StatelessWidget {

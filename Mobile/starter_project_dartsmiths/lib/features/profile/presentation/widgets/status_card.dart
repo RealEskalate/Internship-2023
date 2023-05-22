@@ -1,6 +1,7 @@
-import 'package:dartsmiths/core/utils/app_textstyle.dart';
 import 'package:dartsmiths/core/utils/colors.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../core/utils/text_styles.dart';
 
 class StatusCard extends StatelessWidget {
   const StatusCard({super.key});

@@ -1,8 +1,8 @@
+import { Blog } from '@/types/blog';
+import moment from "moment";
 import Image from 'next/image';
 import Link from 'next/link';
-import { Blog } from '@/types/blog';
 import LikeButton from './LikeButton';
-import moment from "moment";
 
 
 // date formatter function using moment.js
@@ -59,7 +59,8 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
           {/* Pending/Likes and Read More buttons */}
           <div className="flex justify-between items-center mt-4">
             <LikeButton />
-            <Link className="text-indigo-500" href={`blog/${blog.blogID}`}>
+            <Link className='text-indigo-500' href={`/blogs/my-blogs/edit-blog/${blog.id}`}>Edit</Link>
+            <Link className="text-indigo-500" href={`/blogs/${blog.id}`}>
               Read more
             </Link>
           </div>

@@ -17,7 +17,7 @@ namespace BlogApp.Application.Features.Blogs.DTOs
         public bool? PublicationStatus { get; set; }
 
         public ICollection<RateDto> Rates { get; set; }
-
+        public BlogUser Creator {get; set;}
         public double BlogRate { get; set; }
 
     }

@@ -1,0 +1,16 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using BlogApp.Application.Features.Common;
+
+namespace BlogApp.Application.Features.Reviews.DTOs
+{
+    public class CreateReviewDto: IReviewDto
+    {
+        public int ReviewerId { get; set; }
+        public string Comment { get; set; } = "";
+        public int BlogId { get; set; }
+        public bool? IsResolved { get; set; } = false;   
+    }
+}

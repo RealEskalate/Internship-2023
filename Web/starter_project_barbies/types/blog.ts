@@ -1,20 +1,23 @@
 // Each blog has these properties
-export type Blog = {
-    userID : string;
-    blogID: string;
-    title: string;
-    content: string;
-    tags: string[];
-    date: string;
-    author: {
-      name: string;
-      email : string;
-      image: string;
-      profession: string;
-      userName: string;
-    };
-    blogImage: string;
-    readTime: number;
-    shortDescription: string;
-    // we can add other properties here as needed
+export interface Blog extends UpdateBlog {
+  userID : string;
+  id: string;
+  date: string;
+  author: {
+    name: string;
+    email : string;
+    image: string;
+    profession: string;
+    userName: string;
   };
+  blogImage: string;
+  readTime: number;
+  relatedBlogs: string[];
+};
+
+export type UpdateBlog = {
+  title: string;
+  content: string;
+  tags: string[];
+  shortDescription: string;
+}

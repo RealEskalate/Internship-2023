@@ -4,7 +4,6 @@ using BlogApp.Application.Features.Blog.CQRS.Handlers.Commands;
 using BlogApp.Application.Features.Blog.CQRS.Requests.Commands;
 using BlogApp.Application.Profiles;
 using AutoMapper;
-using BlogApp.Application.Tests.Mocks;
 using Shouldly;
 using Moq;
 using Xunit;
@@ -38,6 +37,7 @@ public class UpdateBlogCommandHandlerTest
 
         UpdateBlogDto updateBlogDto = new()
         {
+            Id = 1,
             Title = "Title of the updated Blog",
             Content = "Body of the updated blog",
             Publish = true,
@@ -45,9 +45,11 @@ public class UpdateBlogCommandHandlerTest
 
         var result = await _handler.Handle(new UpdateBlogCommand() { UpdateBlogDto = updateBlogDto }, CancellationToken.None);
 
-        result.Value.Content.ShouldBeEquivalentTo(updateBlogDto.Content);
-        result.Value.Title.ShouldBeEquivalentTo(updateBlogDto.Title);
+        var updatedBlog = await _mockUnitOfWork.Object.BlogRepository.Get(1);
 
-        (await _mockUnitOfWork.Object.BlogRepository.GetAll()).Count.ShouldBe(3);
+        updatedBlog.Content.ShouldBe(updateBlogDto.Content);
+        updatedBlog.Title.ShouldBe(updateBlogDto.Title);
+
+        (await _mockUnitOfWork.Object.BlogRepository.GetAll()).Count.ShouldBe(2);
     }
 }

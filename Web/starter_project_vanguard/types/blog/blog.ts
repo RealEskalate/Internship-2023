@@ -1,5 +1,5 @@
 export interface Blog {
-    _id: string,
+    id: string,
     img: string,
     authorName:string,
     profession:string,
@@ -11,7 +11,9 @@ export interface Blog {
     title: string,
     descriptionTitle:string,
     description: string,
+    tags: string,
     likes: number,
+    relatedBlogs: string[],
     date: string,
     skills: string[]
   }

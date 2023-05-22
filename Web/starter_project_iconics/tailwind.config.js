@@ -11,6 +11,7 @@ module.exports = {
       colors: {
         primary: '#264FAD',
         secondary: '#E1E7EC',
+        tertiary: 'text-gray-700',
         lightPrimary: '#019CFA',
         accent: '#FF9F43',
         danger: '#b91c1c',
@@ -23,10 +24,14 @@ module.exports = {
         imfell: ['IM Fell French Canon', 'serif'],
         DMSans: ['Dm Sans'],
       },
-
-      fontFamily:{
-        montserrat: ['Montserrat', 'sans-serif'],
-        imfell : ['IM Fell French Canon', 'serif']
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-1deg)' },
+          '50%': { transform: 'rotate(1deg)' },
+        },
+      },
+      animation: {
+        wiggle: 'wiggle 1s ease-in-out infinite',
       },
     },
   },

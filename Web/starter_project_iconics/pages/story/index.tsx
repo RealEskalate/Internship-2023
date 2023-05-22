@@ -1,8 +1,16 @@
 import React from 'react'
 import { GlassImage, TextSection, PartnerLogos } from '../../components/story/Stories'
-import imagesData from "../../data/story/success-stories"
+import { useGetStoriesQuery } from '../../store/features/story/success-stories-api'
 
 const StoryPage: React.FC = () => {
+  const { data : imagesData = [], isLoading, error} = useGetStoriesQuery();
+  if(isLoading) {
+    return <div>Loading...</div>;
+  }
+  if(error) {
+    return <div>Page Error</div>;
+  }
+
   return (
     <div className="bg-white text-primary-text flex justify-center flex-col items-center">
       <div className='font-poppins text-center'>

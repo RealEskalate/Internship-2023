@@ -1,5 +1,6 @@
 ﻿using BlogApp.Application.Contracts.Persistence;
 using BlogApp.Application.UnitTest.Mocks;
+using BlogApp.Application.UnitTests.Mocks;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -17,8 +18,12 @@ namespace BlogApp.Application.UnitTest.Mocks
             var mockRateRepo = MockRateRepository.GetRateRepository();
             var mockTagRepo = MockTagRepository.GetTagRepository();
 
+            var mockCommentRepo = MockCommentRepository.GetCommentRepository();
+
             mockUow.Setup(r => r.RateRepository).Returns(mockRateRepo.Object);
             mockUow.Setup(t => t.TagRepository).Returns(mockTagRepo.Object);
+
+            mockUow.Setup(r => r.CommentRepository).Returns(mockCommentRepo.Object);
 
             mockUow.Setup(r => r.Save()).ReturnsAsync(() =>
             {
@@ -31,6 +36,13 @@ namespace BlogApp.Application.UnitTest.Mocks
             var mockBlogRepo = MockBlogRepository.GetBlogRepository();
 
             mockUow.Setup(r => r.BlogRepository).Returns(mockBlogRepo.Object);
+
+
+            var mockReviewRepo = UnitTests.Mocks.MockReviewRepository.GetReviewRepository();
+
+            mockUow.Setup(r => r.ReviewRepository).Returns(mockReviewRepo.Object);
+  
+
             return mockUow;
 
     }

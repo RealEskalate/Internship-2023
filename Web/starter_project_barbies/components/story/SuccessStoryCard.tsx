@@ -1,8 +1,8 @@
 import Image from 'next/image'
-import {SuccessStoriesProps} from './../../types/story'
+import {Story} from './../../types/story'
 
 interface props{
-    successStory:SuccessStoriesProps
+    successStory: Story
 }
 
 const SuccessStoryCard = ({ successStory }:props)=> {
@@ -47,7 +47,7 @@ const paragraphs = [
         </div>
       
     </div>
-  )
-}
+  );
+};
 
 export default SuccessStoryCard;

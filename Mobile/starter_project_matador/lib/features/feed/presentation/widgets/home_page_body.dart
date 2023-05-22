@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:matador/core/utils/constants/colors.dart';
 import 'package:matador/core/utils/converters/real_pixel_to_logical_pixel.dart';
+import 'package:matador/features/article/domain/entities/article.dart';
 import 'package:matador/features/feed/presentation/widgets/article_preview_card.dart';
 import 'package:matador/features/feed/presentation/widgets/filter_chips.dart';
 import 'package:matador/features/feed/presentation/widgets/search_bar.dart';
 
 class HomePageBody extends StatelessWidget {
-  const HomePageBody({Key? key}) : super(key: key);
-
+  const HomePageBody({Key? key, required this.articles}) : super(key: key);
+  final List<Article> articles;
+  
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -26,7 +28,18 @@ class HomePageBody extends StatelessWidget {
               ),
             ),
             SizedBox(height: convertPixelToScreenHeight(context, 30)),
-            const ArticlePreviewCard(),
+            Expanded(
+              child: ListView.separated(
+                itemCount: articles.length,
+                separatorBuilder: (context, index) => SizedBox(
+                  height: convertPixelToScreenHeight(context, 25),
+                ),
+                itemBuilder: (context, index) {
+                  final article = articles[index];
+                  return ArticlePreviewCard(article: article);
+                },
+              ),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [

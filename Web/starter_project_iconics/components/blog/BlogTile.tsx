@@ -1,24 +1,26 @@
-import { BlogData } from '@/types/blog/blog'
+import { Blog } from '@/types/blog'
 import Image from 'next/image'
 import { GoPrimitiveDot } from 'react-icons/go'
 
 const BlogTile = ({
-  name,
-  profession,
-  profileImg,
-  datePosted,
+  id,
   title,
   description,
-  blogImg,
+  datePosted,
+  author,
+  imgUrl,
   tags,
-}: BlogData) => {
+}: Blog) => {
   return (
-    <div className="flex flex-col mx-10 md:mx-30 2xl:mx-72 gap-y-4 my-6">
+    <div
+      id={id}
+      className="flex flex-col mx-10 md:mx-30 2xl:mx-72 gap-y-4 my-6"
+    >
       {/* profile related */}
       <div className="flex gap-x-2 items-center">
         <div className="rounded-full">
           <Image
-            src={profileImg}
+            src={`/img/blogs/${author.imageUrl}`}
             alt="blog poster profile"
             width={90}
             height={90}
@@ -27,13 +29,13 @@ const BlogTile = ({
         </div>
         <div>
           <div className="flex gap-4">
-            <h1 className="font-bold">{name}</h1>
+            <h1 className="font-bold">{author.name}</h1>
             <GoPrimitiveDot className="text-sm self-center" />
             <span className="text-secondary-text text-xs self-center">
               {datePosted}
             </span>
           </div>
-          <h2 className="text-secondary-text text-sm">{profession}</h2>
+          <h2 className="text-secondary-text text-sm">{author.profession}</h2>
         </div>
       </div>
       {/* blog title and descriptions */}
@@ -44,7 +46,7 @@ const BlogTile = ({
         </div>
         <div className="w-full lg:w-auto">
           <Image
-            src={blogImg}
+            src={`/img/blogs/${imgUrl}`}
             alt="blog image"
             width={450}
             height={300}
