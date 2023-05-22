@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
         }
       })
     )
-  }, [asPath, navigation])
+  }, [asPath])
 
   return (
     <div className="bg-white flex justify-between p-5">

@@ -7,7 +7,7 @@ export const blogApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: `${backend_url}` }),
   endpoints: (builder) => ({
     getBlogs: builder.query<Blog[], void>({
-      query: () => 'blog',
+      query: () => 'blog/blog-api',
     }),
   }),
 })
