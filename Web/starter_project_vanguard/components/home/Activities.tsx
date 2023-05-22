@@ -1,8 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
-
 interface ActivityProp {
-  id: number,
+  id: number
   url: string
   title: string
   description: string
@@ -21,7 +20,7 @@ const Activities: React.FC<ActivityProp> = ({
       <div className="grid grid-flow-row gap-10 mx-8 auto-rows-max sm:grid-flow-col sm:auto-cols-fr sm:mx-11">
         <div
           className={` ${
-            (id % 2 != 0) ? 'order-first' : 'sm:order-last place-self-end'
+            id % 2 != 0 ? 'order-first' : 'sm:order-last place-self-end'
           }`}
         >
           <Image
@@ -34,7 +33,7 @@ const Activities: React.FC<ActivityProp> = ({
         </div>
         <div
           className={`sm:col-span-2 self-end mb-14 ${
-            (id % 2 != 0) ? 'text-end' : 'text-start'
+            id % 2 != 0 ? 'text-end' : 'text-start'
           }`}
         >
           <h3 className="mb-6 text-3xl font-semibold">{title}</h3>

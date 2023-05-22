@@ -1,13 +1,7 @@
 import { useGetSuccessRatesQuery } from '@/store/features/home/home-api'
-import YearlySuccess from './YearlySuccess'
-import { YearlySuccessRate } from '@/types/home/success-rate'
-interface SuccessProp {
-  info: YearlySuccessRate
-}
 
 const SuccessCard= () => {
   const { data : success =[], isLoading, error } = useGetSuccessRatesQuery()
-  
   return (
     <div className="flex flex-col items-center w-full grow sm:flex-row sm:justify-center">
       {success.map((info) => (
