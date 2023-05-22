@@ -6,7 +6,7 @@ import { successStoryApi } from '@/store/features/success-story/success-story-ap
 import { getBlogs } from '@/store/features/blog/blogs-api'
 import { homeApi } from './features/home/home-api'
 import { userApi } from '@pages/api/profile'
-
+import { singleBlogApi } from '@/store/features/blog/single-blog-api'
 
 
 export const store = configureStore({
@@ -17,7 +17,7 @@ export const store = configureStore({
     [getBlogs.reducerPath]: getBlogs.reducer,
     [homeApi.reducerPath]: homeApi.reducer,
     [userApi.reducerPath]: userApi.reducer,
-    
+    [singleBlogApi.reducerPath]: singleBlogApi.reducer,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware()
@@ -27,6 +27,7 @@ export const store = configureStore({
       .concat(getBlogs.middleware)
       .concat(homeApi.middleware)
     .concat(userApi.miidleware)
+      .concat(singleBlogApi.middleware)
   },
 },)
 

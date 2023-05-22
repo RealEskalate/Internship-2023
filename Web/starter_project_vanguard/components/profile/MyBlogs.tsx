@@ -1,6 +1,5 @@
-import data from '@/data/blogs.json'
+import data from '@/data/blog/blogs.json'
 import { Blog } from '@/types/blog/blog'
-
 import BlogCard from '@/components/blog/BlogCard'
 const MyBlogs: React.FC = () => {
   const blogs = data.blogs
