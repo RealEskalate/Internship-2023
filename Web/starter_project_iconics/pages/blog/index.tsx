@@ -13,8 +13,7 @@ const Blogs: React.FC = () => {
   if (isError) {
     return (
       <div>
-        {' '}
-        <Error />{' '}
+        <Error />
       </div>
     )
   }
