@@ -1,37 +1,37 @@
 part of 'feed_bloc.dart';
 
 abstract class FeedState extends Equatable {
- const FeedState();
+  const FeedState();
 
- @override
- List<Object> get props => [];
+  @override
+  List<Object> get props => [];
 }
 
 class FeedLoading extends FeedState {}
 
 class FeedLoaded extends FeedState {
- final List<Article> articles;
+  final List<Article> articles;
 
- const FeedLoaded(this.articles);
+  const FeedLoaded({required this.articles});
 
- @override
- List<Object> get props => [articles];
+  @override
+  List<Object> get props => [articles];
 }
 
 class ArticleLoaded extends FeedState {
- final Article article;
+  final Article article;
 
- const ArticleLoaded(this.article);
+  const ArticleLoaded({required this.article});
 
- @override
- List<Object> get props => [article];
+  @override
+  List<Object> get props => [article];
 }
 
 class FeedError extends FeedState {
- final Failure failure;
+  final Failure failure;
 
- const FeedError(this.failure);
+  const FeedError({required this.failure});
 
- @override
- List<Object> get props => [failure];
+  @override
+  List<Object> get props => [failure];
 }
