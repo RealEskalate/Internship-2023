@@ -21,7 +21,7 @@ class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSource {
   ArticleRemoteDataSourceImpl({required this.client});
 
   final String baseUrl =
-      "https://mockbin.org/bin/5b4a41b5-320f-4df0-b1e4-9c1f2aa0650d";
+      "https://ce6db4ad-bd37-4d71-8a77-088004608026.mock.pstmn.io";
 
   @override
   Future<ArticleModel> getArticleById(String articleId) async {
@@ -38,7 +38,7 @@ class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSource {
 
   @override
   Future<List<ArticleModel>> getAllArticles() async {
-    final url = Uri.parse(baseUrl);
+    final url = Uri.parse("$baseUrl/articles");
     final response =
         await client.get(url, headers: {'Content-Type': 'application/json'});
 
