@@ -18,14 +18,12 @@ const TeamMembersList: React.FC = () => {
   const [startIndex, setStartIndex] = useState(0)
   const [endIndex, setEndIndex] = useState(0)
   const [teamMembers, setTeamMembers] = useState<TeamMember[]>([])
-  const [teamMembersCount, setTeamMembersCount] = useState(0)
   const teamsPerPage = 6
 
   let content
   useEffect(() => {
     if (isSuccess) {
       setTeamMembers(allTeamMembers.slice(startIndex, endIndex))
-      setTeamMembersCount(allTeamMembers.length)
     }
   }, [isLoading, isSuccess, startIndex, endIndex, teamMembers, allTeamMembers])
 
@@ -64,7 +62,7 @@ const TeamMembersList: React.FC = () => {
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
           itemsPerPage={teamsPerPage}
-          totalItems={teamMembersCount}
+          totalItems={allTeamMembers.length}
           setStartIndex={setStartIndex}
           setEndIndex={setEndIndex}
         ></Pagination>
