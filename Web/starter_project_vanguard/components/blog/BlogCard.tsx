@@ -1,13 +1,20 @@
 import Image from 'next/image'
 import { FiMessageSquare } from 'react-icons/fi'
 import { TbClockFilled } from 'react-icons/tb'
+import { MdOutlineCancel, MdOutlineModeEditOutline } from 'react-icons/md'
 import { Blog } from '../../types/blog/blog'
 import Link from 'next/link'
 interface Props {
   blog: Blog
+  isMyBlog?: boolean
+  handleDelete?: (id: string) => void
 }
 
-const BlogCard: React.FC<Props> = ({ blog }) => {
+const BlogCard: React.FC<Props> = ({
+  blog,
+  isMyBlog = false,
+  handleDelete,
+}) => {
   const numberFormater = (num: number) => {
     if (num >= 1e6) return +(num / 1e6).toFixed(1) + 'm'
     if (num >= 1e3) return +(num / 1e3).toFixed(1) + 'k'
@@ -15,7 +22,7 @@ const BlogCard: React.FC<Props> = ({ blog }) => {
   }
 
   return (
-    <div className="max-w-sm rounded-sm shadow hover:shadow-lg">
+    <div className="max-w-sm relative rounded-sm shadow hover:shadow-lg">
       <Image
         className="rounded object-cover h-52 w-full"
         width={400}
@@ -23,7 +30,20 @@ const BlogCard: React.FC<Props> = ({ blog }) => {
         src={blog.img}
         alt={blog.title}
       />
+      {isMyBlog && handleDelete && (
+        <div className="bg-white flex space-x-2 p-1 px-2 text-xl bg-opacity-70 rounded-full absolute top-1 right-1">
+          <button className="text-blue-600 ">
+            <MdOutlineModeEditOutline />
+          </button>
 
+          <button
+            onClick={() => handleDelete(blog.id)}
+            className="text-red-500 hover:text-red-500"
+          >
+            <MdOutlineCancel />
+          </button>
+        </div>
+      )}
       <div className="p-4">
         <h5 className="mb-4 text-primary-text text-sm font-semibold">
           {blog.title}

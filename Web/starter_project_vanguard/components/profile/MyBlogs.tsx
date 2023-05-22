@@ -3,6 +3,10 @@ import { Blog } from '../../types/blog/blog'
 
 import BlogCard from '../blog/BlogCard'
 const MyBlogs: React.FC = () => {
+  const handleDelete : (id: string) => void = (id) =>{
+    console.log("this will be deleted",id);
+    
+  }
   return (
     <div className="flex flex-col gap-5 mt-4  text-secondary-text">
       <div>
