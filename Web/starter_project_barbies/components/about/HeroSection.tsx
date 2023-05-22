@@ -28,7 +28,7 @@ const HeroSection: React.FC = () => {
         <div className="flex gap-2 flex-wrap">
           <div className="relative flex-1">
             <Image
-              src="/about/education_process.png"
+              src="/img/about/hero/education-process.png"
               alt="education"
               style={{ width: 'auto', height: 'auto' }}
               width={300}
@@ -40,7 +40,7 @@ const HeroSection: React.FC = () => {
           </div>
           <div className="relative flex-1">
             <Image
-              src="/about/development_phase.png"
+              src="/img/about/hero/development-phase.png"
               alt="development"
               style={{ width: 'auto', height: 'auto' }}
               width={300}
