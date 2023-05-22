@@ -1,5 +1,5 @@
 import BlogTile from '@/components/blog/BlogTile'
-import { useGetBlogsQuery } from '@/store/features/blogs/blog-api'
+import { useGetBlogsQuery } from '@/store/features/blogs/blogs-api'
 import Link from 'next/link'
 import { FaPlus } from 'react-icons/fa'
 import Error from '../../components/common/Error'
