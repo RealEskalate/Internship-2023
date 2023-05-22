@@ -1,10 +1,7 @@
 // Each blog has these properties
-export type Blog = {
+export interface Blog extends UpdateBlog {
   userID : string;
   id: string;
-  title: string;
-  content: string;
-  tags: string[];
   date: string;
   author: {
     name: string;
@@ -15,6 +12,12 @@ export type Blog = {
   };
   blogImage: string;
   readTime: number;
-  shortDescription: string;
   relatedBlogs: string[];
 };
+
+export type UpdateBlog = {
+  title: string;
+  content: string;
+  tags: string[];
+  shortDescription: string;
+}
