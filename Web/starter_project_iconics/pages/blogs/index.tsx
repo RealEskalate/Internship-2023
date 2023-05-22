@@ -1,5 +1,5 @@
 import BlogTile from '@/components/blog/BlogTile'
-import { useGetBlogsQuery } from '@/store/features/blog/blog-api'
+import { useGetBlogsQuery } from '@/store/features/blogs/blog-api'
 import Link from 'next/link'
 import { FaPlus } from 'react-icons/fa'
 import Error from '../../components/common/Error'
@@ -37,7 +37,7 @@ const Blogs: React.FC = () => {
 
       <section>
         {blogsData?.map((blog, index) => (
-          <Link key={index} href={'blog/' + blog.id}>
+          <Link key={index} href={'blogs/' + blog.id}>
             <BlogTile {...blog} />
           </Link>
         ))}

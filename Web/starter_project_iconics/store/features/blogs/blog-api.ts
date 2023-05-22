@@ -3,11 +3,11 @@ import { Blog } from '@/types/blog'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const blogApi = createApi({
-  reducerPath: 'blog',
+  reducerPath: 'blogs',
   baseQuery: fetchBaseQuery({ baseUrl: `${backend_url}` }),
   endpoints: (builder) => ({
     getBlogs: builder.query<Blog[], void>({
-      query: () => 'blog',
+      query: () => 'blogs',
     }),
   }),
 })

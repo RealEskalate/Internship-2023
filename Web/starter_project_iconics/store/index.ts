@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { blogApi } from './features/blog/blog-api'
+import { blogApi } from './features/blogs/blog-api'
 import { impactStoriesApi } from './features/home/impact-stories/impact-stories-api'
 import impactStoriesSlice from './features/home/impact-stories/impact-stories-slice'
 import { storyApi } from './features/story/success-stories-api'

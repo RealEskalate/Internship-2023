@@ -20,7 +20,7 @@ const BlogTile = ({
       <div className="flex gap-x-2 items-center">
         <div className="rounded-full">
           <Image
-            src={`/img/blog/${author.imageUrl}`}
+            src={`/img/blogs/${author.imageUrl}`}
             alt="blog poster profile"
             width={90}
             height={90}
@@ -46,7 +46,7 @@ const BlogTile = ({
         </div>
         <div className="w-full lg:w-auto">
           <Image
-            src={`/img/blog/${imgUrl}`}
+            src={`/img/blogs/${imgUrl}`}
             alt="blog image"
             width={450}
             height={300}
