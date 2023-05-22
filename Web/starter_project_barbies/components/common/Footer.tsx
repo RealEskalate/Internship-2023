@@ -85,7 +85,7 @@ const Footer: React.FC = () => {
       {/* Footer Copyright */}
       <div className="sm:flex sm:items-center sm:justify-between">
         <span className="text-sm text-black sm:text-center dark:text-black">
-          © <a href="/" className="hover:underline">2020 Africa To Silicon Valley. Inc</a>. All Rights Reserved.
+          © <Link href="/" className="hover:underline">2020 Africa To Silicon Valley. Inc</Link>. All Rights Reserved.
         </span>
         <div className="flex mt-4 space-x-6 pr-4 pb-6 pt-2 sm:justify-center sm:mt-0">
           <Link href="https://twitter.com/a2_sv?lang=en" className="text-black hover:text-gray-900 dark:hover:text-white">
