@@ -6,15 +6,15 @@ import '../entities/user.dart';
 import 'package:dartz/dartz.dart';
 import '../../../../core/usecases/usecases.dart';
 
-class LoginUserUseCase implements UseCase<AuthUser, AuthParams> {
-  final LoginUserRepository? repository;
+class LoginUserUseCase implements UseCase<String, AuthParams> {
+  final LoginUserRepository repository;
 
   LoginUserUseCase(this.repository);
 
   @override
-  Future<Either<Failure, AuthUser>> call(AuthParams params) async {
-    final result =
-        await repository!.authenticate(params.email, params.password);
+  Future<Either<Failure, String>> call(AuthParams params) async {
+    final result = await repository
+        .authenticate(AuthUser(email: params.email, password: params.password));
     return result;
   }
 }
