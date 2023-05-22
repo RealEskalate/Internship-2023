@@ -1,25 +1,29 @@
 import TextEditor from '@/components/blog/TextEditor'
 import Error from '@/components/common/Error'
 import Tag from '@/components/common/Tag'
+import { RootState } from '@/store'
 import { useGetTagsQuery } from '@/store/features/blog/tags-api'
+import { setSelectedTags } from '@/store/features/blog/tags-slice'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import 'react-quill/dist/quill.snow.css'
+import { useDispatch, useSelector } from 'react-redux'
 
 const AddBlog: React.FC = () => {
   const tagClassName =
     'rounded-full font-montserrat bg-gray-100 px-4 py-2 m-1 font-semibold'
-  const { data: tags, isLoading, error } = useGetTagsQuery()
+  const { data: tags, isLoading, isSuccess, error } = useGetTagsQuery()
 
-  const [selectedTags, setSelectedTags] = React.useState<string[]>([])
+  const allTags = useSelector((state: RootState) => state.tag.allTags)
+  const selectedTags = useSelector((state: RootState) => state.tag.selectedTags)
+  console.log(allTags)
+  const dispatch = useDispatch()
 
-  const handleTagClick = (tag: string) => {
-    if (selectedTags.includes(tag)) {
-      setSelectedTags(selectedTags.filter((t) => t !== tag))
-    } else {
-      setSelectedTags([...selectedTags, tag])
-    }
+  // Function to handle selecting tags
+  const handleSelectTag = (tag: string) => {
+    // Update the selected tags in the store
+    dispatch(setSelectedTags(tag))
   }
 
   return (
@@ -111,7 +115,7 @@ const AddBlog: React.FC = () => {
                 <Tag
                   key={index}
                   child={tag}
-                  onClick={() => handleTagClick(tag)}
+                  onClick={() => handleSelectTag(tag)}
                   classname={
                     selectedTags.includes(tag)
                       ? `border-2 border-blue-800 text-blue-800 ${tagClassName}`

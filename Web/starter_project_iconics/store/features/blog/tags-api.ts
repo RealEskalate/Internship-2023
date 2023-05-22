@@ -1,9 +1,9 @@
+import { backend_url } from '@/config'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-const API_BASE_URL = '/api'
 export const tagsApi = createApi({
-  reducerPath: 'tagsApi',
-  baseQuery: fetchBaseQuery({ baseUrl: API_BASE_URL }),
+  reducerPath: 'tags',
+  baseQuery: fetchBaseQuery({ baseUrl: backend_url }),
   endpoints: (builder) => ({
     getTags: builder.query<string[], void>({
       query: () => '/tags',
