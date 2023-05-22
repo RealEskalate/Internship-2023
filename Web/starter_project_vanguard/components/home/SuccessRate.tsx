@@ -3,8 +3,9 @@ import YearlySuccess from './YearlySuccess'
 import successRates from '../../data/home/success-rates.json'
 import activities from '../../data/home/activities.json'
 import Activities from './Activities'
-
+import { useGetAllActivitiesQuery } from '@/store/features/home/home-api'
 const SuccessRate: React.FC = () => {
+  const {data: activities=[], isLoading, error} = useGetAllActivitiesQuery()
   return (
     <div>
       <div className="flex flex-col items-center justify-center mb-20 mt-30">

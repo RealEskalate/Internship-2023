@@ -47,7 +47,7 @@ const Partners: React.FC = () => {
         height={110}
         className="max-w-[251px]"
         layout="responsive"
-            src={`/images/success-story/companies/${partner.imgURL}`} // Concatenate the common path with imgURL
+            src={`/img/success-story/companies/${partner.imgURL}`} // Concatenate the common path with imgURL
             alt={partner.companyName}
           />
         ))}

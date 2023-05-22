@@ -46,5 +46,124 @@
       "title": "Bi-weekly 1-1s",
       "content": "In 1:1s, we can talk about anything that matters; clearly no boundaries. The more we speak our minds without a filter, the better for the team."
     }
-  ]
+  ],
+  
+  "activities":
+  [
+    {
+      "id" : 1,
+      "url": "/img/home/activity-1.jpg",
+      "title": "Internships",
+      "description":
+        "Students who passed their interviews got 3-month internships to gain experience in building scalable products that are widely used around the world.",
+      "altText": "Picture of intern students"
+  
+    },
+    {
+      "id" : 2,
+      "url": "/img/home/activity-2.jpg",
+      "title": "360° Training",
+      "description":
+        "A2SV upskills students with a 360° software engineering program that focuses on problem-solving, effective speaking, and personal development.",
+      "altText":"Picture of training students"
+    },
+    {
+      "id" : 3,
+      "url": "/img/home/activity-3.jpg",
+      "title": "Social Projects",
+      "description":
+        "Students work on social projects with industry experts to address the most pressing problems in their community.",
+      "altText":"Picture of students participating in social activities"
+  
+    }
+  ], 
+
+  "success-rates" : [
+    {
+      "id": 1,
+      "year": "2019",
+      "success": "Founded",
+      "average": "5% average"
+    },
+    {
+      "id": 2,
+      "year": "2020",
+      "success": "27%",
+      "average": "5.2% average"
+    },
+    {
+      "id": 3,
+      "year": "2021",
+      "success": "59%",
+      "average": "3.9% average"
+    },
+    {
+      "id": 4,
+      "year": "2022",
+      "success": "70%",
+      "average": "2.6% average"
+    }
+],
+"success-story": [
+  {
+    "personName": "Yisehak Bogale",
+    "imgURL": "/img/success-story/people/isaac.png",
+    "role": "Software Engineering Intern",
+    "location": "Google - Mountain View, CA, USA",
+    "story": [
+      {
+        "heading": "My A2SV Experience",
+        "paragraph": "I heard about Africa to Silicon Valley from my friends and I was excited to join. Before joining A2SV I dreamt about solving real-world problems and attaining something that I could focus on and make myself better from it. At that time, it is safe to say, I knew very little about data structure and algorithms. It was because of the A2SV program that I got comfortable with algorithms. From the program, students also learn about improving communication skills and being confident besides acquiring problem-solving skills."
+      },
+      {
+        "heading": "What I did/I am doing now",
+        "paragraph": "Google is a great place to work. You will work with the brightest minds in the world and find yourself moving forward. Their culture is great and inclusive, especially their free food!"
+      },
+      {
+        "heading": "How the A2SV program changed my life",
+        "paragraph": "I believe I would have not made it to Google if not for A2SV. In fact, I would not have got this far if it wasn't for A2SV. I don't even think we would have such type of opportunities if it was not for this organization. Previously, I used to think working at FAANG was impossible for us but A2SV changed my mindset. Now, we know that it is possible to work anywhere as long as one works hard and utilizes opportunities."
+      }
+    ]
+  },
+  {
+    "personName": "Lydia Gashawtena",
+    "imgURL": "/img/success-story/people/lydia.png",
+    "role": "Software Engineering Intern",
+    "location": "Google - Mountain View, CA, USA",
+    "story": [
+      {
+        "heading": "My A2SV Experience",
+        "paragraph": "I heard about Africa to Silicon Valley from my friends and I was excited to join. Before joining A2SV I dreamt about solving real-world problems and attaining something that I could focus on and make myself better from it. At that time, it is safe to say, I knew very little about data structure and algorithms. It was because of the A2SV program that I got comfortable with algorithms. From the program, students also learn about improving communication skills and being confident besides acquiring problem-solving skills."
+      },
+      {
+        "heading": "What I did/I am doing now",
+        "paragraph": "Google is a great place to work. You will work with the brightest minds in the world and find yourself moving forward. Their culture is great and inclusive, especially their free food!"
+      },
+      {
+        "heading": "How the A2SV program changed my life",
+        "paragraph": "I believe I would have not made it to Google if not for A2SV. In fact, I would not have got this far if it wasn't for A2SV. I don't even think we would have such type of opportunities if it was not for this organization. Previously, I used to think working at FAANG was impossible for us but A2SV changed my mindset. Now, we know that it is possible to work anywhere as long as one works hard and utilizes opportunities."
+      }
+    ]
+  },
+  {
+    "personName": "Biruk Ayalew",
+    "imgURL": "/img/success-story/people/biruk.png",
+    "role": "Software Engineering Intern",
+    "location": "Google - Mountain View, CA, USA",
+    "story": [
+      {
+        "heading": "My A2SV Experience",
+        "paragraph": "I heard about Africa to Silicon Valley from my friends and I was excited to join. Before joining A2SV I dreamt about solving real-world problems and attaining something that I could focus on and make myself better from it. At that time, it is safe to say, I knew very little about data structure and algorithms. It was because of the A2SV program that I got comfortable with algorithms. From the program, students also learn about improving communication skills and being confident besides acquiring problem-solving skills."
+      },
+      {
+        "heading": "What I did/I am doing now",
+        "paragraph": "Google is a great place to work. You will work with the brightest minds in the world and find yourself moving forward. Their culture is great and inclusive, especially their free food!"
+      },
+      {
+        "heading": "How the A2SV program changed my life",
+        "paragraph": "I believe I would have not made it to Google if not for A2SV. In fact, I would not have got this far if it wasn't for A2SV. I don't even think we would have such type of opportunities if it was not for this organization. Previously, I used to think working at FAANG was impossible for us but A2SV changed my mindset. Now, we know that it is possible to work anywhere as long as one works hard and utilizes opportunities."
+      }
+    ]
+  }
+]
 }
