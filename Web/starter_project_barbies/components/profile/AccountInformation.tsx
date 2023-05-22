@@ -1,7 +1,7 @@
 import React from 'react'
 import ProfileNavbar from './ProfileNavbar'
 
-const AccountInformation = () => {
+const AccountInformation:React.FC = () => {
   return (
     <div >
       <ProfileNavbar/>
