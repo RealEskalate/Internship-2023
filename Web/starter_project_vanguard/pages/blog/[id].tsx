@@ -9,15 +9,15 @@ const SingleBlog:React.FC = () => {
   let { id } = router.query
   id = id as string
   
-  const {data,isLoading} = useGetSingleBlogQuery(id)
+  const {data:blog,isLoading} = useGetSingleBlogQuery(id)
   if (isLoading){
     return <div> loading ... </div>
   }
-  if (!data) {
+  if (!blog) {
     return <div>Blog not found</div>;
   }
   
-  const blog:Blog =  data;
+  
   
   return (
     <div className="w-3/4 m-auto">

@@ -1,6 +1,5 @@
 import { useGetSingleBlogQuery } from '@/store/features/blog/single-blog-api';
 import BlogCard from '@/components/blog/BlogCard'
-import { Blog } from '@/types/blog/blog'
 import React from 'react'
 
 interface Props{
@@ -16,8 +15,6 @@ const RelatedBlogCard:React.FC<Props> = (props) => {
     return <div>Blog not found</div>;
   }
  
- 
-  
   return (
     <div>
       <BlogCard blog = {blog}/>
