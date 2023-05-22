@@ -12,7 +12,6 @@ const PersonalInfo: React.FC = () => {
   const [email, setEmail] = useState<string>('')
   const [updateUser, { isLoading: isUpdatingUser }] = useUpdateUserMutation()
   const handleUserUpdate = (updatedUser: User) => {
-    console.log(updatedUser)
     updateUser(updatedUser)
   }
 
@@ -50,7 +49,7 @@ const PersonalInfo: React.FC = () => {
 
           <div className="flex py-5 gap-10 ">
             <label htmlFor="" className="pt-3 relative">
-              Name{' '}
+              Name
               <span className="text-red-500 absolute top-3 -right-3">*</span>
             </label>
             <div className="flex gap-10 ml-10 flex-wrap">
@@ -71,7 +70,7 @@ const PersonalInfo: React.FC = () => {
           <hr />
           <div className="flex py-5 gap-10">
             <label htmlFor="email" className="mr-10 pt-3 relative">
-              Email{' '}
+              Email
               <span className="text-red-500  absolute top-3 -right-3">*</span>
             </label>
             <div className="relative mb-6">
@@ -91,7 +90,7 @@ const PersonalInfo: React.FC = () => {
           <hr />
           <div className="flex py-5 gap-10">
             <label htmlFor="" className="mr-10 pt-3 relative">
-              Your Photo{' '}
+              Your Photo
               <span className="text-red-500  absolute top-3 -right-3">*</span>
             </label>
             {user && (
@@ -130,12 +129,4 @@ const PersonalInfo: React.FC = () => {
     </>
   )
 }
-
 export default PersonalInfo
-function dispatch(arg0: any) {
-  throw new Error('Function not implemented.')
-}
-
-function fetchUser(): any {
-  throw new Error('Function not implemented.')
-}

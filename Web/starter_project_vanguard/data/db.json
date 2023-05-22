@@ -46,5 +46,10 @@
       "title": "Bi-weekly 1-1s",
       "content": "In 1:1s, we can talk about anything that matters; clearly no boundaries. The more we speak our minds without a filter, the better for the team."
     }
-  ]
+  ],
+  "profile": {
+    "firstName": "Segni",
+    "lastName": "Desta",
+    "email": "segni@gmail.com"
+  }
 }

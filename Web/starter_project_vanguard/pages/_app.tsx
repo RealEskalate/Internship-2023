@@ -1,5 +1,5 @@
 import RootLayout from '@/layout/default'
-import { store } from '@/store/store'
+import { store } from '@/store/index'
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
