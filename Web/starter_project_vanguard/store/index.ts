@@ -1,10 +1,13 @@
+
 import { addNewBlogApi } from '@/store/features/blog/add-new-blog-api'
 import { configureStore } from '@reduxjs/toolkit'
 import { aboutApi } from './about/about-api'
 import { successStoryApi } from '@/store/features/success-story/success-story-api'
 import { getBlogs } from '@/store/features/blog/blogs-api'
-import { homeApi } from './features/home/home-api'
+import { homeApi } from '@/store/features/home/home-api'
+import { userApi } from '@pages/api/profile'
 import { singleBlogApi } from '@/store/features/blog/single-blog-api'
+import { teamsApi } from '@/store/features/teams/teams-api'
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +16,8 @@ export const store = configureStore({
     [aboutApi.reducerPath]: aboutApi.reducer,
     [getBlogs.reducerPath]: getBlogs.reducer,
     [homeApi.reducerPath]: homeApi.reducer,
+    [teamsApi.reducerPath]: teamsApi.reducer,
+    [userApi.reducerPath]: userApi.reducer,
     [singleBlogApi.reducerPath]: singleBlogApi.reducer,
   },
   middleware: (getDefaultMiddleware) => {
@@ -22,7 +27,10 @@ export const store = configureStore({
       .concat(aboutApi.middleware)
       .concat(getBlogs.middleware)
       .concat(homeApi.middleware)
+      .concat(teamsApi.middleware)
+      .concat(userApi.miidleware)
       .concat(singleBlogApi.middleware)
+
   },
 },)
 

@@ -7,7 +7,7 @@ export const navData = [
     current: false,
   },
   { name: 'About Us', to: '/about', current: false },
-  { name: 'Blogs', to: '/blog', current: false },
+  { name: 'Blogs', to: '/blogs', current: false },
   {
     name: 'Get Involved',
     to: '/get-involved',
