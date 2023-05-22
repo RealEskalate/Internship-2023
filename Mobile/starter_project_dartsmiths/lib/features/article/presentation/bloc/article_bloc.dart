@@ -6,6 +6,7 @@ import 'package:dartsmiths/features/article/domain/usecases/post_article.dart';
 import 'package:dartsmiths/features/article/domain/usecases/update_article.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 
 
 part 'article_event.dart';
@@ -17,7 +18,7 @@ class ArticleBloc extends Bloc<ArticleEvent, ArticleState> {
   final UpdateArticle updateArticle;
   final GetArticle getArticle;
   
-  ArticleBloc(this.postArticle, this.updateArticle, this.getArticle) : super(ArticleInitial()) {
+  ArticleBloc({required this.postArticle, required this.updateArticle, required this.getArticle}) : super(ArticleInitial()) {
 
     on<ArticleEvent>((event, emit) {
       emit(ArticleLoading());
