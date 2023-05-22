@@ -1,8 +1,8 @@
 import 'tailwindcss/base.css'
 import Image from 'next/image'
-import { Blog } from '../../types/blog/blog'
+import { Blog } from '@/types/blog/blog'
 import Link from 'next/link'
-import { Tags } from '../common/Tags'
+import { Tags } from '@/components/common/Tags'
 
 interface BlogProps {
   blog: Blog
