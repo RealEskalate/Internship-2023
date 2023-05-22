@@ -6,6 +6,7 @@ import { getBlogs } from '@/store/features/blog/blogs-api'
 import { homeApi } from './features/home/home-api'
 
 
+import { teamsApi } from './features/teams/teams-api'
 export const store = configureStore({
   reducer: {
     [successStoryApi.reducerPath]: successStoryApi.reducer,
@@ -13,6 +14,7 @@ export const store = configureStore({
     [aboutApi.reducerPath]: aboutApi.reducer,
     [getBlogs.reducerPath]: getBlogs.reducer,
     [homeApi.reducerPath]: homeApi.reducer,
+    [teamsApi.reducerPath]: teamsApi.reducer
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware()
@@ -21,6 +23,7 @@ export const store = configureStore({
       .concat(aboutApi.middleware)
       .concat(getBlogs.middleware)
       .concat(homeApi.middleware)
+      .concat(teamsApi.middleware)
   },
 },)
 
