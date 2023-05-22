@@ -4,7 +4,7 @@ const SocialProjectsSections:React.FC  = () => {
     <>
 <h1 className="social-section-title p-12 lg"> <div className="font-poppins text-6xl justify-items-center content-center"> Social <span className = "text-primary">Projects </span></div></h1>
 
-<div className="social-project-section grid grid-cols-2 p-12 lg">
+<div className="social-project-section grid grid-cols-1 lg:grid-cols-2 md:flex-row md:w-full mx-auto justify-between p-12">
    <div className="col img-col">
    <Image src = "/img/about/socialproject-section/rectangle-4.png" alt = "Rectangle 4" height={400} width={800} />
 </div>
