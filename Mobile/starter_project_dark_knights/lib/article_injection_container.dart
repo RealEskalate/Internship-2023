@@ -16,7 +16,7 @@ import 'features/article/domain/usecases/update_articles.dart';
 import 'features/article/presentation/bloc/article_bloc.dart';
 
 final sl = GetIt.instance;
-void init() async {
+Future<void> articleInjectionInit() async {
   // Bloc
   sl.registerFactory(
     () => ArticleBloc(
