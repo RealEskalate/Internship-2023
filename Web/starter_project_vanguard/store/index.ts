@@ -3,6 +3,8 @@ import { configureStore } from '@reduxjs/toolkit'
 import { aboutApi } from './about/about-api'
 import { successStoryApi } from '@/store/features/success-story/success-story-api'
 import { getBlogs } from '@/store/features/blog/blogs-api'
+import { homeApi } from './features/home/home-api'
+
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +12,7 @@ export const store = configureStore({
     [addNewBlogApi.reducerPath]: addNewBlogApi.reducer,
     [aboutApi.reducerPath]: aboutApi.reducer,
     [getBlogs.reducerPath]: getBlogs.reducer,
+    [homeApi.reducerPath]: homeApi.reducer,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware()
@@ -17,6 +20,7 @@ export const store = configureStore({
       .concat(addNewBlogApi.middleware)
       .concat(aboutApi.middleware)
       .concat(getBlogs.middleware)
+      .concat(homeApi.middleware)
   },
 },)
 
