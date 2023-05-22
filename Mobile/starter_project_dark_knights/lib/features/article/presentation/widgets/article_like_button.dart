@@ -3,7 +3,8 @@ import '../../../../core/utils/converter.dart';
 import 'package:flutter/material.dart';
 
 class ArticleLikeButton extends StatelessWidget {
-  const ArticleLikeButton({super.key});
+  final int likeCount;
+  const ArticleLikeButton({super.key, required this.likeCount});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,7 @@ class ArticleLikeButton extends StatelessWidget {
     return FloatingActionButton.extended(
       onPressed: () {},
       label: Text(
-        '2.1k',
+        '$likeCount',
         style: TextStyle(fontSize: fontSize),
       ),
       icon: const Icon(Icons.thumb_up_outlined, weight: 1),

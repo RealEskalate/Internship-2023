@@ -33,7 +33,7 @@ class ArticlePost extends StatelessWidget {
             fit: BoxFit.cover,
             height: imageSize,
             width: double.infinity,
-            image: AssetImage(imageUrl),
+            image: NetworkImage(imageUrl),
           ),
         ),
       ),

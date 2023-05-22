@@ -27,7 +27,6 @@ void main() {
       articleRepositoryImpl = ArticleRepositoryImpl(
         localDataSource: mockArticleLocalDataSource,
         remoteDataSource: mockArticleRemoteDataSource,
-        networkInfo: mockNetworkInfo,
       );
     },
   );

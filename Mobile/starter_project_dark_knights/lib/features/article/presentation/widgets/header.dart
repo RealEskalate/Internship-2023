@@ -36,11 +36,11 @@ class Header extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               ArticleAuthorDetail(
-                authorName: userInfo.authorName,
+                authorName: userInfo.firstName + userInfo.lastName,
                 postedAt: "2m",
                 profileImageUrl: userInfo.image,
               ),
-              BookmarkButton()
+              const BookmarkButton()
             ],
           )
         ],

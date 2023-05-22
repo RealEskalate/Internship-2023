@@ -18,7 +18,7 @@ class ArticleAuthorProfilePicture extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         image: DecorationImage(
           fit: BoxFit.cover,
-          image: AssetImage(profileImage),
+          image: NetworkImage(profileImage),
         ),
       ),
     );

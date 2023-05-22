@@ -62,9 +62,8 @@ class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSource {
 
   @override
   Future<ArticleModel> getArticleById(String id) async {
-    
     final response = await client.get(
-      Uri.parse('https://mocki.io/v1/66080818-3345-4c30-9978-907a4f05d096'),
+      Uri.parse('https://mocki.io/v1/d16bd6aa-598a-48cd-af31-c33916357164'),
       headers: {
         'Content-Type': 'application/json',
       },

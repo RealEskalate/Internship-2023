@@ -18,21 +18,13 @@ class ArticleRepositoryImpl implements ArticleRepository {
   });
   @override
   Future<Either<Failure, List<Article>>> getArticles() async {
-      try {
-        final remoteArticles = await remoteDataSource.getArticles();
-        localDataSource.cacheArticles(remoteArticles);
-        return Right(remoteArticles);
-      } on ServerException {
-        return Left(ServerFailure("Internal Server Failure!"));
-      }
-    // } else {
-    //   try {
-    //     final localArticles = await localDataSource.getLastArticles();
-    //     return Right(localArticles);
-    //   } on CacheException {
-    //     return Left(CacheFailure("Local Catch Sever Failure"));
-    //   }
-    // }
+    try {
+      final remoteArticles = await remoteDataSource.getArticles();
+      localDataSource.cacheArticles(remoteArticles);
+      return Right(remoteArticles);
+    } on ServerException {
+      return Left(ServerFailure("Internal Server Failure!"));
+    }
   }
 
   @override

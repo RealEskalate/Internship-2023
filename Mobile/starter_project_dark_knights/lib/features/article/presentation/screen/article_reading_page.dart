@@ -30,7 +30,7 @@ class _ArticleReadingPageState extends State<ArticleReadingPage> {
 
   @override
   Widget build(BuildContext context) {
-    BlocBuilder<ArticleBloc, ArticleState>(
+    return BlocBuilder<ArticleBloc, ArticleState>(
       builder: (context, state) {
         if (state is ArticleLoadingState) {
           return const Scaffold(
@@ -55,7 +55,7 @@ class _ArticleReadingPageState extends State<ArticleReadingPage> {
                                   child: CircularProgressIndicator());
                             } else if (state is ProfileLoaded) {
                               final user = state.user;
-                              Header(
+                              return Header(
                                 userInfo: user,
                               );
                             }
@@ -71,11 +71,11 @@ class _ArticleReadingPageState extends State<ArticleReadingPage> {
                   ),
                 ],
               ),
-              floatingActionButton: const ArticleLikeButton());
+              floatingActionButton:
+                  ArticleLikeButton(likeCount: article.likeCount));
         }
-        return const Text('Try Again');
+        return const Text('Try Again and again');
       },
     );
-    return const Text('Try Again');
   }
 }
