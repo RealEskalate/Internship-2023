@@ -5,7 +5,7 @@ import SessionSection from "@/components/about/SessionSection"
 import SocialProjectsSections from "@/components/about/SocialProjectsSections"
 
 
-const about = () => {
+const about:React.FC = () => {
     return (
       <>
         <AboutSection/>
