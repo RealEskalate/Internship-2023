@@ -19,6 +19,6 @@ export interface Blog {
   }
   tags: string[]
   paragraph: string
-  likes: number
-  status: BlogStatus
+  likes?: number
+  status?: BlogStatus
 }

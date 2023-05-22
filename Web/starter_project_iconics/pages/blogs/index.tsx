@@ -1,10 +1,22 @@
 import BlogTile from '@/components/blog/BlogTile'
-import { Blog } from '@/types/blog'
+import { useGetBlogsQuery } from '@/store/features/blogs/blogs-api'
+import Link from 'next/link'
 import { FaPlus } from 'react-icons/fa'
-import data from '../../data/blog/blog.json'
+import Error from '../../components/common/Error'
 
-const blogs = () => {
-  const blogsData: Blog[] = JSON.parse(JSON.stringify(data))
+const Blogs: React.FC = () => {
+  const { data: blogsData, isLoading, isError } = useGetBlogsQuery()
+
+  if (isLoading) {
+    return <div className="m-auto">Loading...</div>
+  }
+  if (isError) {
+    return (
+      <div>
+        <Error />
+      </div>
+    )
+  }
   return (
     <div className="bg-white pt-4 text-primary-text">
       <div className="flex flex-col items-center gap-y-4 mt-5 mx-10 md:flex-row">
@@ -24,12 +36,14 @@ const blogs = () => {
       </div>
 
       <section>
-        {blogsData.map((blog, index) => (
-          <BlogTile key={index} {...blog} />
+        {blogsData?.map((blog, index) => (
+          <Link key={index} href={'blogs/' + blog.id}>
+            <BlogTile {...blog} />
+          </Link>
         ))}
       </section>
     </div>
   )
 }
 
-export default blogs
+export default Blogs
