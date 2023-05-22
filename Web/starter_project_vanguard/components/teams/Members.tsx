@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react'
 import MemberCard from './MemberCard'
-// import teamMembers from '../../data/team-members.json'
 import { useGetTeamMembersQuery } from '@/store/features/teams/teams-api'
 import Pagination from '../common/pagination'
 
