@@ -4,7 +4,7 @@ import 'package:dartsmiths/features/feed/home/domain/repository/home_repository.
 import 'package:dartz/dartz.dart';
 import '../entity/home.dart';
 
-class Search extends UseCase<Home, Params> {
+class Search extends UseCase<List<Home>, Params> {
   final HomeRepository homeRepository;
 
   Search({required this.homeRepository});
