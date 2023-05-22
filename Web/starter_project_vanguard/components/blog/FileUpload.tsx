@@ -1,7 +1,6 @@
 import React, { ChangeEvent } from 'react';
 import Image from 'next/image';
 
-
 interface FileUploadProps {
   onImageUpload: (file: File) => void;
 }

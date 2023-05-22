@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Blog } from '../../types/blog/blog'
+import { Blog } from '@/types/blog/blog'
 import { useRouter } from 'next/router'
 import RelatedBlogCard from '@/components/blog/RelatedBlog'
 import { useGetSingleBlogQuery } from '@/store/features/blog/single-blog-api'
