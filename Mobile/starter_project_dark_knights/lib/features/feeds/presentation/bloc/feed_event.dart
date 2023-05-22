@@ -1,29 +1,37 @@
-// feed_event.dart
 part of 'feed_bloc.dart';
 
 abstract class FeedEvent extends Equatable {
-  const FeedEvent();
+ const FeedEvent();
 
-  @override
-  List<Object> get props => [];
+ @override
+ List<Object> get props => [];
 }
 
 class FetchArticles extends FeedEvent {}
 
 class SearchArticlesEvent extends FeedEvent {
-  final String query;
+ final String query;
 
-  const SearchArticlesEvent(this.query);
+ const SearchArticlesEvent(this.query);
 
-  @override
-  List<Object> get props => [query];
+ @override
+ List<Object> get props => [query];
 }
 
 class FilterArticlesEvent extends FeedEvent {
-  final String category;
+ final String category;
 
-  const FilterArticlesEvent(this.category);
+ const FilterArticlesEvent(this.category);
 
-  @override
-  List<Object> get props => [category];
+ @override
+ List<Object> get props => [category];
+}
+
+class LoadArticleEvent extends FeedEvent {
+ final String id;
+
+ const LoadArticleEvent(this.id);
+
+ @override
+ List<Object> get props => [id];
 }
