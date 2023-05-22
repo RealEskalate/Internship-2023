@@ -1,9 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
-interface HeaderProps {
-  activePage: string;
-}
 
 interface NavbarLink {
   href: string;
@@ -11,14 +9,15 @@ interface NavbarLink {
   children: React.ReactNode;
 }
 
-const Navbar: React.FC<HeaderProps> = ({ activePage }) => {
+const Navbar: React.FC = () => {
+  const location = useRouter();
   const navbarLinks: NavbarLink[] = [
-    { href: "/", active: activePage === "home", children: "Home" },
-    { href: "/teams", active: activePage === "teams", children: "Teams" },
-    { href: "/success-stories", active: activePage === "success-stories", children: "Success Stories" },
-    { href: "/about-us", active: activePage === "about-us", children: "About Us" },
-    { href: "/blogs", active: activePage === "blogs", children: "Blogs" },
-    { href: "/get-involved", active: activePage === "get-involved", children: "Get Involved" }
+    { href: "/", active: location.pathname=== "/", children: "Home" },
+    { href: "/team", active: location.pathname=== "/team", children: "Teams" },
+    { href: "/story", active: location.pathname=== "/story", children: "Success Stories" },
+    { href: "/about", active: location.pathname=== "/about", children: "About Us" },
+    { href: "/blogs", active: location.pathname=== "/blogs", children: "Blogs" },
+    { href: "/get-involved", active: location.pathname=== "/get-involved", children: "Get Involved" }
   ];
 
   return (
@@ -61,11 +60,11 @@ interface HeaderLinkProps {
 }
 
 const HeaderLink: React.FC<HeaderLinkProps> = ({ href, active, children }) => {
-  const activeClasses = active ? "bg-blue text-white" : "text-black";
+  const activeClasses = active ? "bg-blue text-white" : "bg-white text-black";
 
   return (
     <li className="flex">
-      <Link href={href} className={`hover:bg-blue-600 px-3 py-2 rounded-md text-sm font-medium ${activeClasses} hover:text-white hover:bg-secondary-text focus:outline-none focus:text-white focus:bg-secondary-text`}>
+      <Link href={href} className={`hover:bg-blue-600 px-3 py-2 rounded-md text-sm font-medium ${activeClasses}  hover:bg-secondary-text focus:outline-none focus:text-white focus:bg-secondary-text`}>
         {children}
       </Link>
     </li>
