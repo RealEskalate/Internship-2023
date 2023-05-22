@@ -1,7 +1,10 @@
-import 'package:dartsmiths/features/login/presentation/widgets/custom_login_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/utils/colors.dart';
 import '../../../../core/utils/ui_converter.dart';
+import '../../../feed/presentation/screen/home_page.dart';
+import '../bloc/auth_bloc.dart';
+import 'custom_login_text.dart';
 
 class LoginCard extends StatefulWidget {
   const LoginCard({super.key});
@@ -12,6 +15,8 @@ class LoginCard extends StatefulWidget {
 
 class _LoginCardState extends State<LoginCard> {
   bool isObsecured = true;
+  final userNameFormController = TextEditingController();
+  final passwordFormController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +71,7 @@ class _LoginCardState extends State<LoginCard> {
                   height: MediaQuery.of(context).size.height * 0.0166666666,
                 ),
                 TextFormField(
+                  controller: userNameFormController,
                   decoration: const InputDecoration(
                       label: Text(
                         "Username",
@@ -77,6 +83,7 @@ class _LoginCardState extends State<LoginCard> {
                 ),
                 TextFormField(
                   obscureText: isObsecured,
+                  controller: passwordFormController,
                   decoration: InputDecoration(
                       label: const Text(
                         "Password",
@@ -99,19 +106,25 @@ class _LoginCardState extends State<LoginCard> {
                 SizedBox(
                   height: UIConverter.getComponentHeight(context, 150),
                 ),
-                SizedBox(
-                  height: UIConverter.getComponentHeight(context, 60),
-                  width: UIConverter.getComponentWidth(context, 295),
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: primaryColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                      ),
-                      onPressed: () => {},
-                      child: const CustomLoginText(str: "LOGIN")),
-                ),
+              
+                BlocConsumer<AuthBloc, AuthBlocState>(
+                  listener: (context ,state) {
+                    if (state is AuthBlocLoginSuccess) {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomePage()));
+                  }
+                  },
+                  builder: (context, state) {
+                  if (state is AuthBlocLoading) {
+                    return const CircularProgressIndicator();
+                  } else if (state is AuthBlocLoginSuccess) {
+                    return const Text("Welcome");
+                  } else if (state is AuthBlocLoginFailure) {
+                    return loginButton(context, "RETRY");
+                  } else {
+                    return loginButton(context, "LOGIN");
+                  }
+                }),
                 SizedBox(
                   height: UIConverter.getComponentHeight(context, 15),
                 ),
@@ -143,6 +156,28 @@ class _LoginCardState extends State<LoginCard> {
           ),
         ),
       ),
+    );
+  }
+
+  void onLoginButtonPressed() {
+    context.read<AuthBloc>().add(LoginEvent(
+        username: userNameFormController.text,
+        password: passwordFormController.text));
+  }
+
+  Widget loginButton(context, text) {
+    return SizedBox(
+      height: UIConverter.getComponentHeight(context, 60),
+      width: UIConverter.getComponentWidth(context, 295),
+      child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: primaryColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+          onPressed: onLoginButtonPressed,
+          child: CustomLoginText(str: text)),
     );
   }
 }

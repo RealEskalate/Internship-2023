@@ -15,7 +15,7 @@ abstract class AuthenticationRemoteDataSource {
 
 class AuthenticationRemoteDataSourceImpl
     implements AuthenticationRemoteDataSource {
-  final baseUrl = 'https://mocki.io/v1/a1c63369-aaee-437c-a86a-ee544f50268a';
+  final baseUrl = 'https://mocki.io/v1/cd1346d3-f57d-41c6-aa8c-a0d17eb5d430';
   final http.Client client;
 
   AuthenticationRemoteDataSourceImpl(this.client);
@@ -23,8 +23,7 @@ class AuthenticationRemoteDataSourceImpl
   @override
   Future<UserAuthCredentialsModel> login(username, password) async {
     try {
-      var response = await client.post(Uri.parse(baseUrl));
-
+      var response = await client.get(Uri.parse(baseUrl));
       var decodedResponse =
           jsonDecode(utf8.decode(response.bodyBytes)) as Map<String, dynamic>;
 

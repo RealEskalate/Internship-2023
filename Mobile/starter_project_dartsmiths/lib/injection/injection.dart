@@ -17,7 +17,7 @@ void init() {
   serviceLocator.registerFactory(() => AuthBloc(serviceLocator()));
 
   //?Usecase
-  serviceLocator.registerSingleton(() => LoginUsecase(serviceLocator()));
+  serviceLocator.registerFactory(() => LoginUsecase(serviceLocator()));
 
   //?Repositories
   serviceLocator.registerLazySingleton<AuthenticationRepository>(() =>

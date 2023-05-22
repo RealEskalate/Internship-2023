@@ -1,9 +1,9 @@
-import 'package:dartsmiths/core/utils/ui_converter.dart';
-import 'package:dartsmiths/features/login/presentation/widgets/login_card.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/utils/colors.dart';
-import '../../../../features/login/presentation/widgets/custom_login_text.dart';
 import '../../../../core/utils/images.dart';
+import '../../../../core/utils/ui_converter.dart';
+import '../widgets/custom_login_text.dart';
+import '../widgets/login_card.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -67,4 +67,7 @@ class LoginPage extends StatelessWidget {
       ),
     );
   }
+  
 }
+
+

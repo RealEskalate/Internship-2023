@@ -26,7 +26,7 @@ class AuthBloc extends Bloc<AuthBlocEvent, AuthBlocState> {
 
   _loginOrFailure(both) {
     return both.fold(
-      (failure) => ServerFailure(),
+      (failure) => AuthBlocLoginFailure(),
       (authCredential) => AuthBlocLoginSuccess(
           username: authCredential.username, password: authCredential.password),
     );
