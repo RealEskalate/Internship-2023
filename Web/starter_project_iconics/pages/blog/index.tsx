@@ -4,11 +4,14 @@ import Link from 'next/link'
 import { FaPlus } from 'react-icons/fa'
 
 const Blogs = () => {
-  const { data: blogsData, isLoading } = useGetBlogsQuery()
+  const { data: blogsData, isLoading, isError } = useGetBlogsQuery()
   console.log(blogsData)
 
   if (isLoading) {
     return <div className="m-auto">Loading...</div>
+  }
+  if (isError) {
+    return <div>No Blogs</div>
   }
   return (
     <div className="bg-white pt-4 text-primary-text">
