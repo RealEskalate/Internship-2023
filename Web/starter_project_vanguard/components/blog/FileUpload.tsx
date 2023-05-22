@@ -1,7 +1,6 @@
 import React, { ChangeEvent } from 'react';
 import Image from 'next/image';
 
-
 interface FileUploadProps {
   onImageUpload: (file: File) => void;
 }
@@ -17,7 +16,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ onImageUpload }) => {
   return (
     <div className="w-full mb-16 h-1/2 lg:h-2/3 mt-8 bg-gray-100 rounded-lg flex items-center justify-center flex-col p-2 lg:p-5">
       <Image
-        src="/img/illustration.jpg"
+        src="/img/illustration.JPG"
         alt="illustration image"
         width={200}
         height={200}
