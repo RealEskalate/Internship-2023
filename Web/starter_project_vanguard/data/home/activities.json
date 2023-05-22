@@ -1,0 +1,58 @@
+{
+  "activities":
+  [
+    {
+      "id" : 1,
+      "url": "/img/home/activity-1.jpg",
+      "title": "Internships",
+      "description":
+        "Students who passed their interviews got 3-month internships to gain experience in building scalable products that are widely used around the world.",
+      "altText": "Picture of intern students"
+  
+    },
+    {
+      "id" : 2,
+      "url": "/img/home/activity-2.jpg",
+      "title": "360° Training",
+      "description":
+        "A2SV upskills students with a 360° software engineering program that focuses on problem-solving, effective speaking, and personal development.",
+      "altText":"Picture of training students"
+    },
+    {
+      "id" : 3,
+      "url": "/img/home/activity-3.jpg",
+      "title": "Social Projects",
+      "description":
+        "Students work on social projects with industry experts to address the most pressing problems in their community.",
+      "altText":"Picture of students participating in social activities"
+  
+    }
+  ], 
+
+  "success-rates" : [
+    {
+      "id": 1,
+      "year": "2019",
+      "success": "Founded",
+      "average": "5% average"
+    },
+    {
+      "id": 2,
+      "year": "2020",
+      "success": "27%",
+      "average": "5.2% average"
+    },
+    {
+      "id": 3,
+      "year": "2021",
+      "success": "59%",
+      "average": "3.9% average"
+    },
+    {
+      "id": 4,
+      "year": "2022",
+      "success": "70%",
+      "average": "2.6% average"
+    }
+]
+  }
