@@ -31,9 +31,9 @@ dependencies:
   data_connection_checker: ^0.3.4
 
   google_fonts: ^4.0.3
-
+  get_it: ^7.6.0
   cupertino_icons: ^1.0.2
-  flutter_bloc: ^8.1.2
+
 
 dev_dependencies:
   flutter_test:

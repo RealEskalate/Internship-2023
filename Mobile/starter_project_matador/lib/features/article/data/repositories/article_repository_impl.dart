@@ -8,22 +8,34 @@ import 'package:matador/features/article/domain/repositories/article_repository.
 
 class ArticleRepositoryImpl implements ArticleRepository {
   final ArticleRemoteDataSource remoteDataSource;
-  final ArticleLocalDataSource localDataSource;
+
 
   ArticleRepositoryImpl({
     required this.remoteDataSource,
-    required this.localDataSource,
   });
 
   @override
-  Future<Either<Failure, Article>> getArticle(String articleId) async {
+  Future<Either<Failure, Article>> getArticleById(String articleId) async {
     try {
-      final remoteArticle = await remoteDataSource.getArticle(articleId);
+      final remoteArticle = await remoteDataSource.getArticleById(articleId);
       // Cache the article locally
-      
+
       return Right(remoteArticle);
     } on ServerException {
       return Left(ServerFailure());
     }
   }
+
+  @override
+  Future<Either<Failure, List<Article>>> getAllArticles() async {
+    try {
+      final remoteArticles = await remoteDataSource.getAllArticles();
+      // Cache the articles locally
+      return Right(remoteArticles);
+    } on ServerException {
+      return Left(ServerFailure());
+    }
+  }
 }
+
+

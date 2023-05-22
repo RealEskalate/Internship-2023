@@ -4,6 +4,7 @@ class ArticleModel extends Article {
 
 
   ArticleModel({
+    
     required String id,
     required String title,
     required String subtitle,
