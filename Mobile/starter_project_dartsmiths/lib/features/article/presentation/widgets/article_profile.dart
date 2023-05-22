@@ -6,9 +6,12 @@ import '../../../../core/utils/ui_converter.dart';
 
 
 class ArticleProfile extends StatelessWidget {
-  ArticleProfile({super.key});
-  String name = 'Richard Gervan';
-String post_time = '2m';
+  final String name;
+  String post_time = '2m';
+  
+  ArticleProfile({required this.name ,super.key});
+
+  
 
   @override
   Widget build(BuildContext context) {

@@ -6,6 +6,9 @@ import 'package:dartsmiths/features/article/presentation/widgets/like_button.dar
 import 'package:flutter/material.dart';
 import 'package:dartsmiths/core/utils/ui_converter.dart';
 import 'package:dartsmiths/core/utils/colors.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../bloc/article_bloc.dart';
 
 class ArticleReading extends StatelessWidget {
   ArticleReading({Key? key}) : super(key: key);
@@ -13,97 +16,119 @@ class ArticleReading extends StatelessWidget {
       'That marked a turnaround from last year, when the social network reported a decline in users for the first time.\n The drop wiped billions from the firms market value.\n Since executives disclosed the fall in February, the firms share price has nearly halved.But shares jumped 19% in after-hours trade on Wednesday.';
 
   String title = 'Four Things Everyone Needs To Know';
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Builder(builder: (BuildContext context) {
-          return Scaffold(
-            backgroundColor: scaffoldBackground,
-            floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-            body: SafeArea(
-              child: Column(
-                children: [
-                  SingleChildScrollView(
-                    scrollDirection: Axis.vertical,
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(
-                              UIConverter.getComponentWidth(context, 40),
-                              UIConverter.getComponentHeight(context, 35),
-                              UIConverter.getComponentWidth(context, 32),
-                              UIConverter.getComponentHeight(context, 20)),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: const [
-                                  Icon(Icons.arrow_back),
-                                  Icon(Icons.more_horiz)
+          return BlocBuilder<ArticleBloc, ArticleState>(
+            builder: (context, state) {
+              if (state is ArticleSuccess) {
+                return Scaffold(
+                backgroundColor: scaffoldBackground,
+                floatingActionButtonLocation:
+                    FloatingActionButtonLocation.endFloat,
+                body: SafeArea(
+                  child: Column(
+                    children: [
+                      SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(
+                                  UIConverter.getComponentWidth(context, 40),
+                                  UIConverter.getComponentHeight(context, 35),
+                                  UIConverter.getComponentWidth(context, 32),
+                                  UIConverter.getComponentHeight(context, 20)),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: const [
+                                      Icon(Icons.arrow_back),
+                                      Icon(Icons.more_horiz)
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: UIConverter.getComponentHeight(
+                                        context, 32),
+                                  ),
+                                  Text(
+                                    state.article.title,
+                                    style: const TextStyle(
+                                      color: primaryTextColor,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 25,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: UIConverter.getComponentHeight(
+                                        context, 32),
+                                  ),
+                                  ArticleProfile(name: "Tamirat"),
                                 ],
                               ),
-                              SizedBox(
-                                height: UIConverter.getComponentHeight(context, 32),
+                            ),
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
                               ),
-                              Text(
-                                title,
-                                style: const TextStyle(
-                                  color: primaryTextColor,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 25,
+                              height:
+                                  UIConverter.getComponentHeight(context, 165),
+                              width: double.infinity,
+                              child: ClipRRect(
+                                borderRadius: const BorderRadius.only(
+                                    topLeft: Radius.circular(20),
+                                    topRight: Radius.circular(20)),
+                                child: Image.asset(
+                                  articleReadingFasionImage3,
+                                  width: double.infinity,
+                                  fit: BoxFit.cover,
                                 ),
                               ),
-                              SizedBox(
-                                height: UIConverter.getComponentHeight(context, 32),
-                              ),
-                               ArticleProfile(),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          height: UIConverter.getComponentHeight(context, 165),
-                          width: double.infinity,
-                          child: ClipRRect(
-                            borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                topRight: Radius.circular(20)),
-                            child: Image.asset(
-                              articleReadingFasionImage3,
-                              width: double.infinity,
-                              fit: BoxFit.cover,
                             ),
-                          ),
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(
+                                  UIConverter.getComponentWidth(context, 21),
+                                  UIConverter.getComponentHeight(context, 21),
+                                  UIConverter.getComponentWidth(context, 23),
+                                  0),
+                              child: Text(
+                                state.article.content,
+                                maxLines: null,
+                                style: TextStyle(
+                                    color: secondaryTextColor,
+                                    height: 1.5,
+                                    fontSize: UIConverter.getComponentWidth(
+                                        context, 15)),
+                              ),
+                            ),
+                          ],
                         ),
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(UIConverter.getComponentWidth(context, 21),
-                              UIConverter.getComponentHeight(context, 21),
-                              UIConverter.getComponentWidth(context, 23),
-                              0),
-                          child: Text(
-                            textValue,
-                            maxLines: null,
-                            style: TextStyle(
-                                color: secondaryTextColor,
-                                height: 1.5,
-                                fontSize: UIConverter.getComponentWidth(context, 15)),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                      // FloatingActionButton: like_button(),
+                    ],
                   ),
-                  // FloatingActionButton: like_button(),
-                ],
-              ),
-              //
-            ),
-            floatingActionButton: LikeButton(),
+                  //
+                ),
+                floatingActionButton: LikeButton(),
+              );
+
+              } else if (state is ArticleLoading) {
+                  return const Center(child: CircularProgressIndicator());
+                }
+
+                else {
+                  return const Scaffold(
+                  body: Center(child: Text("Errooorrrrrrrrrrrrr"),),
+                );
+                }
+        
+            },
           );
         }));
   }

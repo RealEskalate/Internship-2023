@@ -1,5 +1,10 @@
+import 'package:dartsmiths/features/article/domain/entities/article.dart';
+import 'package:dartsmiths/features/article/presentation/bloc/article_bloc.dart';
+import 'package:dartsmiths/features/feed/home/domain/entity/home.dart';
 import 'package:flutter/material.dart';
 import 'package:dartsmiths/core/utils/article_page_styles.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../feed/presentation/screen/home_page.dart';
 import '../widgets/chips_builder.dart';
 import '../widgets/custom_textfield.dart';
 
@@ -18,7 +23,7 @@ class _PostArticlePageState extends State<PostArticlePage> {
   TextEditingController controllerTitle = TextEditingController();
   TextEditingController controllerSubTitle = TextEditingController();
   TextEditingController controllerContent = TextEditingController();
-  List chipList = [];
+  List<String> chipList = [];
 
   void _addChip(String chipText) {
     setState(() {
@@ -155,7 +160,22 @@ class _PostArticlePageState extends State<PostArticlePage> {
                               'Publish',
                               style: postArticleTheme.bodyMedium,
                             ),
-                            onPressed: () => {},
+                            onPressed: () => {
+                              BlocProvider.of<ArticleBloc>(context).add(
+                                  PostArticleEvent(
+                                      article: Article(
+                                          id: "id",
+                                          title: controllerTitle.text,
+                                          subTitle: controllerSubTitle.text,
+                                          content: controllerContent.text,
+                                          tags: chipList,
+                                          authorId: "12345t67"))),
+                              
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => HomePage())),
+                            },
                           ),
                         ),
                       )
