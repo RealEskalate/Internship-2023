@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'features/feed/presentation/screen/home_page.dart';
-
+import 'package:matador/injection/injection.dart' as di;
 
 void main() {
-  runApp(const MyApp());
+  di.init();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {

@@ -1,14 +1,14 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:matador/features/article/domain/entities/article.dart';
-import 'package:matador/features/article/domain/usecases/article_usecase.dart';
+import 'package:matador/features/article/domain/usecases/get_article_by_id.dart';
 
 import 'article_event.dart';
 import 'article_state.dart';
 
 class ArticleBloc extends Bloc<ArticleEvent, ArticleState> {
-  final GetArticle _getArticle;
+  final GetArticleById _getArticle;
 
-  ArticleBloc({required GetArticle getArticle})
+  ArticleBloc({required GetArticleById getArticle})
       : _getArticle = getArticle,
         super(ArticleInitialState()) {
     on<GetArticleEvent>((event, emit) async {
