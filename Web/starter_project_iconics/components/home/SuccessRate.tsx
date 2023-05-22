@@ -1,7 +1,18 @@
-import successes from '@/data/home/success-rate.json'
+import { useGetSuccessRatesQuery } from '@/store/features/home/success-rates/success-rates-api'
+import Error from '../common/Error'
 import SuccessCard from './SuccessCard'
 
 const SuccessRate = () => {
+  const {
+    data: successes,
+    isLoading,
+    isSuccess,
+    isError,
+    error,
+  } = useGetSuccessRatesQuery()
+  if (isError || error) {
+    return <Error />
+  }
   return (
     <div className="flex flex-col items-center justify-between p-16 gap-8">
       <h2 className="text-5xl font-semibold max-w-[55vw] text-center capitalize leading-normal">
@@ -18,14 +29,31 @@ const SuccessRate = () => {
           </span>{' '}
           than average candidates.
         </p>
-        {successes.map((success) => (
-          <SuccessCard
-            key={success.year}
-            year={success.year}
-            rate={success.rate}
-            average={success.average}
-          />
-        ))}
+        <>
+          {isSuccess && successes ? (
+            <>
+              {successes.map((success) => (
+                <SuccessCard
+                  key={success.year}
+                  year={success.year}
+                  rate={success.rate}
+                  average={success.average}
+                />
+              ))}
+            </>
+          ) : isLoading ? (
+            <>
+              {Array.from({ length: 2 }).map((_, index) => (
+                <div
+                  key={index}
+                  className="bg-gray-300 h-60 w-full rounded-sm animate-pulse"
+                ></div>
+              ))}
+            </>
+          ) : (
+            <Error />
+          )}
+        </>
       </div>
     </div>
   )

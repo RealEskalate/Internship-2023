@@ -5,11 +5,11 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 export const impactStoriesApi = createApi({
   reducerPath: 'impact-stories',
   baseQuery: fetchBaseQuery({
-    baseUrl: `${backend_url}/home`,
+    baseUrl: `${backend_url}`,
   }),
   endpoints: (builder) => ({
     getStories: builder.query<ImpactStory[], void>({
-      query: () => '/impact-stories',
+      query: () => '/home/impact-stories',
     }),
   }),
 })
