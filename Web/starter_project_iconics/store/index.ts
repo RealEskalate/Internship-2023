@@ -5,6 +5,7 @@ import { blogsApi } from './features/blogs/blogs-api'
 import { impactStoriesApi } from './features/home/impact-stories/impact-stories-api'
 import impactStoriesSlice from './features/home/impact-stories/impact-stories-slice'
 import { storyApi } from './features/story/success-stories-api'
+import { teamMembersApi } from './features/team-members/team-members-api'
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     [impactStoriesApi.reducerPath]: impactStoriesApi.reducer,
     [blogsApi.reducerPath]: blogsApi.reducer,
     [tagsApi.reducerPath]: tagsApi.reducer,
+    [teamMembersApi.reducerPath]: teamMembersApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
@@ -21,6 +23,7 @@ export const store = configureStore({
       storyApi.middleware,
       blogsApi.middleware,
       tagsApi.middleware
+      teamMembersApi.middleware
     ),
 })
 

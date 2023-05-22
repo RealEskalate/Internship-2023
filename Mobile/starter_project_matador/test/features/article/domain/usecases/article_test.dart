@@ -9,7 +9,6 @@ import 'package:matador/features/article/domain/repositories/article_repository.
 import 'article_test.mocks.dart';
 
 @GenerateMocks([ArticleRepository])
-
 void main() {
   late GetArticle usecase;
   late MockArticleRepository mockArticleRepository;
@@ -26,22 +25,22 @@ void main() {
       content: 'Test Content',
       date: DateTime.now(),
       likesCount: 5,
-      tags: const ['Test', 'Article']);
+      tags: const ['Test', 'Article'],
+      id: '');
 
   test(
     'should get article from the repository',
     () async {
-      
       when(mockArticleRepository.getArticle(tArticleId))
           .thenAnswer((_) async => Right(tArticle));
 
       final result = await usecase(tArticleId);
-      
+
       expect(result, Right(tArticle));
 
       verify(mockArticleRepository.getArticle(tArticleId));
 
       verifyNoMoreInteractions(mockArticleRepository);
-    },  
+    },
   );
 }
