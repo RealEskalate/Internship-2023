@@ -1,30 +1,29 @@
-
 interface TagProps {
-    onClick: ()=>void,
-    child:string,
-    width?: string
+  onClick: () => void
+  child: string
+  width?: string
+  classname: string
 }
-// 
+//
 //  Tag Component
-//   
-//  A component that displays a tag with the given text and calls the provided function 
+//
+//  A component that displays a tag with the given text and calls the provided function
 //  when clicked. The tag can have an optional width specified.
-//  
+//
 //   @param {string} children - The text to be displayed in the tag.
 //   @param {function} onClick - The function to be called when the tag is clicked.
 //   @param {string} [width] - Optional width for the tag.
-//  
-const Tag: React.FC<TagProps> = ({child, onClick, width}) => {
+//
+const Tag: React.FC<TagProps> = ({ child, onClick, width, classname }) => {
   return (
-    <button 
-    onClick={onClick}
-    className="rounded-full font-montserrat bg-gray-100 text-gray-800 px-2 border-gray-400 m-1"
-
+    <button
+      onClick={onClick}
+      className={classname}
       style={{
-         width : width,
+        width: width,
       }}
     >
-    {child}
+      {child}
     </button>
   )
 }
