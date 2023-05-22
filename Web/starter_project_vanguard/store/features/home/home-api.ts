@@ -1,5 +1,5 @@
-import { Activity } from '@/types/home/Activity'
-import { SuccessModel } from '@/types/home/SuccessModel'
+import { Activity } from '@/types/home/activity'
+import { YearlySuccessRate } from '@/types/home/success-rate'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const homeApi = createApi({
@@ -11,7 +11,7 @@ export const homeApi = createApi({
     getAllActivities: builder.query<Activity[], void>({
       query: () => '/activities',
     }),
-    getSuccessRates: builder.query<SuccessModel[], void>({
+    getSuccessRates: builder.query<YearlySuccessRate[], void>({
       query: () => '/success-rates',
     }),
   }),
