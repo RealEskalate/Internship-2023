@@ -1,10 +1,12 @@
+import { backend_url } from '@/config'
+import { TeamMember } from '@/types/teams'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-const API_BASE_URL = 'http://localhost:3001/api'
 
 export const teamMembersApi = createApi({
-    baseQuery: fetchBaseQuery({baseUrl: API_BASE_URL}),
+    reducerPath: 'team-members',
+    baseQuery: fetchBaseQuery({baseUrl: backend_url}),
     endpoints: builder => ({
-        getTeamMembers: builder.query({
+        getTeamMembers: builder.query<TeamMember[], void>({
             query: () => '/team-members'
         })
     })
