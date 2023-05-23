@@ -15,10 +15,10 @@ public class Seat : BaseDomainEntity
     public Availability Availability { get; set; }
 
     // Foreign key referencing the associated cinema
-    public int CinemaID { get; set; }
-    public CinemaEntity Cinema { get; set; }
+    // public int CinemaID { get; set; }
+    // public CinemaEntity Cinema { get; set; }
 
     // Foreign key referencing the associated movie
-    public int MovieID { get; set; }
-    public Movie Movie { get; set; }
+    // public int MovieID { get; set; }
+    // public Movie Movie { get; set; }
 }
