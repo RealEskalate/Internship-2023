@@ -1,6 +1,7 @@
 ﻿using CineFlex.Application.Features.Book.CQRS.Commands;
 using CineFlex.Application.Features.Book.CQRS.Queries;
 using CineFlex.Application.Features.Book.DTOs;
+using CineFlex.Application.Features.Movies.CQRS.Queries;
 using CineFlex.Application.Features.Seats.CQRS.Commands;
 using CineFlex.Application.Features.Seats.CQRS.Queries;
 using CineFlex.Application.Features.Seats.DTOs;
@@ -26,7 +27,7 @@ namespace CineFlex.API.Controllers
         [HttpGet]
         public async Task<ActionResult<List<BookDto>>> Get()
         {
-            return Ok(await _mediator.Send(new ()));
+            return Ok(await _mediator.Send(new GetBookListQuery()));
         }
 
         [HttpGet("{id}")]
