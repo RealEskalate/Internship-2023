@@ -20,11 +20,10 @@ const DoctorDetailPage = () => {
             {isLoading && <p>Loading...</p>}
             {data !== undefined && (
                 <div className="bg-gray-100 p-8">
-                    <div className="relative">
-                        <div className="w-32 h-32 bg-gray-300 rounded-full overflow-hidden">
+                    <div className="relative flex justify-center">
+                        <div className="w-32 h-32 bg-gray-300 rounded-full overflow-hidden flex justify-center items-center">
                             <img src={data.photo} alt="Doctor" className="w-full h-full object-cover" />
                         </div>
-                        <div className="absolute inset-0 bg-blue-500 opacity-20 rounded-full"></div>
                     </div>
                     <h1 className="text-2xl font-bold mb-4">Doctor Detail</h1>
                     <p className="mb-2">Doctor ID: {doctorId}</p>
@@ -43,14 +42,11 @@ const DoctorDetailPage = () => {
                         <p>{data.summary}</p>
                     </div>
                     <div className="mt-4">
-                        {/* education is most of the time empty*/}
                         <h2 className="text-lg font-bold mb-2">Education</h2>
                         <ul>
                             {data.education.map((item, index) => (
                                 <li key={index} className="mb-2">
                                     <p>{item}</p>
-                                    {/*<p>{item.year}</p>*/}
-                                    {/*<p>{item.degree}</p>*/}
                                 </li>
                             ))}
                         </ul>
@@ -58,7 +54,6 @@ const DoctorDetailPage = () => {
                     <div className="mt-4">
                         <h2 className="text-lg font-bold mb-2">Contact Info</h2>
                         <p>
-                            {/* phone number is most of the time empty*/}
                             <span className="text-indigo-500">Phone Number:</span> +251-985-678-345
                         </p>
                         <p>
@@ -69,6 +64,7 @@ const DoctorDetailPage = () => {
             )}
         </div>
     );
+
 
 
 
