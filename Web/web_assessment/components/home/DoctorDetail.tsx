@@ -55,8 +55,7 @@ const DoctorsDetail: React.FC<DoctorsDetailProps> = ({ doctor }) => {
             <ul>
               {institutionID_list.map((institution, index) => (
                 <li key={index} className="text-black">
-                  <strong>{institution.lang.am.institutionName}</strong> -{" "}
-                  {institution.lang.am.summary}
+                  {institution}- {institution}
                 </li>
               ))}
             </ul>

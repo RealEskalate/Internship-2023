@@ -1,66 +1,70 @@
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
-const API_BASE_URL = "https://hakimhub-api-dev-wtupbmwpnq-uc.a.run.app/api/v1";
 
 interface Doctor {
   id: string;
   name: string;
   specialty: string;
-  profilePicture: string;
-  // Add other relevant properties
+  // Add other doctor properties
 }
 
 interface DoctorsState {
-  list: Doctor[];
+  doctors: Doctor[];
   selectedDoctor: Doctor | null;
-  loading: boolean;
-  error: string | null;
+  // Add other state properties
 }
 
-export const fetchDoctors: any = createAsyncThunk(
+const initialState: DoctorsState = {
+  doctors: [],
+  selectedDoctor: null,
+  // Initialize other state properties
+};
+
+export const fetchDoctors = createAsyncThunk(
   "doctors/fetchDoctors",
   async () => {
-    try {
-      const response = await axios.post(
-        `${API_BASE_URL}/search?institutions=false&articles=False`
-      );
-      return response.data;
-    } catch (error) {
-      throw Error("Failed to fetch doctors");
-    }
+    const response = await axios.post(
+      "https://hakimhub-api-dev-wtupbmwpnq-uc.a.run.app/api/v1/search?institutions=false&from=1&size=8"
+    );
+    return response.data;
   }
 );
 
-const initialState: DoctorsState = {
-  list: [],
-  selectedDoctor: null,
-  loading: false,
-  error: null,
-};
+export const fetchDoctorProfile = createAsyncThunk(
+  "doctors/fetchDoctorProfile",
+  async (id: string) => {
+    const response = await axios.get(
+      `https://hakimhub-api-dev-wtupbmwpnq-uc.a.run.app/api/v1/users/doctorProfile/${id}`
+    );
+    return response.data;
+  }
+);
 
-const doctorSlice = createSlice({
+export const searchDoctors = createAsyncThunk(
+  "doctors/searchDoctors",
+  async (keyword: string) => {
+    const response = await axios.post(
+      `https://hakimhub-api-dev-wtupbmwpnq-uc.a.run.app/api/v1/search?keyword=${keyword}&institutions=false&articles=False`
+    );
+    return response.data;
+  }
+);
+
+const doctorsSlice = createSlice({
   name: "doctors",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder
-      .addCase(fetchDoctors.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(
-        fetchDoctors.fulfilled,
-        (state, action: PayloadAction<Doctor[]>) => {
-          state.loading = false;
-          state.list = action.payload;
-        }
-      )
-      .addCase(fetchDoctors.rejected, (state, action) => {
-        state.loading = false;
-        state.error = null;
-      });
+    builder.addCase(fetchDoctors.fulfilled, (state, action) => {
+      state.doctors = action.payload;
+    });
+    builder.addCase(fetchDoctorProfile.fulfilled, (state, action) => {
+      state.selectedDoctor = action.payload;
+    });
+    builder.addCase(searchDoctors.fulfilled, (state, action) => {
+      state.doctors = action.payload;
+    });
   },
 });
 
-export default doctorSlice.reducer;
+export default doctorsSlice.reducer;
