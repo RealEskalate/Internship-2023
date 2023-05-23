@@ -3,6 +3,7 @@ using CineFlex.Application.Features.Movies.CQRS.Queries;
 using CineFlex.Application.Features.Movies.DTOs;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace CineFlex.API.Controllers
@@ -21,37 +22,36 @@ namespace CineFlex.API.Controllers
         [HttpGet]
         public async Task<ActionResult<List<MovieDto>>> Get()
         {
-            return HandleResult(await _mediator.Send(new GetMovieListQuery()));
+            return Ok(await _mediator.Send(new GetMovieListQuery()));
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            return HandleResult(await _mediator.Send(new GetMovieDetailQuery { Id = id }));
+            return Ok(await _mediator.Send(new GetMovieDetailQuery { Id = id }));
 
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] CreateMovieDto createMovie)
+        public async Task<IActionResult> Post(CreateMovieCommand movie)
         {
-            var command = new CreateMovieCommand { MovieDto = createMovie };
-            return HandleResult(await _mediator.Send(command));
+            var response = await _mediator.Send(movie);
+            return CreatedAtAction(nameof(Get), new { id = response });
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody] UpdateMovieDto movieDto)
+        public async Task<IActionResult> Put(UpdateMovieCommand movie)
         {
-
-
-            var command = new UpdateMovieCommand { MovieDto = movieDto };
-            return HandleResult(await _mediator.Send(command));
+            await _mediator.Send(movie);
+            return NoContent();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var command = new DeleteMovieCommand { Id = id };
-            return HandleResult(await _mediator.Send(command));
+            var command = new DeleteTaskCommand { Id = id };
+            await _mediator.Send(command);
+            return NoContent();
         }
     }
 }

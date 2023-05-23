@@ -39,7 +39,7 @@ namespace CineFlex.Persistence.Configurations.Entities
                      SeatDescription = "description",
                      DateTime = DateTime.Now
                  }
-                ); ;
+                );
         }
     }
 }

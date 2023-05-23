@@ -29,9 +29,18 @@ namespace CineFlex.Application.Features.Seats.CQRS.Handlers.Queries
         {
             var response = new BaseCommandResponse<SeatDto>();
             var seat = await _unitOfWork.SeatRepository.Get(request.Id);
-            response.Success = true;
-            response.Message = "Movie retrieval Successful";
-            response.Value = _mapper.Map<SeatDto>(seat);
+            if (seat == null)
+            {
+                response.Success = false;
+                response.Message = "Seat retrieval Unsuccesfull";
+                response.Value = null;
+            }
+            else
+            {
+                response.Success = true;
+                response.Message = "Movie retrieval Successful";
+                response.Value = _mapper.Map<SeatDto>(seat);
+            }
 
             return response;
         }

@@ -18,7 +18,9 @@
   <ItemGroup>
     <ProjectReference Include="..\CineFlex.Application\CineFlex.Application.csproj" />
     <ProjectReference Include="..\CineFlex.Domain\CineFlex.Domain.csproj" />
+    <ProjectReference Include="..\CineFlex.Infrastructure\CineFlex.Infrastructure.csproj" />
     <ProjectReference Include="..\CineFlex.Persistence\CineFlex.Persistence.csproj" />
+    <ProjectReference Include="..\CinFlex.Identity\CinFlex.Identity.csproj" />
   </ItemGroup>
 
 </Project>

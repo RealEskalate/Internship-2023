@@ -6,6 +6,7 @@ using CineFlex.Application.Features.Seats.CQRS.Queries;
 using CineFlex.Application.Features.Seats.DTOs;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace CineFlex.API.Controllers
 {
@@ -23,37 +24,36 @@ namespace CineFlex.API.Controllers
         [HttpGet]
         public async Task<ActionResult<List<SeatDto>>> Get()
         {
-            return HandleResult(await _mediator.Send(new GetSeatListQuery()));
+            return Ok(await _mediator.Send(new GetSeatListQuery()));
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            return HandleResult(await _mediator.Send(new GetSeatDetailQuery { Id = id }));
+            return Ok(await _mediator.Send(new GetSeatDetailQuery { Id = id }));
 
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] CreateSeatDto createSeat)
+        public async Task<IActionResult> Post(CreateSeatCommand seat)
         {
-            var command = new CreateSeatCommand { SeatDto = createSeat };
-            return HandleResult(await _mediator.Send(command));
+            var response = await _mediator.Send(seat);
+            return CreatedAtAction(nameof(Get), new { id = response });
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody] UpdateSeatDto seatDto)
+        public async Task<IActionResult> Put(UpdateSeatCommand seat)
         {
-
-
-            var command = new UpdateSeatCommand { seatDto = seatDto };
-            return HandleResult(await _mediator.Send(command));
+            await _mediator.Send(seat);
+            return NoContent();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             var command = new DeleteSeatCommand { SeatId = id };
-            return HandleResult(await _mediator.Send(command));
+            await _mediator.Send(command);
+            return NoContent();
         }
     }
 }

@@ -4,6 +4,7 @@ using CineFlex.Application.Features.Cinema.DTO;
 using CineFlex.Application.Features.Cinema.Dtos;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace CineFlex.API.Controllers
 {
@@ -19,19 +20,19 @@ namespace CineFlex.API.Controllers
         [HttpGet("GetAll")]
         public async Task<ActionResult<List<CinemaDto>>> Get()
         {
-            return HandleResult(await _mediator.Send(new GetCinemaListQuery()));
+            return Ok(await _mediator.Send(new GetCinemaListQuery()));
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<CinemaDto>> Get(int id)
         {
-             return HandleResult(await _mediator.Send(new GetCinemaQuery { Id = id }));
+             return Ok(await _mediator.Send(new GetCinemaQuery { Id = id }));
         }
         [HttpPost("CreateCinema")]
-        public async Task<ActionResult> Post([FromBody] CreateCinemaDto createCinemaDto)
+        public async Task<ActionResult> Post(CreateCinemaCommand cinima)
         {
-            var command = new CreateCinemaCommand { CinemaDto = createCinemaDto };
-            return HandleResult(await _mediator.Send(command));
+            var response = await _mediator.Send(cinima);
+            return CreatedAtAction(nameof(Get), new { id = response });
         }
         [HttpPut("UpdateCinema")]
         public async Task<ActionResult> Put([FromBody] UpdateCinemaDto updateCinemaDto)

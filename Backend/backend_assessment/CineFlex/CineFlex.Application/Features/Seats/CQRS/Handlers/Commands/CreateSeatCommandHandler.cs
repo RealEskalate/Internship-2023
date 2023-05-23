@@ -36,6 +36,7 @@ namespace CineFlex.Application.Features.Seats.CQRS.Handlers.Commands
 
             if (validationResult.IsValid == false)
             {
+                throw new Exception(validationResult.ToString());
                 response.Success = false;
                 response.Message = "Seat Creation Failed";
                 response.Errors = validationResult.Errors.Select(e => e.ErrorMessage).ToList();
