@@ -33,7 +33,7 @@ const Navbar = () => {
     </div>
     <div className="flex items-center justify-center mr-2 rounded-full">
     <input
-      className="w-full  px-24 h-10 text-sm text-gray-700 placeholder-gray-600 border rounded-full focus:outline-none focus:border-primary"
+      className="w-full  px-24 h-10 text-sm mx-20 text-gray-700 placeholder-gray-800 border rounded-full focus:outline-none focus:border-primary"
       type="text"
       placeholder="Search"
     />

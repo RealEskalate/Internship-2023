@@ -11,7 +11,7 @@ const DoctorDetail = () => {
   const { data: doctorProfile = [], isFetching } = useFetchDoctorProfileQuery({ id: id || '' });
   if (!doctorProfile || isFetching) {
     return <div>Loading...</div>;
-    console.log(doctorProfile);
+    
   }
 
   const { photo, fullName, summary, speciality, institutionID_list } = doctorProfile;
