@@ -27,7 +27,7 @@ namespace CineFlex.Infrastructure.Security
             if (userId == null) return Task.CompletedTask;
 
 
-            var user = _dbcontext.Users.AsNoTracking().SingleOrDefaultAsync(x => x.Id.ToString() == userId.ToString()).Result;
+            var user = _dbcontext.Users.AsNoTracking().SingleOrDefaultAsync(x => x.Id == userId).Result;
 
             if (user == null) return Task.CompletedTask;
 
