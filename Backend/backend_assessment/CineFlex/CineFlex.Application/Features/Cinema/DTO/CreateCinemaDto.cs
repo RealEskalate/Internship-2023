@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CineFlex.Application.Features.Seats.DTOs;
+using CineFlex.Domain;
 
 namespace CineFlex.Application.Features.Cinema.DTO
 {
@@ -11,5 +8,7 @@ namespace CineFlex.Application.Features.Cinema.DTO
         public string Name { get ; set ; }
         public string Location { get; set ; }
         public string ContactInformation { get; set; }
+        public ICollection<SeatProfile> Seats { get; set; }
+        public ICollection<Movie> Movies { get; set; }
     }
 }

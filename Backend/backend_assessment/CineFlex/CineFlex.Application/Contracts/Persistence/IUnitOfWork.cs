@@ -1,9 +1,5 @@
-﻿using CineFlex.Application.Contracts.Persistence;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CineFlex.Domain;
+using Microsoft.AspNetCore.Identity;
 
 namespace CineFlex.Application.Contracts.Persistence
 {
@@ -11,6 +7,9 @@ namespace CineFlex.Application.Contracts.Persistence
     {
         IMovieRepository MovieRepository { get; }
         ICinemaRepository CinemaRepository { get; }
+        ISeatRepository SeatRepository { get; }
+        IBookingRepository BookingRepository {get; }
+        UserManager<AppUser> UserManager { get;  }
         Task<int> Save();
         
     }
