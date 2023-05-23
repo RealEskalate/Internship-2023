@@ -10,6 +10,7 @@ namespace CineFlex.Application.Contracts.Persistence
 {
     public interface ISeatRepository : IGenericRepository<Seat>
     {
-
+        Task<Seat> GetSeat();
+        Task<List<Seat>> GetSeats();
     }
 }

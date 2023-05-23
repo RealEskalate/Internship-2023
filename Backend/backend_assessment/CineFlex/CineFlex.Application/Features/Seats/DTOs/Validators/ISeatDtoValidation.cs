@@ -14,7 +14,7 @@ namespace CineFlex.Application.Features.Seats.DTOs.Validators
                 .NotEmpty().WithMessage("Number is required.")
                 .GreaterThan(0).WithMessage("Number must be greater than 0.");
 
-            RuleFor(dto => dto.Level)
+            RuleFor(dto => dto.SeatLevel)
                 .NotNull().WithMessage("Level is required.");
 
         }

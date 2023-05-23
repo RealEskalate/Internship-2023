@@ -13,6 +13,8 @@ namespace CineFlex.Domain
         public int Row { get; set; }
         public int Number { get; set; }
         public bool IsReserved { get; set; }
-        public SeatLevel Level { get; set; }
+        public string SeatLevel { get; set; }
+        public int CinemaId { get; set; }
+        public CinemaEntity Cinema { get; set; }
     }
 }

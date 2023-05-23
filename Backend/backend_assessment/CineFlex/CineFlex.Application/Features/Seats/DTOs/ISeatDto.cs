@@ -7,7 +7,7 @@ namespace CineFlex.Application.Features.Seats.DTOs
         int Row { get; set; }
         int Number { get; set; }
         bool IsReserved { get; set; }
-        SeatLevel Level { get; set; }
+        String SeatLevel { get; set; }
         
     }
 }

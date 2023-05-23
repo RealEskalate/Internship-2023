@@ -28,7 +28,7 @@ namespace CineFlex.Application.Features.Seats.CQRS.Handlers
         {
 
             var response = new BaseCommandResponse<List<SeatDto>>();
-            var seats = await _unitOfWork.SeatRepository.GetAll();
+            var seats = await _unitOfWork.SeatRepository.GetSeats();
 
             response.Success = true;
             response.Message = "Seats retrieval Successful";

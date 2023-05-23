@@ -31,7 +31,9 @@ namespace CineFlex.Application.Profiles
 
             #region Seat Mappings
 
-            CreateMap<Seat, SeatDto>().ReverseMap();
+            CreateMap<Seat, SeatDto>()
+            .ForMember(x => x.Cinema, o => o.MapFrom(s => s.Cinema))
+            .ReverseMap();
             CreateMap<Seat, CreateSeatDto>().ReverseMap();
             CreateMap<Seat, UpdateSeatDto>().ReverseMap();
 

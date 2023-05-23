@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace CineFlex.Persistence.Repositories
 {
@@ -15,5 +16,15 @@ namespace CineFlex.Persistence.Repositories
         {
             _context = dbContext;
         }
+
+        public async Task<List<Seat>> GetSeats()
+        {
+            return await _context.Set<Seat>().Include(x => x.Cinema).AsNoTracking().ToListAsync();
+        }
+        public async Task<Seat> GetSeat()
+        {
+            return await _context.Set<Seat>().Include(x => x.Cinema).FirstOrDefaultAsync();
+        }
+
     }
 }
