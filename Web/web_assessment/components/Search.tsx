@@ -9,13 +9,13 @@ const Search = () => {
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setKeyword(e.target.value);
-    console.log(keyword, data.data) ;
   };
 
   return (
     <div>
       Search
       <input type="text" className="w-full border border-2" value={keyword} onChange={handleSearch} />
+      {keyword && (
         <div>
           {data &&
             data.data.map((item: any) => (
@@ -29,6 +29,7 @@ const Search = () => {
               </Link>
             ))}
         </div>
+      )}
     </div>
   );
 };
