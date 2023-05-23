@@ -19,7 +19,7 @@ const ProfileScreen = () => {
         <Image src={doctor.photo} alt="Image" width={128} height={128} className="object-cover object-center rounded-full" />
       </div>
 
-      <div className='ml-36 grid grid-cols-5 w-screen mr-180'>
+      <div className='ml-36 grid grid-cols-5 w-screen mr-180 mt-8'>
         <div className='grid grid-cols-2 col-span-4'>
           <div className='flex flex-col'>
             <div className="text-2xl font-bold">
@@ -52,7 +52,7 @@ const ProfileScreen = () => {
           </div>
         </div>
 
-        <div className='mt-24 col-span-5'>
+        <div className='mt-24 col-span-5 mb-16'>
           <div>Contact Info</div>
           <div>
             {/* None of the response objects have any emails so I can't tell what how object is structured */}
