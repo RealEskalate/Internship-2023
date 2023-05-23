@@ -20,6 +20,7 @@ namespace CineFlex.Persistence
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ICinemaRepository, CinemaRepository>();
             services.AddScoped<IMovieRepository, MovieRepository>();
+            services.AddScoped<ISeatRepository, SeatRepository>();
             return services;
         }
     }

@@ -53,6 +53,8 @@ namespace CineFlex.Persistence.Repositories
             }
         }
 
+        public IMovieBookingRepository MovieBookingRepository => throw new NotImplementedException();
+
         public void Dispose()
         {
             _context.Dispose();
