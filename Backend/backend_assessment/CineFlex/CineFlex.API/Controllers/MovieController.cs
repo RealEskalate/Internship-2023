@@ -3,7 +3,6 @@ using CineFlex.Application.Features.Movies.CQRS.Queries;
 using CineFlex.Application.Features.Movies.DTOs;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace CineFlex.API.Controllers
 {
