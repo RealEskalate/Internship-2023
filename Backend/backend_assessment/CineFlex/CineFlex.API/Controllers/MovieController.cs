@@ -31,6 +31,13 @@ namespace CineFlex.API.Controllers
 
         }
 
+        [HttpGet("search")]
+        public async Task<IActionResult> Get(string SearchString)
+        {
+            return HandleResult(await _mediator.Send(new SearchMovieQuery { SearchString = SearchString }));
+
+        }
+
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateMovieDto createMovie)
         {

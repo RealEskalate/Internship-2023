@@ -11,12 +11,12 @@ using System.Threading.Tasks;
 
 namespace CineFlex.Application.Features.Seats.CQRS.Handlers
 {
-    public class DeleteBlogCommandHandler : IRequestHandler<DeleteSeatCommand, BaseCommandResponse<int>>
+    public class DeleteSeatCommandHandler : IRequestHandler<DeleteSeatCommand, BaseCommandResponse<int>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public DeleteBlogCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public DeleteSeatCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
