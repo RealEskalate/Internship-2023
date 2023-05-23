@@ -5,11 +5,13 @@ using CineFlex.Application.Features.Seats.CQRS.Queries;
 using CineFlex.Application.Features.Seats.DTOs;
 using CineFlex.Application.Responses;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace CineFlex.API.Controllers
 {
+    [Authorize]
     [Route("api/[Controller]")]
     [ApiController]
     public class SeatController : BaseApiController

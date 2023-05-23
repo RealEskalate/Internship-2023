@@ -5,11 +5,13 @@ using CineFlex.Application.Features.MovieBookings.CQRS.Queries;
 using CineFlex.Application.Features.MovieBookings.DTOs;
 using CineFlex.Application.Responses;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace CineFlex.API.Controllers
 {
+    [Authorize]
     [Route("api/[Controller]")]
     [ApiController]
     public class MovieBookingController : BaseApiController
@@ -48,7 +50,7 @@ namespace CineFlex.API.Controllers
         public async Task<IActionResult> Put([FromBody] UpdateMovieBookingDto MovieBookingDto)
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            var isAdmin = await _userServise.IsAdmin(userId)
+            var isAdmin = await _userServise.IsAdmin(userId);
 
             var command = new UpdateMovieBookingCommand { 
                 MovieBookingDto = MovieBookingDto,
