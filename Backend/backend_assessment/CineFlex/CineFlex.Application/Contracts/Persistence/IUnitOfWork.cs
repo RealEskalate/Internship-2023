@@ -12,6 +12,7 @@ namespace CineFlex.Application.Contracts.Persistence
         ISeatRepository SeatRepository { get; }
         IMovieRepository MovieRepository { get; }
         ICinemaRepository CinemaRepository { get; }
+        IBookingRepository BookingRepository { get; }
         Task<int> Save();
         
     }

@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using CineFlex.Application.Features.Seats.DTOs.Validators;
 using CineFlex.Application.Features.Seats.DTOs;
+using CineFlex.Application.Features.Booking.DTOs;
+using CineFlex.Application.Features.Authentication.DTOs;
 
 namespace CineFlex.Application.Profiles
 {
@@ -32,7 +34,12 @@ namespace CineFlex.Application.Profiles
             CreateMap<Seat, CreateSeatDto>().ReverseMap();
             CreateMap<Seat, UpdateSeatDto>().ReverseMap();
 
-            
+            CreateMap<BookingEntity, CreateBookingDto>().ReverseMap();
+
+            #region Authentication Mappings
+            CreateMap<SignupFormDto, User>().ReverseMap();
+            CreateMap<User, SignUpResponse>().ReverseMap();
+            #endregion Authentication Mappings
         }
     }
 }

@@ -12,5 +12,12 @@ namespace CineFlex.Domain
         public int SeatNumber { get; set; }
         public int RowNumber { get; set; }
         public DateTime lastBooked { get; set; }
+        public CinemaEntity Cinema { get; set; }
+
+        // Navigational Property
+        public ICollection<BookingEntity> Bookings { get; set; }
+        
+
+     
     }
 }

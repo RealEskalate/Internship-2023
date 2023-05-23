@@ -6,6 +6,7 @@ using CineFlex.Application.Features.Seats.CQRS.Commands;
 using CineFlex.Application.Features.Seats.CQRS.Queries;
 using CineFlex.Application.Features.Seats.DTOs;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CineFlex.API.Controllers
@@ -27,19 +28,25 @@ namespace CineFlex.API.Controllers
 
         
         [HttpPost("CreateSeat")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Post([FromBody] CreateSeatDto createSeatDto)
         {
             var command = new CreateSeatCommand { SeatDto = createSeatDto };
             return HandleResult(await _mediator.Send(command));
         }
+        
+        
         [HttpPut("UpdateSeat")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Put([FromBody] UpdateSeatDto updateSeatDto)
         {
             var command = new UpdateSeatCommand { updateSeatDto = updateSeatDto };
             await _mediator.Send(command);
             return NoContent();
         }
+        
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Delete(int id)
         {
             var command = new DeleteSeatCommand { Id = id };

@@ -30,6 +30,7 @@
 
   <ItemGroup>
     <Folder Include="Mocks\" />
+    <Folder Include="Seats\" />
   </ItemGroup>
 
 </Project>

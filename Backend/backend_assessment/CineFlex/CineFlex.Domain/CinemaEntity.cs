@@ -12,5 +12,8 @@ namespace CineFlex.Domain
         public string Name { get; set; }
         public string Location { get; set; }
         public string ContactInformation { get; set; }
+
+        // Navigational Property
+        public ICollection<BookingEntity> Bookings { get; set; }
     }
 }
