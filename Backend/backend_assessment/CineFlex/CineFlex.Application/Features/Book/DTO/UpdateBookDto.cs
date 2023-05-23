@@ -10,5 +10,5 @@ public class UpdateBookDto
     public int Id { get; set; }
     public int MovieId { get; set; }
     public int CinemaEntityId { get; set; }
-    public int SeatId { get; set; }
+    public List<int> SeatIds { get; set; }
 }

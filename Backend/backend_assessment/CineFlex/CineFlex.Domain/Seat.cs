@@ -12,4 +12,6 @@ public class Seat : BaseDomainEntity
     public int VerticalDistanceFromScreenCenter { get; set; }
     public int CinemaEntityId { get; set; }
     public CinemaEntity CinemaEntity { get; set; }
+    public Nullable<int> BookId { get; set; }
+    public Book? Book { get; set; }
 }

@@ -33,6 +33,7 @@ public class SeatsController : BaseApiController
     }
 
     [HttpPost]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Post(CreateSeatDto createSeatDto)
     {
         var command = new CreateSeatCommand { CreateSeatDto = createSeatDto };
@@ -40,6 +41,7 @@ public class SeatsController : BaseApiController
     }
 
     [HttpPut]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Put([FromBody] UpdateSeatDto updateSeatDto)
     {
         var command = new UpdateSeatCommand { UpdateSeatDto = updateSeatDto };
@@ -48,6 +50,7 @@ public class SeatsController : BaseApiController
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Delete(int id)
     {
         var command = new DeleteSeatCommand { Id = id };

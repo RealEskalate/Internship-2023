@@ -9,5 +9,5 @@ public class CreateBookDto
 {
     public int MovieId { get; set; }
     public int CinemaEntityId { get; set; }
-    public int SeatId { get; set; }
+    public List<int> SeatIds { get; set; }
 }

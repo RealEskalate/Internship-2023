@@ -15,17 +15,19 @@ namespace CineFlex.Application.Features.Books.CQRS.Handlers;
 public class UpdateBookCommandHandler : IRequestHandler<UpdateBookCommand>
 {
     private readonly IBookRepository _bookRepository;
+    private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
 
-    public UpdateBookCommandHandler(IBookRepository bookRepository, IMapper mapper)
+    public UpdateBookCommandHandler(IBookRepository bookRepository, IMapper mapper, IUnitOfWork unitOfWork)
     {
         _bookRepository = bookRepository;
         _mapper = mapper;
+        _unitOfWork = unitOfWork;
     }
 
     public async Task<Unit> Handle(UpdateBookCommand request, CancellationToken cancellationToken)
     {
-        var validator = new UpdateBookDtoValidator();
+        var validator = new UpdateBookDtoValidator(_unitOfWork);
         var validationResult = await validator.ValidateAsync(request.UpdateBookDto, cancellationToken);
 
         if (validationResult.Errors.Count > 0)
