@@ -61,7 +61,7 @@ const DoctorsList: React.FC = () => {
                 <Search setKeyWord={setKeyWord} keyWord={keyWord} ></Search>
                 <div className="justify-items-center items-center mx-auto gap-0 grid grid-cols-1 md:w-[90%] md:grid-cols-2 lg:grid-cols-4 ">
             {doctors?.map((doctor: Doctor, index: number) => {
-               return <div onClick={() => openProfile(doctor._id)}><DoctorCard key={index} _id={doctor._id} fullname={doctor.fullName} photo={doctor.photo} speciality={doctor.speciality[0].name} hospital={doctor.mainInstitution.institutionName}></DoctorCard> </div>;
+               return <div key={index} onClick={() => openProfile(doctor._id)}><DoctorCard _id={doctor._id} fullname={doctor.fullName} photo={doctor.photo} speciality={doctor.speciality[0].name} hospital={doctor.mainInstitution.institutionName}></DoctorCard> </div>;
               })}
           </div>
             </div>
