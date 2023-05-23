@@ -1,29 +1,38 @@
-// import React, { useState } from 'react';
-// import { useGetDoctorsQuery } from './../store/doctor/doctorapi';
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { searchDoctorById } from './searchSlice';
+import DoctorCard from './DoctorCard';
 
-// const DoctorSearch = () => {
-//   const [searchTerm, setSearchTerm] = useState('');
+const SearchDoctorPage = () => {
+  const [doctorId, setDoctorId] = useState('');
+  const dispatch = useDispatch();
+  const doctor = useSelector((state) => state.search.doctor);
 
-//   const { data, isLoading, isError } = useGetDoctorsQuery(searchTerm);
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+    dispatch(searchDoctorById(doctorId));
+  };
 
-//   const handleSearchChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
-//     setSearchTerm(event.target.value);
-//   };
+  const handleDoctorIdChange = (event) => {
+    setDoctorId(event.target.value);
+  };
 
-//   return (
-//     <div>
-//       <input type="text" value={searchTerm} onChange={handleSearchChange} />
-//       {isLoading && <div>isLoading...</div>}
-//       {isError && <div>Error</div>}
-//       {data && (
-//         <ul>
-//           {data.map((doctor) => (
-//             <li key={doctor.id}>{doctor.name}</li>
-//           ))}
-//         </ul>
-//       )}
-//     </div>
-//   );
-// };
+  return (
+    <div>
+      <form onSubmit={handleSearchSubmit}>
+        <div>
+          <label htmlFor="doctorId">Search for doctor by ID:</label>
+          <input type="text" id="doctorId" value={doctorId} onChange={handleDoctorIdChange} />
+        </div>
+        <button type="submit">Search</button>
+      </form>
+      {doctor ? (
+        <DoctorCard doctor={doctor} />
+      ) : (
+        <div>No doctor found.</div>
+      )}
+    </div>
+  );
+};
 
-// export default DoctorSearch;
+export default SearchDoctorPage;
