@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mobile_assessement/features/weather/presentation/bloc/bloc/weather_bloc_bloc.dart';
 import 'package:mobile_assessement/features/weather/presentation/widget/waether_detail.dart';
 import 'package:mobile_assessement/features/weather/presentation/widget/weather_row.dart';
+import 'package:mobile_assessement/injection/injection.dart';
 
 class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BlocProvider<WeatherBloc>(
+        create: (_) => sl<WeatherBloc>()..add(const GetFavoriteCitiesEvent()),
+        child: Scaffold(
       appBar: AppBar(
         title: const Text('Weather App'),
       ),
@@ -51,7 +56,7 @@ Expanded(
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => WeatherDetail(
+              builder: (context) => const WeatherDetail(
                 cityName: 'City Name',
                 countryName: 'Country Name',
                 temperature: 25.0, // Replace with actual temperature
@@ -60,7 +65,7 @@ Expanded(
             ),
           );
         },
-        child: WeatherRow(
+        child: const WeatherRow(
           cityName: 'City Name',
           countryName: 'Country Name',
           temperature: 25.0, // Replace with actual temperature
@@ -73,6 +78,6 @@ Expanded(
 
         ],
       ),
-    );
+    ));
   }
 }

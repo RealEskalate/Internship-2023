@@ -7,35 +7,35 @@ abstract class WeatherEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class GetWeatherForCity extends WeatherEvent {
+class GetWeatherForCityEvent extends WeatherEvent {
   final String cityName;
 
-  const GetWeatherForCity({required this.cityName});
+  const GetWeatherForCityEvent({required this.cityName});
 
   @override
   List<Object> get props => [cityName];
 }
 
-class AddFavoriteCity extends WeatherEvent {
+class AddFavoriteCityEvent extends WeatherEvent {
   final String cityName;
 
-  const AddFavoriteCity({required this.cityName});
+  const AddFavoriteCityEvent({required this.cityName});
 
   @override
   List<Object> get props => [cityName];
 }
 
-class RemoveFavoriteCity extends WeatherEvent {
+class RemoveFavoriteCityEvent extends WeatherEvent {
   final String cityName;
 
-  const RemoveFavoriteCity({required this.cityName});
+  const RemoveFavoriteCityEvent({required this.cityName});
 
   @override
   List<Object> get props => [cityName];
 }
 
-class GetFavoriteCities extends WeatherEvent {
-  const GetFavoriteCities();
+class GetFavoriteCitiesEvent extends WeatherEvent {
+  const GetFavoriteCitiesEvent();
 
   @override
   List<Object> get props => [];

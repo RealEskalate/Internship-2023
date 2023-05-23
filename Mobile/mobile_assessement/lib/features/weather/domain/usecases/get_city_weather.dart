@@ -1,8 +1,6 @@
 import 'package:mobile_assessement/core/error/failures.dart';
 import 'package:mobile_assessement/core/usecase/usecase.dart';
 import 'package:mobile_assessement/features/weather/domain/entity/weather.dart';
-import 'package:dartz/dartz.dart';
-import 'package:meta/meta.dart';
 
 import 'package:dartz/dartz.dart';
 import 'package:mobile_assessement/core/error/failures.dart';
