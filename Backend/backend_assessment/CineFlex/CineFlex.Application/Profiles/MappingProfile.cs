@@ -37,7 +37,6 @@ namespace CineFlex.Application.Profiles
 
             CreateMap<Booking, CreateBookingDto>().ReverseMap();
 
-
         }
     }
 }
