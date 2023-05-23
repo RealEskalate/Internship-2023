@@ -13,8 +13,9 @@ namespace CineFlex.Persistence.Repositories
     {
         private readonly CineFlexDbContex _context;
         private IMovieRepository _MovieRepository;
-
+        private ISeatRepository _SeatRepository;
         private ICinemaRepository _cinemaRepository;
+        private IBookingRepository _bookingRepository;
         public UnitOfWork(CineFlexDbContex context)
         {
             _context = context;
@@ -39,6 +40,25 @@ namespace CineFlex.Persistence.Repositories
             }
         }
 
+        public ISeatRepository SeatRepository
+        {
+            get
+            {
+                if (_SeatRepository == null)
+                    _SeatRepository = new SeatRepository(_context);
+                return _SeatRepository;
+            }
+        }
+
+        public IBookingRepository BookingRepository
+        {
+            get
+            {
+                if (_bookingRepository == null)
+                    _bookingRepository = new BookingRepository(_context);
+                return _bookingRepository;
+            }
+        }
 
         public void Dispose()
         {

@@ -2,6 +2,7 @@ using CineFlex.Application;
 using CineFlex.Persistence;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Identity;
+using CineFlex.identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.ConfigureApplicationServices();
 builder.Services.ConfigurePersistenceServices(builder.Configuration);
 builder.Services.AddHttpContextAccessor();
+builder.Services.ConfigureIdentityServices(builder.Configuration);
 AddSwaggerDoc(builder.Services);
 builder.Services.AddControllers();
 

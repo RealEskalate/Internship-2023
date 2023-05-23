@@ -7,13 +7,17 @@ using System.Threading.Tasks;
 
 namespace CineFlex.Domain
 {
-    public class CinemaEntity:BaseDomainEntity
+    public class Seat:BaseDomainEntity
     {
-        public string Name { get; set; }
-        public string Location { get; set; }
-        public string ContactInformation { get; set; }
+        public int SeatNumber { get; set; }
+        public int RowNumber { get; set; }
+        public DateTime lastBooked { get; set; }
+        public CinemaEntity Cinema { get; set; }
 
         // Navigational Property
         public ICollection<BookingEntity> Bookings { get; set; }
+        
+
+     
     }
 }

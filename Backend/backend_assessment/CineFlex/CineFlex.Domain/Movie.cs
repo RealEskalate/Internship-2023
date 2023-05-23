@@ -13,5 +13,8 @@ namespace CineFlex.Domain
         public string Genre { get; set; }
         public string ReleaseYear { get; set; }
 
+        //Navigational Property
+        public ICollection<BookingEntity> Bookings { get; set; }
+
     }
 }
