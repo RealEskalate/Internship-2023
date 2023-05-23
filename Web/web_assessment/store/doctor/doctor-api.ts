@@ -6,7 +6,7 @@ export const doctorApi = createApi({
     reducerPath:'doctor',
     baseQuery: fetchBaseQuery({baseUrl:BASE_URL}),
     endpoints: (builder)=> ({
-        fetchDoctor: builder.query({
+        fetchDoctor: builder.query<any, string>({
             query:(id) => `/users/doctorProfile/${id}`
         }),
         fetchDoctors: builder.mutation<any, void>({
