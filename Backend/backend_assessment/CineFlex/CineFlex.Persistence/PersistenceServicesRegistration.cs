@@ -19,6 +19,8 @@ namespace CineFlex.Persistence
             opt.UseNpgsql(configuration.GetConnectionString("CineFlexConnectionString")));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ICinemaRepository, CinemaRepository>();
+            services.AddScoped<ISeatRepository, SeatRepository>();
+            services.AddScoped<IBookRepository, BookRepository>();
             return services;
         }
     }
