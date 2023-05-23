@@ -1,16 +1,15 @@
 import '../../domain/entities/user.dart';
 
 class LoginModel extends AuthUser {
-  final String id;
-  const LoginModel(
-      {required super.email, required super.password, required this.id});
+  const LoginModel({required super.email, required super.password});
 
   factory LoginModel.fromJson(Map<String, dynamic> json) {
-    return LoginModel(
-        email: json["email"], password: json["password"], id: json["id"]);
+    return LoginModel(email: json["email"], password: json["password"]);
   }
-
   Map<String, dynamic> toJson() {
-    return {"email": email, "password": password, "id": id};
+    return {
+      "email": email,
+      "password": password,
+    };
   }
 }

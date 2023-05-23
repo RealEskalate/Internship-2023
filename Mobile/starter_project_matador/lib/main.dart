@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:matador/core/utils/constants/global_variables.dart';
-import 'package:matador/features/auth/presentation/screen/login_page.dart';
-import 'injection/injection.dart' as di;
+import 'features/feed/presentation/screen/home_page.dart';
+import 'package:matador/injection/injection.dart' as di;
 
 void main() {
   di.init();
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -16,9 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Login Page',
       theme: ThemeData(
-        primaryColor: primaryColor,
+        primarySwatch: Colors.blue,
       ),
-      home: const LoginPage(),
+      home: const HomePage(),
     );
   }
 }
