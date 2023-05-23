@@ -7,7 +7,7 @@ namespace CineFlex.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-      [Authorize]
+    [Authorize]
     public class BaseApiController : ControllerBase
     {
         private IMediator _mediatr;
