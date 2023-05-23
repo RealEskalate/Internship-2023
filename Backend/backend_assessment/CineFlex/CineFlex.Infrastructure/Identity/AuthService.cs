@@ -59,14 +59,14 @@ public class AuthService : IAuthService
         };
     }
 
-    public async Task<BaseCommandResponse<UserDto>> Register(RegisterUserDto registrationRequest,
+    public async Task<BaseCommandResponse<LoginResponseDto>> Register(RegisterUserDto registrationRequest,
         CancellationToken cancellationToken)
     {
         var existingUser = await _userManager.FindByNameAsync(registrationRequest.UserName) ??
                            await _userManager.FindByEmailAsync(registrationRequest.Email);
 
         if (existingUser != null)
-            return new BaseCommandResponse<UserDto>
+            return new BaseCommandResponse<LoginResponseDto>
             {
                 Success = false,
                 Message = "User with the same email or username already exists."
@@ -81,7 +81,7 @@ public class AuthService : IAuthService
 
         var result = await _userManager.CreateAsync(user, registrationRequest.Password);
         if (!result.Succeeded)
-            return new BaseCommandResponse<UserDto>
+            return new BaseCommandResponse<LoginResponseDto>
             {
                 Success = false,
                 Errors = result.Errors.Select(x => x.Description).ToList()
@@ -90,9 +90,15 @@ public class AuthService : IAuthService
         await _userManager.AddToRoleAsync(user, "User");
         await _userManager.UpdateAsync(user);
 
-        return new BaseCommandResponse<UserDto>
+        var jwtSecurityToken = await _jwtFactory.GenerateToken(user);
+
+        return new BaseCommandResponse<LoginResponseDto>
         {
-            Value = UserDto.FromUser(user)
+            Value = new LoginResponseDto()
+            {
+                User = UserDto.FromUser(user),
+                Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken)
+            }
         };
     }
 }

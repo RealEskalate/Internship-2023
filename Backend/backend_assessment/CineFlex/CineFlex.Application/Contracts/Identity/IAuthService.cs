@@ -7,6 +7,6 @@ public interface IAuthService
 {
     Task<BaseCommandResponse<LoginResponseDto>> Login(LoginUserDto authRequest, CancellationToken cancellationToken);
 
-    Task<BaseCommandResponse<UserDto>> Register(RegisterUserDto registrationRequest,
+    Task<BaseCommandResponse<LoginResponseDto>> Register(RegisterUserDto registrationRequest,
         CancellationToken cancellationToken);
 }

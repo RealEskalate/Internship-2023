@@ -6,7 +6,7 @@ using MediatR;
 
 namespace CineFlex.Application.Features.Auth.CQRS.Handlers;
 
-public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, BaseCommandResponse<UserDto>>
+public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, BaseCommandResponse<LoginResponseDto>>
 {
     private readonly IAuthService _authService;
 
@@ -15,7 +15,7 @@ public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, B
         _authService = authService;
     }
 
-    public Task<BaseCommandResponse<UserDto>> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
+    public Task<BaseCommandResponse<LoginResponseDto>> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
     {
         return _authService.Register(request.RegisterUserDto, cancellationToken);
     }

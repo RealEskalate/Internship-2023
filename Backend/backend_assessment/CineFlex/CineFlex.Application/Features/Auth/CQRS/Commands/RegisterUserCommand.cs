@@ -4,7 +4,7 @@ using MediatR;
 
 namespace CineFlex.Application.Features.Auth.CQRS.Commands;
 
-public class RegisterUserCommand : IRequest<BaseCommandResponse<UserDto>>
+public class RegisterUserCommand : IRequest<BaseCommandResponse<LoginResponseDto>>
 {
     public RegisterUserDto RegisterUserDto { get; set; } = null!;
 }
