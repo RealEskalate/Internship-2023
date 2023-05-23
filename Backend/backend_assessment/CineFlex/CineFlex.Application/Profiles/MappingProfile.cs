@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using CineFlex.Application.Features.Movies.DTOs;
+using CineFlex.Application.Features.Seats.DTOs;
+
 using CineFlex.Application.Features.Cinema.DTO;
 using CineFlex.Application.Features.Cinema.Dtos;
 using CineFlex.Domain;
@@ -26,6 +28,15 @@ namespace CineFlex.Application.Profiles
             CreateMap<CinemaEntity, CreateCinemaDto>().ReverseMap();
             CreateMap<CinemaEntity, CinemaDto>().ReverseMap();
             CreateMap<CinemaEntity, UpdateCinemaDto>().ReverseMap();
+
+
+            #region Seats Mappings
+            CreateMap<Seat, SeatsDto>().ReverseMap();
+            CreateMap<Seat, CreateSeatsDto>().ReverseMap();
+            CreateMap<Seat, SeatsDetailDto>().ReverseMap();
+            CreateMap<Seat, UpdateSeatsDto>().ReverseMap();
+            CreateMap<Seat, SeatsListDto>().ReverseMap();
+            #endregion Seats
         }
     }
 }
