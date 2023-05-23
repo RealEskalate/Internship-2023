@@ -6,10 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CineFlex.Domain;
-public class Seat : BaseDomainEntity
+public class Book : BaseDomainEntity
 {
-    public int HorizontalDistanceFromScreenCenter { get; set; }
-    public int VerticalDistanceFromScreenCenter { get; set; }
+    public string ApplicationUserId { get; set; }
+    public int MovieId { get; set; }
     public int CinemaEntityId { get; set; }
+    public int SeatId { get; set; }
     public CinemaEntity CinemaEntity { get; set; }
+    public Movie Movie { get; set; }
+    public Seat Seat { get; set; }
 }

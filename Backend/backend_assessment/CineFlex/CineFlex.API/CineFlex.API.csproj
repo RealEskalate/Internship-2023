@@ -21,4 +21,8 @@
     <ProjectReference Include="..\CineFlex.Persistence\CineFlex.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Middlewares\" />
+  </ItemGroup>
+
 </Project>
