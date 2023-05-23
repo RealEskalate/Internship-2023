@@ -37,9 +37,22 @@ public class
                 Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList()
             };
 
-        // TODO: Check the seats are not hold
 
         var seats = await _unitOfWork.SeatRepository.GetSeatsWithId(request.CreateMovieBookingDto.SeatIds);
+        
+        // TODO: improve this performance and make it transactional
+        foreach (var seat in seats)
+        {
+            foreach (var booking in seat.MovieBookings)
+            {
+                if (booking.MovieId == request.CreateMovieBookingDto.MovieId)
+                    return new BaseCommandResponse<MovieBookingDto>()
+                    {
+                        Success = false,
+                        Message = $"Seat {seat.Id} is on hold."
+                    };
+            }
+        }
 
         var movieBooking = new Domain.MovieBooking()
         {
