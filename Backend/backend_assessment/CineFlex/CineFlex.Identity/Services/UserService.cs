@@ -37,6 +37,12 @@ public class UserService : IUserService
         return user != null;
     }
 
+    public async Task<bool> IsAdmin(string userId)
+    {
+        var user = await _userManager.FindByIdAsync(userId);
+        return await _userManager.IsInRoleAsync(user, "Admin");
+    }
+
 
     public async Task<List<User>> GetUsers()
     {

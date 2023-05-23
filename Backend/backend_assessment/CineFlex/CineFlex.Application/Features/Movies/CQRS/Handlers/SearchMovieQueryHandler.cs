@@ -31,7 +31,7 @@ namespace CineFlex.Application.Features.Movies.CQRS.Handlers
             var movies = await _unitOfWork.MovieRepository.GetAll();
 
             var filterd = movies
-                        .Where(m => m.Title.Contains(request.SearchString))
+                        .Where(m => m.Title.ToUpper().Contains(request.SearchString.ToUpper()))
                         .OrderBy(m => m.Title);
 
             response.Success = true;

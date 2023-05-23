@@ -63,9 +63,9 @@ namespace CineFlex.Application.Features.MovieBookings.CQRS.Handlers
                 _mapper.Map(request.MovieBookingDto, MovieBooking);
 
                 await _unitOfWork.MovieBookingRepository.Update(MovieBooking);
-                Seat.Available = true;
+                Seat.Available = false;
                 await _unitOfWork.SeatRepository.Update(Seat);
-                
+
                 if (await _unitOfWork.Save() > 0)
                 {
                     response.Success = true;
