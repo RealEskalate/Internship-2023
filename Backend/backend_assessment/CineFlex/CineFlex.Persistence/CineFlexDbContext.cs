@@ -48,11 +48,6 @@ public class CineFlexDbContext : IdentityDbContext<AppUser>
         // MovieBookings
         modelBuilder.Entity<MovieBooking>().HasKey(e => e.Id);
         modelBuilder.Entity<MovieBooking>()
-            .HasOne(e => e.Movie)
-            .WithMany()
-            .HasForeignKey(e => e.MovieId)
-            .IsRequired();
-        modelBuilder.Entity<MovieBooking>()
             .HasOne(e => e.Cinema)
             .WithMany()
             .HasForeignKey(e => e.CinemaId)
