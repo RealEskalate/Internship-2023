@@ -1,4 +1,5 @@
-﻿using CineFlex.Domain;
+﻿using CineFlex.Application.Features.Movies.DTOs;
+using CineFlex.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace CineFlex.Application.Contracts.Persistence
 {
     public interface IMovieRepository : IGenericRepository<Movie>
     {
-
+        Task<Booking> BookMovie(BookMovieDto movieDto);
     }
 }
+

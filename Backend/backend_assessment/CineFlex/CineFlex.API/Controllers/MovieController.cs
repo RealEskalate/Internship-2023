@@ -38,6 +38,13 @@ namespace CineFlex.API.Controllers
             return HandleResult(await _mediator.Send(command));
         }
 
+        [HttpPost("BookMovie")]
+        public async Task<IActionResult> Post([FromBody] BookMovieDto bookMovie)
+        {
+            var command = new BookMovieCommand { BookMovieDto = bookMovie };
+            return HandleResult(await _mediator.Send(command));
+        }
+
         [HttpPut]
         public async Task<IActionResult> Put([FromBody] UpdateMovieDto movieDto)
         {
