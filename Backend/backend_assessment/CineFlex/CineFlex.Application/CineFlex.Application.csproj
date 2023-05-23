@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -18,8 +18,5 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CineFlex.Domain\CineFlex.Domain.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Contracts\Identity\" />
   </ItemGroup>
 </Project>

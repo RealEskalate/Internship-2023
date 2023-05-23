@@ -23,6 +23,21 @@ namespace CineFlex.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(CineFlexDbContex).Assembly);
+
+            modelBuilder.Entity<Booking>()
+            .HasOne(b => b.Cinema)
+            .WithMany()
+            .HasForeignKey(b => b.Id);
+
+            modelBuilder.Entity<Booking>()
+                .HasOne(b => b.Movie)
+                .WithMany()
+                .HasForeignKey(b => b.Id);
+
+            modelBuilder.Entity<Booking>()
+                .HasMany(b => b.Seats)
+                .WithOne()
+                .HasForeignKey(s => s.Id);
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
@@ -43,6 +58,8 @@ namespace CineFlex.Persistence
         public DbSet<CinemaEntity> Cinemas { get; set; }
 
         public DbSet<Movie> Movies { get; set; }
+
+        public DbSet<Booking> Bookings { get; set; }
 
         public DbSet<Seat> Seats { get; set; }
 

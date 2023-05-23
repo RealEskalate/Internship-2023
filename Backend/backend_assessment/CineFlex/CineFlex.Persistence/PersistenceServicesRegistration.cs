@@ -21,6 +21,7 @@ namespace CineFlex.Persistence
             services.AddScoped<ICinemaRepository, CinemaRepository>();
             services.AddScoped<IMovieRepository, MovieRepository>();
             services.AddScoped<ISeatRepository, SeatRepository>();
+            services.AddScoped<IBookingRepository, BookingRepository>();
             return services;
         }
     }

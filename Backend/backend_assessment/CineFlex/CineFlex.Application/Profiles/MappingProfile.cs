@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CineFlex.Application.Features.Seat.DTOs;
 using CineFlex.Application.Features.Common;
+using CineFlex.Application.Features.Booking.DTOs;
 
 namespace CineFlex.Application.Profiles
 {
@@ -33,6 +34,10 @@ namespace CineFlex.Application.Profiles
             CreateMap<Seat, DeleteSeatDto>().ReverseMap();
             CreateMap<Seat, CreateSeatDto>().ReverseMap();
             CreateMap<Seat, UpdateSeatDto>().ReverseMap();
+
+            CreateMap<Booking, CreateBookingDto>().ReverseMap();
+
+
         }
     }
 }

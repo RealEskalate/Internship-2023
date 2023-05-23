@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
@@ -16,5 +16,6 @@
     <ProjectReference Include="..\CineFlex.Application\CineFlex.Application.csproj" />
     <ProjectReference Include="..\CineFlex.Domain\CineFlex.Domain.csproj" />
     <ProjectReference Include="..\CineFlex.Persistence\CineFlex.Persistence.csproj" />
+    <ProjectReference Include="..\CineFlex.Identity\CineFlex.Identity.csproj" />
   </ItemGroup>
 </Project>

@@ -46,11 +46,11 @@ namespace CineFlex.API.Controllers
             return HandleResult(await _mediator.Send(command));
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> Delete([FromBody] DeleteSeatDto deleteSeatDto)
-        {
-            var command = new DeleteSeatCommand { deleteSeatDto = deleteSeatDto };
-            return HandleResult(await _mediator.Send(command));
-        }
+        // [HttpDelete]
+        // public async Task<IActionResult> Delete([FromBody] DeleteSeatDto deleteSeatDto)
+        // {
+        //     var command = new DeleteSeatCommand{ deleteSeatDto = deleteSeatDto };
+        //     return HandleResult(await _mediator.Send(command));
+        // }
     }
 }
