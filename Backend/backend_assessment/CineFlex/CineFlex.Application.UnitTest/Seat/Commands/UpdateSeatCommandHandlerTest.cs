@@ -14,8 +14,8 @@ namespace CineFlex.Application.UnitTest.Seat.Commands;
 
 public class UpdateSeatCommandHandlerTest
 {
-    private readonly Mock<IUnitOfWork> _mockUnitOfWork;
     private readonly Mock<IMapper> _mockMapper;
+    private readonly Mock<IUnitOfWork> _mockUnitOfWork;
 
     public UpdateSeatCommandHandlerTest()
     {

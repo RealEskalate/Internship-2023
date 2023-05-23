@@ -1,4 +1,3 @@
-using System.Data;
 using CineFlex.Application.Contracts.Persistence;
 using FluentValidation;
 
@@ -22,10 +21,8 @@ public class CreateMovieBookingDtoValidation : AbstractValidator<CreateMovieBook
         RuleFor(dto => dto.SeatIds).NotEmpty().WithMessage("SeatIds required").MustAsync(async (ids, token) =>
             {
                 foreach (var id in ids)
-                {
                     if (!await unitOfWork.SeatRepository.Exists(id))
                         return false;
-                }
 
                 return true;
             }

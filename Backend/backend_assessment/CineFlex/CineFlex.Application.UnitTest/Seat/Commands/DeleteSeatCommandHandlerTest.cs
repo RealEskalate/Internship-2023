@@ -3,19 +3,16 @@ using CineFlex.Application.Contracts.Persistence;
 using CineFlex.Application.Features.Seats.CQRS.Commands;
 using CineFlex.Application.Features.Seats.CQRS.Handlers;
 using CineFlex.Application.Responses;
-using CineFlex.Domain;
 using FluentAssertions;
 using Moq;
-using System.Threading;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace CineFlex.Application.UnitTest.Seat.Commands;
 
 public class DeleteSeatCommandHandlerTests
 {
-    private readonly Mock<IUnitOfWork> _mockUnitOfWork;
     private readonly Mock<IMapper> _mockMapper;
+    private readonly Mock<IUnitOfWork> _mockUnitOfWork;
 
     public DeleteSeatCommandHandlerTests()
     {

@@ -19,14 +19,14 @@ public class AuthController : BaseApiController
     [HttpPost("login")]
     public async Task<ActionResult> Login([FromBody] LoginUserDto loginDto)
     {
-        var command = new LoginUserCommand() { LoginUserDto = loginDto };
+        var command = new LoginUserCommand { LoginUserDto = loginDto };
         return HandleResult(await _mediator.Send(command));
     }
 
     [HttpPost("register")]
     public async Task<ActionResult> Register([FromBody] RegisterUserDto registerDto)
     {
-        var command = new RegisterUserCommand() { RegisterUserDto = registerDto };
+        var command = new RegisterUserCommand { RegisterUserDto = registerDto };
         return HandleResult(await _mediator.Send(command));
     }
 }

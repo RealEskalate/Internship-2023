@@ -13,8 +13,8 @@ namespace CineFlex.Application.UnitTest.Seat.Commands;
 
 public class CreateSeatCommandHandlerTests
 {
-    private readonly Mock<IUnitOfWork> _mockUnitOfWork;
     private readonly Mock<IMapper> _mockMapper;
+    private readonly Mock<IUnitOfWork> _mockUnitOfWork;
 
     public CreateSeatCommandHandlerTests()
     {
@@ -28,7 +28,7 @@ public class CreateSeatCommandHandlerTests
         // Arrange
         var command = new CreateSeatCommand
         {
-            CreateSeatDto = new CreateSeatDto()
+            CreateSeatDto = new CreateSeatDto
             {
                 CinemaId = 1,
                 Name = "A00"

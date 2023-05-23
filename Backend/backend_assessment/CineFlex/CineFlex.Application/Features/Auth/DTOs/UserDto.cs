@@ -10,7 +10,7 @@ public class UserDto
 
     public static UserDto FromUser(AppUser user)
     {
-        return new UserDto()
+        return new UserDto
         {
             Id = user.Id,
             UserName = user.UserName,

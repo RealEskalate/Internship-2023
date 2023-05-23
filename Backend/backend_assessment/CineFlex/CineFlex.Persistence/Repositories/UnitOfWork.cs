@@ -1,73 +1,72 @@
 ﻿using CineFlex.Application.Contracts.Persistence;
 
-namespace CineFlex.Persistence.Repositories
+namespace CineFlex.Persistence.Repositories;
+
+public class UnitOfWork : IUnitOfWork
 {
-    public class UnitOfWork : IUnitOfWork
+    private readonly CineFlexDbContext _context;
+
+    private ICinemaRepository? _cinemaRepository;
+    private IMovieBookingRepository? _movieBookingRepository;
+    private IMovieRepository? _MovieRepository;
+    private ISeatRepository? _seatRepository;
+
+
+    public UnitOfWork(CineFlexDbContext context)
     {
-        private readonly CineFlexDbContext _context;
-        private IMovieRepository? _MovieRepository;
+        _context = context;
+    }
 
-        private ICinemaRepository? _cinemaRepository;
-        private ISeatRepository? _seatRepository;
-        private IMovieBookingRepository? _movieBookingRepository;
-
-
-        public UnitOfWork(CineFlexDbContext context)
+    public IMovieRepository MovieRepository
+    {
+        get
         {
-            _context = context;
+            if (_MovieRepository == null)
+                _MovieRepository = new MovieRepository(_context);
+            return _MovieRepository;
         }
+    }
 
-        public IMovieRepository MovieRepository
+    public ICinemaRepository CinemaRepository
+    {
+        get
         {
-            get
-            {
-                if (_MovieRepository == null)
-                    _MovieRepository = new MovieRepository(_context);
-                return _MovieRepository;
-            }
+            if (_cinemaRepository == null)
+                _cinemaRepository = new CinemaRepository(_context);
+            return _cinemaRepository;
         }
+    }
 
-        public ICinemaRepository CinemaRepository
+    public ISeatRepository SeatRepository
+    {
+        get
         {
-            get
-            {
-                if (_cinemaRepository == null)
-                    _cinemaRepository = new CinemaRepository(_context);
-                return _cinemaRepository;
-            }
+            if (_seatRepository == null)
+                _seatRepository = new SeatRepository(_context);
+            return _seatRepository;
         }
+    }
 
-        public ISeatRepository SeatRepository
+    public IMovieBookingRepository MovieBookingRepository
+    {
+        get
         {
-            get
-            {
-                if (_seatRepository == null)
-                    _seatRepository = new SeatRepository(_context);
-                return _seatRepository;
-            }
+            if (_movieBookingRepository == null)
+                _movieBookingRepository = new MovieBookingRepository(_context);
+
+            return _movieBookingRepository;
         }
-
-        public IMovieBookingRepository MovieBookingRepository
-        {
-            get
-            {
-                if (_movieBookingRepository == null)
-                    _movieBookingRepository = new MovieBookingRepository(_context);
-
-                return _movieBookingRepository;
-            }
-        }
+    }
 
 
-        public void Dispose()
-        {
-            _context.Dispose();
-            GC.SuppressFinalize(this);
-        }
+    public void Dispose()
+    {
+        _context.Dispose();
+        GC.SuppressFinalize(this);
+    }
 
-        public async Task<int> Save()
-        {
-            return await _context.SaveChangesAsync();
-        }
+    public async Task<int> Save()
+    {
+        return await _context.SaveChangesAsync();
     }
 }

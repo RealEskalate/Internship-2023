@@ -9,8 +9,8 @@ namespace CineFlex.Application.Features.Seats.CQRS.Handlers;
 
 public class UpdateSeatCommandHandler : IRequestHandler<UpdateSeatCommand, BaseCommandResponse<Unit>>
 {
-    private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
+    private readonly IUnitOfWork _unitOfWork;
 
     public UpdateSeatCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
     {
@@ -25,7 +25,7 @@ public class UpdateSeatCommandHandler : IRequestHandler<UpdateSeatCommand, BaseC
                 cancellationToken);
 
         if (!validationResult.IsValid)
-            return new BaseCommandResponse<Unit>()
+            return new BaseCommandResponse<Unit>
             {
                 Success = false,
                 Message = "Seat Update Failed",
@@ -39,13 +39,13 @@ public class UpdateSeatCommandHandler : IRequestHandler<UpdateSeatCommand, BaseC
         await _unitOfWork.SeatRepository.Update(seat);
 
         if (await _unitOfWork.Save() > 0)
-            return new BaseCommandResponse<Unit>()
+            return new BaseCommandResponse<Unit>
             {
                 Success = true,
                 Message = "Seat updated successfully."
             };
 
-        return new BaseCommandResponse<Unit>()
+        return new BaseCommandResponse<Unit>
         {
             Success = false,
             Message = "Seat update failed."

@@ -1,4 +1,3 @@
-using System.Data;
 using FluentValidation;
 
 namespace CineFlex.Application.Features.Auth.DTOs.Validators;

@@ -8,8 +8,8 @@ namespace CineFlex.Application.Features.Seats.CQRS.Handlers;
 
 public class DeleteSeatCommandHandler : IRequestHandler<DeleteSeatCommand, BaseCommandResponse<int>>
 {
-    private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
+    private readonly IUnitOfWork _unitOfWork;
 
     public DeleteSeatCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
     {
@@ -22,7 +22,7 @@ public class DeleteSeatCommandHandler : IRequestHandler<DeleteSeatCommand, BaseC
         var seat = await _unitOfWork.SeatRepository.Get(request.Id);
 
         if (seat == null)
-            return new BaseCommandResponse<int>()
+            return new BaseCommandResponse<int>
             {
                 Success = false,
                 Message = "Seat does not exist."
@@ -31,14 +31,14 @@ public class DeleteSeatCommandHandler : IRequestHandler<DeleteSeatCommand, BaseC
         await _unitOfWork.SeatRepository.Delete(seat);
 
         if (await _unitOfWork.Save() > 0)
-            return new BaseCommandResponse<int>()
+            return new BaseCommandResponse<int>
             {
                 Success = true,
                 Message = "Seat deleted successfully.",
                 Value = seat.Id
             };
 
-        return new BaseCommandResponse<int>()
+        return new BaseCommandResponse<int>
         {
             Success = false,
             Message = "Seat deletion failed."

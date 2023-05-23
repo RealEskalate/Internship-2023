@@ -13,8 +13,8 @@ namespace CineFlex.Application.UnitTest.Seat.Queries;
 
 public class GetSeatsByCinemaQueryHandlerTests
 {
-    private readonly Mock<IUnitOfWork> _mockUnitOfWork;
     private readonly Mock<IMapper> _mockMapper;
+    private readonly Mock<IUnitOfWork> _mockUnitOfWork;
 
     public GetSeatsByCinemaQueryHandlerTests()
     {
@@ -30,7 +30,7 @@ public class GetSeatsByCinemaQueryHandlerTests
 
         var handler = new GetSeatsByCinemaQueryHandler(_mockUnitOfWork.Object, _mockMapper.Object);
 
-        var existingCinema = new CinemaEntity() { Id = 1 };
+        var existingCinema = new CinemaEntity { Id = 1 };
 
         var seats = new List<Domain.Seat>
         {
@@ -44,9 +44,9 @@ public class GetSeatsByCinemaQueryHandlerTests
         _mockMapper.Setup(m => m.Map<List<SeatDto>>(seats)).Returns(
             new List<SeatDto>
             {
-                new SeatDto { Id = 1 },
-                new SeatDto { Id = 2 },
-                new SeatDto { Id = 3 }
+                new() { Id = 1 },
+                new() { Id = 2 },
+                new() { Id = 3 }
             });
 
         // Act

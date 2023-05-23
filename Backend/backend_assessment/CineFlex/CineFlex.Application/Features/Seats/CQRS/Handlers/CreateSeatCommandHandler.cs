@@ -10,8 +10,8 @@ namespace CineFlex.Application.Features.Seats.CQRS.Handlers;
 
 public class CreateSeatCommandHandler : IRequestHandler<CreateSeatCommand, BaseCommandResponse<int>>
 {
-    private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
+    private readonly IUnitOfWork _unitOfWork;
 
     public CreateSeatCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
     {

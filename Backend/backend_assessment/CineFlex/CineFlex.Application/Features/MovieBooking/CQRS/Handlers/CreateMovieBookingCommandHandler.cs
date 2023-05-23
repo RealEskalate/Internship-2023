@@ -13,8 +13,8 @@ public class
     CreateMovieBookingCommandHandler : IRequestHandler<CreateMovieBookingCommand,
         BaseCommandResponse<MovieBookingDto>>
 {
-    private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
+    private readonly IUnitOfWork _unitOfWork;
 
     public CreateMovieBookingCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
     {
@@ -30,7 +30,7 @@ public class
                 cancellationToken);
 
         if (!validationResult.IsValid)
-            return new BaseCommandResponse<MovieBookingDto>()
+            return new BaseCommandResponse<MovieBookingDto>
             {
                 Success = false,
                 Message = "Validation error.",
@@ -44,13 +44,13 @@ public class
             request.CreateMovieBookingDto.MovieId, request.CreateMovieBookingDto.CinemaId);
 
         if (seatOnHold != null)
-            return new BaseCommandResponse<MovieBookingDto>()
+            return new BaseCommandResponse<MovieBookingDto>
             {
                 Success = false,
                 Message = $"Seat {seatOnHold} is on hold."
             };
 
-        var movieBooking = new Domain.MovieBooking()
+        var movieBooking = new Domain.MovieBooking
         {
             CinemaId = request.CreateMovieBookingDto.CinemaId,
             MovieId = request.CreateMovieBookingDto.MovieId,
@@ -58,21 +58,18 @@ public class
             UserId = request.UserId
         };
 
-        foreach (var seat in seats)
-        {
-            movieBooking.Seats.Add(seat);
-        }
+        foreach (var seat in seats) movieBooking.Seats.Add(seat);
 
         movieBooking = await _unitOfWork.MovieBookingRepository.Add(movieBooking);
 
         if (await _unitOfWork.Save() > 0)
-            return new BaseCommandResponse<MovieBookingDto>()
+            return new BaseCommandResponse<MovieBookingDto>
             {
                 Success = true,
                 Value = _mapper.Map<MovieBookingDto>(movieBooking)
             };
 
-        return new BaseCommandResponse<MovieBookingDto>()
+        return new BaseCommandResponse<MovieBookingDto>
         {
             Success = false,
             Message = "Movie booking failed"

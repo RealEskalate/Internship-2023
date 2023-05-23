@@ -41,7 +41,7 @@ public class SeatController : BaseApiController
     [HttpGet]
     public async Task<IActionResult> Get(int cinemaId)
     {
-        var command = new GetSeatsByCinemaQuery() { CinemaId = cinemaId };
+        var command = new GetSeatsByCinemaQuery { CinemaId = cinemaId };
         return HandleResult(await _mediator.Send(command));
     }
 }

@@ -1,5 +1,4 @@
 using CineFlex.Domain.Common;
-using Microsoft.EntityFrameworkCore;
 
 namespace CineFlex.Domain;
 
@@ -11,5 +10,5 @@ public class MovieBooking : BaseDomainEntity
     public CinemaEntity Cinema { get; set; } = null!;
     public string UserId { get; set; } = null!;
     public AppUser User { get; set; } = null!;
-    public List<Seat> Seats { get; set; } = new List<Seat>();
+    public List<Seat> Seats { get; set; } = new();
 }

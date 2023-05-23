@@ -9,8 +9,8 @@ namespace CineFlex.Application.Features.Seats.CQRS.Handlers;
 
 public class GetSeatsByCinemaQueryHandler : IRequestHandler<GetSeatsByCinemaQuery, BaseCommandResponse<List<SeatDto>>>
 {
-    private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
+    private readonly IUnitOfWork _unitOfWork;
 
     public GetSeatsByCinemaQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
     {
@@ -23,7 +23,7 @@ public class GetSeatsByCinemaQueryHandler : IRequestHandler<GetSeatsByCinemaQuer
     {
         var cinema = await _unitOfWork.CinemaRepository.Get(request.CinemaId);
         if (cinema == null)
-            return new BaseCommandResponse<List<SeatDto>>()
+            return new BaseCommandResponse<List<SeatDto>>
             {
                 Success = false,
                 Message = "Cinema does not exist."
@@ -31,7 +31,7 @@ public class GetSeatsByCinemaQueryHandler : IRequestHandler<GetSeatsByCinemaQuer
 
         var seats = (await _unitOfWork.SeatRepository.GetByCinemaId(request.CinemaId)).ToList();
 
-        return new BaseCommandResponse<List<SeatDto>>()
+        return new BaseCommandResponse<List<SeatDto>>
         {
             Success = true,
             Message = "Seats retrieved successfully.",

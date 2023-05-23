@@ -39,9 +39,9 @@ public class JwtFactory : IJwtFactory
         var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
 
         var jwtSecurityToken = new JwtSecurityToken(
-            issuer: _jwtSettings.Issuer,
-            audience: _jwtSettings.Audience,
-            claims: claims,
+            _jwtSettings.Issuer,
+            _jwtSettings.Audience,
+            claims,
             expires: DateTime.UtcNow.AddMinutes(_jwtSettings.DurationInMinutes),
             signingCredentials: signingCredentials);
         return jwtSecurityToken;

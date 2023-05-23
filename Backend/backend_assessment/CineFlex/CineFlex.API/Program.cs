@@ -42,10 +42,7 @@ builder.Services.AddCors(o =>
 var app = builder.Build();
 
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseDeveloperExceptionPage();
-}
+if (app.Environment.IsDevelopment()) app.UseDeveloperExceptionPage();
 
 
 app.UseCors("CorsPolicy");
@@ -68,7 +65,7 @@ void AddSwaggerDoc(IServiceCollection services)
         c.SwaggerDoc("v1", new OpenApiInfo
         {
             Version = "v1",
-            Title = "CineFlex Api",
+            Title = "CineFlex Api"
         });
     });
 }
