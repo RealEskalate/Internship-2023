@@ -1,17 +1,13 @@
 import { LoadingSpinner } from '@/components/common/LoadingSpinner'
 import { Pagination } from '@/components/common/Pagination'
 import DoctorCard from '@/components/doctor/DoctorCard'
-import { useGetDoctorsQuery } from '@/store/doctors/doctors-api'
+import { useGetAllDoctorsQuery } from '@/store/doctors/doctors-api'
 
 const HomeScreen = () => {
-  const { data, isSuccess, isLoading, isError, error } = useGetDoctorsQuery()
+  const { data, isSuccess, isLoading, isError, error } = useGetAllDoctorsQuery()
 
   if (isLoading) {
     return <LoadingSpinner />
-  }
-
-  if (isError) {
-    return <div>{error.toString()}</div>
   }
 
   if (isSuccess) {
@@ -31,7 +27,7 @@ const HomeScreen = () => {
     </div>
   }
 
-  return <div>hello home</div>
+  return <div>{isError ? error.toString() : "Unknown Error"}</div>
 }
 
 export default HomeScreen;

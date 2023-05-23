@@ -6,6 +6,7 @@ export interface DoctorResponse {
 }
 
 export interface Doctor {
+  _id: string;
   fullName: string;
   photo: string;
   speciality: Speciality[];

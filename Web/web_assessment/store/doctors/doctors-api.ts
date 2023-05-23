@@ -1,20 +1,22 @@
-import { DoctorResponse } from '@/types/doctor';
+import { DoctorResponse, Doctor } from '@/types/doctor';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const BASE_URL = 'https://hakimhub-api-dev-wtupbmwpnq-uc.a.run.app/api/v1/search';
+const BASE_URL = 'https://hakimhub-api-dev-wtupbmwpnq-uc.a.run.app/api/v1';
 
 export const doctorsApi = createApi({
   reducerPath: 'doctorsApi',
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
   endpoints: (builder) => ({
-    getDoctors: builder.query<DoctorResponse, void>({
-      // query: () => '?institutions=false&articles=False',
+    getAllDoctors: builder.query<DoctorResponse, void>({
       query: () => ({
-        url: '?institutions=false&articles=False',
+        url: '/search?institutions=false&articles=False',
         method: 'POST'
       }),
+    }),
+    getDoctorById: builder.query<Doctor, string>({
+      query: (id) => `/users/doctorProfile/${id}`,
     }),
   }),
 });
 
-export const { useGetDoctorsQuery } = doctorsApi;
+export const { useGetAllDoctorsQuery, useGetDoctorByIdQuery } = doctorsApi;
