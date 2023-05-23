@@ -1,4 +1,6 @@
-class WeatherData {
+import 'package:mobile_assessement/domain/Entity/weather_entity.dart';
+
+class WeatherData extends WeatherEntity{
   final String city;
   final String observationTime;
   final double tempC;
@@ -45,7 +47,30 @@ class WeatherData {
     required this.feelsLikeC,
     required this.feelsLikeF,
     required this.uvIndex,
-  });
+  }):super(
+    city: city,
+  observationTime: observationTime,
+  tempC: tempC,
+  tempF: tempF,
+  weatherCode: weatherCode,
+  weatherIconUrl: weatherIconUrl,
+  weatherDesc: weatherDesc,
+  windspeedMiles: windspeedMiles,
+  windspeedKmph: windspeedKmph,
+  winddirDegree: winddirDegree,
+  winddir16Point: winddir16Point,
+  precipMM: precipMM,
+  precipInches: precipInches,
+  humidity: humidity,
+  visibility: visibility,
+  visibilityMiles: visibilityMiles,
+  pressure: pressure,
+  pressureInches: pressureInches,
+  cloudcover: cloudcover,
+  feelsLikeC: feelsLikeC,
+  feelsLikeF: feelsLikeF,
+  uvIndex: uvIndex,
+  );
 
   factory WeatherData.fromJson(Map<String, dynamic> json) {
     return WeatherData(
