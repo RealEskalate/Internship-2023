@@ -21,6 +21,7 @@ class WeatherModel extends Weather {
             image: '');
 
   factory WeatherModel.fromJson(Map<String, dynamic> json) {
+    print(json);
     return WeatherModel(
       cityName: json["cityName"],
       date: json["date"],
