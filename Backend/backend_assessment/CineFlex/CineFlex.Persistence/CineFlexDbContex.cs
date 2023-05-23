@@ -1,17 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
 using CineFlex.Domain.Common;
 using CineFlex.Domain;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace CineFlex.Persistence
 {
-    public class CineFlexDbContex: DbContext
+    public class CineFlexDbContex: IdentityDbContext<AppUser>
     {
         public CineFlexDbContex(DbContextOptions<CineFlexDbContex> options)
            : base(options)
@@ -23,6 +18,19 @@ namespace CineFlex.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(CineFlexDbContex).Assembly);
+/*
+            modelBuilder.Entity<Seat>()
+                    .HasKey(seat => new { seat.SeatNo, seat.Cinema.Id});*/
+
+            modelBuilder.Entity<AppUser>(entity =>
+            {
+                entity.Ignore(u => u.PhoneNumber);
+                entity.Ignore(u => u.PhoneNumberConfirmed);
+                entity.Ignore(u => u.TwoFactorEnabled);
+                entity.Ignore(u => u.LockoutEnabled);
+                entity.Ignore(u => u.LockoutEnd);
+            });
+            base.OnModelCreating(modelBuilder);
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
@@ -44,5 +52,8 @@ namespace CineFlex.Persistence
 
         public DbSet<Movie> Movies { get; set; }
 
+        public DbSet<Seat> Seats { get; set; }
+
+        public DbSet<Booking> Bookings { get; set; }
     }
 }
