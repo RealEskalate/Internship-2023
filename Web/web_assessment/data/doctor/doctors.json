@@ -1,0 +1,1734 @@
+[
+  {
+    "_id": "62b959bf23006348f0f44b53",
+    "phoneNumbers": [],
+    "emails": [],
+    "photo": "https://res.cloudinary.com/hakimhub/image/upload/v1656314302/POP_DATA_DOC/Addis_Cardiac_Hospital_0.jpg",
+    "summary": "",
+    "speciality": [
+      {
+        "_id": "62b5bcbaf8915020c8ed9d72",
+        "isSubspeciality": false,
+        "name": "Cardiologist",
+        "lang": {
+          "am": {
+            "name": "የ ልብ ሃኪም",
+            "description": ""
+          }
+        }
+      }
+    ],
+    "experience_years": 0,
+    "institutionID_list": [
+      {
+        "_id": "629f129c8373fd1bef2db501",
+        "institutionName": "Addis Cardiac Hospital",
+        "lang": {
+          "am": {
+            "institutionName": "አዲስ የልብ ህክምና ሆስፒታል",
+            "summary": "አዲስ የልብ ሆስፒታል በቦሌ ክ/ከተማ በኢትዮጵያ አየር መንገድ የካርጎ ተርሚናል ፊት ለፊት በሚገኘው በኢትዮጲያ የመጀመሪያው ልዩ የልብና የደም ህክምና ሆስፒታል በመሆኑ ኩራት ይሰማዋል። በ2006 ኤሲኤች የሆስፒታል አገልግሎትን ተቀላቅሎ ዘመናዊ እና የላቀ ምርመራ እና የልብ እና ተያያዥ በሽታዎች ህክምና ዘዴዎችን ለመስጠት።\r\n\r\nልዩ የጤና አጠባበቅ አገልግሎቶችን አገልግሎታችንን ለሚፈልጉ ሁሉ ለማድረስ በሆስፒታል ንግድ ውስጥ ነን። ሰራተኞቻችን ሰፋ ያለ የጤና እንክብካቤ አገልግሎቶችን ለማስተናገድ በደንብ የሰለጠኑ እና ብቁ ናቸው። በሚሊዮኖች የሚቆጠሩ ኢንቨስት በማድረግ፣ ACH ራሱን የላቀ ካት ላብራቶሪ እና ሌሎች የቅርብ ጊዜ የህክምና መሳሪያዎችን አስታጥቋል።\r\n\r\nሁሉም ታካሚዎቻችን ሆስፒታላችንን ሲጎበኙ የመጀመሪያ ደረጃ ህክምና እንዲያገኙ እየሰራን ነው። አዲስ የሆስፒታል አስተዳደር ስርዓት (ኤችአርኤም) ተክለናል ይህም ሁሉንም ስራዎችን በየደረጃው ቅልጥፍናን በአግባቡ እንድንቆጣጠር ያስችለናል ።ኤሲኤች በኢትዮጵያ እና በስዊድን ባለአክሲዮኖች ባለቤትነት የተያዘ ሲሆን ከባለድርሻዎቹ አንዱ እና የቦርድ ሰብሳቢ ዶ/ር ፍቁ ማሩ ከፍተኛ ብቃት ያለው የልብ ሐኪም በስዊድን ተምሮ ከ20 አመት በላይ በልብ ሐኪምነት ሰርቷል።",
+            "address": {
+              "region": "አዲስ አበባ",
+              "summary": "ቦሌ ክ/ከተማ አዲስ አበባ ኤርፖርት ጭነት ፊት ለፊት",
+              "woreda": "01",
+              "zone": "01"
+            },
+            "institutionName_fuzzy": [
+              "አዲስ",
+              "የልብ",
+              "ህክም",
+              "ህክምና",
+              "ሆስፒ",
+              "ሆስፒታ",
+              "ሆስፒታል",
+              "አዲስ የልብ ህክምና ሆስፒታል"
+            ]
+          }
+        }
+      }
+    ],
+    "gender": "Male",
+    "languages": ["Amharic", "English"],
+    "birthday": "1995-12-17T00:24:00.000Z",
+    "otherDocuments": [],
+    "experience": [],
+    "fullName": "Dr.Mussie Abera",
+    "mainInstitution": {
+      "_id": "629f129c8373fd1bef2db501",
+      "availability": {
+        "twentyFourHours": true,
+        "startDay": "0Monday",
+        "endDay": "6Sunday",
+        "opening": "00:00",
+        "closing": "23:59"
+      },
+      "services": [
+        {
+          "_id": "629f11868373fd1bef2db415",
+          "title": "Laboratory",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ላብራቶሪ",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db417",
+          "title": "Angioplasty Percutaneous Coronary Intervention (PCI)",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "የ ልብ ትቦ ጥበት የ ማስፋት ሂደት",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db41b",
+          "title": "Cardiology",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "አጠቃላይ የ ልብ ህክምና",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db429",
+          "title": "Diagnostic Coronary Angiography",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ኮሮናሪ አንጂኦግራፊ ምርመራ",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db42b",
+          "title": "Echocardiography",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "የ ልብ አልትራሳውንድ",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db437",
+          "title": "Intensive Coronary Care Unit",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "የ ልብ ጽኑ ህሙማን ክትትል"
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db442",
+          "title": "Open Heart surgery",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "የ ልብ ቅዶ ህክምና",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db44c",
+          "title": "Pharmacy",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "መድሃኒት ቤት",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db44f",
+          "title": "X-Ray",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ኤክስ ረይ",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db457",
+          "title": "Surgery",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ቀዶ ህክምና",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db460",
+          "title": "Ultrasound",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ኣልትራሳውንድ",
+              "description": ""
+            }
+          }
+        }
+      ],
+      "institutionName": "Addis Cardiac Hospital",
+      "summary": "Addis Cardiac Hospital takes pride in being the first specialized cardiovascular hospital in Ethiopia, located at Bole Sub City in front of Ethiopian Airlines Cargo terminal. ACH joined the Hospital service in 2006 to provide modern and advanced investigations and treatment modalities for cardiac and related disease.\n\nWe are in the hospital business to deliver exceptional healthcare services to all those who will require our services. Our employees are well trained and qualified to handle the wide range of health care services. By investing millions, ACH has equipped itself with an advanced Cath lab and other latest medical equipment.\n\nWe are working to ensure that all our patients are given first class treatment whenever they visit our hospital. We have installed a new Hospital Management System (HRM) that will enable us to properly manage all activities increasing efficiency at all levels.ACH is owned by Ethiopian and Swedish shareholders, with one of its shareholder and Board chairman being Dr. Firku Maru, a highly qualified cardiologist educated and trained in Sweden with 20 plus years of working as a cardiologist.",
+      "lang": {
+        "am": {
+          "institutionName": "አዲስ የልብ ህክምና ሆስፒታል",
+          "summary": "አዲስ የልብ ሆስፒታል በቦሌ ክ/ከተማ በኢትዮጵያ አየር መንገድ የካርጎ ተርሚናል ፊት ለፊት በሚገኘው በኢትዮጲያ የመጀመሪያው ልዩ የልብና የደም ህክምና ሆስፒታል በመሆኑ ኩራት ይሰማዋል። በ2006 ኤሲኤች የሆስፒታል አገልግሎትን ተቀላቅሎ ዘመናዊ እና የላቀ ምርመራ እና የልብ እና ተያያዥ በሽታዎች ህክምና ዘዴዎችን ለመስጠት።\r\n\r\nልዩ የጤና አጠባበቅ አገልግሎቶችን አገልግሎታችንን ለሚፈልጉ ሁሉ ለማድረስ በሆስፒታል ንግድ ውስጥ ነን። ሰራተኞቻችን ሰፋ ያለ የጤና እንክብካቤ አገልግሎቶችን ለማስተናገድ በደንብ የሰለጠኑ እና ብቁ ናቸው። በሚሊዮኖች የሚቆጠሩ ኢንቨስት በማድረግ፣ ACH ራሱን የላቀ ካት ላብራቶሪ እና ሌሎች የቅርብ ጊዜ የህክምና መሳሪያዎችን አስታጥቋል።\r\n\r\nሁሉም ታካሚዎቻችን ሆስፒታላችንን ሲጎበኙ የመጀመሪያ ደረጃ ህክምና እንዲያገኙ እየሰራን ነው። አዲስ የሆስፒታል አስተዳደር ስርዓት (ኤችአርኤም) ተክለናል ይህም ሁሉንም ስራዎችን በየደረጃው ቅልጥፍናን በአግባቡ እንድንቆጣጠር ያስችለናል ።ኤሲኤች በኢትዮጵያ እና በስዊድን ባለአክሲዮኖች ባለቤትነት የተያዘ ሲሆን ከባለድርሻዎቹ አንዱ እና የቦርድ ሰብሳቢ ዶ/ር ፍቁ ማሩ ከፍተኛ ብቃት ያለው የልብ ሐኪም በስዊድን ተምሮ ከ20 አመት በላይ በልብ ሐኪምነት ሰርቷል።",
+          "address": {
+            "region": "አዲስ አበባ",
+            "summary": "ቦሌ ክ/ከተማ አዲስ አበባ ኤርፖርት ጭነት ፊት ለፊት",
+            "woreda": "01",
+            "zone": "01"
+          },
+          "institutionName_fuzzy": [
+            "አዲስ",
+            "የልብ",
+            "ህክም",
+            "ህክምና",
+            "ሆስፒ",
+            "ሆስፒታ",
+            "ሆስፒታል",
+            "አዲስ የልብ ህክምና ሆስፒታል"
+          ]
+        }
+      }
+    },
+    "education": [],
+    "availablity": [],
+    "__v": 1,
+    "fullName_fuzzy": [
+      "drm",
+      "drmu",
+      "drmus",
+      "drmuss",
+      "drmussi",
+      "drmussie",
+      "abe",
+      "aber",
+      "abera",
+      "dr.mussie abera"
+    ],
+    "source": "doctors",
+    "score": 1
+  },
+  {
+    "_id": "62b959c223006348f0f44b58",
+    "phoneNumbers": [],
+    "emails": [],
+    "photo": "https://res.cloudinary.com/hakimhub/image/upload/v1656314305/POP_DATA_DOC/Addis_Cardiac_Hospital_1.jpg",
+    "summary": "",
+    "speciality": [
+      {
+        "_id": "62b5bcbaf8915020c8ed9d72",
+        "isSubspeciality": false,
+        "name": "Cardiologist",
+        "lang": {
+          "am": {
+            "name": "የ ልብ ሃኪም",
+            "description": ""
+          }
+        }
+      }
+    ],
+    "experience_years": 0,
+    "institutionID_list": [
+      {
+        "_id": "629f129c8373fd1bef2db501",
+        "institutionName": "Addis Cardiac Hospital",
+        "lang": {
+          "am": {
+            "institutionName": "አዲስ የልብ ህክምና ሆስፒታል",
+            "summary": "አዲስ የልብ ሆስፒታል በቦሌ ክ/ከተማ በኢትዮጵያ አየር መንገድ የካርጎ ተርሚናል ፊት ለፊት በሚገኘው በኢትዮጲያ የመጀመሪያው ልዩ የልብና የደም ህክምና ሆስፒታል በመሆኑ ኩራት ይሰማዋል። በ2006 ኤሲኤች የሆስፒታል አገልግሎትን ተቀላቅሎ ዘመናዊ እና የላቀ ምርመራ እና የልብ እና ተያያዥ በሽታዎች ህክምና ዘዴዎችን ለመስጠት።\r\n\r\nልዩ የጤና አጠባበቅ አገልግሎቶችን አገልግሎታችንን ለሚፈልጉ ሁሉ ለማድረስ በሆስፒታል ንግድ ውስጥ ነን። ሰራተኞቻችን ሰፋ ያለ የጤና እንክብካቤ አገልግሎቶችን ለማስተናገድ በደንብ የሰለጠኑ እና ብቁ ናቸው። በሚሊዮኖች የሚቆጠሩ ኢንቨስት በማድረግ፣ ACH ራሱን የላቀ ካት ላብራቶሪ እና ሌሎች የቅርብ ጊዜ የህክምና መሳሪያዎችን አስታጥቋል።\r\n\r\nሁሉም ታካሚዎቻችን ሆስፒታላችንን ሲጎበኙ የመጀመሪያ ደረጃ ህክምና እንዲያገኙ እየሰራን ነው። አዲስ የሆስፒታል አስተዳደር ስርዓት (ኤችአርኤም) ተክለናል ይህም ሁሉንም ስራዎችን በየደረጃው ቅልጥፍናን በአግባቡ እንድንቆጣጠር ያስችለናል ።ኤሲኤች በኢትዮጵያ እና በስዊድን ባለአክሲዮኖች ባለቤትነት የተያዘ ሲሆን ከባለድርሻዎቹ አንዱ እና የቦርድ ሰብሳቢ ዶ/ር ፍቁ ማሩ ከፍተኛ ብቃት ያለው የልብ ሐኪም በስዊድን ተምሮ ከ20 አመት በላይ በልብ ሐኪምነት ሰርቷል።",
+            "address": {
+              "region": "አዲስ አበባ",
+              "summary": "ቦሌ ክ/ከተማ አዲስ አበባ ኤርፖርት ጭነት ፊት ለፊት",
+              "woreda": "01",
+              "zone": "01"
+            },
+            "institutionName_fuzzy": [
+              "አዲስ",
+              "የልብ",
+              "ህክም",
+              "ህክምና",
+              "ሆስፒ",
+              "ሆስፒታ",
+              "ሆስፒታል",
+              "አዲስ የልብ ህክምና ሆስፒታል"
+            ]
+          }
+        }
+      }
+    ],
+    "gender": "Male",
+    "languages": ["Amharic", "English"],
+    "birthday": "1995-12-17T00:24:00.000Z",
+    "otherDocuments": [],
+    "experience": [],
+    "fullName": "Dr.Tewodros F/mariam",
+    "mainInstitution": {
+      "_id": "629f129c8373fd1bef2db501",
+      "availability": {
+        "twentyFourHours": true,
+        "startDay": "0Monday",
+        "endDay": "6Sunday",
+        "opening": "00:00",
+        "closing": "23:59"
+      },
+      "services": [
+        {
+          "_id": "629f11868373fd1bef2db415",
+          "title": "Laboratory",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ላብራቶሪ",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db417",
+          "title": "Angioplasty Percutaneous Coronary Intervention (PCI)",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "የ ልብ ትቦ ጥበት የ ማስፋት ሂደት",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db41b",
+          "title": "Cardiology",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "አጠቃላይ የ ልብ ህክምና",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db429",
+          "title": "Diagnostic Coronary Angiography",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ኮሮናሪ አንጂኦግራፊ ምርመራ",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db42b",
+          "title": "Echocardiography",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "የ ልብ አልትራሳውንድ",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db437",
+          "title": "Intensive Coronary Care Unit",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "የ ልብ ጽኑ ህሙማን ክትትል"
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db442",
+          "title": "Open Heart surgery",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "የ ልብ ቅዶ ህክምና",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db44c",
+          "title": "Pharmacy",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "መድሃኒት ቤት",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db44f",
+          "title": "X-Ray",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ኤክስ ረይ",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db457",
+          "title": "Surgery",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ቀዶ ህክምና",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db460",
+          "title": "Ultrasound",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ኣልትራሳውንድ",
+              "description": ""
+            }
+          }
+        }
+      ],
+      "institutionName": "Addis Cardiac Hospital",
+      "summary": "Addis Cardiac Hospital takes pride in being the first specialized cardiovascular hospital in Ethiopia, located at Bole Sub City in front of Ethiopian Airlines Cargo terminal. ACH joined the Hospital service in 2006 to provide modern and advanced investigations and treatment modalities for cardiac and related disease.\n\nWe are in the hospital business to deliver exceptional healthcare services to all those who will require our services. Our employees are well trained and qualified to handle the wide range of health care services. By investing millions, ACH has equipped itself with an advanced Cath lab and other latest medical equipment.\n\nWe are working to ensure that all our patients are given first class treatment whenever they visit our hospital. We have installed a new Hospital Management System (HRM) that will enable us to properly manage all activities increasing efficiency at all levels.ACH is owned by Ethiopian and Swedish shareholders, with one of its shareholder and Board chairman being Dr. Firku Maru, a highly qualified cardiologist educated and trained in Sweden with 20 plus years of working as a cardiologist.",
+      "lang": {
+        "am": {
+          "institutionName": "አዲስ የልብ ህክምና ሆስፒታል",
+          "summary": "አዲስ የልብ ሆስፒታል በቦሌ ክ/ከተማ በኢትዮጵያ አየር መንገድ የካርጎ ተርሚናል ፊት ለፊት በሚገኘው በኢትዮጲያ የመጀመሪያው ልዩ የልብና የደም ህክምና ሆስፒታል በመሆኑ ኩራት ይሰማዋል። በ2006 ኤሲኤች የሆስፒታል አገልግሎትን ተቀላቅሎ ዘመናዊ እና የላቀ ምርመራ እና የልብ እና ተያያዥ በሽታዎች ህክምና ዘዴዎችን ለመስጠት።\r\n\r\nልዩ የጤና አጠባበቅ አገልግሎቶችን አገልግሎታችንን ለሚፈልጉ ሁሉ ለማድረስ በሆስፒታል ንግድ ውስጥ ነን። ሰራተኞቻችን ሰፋ ያለ የጤና እንክብካቤ አገልግሎቶችን ለማስተናገድ በደንብ የሰለጠኑ እና ብቁ ናቸው። በሚሊዮኖች የሚቆጠሩ ኢንቨስት በማድረግ፣ ACH ራሱን የላቀ ካት ላብራቶሪ እና ሌሎች የቅርብ ጊዜ የህክምና መሳሪያዎችን አስታጥቋል።\r\n\r\nሁሉም ታካሚዎቻችን ሆስፒታላችንን ሲጎበኙ የመጀመሪያ ደረጃ ህክምና እንዲያገኙ እየሰራን ነው። አዲስ የሆስፒታል አስተዳደር ስርዓት (ኤችአርኤም) ተክለናል ይህም ሁሉንም ስራዎችን በየደረጃው ቅልጥፍናን በአግባቡ እንድንቆጣጠር ያስችለናል ።ኤሲኤች በኢትዮጵያ እና በስዊድን ባለአክሲዮኖች ባለቤትነት የተያዘ ሲሆን ከባለድርሻዎቹ አንዱ እና የቦርድ ሰብሳቢ ዶ/ር ፍቁ ማሩ ከፍተኛ ብቃት ያለው የልብ ሐኪም በስዊድን ተምሮ ከ20 አመት በላይ በልብ ሐኪምነት ሰርቷል።",
+          "address": {
+            "region": "አዲስ አበባ",
+            "summary": "ቦሌ ክ/ከተማ አዲስ አበባ ኤርፖርት ጭነት ፊት ለፊት",
+            "woreda": "01",
+            "zone": "01"
+          },
+          "institutionName_fuzzy": [
+            "አዲስ",
+            "የልብ",
+            "ህክም",
+            "ህክምና",
+            "ሆስፒ",
+            "ሆስፒታ",
+            "ሆስፒታል",
+            "አዲስ የልብ ህክምና ሆስፒታል"
+          ]
+        }
+      }
+    },
+    "education": [],
+    "availablity": [],
+    "__v": 1,
+    "fullName_fuzzy": [
+      "drt",
+      "drte",
+      "drtew",
+      "drtewo",
+      "drtewod",
+      "drtewodr",
+      "drtewodro",
+      "drtewodros",
+      "fma",
+      "fmar",
+      "fmari",
+      "fmaria",
+      "fmariam",
+      "dr.tewodros f/mariam"
+    ],
+    "source": "doctors",
+    "score": 1
+  },
+  {
+    "_id": "62b959c623006348f0f44b5d",
+    "phoneNumbers": [],
+    "emails": [],
+    "photo": "https://res.cloudinary.com/hakimhub/image/upload/v1656314309/POP_DATA_DOC/Addis_Cardiac_Hospital_2.jpg",
+    "summary": "",
+    "speciality": [
+      {
+        "_id": "62b5bcbaf8915020c8ed9d72",
+        "isSubspeciality": false,
+        "name": "Cardiologist",
+        "lang": {
+          "am": {
+            "name": "የ ልብ ሃኪም",
+            "description": ""
+          }
+        }
+      }
+    ],
+    "experience_years": 0,
+    "institutionID_list": [
+      {
+        "_id": "629f129c8373fd1bef2db501",
+        "institutionName": "Addis Cardiac Hospital",
+        "lang": {
+          "am": {
+            "institutionName": "አዲስ የልብ ህክምና ሆስፒታል",
+            "summary": "አዲስ የልብ ሆስፒታል በቦሌ ክ/ከተማ በኢትዮጵያ አየር መንገድ የካርጎ ተርሚናል ፊት ለፊት በሚገኘው በኢትዮጲያ የመጀመሪያው ልዩ የልብና የደም ህክምና ሆስፒታል በመሆኑ ኩራት ይሰማዋል። በ2006 ኤሲኤች የሆስፒታል አገልግሎትን ተቀላቅሎ ዘመናዊ እና የላቀ ምርመራ እና የልብ እና ተያያዥ በሽታዎች ህክምና ዘዴዎችን ለመስጠት።\r\n\r\nልዩ የጤና አጠባበቅ አገልግሎቶችን አገልግሎታችንን ለሚፈልጉ ሁሉ ለማድረስ በሆስፒታል ንግድ ውስጥ ነን። ሰራተኞቻችን ሰፋ ያለ የጤና እንክብካቤ አገልግሎቶችን ለማስተናገድ በደንብ የሰለጠኑ እና ብቁ ናቸው። በሚሊዮኖች የሚቆጠሩ ኢንቨስት በማድረግ፣ ACH ራሱን የላቀ ካት ላብራቶሪ እና ሌሎች የቅርብ ጊዜ የህክምና መሳሪያዎችን አስታጥቋል።\r\n\r\nሁሉም ታካሚዎቻችን ሆስፒታላችንን ሲጎበኙ የመጀመሪያ ደረጃ ህክምና እንዲያገኙ እየሰራን ነው። አዲስ የሆስፒታል አስተዳደር ስርዓት (ኤችአርኤም) ተክለናል ይህም ሁሉንም ስራዎችን በየደረጃው ቅልጥፍናን በአግባቡ እንድንቆጣጠር ያስችለናል ።ኤሲኤች በኢትዮጵያ እና በስዊድን ባለአክሲዮኖች ባለቤትነት የተያዘ ሲሆን ከባለድርሻዎቹ አንዱ እና የቦርድ ሰብሳቢ ዶ/ር ፍቁ ማሩ ከፍተኛ ብቃት ያለው የልብ ሐኪም በስዊድን ተምሮ ከ20 አመት በላይ በልብ ሐኪምነት ሰርቷል።",
+            "address": {
+              "region": "አዲስ አበባ",
+              "summary": "ቦሌ ክ/ከተማ አዲስ አበባ ኤርፖርት ጭነት ፊት ለፊት",
+              "woreda": "01",
+              "zone": "01"
+            },
+            "institutionName_fuzzy": [
+              "አዲስ",
+              "የልብ",
+              "ህክም",
+              "ህክምና",
+              "ሆስፒ",
+              "ሆስፒታ",
+              "ሆስፒታል",
+              "አዲስ የልብ ህክምና ሆስፒታል"
+            ]
+          }
+        }
+      }
+    ],
+    "gender": "Male",
+    "languages": ["Amharic", "English"],
+    "birthday": "1995-12-17T00:24:00.000Z",
+    "otherDocuments": [],
+    "experience": [],
+    "fullName": "Dr.Mohamed Bedru",
+    "mainInstitution": {
+      "_id": "629f129c8373fd1bef2db501",
+      "availability": {
+        "twentyFourHours": true,
+        "startDay": "0Monday",
+        "endDay": "6Sunday",
+        "opening": "00:00",
+        "closing": "23:59"
+      },
+      "services": [
+        {
+          "_id": "629f11868373fd1bef2db415",
+          "title": "Laboratory",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ላብራቶሪ",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db417",
+          "title": "Angioplasty Percutaneous Coronary Intervention (PCI)",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "የ ልብ ትቦ ጥበት የ ማስፋት ሂደት",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db41b",
+          "title": "Cardiology",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "አጠቃላይ የ ልብ ህክምና",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db429",
+          "title": "Diagnostic Coronary Angiography",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ኮሮናሪ አንጂኦግራፊ ምርመራ",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db42b",
+          "title": "Echocardiography",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "የ ልብ አልትራሳውንድ",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db437",
+          "title": "Intensive Coronary Care Unit",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "የ ልብ ጽኑ ህሙማን ክትትል"
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db442",
+          "title": "Open Heart surgery",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "የ ልብ ቅዶ ህክምና",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db44c",
+          "title": "Pharmacy",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "መድሃኒት ቤት",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db44f",
+          "title": "X-Ray",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ኤክስ ረይ",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db457",
+          "title": "Surgery",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ቀዶ ህክምና",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db460",
+          "title": "Ultrasound",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ኣልትራሳውንድ",
+              "description": ""
+            }
+          }
+        }
+      ],
+      "institutionName": "Addis Cardiac Hospital",
+      "summary": "Addis Cardiac Hospital takes pride in being the first specialized cardiovascular hospital in Ethiopia, located at Bole Sub City in front of Ethiopian Airlines Cargo terminal. ACH joined the Hospital service in 2006 to provide modern and advanced investigations and treatment modalities for cardiac and related disease.\n\nWe are in the hospital business to deliver exceptional healthcare services to all those who will require our services. Our employees are well trained and qualified to handle the wide range of health care services. By investing millions, ACH has equipped itself with an advanced Cath lab and other latest medical equipment.\n\nWe are working to ensure that all our patients are given first class treatment whenever they visit our hospital. We have installed a new Hospital Management System (HRM) that will enable us to properly manage all activities increasing efficiency at all levels.ACH is owned by Ethiopian and Swedish shareholders, with one of its shareholder and Board chairman being Dr. Firku Maru, a highly qualified cardiologist educated and trained in Sweden with 20 plus years of working as a cardiologist.",
+      "lang": {
+        "am": {
+          "institutionName": "አዲስ የልብ ህክምና ሆስፒታል",
+          "summary": "አዲስ የልብ ሆስፒታል በቦሌ ክ/ከተማ በኢትዮጵያ አየር መንገድ የካርጎ ተርሚናል ፊት ለፊት በሚገኘው በኢትዮጲያ የመጀመሪያው ልዩ የልብና የደም ህክምና ሆስፒታል በመሆኑ ኩራት ይሰማዋል። በ2006 ኤሲኤች የሆስፒታል አገልግሎትን ተቀላቅሎ ዘመናዊ እና የላቀ ምርመራ እና የልብ እና ተያያዥ በሽታዎች ህክምና ዘዴዎችን ለመስጠት።\r\n\r\nልዩ የጤና አጠባበቅ አገልግሎቶችን አገልግሎታችንን ለሚፈልጉ ሁሉ ለማድረስ በሆስፒታል ንግድ ውስጥ ነን። ሰራተኞቻችን ሰፋ ያለ የጤና እንክብካቤ አገልግሎቶችን ለማስተናገድ በደንብ የሰለጠኑ እና ብቁ ናቸው። በሚሊዮኖች የሚቆጠሩ ኢንቨስት በማድረግ፣ ACH ራሱን የላቀ ካት ላብራቶሪ እና ሌሎች የቅርብ ጊዜ የህክምና መሳሪያዎችን አስታጥቋል።\r\n\r\nሁሉም ታካሚዎቻችን ሆስፒታላችንን ሲጎበኙ የመጀመሪያ ደረጃ ህክምና እንዲያገኙ እየሰራን ነው። አዲስ የሆስፒታል አስተዳደር ስርዓት (ኤችአርኤም) ተክለናል ይህም ሁሉንም ስራዎችን በየደረጃው ቅልጥፍናን በአግባቡ እንድንቆጣጠር ያስችለናል ።ኤሲኤች በኢትዮጵያ እና በስዊድን ባለአክሲዮኖች ባለቤትነት የተያዘ ሲሆን ከባለድርሻዎቹ አንዱ እና የቦርድ ሰብሳቢ ዶ/ር ፍቁ ማሩ ከፍተኛ ብቃት ያለው የልብ ሐኪም በስዊድን ተምሮ ከ20 አመት በላይ በልብ ሐኪምነት ሰርቷል።",
+          "address": {
+            "region": "አዲስ አበባ",
+            "summary": "ቦሌ ክ/ከተማ አዲስ አበባ ኤርፖርት ጭነት ፊት ለፊት",
+            "woreda": "01",
+            "zone": "01"
+          },
+          "institutionName_fuzzy": [
+            "አዲስ",
+            "የልብ",
+            "ህክም",
+            "ህክምና",
+            "ሆስፒ",
+            "ሆስፒታ",
+            "ሆስፒታል",
+            "አዲስ የልብ ህክምና ሆስፒታል"
+          ]
+        }
+      }
+    },
+    "education": [],
+    "availablity": [],
+    "__v": 1,
+    "fullName_fuzzy": [
+      "drm",
+      "drmo",
+      "drmoh",
+      "drmoha",
+      "drmoham",
+      "drmohame",
+      "drmohamed",
+      "bed",
+      "bedr",
+      "bedru",
+      "dr.mohamed bedru"
+    ],
+    "source": "doctors",
+    "score": 1
+  },
+  {
+    "_id": "62b959c923006348f0f44b62",
+    "phoneNumbers": [],
+    "emails": [],
+    "photo": "https://res.cloudinary.com/hakimhub/image/upload/v1656314313/POP_DATA_DOC/Addis_Cardiac_Hospital_3.jpg",
+    "summary": "",
+    "speciality": [
+      {
+        "_id": "62b5bcbaf8915020c8ed9d72",
+        "isSubspeciality": false,
+        "name": "Cardiologist",
+        "lang": {
+          "am": {
+            "name": "የ ልብ ሃኪም",
+            "description": ""
+          }
+        }
+      }
+    ],
+    "experience_years": 0,
+    "institutionID_list": [
+      {
+        "_id": "629f129c8373fd1bef2db501",
+        "institutionName": "Addis Cardiac Hospital",
+        "lang": {
+          "am": {
+            "institutionName": "አዲስ የልብ ህክምና ሆስፒታል",
+            "summary": "አዲስ የልብ ሆስፒታል በቦሌ ክ/ከተማ በኢትዮጵያ አየር መንገድ የካርጎ ተርሚናል ፊት ለፊት በሚገኘው በኢትዮጲያ የመጀመሪያው ልዩ የልብና የደም ህክምና ሆስፒታል በመሆኑ ኩራት ይሰማዋል። በ2006 ኤሲኤች የሆስፒታል አገልግሎትን ተቀላቅሎ ዘመናዊ እና የላቀ ምርመራ እና የልብ እና ተያያዥ በሽታዎች ህክምና ዘዴዎችን ለመስጠት።\r\n\r\nልዩ የጤና አጠባበቅ አገልግሎቶችን አገልግሎታችንን ለሚፈልጉ ሁሉ ለማድረስ በሆስፒታል ንግድ ውስጥ ነን። ሰራተኞቻችን ሰፋ ያለ የጤና እንክብካቤ አገልግሎቶችን ለማስተናገድ በደንብ የሰለጠኑ እና ብቁ ናቸው። በሚሊዮኖች የሚቆጠሩ ኢንቨስት በማድረግ፣ ACH ራሱን የላቀ ካት ላብራቶሪ እና ሌሎች የቅርብ ጊዜ የህክምና መሳሪያዎችን አስታጥቋል።\r\n\r\nሁሉም ታካሚዎቻችን ሆስፒታላችንን ሲጎበኙ የመጀመሪያ ደረጃ ህክምና እንዲያገኙ እየሰራን ነው። አዲስ የሆስፒታል አስተዳደር ስርዓት (ኤችአርኤም) ተክለናል ይህም ሁሉንም ስራዎችን በየደረጃው ቅልጥፍናን በአግባቡ እንድንቆጣጠር ያስችለናል ።ኤሲኤች በኢትዮጵያ እና በስዊድን ባለአክሲዮኖች ባለቤትነት የተያዘ ሲሆን ከባለድርሻዎቹ አንዱ እና የቦርድ ሰብሳቢ ዶ/ር ፍቁ ማሩ ከፍተኛ ብቃት ያለው የልብ ሐኪም በስዊድን ተምሮ ከ20 አመት በላይ በልብ ሐኪምነት ሰርቷል።",
+            "address": {
+              "region": "አዲስ አበባ",
+              "summary": "ቦሌ ክ/ከተማ አዲስ አበባ ኤርፖርት ጭነት ፊት ለፊት",
+              "woreda": "01",
+              "zone": "01"
+            },
+            "institutionName_fuzzy": [
+              "አዲስ",
+              "የልብ",
+              "ህክም",
+              "ህክምና",
+              "ሆስፒ",
+              "ሆስፒታ",
+              "ሆስፒታል",
+              "አዲስ የልብ ህክምና ሆስፒታል"
+            ]
+          }
+        }
+      }
+    ],
+    "gender": "Male",
+    "languages": ["Amharic", "English"],
+    "birthday": "1995-12-17T00:24:00.000Z",
+    "otherDocuments": [],
+    "experience": [],
+    "fullName": "Dr.Biniam Lema",
+    "mainInstitution": {
+      "_id": "629f129c8373fd1bef2db501",
+      "availability": {
+        "twentyFourHours": true,
+        "startDay": "0Monday",
+        "endDay": "6Sunday",
+        "opening": "00:00",
+        "closing": "23:59"
+      },
+      "services": [
+        {
+          "_id": "629f11868373fd1bef2db415",
+          "title": "Laboratory",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ላብራቶሪ",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db417",
+          "title": "Angioplasty Percutaneous Coronary Intervention (PCI)",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "የ ልብ ትቦ ጥበት የ ማስፋት ሂደት",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db41b",
+          "title": "Cardiology",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "አጠቃላይ የ ልብ ህክምና",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db429",
+          "title": "Diagnostic Coronary Angiography",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ኮሮናሪ አንጂኦግራፊ ምርመራ",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db42b",
+          "title": "Echocardiography",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "የ ልብ አልትራሳውንድ",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db437",
+          "title": "Intensive Coronary Care Unit",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "የ ልብ ጽኑ ህሙማን ክትትል"
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db442",
+          "title": "Open Heart surgery",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "የ ልብ ቅዶ ህክምና",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db44c",
+          "title": "Pharmacy",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "መድሃኒት ቤት",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db44f",
+          "title": "X-Ray",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ኤክስ ረይ",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db457",
+          "title": "Surgery",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ቀዶ ህክምና",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db460",
+          "title": "Ultrasound",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ኣልትራሳውንድ",
+              "description": ""
+            }
+          }
+        }
+      ],
+      "institutionName": "Addis Cardiac Hospital",
+      "summary": "Addis Cardiac Hospital takes pride in being the first specialized cardiovascular hospital in Ethiopia, located at Bole Sub City in front of Ethiopian Airlines Cargo terminal. ACH joined the Hospital service in 2006 to provide modern and advanced investigations and treatment modalities for cardiac and related disease.\n\nWe are in the hospital business to deliver exceptional healthcare services to all those who will require our services. Our employees are well trained and qualified to handle the wide range of health care services. By investing millions, ACH has equipped itself with an advanced Cath lab and other latest medical equipment.\n\nWe are working to ensure that all our patients are given first class treatment whenever they visit our hospital. We have installed a new Hospital Management System (HRM) that will enable us to properly manage all activities increasing efficiency at all levels.ACH is owned by Ethiopian and Swedish shareholders, with one of its shareholder and Board chairman being Dr. Firku Maru, a highly qualified cardiologist educated and trained in Sweden with 20 plus years of working as a cardiologist.",
+      "lang": {
+        "am": {
+          "institutionName": "አዲስ የልብ ህክምና ሆስፒታል",
+          "summary": "አዲስ የልብ ሆስፒታል በቦሌ ክ/ከተማ በኢትዮጵያ አየር መንገድ የካርጎ ተርሚናል ፊት ለፊት በሚገኘው በኢትዮጲያ የመጀመሪያው ልዩ የልብና የደም ህክምና ሆስፒታል በመሆኑ ኩራት ይሰማዋል። በ2006 ኤሲኤች የሆስፒታል አገልግሎትን ተቀላቅሎ ዘመናዊ እና የላቀ ምርመራ እና የልብ እና ተያያዥ በሽታዎች ህክምና ዘዴዎችን ለመስጠት።\r\n\r\nልዩ የጤና አጠባበቅ አገልግሎቶችን አገልግሎታችንን ለሚፈልጉ ሁሉ ለማድረስ በሆስፒታል ንግድ ውስጥ ነን። ሰራተኞቻችን ሰፋ ያለ የጤና እንክብካቤ አገልግሎቶችን ለማስተናገድ በደንብ የሰለጠኑ እና ብቁ ናቸው። በሚሊዮኖች የሚቆጠሩ ኢንቨስት በማድረግ፣ ACH ራሱን የላቀ ካት ላብራቶሪ እና ሌሎች የቅርብ ጊዜ የህክምና መሳሪያዎችን አስታጥቋል።\r\n\r\nሁሉም ታካሚዎቻችን ሆስፒታላችንን ሲጎበኙ የመጀመሪያ ደረጃ ህክምና እንዲያገኙ እየሰራን ነው። አዲስ የሆስፒታል አስተዳደር ስርዓት (ኤችአርኤም) ተክለናል ይህም ሁሉንም ስራዎችን በየደረጃው ቅልጥፍናን በአግባቡ እንድንቆጣጠር ያስችለናል ።ኤሲኤች በኢትዮጵያ እና በስዊድን ባለአክሲዮኖች ባለቤትነት የተያዘ ሲሆን ከባለድርሻዎቹ አንዱ እና የቦርድ ሰብሳቢ ዶ/ር ፍቁ ማሩ ከፍተኛ ብቃት ያለው የልብ ሐኪም በስዊድን ተምሮ ከ20 አመት በላይ በልብ ሐኪምነት ሰርቷል።",
+          "address": {
+            "region": "አዲስ አበባ",
+            "summary": "ቦሌ ክ/ከተማ አዲስ አበባ ኤርፖርት ጭነት ፊት ለፊት",
+            "woreda": "01",
+            "zone": "01"
+          },
+          "institutionName_fuzzy": [
+            "አዲስ",
+            "የልብ",
+            "ህክም",
+            "ህክምና",
+            "ሆስፒ",
+            "ሆስፒታ",
+            "ሆስፒታል",
+            "አዲስ የልብ ህክምና ሆስፒታል"
+          ]
+        }
+      }
+    },
+    "education": [],
+    "availablity": [],
+    "__v": 1,
+    "fullName_fuzzy": [
+      "drb",
+      "drbi",
+      "drbin",
+      "drbini",
+      "drbinia",
+      "drbiniam",
+      "lem",
+      "lema",
+      "dr.biniam lema"
+    ],
+    "source": "doctors",
+    "score": 1
+  },
+  {
+    "_id": "62b959cd23006348f0f44b67",
+    "phoneNumbers": [],
+    "emails": [],
+    "photo": "https://res.cloudinary.com/hakimhub/image/upload/v1656314316/POP_DATA_DOC/Addis_Cardiac_Hospital_4.jpg",
+    "summary": "",
+    "speciality": [
+      {
+        "_id": "62b5bcc1f8915020c8ed9d88",
+        "isSubspeciality": false,
+        "name": "Internist",
+        "lang": {
+          "am": {
+            "name": "የ ውስጥ ደዌ ሃኪም",
+            "description": ""
+          }
+        }
+      }
+    ],
+    "experience_years": 0,
+    "institutionID_list": [
+      {
+        "_id": "629f129c8373fd1bef2db501",
+        "institutionName": "Addis Cardiac Hospital",
+        "lang": {
+          "am": {
+            "institutionName": "አዲስ የልብ ህክምና ሆስፒታል",
+            "summary": "አዲስ የልብ ሆስፒታል በቦሌ ክ/ከተማ በኢትዮጵያ አየር መንገድ የካርጎ ተርሚናል ፊት ለፊት በሚገኘው በኢትዮጲያ የመጀመሪያው ልዩ የልብና የደም ህክምና ሆስፒታል በመሆኑ ኩራት ይሰማዋል። በ2006 ኤሲኤች የሆስፒታል አገልግሎትን ተቀላቅሎ ዘመናዊ እና የላቀ ምርመራ እና የልብ እና ተያያዥ በሽታዎች ህክምና ዘዴዎችን ለመስጠት።\r\n\r\nልዩ የጤና አጠባበቅ አገልግሎቶችን አገልግሎታችንን ለሚፈልጉ ሁሉ ለማድረስ በሆስፒታል ንግድ ውስጥ ነን። ሰራተኞቻችን ሰፋ ያለ የጤና እንክብካቤ አገልግሎቶችን ለማስተናገድ በደንብ የሰለጠኑ እና ብቁ ናቸው። በሚሊዮኖች የሚቆጠሩ ኢንቨስት በማድረግ፣ ACH ራሱን የላቀ ካት ላብራቶሪ እና ሌሎች የቅርብ ጊዜ የህክምና መሳሪያዎችን አስታጥቋል።\r\n\r\nሁሉም ታካሚዎቻችን ሆስፒታላችንን ሲጎበኙ የመጀመሪያ ደረጃ ህክምና እንዲያገኙ እየሰራን ነው። አዲስ የሆስፒታል አስተዳደር ስርዓት (ኤችአርኤም) ተክለናል ይህም ሁሉንም ስራዎችን በየደረጃው ቅልጥፍናን በአግባቡ እንድንቆጣጠር ያስችለናል ።ኤሲኤች በኢትዮጵያ እና በስዊድን ባለአክሲዮኖች ባለቤትነት የተያዘ ሲሆን ከባለድርሻዎቹ አንዱ እና የቦርድ ሰብሳቢ ዶ/ር ፍቁ ማሩ ከፍተኛ ብቃት ያለው የልብ ሐኪም በስዊድን ተምሮ ከ20 አመት በላይ በልብ ሐኪምነት ሰርቷል።",
+            "address": {
+              "region": "አዲስ አበባ",
+              "summary": "ቦሌ ክ/ከተማ አዲስ አበባ ኤርፖርት ጭነት ፊት ለፊት",
+              "woreda": "01",
+              "zone": "01"
+            },
+            "institutionName_fuzzy": [
+              "አዲስ",
+              "የልብ",
+              "ህክም",
+              "ህክምና",
+              "ሆስፒ",
+              "ሆስፒታ",
+              "ሆስፒታል",
+              "አዲስ የልብ ህክምና ሆስፒታል"
+            ]
+          }
+        }
+      }
+    ],
+    "gender": "Male",
+    "languages": ["Amharic", "English"],
+    "birthday": "1995-12-17T00:24:00.000Z",
+    "otherDocuments": [],
+    "experience": [],
+    "fullName": "Dr. Aderfris Bahiru",
+    "mainInstitution": {
+      "_id": "629f129c8373fd1bef2db501",
+      "availability": {
+        "twentyFourHours": true,
+        "startDay": "0Monday",
+        "endDay": "6Sunday",
+        "opening": "00:00",
+        "closing": "23:59"
+      },
+      "services": [
+        {
+          "_id": "629f11868373fd1bef2db415",
+          "title": "Laboratory",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ላብራቶሪ",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db417",
+          "title": "Angioplasty Percutaneous Coronary Intervention (PCI)",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "የ ልብ ትቦ ጥበት የ ማስፋት ሂደት",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db41b",
+          "title": "Cardiology",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "አጠቃላይ የ ልብ ህክምና",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db429",
+          "title": "Diagnostic Coronary Angiography",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ኮሮናሪ አንጂኦግራፊ ምርመራ",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db42b",
+          "title": "Echocardiography",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "የ ልብ አልትራሳውንድ",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db437",
+          "title": "Intensive Coronary Care Unit",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "የ ልብ ጽኑ ህሙማን ክትትል"
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db442",
+          "title": "Open Heart surgery",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "የ ልብ ቅዶ ህክምና",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db44c",
+          "title": "Pharmacy",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "መድሃኒት ቤት",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db44f",
+          "title": "X-Ray",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ኤክስ ረይ",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db457",
+          "title": "Surgery",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ቀዶ ህክምና",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db460",
+          "title": "Ultrasound",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ኣልትራሳውንድ",
+              "description": ""
+            }
+          }
+        }
+      ],
+      "institutionName": "Addis Cardiac Hospital",
+      "summary": "Addis Cardiac Hospital takes pride in being the first specialized cardiovascular hospital in Ethiopia, located at Bole Sub City in front of Ethiopian Airlines Cargo terminal. ACH joined the Hospital service in 2006 to provide modern and advanced investigations and treatment modalities for cardiac and related disease.\n\nWe are in the hospital business to deliver exceptional healthcare services to all those who will require our services. Our employees are well trained and qualified to handle the wide range of health care services. By investing millions, ACH has equipped itself with an advanced Cath lab and other latest medical equipment.\n\nWe are working to ensure that all our patients are given first class treatment whenever they visit our hospital. We have installed a new Hospital Management System (HRM) that will enable us to properly manage all activities increasing efficiency at all levels.ACH is owned by Ethiopian and Swedish shareholders, with one of its shareholder and Board chairman being Dr. Firku Maru, a highly qualified cardiologist educated and trained in Sweden with 20 plus years of working as a cardiologist.",
+      "lang": {
+        "am": {
+          "institutionName": "አዲስ የልብ ህክምና ሆስፒታል",
+          "summary": "አዲስ የልብ ሆስፒታል በቦሌ ክ/ከተማ በኢትዮጵያ አየር መንገድ የካርጎ ተርሚናል ፊት ለፊት በሚገኘው በኢትዮጲያ የመጀመሪያው ልዩ የልብና የደም ህክምና ሆስፒታል በመሆኑ ኩራት ይሰማዋል። በ2006 ኤሲኤች የሆስፒታል አገልግሎትን ተቀላቅሎ ዘመናዊ እና የላቀ ምርመራ እና የልብ እና ተያያዥ በሽታዎች ህክምና ዘዴዎችን ለመስጠት።\r\n\r\nልዩ የጤና አጠባበቅ አገልግሎቶችን አገልግሎታችንን ለሚፈልጉ ሁሉ ለማድረስ በሆስፒታል ንግድ ውስጥ ነን። ሰራተኞቻችን ሰፋ ያለ የጤና እንክብካቤ አገልግሎቶችን ለማስተናገድ በደንብ የሰለጠኑ እና ብቁ ናቸው። በሚሊዮኖች የሚቆጠሩ ኢንቨስት በማድረግ፣ ACH ራሱን የላቀ ካት ላብራቶሪ እና ሌሎች የቅርብ ጊዜ የህክምና መሳሪያዎችን አስታጥቋል።\r\n\r\nሁሉም ታካሚዎቻችን ሆስፒታላችንን ሲጎበኙ የመጀመሪያ ደረጃ ህክምና እንዲያገኙ እየሰራን ነው። አዲስ የሆስፒታል አስተዳደር ስርዓት (ኤችአርኤም) ተክለናል ይህም ሁሉንም ስራዎችን በየደረጃው ቅልጥፍናን በአግባቡ እንድንቆጣጠር ያስችለናል ።ኤሲኤች በኢትዮጵያ እና በስዊድን ባለአክሲዮኖች ባለቤትነት የተያዘ ሲሆን ከባለድርሻዎቹ አንዱ እና የቦርድ ሰብሳቢ ዶ/ር ፍቁ ማሩ ከፍተኛ ብቃት ያለው የልብ ሐኪም በስዊድን ተምሮ ከ20 አመት በላይ በልብ ሐኪምነት ሰርቷል።",
+          "address": {
+            "region": "አዲስ አበባ",
+            "summary": "ቦሌ ክ/ከተማ አዲስ አበባ ኤርፖርት ጭነት ፊት ለፊት",
+            "woreda": "01",
+            "zone": "01"
+          },
+          "institutionName_fuzzy": [
+            "አዲስ",
+            "የልብ",
+            "ህክም",
+            "ህክምና",
+            "ሆስፒ",
+            "ሆስፒታ",
+            "ሆስፒታል",
+            "አዲስ የልብ ህክምና ሆስፒታል"
+          ]
+        }
+      }
+    },
+    "education": [],
+    "availablity": [],
+    "__v": 1,
+    "fullName_fuzzy": [
+      "dr",
+      "ade",
+      "ader",
+      "aderf",
+      "aderfr",
+      "aderfri",
+      "aderfris",
+      "bah",
+      "bahi",
+      "bahir",
+      "bahiru",
+      "dr. aderfris bahiru"
+    ],
+    "source": "doctors",
+    "score": 1
+  },
+  {
+    "_id": "62b959d123006348f0f44b6c",
+    "phoneNumbers": [],
+    "emails": [],
+    "photo": "https://res.cloudinary.com/hakimhub/image/upload/v1656314320/POP_DATA_DOC/Addis_Cardiac_Hospital_5.jpg",
+    "summary": "",
+    "speciality": [
+      {
+        "_id": "62b5bcc1f8915020c8ed9d88",
+        "isSubspeciality": false,
+        "name": "Internist",
+        "lang": {
+          "am": {
+            "name": "የ ውስጥ ደዌ ሃኪም",
+            "description": ""
+          }
+        }
+      }
+    ],
+    "experience_years": 0,
+    "institutionID_list": [
+      {
+        "_id": "629f129c8373fd1bef2db501",
+        "institutionName": "Addis Cardiac Hospital",
+        "lang": {
+          "am": {
+            "institutionName": "አዲስ የልብ ህክምና ሆስፒታል",
+            "summary": "አዲስ የልብ ሆስፒታል በቦሌ ክ/ከተማ በኢትዮጵያ አየር መንገድ የካርጎ ተርሚናል ፊት ለፊት በሚገኘው በኢትዮጲያ የመጀመሪያው ልዩ የልብና የደም ህክምና ሆስፒታል በመሆኑ ኩራት ይሰማዋል። በ2006 ኤሲኤች የሆስፒታል አገልግሎትን ተቀላቅሎ ዘመናዊ እና የላቀ ምርመራ እና የልብ እና ተያያዥ በሽታዎች ህክምና ዘዴዎችን ለመስጠት።\r\n\r\nልዩ የጤና አጠባበቅ አገልግሎቶችን አገልግሎታችንን ለሚፈልጉ ሁሉ ለማድረስ በሆስፒታል ንግድ ውስጥ ነን። ሰራተኞቻችን ሰፋ ያለ የጤና እንክብካቤ አገልግሎቶችን ለማስተናገድ በደንብ የሰለጠኑ እና ብቁ ናቸው። በሚሊዮኖች የሚቆጠሩ ኢንቨስት በማድረግ፣ ACH ራሱን የላቀ ካት ላብራቶሪ እና ሌሎች የቅርብ ጊዜ የህክምና መሳሪያዎችን አስታጥቋል።\r\n\r\nሁሉም ታካሚዎቻችን ሆስፒታላችንን ሲጎበኙ የመጀመሪያ ደረጃ ህክምና እንዲያገኙ እየሰራን ነው። አዲስ የሆስፒታል አስተዳደር ስርዓት (ኤችአርኤም) ተክለናል ይህም ሁሉንም ስራዎችን በየደረጃው ቅልጥፍናን በአግባቡ እንድንቆጣጠር ያስችለናል ።ኤሲኤች በኢትዮጵያ እና በስዊድን ባለአክሲዮኖች ባለቤትነት የተያዘ ሲሆን ከባለድርሻዎቹ አንዱ እና የቦርድ ሰብሳቢ ዶ/ር ፍቁ ማሩ ከፍተኛ ብቃት ያለው የልብ ሐኪም በስዊድን ተምሮ ከ20 አመት በላይ በልብ ሐኪምነት ሰርቷል።",
+            "address": {
+              "region": "አዲስ አበባ",
+              "summary": "ቦሌ ክ/ከተማ አዲስ አበባ ኤርፖርት ጭነት ፊት ለፊት",
+              "woreda": "01",
+              "zone": "01"
+            },
+            "institutionName_fuzzy": [
+              "አዲስ",
+              "የልብ",
+              "ህክም",
+              "ህክምና",
+              "ሆስፒ",
+              "ሆስፒታ",
+              "ሆስፒታል",
+              "አዲስ የልብ ህክምና ሆስፒታል"
+            ]
+          }
+        }
+      }
+    ],
+    "gender": "Male",
+    "languages": ["Amharic", "English"],
+    "birthday": "1995-12-17T00:24:00.000Z",
+    "otherDocuments": [],
+    "experience": [],
+    "fullName": "Dr.Gebeyehu Bekele",
+    "mainInstitution": {
+      "_id": "629f129c8373fd1bef2db501",
+      "availability": {
+        "twentyFourHours": true,
+        "startDay": "0Monday",
+        "endDay": "6Sunday",
+        "opening": "00:00",
+        "closing": "23:59"
+      },
+      "services": [
+        {
+          "_id": "629f11868373fd1bef2db415",
+          "title": "Laboratory",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ላብራቶሪ",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db417",
+          "title": "Angioplasty Percutaneous Coronary Intervention (PCI)",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "የ ልብ ትቦ ጥበት የ ማስፋት ሂደት",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db41b",
+          "title": "Cardiology",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "አጠቃላይ የ ልብ ህክምና",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db429",
+          "title": "Diagnostic Coronary Angiography",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ኮሮናሪ አንጂኦግራፊ ምርመራ",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db42b",
+          "title": "Echocardiography",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "የ ልብ አልትራሳውንድ",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db437",
+          "title": "Intensive Coronary Care Unit",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "የ ልብ ጽኑ ህሙማን ክትትል"
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db442",
+          "title": "Open Heart surgery",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "የ ልብ ቅዶ ህክምና",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db44c",
+          "title": "Pharmacy",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "መድሃኒት ቤት",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db44f",
+          "title": "X-Ray",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ኤክስ ረይ",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db457",
+          "title": "Surgery",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ቀዶ ህክምና",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db460",
+          "title": "Ultrasound",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ኣልትራሳውንድ",
+              "description": ""
+            }
+          }
+        }
+      ],
+      "institutionName": "Addis Cardiac Hospital",
+      "summary": "Addis Cardiac Hospital takes pride in being the first specialized cardiovascular hospital in Ethiopia, located at Bole Sub City in front of Ethiopian Airlines Cargo terminal. ACH joined the Hospital service in 2006 to provide modern and advanced investigations and treatment modalities for cardiac and related disease.\n\nWe are in the hospital business to deliver exceptional healthcare services to all those who will require our services. Our employees are well trained and qualified to handle the wide range of health care services. By investing millions, ACH has equipped itself with an advanced Cath lab and other latest medical equipment.\n\nWe are working to ensure that all our patients are given first class treatment whenever they visit our hospital. We have installed a new Hospital Management System (HRM) that will enable us to properly manage all activities increasing efficiency at all levels.ACH is owned by Ethiopian and Swedish shareholders, with one of its shareholder and Board chairman being Dr. Firku Maru, a highly qualified cardiologist educated and trained in Sweden with 20 plus years of working as a cardiologist.",
+      "lang": {
+        "am": {
+          "institutionName": "አዲስ የልብ ህክምና ሆስፒታል",
+          "summary": "አዲስ የልብ ሆስፒታል በቦሌ ክ/ከተማ በኢትዮጵያ አየር መንገድ የካርጎ ተርሚናል ፊት ለፊት በሚገኘው በኢትዮጲያ የመጀመሪያው ልዩ የልብና የደም ህክምና ሆስፒታል በመሆኑ ኩራት ይሰማዋል። በ2006 ኤሲኤች የሆስፒታል አገልግሎትን ተቀላቅሎ ዘመናዊ እና የላቀ ምርመራ እና የልብ እና ተያያዥ በሽታዎች ህክምና ዘዴዎችን ለመስጠት።\r\n\r\nልዩ የጤና አጠባበቅ አገልግሎቶችን አገልግሎታችንን ለሚፈልጉ ሁሉ ለማድረስ በሆስፒታል ንግድ ውስጥ ነን። ሰራተኞቻችን ሰፋ ያለ የጤና እንክብካቤ አገልግሎቶችን ለማስተናገድ በደንብ የሰለጠኑ እና ብቁ ናቸው። በሚሊዮኖች የሚቆጠሩ ኢንቨስት በማድረግ፣ ACH ራሱን የላቀ ካት ላብራቶሪ እና ሌሎች የቅርብ ጊዜ የህክምና መሳሪያዎችን አስታጥቋል።\r\n\r\nሁሉም ታካሚዎቻችን ሆስፒታላችንን ሲጎበኙ የመጀመሪያ ደረጃ ህክምና እንዲያገኙ እየሰራን ነው። አዲስ የሆስፒታል አስተዳደር ስርዓት (ኤችአርኤም) ተክለናል ይህም ሁሉንም ስራዎችን በየደረጃው ቅልጥፍናን በአግባቡ እንድንቆጣጠር ያስችለናል ።ኤሲኤች በኢትዮጵያ እና በስዊድን ባለአክሲዮኖች ባለቤትነት የተያዘ ሲሆን ከባለድርሻዎቹ አንዱ እና የቦርድ ሰብሳቢ ዶ/ር ፍቁ ማሩ ከፍተኛ ብቃት ያለው የልብ ሐኪም በስዊድን ተምሮ ከ20 አመት በላይ በልብ ሐኪምነት ሰርቷል።",
+          "address": {
+            "region": "አዲስ አበባ",
+            "summary": "ቦሌ ክ/ከተማ አዲስ አበባ ኤርፖርት ጭነት ፊት ለፊት",
+            "woreda": "01",
+            "zone": "01"
+          },
+          "institutionName_fuzzy": [
+            "አዲስ",
+            "የልብ",
+            "ህክም",
+            "ህክምና",
+            "ሆስፒ",
+            "ሆስፒታ",
+            "ሆስፒታል",
+            "አዲስ የልብ ህክምና ሆስፒታል"
+          ]
+        }
+      }
+    },
+    "education": [],
+    "availablity": [],
+    "__v": 1,
+    "fullName_fuzzy": [
+      "drg",
+      "drge",
+      "drgeb",
+      "drgebe",
+      "drgebey",
+      "drgebeye",
+      "drgebeyeh",
+      "drgebeyehu",
+      "bek",
+      "beke",
+      "bekel",
+      "bekele",
+      "dr.gebeyehu bekele"
+    ],
+    "source": "doctors",
+    "score": 1
+  },
+  {
+    "_id": "62b959d423006348f0f44b72",
+    "phoneNumbers": [],
+    "emails": [],
+    "photo": "https://res.cloudinary.com/hakimhub/image/upload/v1656314323/POP_DATA_DOC/Bethzatha_General_Hospital_0.jpg",
+    "summary": "",
+    "speciality": [
+      {
+        "_id": "62b5bcc1f8915020c8ed9d88",
+        "isSubspeciality": false,
+        "name": "Internist",
+        "lang": {
+          "am": {
+            "name": "የ ውስጥ ደዌ ሃኪም",
+            "description": ""
+          }
+        }
+      }
+    ],
+    "experience_years": 0,
+    "institutionID_list": [
+      {
+        "_id": "62b5a97ddd58ed2c34d361e0",
+        "institutionName": "Bethzatha General Hospital",
+        "lang": {
+          "am": {
+            "institutionName": "ቤተዛታ አጠቃላይ ሆስፒታል",
+            "summary": "ቤተዛታ ኃላፊነቱ የተወሰነ የግል ማኅበር በ1996 በአዲስ አበባ የጤና አገልግሎት ለመስጠት የተቋቋመ ድርጅት ነው። ቤተዛታ በ1996 በኦሎምፒያ አደባባይ (ቂርቆስ ክፍለ ከተማ) ዙሪያ ካለው ከፍተኛ ክሊኒክ እና በአምባሳደር ቲያትር ህንፃ ነፃ የቆመ ቤተ ሙከራ አገልግሎቱን ጀመረች። እ.ኤ.አ. በ 2003 ቤተዛታ በስታዲየም አካባቢ 60 አልጋ አጠቃላይ ሆስፒታል አቋቋመች ። ላለፉት አምስት አመታት አጠቃላይ ሆስፒታሉ በዓመት ከ100,000 በላይ ህሙማን የህክምና አገልግሎት ሲሰጥ ቆይቷል።\r\n\r\nአጠቃላይ ሆስፒታል\r\n\r\nቤተዛታ አጠቃላይ ሆስፒታል ከይድነቃቸው ተሰማ ብሄራዊ ስታዲየም አጠገብ በከተማው መሀል መሃል ላይ የሚገኝ የግል የጤና አገልግሎት ሰጪ ነው። ሆስፒታሉ በ2003 ዓ.ም ከተመሰረተ ጀምሮ ለታካሚዎቹ እንክብካቤ ለመስጠት ቁርጠኛ ሆኖ በአዲስ አበባ ማህበረሰብ አጠቃላይ ጤና ላይ አወንታዊ ተፅእኖ አለው ።ሆስፒታሉ አጠቃላይ የቀዶ ጥገና ሀኪሞች ፣ ኢንተርኒስቶች ፣ የጽንስና የማህፀን ሐኪሞች ፣ የህፃናት ሐኪሞች ፣ የአጥንት ህክምና ባለሙያዎች, ኦንኮሎጂስቶች, የደም ህክምና ባለሙያዎች, የ ENT ባለሙያዎች, የዓይን ሐኪሞች እና ራዲዮሎጂስቶች. ነርሶች እና ሌሎች የጤና አጠባበቅ አቅራቢዎች በበቂ ቁጥሮች የተያዙ እና ለታካሚዎች የሚገባቸውን የእንክብካቤ ጥራት ለማቅረብ ቁርጠኛ ናቸው።\r\n\r\nበአዲስ መልክ የተደራጀው አጠቃላይ ሆስፒታል ከጁን 01 ቀን 2010 ጀምሮ አገልግሎት መስጠት የጀመረ ሲሆን ሁለት ክንፎች ያሉት የሰሜን ክንፍ እና የደቡብ ክንፍ በድምሩ 173 አልጋዎች አሉት። የሰሜን ዊንግ (የመጀመሪያው የሆስፒታል ህንፃ) 57 አልጋዎች ያሉት ሲሆን በአሁኑ ጊዜ እድሳት እየተደረገለት ነው፣ የሆስፒታሉ ደቡብ ክንፍ MCH ክንፍ (አዲሱ ህንፃ) 100 አልጋዎች ሙሉ ለሙሉ ዘመናዊ የህክምና መሳሪያዎች እና ልዩ መገልገያዎች አሉት። በተጨማሪም 10 አልጋ የፅኑ እንክብካቤ ክፍሎች (ICU)፣ 6 Operating Rooms (OR) በዘመናዊ የተራቀቁ የህክምና መሳሪያዎች አሉት።\r\n\r\nሆስፒታሉ በአጠቃላይ 318 የጤና ባለሙያዎች (58 ስፔሻሊስት ዶክተሮች፣ 3 አጠቃላይ ሀኪሞች፣ 79 ነርሶች እና 30 የጤና ባለሙያዎች) እና 148 የሚጠጉ የአመራርና የድጋፍ አገልግሎት ሰራተኞችን ይዞ እየሰራ ይገኛል።",
+            "address": {
+              "region": "አዲስ አበባ",
+              "summary": "ልደታ ክ/ከተማ መስቀል አደባባይ አጠገብ",
+              "woreda": "01",
+              "zone": "01"
+            },
+            "institutionName_fuzzy": [
+              "ቤተዛ",
+              "ቤተዛታ",
+              "አጠቃ",
+              "አጠቃላ",
+              "አጠቃላይ",
+              "ሆስፒ",
+              "ሆስፒታ",
+              "ሆስፒታል",
+              "ቤተዛታ አጠቃላይ ሆስፒታል"
+            ]
+          }
+        }
+      }
+    ],
+    "gender": "Male",
+    "languages": ["Amharic", "English"],
+    "birthday": "1995-12-17T00:24:00.000Z",
+    "otherDocuments": [],
+    "experience": [],
+    "fullName": "Dr Amsalu Garomsa",
+    "mainInstitution": {
+      "_id": "62b5a97ddd58ed2c34d361e0",
+      "availability": {
+        "twentyFourHours": true,
+        "startDay": "0Monday",
+        "endDay": "6Sunday",
+        "opening": "00:00",
+        "closing": "23:59"
+      },
+      "services": [
+        {
+          "_id": "629f11868373fd1bef2db415",
+          "title": "Laboratory",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ላብራቶሪ",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db424",
+          "title": "CT Scan",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ሲቲ እስካን",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db42a",
+          "title": "Dialysis Center",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "የ ኩላሊት እጥበት አግልግሎት",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db44b",
+          "title": "Pediatrics",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "የ ህጻናት ህክምና",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db44d",
+          "title": "Physiotherapy",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ፊዚዮቴራፒ",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db44f",
+          "title": "X-Ray",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ኤክስ ረይ",
+              "description": ""
+            }
+          }
+        }
+      ],
+      "institutionName": "Bethzatha General Hospital",
+      "summary": "Bethzatha is a private limited company established in the year 1996 to provide health care services in Addis Ababa, Ethiopia.  Bethzatha started its service in 1996 with a higher clinic around Olympia Square (Kirkos Sub City) and a free standing laboratory in Ambassador Theatre building. In 2003 Bethzatha established a 60 bed general hospital at Stadium area providing inpatient and outpatient services in several specialties. For over the past five years the general hospital has been giving medical care to over 100,000 patients per annum.  Bethzatha General Hospital, is a private health care provider located at the heart of the down town of the city, adjacent to Yidnekachew Tesema National Stadium. The hospital is dedicated to provide care to its patients and has a positive impact on overall health of the Addis Ababa community since its establishment in 2003.The hospital has the most senior team of specialists including general surgeons, internists, obstetrics and gynecologists, pediatricians, orthopedic surgeons, oncologists, hematologists, ENT specialists, ophthalmologists, and radiologists. Nurses and other healthcare providers are staffed with sufficient numbers and are committed in providing the quality of care that patients deserve. The newly reorganized general Hospital has been opened and being operational since  June 01, 2018 has two wings, the Northern wing and the Southern Wing that have a total of 173 beds. The Northern Wing (the original hospital building) has 57 beds and currently is being renovated to became, MCH wing of the Hospital South wing (the new building) has 100 beds fully equipped with modern medical equipment and specious amenities. In addition, it has 10 bed Intensive care units (ICU), 6 Operating Rooms (OR) with modern sophisticated medical equipment. The hospital is running with a total of 318 health professionals (58 specialist doctors, 3 general practitioners, 79 nurses, and 30 other health professionals) and about 148 management and support service workers.",
+      "lang": {
+        "am": {
+          "institutionName": "ቤተዛታ አጠቃላይ ሆስፒታል",
+          "summary": "ቤተዛታ ኃላፊነቱ የተወሰነ የግል ማኅበር በ1996 በአዲስ አበባ የጤና አገልግሎት ለመስጠት የተቋቋመ ድርጅት ነው። ቤተዛታ በ1996 በኦሎምፒያ አደባባይ (ቂርቆስ ክፍለ ከተማ) ዙሪያ ካለው ከፍተኛ ክሊኒክ እና በአምባሳደር ቲያትር ህንፃ ነፃ የቆመ ቤተ ሙከራ አገልግሎቱን ጀመረች። እ.ኤ.አ. በ 2003 ቤተዛታ በስታዲየም አካባቢ 60 አልጋ አጠቃላይ ሆስፒታል አቋቋመች ። ላለፉት አምስት አመታት አጠቃላይ ሆስፒታሉ በዓመት ከ100,000 በላይ ህሙማን የህክምና አገልግሎት ሲሰጥ ቆይቷል።\r\n\r\nአጠቃላይ ሆስፒታል\r\n\r\nቤተዛታ አጠቃላይ ሆስፒታል ከይድነቃቸው ተሰማ ብሄራዊ ስታዲየም አጠገብ በከተማው መሀል መሃል ላይ የሚገኝ የግል የጤና አገልግሎት ሰጪ ነው። ሆስፒታሉ በ2003 ዓ.ም ከተመሰረተ ጀምሮ ለታካሚዎቹ እንክብካቤ ለመስጠት ቁርጠኛ ሆኖ በአዲስ አበባ ማህበረሰብ አጠቃላይ ጤና ላይ አወንታዊ ተፅእኖ አለው ።ሆስፒታሉ አጠቃላይ የቀዶ ጥገና ሀኪሞች ፣ ኢንተርኒስቶች ፣ የጽንስና የማህፀን ሐኪሞች ፣ የህፃናት ሐኪሞች ፣ የአጥንት ህክምና ባለሙያዎች, ኦንኮሎጂስቶች, የደም ህክምና ባለሙያዎች, የ ENT ባለሙያዎች, የዓይን ሐኪሞች እና ራዲዮሎጂስቶች. ነርሶች እና ሌሎች የጤና አጠባበቅ አቅራቢዎች በበቂ ቁጥሮች የተያዙ እና ለታካሚዎች የሚገባቸውን የእንክብካቤ ጥራት ለማቅረብ ቁርጠኛ ናቸው።\r\n\r\nበአዲስ መልክ የተደራጀው አጠቃላይ ሆስፒታል ከጁን 01 ቀን 2010 ጀምሮ አገልግሎት መስጠት የጀመረ ሲሆን ሁለት ክንፎች ያሉት የሰሜን ክንፍ እና የደቡብ ክንፍ በድምሩ 173 አልጋዎች አሉት። የሰሜን ዊንግ (የመጀመሪያው የሆስፒታል ህንፃ) 57 አልጋዎች ያሉት ሲሆን በአሁኑ ጊዜ እድሳት እየተደረገለት ነው፣ የሆስፒታሉ ደቡብ ክንፍ MCH ክንፍ (አዲሱ ህንፃ) 100 አልጋዎች ሙሉ ለሙሉ ዘመናዊ የህክምና መሳሪያዎች እና ልዩ መገልገያዎች አሉት። በተጨማሪም 10 አልጋ የፅኑ እንክብካቤ ክፍሎች (ICU)፣ 6 Operating Rooms (OR) በዘመናዊ የተራቀቁ የህክምና መሳሪያዎች አሉት።\r\n\r\nሆስፒታሉ በአጠቃላይ 318 የጤና ባለሙያዎች (58 ስፔሻሊስት ዶክተሮች፣ 3 አጠቃላይ ሀኪሞች፣ 79 ነርሶች እና 30 የጤና ባለሙያዎች) እና 148 የሚጠጉ የአመራርና የድጋፍ አገልግሎት ሰራተኞችን ይዞ እየሰራ ይገኛል።",
+          "address": {
+            "region": "አዲስ አበባ",
+            "summary": "ልደታ ክ/ከተማ መስቀል አደባባይ አጠገብ",
+            "woreda": "01",
+            "zone": "01"
+          },
+          "institutionName_fuzzy": [
+            "ቤተዛ",
+            "ቤተዛታ",
+            "አጠቃ",
+            "አጠቃላ",
+            "አጠቃላይ",
+            "ሆስፒ",
+            "ሆስፒታ",
+            "ሆስፒታል",
+            "ቤተዛታ አጠቃላይ ሆስፒታል"
+          ]
+        }
+      }
+    },
+    "education": [],
+    "availablity": [],
+    "__v": 2,
+    "fullName_fuzzy": [
+      "dr",
+      "ams",
+      "amsa",
+      "amsal",
+      "amsalu",
+      "gar",
+      "garo",
+      "garom",
+      "garoms",
+      "garomsa",
+      "dr amsalu garomsa"
+    ],
+    "source": "doctors",
+    "score": 1
+  },
+  {
+    "_id": "62b959d723006348f0f44b77",
+    "phoneNumbers": [],
+    "emails": [],
+    "photo": "https://res.cloudinary.com/hakimhub/image/upload/v1656314326/POP_DATA_DOC/Bethzatha_General_Hospital_1.jpg",
+    "summary": "",
+    "speciality": [
+      {
+        "_id": "62b5bcd8f8915020c8ed9df9",
+        "isSubspeciality": false,
+        "name": "General Surgeon",
+        "lang": {
+          "am": {
+            "name": "የ ቀዶ ጥገና ህክምና ሃኪም",
+            "description": ""
+          }
+        }
+      }
+    ],
+    "experience_years": 0,
+    "institutionID_list": [
+      {
+        "_id": "62b5a97ddd58ed2c34d361e0",
+        "institutionName": "Bethzatha General Hospital",
+        "lang": {
+          "am": {
+            "institutionName": "ቤተዛታ አጠቃላይ ሆስፒታል",
+            "summary": "ቤተዛታ ኃላፊነቱ የተወሰነ የግል ማኅበር በ1996 በአዲስ አበባ የጤና አገልግሎት ለመስጠት የተቋቋመ ድርጅት ነው። ቤተዛታ በ1996 በኦሎምፒያ አደባባይ (ቂርቆስ ክፍለ ከተማ) ዙሪያ ካለው ከፍተኛ ክሊኒክ እና በአምባሳደር ቲያትር ህንፃ ነፃ የቆመ ቤተ ሙከራ አገልግሎቱን ጀመረች። እ.ኤ.አ. በ 2003 ቤተዛታ በስታዲየም አካባቢ 60 አልጋ አጠቃላይ ሆስፒታል አቋቋመች ። ላለፉት አምስት አመታት አጠቃላይ ሆስፒታሉ በዓመት ከ100,000 በላይ ህሙማን የህክምና አገልግሎት ሲሰጥ ቆይቷል።\r\n\r\nአጠቃላይ ሆስፒታል\r\n\r\nቤተዛታ አጠቃላይ ሆስፒታል ከይድነቃቸው ተሰማ ብሄራዊ ስታዲየም አጠገብ በከተማው መሀል መሃል ላይ የሚገኝ የግል የጤና አገልግሎት ሰጪ ነው። ሆስፒታሉ በ2003 ዓ.ም ከተመሰረተ ጀምሮ ለታካሚዎቹ እንክብካቤ ለመስጠት ቁርጠኛ ሆኖ በአዲስ አበባ ማህበረሰብ አጠቃላይ ጤና ላይ አወንታዊ ተፅእኖ አለው ።ሆስፒታሉ አጠቃላይ የቀዶ ጥገና ሀኪሞች ፣ ኢንተርኒስቶች ፣ የጽንስና የማህፀን ሐኪሞች ፣ የህፃናት ሐኪሞች ፣ የአጥንት ህክምና ባለሙያዎች, ኦንኮሎጂስቶች, የደም ህክምና ባለሙያዎች, የ ENT ባለሙያዎች, የዓይን ሐኪሞች እና ራዲዮሎጂስቶች. ነርሶች እና ሌሎች የጤና አጠባበቅ አቅራቢዎች በበቂ ቁጥሮች የተያዙ እና ለታካሚዎች የሚገባቸውን የእንክብካቤ ጥራት ለማቅረብ ቁርጠኛ ናቸው።\r\n\r\nበአዲስ መልክ የተደራጀው አጠቃላይ ሆስፒታል ከጁን 01 ቀን 2010 ጀምሮ አገልግሎት መስጠት የጀመረ ሲሆን ሁለት ክንፎች ያሉት የሰሜን ክንፍ እና የደቡብ ክንፍ በድምሩ 173 አልጋዎች አሉት። የሰሜን ዊንግ (የመጀመሪያው የሆስፒታል ህንፃ) 57 አልጋዎች ያሉት ሲሆን በአሁኑ ጊዜ እድሳት እየተደረገለት ነው፣ የሆስፒታሉ ደቡብ ክንፍ MCH ክንፍ (አዲሱ ህንፃ) 100 አልጋዎች ሙሉ ለሙሉ ዘመናዊ የህክምና መሳሪያዎች እና ልዩ መገልገያዎች አሉት። በተጨማሪም 10 አልጋ የፅኑ እንክብካቤ ክፍሎች (ICU)፣ 6 Operating Rooms (OR) በዘመናዊ የተራቀቁ የህክምና መሳሪያዎች አሉት።\r\n\r\nሆስፒታሉ በአጠቃላይ 318 የጤና ባለሙያዎች (58 ስፔሻሊስት ዶክተሮች፣ 3 አጠቃላይ ሀኪሞች፣ 79 ነርሶች እና 30 የጤና ባለሙያዎች) እና 148 የሚጠጉ የአመራርና የድጋፍ አገልግሎት ሰራተኞችን ይዞ እየሰራ ይገኛል።",
+            "address": {
+              "region": "አዲስ አበባ",
+              "summary": "ልደታ ክ/ከተማ መስቀል አደባባይ አጠገብ",
+              "woreda": "01",
+              "zone": "01"
+            },
+            "institutionName_fuzzy": [
+              "ቤተዛ",
+              "ቤተዛታ",
+              "አጠቃ",
+              "አጠቃላ",
+              "አጠቃላይ",
+              "ሆስፒ",
+              "ሆስፒታ",
+              "ሆስፒታል",
+              "ቤተዛታ አጠቃላይ ሆስፒታል"
+            ]
+          }
+        }
+      }
+    ],
+    "gender": "Male",
+    "languages": ["Amharic", "English"],
+    "birthday": "1995-12-17T00:24:00.000Z",
+    "otherDocuments": [],
+    "experience": [],
+    "fullName": "Dr Abayneh Admassu",
+    "mainInstitution": {
+      "_id": "62b5a97ddd58ed2c34d361e0",
+      "availability": {
+        "twentyFourHours": true,
+        "startDay": "0Monday",
+        "endDay": "6Sunday",
+        "opening": "00:00",
+        "closing": "23:59"
+      },
+      "services": [
+        {
+          "_id": "629f11868373fd1bef2db415",
+          "title": "Laboratory",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ላብራቶሪ",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db424",
+          "title": "CT Scan",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ሲቲ እስካን",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db42a",
+          "title": "Dialysis Center",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "የ ኩላሊት እጥበት አግልግሎት",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db44b",
+          "title": "Pediatrics",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "የ ህጻናት ህክምና",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db44d",
+          "title": "Physiotherapy",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ፊዚዮቴራፒ",
+              "description": ""
+            }
+          }
+        },
+        {
+          "_id": "629f11868373fd1bef2db44f",
+          "title": "X-Ray",
+          "description": "",
+          "lang": {
+            "am": {
+              "title": "ኤክስ ረይ",
+              "description": ""
+            }
+          }
+        }
+      ],
+      "institutionName": "Bethzatha General Hospital",
+      "summary": "Bethzatha is a private limited company established in the year 1996 to provide health care services in Addis Ababa, Ethiopia.  Bethzatha started its service in 1996 with a higher clinic around Olympia Square (Kirkos Sub City) and a free standing laboratory in Ambassador Theatre building. In 2003 Bethzatha established a 60 bed general hospital at Stadium area providing inpatient and outpatient services in several specialties. For over the past five years the general hospital has been giving medical care to over 100,000 patients per annum.  Bethzatha General Hospital, is a private health care provider located at the heart of the down town of the city, adjacent to Yidnekachew Tesema National Stadium. The hospital is dedicated to provide care to its patients and has a positive impact on overall health of the Addis Ababa community since its establishment in 2003.The hospital has the most senior team of specialists including general surgeons, internists, obstetrics and gynecologists, pediatricians, orthopedic surgeons, oncologists, hematologists, ENT specialists, ophthalmologists, and radiologists. Nurses and other healthcare providers are staffed with sufficient numbers and are committed in providing the quality of care that patients deserve. The newly reorganized general Hospital has been opened and being operational since  June 01, 2018 has two wings, the Northern wing and the Southern Wing that have a total of 173 beds. The Northern Wing (the original hospital building) has 57 beds and currently is being renovated to became, MCH wing of the Hospital South wing (the new building) has 100 beds fully equipped with modern medical equipment and specious amenities. In addition, it has 10 bed Intensive care units (ICU), 6 Operating Rooms (OR) with modern sophisticated medical equipment. The hospital is running with a total of 318 health professionals (58 specialist doctors, 3 general practitioners, 79 nurses, and 30 other health professionals) and about 148 management and support service workers.",
+      "lang": {
+        "am": {
+          "institutionName": "ቤተዛታ አጠቃላይ ሆስፒታል",
+          "summary": "ቤተዛታ ኃላፊነቱ የተወሰነ የግል ማኅበር በ1996 በአዲስ አበባ የጤና አገልግሎት ለመስጠት የተቋቋመ ድርጅት ነው። ቤተዛታ በ1996 በኦሎምፒያ አደባባይ (ቂርቆስ ክፍለ ከተማ) ዙሪያ ካለው ከፍተኛ ክሊኒክ እና በአምባሳደር ቲያትር ህንፃ ነፃ የቆመ ቤተ ሙከራ አገልግሎቱን ጀመረች። እ.ኤ.አ. በ 2003 ቤተዛታ በስታዲየም አካባቢ 60 አልጋ አጠቃላይ ሆስፒታል አቋቋመች ። ላለፉት አምስት አመታት አጠቃላይ ሆስፒታሉ በዓመት ከ100,000 በላይ ህሙማን የህክምና አገልግሎት ሲሰጥ ቆይቷል።\r\n\r\nአጠቃላይ ሆስፒታል\r\n\r\nቤተዛታ አጠቃላይ ሆስፒታል ከይድነቃቸው ተሰማ ብሄራዊ ስታዲየም አጠገብ በከተማው መሀል መሃል ላይ የሚገኝ የግል የጤና አገልግሎት ሰጪ ነው። ሆስፒታሉ በ2003 ዓ.ም ከተመሰረተ ጀምሮ ለታካሚዎቹ እንክብካቤ ለመስጠት ቁርጠኛ ሆኖ በአዲስ አበባ ማህበረሰብ አጠቃላይ ጤና ላይ አወንታዊ ተፅእኖ አለው ።ሆስፒታሉ አጠቃላይ የቀዶ ጥገና ሀኪሞች ፣ ኢንተርኒስቶች ፣ የጽንስና የማህፀን ሐኪሞች ፣ የህፃናት ሐኪሞች ፣ የአጥንት ህክምና ባለሙያዎች, ኦንኮሎጂስቶች, የደም ህክምና ባለሙያዎች, የ ENT ባለሙያዎች, የዓይን ሐኪሞች እና ራዲዮሎጂስቶች. ነርሶች እና ሌሎች የጤና አጠባበቅ አቅራቢዎች በበቂ ቁጥሮች የተያዙ እና ለታካሚዎች የሚገባቸውን የእንክብካቤ ጥራት ለማቅረብ ቁርጠኛ ናቸው።\r\n\r\nበአዲስ መልክ የተደራጀው አጠቃላይ ሆስፒታል ከጁን 01 ቀን 2010 ጀምሮ አገልግሎት መስጠት የጀመረ ሲሆን ሁለት ክንፎች ያሉት የሰሜን ክንፍ እና የደቡብ ክንፍ በድምሩ 173 አልጋዎች አሉት። የሰሜን ዊንግ (የመጀመሪያው የሆስፒታል ህንፃ) 57 አልጋዎች ያሉት ሲሆን በአሁኑ ጊዜ እድሳት እየተደረገለት ነው፣ የሆስፒታሉ ደቡብ ክንፍ MCH ክንፍ (አዲሱ ህንፃ) 100 አልጋዎች ሙሉ ለሙሉ ዘመናዊ የህክምና መሳሪያዎች እና ልዩ መገልገያዎች አሉት። በተጨማሪም 10 አልጋ የፅኑ እንክብካቤ ክፍሎች (ICU)፣ 6 Operating Rooms (OR) በዘመናዊ የተራቀቁ የህክምና መሳሪያዎች አሉት።\r\n\r\nሆስፒታሉ በአጠቃላይ 318 የጤና ባለሙያዎች (58 ስፔሻሊስት ዶክተሮች፣ 3 አጠቃላይ ሀኪሞች፣ 79 ነርሶች እና 30 የጤና ባለሙያዎች) እና 148 የሚጠጉ የአመራርና የድጋፍ አገልግሎት ሰራተኞችን ይዞ እየሰራ ይገኛል።",
+          "address": {
+            "region": "አዲስ አበባ",
+            "summary": "ልደታ ክ/ከተማ መስቀል አደባባይ አጠገብ",
+            "woreda": "01",
+            "zone": "01"
+          },
+          "institutionName_fuzzy": [
+            "ቤተዛ",
+            "ቤተዛታ",
+            "አጠቃ",
+            "አጠቃላ",
+            "አጠቃላይ",
+            "ሆስፒ",
+            "ሆስፒታ",
+            "ሆስፒታል",
+            "ቤተዛታ አጠቃላይ ሆስፒታል"
+          ]
+        }
+      }
+    },
+    "education": [],
+    "availablity": [],
+    "__v": 2,
+    "fullName_fuzzy": [
+      "dr",
+      "aba",
+      "abay",
+      "abayn",
+      "abayne",
+      "abayneh",
+      "adm",
+      "adma",
+      "admas",
+      "admass",
+      "admassu",
+      "dr abayneh admassu"
+    ],
+    "source": "doctors",
+    "score": 1
+  }
+]
