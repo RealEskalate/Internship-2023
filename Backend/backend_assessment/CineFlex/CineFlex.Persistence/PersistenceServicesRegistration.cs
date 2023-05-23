@@ -1,4 +1,5 @@
-﻿using CineFlex.Application.Contracts.Persistence;
+﻿using Application.Contracts.Identity;
+using CineFlex.Application.Contracts.Persistence;
 using CineFlex.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -18,7 +19,9 @@ namespace CineFlex.Persistence
             services.AddDbContext<CineFlexDbContex>(opt =>
             opt.UseNpgsql(configuration.GetConnectionString("CineFlexConnectionString")));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<ISeatRepository, SeatRepository>();
             services.AddScoped<ICinemaRepository, CinemaRepository>();
+            
             return services;
         }
     }
