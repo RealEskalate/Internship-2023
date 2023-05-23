@@ -9,9 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CineFlex.Identity;
-public class CineFlexDbContext : IdentityDbContext<ApplicationUser>
+public class CineFlexDbIdentityContext : IdentityDbContext<ApplicationUser>
 {
-    public CineFlexDbContext(DbContextOptions<CineFlexDbContext> options)
+    public CineFlexDbIdentityContext(DbContextOptions<CineFlexDbIdentityContext> options)
             : base(options)
     {
     }
@@ -19,6 +19,6 @@ public class CineFlexDbContext : IdentityDbContext<ApplicationUser>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(CineFlexDbContext).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(CineFlexDbIdentityContext).Assembly);
     }
 }

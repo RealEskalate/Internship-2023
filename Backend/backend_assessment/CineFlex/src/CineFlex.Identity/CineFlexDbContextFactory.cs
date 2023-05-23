@@ -8,21 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CineFlex.Identity;
-public class CineFlexDbContextFactory : IDesignTimeDbContextFactory<CineFlexDbContext>
+public class CineFlexDbIdentityContextFactory : IDesignTimeDbContextFactory<CineFlexDbIdentityContext>
 {
-    public CineFlexDbContext CreateDbContext(string[] args)
+    public CineFlexDbIdentityContext CreateDbContext(string[] args)
     {
         IConfigurationRoot configuration = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
             .AddJsonFile("appsettings.json")
             .Build();
 
-        var builder = new DbContextOptionsBuilder<CineFlexDbContext>();
+        var builder = new DbContextOptionsBuilder<CineFlexDbIdentityContext>();
 
         var connectionString = configuration.GetConnectionString("CineFlexConnectionString");
 
         builder.UseNpgsql(connectionString);
 
-        return new CineFlexDbContext(builder.Options);
+        return new CineFlexDbIdentityContext(builder.Options);
     }
 }

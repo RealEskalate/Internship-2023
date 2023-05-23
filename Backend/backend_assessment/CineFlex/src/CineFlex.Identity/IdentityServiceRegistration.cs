@@ -21,12 +21,12 @@ public static class IdentityServiceRegistration
 {
     public static IServiceCollection ConfigureIdentityServices(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddDbContext<CineFlexDbContext>(opt =>
+        services.AddDbContext<CineFlexDbIdentityContext>(opt =>
         opt.UseNpgsql(configuration.GetConnectionString("CineFlexConnectionString")));
 
         services.Configure<JwtSettings>(configuration.GetSection("JwtSettings"));
         services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<CineFlexDbContext>()
+                .AddEntityFrameworkStores<CineFlexDbIdentityContext>()
                 .AddDefaultTokenProviders();
 
         services.AddAuthentication(options =>
