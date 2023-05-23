@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CineFlex.Application.Features.Seat.DTOs.Validators
+namespace CineFlex.Application.Features.Seats.DTOs.Validators
 {
     public class UpdateSeatDtoValidator : AbstractValidator<UpdateSeatDto>
     {

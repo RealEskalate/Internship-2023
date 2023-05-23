@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CineFlex.Application.Features.Movies.CQRS.Commands
+namespace CineFlex.Application.Features.Seats.CQRS.Commands
 {
-    public class DeleteMovieCommand : IRequest<BaseCommandResponse<int>>
+    public class DeleteSeatCommand : IRequest<BaseCommandResponse<int>>
     {
         public int Id { get; set; }
     }

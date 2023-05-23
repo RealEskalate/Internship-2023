@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace CineFlex.Application.Features.Seat.DTOs.Validators
+namespace CineFlex.Application.Features.Seats.DTOs.Validators
 {
     public class ISeatDtoValidator : AbstractValidator<ISeatDto>
     {

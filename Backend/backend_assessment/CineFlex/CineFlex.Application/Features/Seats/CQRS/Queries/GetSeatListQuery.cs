@@ -1,5 +1,7 @@
 ﻿using CineFlex.Application.Features.Movies.DTOs;
+using CineFlex.Application.Features.Seats.DTOs;
 using CineFlex.Application.Responses;
+using CineFlex.Domain;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -7,11 +9,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CineFlex.Application.Features.Movies.CQRS.Commands
+namespace CineFlex.Application.Features.Seats.CQRS.Queries
 {
-    public class UpdateMovieCommand : IRequest<BaseCommandResponse<Unit>>
+    public class GetSeatListQuery : IRequest<BaseCommandResponse<List<SeatDto>>>
     {
-        public UpdateMovieDto MovieDto { get; set; }
 
     }
 }

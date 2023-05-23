@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CineFlex.Application.Features.Seat.DTOs
+namespace CineFlex.Application.Features.Seats.DTOs
 {
     public class UpdateSeatDto : BaseDto, ISeatDto
     {

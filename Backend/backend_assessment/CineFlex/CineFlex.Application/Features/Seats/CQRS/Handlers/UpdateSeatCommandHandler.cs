@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using CineFlex.Application.Contracts.Persistence;
-using CineFlex.Application.Features.Movies.CQRS.Commands;
-using CineFlex.Application.Features.Movies.DTOs.Validators;
+using CineFlex.Application.Features.Seats.CQRS.Commands;
+using CineFlex.Application.Features.Seats.DTOs.Validators;
 using CineFlex.Application.Responses;
 using MediatR;
 using System;
@@ -10,27 +10,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CineFlex.Application.Features.Movies.CQRS.Handlers
+namespace CineFlex.Application.Features.Seats.CQRS.Handlers
 {
-    public class UpdateMovieCommandHandler : IRequestHandler<UpdateMovieCommand, BaseCommandResponse<Unit>>
+    public class UpdateSeatCommandHandler : IRequestHandler<UpdateSeatCommand, BaseCommandResponse<Unit>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public UpdateMovieCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public UpdateSeatCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
 
-        public async Task<BaseCommandResponse<Unit>> Handle(UpdateMovieCommand request, CancellationToken cancellationToken)
+        public async Task<BaseCommandResponse<Unit>> Handle(UpdateSeatCommand request, CancellationToken cancellationToken)
         {
 
             var response = new BaseCommandResponse<Unit>();
 
 
-            var validator = new UpdateMovieDtoValidator();
-            var validationResult = await validator.ValidateAsync(request.MovieDto);
+            var validator = new UpdateSeatDtoValidator();
+            var validationResult = await validator.ValidateAsync(request.SeatDto);
 
             if (validationResult.IsValid == false)
             {
@@ -41,18 +41,18 @@ namespace CineFlex.Application.Features.Movies.CQRS.Handlers
             else
             {
 
-                var movie = await _unitOfWork.MovieRepository.Get(request.MovieDto.Id);
+                var seat = await _unitOfWork.SeatRepository.Get(request.SeatDto.Id);
 
-                if (movie == null)
+                if (seat == null)
                 {
                     response.Success = false;
                     response.Message = "Update Failed";
                     return response;
                 }
 
-                _mapper.Map(request.MovieDto, movie);
+                _mapper.Map(request.SeatDto, seat);
 
-                await _unitOfWork.MovieRepository.Update(movie);
+                await _unitOfWork.SeatRepository.Update(seat);
                 if (await _unitOfWork.Save() > 0)
                 {
                     response.Success = true;
