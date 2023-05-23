@@ -10,7 +10,7 @@ const DoctorCard: React.FC<DoctorCardProp> = ({ doctor: { _id, fullName, special
     return (
         <div onClick={() => onClick(_id)} className="flex flex-col items-center justify-center p-4 bg-white rounded-lg shadow-lg">
             <div className="w-24 h-24 rounded-full overflow-hidden">
-                <img className="w-full h-full object-cover" src={photo} alt="Person" />
+                <img className="w-full h-full object-cover rounded-full border-2 border-indigo-500" src={photo} alt="Person" />
             </div>
             <div className="mt-4 text-center">
                 <h3 className="text-xl font-bold mb-2">{fullName}</h3>

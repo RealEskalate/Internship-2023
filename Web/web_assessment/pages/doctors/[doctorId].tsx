@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import {useFetchDoctorDetailsMutation} from "@/store/doctors/doctors-api";
 import {useEffect} from "react";
+import Image from "next/image";
 
 const DoctorDetailPage = () => {
     const router = useRouter();
@@ -20,11 +21,16 @@ const DoctorDetailPage = () => {
             {isLoading && <p>Loading...</p>}
             {data !== undefined && (
                 <div className="bg-gray-100 p-8">
-                    <div className="relative flex justify-center">
-                        <div className="w-32 h-32 bg-gray-300 rounded-full overflow-hidden flex justify-center items-center">
-                            <img src={data.photo} alt="Doctor" className="w-full h-full object-cover" />
+                    <div className="h-64 rounded-lg border border-gray-300 relative">
+                        <div
+                            className="absolute bottom-[-40%] left-1/2 transform -translate-x-1/2 flex justify-center">
+                            <div
+                                className="w-32 h-32 bg-gray-300 rounded-full overflow-hidden flex justify-center items-center">
+                                <img src={data.photo} alt="Doctor" className="w-full h-full object-cover rounded-full border-2 border-indigo-500"/>
+                            </div>
                         </div>
                     </div>
+                    <div className="h-32"></div>
                     <h1 className="text-2xl font-bold mb-4">Doctor Detail</h1>
                     <p className="mb-2">Doctor ID: {doctorId}</p>
                     <div className="flex">
