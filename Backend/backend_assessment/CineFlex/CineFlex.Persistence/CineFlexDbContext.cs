@@ -1,20 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CineFlex.Domain;
 using CineFlex.Domain.Common;
-using CineFlex.Domain;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace CineFlex.Persistence
 {
-    public class CineFlexDbContex: DbContext
+    public class CineFlexDbContext : IdentityDbContext<AppUser>
     {
-        public CineFlexDbContex(DbContextOptions<CineFlexDbContex> options)
-           : base(options)
+        public CineFlexDbContext(DbContextOptions<CineFlexDbContext> options)
+            : base(options)
         {
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
             AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
@@ -22,12 +16,12 @@ namespace CineFlex.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(CineFlexDbContex).Assembly);
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(CineFlexDbContext).Assembly);
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-
             foreach (var entry in ChangeTracker.Entries<BaseDomainEntity>())
             {
                 entry.Entity.LastModifiedDate = DateTime.Now;
@@ -40,9 +34,9 @@ namespace CineFlex.Persistence
 
             return base.SaveChangesAsync(cancellationToken);
         }
+
         public DbSet<CinemaEntity> Cinemas { get; set; }
 
         public DbSet<Movie> Movies { get; set; }
-
     }
 }

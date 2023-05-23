@@ -10,9 +10,9 @@ namespace CineFlex.Persistence.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        private readonly CineFlexDbContex _dbContext;
+        private readonly CineFlexDbContext _dbContext;
 
-        public GenericRepository(CineFlexDbContex dbContext)
+        public GenericRepository(CineFlexDbContext dbContext)
         {
             _dbContext = dbContext;
         }

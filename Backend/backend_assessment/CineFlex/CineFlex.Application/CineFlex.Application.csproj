@@ -1,38 +1,33 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Features\_Indices\**" />
-    <EmbeddedResource Remove="Features\_Indices\**" />
-    <None Remove="Features\_Indices\**" />
-  </ItemGroup>
+    <ItemGroup>
+        <Compile Remove="Features\_Indices\**"/>
+        <EmbeddedResource Remove="Features\_Indices\**"/>
+        <None Remove="Features\_Indices\**"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
-    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.5.2" />
-    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1"/>
+        <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.5.2"/>
+        <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\CineFlex.Domain\CineFlex.Domain.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\CineFlex.Domain\CineFlex.Domain.csproj"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Contracts\Identity\" />
-    <Folder Include="Features\Auth\CQRS\Commands\" />
-    <Folder Include="Features\Auth\CQRS\Handlers\" />
-    <Folder Include="Features\Auth\CQRS\Queries\" />
-    <Folder Include="Features\Auth\DTOs\Valiadtors\" />
-    <Folder Include="Features\_Indices\CQRS\Commands\" />
-    <Folder Include="Features\_Indices\CQRS\Handlers\" />
-    <Folder Include="Features\_Indices\CQRS\Queries\" />
-  </ItemGroup>
+    <ItemGroup>
+        <Folder Include="Features\Auth\CQRS\Queries\"/>
+        <Folder Include="Features\_Indices\CQRS\Commands\"/>
+        <Folder Include="Features\_Indices\CQRS\Handlers\"/>
+        <Folder Include="Features\_Indices\CQRS\Queries\"/>
+    </ItemGroup>
 
 </Project>

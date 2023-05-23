@@ -8,17 +8,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CineFlex.Domain;
+using Microsoft.AspNetCore.Identity;
 
 namespace CineFlex.Persistence
 {
     public static class PersistenceServicesRegistration
     {
-        public static IServiceCollection ConfigurePersistenceServices(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection ConfigurePersistenceServices(this IServiceCollection services,
+            IConfiguration configuration)
         {
-            services.AddDbContext<CineFlexDbContex>(opt =>
-            opt.UseNpgsql(configuration.GetConnectionString("CineFlexConnectionString")));
+            services.AddDbContext<CineFlexDbContext>(opt =>
+                opt.UseNpgsql(configuration.GetConnectionString("CineFlexConnectionString")));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ICinemaRepository, CinemaRepository>();
+
+            services.AddIdentity<AppUser, IdentityRole>()
+                .AddEntityFrameworkStores<CineFlexDbContext>().AddDefaultTokenProviders();
             return services;
         }
     }

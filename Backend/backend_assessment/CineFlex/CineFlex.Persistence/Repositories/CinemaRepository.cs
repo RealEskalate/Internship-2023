@@ -10,7 +10,7 @@ namespace CineFlex.Persistence.Repositories
 {
     public class CinemaRepository : GenericRepository<CinemaEntity>, ICinemaRepository
     {
-        public CinemaRepository(CineFlexDbContex dbContext) : base(dbContext)
+        public CinemaRepository(CineFlexDbContext dbContext) : base(dbContext)
         {
         }
     }

@@ -11,11 +11,11 @@ namespace CineFlex.Persistence.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly CineFlexDbContex _context;
+        private readonly CineFlexDbContext _context;
         private IMovieRepository _MovieRepository;
 
         private ICinemaRepository _cinemaRepository;
-        public UnitOfWork(CineFlexDbContex context)
+        public UnitOfWork(CineFlexDbContext context)
         {
             _context = context;
         }
