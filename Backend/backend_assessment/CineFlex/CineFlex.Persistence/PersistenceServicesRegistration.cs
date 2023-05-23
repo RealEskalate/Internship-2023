@@ -22,6 +22,8 @@ namespace CineFlex.Persistence
                 opt.UseNpgsql(configuration.GetConnectionString("CineFlexConnectionString")));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ICinemaRepository, CinemaRepository>();
+            services.AddScoped<IMovieRepository, MovieRepository>();
+            services.AddScoped<ISeatRepository, SeatRepository>();
 
             services.AddIdentity<AppUser, IdentityRole>()
                 .AddEntityFrameworkStores<CineFlexDbContext>().AddDefaultTokenProviders();

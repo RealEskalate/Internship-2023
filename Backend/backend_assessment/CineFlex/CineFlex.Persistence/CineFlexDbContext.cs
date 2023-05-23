@@ -18,6 +18,40 @@ namespace CineFlex.Persistence
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(CineFlexDbContext).Assembly);
+
+            // Cinema
+            modelBuilder.Entity<CinemaEntity>()
+                .HasMany(e => e.Seats)
+                .WithOne(e => e.Cinema)
+                .HasForeignKey(e => e.CinemaId)
+                .IsRequired();
+
+            // Seats
+            modelBuilder.Entity<Seat>().HasKey(e => e.Id);
+
+            // Movies
+            modelBuilder.Entity<Movie>().HasKey(e => e.Id);
+
+            // MovieBookings
+            modelBuilder.Entity<MovieBooking>().HasKey(e => e.Id);
+            modelBuilder.Entity<MovieBooking>()
+                .HasOne(e => e.Movie)
+                .WithMany()
+                .HasForeignKey(e => e.MovieId)
+                .IsRequired();
+            modelBuilder.Entity<MovieBooking>()
+                .HasOne(e => e.Cinema)
+                .WithMany()
+                .HasForeignKey(e => e.CinemaId)
+                .IsRequired();
+            modelBuilder.Entity<MovieBooking>()
+                .HasOne(e => e.User)
+                .WithMany()
+                .HasForeignKey(e => e.UserId)
+                .IsRequired();
+            modelBuilder.Entity<MovieBooking>()
+                .HasMany(e => e.Seats)
+                .WithMany(e => e.MovieBookings);
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
