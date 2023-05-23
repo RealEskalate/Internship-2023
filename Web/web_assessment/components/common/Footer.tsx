@@ -3,24 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 const Footer: React.FC = () => {
-    const links = [
-        { href: "/about", text: "Home" },
-        { href: "/success-stories", text: "Success Stories" },
-        { href: "/about-us", text: "About Us" },
-        { href: "/get-involved", text: "Get Involved" }
-    ];
-
-    const teams = [
-        { href: "/board-members", text: "Board Members" },
-        { href: "/advisors-mentors", text: "Advisors Mentors" },
-        { href: "/executives", text: "Executives" },
-        { href: "/staffs", text: "Staffs" }
-    ];
-
-    const blogLinks = [
-        { href: "/recent-blogs", text: "Recent Blogs" },
-        { href: "/new-blog", text: "New Blog" }
-    ];
 
     return (
         <footer className="bg-indigo-800 text-white p-4">
