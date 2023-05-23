@@ -36,7 +36,9 @@ public class CreateSeatCommandHandler : IRequestHandler<CreateSeatCommand, BaseC
 
         seat = await _unitOfWork.SeatRepository.Add(seat);
 
-        if (await _unitOfWork.Save() > 0)
+        var res = await _unitOfWork.Save();
+        Console.Out.WriteLine(res);
+        if (res > 0)
             return new BaseCommandResponse<int>
             {
                 Success = true,
