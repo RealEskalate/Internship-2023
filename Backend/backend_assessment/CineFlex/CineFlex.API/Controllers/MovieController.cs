@@ -33,7 +33,7 @@ namespace CineFlex.API.Controllers
 
         }
 
-        [Authorize(Policy = "IsAdminRequirement")]
+        // [Authorize(Policy = "IsAdminRequirement")]
 
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateMovieDto createMovie)
@@ -41,7 +41,7 @@ namespace CineFlex.API.Controllers
             var command = new CreateMovieCommand { MovieDto = createMovie };
             return HandleResult(await _mediator.Send(command));
         }
-        [Authorize(Policy = "IsAdminRequirement")]
+        // [Authorize(Policy = "IsAdminRequirement")]
 
         [HttpPut]
         public async Task<IActionResult> Put([FromBody] UpdateMovieDto movieDto)
@@ -52,7 +52,7 @@ namespace CineFlex.API.Controllers
             return HandleResult(await _mediator.Send(command));
         }
 
-        [Authorize(Policy = "IsAdminRequirement")]
+        // [Authorize(Policy = "IsAdminRequirement")]
 
 
         [HttpDelete("{id}")]

@@ -19,9 +19,14 @@ namespace CineFlex.Persistence.Configurations.Entities
             builder.HasData(
                 new AppUser
                 {
+                    Id = "1",
                     UserName = "admin",
+                    NormalizedUserName = "ADMIN",
                     Email = "admin@example.com",
+                    NormalizedEmail = "ADMIN@EXAMPLE.COM",
+                    EmailConfirmed = true,
                     PasswordHash = hasher.HashPassword(null, "Pa$$w0rd"),
+                    SecurityStamp = string.Empty,
                     Role = AppUser.UserRole.Admin
                 }
             );
