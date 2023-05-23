@@ -20,7 +20,7 @@ namespace CineFlex.Application.Profiles
 
             CreateMap<Movie, MovieDto>().ReverseMap();
             CreateMap<Movie, CreateMovieDto>().ReverseMap();
-
+            CreateMap<Movie, BookMovieDto>().ReverseMap();
             CreateMap<Movie, UpdateMovieDto>().ReverseMap();
 
             #endregion Movie
