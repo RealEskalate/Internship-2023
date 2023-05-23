@@ -19,6 +19,7 @@ namespace CineFlex.Persistence
             opt.UseNpgsql(configuration.GetConnectionString("CineFlexConnectionString")));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ICinemaRepository, CinemaRepository>();
+            services.AddScoped<IMovieRepository, MovieRepository>();
             return services;
         }
     }
