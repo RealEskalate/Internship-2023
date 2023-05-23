@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CineFlex.Application.Contracts.Persistence
 {
-    public interface ICinemaRepository : IGenericRepository<CinemaEntity>
+    public interface ICinemaRepository : IGenericRepository<Cinema>
     {
     }
 }
