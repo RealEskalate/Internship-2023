@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mobile_assessement/features/weatherify/presentation/bloc/weatherify_bloc.dart';
+import 'package:mobile_assessement/features/weatherify/presentation/screen/details_page.dart';
 import 'package:mobile_assessement/features/weatherify/presentation/widgets/action_button.dart';
 
 import '../../../../core/utils/colors.dart';
@@ -60,6 +63,11 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     ActionButton(
+                      onTap: (){
+                        print(cityNameController.text);
+                        (BlocProvider.of<WeatherBloc>(context).add(SearchWeatherEvent(cityName: cityNameController.text)));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const DetailsPage()));
+                      },
                       height: MediaQuery.of(context).size.height * 0.05,
                       child: Text(
                         "Search",

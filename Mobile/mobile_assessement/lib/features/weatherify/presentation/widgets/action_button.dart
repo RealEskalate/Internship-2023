@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import '../../../../core/utils/colors.dart';
 
 class ActionButton extends StatelessWidget {
+
+  final VoidCallback onTap;
   const ActionButton(
-      {super.key, required this.height, required this.child});
+      {super.key, required this.height, required this.child, required this.onTap});
 
   final double height;
   final Widget child;
@@ -19,7 +21,7 @@ class ActionButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(height * 0.18),
             ),
           ),
-          onPressed: () {},
+          onPressed: onTap,
           child: child,
         ));
   }

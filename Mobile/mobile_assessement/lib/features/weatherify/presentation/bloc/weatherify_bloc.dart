@@ -17,7 +17,9 @@ class WeatherBloc extends Bloc<WeatherifyEvent, WeatherifyState> {
   void _searchCity(
       SearchWeatherEvent event, Emitter<WeatherifyState> emit) async {
     emit(WeatherLoading());
+
     final result = await searchCity(event.cityName);
+
     emit(_searchSuccessOrFailure(result));
   }
 
