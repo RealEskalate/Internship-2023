@@ -23,4 +23,12 @@ public class SeatRepository : GenericRepository<Seat>, ISeatRepository
         return await _dbContext.Seats.Where(seat => seatIds.Contains(seat.Id)).Include(seat => seat.MovieBookings)
             .AsNoTracking().ToListAsync();
     }
+
+    public async Task<int?> CheckIfSeatAreBooked(IList<int> seatIds, int movieId, int cinemaId)
+    {
+        return await _dbContext.Seats.Where(seat => seatIds.Contains(seat.Id)).Include(seat => seat.MovieBookings)
+            .Where(seat =>
+                seat.MovieBookings.Any(booking => booking.MovieId == movieId && booking.CinemaId == cinemaId))
+            .Select(seat => seat.Id).FirstOrDefaultAsync();
+    }
 }

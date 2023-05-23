@@ -4,12 +4,10 @@ using CineFlex.Application.Features.Seats.CQRS.Commands;
 using CineFlex.Application.Features.Seats.CQRS.Handlers;
 using CineFlex.Application.Features.Seats.DTOs;
 using CineFlex.Application.Responses;
-using CineFlex.Domain;
 using FluentAssertions;
-using Moq;
-using System.Threading;
-using System.Threading.Tasks;
+using FluentValidation.Results;
 using MediatR;
+using Moq;
 using Xunit;
 
 namespace CineFlex.Application.UnitTest.Seat.Commands;
@@ -33,7 +31,7 @@ public class UpdateSeatCommandHandlerTest
 
         var handler = new UpdateSeatCommandHandler(_mockUnitOfWork.Object, _mockMapper.Object);
 
-        var validationResult = new FluentValidation.Results.ValidationResult();
+        var validationResult = new ValidationResult();
 
         var existingSeat = new Domain.Seat { Id = 1 };
 
@@ -65,8 +63,8 @@ public class UpdateSeatCommandHandlerTest
 
         var handler = new UpdateSeatCommandHandler(_mockUnitOfWork.Object, _mockMapper.Object);
 
-        var validationResult = new FluentValidation.Results.ValidationResult();
-        validationResult.Errors.Add(new FluentValidation.Results.ValidationFailure("PropertyName", "Error message"));
+        var validationResult = new ValidationResult();
+        validationResult.Errors.Add(new ValidationFailure("PropertyName", "Error message"));
 
         _mockUnitOfWork.Setup(uow => uow.SeatRepository.Get(command.UpdateSeatDto.Id)).ReturnsAsync((Domain.Seat)null);
 
