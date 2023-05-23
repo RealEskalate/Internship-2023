@@ -2,22 +2,26 @@ import 'package:equatable/equatable.dart';
 
 class Weather  extends Equatable{
   final String cityName;
-  final double temperature;
-  final double humidity;
-  final String description;
+  final double maxtemperature;
+  final double mintemperature;
+  final List<String> next7DaysTemps;
+  final String date;
 
    const Weather({
     required this.cityName,
-    required this.temperature,
-    required this.humidity,
-    required this.description,
+    required this.mintemperature,
+    required this.maxtemperature,
+    required this.next7DaysTemps,
+    required this.date,
+    
   }): super();
   
   @override
   List<Object> get props => [
         cityName,
-        temperature,
-        humidity,
-        description,
+        mintemperature,
+        maxtemperature,
+        next7DaysTemps,
+        date
       ];
 }
