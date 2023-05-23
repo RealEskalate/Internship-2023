@@ -3,7 +3,7 @@ import React from "react";
 const Footer: React.FC = () => {
 
     return (
-        <footer className="bg-indigo-800 text-white p-4">
+        <footer className="bg-indigo-500 text-white p-4">
             <div className="container mx-auto grid grid-cols-3 gap-4">
                 <div>
                     <h3 className="text-2xl font-bold mb-4">HakimHub</h3>

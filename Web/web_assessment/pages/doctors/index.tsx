@@ -53,7 +53,7 @@ const DoctorPage = () => {
             {
                 data != undefined &&
                 <>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 mt-4">
                         {data.data.map((data) => (
                             <DoctorCard key={data._id} doctor={data} onClick={() => handleDetailPage(data._id)}/>
                         ))}

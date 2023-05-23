@@ -31,8 +31,6 @@ const DoctorDetailPage = () => {
                         </div>
                     </div>
                     <div className="h-32"></div>
-                    <h1 className="text-2xl font-bold mb-4">Doctor Detail</h1>
-                    <p className="mb-2">Doctor ID: {doctorId}</p>
                     <div className="flex">
                         <div className="mr-4">
                             <p className="text-xl font-bold mb-2">{data.fullName}</p>
