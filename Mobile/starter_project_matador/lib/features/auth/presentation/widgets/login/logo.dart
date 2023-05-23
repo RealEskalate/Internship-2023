@@ -12,7 +12,7 @@ class A2SVLogo extends StatelessWidget {
       width: width * 0.376,
       height: height * 0.21,
       child: Image.asset(
-        '../../../assets/images/A2SVBlue.png',
+        '../../../../../../assets/images/A2SVBlue.png',
         fit: BoxFit.contain,
       ),
     );

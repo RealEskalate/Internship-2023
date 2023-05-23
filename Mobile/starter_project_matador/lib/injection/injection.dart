@@ -34,20 +34,26 @@ void init() {
       () => LoginUserRepositoryImpl(remoteDataSource: sl()));
   sl.registerLazySingleton<UserRepository>(
       () => UserRepositoryImpl(remoteDataSource: sl()));
-  sl.registerLazySingleton<ArticleRepository>(() => ArticleRepositoryImpl(remoteDataSource: sl()));
+  sl.registerLazySingleton<ArticleRepository>(
+      () => ArticleRepositoryImpl(remoteDataSource: sl()));
 
   // Registering the LoginUserRemoteDataSourceImpl as a lazy singleton
-  sl.registerLazySingleton<LoginUserRemoteDataSource>(
-      () => LoginUserRemoteDataSourceImpl(client: sl()));
-  sl.registerLazySingleton<UserRemoteDataSource>(() => UserRemoteDataSourceImpl(client: sl()));
-  sl.registerLazySingleton<ArticleRemoteDataSource>(() => ArticleRemoteDataSourceImpl(client: sl()));
+  sl.registerLazySingleton<LoginRemoteDataSource>(
+      () => LoginRemoteDataSourceImpl(httpClient: sl()));
+  sl.registerLazySingleton<UserRemoteDataSource>(
+      () => UserRemoteDataSourceImpl(client: sl()));
+  sl.registerLazySingleton<ArticleRemoteDataSource>(
+      () => ArticleRemoteDataSourceImpl(client: sl()));
 
   // Registering the LoginBloc as a factory
   sl.registerFactory(() => LoginBloc(loginUseCase: sl()));
-  sl.registerFactory(() => UserBloc(addUser: sl(), getUserById: sl(), editUserById: sl(), deleteUserById: sl()));
+  sl.registerFactory(() => UserBloc(
+      addUser: sl(),
+      getUserById: sl(),
+      editUserById: sl(),
+      deleteUserById: sl()));
   sl.registerFactory(() => ArticleBloc(getArticle: sl()));
   sl.registerFactory(() => FeedBloc(getAllArticles: sl()));
   // Registering the http client as a lazy singleton
   sl.registerLazySingleton(() => http.Client());
 }
-

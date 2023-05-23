@@ -26,6 +26,11 @@ class MockLoginModel extends _i1.Mock implements _i2.LoginModel {
   }
 
   @override
+  String get id => (super.noSuchMethod(
+        Invocation.getter(#id),
+        returnValue: '',
+      ) as String);
+  @override
   String get email => (super.noSuchMethod(
         Invocation.getter(#email),
         returnValue: '',
