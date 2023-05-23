@@ -1,20 +1,15 @@
 ﻿using CineFlex.Application.Contracts.Persistence;
-using CineFlex.Persistence;
-using CineFlex.Persistence.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CineFlex.Persistence.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {
         private readonly CineFlexDbContext _context;
-        private IMovieRepository _MovieRepository;
+        private IMovieRepository? _MovieRepository;
 
-        private ICinemaRepository _cinemaRepository;
+        private ICinemaRepository? _cinemaRepository;
+        private ISeatRepository? _seatRepository;
+
         public UnitOfWork(CineFlexDbContext context)
         {
             _context = context;
@@ -29,6 +24,7 @@ namespace CineFlex.Persistence.Repositories
                 return _MovieRepository;
             }
         }
+
         public ICinemaRepository CinemaRepository
         {
             get
@@ -36,6 +32,16 @@ namespace CineFlex.Persistence.Repositories
                 if (_cinemaRepository == null)
                     _cinemaRepository = new CinemaRepository(_context);
                 return _cinemaRepository;
+            }
+        }
+
+        public ISeatRepository SeatRepository
+        {
+            get
+            {
+                if (_seatRepository == null)
+                    _seatRepository = new SeatRepository(_context);
+                return _seatRepository;
             }
         }
 
