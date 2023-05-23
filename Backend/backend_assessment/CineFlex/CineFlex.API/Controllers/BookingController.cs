@@ -32,7 +32,7 @@ namespace CineFlex.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            return Ok(await _mediator.Send(new GetBookDetailQuery {  }));
+            return Ok(await _mediator.Send(new GetBookDetailQuery { Id = id }));
 
         }
 
@@ -56,7 +56,7 @@ namespace CineFlex.API.Controllers
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> Delete(int id)
         {
-            var command = new DeleteBookCommand { };
+            var command = new DeleteBookCommand { Id = id };
             await _mediator.Send(command);
             return NoContent();
         }
