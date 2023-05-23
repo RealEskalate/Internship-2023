@@ -16,6 +16,9 @@ namespace CineFlex.Persistence.Repositories
 
         private ISeatRepository _SeatRepository;
 
+        private IBookRepository _BookRepository;
+
+
 
         private ICinemaRepository _cinemaRepository;
         public UnitOfWork(CineFlexDbContex context)
@@ -52,6 +55,16 @@ namespace CineFlex.Persistence.Repositories
             }
         }
 
+
+        public IBookRepository BookRepository
+        {
+            get
+            {
+                if (_BookRepository == null)
+                    _BookRepository = new BookRepository(_context);
+                return _BookRepository;
+            }
+        }
 
         public void Dispose()
         {
