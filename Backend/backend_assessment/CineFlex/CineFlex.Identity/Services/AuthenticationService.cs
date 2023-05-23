@@ -129,7 +129,7 @@ public class AuthenticationService : IAuthenticationService
         if (!createResult.Succeeded)
         {
             response.Success = false;
-            response.Message = "User Already Exists";
+            response.Message = "User Not created";
             foreach (var Error in createResult.Errors)
             {
                 response.Errors.Add(Error.Description);
