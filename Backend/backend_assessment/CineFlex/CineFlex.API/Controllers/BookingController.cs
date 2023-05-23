@@ -17,10 +17,9 @@ namespace CineFlex.API.Controllers
             _mediator = mediator;
         }
         [HttpPost]
-        [Authorize(Roles = "User")]
+        [Authorize]
         public async Task<ActionResult> Post([FromBody] CreateBookingDto createBookingDto)
         {
-            
             var command = new CreateBookingCommand { createBookingDto = createBookingDto };
             return HandleResult(await _mediator.Send(command));
         }
