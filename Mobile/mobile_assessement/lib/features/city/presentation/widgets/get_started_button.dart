@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_assessement/core/utils/constants/global_variables.dart';
+import 'package:mobile_assessement/features/city/presentation/screen/weather_city_list.dart';
 
 class GetStartedButton extends StatelessWidget {
   const GetStartedButton({Key? key}) : super(key: key);
@@ -14,7 +15,10 @@ class GetStartedButton extends StatelessWidget {
           backgroundColor: primaryButtonColor,
         ),
         onPressed: () {
-          // Action to perform when the button is pressed
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => SearchPage()),
+          );
         },
         child: Text("Get Started"),
       ),
