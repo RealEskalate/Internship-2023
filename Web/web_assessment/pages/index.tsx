@@ -8,7 +8,7 @@ import { SearchForm } from "@/components/common/SearchForm";
 
 const DoctorsList = () => {
   const { data: doctors, isLoading, isError } = useGetDoctorsQuery({ from: 1, size: 8 });
-  console.log(doctors);
+  // console.log(doctors);
 
   if (isLoading) {
     return <div>Loading...</div>;

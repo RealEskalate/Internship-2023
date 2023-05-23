@@ -1,0 +1,1 @@
+// component that shows each doctor detail in "/id" page
