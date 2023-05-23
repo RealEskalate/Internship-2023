@@ -1,13 +1,18 @@
 using CineFlex.Application;
 using CineFlex.Persistence;
+using CineFlex.Identity;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Identity;
+using CineFlex.Api.Middleware;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services
 builder.Services.ConfigureApplicationServices();
 builder.Services.ConfigurePersistenceServices(builder.Configuration);
+builder.Services.ConfigureIdentityServices(builder.Configuration);
+
 builder.Services.AddHttpContextAccessor();
 AddSwaggerDoc(builder.Services);
 builder.Services.AddControllers();
@@ -40,6 +45,7 @@ app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CineFlex.Ap
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+app.UseMiddleware<ExceptionMiddleware>();
 
 
 app.MapControllers();
