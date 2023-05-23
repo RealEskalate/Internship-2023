@@ -12,5 +12,6 @@ namespace CineFlex.Application.Features.Seats.CQRS.Commands
     public class CreateSeatsCommand : IRequest<BaseCommandResponse<int>>
     {
         public CreateSeatsDto SeatsDto { get; set; }
+        public CreateSeatsDto CreateSeatsDto { get; set; }
     }
 }
