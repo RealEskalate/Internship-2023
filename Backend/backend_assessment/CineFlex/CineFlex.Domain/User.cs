@@ -1,6 +1,8 @@
+using Microsoft.AspNetCore.Identity;
+
 namespace CineFlex.Domain;
 
-public class User
+public class User: IdentityUser
 {
     
 }

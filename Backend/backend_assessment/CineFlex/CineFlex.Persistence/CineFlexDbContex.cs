@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using CineFlex.Domain.Common;
 using CineFlex.Domain;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace CineFlex.Persistence
 {
@@ -43,6 +45,8 @@ namespace CineFlex.Persistence
         public DbSet<CinemaEntity> Cinemas { get; set; }
 
         public DbSet<Movie> Movies { get; set; }
-
+        
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Seat> Seats { get; set; }
     }
 }

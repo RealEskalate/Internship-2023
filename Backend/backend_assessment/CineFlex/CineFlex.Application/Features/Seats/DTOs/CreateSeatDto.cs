@@ -4,6 +4,5 @@ public class CreateSeatDto
 {
     public int Movie { get; set; }
     public int Cinema { get; set; }
-    public string Airtime { get; set; }
-    public int NumberOfSeats { get; set; }
+    public string Location { get; set; }
 }

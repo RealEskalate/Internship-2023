@@ -9,10 +9,9 @@ public class CreateSeatDtoValidator: AbstractValidator<CreateSeatDto>
     public CreateSeatDtoValidator(IUnitOfWork unitOfWork)
     {
         RuleFor(m => m.Movie)
-            .MustAsync(async (id, token) => await unitOfWork.SeatRepository.Exists(id)).WithMessage($"Movie not found");
+            .MustAsync(async (id, token) => await unitOfWork.MovieRepository.Exists(id)).WithMessage($"Movie not found");
 
         RuleFor(m => m.Cinema)
-            .MustAsync(async (id, token) => await unitOfWork.SeatRepository.Exists(id)).WithMessage($"Blog not found");
-
+            .MustAsync(async (id, token) => await unitOfWork.CinemaRepository.Exists(id)).WithMessage($"Cinema not found");
     }
 }

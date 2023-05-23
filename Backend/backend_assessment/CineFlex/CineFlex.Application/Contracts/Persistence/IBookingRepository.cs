@@ -1,6 +1,8 @@
+using CineFlex.Domain;
+
 namespace CineFlex.Application.Contracts.Persistence;
 
-public class IBookingRepository
+public interface IBookingRepository: IGenericRepository<Booking>
 {
     
 }
