@@ -11,6 +11,7 @@ export interface Doctor {
   photo: string;
   speciality: Speciality[];
   institutionID_list: Institution[];
+  summary: string;
 }
 
 interface Speciality {
