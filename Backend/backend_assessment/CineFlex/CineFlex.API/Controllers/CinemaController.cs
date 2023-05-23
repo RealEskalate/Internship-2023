@@ -3,11 +3,12 @@ using CineFlex.Application.Features.Cinema.CQRS.Queries;
 using CineFlex.Application.Features.Cinema.DTO;
 using CineFlex.Application.Features.Cinema.Dtos;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CineFlex.API.Controllers
 {
-    public class CinemaController: BaseApiController
+    public class CinemaController : BaseApiController
     {
         private readonly IMediator _mediator;
 
@@ -16,23 +17,29 @@ namespace CineFlex.API.Controllers
             _mediator = mediator;
         }
 
+        [AllowAnonymous]
         [HttpGet("GetAll")]
         public async Task<ActionResult<List<CinemaDto>>> Get()
         {
             return HandleResult(await _mediator.Send(new GetCinemaListQuery()));
         }
 
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<ActionResult<CinemaDto>> Get(int id)
         {
-             return HandleResult(await _mediator.Send(new GetCinemaQuery { Id = id }));
+            return HandleResult(await _mediator.Send(new GetCinemaQuery { Id = id }));
         }
+
+        // [Authorize(Policy = "IsAdminRequirement")]
         [HttpPost("CreateCinema")]
         public async Task<ActionResult> Post([FromBody] CreateCinemaDto createCinemaDto)
         {
             var command = new CreateCinemaCommand { CinemaDto = createCinemaDto };
             return HandleResult(await _mediator.Send(command));
         }
+
+        // [Authorize(Policy = "IsAdminRequirement")]
         [HttpPut("UpdateCinema")]
         public async Task<ActionResult> Put([FromBody] UpdateCinemaDto updateCinemaDto)
         {
@@ -40,6 +47,9 @@ namespace CineFlex.API.Controllers
             await _mediator.Send(command);
             return NoContent();
         }
+
+        // [Authorize(Policy = "IsAdminRequirement")]
+
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {

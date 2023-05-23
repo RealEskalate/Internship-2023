@@ -16,10 +16,15 @@ namespace CineFlex.Application.Features.Cinema.CQRS.Handlers
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public DeleteCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        private readonly IUserAccessor _userAccessor;
+
+
+        public DeleteCommandHandler(IUnitOfWork unitOfWork, IMapper mapper, IUserAccessor userAccessor)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _userAccessor = userAccessor;
+
         }
 
         public async Task<BaseCommandResponse<Unit>> Handle(DeleteCinemaCommand request, CancellationToken cancellationToken)
@@ -35,6 +40,21 @@ namespace CineFlex.Application.Features.Cinema.CQRS.Handlers
             }
             else
             {
+
+                var currentUser = await _userAccessor.GetCurrentUser();
+
+                if (currentUser == null)
+                {
+                    response.Success = false;
+                    response.Message = "User not found";
+                    return response;
+                }
+
+                // if(currentUser.Role == Roles.UserRole){
+                //     response.Success = false;
+                //     response.Message = "UnAuthorized to Delete this cinema";
+                //     return response;
+                // }
 
                 await _unitOfWork.CinemaRepository.Delete(cinema);
 
