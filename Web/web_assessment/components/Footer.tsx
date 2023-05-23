@@ -85,10 +85,10 @@ const Footer: React.FC = () => {
       </div>
 
       <div className="md:border-t border-neutral-200 sm:flex mx-auto md:justify-between py-8">
-        <p className="text-sm text-secondary-text py-4 sm:py-0 flex ">
+        <div className="text-sm text-secondary-text py-4 sm:py-0 flex ">
           <div>Privacy Policy</div>
           <div className="ml-10">Terms of Use</div>
-        </p>
+        </div>
 
         <div className="text-secondary-text flex align-middle justify-center space-x-6 text-xl">
           {socialMedialinks.map(({ icon: Icon, url }, index) => {
