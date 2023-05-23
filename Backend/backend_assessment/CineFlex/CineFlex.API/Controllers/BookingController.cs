@@ -5,9 +5,11 @@ using CineFlex.Application.Features.Booking.DTOs;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
 namespace CineFlex.API.Controllers
 {
+
+    [Route("api/[controller]")]
+    [ApiController]
     public class BookingController : BaseApiController
     {
         private readonly IMediator _mediator;
