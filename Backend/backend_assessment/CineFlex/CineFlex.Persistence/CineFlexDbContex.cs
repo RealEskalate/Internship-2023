@@ -8,10 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using CineFlex.Domain.Common;
 using CineFlex.Domain;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace CineFlex.Persistence
 {
-    public class CineFlexDbContex: DbContext
+    public class CineFlexDbContex: IdentityDbContext<User> 
     {
         public CineFlexDbContex(DbContextOptions<CineFlexDbContex> options)
            : base(options)
@@ -23,6 +25,10 @@ namespace CineFlex.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(CineFlexDbContex).Assembly);
+            modelBuilder.Entity<IdentityUserLogin<string>>().HasNoKey();
+            base.OnModelCreating(modelBuilder);
+
+
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
@@ -43,6 +49,8 @@ namespace CineFlex.Persistence
         public DbSet<CinemaEntity> Cinemas { get; set; }
 
         public DbSet<Movie> Movies { get; set; }
+
+        public DbSet<Seat> Seats { get; set; } 
 
     }
 }
