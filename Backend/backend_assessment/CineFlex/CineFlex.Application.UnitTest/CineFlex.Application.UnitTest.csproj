@@ -28,8 +28,4 @@
     <ProjectReference Include="..\CineFlex.Domain\CineFlex.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Mocks\" />
-  </ItemGroup>
-
 </Project>

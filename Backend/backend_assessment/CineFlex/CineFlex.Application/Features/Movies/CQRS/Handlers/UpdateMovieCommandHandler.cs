@@ -25,7 +25,6 @@ namespace CineFlex.Application.Features.Movies.CQRS.Handlers
 
         public async Task<BaseCommandResponse<Unit>> Handle(UpdateMovieCommand request, CancellationToken cancellationToken)
         {
-
             var response = new BaseCommandResponse<Unit>();
 
 
