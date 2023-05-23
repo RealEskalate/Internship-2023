@@ -7,8 +7,8 @@ interface LayoutProps {
 const Layout = ({children}:LayoutProps) => {
   return (
     <div >
-      <div>
-          {children}
+      <div className='px-36'>
+        {children}
       </div>
     </div>
   )
