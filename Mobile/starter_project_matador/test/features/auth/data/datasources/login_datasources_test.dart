@@ -1,66 +1,57 @@
 import 'dart:convert';
-import 'package:http/http.dart' as http;
-import 'package:mockito/annotations.dart';
-import 'package:mockito/mockito.dart';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:matador/core/error/exception.dart';
 import 'package:matador/features/auth/data/datasources/login_remote_datasource.dart';
 import 'package:matador/features/auth/data/models/login_model.dart';
+import 'package:http/http.dart' as http;
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
 
-import '../../../user/data/datasources/user_data_source_test.mocks.dart';
+import 'login_datasources_test.mocks.dart';
 
 @GenerateMocks([http.Client])
 void main() {
-  MockClient? httpClient;
-  LoginRemoteDataSourceImpl? dataSource;
+  late LoginUserRemoteDataSourceImpl dataSource;
+  late MockClient mockHttpClient;
 
   setUp(() {
-    httpClient = MockClient();
-    dataSource = LoginRemoteDataSourceImpl(httpClient: httpClient!);
+    mockHttpClient = MockClient();
+    dataSource = LoginUserRemoteDataSourceImpl(client: mockHttpClient);
   });
 
-  final email = 'test@example.com';
-  final password = 'password';
-  final id = '12345';
-  final loginModel = LoginModel(email: email, password: password, id: id);
-  final responseBody = {'id': id};
+  final tLoginModel =
+      LoginModel(email: 'test@example.com', password: 'password');
+  final tUser = {'email': 'test@gmail.com', 'password': 'password'};
 
   test(
-    'should perform a POST request with the correct body and headers',
+    'should return a LoginModel when the response code is 200',
     () async {
-      when(httpClient!.post(any, body: anyNamed('body'))).thenAnswer(
-          (_) async => http.Response(json.encode(responseBody), 200));
-
-      await dataSource!.authenticate(email, password);
-
-      verify(httpClient!.post(
-        any,
-        body: {'email': email, 'password': password},
-      ));
-    },
-  );
-
-  test(
-    'should return LoginModel when the response code is 200',
-    () async {
-      when(httpClient!.post(any, body: anyNamed('body'))).thenAnswer(
-          (_) async => http.Response(json.encode(responseBody), 200));
-
-      final result = await dataSource!.authenticate(email, password);
-
-      expect(result, loginModel);
+      // arrange
+      final expectedResponse = LoginModel.fromJson(tUser);
+      final response = http.Response(json.encode(tUser), 200);
+      when(mockHttpClient.post(any,
+              headers: anyNamed('headers'), body: anyNamed('body')))
+          .thenAnswer((_) async => response);
+      // act
+      final result = await dataSource.authenticate(tLoginModel);
+      // assert
+      expect(result, equals(expectedResponse));
     },
   );
 
   test(
     'should throw a ServerException when the response code is not 200',
     () async {
-      when(httpClient!.post(any, body: anyNamed('body')))
-          .thenAnswer((_) async => http.Response('Not Found', 404));
-
-      final call = dataSource!.authenticate;
-
-      expect(() => call(email, password), throwsA(isA<ServerException>()));
+      // arrange
+      final response = http.Response('Error', 404);
+      when(mockHttpClient.post(any,
+              headers: anyNamed('headers'), body: anyNamed('body')))
+          .thenAnswer((_) async => response);
+      // act
+      final call = dataSource.authenticate;
+      // assert
+      expect(() => call(tLoginModel), throwsA(isInstanceOf<ServerException>()));
     },
   );
 }

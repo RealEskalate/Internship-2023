@@ -7,8 +7,8 @@ class LoginInitialState extends LoginState {}
 class LoginLoadingState extends LoginState {}
 
 class LoginSuccessState extends LoginState {
-  final String id;
-  LoginSuccessState({required this.id});
+  final AuthUser authUser;
+  LoginSuccessState({required this.authUser});
 }
 
 class LoginFailureState extends LoginState {

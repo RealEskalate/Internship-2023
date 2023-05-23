@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:matador/features/feed/presentation/screen/home_page.dart';
-import 'package:matador/injection/injection.dart';
 
 import '../../../../core/utils/constants/global_variables.dart';
 import '../bloc/login_bloc.dart';
+import 'package:flutter/material.dart';
+import '../bloc/login_bloc.dart';
 import '../bloc/login_event.dart';
-import '../bloc/login_state.dart';
 import '../widgets/login/forgot_pass.dart';
 import '../widgets/login/input_form_field.dart';
 import '../widgets/login/login_signup.dart';
@@ -14,49 +12,25 @@ import '../widgets/login/logo.dart';
 import '../widgets/login/rounded_button.dart';
 import '../widgets/login/sign_in_with_your_account.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     final _emailController = TextEditingController();
     final _passwordController = TextEditingController();
-    return GestureDetector(
-      onTap: () {
-        FocusScope.of(context).requestFocus(FocusNode());
-      },
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: BlocProvider(
-          create: (_) => sl<LoginBloc>(),
-          child: BlocBuilder<LoginBloc, LoginState>(
-            builder: (context, state) {
-              return Stack(
-                children: [
-                  SingleChildScrollView(
-                    child: buildLogin(
-                        height, width, _emailController, _passwordController),
-                  ),
-                  if (state is LoginLoadingState)
-                    Center(child: CircularProgressIndicator()),
-                ],
-              );
-            },
-          ),
-        ),
-      ),
-    );
-  }
+    // final LoginBloc _loginBloc;
 
-  Widget buildLogin(
-      double height,
-      double width,
-      TextEditingController emailController,
-      TextEditingController passwordController) {
-    return Column(
-      children: [
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      body: Column(children: [
         Padding(
           padding: EdgeInsets.only(top: height * 0.04, bottom: height * 0.04),
           child: Center(
@@ -132,35 +106,13 @@ class LoginPage extends StatelessWidget {
         SizedBox(
           height: height * 0.1,
         ),
-        BlocConsumer<LoginBloc, LoginState>(
-          listener: (context, state) {
-            if (state is LoginFailureState) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(state.error)),
-              );
-            }
-
-            if (state is LoginSuccessState) {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const HomePage()));
-            }
-            // Navigator.pushNamed(context, '/homepage', arguments: state.id);
-          },
-          builder: (context, state) => RoundedButton(
-            width: width,
-            height: height,
-            pressed: () {
-              BlocProvider.of<LoginBloc>(context).add(
-                LoginButtonPressedEvent(
-                  email: emailController.text,
-                  password: passwordController.text,
-                ),
-              );
-            },
-          ),
+        RoundedButton(
+          width: width,
+          height: height,
+          pressed: null,
         ),
         const ForgotPassword(),
-      ],
+      ]),
     );
   }
 }
