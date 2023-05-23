@@ -1,6 +1,6 @@
+import '../datasources/weather_local_data_source.dart';
+import '../datasources/weather_remote_data_source.dart';
 import '../models/weather_model.dart';
-import '../data/datasources/weather_local_data_source.dart';
-import '../data/datasources/weather_remote_data_source.dart';
 import '../../domain/repositories/weather_repository.dart';
 
 class WeatherRepositoryImpl implements WeatherRepository {
