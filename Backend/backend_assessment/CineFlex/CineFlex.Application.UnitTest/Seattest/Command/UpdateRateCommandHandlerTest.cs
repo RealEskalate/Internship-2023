@@ -1,29 +1,25 @@
-﻿/*using AutoMapper;
-using BlogApp.Application.Contracts.Persistence;
-using BlogApp.Application.Features.Rates.CQRS.Commands;
-using BlogApp.Application.Features.Rates.CQRS.Handlers;
-using BlogApp.Application.Features.Rates.DTOs;
-using BlogApp.Application.Profiles;
-using BlogApp.Application.Responses;
+﻿using AutoMapper;
+using CineFlex.Application.Contracts.Persistence;
+using CineFlex.Application.Features.Seats.CQRS.Commands;
+using CineFlex.Application.Features.Seats.CQRS.Handlers;
+using CineFlex.Application.Features.Seats.DTOs;
+using CineFlex.Application.Profiles;
+using CineFlex.Application.Responses;
 using CineFlex.Application.UnitTest.Mocks;
 using MediatR;
 using Moq;
 using Shouldly;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Xunit;
 
-namespace BlogApp.Application.UnitTest.Ratetest.Command
+namespace BlogApp.Application.UnitTest.Seattest.Command
 {
-    public class UpdateRateCommandHandlerTest
+    public class UpdateSeatCommandHandlerTest
     {
         private readonly IMapper _mapper;
         private readonly Mock<IUnitOfWork> _mockRepo;
-        private readonly UpdateRateDto _rateDto;
-        private readonly UpdateRateCommandHandler _handler;
-        public UpdateRateCommandHandlerTest()
+        private readonly UpdateSeatStatusDto _SeatDto;
+        private readonly UpdateSeatStatusCommandHandler _handler;
+        public UpdateSeatCommandHandlerTest()
         {
             _mockRepo = MockUnitOfWork.GetUnitOfWork();
             var mapperConfig = new MapperConfiguration(c =>
@@ -32,45 +28,40 @@ namespace BlogApp.Application.UnitTest.Ratetest.Command
             });
             _mapper = mapperConfig.CreateMapper();
 
-            _rateDto = new UpdateRateDto
+            _SeatDto = new UpdateSeatStatusDto
             {
                 Id = 1,
-                RateNo = 5,
-                RaterId = 3,
-                BlogId = 4
+                Free = false,
             };
 
-            _handler = new UpdateRateCommandHandler(_mockRepo.Object, _mapper);
+            _handler = new UpdateSeatStatusCommandHandler(_mockRepo.Object, _mapper);
 
         }
 
 
         [Fact]
-        public async Task UpdateRate()
+        public async Task UpdateSeat()
         {
-            var result = await _handler.Handle(new UpdateRateCommand() { RateDto = _rateDto }, CancellationToken.None);
-            result.ShouldBeOfType<Result<Unit>>();
+            var result = await _handler.Handle(new UpdateSeatStatusCommand() { SeatDto = _SeatDto }, CancellationToken.None);
+            result.ShouldBeOfType<BaseCommandResponse<Unit>>();
             result.Success.ShouldBeTrue();
 
-            var rate = await _mockRepo.Object.RateRepository.Get(_rateDto.Id);
-            rate.Id.Equals(_rateDto.Id);
-            rate.BlogId.Equals(_rateDto.BlogId);
-            rate.RateNo.Equals(_rateDto.RateNo);
-            rate.RaterId.Equals(_rateDto.RaterId);
+            var Seat = await _mockRepo.Object.SeatRepository.Get(_SeatDto.Id);
+            Seat.Id.Equals(_SeatDto.Id);
         }
 
         [Fact]
-        public async Task Update_With_Invalid_RateNO()
+        public async Task Update_With_Invalid_SeatNO()
         {
 
-            _rateDto.RateNo = -1;
-            var result = await _handler.Handle(new UpdateRateCommand() { RateDto = _rateDto }, CancellationToken.None);
-            result.ShouldBeOfType<Result<Unit>>();
+            _SeatDto.Id = -1;
+            var result = await _handler.Handle(new UpdateSeatStatusCommand() { SeatDto = _SeatDto }, CancellationToken.None);
+            result.ShouldBeOfType<BaseCommandResponse<Unit>>();
             result.Success.ShouldBeFalse();
 
             result.Errors.ShouldNotBeEmpty();
-            var rates = await _mockRepo.Object.RateRepository.GetAll();
-            rates.Count.ShouldBe(2);
+            var Seats = await _mockRepo.Object.SeatRepository.GetAll();
+            Seats.Count.ShouldBe(2);
 
         }
 
@@ -80,4 +71,3 @@ namespace BlogApp.Application.UnitTest.Ratetest.Command
 
 
 
-*/

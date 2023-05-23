@@ -1,31 +1,26 @@
-﻿/*using AutoMapper;
-using BlogApp.Application.Contracts.Persistence;
-using BlogApp.Application.Features.Rates.CQRS.Handlers;
-using BlogApp.Application.Features.Rates.CQRS.Commands;
-using BlogApp.Application.Features.Rates.DTOs;
-using BlogApp.Application.Profiles;
-using BlogApp.Application.Responses;
+﻿using AutoMapper;
 using MediatR;
 using Moq;
 using Shouldly;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CineFlex.Application.UnitTest.Mocks;
+using CineFlex.Application.Contracts.Persistence;
+using CineFlex.Application.Profiles;
+using Xunit;
+using CineFlex.Application.Features.Seats.CQRS.Handlers;
+using CineFlex.Application.Features.Seats.CQRS.Commands;
+using CineFlex.Application.Responses;
 
-namespace BlogApp.Application.UnitTest.Ratetest.Command
+namespace CineFlex.Application.UnitTest.Seattest.Command
 {
-    public class DeleteRateCommandHandlerTest
+    public class DeleteSeatCommandHandlerTest
     {
+        
 
         private readonly IMapper _mapper;
         private readonly Mock<IUnitOfWork> _mockRepo;
         private int _id { get; set; }
-        private readonly DeleteRateCommandHandler _handler;
-        private readonly CreateRateDto _rateDto;
-        public DeleteRateCommandHandlerTest()
+        private readonly DeleteSeatCommandHandler _handler;
+        public DeleteSeatCommandHandlerTest()
         {
             _mockRepo = MockUnitOfWork.GetUnitOfWork();
             var mapperConfig = new MapperConfiguration(c =>
@@ -33,42 +28,34 @@ namespace BlogApp.Application.UnitTest.Ratetest.Command
                 c.AddProfile<MappingProfile>();
             });
             _mapper = mapperConfig.CreateMapper();
-            _rateDto = new CreateRateDto
-            {
-                RateNo = 5,
-                RaterId = 3,
-                BlogId = 4
-            };
             _id = 1;
 
-            _handler = new DeleteRateCommandHandler(_mockRepo.Object, _mapper);
+            _handler = new DeleteSeatCommandHandler(_mockRepo.Object, _mapper);
 
         }
 
 
         [Fact]
-        public async Task DeleteRate()
+        public async Task DeleteSeat()
         {
-            *//* var create_result = await _handler.Handle(new CreateRateCommand(){ RateDto = _rateDto  }, CancellationToken.None);*//*
-
-            var result = await _handler.Handle(new DeleteRateCommand() { Id = _id }, CancellationToken.None);
-            result.ShouldBeOfType<Result<Unit>>();
+           var result = await _handler.Handle(new DeleteSeatCommand() { Id = _id }, CancellationToken.None);
+            result.ShouldBeOfType<BaseCommandResponse<Unit>>();
             result.Success.ShouldBeTrue();
 
-            var rates = await _mockRepo.Object.RateRepository.GetAll();
-            rates.Count().ShouldBe(1);
+            var Seats = await _mockRepo.Object.SeatRepository.GetAll();
+            Seats.Count().ShouldBe(1);
         }
 
         [Fact]
-        public async Task Delete_Rate_Doesnt_Exist()
+        public async Task Delete_Seat_Doesnt_Exist()
         {
 
-            _id  = 0;
-            var result = await _handler.Handle(new DeleteRateCommand() { Id = _id }, CancellationToken.None);
+            _id = 0;
+            var result = await _handler.Handle(new DeleteSeatCommand() { Id = _id }, CancellationToken.None);
             result.ShouldBe(null);
-        
-            var rates = await _mockRepo.Object.RateRepository.GetAll();
-            rates.Count.ShouldBe(2);
+
+            var Seats = await _mockRepo.Object.SeatRepository.GetAll();
+            Seats.Count.ShouldBe(2);
 
         }
     }
@@ -76,4 +63,3 @@ namespace BlogApp.Application.UnitTest.Ratetest.Command
 
 
 
-*/
