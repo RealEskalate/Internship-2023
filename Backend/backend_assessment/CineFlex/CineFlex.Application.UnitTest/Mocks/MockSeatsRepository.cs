@@ -3,21 +3,32 @@ using Moq;
 
 namespace CineFlex.Tests.Mocks;
 
-public static class MockSeatRepository
+public static class MockSeatsRepository
 {
-    public static Mock<ISeatsRepository> GetTagRepository()
+    public static Mock<ISeatsRepository> GetSeatsRepository()
     {
-        var Tags = new List<CineFlex.Domain.Seat>
+        var Seats = new List<CineFlex.Domain.Seat>
         {
             new ()
             {
                 Id=1,
-                
+                CinemaId = 1,
+                RowNumber = 3,
+                SeatNumber = 4,
+                IsOccupied = true,
+                SeatType = "",
+                Price = 300, 
             },
             
             new ()
             {
                 Id=2,
+                CinemaId = 2,
+                RowNumber = 3,
+                SeatNumber = 4,
+                IsOccupied = true,
+                SeatType = "",
+                Price = 300, 
             }
         };
 
@@ -34,26 +45,26 @@ public static class MockSeatRepository
 
         mockRepo.Setup(r => r.Update(It.IsAny<Domain.Seat>())).Callback((Domain.Seat seat) =>
         {
-            var newtags = Tags.Where((r) => r.Id != tag.Id);
-            Tags = newtags.ToList();
-            Tags.Add(tag);
+            var newseats = Seats.Where((r) => r.Id != seat.Id);
+            Seats = newseats.ToList();
+            Seats.Add(seat);
         });
         
-        mockRepo.Setup(r => r.Delete(It.IsAny<Domain.Tag>())).Callback((Domain.Tag tag) =>
+        mockRepo.Setup(r => r.Delete(It.IsAny<Domain.Seat>())).Callback((Domain.Seat seat) =>
         {
-            if (Tags.Exists(b => b.Id == tag.Id))
-                Tags.Remove(Tags.Find(b => b.Id == tag.Id)!);
+            if (Seats.Exists(b => b.Id == seat.Id))
+                Seats.Remove(Seats.Find(b => b.Id == seat.Id)!);
         });
 
         mockRepo.Setup(r => r.Exists(It.IsAny<int>())).ReturnsAsync((int id) =>
         {
-            var rate = Tags.FirstOrDefault((r) => r.Id == id);
+            var rate = Seats.FirstOrDefault((r) => r.Id == id);
             return rate != null;
         });
         
         mockRepo.Setup(r => r.Get(It.IsAny<int>()))!.ReturnsAsync((int id) =>
         {
-            return Tags.FirstOrDefault((r) => r.Id == id);
+            return Seats.FirstOrDefault((r) => r.Id == id);
         });
 
         return mockRepo;
