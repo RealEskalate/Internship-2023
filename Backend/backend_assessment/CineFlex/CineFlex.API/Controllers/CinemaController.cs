@@ -3,10 +3,12 @@ using CineFlex.Application.Features.Cinema.CQRS.Queries;
 using CineFlex.Application.Features.Cinema.DTO;
 using CineFlex.Application.Features.Cinema.Dtos;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CineFlex.API.Controllers;
 
+[Authorize(Roles = "Admin")]
 public class CinemaController : BaseApiController
 {
     private readonly IMediator _mediator;
@@ -17,12 +19,14 @@ public class CinemaController : BaseApiController
     }
 
     [HttpGet("GetAll")]
+    [Authorize(Roles = "Admin,User")]
     public async Task<ActionResult<List<CinemaDto>>> Get()
     {
         return HandleResult(await _mediator.Send(new GetCinemaListQuery()));
     }
 
     [HttpGet("{id}")]
+    [Authorize(Roles = "Admin,User")]
     public async Task<ActionResult<CinemaDto>> Get(int id)
     {
         return HandleResult(await _mediator.Send(new GetCinemaQuery { Id = id }));

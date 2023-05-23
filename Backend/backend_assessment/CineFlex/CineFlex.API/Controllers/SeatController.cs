@@ -2,12 +2,14 @@ using CineFlex.Application.Features.Seats.CQRS.Commands;
 using CineFlex.Application.Features.Seats.CQRS.Queries;
 using CineFlex.Application.Features.Seats.DTOs;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CineFlex.API.Controllers;
 
 [Route("api/[Controller]")]
 [ApiController]
+[Authorize(Roles = "Admin")]
 public class SeatController : BaseApiController
 {
     private readonly IMediator _mediator;
@@ -39,6 +41,7 @@ public class SeatController : BaseApiController
     }
 
     [HttpGet]
+    [Authorize(Roles = "Admin,User")]
     public async Task<IActionResult> Get(int cinemaId)
     {
         var command = new GetSeatsByCinemaQuery { CinemaId = cinemaId };

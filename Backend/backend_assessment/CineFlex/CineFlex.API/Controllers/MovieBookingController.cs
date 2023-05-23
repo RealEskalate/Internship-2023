@@ -2,6 +2,7 @@ using CineFlex.Application.Features.MovieBooking.CQRS.Commands;
 using CineFlex.Application.Features.MovieBooking.DTOs;
 using CineFlex.Domain;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,6 +10,7 @@ namespace CineFlex.API.Controllers;
 
 [Route("api/[Controller]")]
 [ApiController]
+[Authorize]
 public class MovieBookingController : BaseApiController
 {
     private readonly IMediator _mediator;
