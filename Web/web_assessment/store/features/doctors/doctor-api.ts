@@ -25,7 +25,7 @@ export const doctorApi = createApi({
     }),
     fetchDoctorProfile: builder.query({
       query: (id) => ({
-        url: `/v1/users/doctorProfile//${id}`,
+        url: `/api/v1/users/doctorProfile/62b959bf23006348f0f44b53`,
         method: "GET",
       }),
     }),

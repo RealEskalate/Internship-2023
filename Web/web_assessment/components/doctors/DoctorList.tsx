@@ -7,7 +7,6 @@ import { isFSA } from '@reduxjs/toolkit/dist/createAction';
 const DoctorList = () => {
     const { data:doctorList = [], isFetching } = useGetDoctorsQuery({name: ''});
     console.log(doctorList);
-    // doctorList is an array of doctor
 
     if (!doctorList || isFetching){
         return (
