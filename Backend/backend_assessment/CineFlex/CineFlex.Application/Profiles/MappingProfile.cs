@@ -8,6 +8,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CineFlex.Application.Models;
+using CineFlex.Application.Models.DTOs;
+using CineFlex.Application.Features.Bookings.DTO;
 
 namespace CineFlex.Application.Profiles
 {
@@ -26,6 +29,11 @@ namespace CineFlex.Application.Profiles
             CreateMap<CinemaEntity, CreateCinemaDto>().ReverseMap();
             CreateMap<CinemaEntity, CinemaDto>().ReverseMap();
             CreateMap<CinemaEntity, UpdateCinemaDto>().ReverseMap();
+
+            CreateMap<ApplicationUser,UserCreationDto>().ReverseMap();
+           
+            CreateMap<Booking,BookingDto>().ReverseMap();
+             CreateMap<Booking,CreateBookingDTO>().ReverseMap();
         }
     }
 }

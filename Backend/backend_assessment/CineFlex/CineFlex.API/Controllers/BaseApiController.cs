@@ -1,11 +1,13 @@
 ﻿using CineFlex.Application.Responses;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CineFlex.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+      [Authorize]
     public class BaseApiController : ControllerBase
     {
         private IMediator _mediatr;

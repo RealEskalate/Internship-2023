@@ -3,10 +3,13 @@ using CineFlex.Application.Features.Cinema.CQRS.Queries;
 using CineFlex.Application.Features.Cinema.DTO;
 using CineFlex.Application.Features.Cinema.Dtos;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CineFlex.API.Controllers
 {
+
+      [Authorize]
     public class CinemaController: BaseApiController
     {
         private readonly IMediator _mediator;
@@ -27,12 +30,15 @@ namespace CineFlex.API.Controllers
         {
              return HandleResult(await _mediator.Send(new GetCinemaQuery { Id = id }));
         }
+
+            [Authorize(Roles = "Admin")] //
         [HttpPost("CreateCinema")]
         public async Task<ActionResult> Post([FromBody] CreateCinemaDto createCinemaDto)
         {
             var command = new CreateCinemaCommand { CinemaDto = createCinemaDto };
             return HandleResult(await _mediator.Send(command));
         }
+            [Authorize(Roles = "Admin")] //
         [HttpPut("UpdateCinema")]
         public async Task<ActionResult> Put([FromBody] UpdateCinemaDto updateCinemaDto)
         {
@@ -40,6 +46,7 @@ namespace CineFlex.API.Controllers
             await _mediator.Send(command);
             return NoContent();
         }
+            [Authorize(Roles = "Admin")] //
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
