@@ -5,32 +5,30 @@ import { Content } from "next/font/google";
 import Error from "../common/Error";
 import { Doctor } from "@/types/doctors";
 import Search from "../common/Search";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 
 const DoctorsList: React.FC = () => {
-    const [keyWord, setKeyWord] = useState<string>('')
-    const router = useRouter()
+  const [keyWord, setKeyWord] = useState<string>("");
+  const router = useRouter();
 
-     let {
-        data: response,
-        isLoading,
-        isSuccess,
-        isError,
-        error,
-      } = useGetDoctorsQuery(keyWord)
-    
-      let content
-      useEffect(() => {
-    
-      }, [keyWord])
+  let {
+    data: response,
+    isLoading,
+    isSuccess,
+    isError,
+    error,
+  } = useGetDoctorsQuery(keyWord);
 
-      const openProfile = (id: string) => {
-        router.push(`doctors/${id}`)
-      }
-      if (isLoading) {
-        content = (
-            <div>
-            <Search setKeyWord={setKeyWord} keyWord={keyWord} ></Search>
+  let content;
+  const openProfile = (id: string) => {
+    router.push(`doctors/${id}`);
+  };
+
+  return (
+    <div>
+      <Search setKeyWord={setKeyWord} keyWord={keyWord}></Search>
+      {isLoading ? (
+        <div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  justify-items-center items-center gap-0 p-16">
             {Array(3)
               .fill(0)
@@ -51,29 +49,30 @@ const DoctorsList: React.FC = () => {
                 </div>
               ))}
           </div>
+        </div>
+      ) : isSuccess ? (
+        <div>
+          <div className="justify-items-center items-center mx-auto gap-0 grid grid-cols-1 md:w-[90%] md:grid-cols-2 lg:grid-cols-4 ">
+            {response?.data?.map((doctor: Doctor, index: number) => {
+              return (
+                <div key={index} onClick={() => openProfile(doctor._id)}>
+                  <DoctorCard
+                    _id={doctor._id}
+                    fullname={doctor.fullName}
+                    photo={doctor.photo}
+                    speciality={doctor.speciality[0].name}
+                    hospital={doctor.mainInstitution.institutionName}
+                  ></DoctorCard>{" "}
+                </div>
+              );
+            })}
           </div>
-        )
-      } else if (isSuccess) {
-        const doctors = response?.data
-        content = (
-
-            <div>
-                <Search setKeyWord={setKeyWord} keyWord={keyWord} ></Search>
-                <div className="justify-items-center items-center mx-auto gap-0 grid grid-cols-1 md:w-[90%] md:grid-cols-2 lg:grid-cols-4 ">
-            {doctors?.map((doctor: Doctor, index: number) => {
-               return <div key={index} onClick={() => openProfile(doctor._id)}><DoctorCard _id={doctor._id} fullname={doctor.fullName} photo={doctor.photo} speciality={doctor.speciality[0].name} hospital={doctor.mainInstitution.institutionName}></DoctorCard> </div>;
-              })}
-          </div>
-            </div>
-            
-        )
-      } else if (isError) {
-        content = <Error error={"error fetching data"}></Error>
-      }
-    
-  return (
-    <div className="">
-        {content}
+        </div>
+      ) : isError ? (
+        <Error error={"error fetching data"}></Error>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 };
