@@ -14,7 +14,7 @@ class ActionButton extends StatelessWidget {
         height: height,
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: primaryTextColor,
+            backgroundColor: primaryColor,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(height * 0.18),
             ),
