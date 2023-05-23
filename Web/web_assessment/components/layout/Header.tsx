@@ -5,19 +5,26 @@ const Header = () => {
   return (
     <div className="bg-white flex justify-between">
       {/* logo */}
-      <section className="flex">
+      <section className="flex gap-2">
         <Image
           src="/logo.png"
-          className="object-cover"
-          width={90}
-          height={90}
+          className="object-contain"
+          width={50}
+          height={40}
           alt="logo"
         />
-        <Image src="/HakimHub.png" width={181} height={50} alt="hakim-hub" />
+        <Image
+          src="/HakimHub.png"
+          className="object-contain"
+          width={100}
+          height={50}
+          alt="hakim-hub"
+        />
       </section>
 
-      <section className="flex">
+      <section className="flex items-center gap-2">
         <Image
+          className="object-contain"
           src="/img/user/avatar.png"
           width={70}
           height={70}
