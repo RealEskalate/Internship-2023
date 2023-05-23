@@ -30,6 +30,19 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  get_it: ^7.6.0
+  shared_preferences: ^2.1.1
+  http: ^0.13.6
+  equatable: ^2.0.5
+  mockito: ^5.4.0
+  dartz: ^0.10.1
+  flutter_bloc: ^8.1.2
+
+  
+
+    
+
+
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -46,7 +59,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
-
+  build_runner: ^2.3.3
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -59,8 +72,10 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/background_photo.jpg
+    - assets/cloud_image.png
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
