@@ -12,6 +12,6 @@ namespace CineFlex.Application.Features.Movies.CQRS.Queries
 {
     public class GetMovieListQuery : IRequest<BaseCommandResponse<List<MovieDto>>>
     {
-
+        public string? query { get; init; }
     }
 }

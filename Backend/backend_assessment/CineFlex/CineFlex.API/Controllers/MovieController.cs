@@ -19,16 +19,15 @@ namespace CineFlex.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<MovieDto>>> Get()
+        public async Task<ActionResult<List<MovieDto>>> Get(string? title)
         {
-            return HandleResult(await _mediator.Send(new GetMovieListQuery()));
+            return HandleResult(await _mediator.Send(new GetMovieListQuery() { query = title }));
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
             return HandleResult(await _mediator.Send(new GetMovieDetailQuery { Id = id }));
-
         }
 
         [HttpPost]
@@ -41,8 +40,6 @@ namespace CineFlex.API.Controllers
         [HttpPut]
         public async Task<IActionResult> Put([FromBody] UpdateMovieDto movieDto)
         {
-
-
             var command = new UpdateMovieCommand { MovieDto = movieDto };
             return HandleResult(await _mediator.Send(command));
         }

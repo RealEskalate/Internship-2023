@@ -24,11 +24,20 @@ namespace CineFlex.Application.Features.Movies.CQRS.Handlers
             _mapper = mapper;
         }
 
-        public async Task<BaseCommandResponse<List<MovieDto>>> Handle(GetMovieListQuery request, CancellationToken cancellationToken)
+        public async Task<BaseCommandResponse<List<MovieDto>>> Handle(GetMovieListQuery request,
+            CancellationToken cancellationToken)
         {
-
             var response = new BaseCommandResponse<List<MovieDto>>();
-            var movies = await _unitOfWork.MovieRepository.GetAll();
+            IReadOnlyList<Movie> movies = new List<Movie>();
+
+            if (request.query == null)
+            {
+                movies = await _unitOfWork.MovieRepository.GetAll();
+            }
+            else
+            {
+                movies = await _unitOfWork.MovieRepository.GetMoviesByTitle(request.query);
+            }
 
             response.Success = true;
             response.Message = "Movies retrieval Successful";
