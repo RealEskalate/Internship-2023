@@ -7,33 +7,30 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { LinkItem } from "@/types/footer-navigation";
-import Image from "next/image";
+import { AiOutlineRight } from "react-icons/ai";
 
 const Footer: React.FC = () => {
   const linkItems: LinkItem[] = [
     {
-      title: "Links",
+      title: "Get Connected",
       links: [
-        { name: "Home", path: "/" },
-        { name: "Success Stories", path: "/story" },
-        { name: "About Us", path: "/about" },
-        { name: "Get Involved", path: "/get-involved" },
+        { name: "For Physicians", path: "/" },
+        { name: "For Hospitals", path: "/" },
       ],
     },
     {
-      title: "Teams",
+      title: "Actions",
       links: [
-        { name: "Board Members", path: "/board" },
-        { name: "Advisors/Mentors", path: "/advisors" },
-        { name: "Executives", path: "/executives" },
-        { name: "Staffs", path: "/staffs" },
+        { name: "For a doctor", path: "/" },
+        { name: "For a hospital", path: "/" },
       ],
     },
     {
-      title: "Blogs",
+      title: "Company",
       links: [
-        { name: "Recent Blogs", path: "/recent-blogs" },
-        { name: "New Blog", path: "/new-blog" },
+        { name: "About us", path: "" },
+        { name: "Carries", path: "" },
+        { name: "Join Our Team", path: "" },
       ],
     },
   ];
@@ -62,19 +59,12 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="mt-auto border-y border-text-secondary sm:px-6 px-12">
-      <div className="px-6 sm:flex justify-between items-center space-y-12 sm:space-y-0 divide-y divide-y-reverse sm:py-12 py-3 sm:divide-y-0 sm:space-x-12">
-        <div className="pb-8 sm:pb-0 basis-1/5 hidden lg:block">
-          <Link href="/">
-            {/* <Image src={empowered} alt="empowered logo" /> */}
-          </Link>
-        </div>
-
+    <footer className="border-y border-text-secondary sm:px-6 px-12 col bg-[#5D5FEF] text-white mt-5">
+      <div className="px-6 sm:flex justify-between items-center space-y-12 sm:space-y-0 divide-y divide-y-reverse sm:py-12 py-3 sm:divide-y-0 sm:space-x-12 bg-[5D5FEF]">
         <div className="pb-8 sm:pt-0 basis-1/3 ">
-          <h3 className="text-lg font-semibold my-6">
-            Get involved in improving tech education in Africa!
+          <h3 className="text-lg font-semibold my-6 float-left text-white">
+            Hakim Hub
           </h3>
-          <button className="btn btn-lg">Support us</button>
         </div>
 
         {linkItems.map((linkItem, index) => {
@@ -83,7 +73,8 @@ const Footer: React.FC = () => {
               <h3 className="font-semibold mb-6">{linkItem.title}</h3>
               <ul className="flex flex-col text-secondary-text space-y-4">
                 {linkItem.links.map(({ path, name }, index) => (
-                  <li key={index}>
+                  <li key={index} className="flex">
+                    <AiOutlineRight />
                     <Link href={path}>{name}</Link>
                   </li>
                 ))}
@@ -94,9 +85,9 @@ const Footer: React.FC = () => {
       </div>
 
       <div className="md:border-t border-neutral-200 sm:flex mx-auto md:justify-between py-8">
-        <p className="text-sm text-secondary-text py-4 sm:py-0 ">
-          <span className="text-xl px-1">&copy;</span> 2023 Africa to Silicon
-          Valley,Inc. All right reserved.
+        <p className="text-sm text-secondary-text py-4 sm:py-0 flex ">
+          <div>Privacy Policy</div>
+          <div className="ml-10">Terms of Use</div>
         </p>
 
         <div className="text-secondary-text flex align-middle justify-center space-x-6 text-xl">
