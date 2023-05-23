@@ -1,21 +1,29 @@
-﻿using CineFlex.Application.Features.Movies.CQRS.Commands;
+﻿using System.Security.Claims;
+using CineFlex.Application.Contracts.Identity;
+using CineFlex.Application.Features.Movies.CQRS.Commands;
 using CineFlex.Application.Features.Movies.CQRS.Queries;
 using CineFlex.Application.Features.Movies.DTOs;
+using CineFlex.Application.Responses;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace CineFlex.API.Controllers
 {
+    [Authorize]
     [Route("api/[Controller]")]
     [ApiController]
     public class MovieController : BaseApiController
     {
         private readonly IMediator _mediator;
 
-        public MovieController(IMediator mediator)
+        private readonly IUserService _userServise;
+
+        public MovieController(IMediator mediator, IUserService userService)
         {
             _mediator = mediator;
+            _userServise = userService;
         }
 
         [HttpGet]
@@ -42,6 +50,13 @@ namespace CineFlex.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateMovieDto createMovie)
         {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (await _userServise.IsAdmin(userId) == false)
+                return HandleResult(new BaseCommandResponse<int>{
+                    Success = false,
+                    Message = "Only admins Allowed"
+                });
+
             var command = new CreateMovieCommand { MovieDto = createMovie };
             return HandleResult(await _mediator.Send(command));
         }
@@ -49,7 +64,12 @@ namespace CineFlex.API.Controllers
         [HttpPut]
         public async Task<IActionResult> Put([FromBody] UpdateMovieDto movieDto)
         {
-
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (await _userServise.IsAdmin(userId) == false)
+                return HandleResult(new BaseCommandResponse<int>{
+                    Success = false,
+                    Message = "Only admins Allowed"
+                });
 
             var command = new UpdateMovieCommand { MovieDto = movieDto };
             return HandleResult(await _mediator.Send(command));
@@ -58,6 +78,13 @@ namespace CineFlex.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (await _userServise.IsAdmin(userId) == false)
+                return HandleResult(new BaseCommandResponse<int>{
+                    Success = false,
+                    Message = "Only admins Allowed"
+                });
+
             var command = new DeleteMovieCommand { Id = id };
             return HandleResult(await _mediator.Send(command));
         }

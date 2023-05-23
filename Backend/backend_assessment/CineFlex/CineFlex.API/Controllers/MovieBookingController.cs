@@ -1,3 +1,4 @@
+using CineFlex.Application.Contracts.Identity;
 using CineFlex.Application.Features.MovieBookings.CQRS.Commands;
 using CineFlex.Application.Features.MovieBookings.CQRS.Queries;
 using CineFlex.Application.Features.MovieBookings.DTOs;
@@ -13,9 +14,12 @@ namespace CineFlex.API.Controllers
     {
         private readonly IMediator _mediator;
 
-        public MovieBookingController(IMediator mediator)
+        private readonly IUserService _userServise;
+
+        public MovieBookingController(IMediator mediator, IUserService userService)
         {
             _mediator = mediator;
+            _userServise = userService;
         }
 
         [HttpGet]
