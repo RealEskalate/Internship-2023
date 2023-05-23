@@ -31,6 +31,12 @@ namespace CineFlex.Application.Features.MovieBookings.CQRS.Handlers
             var validator = new CreateMovieBookingDtoValidator();
             var validationResult = await validator.ValidateAsync(request.MovieBookingDto);
 
+            if (request.MovieBookingDto.UserId != request.UserId && request.IsAdmin == false)
+                {
+                    response.Success = false;
+                    response.Message = "Unauthorized request";
+                    return response;
+                }
             
 
             if (validationResult.IsValid == false)

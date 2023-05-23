@@ -52,6 +52,12 @@ namespace CineFlex.Application.Features.MovieBookings.CQRS.Handlers
                 }
 
                 var MovieBooking = await _unitOfWork.MovieBookingRepository.Get(request.MovieBookingDto.Id);
+                if (MovieBooking.UserId != request.UserId && request.IsAdmin == false)
+                {
+                    response.Success = false;
+                    response.Message = "Unauthorized request";
+                    return response;
+                }
 
                 if (MovieBooking == null)
                 {

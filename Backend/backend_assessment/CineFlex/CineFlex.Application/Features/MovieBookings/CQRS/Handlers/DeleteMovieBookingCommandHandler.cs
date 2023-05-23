@@ -36,6 +36,13 @@ namespace CineFlex.Application.Features.MovieBookings.CQRS.Handlers
             else
             {
 
+                if (MovieBooking.UserId != request.UserId && request.IsAdmin == false)
+                {
+                    response.Success = false;
+                    response.Message = "Unauthorized request";
+                    return response;
+                }
+                
                 await _unitOfWork.MovieBookingRepository.Delete(MovieBooking);
 
 
