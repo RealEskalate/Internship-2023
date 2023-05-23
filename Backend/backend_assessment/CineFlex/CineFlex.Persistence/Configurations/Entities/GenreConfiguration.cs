@@ -9,24 +9,20 @@ using System.Threading.Tasks;
 
 namespace CineFlex.Persistence.Configurations.Entities
 {
-    public class MovieConfiguration : IEntityTypeConfiguration<Movie>
+    public class GenreConfiguration : IEntityTypeConfiguration<Genre>
     {
-        public void Configure(EntityTypeBuilder<Movie> builder)
+        public void Configure(EntityTypeBuilder<Genre> builder)
         {
             builder.HasData(
-                new Movie
+                new Genre
                 {
                     Id = 1,
-                    Title = "Sample Movie 1",
-                    ReleaseYear = "1999",
-                    
+                    Name = "Action"
                 },
-                new Movie
+                new Genre
                 {
                     Id = 2,
-                    Title = "Sample Movie 2",
-                    ReleaseYear = "2022",
-                    
+                    Name = "Comedy"
                 }
             );
         }

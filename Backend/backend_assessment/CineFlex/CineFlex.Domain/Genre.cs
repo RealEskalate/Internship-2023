@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace CineFlex.Domain
 {
-    public class CinemaEntity:BaseDomainEntity
-    {
+    public class Genre : BaseDomainEntity
+    { 
+        public int Id { get; set; }
         public string Name { get; set; }
-        public string Location { get; set; }
-        public string ContactInformation { get; set; }
-        public List<Seat> Seats {get; set;}
+        public List<Movie> Movies { get; set; }
     }
 }
