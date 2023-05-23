@@ -39,7 +39,7 @@ namespace CineFlex.Application.UnitTest.Seattest.Command
         public async Task DeleteSeat()
         {
            var result = await _handler.Handle(new DeleteSeatCommand() { Id = _id }, CancellationToken.None);
-            result.ShouldBeOfType<BaseCommandResponse<Unit>>();
+            result.ShouldBeOfType<BaseCommandResponse<int>>();
             result.Success.ShouldBeTrue();
 
             var Seats = await _mockRepo.Object.SeatRepository.GetAll();
@@ -52,7 +52,8 @@ namespace CineFlex.Application.UnitTest.Seattest.Command
 
             _id = 0;
             var result = await _handler.Handle(new DeleteSeatCommand() { Id = _id }, CancellationToken.None);
-            result.ShouldBe(null);
+            result.ShouldBeOfType<BaseCommandResponse<int>>();
+            result.Success.ShouldBeFalse();
 
             var Seats = await _mockRepo.Object.SeatRepository.GetAll();
             Seats.Count.ShouldBe(2);

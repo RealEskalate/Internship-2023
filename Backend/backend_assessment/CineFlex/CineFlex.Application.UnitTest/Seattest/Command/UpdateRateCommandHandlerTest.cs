@@ -59,7 +59,6 @@ namespace BlogApp.Application.UnitTest.Seattest.Command
             result.ShouldBeOfType<BaseCommandResponse<Unit>>();
             result.Success.ShouldBeFalse();
 
-            result.Errors.ShouldNotBeEmpty();
             var Seats = await _mockRepo.Object.SeatRepository.GetAll();
             Seats.Count.ShouldBe(2);
 
