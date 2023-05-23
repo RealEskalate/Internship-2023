@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CineFlex.Application.Contracts.Persistence
-{
+{ 
     public interface IGenericRepository<T> where T : class
     {
         Task<T> Get(int id);

@@ -26,6 +26,10 @@ namespace CineFlex.Application.Profiles
             CreateMap<CinemaEntity, CreateCinemaDto>().ReverseMap();
             CreateMap<CinemaEntity, CinemaDto>().ReverseMap();
             CreateMap<CinemaEntity, UpdateCinemaDto>().ReverseMap();
+
+            CreateMap<Seat, CreateSeatDto>().ReverseMap();
+            CreateMap<Seat, SeatDto>().ReverseMap();
+            CreateMap<Seat, UpdateSeatDto>().ReverseMap();
         }
     }
 }
