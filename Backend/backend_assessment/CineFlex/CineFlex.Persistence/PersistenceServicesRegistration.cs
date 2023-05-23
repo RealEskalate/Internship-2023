@@ -24,6 +24,7 @@ namespace CineFlex.Persistence
             services.AddScoped<ICinemaRepository, CinemaRepository>();
             services.AddScoped<IMovieRepository, MovieRepository>();
             services.AddScoped<ISeatRepository, SeatRepository>();
+            services.AddScoped<IMovieBookingRepository, MovieBookingRepository>();
 
             services.AddIdentity<AppUser, IdentityRole>()
                 .AddEntityFrameworkStores<CineFlexDbContext>().AddDefaultTokenProviders();

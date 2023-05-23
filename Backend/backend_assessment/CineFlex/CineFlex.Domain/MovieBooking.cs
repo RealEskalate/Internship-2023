@@ -1,4 +1,5 @@
 using CineFlex.Domain.Common;
+using Microsoft.EntityFrameworkCore;
 
 namespace CineFlex.Domain;
 

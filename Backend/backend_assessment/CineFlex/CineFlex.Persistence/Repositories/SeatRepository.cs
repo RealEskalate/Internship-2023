@@ -17,4 +17,9 @@ public class SeatRepository : GenericRepository<Seat>, ISeatRepository
     {
         return await _dbContext.Seats.Where(seat => seat.CinemaId == requestCinemaId).AsNoTracking().ToListAsync();
     }
+
+    public async Task<IReadOnlyList<Seat>> GetSeatsWithId(IList<int> seatIds)
+    {
+        return await _dbContext.Seats.Where(seat => seatIds.Contains(seat.Id)).ToListAsync();
+    }
 }
