@@ -13,7 +13,6 @@ const Search = () => {
 
   return (
     <div>
-      Search
       <input type="text" className="w-full border border-2" value={keyword} onChange={handleSearch} />
       {keyword && (
         <div>
