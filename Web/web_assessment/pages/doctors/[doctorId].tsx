@@ -9,20 +9,7 @@ const DoctorDetailPage = () => {
 
     useEffect(() => {
         const fetchDoctors = async () => {
-            try {
-                console.log(">> doctorId", doctorId);
-                console.log(">> router.query: ", router.query)
-                const response = await fetchDoctorDetail(doctorId as string);
-                if ('data' in response) {
-                    const doctors = response.data; // Assuming the response contains the doctors data
-                    console.log(">>", doctors);
-                }
-                // Do something with the doctors data
-
-            } catch (error) {
-                // Handle error
-                console.error(error);
-            }
+            await fetchDoctorDetail(doctorId as string);
         };
 
         fetchDoctors().then(r => console.log(">> error occurred haile", r));
@@ -30,16 +17,17 @@ const DoctorDetailPage = () => {
 
     return (
         <div>
-            { isLoading && <p>Loading...</p> }
-            { data != undefined &&
+            {isLoading && <p>Loading...</p>}
+            {data !== undefined && (
                 <div className="bg-gray-100 p-8">
+                    <div className="relative">
+                        <div className="w-32 h-32 bg-gray-300 rounded-full overflow-hidden">
+                            <img src={data.photo} alt="Doctor" className="w-full h-full object-cover" />
+                        </div>
+                        <div className="absolute inset-0 bg-blue-500 opacity-20 rounded-full"></div>
+                    </div>
                     <h1 className="text-2xl font-bold mb-4">Doctor Detail</h1>
                     <p className="mb-2">Doctor ID: {doctorId}</p>
-                    <div className="flex items-center justify-center mb-4">
-                        <div className="w-32 h-32 bg-gray-300 rounded-full overflow-hidden">
-                            <img src={data.photo} alt="Doctor" className="w-full h-full object-cover"/>
-                        </div>
-                    </div>
                     <div className="flex">
                         <div className="mr-4">
                             <p className="text-xl font-bold mb-2">{data.fullName}</p>
@@ -55,6 +43,7 @@ const DoctorDetailPage = () => {
                         <p>{data.summary}</p>
                     </div>
                     <div className="mt-4">
+                        {/* education is most of the time empty*/}
                         <h2 className="text-lg font-bold mb-2">Education</h2>
                         <ul>
                             {data.education.map((item, index) => (
@@ -69,6 +58,7 @@ const DoctorDetailPage = () => {
                     <div className="mt-4">
                         <h2 className="text-lg font-bold mb-2">Contact Info</h2>
                         <p>
+                            {/* phone number is most of the time empty*/}
                             <span className="text-indigo-500">Phone Number:</span> +251-985-678-345
                         </p>
                         <p>
@@ -76,9 +66,10 @@ const DoctorDetailPage = () => {
                         </p>
                     </div>
                 </div>
-            }
-</div>
+            )}
+        </div>
     );
+
 
 
 };
