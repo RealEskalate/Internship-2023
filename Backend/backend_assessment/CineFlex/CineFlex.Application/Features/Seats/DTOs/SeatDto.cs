@@ -10,8 +10,8 @@ namespace CineFlex.Application.Features.Seats.DTOs
 {
     public class SeatDto: BaseDto, ISeatDto
     {
-        public Movie Movie { get; set; }
-        public CinemaEntity cinemaEntity { get; set; }
+        public string Movie { get; set; }
+        public string cinemaEntity { get; set; }
         public int RowNumber { get; set; }
         public SeatType SeatType { get; set; }
         public SeatStatus SeatStatus { get; set; }
