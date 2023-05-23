@@ -3,6 +3,8 @@ using CineFlex.Application.Features.Cinema.CQRS.Queries;
 using CineFlex.Application.Features.Cinema.DTO;
 using CineFlex.Application.Features.Cinema.Dtos;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -29,12 +31,14 @@ namespace CineFlex.API.Controllers
              return Ok(await _mediator.Send(new GetCinemaQuery { Id = id }));
         }
         [HttpPost("CreateCinema")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult> Post(CreateCinemaCommand cinima)
         {
             var response = await _mediator.Send(cinima);
             return CreatedAtAction(nameof(Get), new { id = response });
         }
         [HttpPut("UpdateCinema")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult> Put([FromBody] UpdateCinemaDto updateCinemaDto)
         {
             var command = new UpdateCinemaCommand { updateCinemaDto = updateCinemaDto };
@@ -42,6 +46,7 @@ namespace CineFlex.API.Controllers
             return NoContent();
         }
         [HttpDelete("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult> Delete(int id)
         {
             var command = new DeleteCinemaCommand { Id = id };

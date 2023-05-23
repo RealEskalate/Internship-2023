@@ -5,6 +5,8 @@ using CineFlex.Application.Features.Seats.CQRS.Commands;
 using CineFlex.Application.Features.Seats.CQRS.Queries;
 using CineFlex.Application.Features.Seats.DTOs;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -35,6 +37,7 @@ namespace CineFlex.API.Controllers
         }
 
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> Post(CreateSeatCommand seat)
         {
             var response = await _mediator.Send(seat);
@@ -42,6 +45,7 @@ namespace CineFlex.API.Controllers
         }
 
         [HttpPut]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> Put(UpdateSeatCommand seat)
         {
             await _mediator.Send(seat);
@@ -49,6 +53,7 @@ namespace CineFlex.API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> Delete(int id)
         {
             var command = new DeleteSeatCommand { SeatId = id };
