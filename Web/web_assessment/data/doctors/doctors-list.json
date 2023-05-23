@@ -1,0 +1,15 @@
+[
+    {
+      "id": "1",
+      "name": "Doctor 1",
+      "specialty": "Specialty 1",
+      "location": "Location 1"
+    },
+    {
+      "id": "2",
+      "name": "Doctor 2",
+      "specialty": "Specialty 2",
+      "location": "Location 2"
+    }
+  ]
+  
