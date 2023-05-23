@@ -23,7 +23,7 @@ namespace CineFlex.API.Controllers
         {
             return HandleResult(await _mediator.Send(new GetCinemaListQuery()));
         }
-        
+
         [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<ActionResult<CinemaDto>> Get(int id)
@@ -31,7 +31,7 @@ namespace CineFlex.API.Controllers
             return HandleResult(await _mediator.Send(new GetCinemaQuery { Id = id }));
         }
 
-        [Authorize]
+        // [Authorize(Policy = "IsAdminRequirement")]
         [HttpPost("CreateCinema")]
         public async Task<ActionResult> Post([FromBody] CreateCinemaDto createCinemaDto)
         {
@@ -39,7 +39,7 @@ namespace CineFlex.API.Controllers
             return HandleResult(await _mediator.Send(command));
         }
 
-        [Authorize]
+        // [Authorize(Policy = "IsAdminRequirement")]
         [HttpPut("UpdateCinema")]
         public async Task<ActionResult> Put([FromBody] UpdateCinemaDto updateCinemaDto)
         {
@@ -48,7 +48,8 @@ namespace CineFlex.API.Controllers
             return NoContent();
         }
 
-        [Authorize]
+        // [Authorize(Policy = "IsAdminRequirement")]
+
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {

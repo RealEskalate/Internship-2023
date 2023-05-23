@@ -7,13 +7,14 @@ using Microsoft.IdentityModel.Tokens;
 using CineFlex.Persistence;
 using CineFlex.Infrastructure.Security;
 
-namespace CineFlex.API.Extensions {
-    public static class IdentityServerExtensions 
+namespace CineFlex.API.Extensions
+{
+    public static class IdentityServerExtensions
     {
 
         public static IServiceCollection AddIdentityServices(this IServiceCollection services, IConfiguration config)
         {
-            services.AddIdentityCore<AppUser>(options => 
+            services.AddIdentityCore<AppUser>(options =>
             {
                 options.Password.RequireNonAlphanumeric = false;
                 options.User.RequireUniqueEmail = true;
@@ -23,31 +24,30 @@ namespace CineFlex.API.Extensions {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["TokenKey"]));
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                    .AddJwtBearer(opt => {
-                        opt.TokenValidationParameters = new TokenValidationParameters{
+                    .AddJwtBearer(opt =>
+                    {
+                        opt.TokenValidationParameters = new TokenValidationParameters
+                        {
                             ValidateIssuerSigningKey = true,
                             IssuerSigningKey = key,
                             ValidateIssuer = false,
                             ValidateAudience = false
-                        };   
-             });
+                        };
+                    });
 
-            services.AddAuthorization(opt => {
-                opt.AddPolicy("IsTaskCreator", policy => {
-                    policy.Requirements.Add(new IsTaskCreatorRequirement());
-                });
-            });
-            
-            services.AddAuthorization(opt => {
-                opt.AddPolicy("IsCheckListCreator", policy => {
-                    policy.Requirements.Add(new IsCheckListCreatorRequirement());
+            services.AddAuthorization(opt =>
+            {
+                opt.AddPolicy("IsAdminRequirement", policy =>
+                {
+                    policy.Requirements.Add(new IsAdminRequirement());
                 });
             });
 
-            services.AddTransient<IAuthorizationHandler, IsTaskCreatorRequirementHandler>();
-            services.AddTransient<IAuthorizationHandler, IsCheckListCreatorRequirementHandler>();
+
+
+            services.AddTransient<IAuthorizationHandler, IsAdminRequirementHandler>();
             services.AddScoped<TokenService>();
-            
+
             return services;
         }
     }
