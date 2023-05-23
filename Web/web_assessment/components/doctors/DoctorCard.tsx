@@ -13,7 +13,8 @@ interface DoctorCardProps {
 
 const DoctorCard: React.FC<DoctorCardProps> = ({ doctor }) => {
   return (
-    <Link href={`./detail/${doctor._id}`} passHref>
+    // <Link href={`./detail/${doctor._id}`} passHref>
+      <Link href={`./doctor-detail`} passHref>
       <div className="rounded-lg shadow-xl bg-white p-4 mt-9 mb-9">
         <div className="ml-20">
           <Image
