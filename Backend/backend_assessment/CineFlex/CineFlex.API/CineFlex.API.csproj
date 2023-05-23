@@ -8,17 +8,21 @@
 
   <ItemGroup>
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.5">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.5">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+         <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.30.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\CineFlex.Application\CineFlex.Application.csproj" />
     <ProjectReference Include="..\CineFlex.Domain\CineFlex.Domain.csproj" />
     <ProjectReference Include="..\CineFlex.Persistence\CineFlex.Persistence.csproj" />
+    <ProjectReference Include="..\CineFlex.Infrastructure\CineFlex.Infrastructure.csproj" />
+
   </ItemGroup>
 
 </Project>

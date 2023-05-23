@@ -22,10 +22,14 @@ namespace CineFlex.Application.Features.Cinema.CQRS.Handlers
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
 
-        public CreateCinemaCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        private readonly IUserAccessor _userAccessor;
+
+        public CreateCinemaCommandHandler(IUnitOfWork unitOfWork, IMapper mapper, IUserAccessor userAccessor)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
+            _userAccessor = userAccessor;
+
         }
 
         public async Task<BaseCommandResponse<int>> Handle(CreateCinemaCommand request, CancellationToken cancellationToken)
@@ -42,7 +46,18 @@ namespace CineFlex.Application.Features.Cinema.CQRS.Handlers
             }
             else
             {
+
+                var currentUser = await _userAccessor.GetCurrentUser();
+
+                if (currentUser == null)
+                {
+                    response.Success = false;
+                    response.Message = "User not found";
+                    return response;
+                }
+
                 var cinema = _mapper.Map<CinemaEntity>(request.CinemaDto);
+                cinema.AppUser = currentUser;
 
                 cinema = await _unitOfWork.CinemaRepository.Add(cinema);
 
@@ -58,12 +73,12 @@ namespace CineFlex.Application.Features.Cinema.CQRS.Handlers
                     response.Message = "Creation Failed";
 
                 }
-                
+
             }
             return response;
         }
 
     }
 }
-    
-       
+
+
