@@ -16,7 +16,13 @@ export const doctorsApi = createApi({
     getDoctorById: builder.query<Doctor, string>({
       query: (id) => `/users/doctorProfile/${id}`,
     }),
+    searchDoctors: builder.query<DoctorResponse, string>({
+      query: (query) => ({
+        url: `/search?keyword=${query}&institutions=false&articles=False`,
+        method: 'POST'
+      })
+    })
   }),
 });
 
-export const { useGetAllDoctorsQuery, useGetDoctorByIdQuery } = doctorsApi;
+export const { useGetAllDoctorsQuery, useGetDoctorByIdQuery, useSearchDoctorsQuery } = doctorsApi;

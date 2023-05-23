@@ -14,7 +14,7 @@ const ProfileScreen = () => {
   }
 
   if (isSuccess) {
-    return <div className='flex flex-col items-center'>
+    return <div className='flex flex-col items-center mt-16'>
       <div className="rounded-full border-4 border-primary">
         <Image src={doctor.photo} alt="Image" width={128} height={128} className="object-cover object-center rounded-full" />
       </div>
