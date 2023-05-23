@@ -1,7 +1,6 @@
 using AutoMapper;
 using CineFlex.Application.Exceptions;
 using CineFlex.Application.Contracts.Persistence;
-using CineFlex.Application.Features.Cinema.DTO;
 using CineFlex.Application.Responses;
 using MediatR;
 using System;
@@ -10,7 +9,7 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
-using CineFlex.Application.Features.Book.CQRS.Queries;
+using CineFlex.Application.Features.Book.CQRS.Query;
 using CineFlex.Application.Features.Book.DTO;
 
 namespace CineFlex.Application.Features.Book.CQRS.Handlers
