@@ -19,7 +19,7 @@ using TaskManagementSystem.Application.Models.Identity;
 namespace CineFlex.Identity;
 public static class IdentityServiceRegistration
 {
-    public static IServiceCollection ConfigurePersistenceServices(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection ConfigureIdentityServices(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<CineFlexDbContext>(opt =>
         opt.UseNpgsql(configuration.GetConnectionString("CineFlexConnectionString")));
