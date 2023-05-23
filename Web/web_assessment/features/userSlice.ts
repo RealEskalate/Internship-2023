@@ -5,12 +5,25 @@ export const userApi = createApi({
   reducerPath: 'usersApi',
   baseQuery: fetchBaseQuery({ baseUrl}),
   endpoints: (builder) => ({
-    fetchUser: builder.mutation<Doctor[], void>({
+    fetchUser: builder.query<any, void>({
       query: () => ({
         url: '/search?institutions=false&from=1&size=20',
-        method: "POST"})
-    }),  
+        method: "POST"}),
+    }), 
+    fetchUserById: builder.query<Doctor, string>({
+      query: (id) => ({
+        url: `/users/doctorProfile/${id}`,
+        method: "GET"
+      }),
+    }),
+    fetchUserByKeyword: builder.query<any, string>({
+      query: (keyword) => ({
+        url: `/search?keyword=${keyword}&institutions=false&articles=False`,
+        method: "POST"
+      }),
+    }),
   }),
+  
 })
 
-export const { useFetchUserMutation } = userApi
+export const { useFetchUserQuery, useFetchUserByIdQuery, useFetchUserByKeywordQuery } = userApi
