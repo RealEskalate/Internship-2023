@@ -7,7 +7,7 @@ import React from "react";
 
 const DoctorProfile: React.FC = () => {
   const router = useRouter();
-  const { id } = router.query;
+  const { id } = router.query as {id: string}
   
   let {
     data: doctor,
