@@ -1,17 +1,14 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
   <ItemGroup>
     <Compile Remove="Features\_Indices\**" />
     <EmbeddedResource Remove="Features\_Indices\**" />
     <None Remove="Features\_Indices\**" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.5.2" />
@@ -19,16 +16,13 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\CineFlex.Domain\CineFlex.Domain.csproj" />
   </ItemGroup>
-
   <ItemGroup>
     <Folder Include="Contracts\Identity\" />
     <Folder Include="Features\_Indices\CQRS\Commands\" />
     <Folder Include="Features\_Indices\CQRS\Handlers\" />
     <Folder Include="Features\_Indices\CQRS\Queries\" />
   </ItemGroup>
-
 </Project>
