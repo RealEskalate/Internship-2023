@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace CineFlex.Persistence.Configurations
 {
-    public class CinemaConfiguration : IEntityTypeConfiguration<CinemaEntity>
+    public class CinemaConfiguration : IEntityTypeConfiguration<Cinema>
     {
-        public void Configure(EntityTypeBuilder<CinemaEntity> builder)
+        public void Configure(EntityTypeBuilder<Cinema> builder)
         {
             builder.HasData(
-            new CinemaEntity
+            new Cinema
             {
                 Id = 1,
                 Name = "First name",
@@ -22,7 +22,7 @@ namespace CineFlex.Persistence.Configurations
                 ContactInformation = "0937363056"
             },
 
-                new CinemaEntity
+                new Cinema
                 {
                     Id = 2,
                     Name = "second name",
