@@ -14,13 +14,11 @@ export const doctorsApi = createApi({
       query: (keyword) =>({ url:"search?institutions=false&articles=False", method: 'POST',}),
     }),
     getDoctorProfile: builder.query<any, string>({
-      query: (id) =>({ 
-        url:"users/doctorProfile/${id}", 
-        method:'GET'
-      })
+      query: (id) => `users/doctorProfile/${id}`,
+      
     }),
     searchDoctors: builder.query<any, string>({
-      query: (keyword) =>({ url:"search?keyword=${keyword}institutions=false&articles=False", method:'POST'}),
+      query: (keyword) =>({ url:`search?keyword=${keyword}institutions=false&articles=False`, method:'POST'}),
     }),
   }),
 });
