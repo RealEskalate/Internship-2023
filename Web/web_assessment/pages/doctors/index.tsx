@@ -39,12 +39,13 @@ const HomePage = () => {
       ) : isError ? (
         <div className="text-red-700">Error occurred while fetching data.</div>
       ) : (
-        <div className="grid grid-cols-4 px-10 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:px-10 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {doctorsData.map((doctorData) => {
             return <DoctorCard key={doctorData._id} doctorData={doctorData} />;
           })}
         </div>
       )}
+
     </section>
   );
 };

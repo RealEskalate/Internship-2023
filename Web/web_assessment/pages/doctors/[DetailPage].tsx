@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useGetSingleDoctorQuery } from "../store/home/doctors-api";
 import Image from "next/image";
+import { MdEmail, MdPhone } from "react-icons/md";
 
 const DetailPage = () => {
   const router = useRouter();
@@ -25,8 +26,8 @@ const DetailPage = () => {
       ) : isError ? (
         <div className="text-red-700">Error occurred while fetching data.</div>
       ) : (
-        <div className="w-full  flex flex-col justify-center my-20">
-          <div className="py-20 border mx-20 rounded-xl">
+        <div className="w-full sm:px-32 flex flex-col justify-center my-20">
+          <div className="py-20 border rounded-xl">
             <h1 className="text-center py-10">Cover photo </h1>
           </div>{" "}
           <Image
@@ -36,7 +37,7 @@ const DetailPage = () => {
             width={100}
             height={100}
           />
-          <div className="flex sm:flex-row flex-col sm:space-x-56 my-36 sm:px-32 mb-56">
+          <div className="flex sm:flex-row flex-col sm:space-x-56 my-36 mb-56">
             <div>
               <h2 className="text-4xl font-bold ">{data?.fullName}</h2>
               <h2 className="text-2xl py-1 text-secondary-text">
@@ -51,20 +52,37 @@ const DetailPage = () => {
               </h4>
             </div>
           </div>
-          <div className="space-y-20">
-            <div className="flex sm:flex-row  flex-col sm:space-x-56 sm:px-32">
+          <div className="space-y-10 font-semibold ">
+            <div className="flex sm:flex-row flex-col sm:space-x-56">
               <div>
                 <h3 className="text-xl">Addis Ababa University</h3>
-                <h3 className="text-lg text-secondary-text">B.SC MEDICINE</h3>
+                <h3 className="text-lg text-secondary-text">B.SC medicine</h3>
               </div>
               <h3 className="text-xl text-secondary-text">2003 - 2007</h3>
             </div>
-            <div className="flex sm:flex-row  flex-col sm:space-x-56 sm:px-32">
+            <div className="flex sm:flex-row  flex-col sm:space-x-56">
               <div>
                 <h3 className="text-xl">Addis Ababa University</h3>
-                <h3 className="text-lg text-secondary-text">B.SC MEDICINE</h3>
+                <h3 className="text-lg text-secondary-text">B.SC medicine</h3>
               </div>
               <h3 className="text-xl text-secondary-text">2003 - 2007</h3>
+            </div>
+          </div>
+          <div>
+            <h3 className="font-bold text-xl my-20">Contact Info</h3>
+            <div className="flex space-x-4 mb-20">
+              <MdPhone className="text-secondary-text mt-2" />
+              <div>
+                <p className="text-primary font-bold text-lg pb-2">Phone number</p>
+                <p className="text-secondary-text">+25191111111</p>
+              </div>
+            </div>
+            <div className="flex space-x-4">
+              <MdEmail className="text-secondary-text mt-2" />
+              <div>
+                <p className="text-primary font-bold text-lg pb-2">Email</p>
+                <p className="text-secondary-text">username@gmail.com</p>
+              </div>
             </div>
           </div>
         </div>

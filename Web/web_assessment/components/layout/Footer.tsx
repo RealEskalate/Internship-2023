@@ -9,7 +9,7 @@ import {
 
 const Footer: React.FC = () => {
   return (
-    <div className="bg-primary grid text-white grid-cols-1 sm:grid-cols-7 w-full mt-auto pt-20">
+    <div className="bg-primary grid px-6 sm:px-0 text-white grid-cols-1 sm:grid-cols-7 w-full mt-auto pt-20">
       <div className="text-3xl font-bold sm:col-span-4 px-6">HakimHub</div>
       <div className="col-span-1 pb-16">
         <h3 className="text-lg font-semibold pb-3">Get Connected</h3>
@@ -55,11 +55,11 @@ const Footer: React.FC = () => {
         </div>
       </div>
       <div className="sm:col-span-7 flex border-t justify-between p-4">
-        <div className="flex space-x-8 text-lg font-bold">
+        <div className="flex flex-col sm:flex-row sm:space-x-8 text-lg font-bold">
           <p>Privacy Policy</p>
           <p>Terms of use</p>
         </div>
-        <div className="flex text-2xl space-x-16">
+        <div className="flex flex-col sm:flex-row text-2xl sm:space-x-16">
           <Link href="/">
             <RiTelegramLine />
           </Link>
