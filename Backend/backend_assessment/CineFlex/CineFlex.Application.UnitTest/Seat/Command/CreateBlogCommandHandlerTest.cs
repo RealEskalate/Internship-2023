@@ -1,8 +1,3 @@
-using BlogApp.Application.Contracts.Persistence;
-using BlogApp.Application.Features.Blog.DTOs;
-using BlogApp.Application.Features.Blog.CQRS.Handlers.Commands;
-using BlogApp.Application.Features.Blog.CQRS.Requests.Commands;
-using BlogApp.Application.Profiles;
 using AutoMapper;
 using Shouldly;
 using Moq;
