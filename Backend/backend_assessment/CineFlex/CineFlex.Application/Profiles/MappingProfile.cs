@@ -1,31 +1,46 @@
 ﻿using AutoMapper;
-using CineFlex.Application.Features.Movies.DTOs;
 using CineFlex.Application.Features.Cinema.DTO;
 using CineFlex.Application.Features.Cinema.Dtos;
+using CineFlex.Application.Features.MovieBooking.DTOs;
+using CineFlex.Application.Features.Movies.DTOs;
+using CineFlex.Application.Features.Seats.DTOs;
 using CineFlex.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CineFlex.Application.Profiles
+namespace CineFlex.Application.Profiles;
+
+public class MappingProfile : Profile
 {
-    public class MappingProfile : Profile
+    public MappingProfile()
     {
-        public MappingProfile()
-        {
-            #region Movie Mappings
+        #region Movie Mappings
 
-            CreateMap<Movie, MovieDto>().ReverseMap();
-            CreateMap<Movie, CreateMovieDto>().ReverseMap();
+        CreateMap<Movie, MovieDto>().ReverseMap();
+        CreateMap<Movie, CreateMovieDto>().ReverseMap();
 
-            CreateMap<Movie, UpdateMovieDto>().ReverseMap();
+        CreateMap<Movie, UpdateMovieDto>().ReverseMap();
 
-            #endregion Movie
-            CreateMap<CinemaEntity, CreateCinemaDto>().ReverseMap();
-            CreateMap<CinemaEntity, CinemaDto>().ReverseMap();
-            CreateMap<CinemaEntity, UpdateCinemaDto>().ReverseMap();
-        }
+        #endregion Movie
+
+        #region Cinema Mappings
+
+        CreateMap<CinemaEntity, CreateCinemaDto>().ReverseMap();
+        CreateMap<CinemaEntity, CinemaDto>().ReverseMap();
+        CreateMap<CinemaEntity, UpdateCinemaDto>().ReverseMap();
+
+        #endregion
+
+        #region Seat Mappings
+
+        CreateMap<Seat, CreateSeatDto>().ReverseMap();
+        CreateMap<Seat, SeatDto>().ReverseMap();
+        CreateMap<Seat, UpdateSeatDto>().ReverseMap();
+
+        #endregion
+
+        #region Movie Booking
+
+        CreateMap<MovieBooking, MovieBookingDto>().ReverseMap();
+
+        #endregion
     }
 }

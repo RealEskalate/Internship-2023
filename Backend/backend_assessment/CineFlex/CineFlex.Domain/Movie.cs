@@ -1,17 +1,11 @@
 ﻿using CineFlex.Domain.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CineFlex.Domain
+namespace CineFlex.Domain;
+
+public class Movie : BaseDomainEntity
 {
-    public class Movie: BaseDomainEntity
-    {
-        public string Title { get; set; }
-        public string Genre { get; set; }
-        public string ReleaseYear { get; set; }
-
-    }
+    public string Title { get; set; }
+    public string Genre { get; set; }
+    public string ReleaseYear { get; set; }
+    public List<MovieBooking> MovieBookings { get; set; } = new List<MovieBooking>();
 }

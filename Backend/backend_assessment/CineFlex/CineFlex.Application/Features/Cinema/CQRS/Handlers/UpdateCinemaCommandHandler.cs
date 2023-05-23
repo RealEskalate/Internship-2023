@@ -1,65 +1,59 @@
 ﻿using AutoMapper;
 using CineFlex.Application.Contracts.Persistence;
 using CineFlex.Application.Features.Cinema.CQRS.Commands;
-using CineFlex.Application.Features.Cinema.DTO;
 using CineFlex.Application.Features.Cinema.DTO.Validators;
 using CineFlex.Application.Responses;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CineFlex.Application.Features.Cinema.CQRS.Handlers
+namespace CineFlex.Application.Features.Cinema.CQRS.Handlers;
+
+public class UpdateCinemaCommandHandler : IRequestHandler<UpdateCinemaCommand, BaseCommandResponse<Unit>>
 {
-    public class UpdateCinemaCommandHandler : IRequestHandler<UpdateCinemaCommand, BaseCommandResponse<Unit>>
+    private readonly IMapper _mapper;
+    private readonly IUnitOfWork _unitOfWork;
+
+    public UpdateCinemaCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
     {
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IMapper _mapper;
+        _unitOfWork = unitOfWork;
+        _mapper = mapper;
+    }
 
-        public UpdateCinemaCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+    public async Task<BaseCommandResponse<Unit>> Handle(UpdateCinemaCommand request,
+        CancellationToken cancellationToken)
+    {
+        var response = new BaseCommandResponse<Unit>();
+        var validator = new UpdateCinemaDtoValidator();
+        var validationResult = await validator.ValidateAsync(request.updateCinemaDto);
+
+        if (validationResult.IsValid == false)
         {
-            _unitOfWork = unitOfWork;
-            _mapper = mapper;
+            response.Success = false;
+            response.Message = "Update Failed";
+            response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
         }
 
-        public async Task<BaseCommandResponse<Unit>> Handle(UpdateCinemaCommand request, CancellationToken cancellationToken)
+        var cinema = await _unitOfWork.CinemaRepository.Get(request.updateCinemaDto.Id);
+
+        if (cinema == null)
         {
-            var response = new BaseCommandResponse<Unit>();
-            var validator = new UpdateCinemaDtoValidator();
-            var validationResult = await validator.ValidateAsync(request.updateCinemaDto);
-
-            if (validationResult.IsValid == false)
-            {
-                response.Success = false;
-                response.Message = "Update Failed";
-                response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
-
-            }
-           
-            var cinema = await _unitOfWork.CinemaRepository.Get(request.updateCinemaDto.Id);
-
-            if (cinema == null)
-            {
-              response.Success = true;
-              response.Message = "no cinema found by this id";
-            }
-            _mapper.Map(request.updateCinemaDto, cinema);
-            await _unitOfWork.CinemaRepository.Update(cinema);
-            if (await _unitOfWork.Save() > 0)
-                {
-                    response.Success = true;
-                    response.Message = "Successfully Updated";
-                    response.Value = Unit.Value;
-                }
-            else
-                {
-                    response.Success = false;
-                    response.Message = "Update Failed";
-                }
-
-            return response;
+            response.Success = true;
+            response.Message = "no cinema found by this id";
         }
+
+        _mapper.Map(request.updateCinemaDto, cinema);
+        await _unitOfWork.CinemaRepository.Update(cinema);
+        if (await _unitOfWork.Save() > 0)
+        {
+            response.Success = true;
+            response.Message = "Successfully Updated";
+            response.Value = Unit.Value;
+        }
+        else
+        {
+            response.Success = false;
+            response.Message = "Update Failed";
+        }
+
+        return response;
     }
 }
