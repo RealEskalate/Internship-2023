@@ -12,6 +12,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
@@ -19,10 +20,6 @@
     <ProjectReference Include="..\CineFlex.Application\CineFlex.Application.csproj" />
     <ProjectReference Include="..\CineFlex.Domain\CineFlex.Domain.csproj" />
     <ProjectReference Include="..\CineFlex.Persistence\CineFlex.Persistence.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Middlewares\" />
   </ItemGroup>
 
 </Project>

@@ -3,10 +3,12 @@ using CineFlex.Application.Features.Books.CQRS.Queries;
 using CineFlex.Application.Features.Books.DTO;
 using CineFlex.Application.Features.Movies.CQRS.Commands;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CineFlex.API.Controllers;
 
+[Authorize]
 public class BooksController : BaseApiController
 {
     private readonly IMediator _mediator;
@@ -23,6 +25,7 @@ public class BooksController : BaseApiController
     }
 
     [HttpGet("{id}")]
+    [Authorize(Policy = "BookOwner")]
     public async Task<IActionResult> Get(int id)
     {
         return Ok(await _mediator.Send(new GetBookDetailQuery { Id = id }));
@@ -36,6 +39,7 @@ public class BooksController : BaseApiController
     }
 
     [HttpPut]
+    [Authorize(Policy = "BookOwner")]
     public async Task<IActionResult> Put([FromBody] UpdateBookDto updateBookDto)
     {
         var command = new UpdateBookCommand { UpdateBookDto = updateBookDto };

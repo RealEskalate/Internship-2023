@@ -5,10 +5,12 @@ using CineFlex.Application.Features.Seats.CQRS.Commands;
 using CineFlex.Application.Features.Seats.CQRS.Queries;
 using CineFlex.Application.Features.Seats.DTO;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CineFlex.API.Controllers;
 
+[Authorize]
 public class SeatsController : BaseApiController
 {
     private readonly IMediator _mediator;
