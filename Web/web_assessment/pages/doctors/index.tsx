@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import Search from '@/components/doctors/Search'
 import DoctorCard from '@/components/doctors/DoctorCard'
 import { useGetDoctorsQuery } from '@/store/features/doctors/doctors-api'
-import { DoctorDetail } from '@/types/doctors/doctor'
 
 const Doctors: React.FC = () => {
   const { data: doctors = [], isLoading , isSuccess, isError, error} = useGetDoctorsQuery("")
