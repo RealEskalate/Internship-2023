@@ -44,5 +44,7 @@ namespace CineFlex.Persistence
 
         public DbSet<Movie> Movies { get; set; }
 
+        public DbSet<Seat> Seats { get; set; }
+
     }
 }
