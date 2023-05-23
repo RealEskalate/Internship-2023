@@ -6,9 +6,17 @@ import 'package:mobile_assessement/features/weatherify/presentation/screen/detai
 import 'package:mobile_assessement/features/weatherify/presentation/screen/home_page.dart';
 import 'package:mobile_assessement/injection_container.dart' as di;
 
+import 'bloc_observer.dart';
+
 void main() async {
   await di.init();
-  runApp(const MyApp());
+
+  BlocOverrides.runZoned(
+    () {
+      runApp(const MyApp());
+    },
+    blocObserver: SimpleBlocObserver(),
+  );
 }
 
 class MyApp extends StatelessWidget {
