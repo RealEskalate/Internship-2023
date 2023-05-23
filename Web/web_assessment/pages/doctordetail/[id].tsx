@@ -16,7 +16,6 @@ const DoctorCard: React.FC = () => {
   if (error) {
     return <div>Error: {error.message}</div>;
   }
-  console.log(doctor)
 
   return (
     <div className = "flex flex-col">
