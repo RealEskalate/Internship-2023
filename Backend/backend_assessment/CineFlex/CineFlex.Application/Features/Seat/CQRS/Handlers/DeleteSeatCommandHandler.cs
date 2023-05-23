@@ -24,7 +24,7 @@ public class DeleteSeatCommandHandler : IRequestHandler<DeleteSeatCommand, BaseC
     {
         var response = new BaseCommandResponse<int>();
         var validator = new DeleteSeatDtoValidator();
-        var validationResult = await validator.ValidateAsync(request.baseDto);
+        var validationResult = await validator.ValidateAsync(request.deleteSeatDto);
 
 
 
@@ -37,7 +37,7 @@ public class DeleteSeatCommandHandler : IRequestHandler<DeleteSeatCommand, BaseC
         }
         else
         {
-            var seat = _mapper.Map<Domain.Seat>(request.baseDto);
+            var seat = _mapper.Map<Domain.Seat>(request.deleteSeatDto);
 
             await _unitOfWork.SeatRepository.Delete(seat);
 

@@ -7,5 +7,6 @@ namespace CineFlex.Application.Features.Seat.CQRS.Commands;
 
 public class DeleteSeatCommand : IRequest<BaseCommandResponse<int>>
 {
-    public BaseDto baseDto {get;set;}
+    public DeleteSeatDto deleteSeatDto {get; set;}
+    
 }

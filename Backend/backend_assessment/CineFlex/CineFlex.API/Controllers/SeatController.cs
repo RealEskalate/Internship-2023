@@ -47,9 +47,9 @@ namespace CineFlex.API.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> Delete([FromBody] BaseDto baseDto)
+        public async Task<IActionResult> Delete([FromBody] DeleteSeatDto deleteSeatDto)
         {
-            var command = new DeleteSeatCommand {  baseDto = baseDto };
+            var command = new DeleteSeatCommand { deleteSeatDto = deleteSeatDto };
             return HandleResult(await _mediator.Send(command));
         }
     }
