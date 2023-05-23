@@ -3,14 +3,16 @@ import { useFetchDoctorProfileQuery } from '@/store/features/doctors/doctor-api'
 import Image from 'next/image';
 import React from 'react';
 import { institutionID_list } from '@/types/doctor/doctor';
+import { useAppSelector } from '@/hooks/hooks';
 
 const DoctorDetail = () => {
+  const { doctorId:id } = useAppSelector((state)=>state.doctorId)
   const router = useRouter();
-  const { id } = router.query;
   console.log(id);
 
-  const { data: doctorProfile = [], isFetching } = useFetchDoctorProfileQuery({ id: id || '' });
+  const { data: doctorProfile = [], isFetching } = useFetchDoctorProfileQuery(id);
   if (!doctorProfile || isFetching) {
+    console.log(id);
     return (
       <div className="h-screen flex justify-center items-center">
         <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" role="status">

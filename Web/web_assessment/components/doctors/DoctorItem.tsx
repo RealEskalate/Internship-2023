@@ -6,12 +6,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 import DoctorDetail from './DoctorDetail';
+import { useAppDispatch } from '@/hooks/hooks';
+import { setDoctorId } from '@/store/features/doctors/doctor-slice';
 
 
 const DoctorItem = ({ fullName, phoneNumbers, emails, photo, _id, institutionID_list, summary, speciality, education }: Doctor) => {
+  const dispatch = useAppDispatch();
   const handleClick = () => {
-    // I want to pass data to the DoctorDetail page
-    // I want to use the Link component from nextjs
+    dispatch(setDoctorId(_id))
   };
 
   return (

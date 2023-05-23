@@ -3,9 +3,11 @@ import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 
 
 import { doctorApi } from './features/doctors/doctor-api';
+import doctorSlice from "./features/doctors/doctor-slice";
 
 export const store = configureStore({
     reducer: {
+        doctorId: doctorSlice,
         [doctorApi.reducerPath]: doctorApi.reducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(doctorApi.middleware),

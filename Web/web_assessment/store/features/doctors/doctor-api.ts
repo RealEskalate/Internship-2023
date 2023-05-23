@@ -14,7 +14,7 @@ export const doctorApi = createApi({
   endpoints: (builder) => ({
     getDoctors: builder.query({
       query: (name) => ({
-        url: "/api/v1/search?institutions=false&articles=False",
+        url: `/api/v1/search?keyword=${name}&institutions=false&articles=False`,
         method: "POST",
         body: {
           name,
@@ -25,7 +25,7 @@ export const doctorApi = createApi({
     }),
     fetchDoctorProfile: builder.query({
       query: (id) => ({
-        url: `/api/v1/users/doctorProfile/62b959bf23006348f0f44b53`,
+        url: `/api/v1/users/doctorProfile/${id}`,
         method: "GET",
       }),
     }),
