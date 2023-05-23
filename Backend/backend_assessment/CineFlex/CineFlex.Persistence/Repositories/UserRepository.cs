@@ -168,7 +168,13 @@ namespace CineFlex.Persistence.Repositories
             new(ClaimTypes.Email, user.Email ?? string.Empty),
             new(ClaimTypes.NameIdentifier, user.UserName),
             new(ClaimTypes.Name, user.UserName),
+           
+          
+            
+
         };
+        claims.Add(new Claim(ClaimTypes.Role, user.GivenRole));
+
          var key = Encoding.UTF8.GetBytes(_configuration["JwtSettings:SecurityKey"] ?? string.Empty);
         var secret = new SymmetricSecurityKey(key);
         var value= new SigningCredentials(secret, SecurityAlgorithms.HmacSha256);

@@ -47,15 +47,15 @@ namespace CineFlex.Persistence
             return base.SaveChangesAsync(cancellationToken);
         }
 
-        internal Task AddAsync<T>(T entity) where T : class
-        {
-            throw new NotImplementedException();
-        }
+        // internal Task AddAsync<T>(T entity) where T : class
+        // {
+        //     throw new NotImplementedException();
+        // }
 
-        internal object Entry<T>(T entity) where T : class
-        {
-            throw new NotImplementedException();
-        }
+        // internal object Entry<T>(T entity) where T : class
+        // {
+        //     throw new NotImplementedException();
+        // }
 
         public DbSet<CinemaEntity> Cinemas { get; set; }
 

@@ -51,6 +51,8 @@ public static class DependencyInjection
                 };
             }
         );
+        services.AddAuthorization();
+
 
         
        services.AddScoped<IUserRepository, UserRepository>();

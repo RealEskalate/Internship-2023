@@ -27,7 +27,7 @@ namespace CineFlex.Application.Features.Auth.CQRS.Handler;
                      GivenRole= request.userCreationDto.roles,
                      
 
-                FullName = request.userCreationDto.Password
+                FullName = request.userCreationDto.FullName,
             };
 
             return await _userRepository.CreateUserAsync(user, request.userCreationDto.Password,request.userCreationDto.roles);
