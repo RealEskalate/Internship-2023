@@ -29,13 +29,5 @@ class WeatherRepositoryImpl implements WeatherRepository {
     return weather;
   }
 
-  @override
-  Future<void> saveCity(String city) async {
-    await localDataSource.saveCity(city);
-  }
-
-  @override
-  Future<String?> getCity() async {
-    return localDataSource.getCity();
-  }
+  
 }
