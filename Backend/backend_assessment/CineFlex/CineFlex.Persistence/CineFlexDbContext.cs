@@ -30,13 +30,20 @@ public class CineFlexDbContext : IdentityDbContext<AppUser>
             .HasMany(e => e.Seats)
             .WithOne(e => e.Cinema)
             .HasForeignKey(e => e.CinemaId)
-            .IsRequired();
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
 
         // Seats
         modelBuilder.Entity<Seat>().HasKey(e => e.Id);
-
+        
         // Movies
         modelBuilder.Entity<Movie>().HasKey(e => e.Id);
+        modelBuilder.Entity<Movie>()
+            .HasMany(e => e.MovieBookings)
+            .WithOne(e => e.Movie)
+            .HasForeignKey(e => e.MovieId)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
 
         // MovieBookings
         modelBuilder.Entity<MovieBooking>().HasKey(e => e.Id);
