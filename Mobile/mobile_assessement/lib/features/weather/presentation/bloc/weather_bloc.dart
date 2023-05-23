@@ -1,13 +1,20 @@
-import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
-
-part 'weather_event.dart';
-part 'weather_state.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mobile_assessement/features/weather/presentation/bloc/weather_event.dart';
+import 'package:mobile_assessement/features/weather/presentation/bloc/weather_search_status.dart';
+import 'package:mobile_assessement/features/weather/presentation/bloc/weather_state.dart';
 
 class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
-  WeatherBloc() : super(WeatherInitial()) {
-    on<WeatherEvent>((event, emit) {
-      // TODO: implement event handler
+  WeatherBloc()
+      : super(WeatherState(formSubmittionStatus: const InititalStatus())) {
+    on<UpdateCityName>((event, emit) {
+      emit(state.copyWith(cityName: event.cityName));
+    });
+    on<UpdateFavorite>((event, emit) {
+      emit(state.copyWith(isFavorite: event.isFavorite));
+    });
+    on<Submitted>((event, emit) {
+      
+      emit(state.copyWith(formSubmittionStatus: const SuccessStatus()));
     });
   }
 }
