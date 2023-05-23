@@ -4,14 +4,15 @@ class WeatherDetail extends StatelessWidget {
   final String cityName;
   final String countryName;
   final double temperature;
-  final IconData weatherIcon;
+  final String weatherDescription;
+
 
   const WeatherDetail({
     Key? key,
     required this.cityName,
     required this.countryName,
     required this.temperature,
-    required this.weatherIcon,
+  required this.weatherDescription,
   }) : super(key: key);
 
   @override
@@ -40,15 +41,15 @@ class WeatherDetail extends StatelessWidget {
                 const SizedBox(height: 16.0),
                 Row(
                   children: [
-                    Icon(
-                      weatherIcon,
+                    const Icon(
+                      Icons.add,
                       color: Colors.white,
                       size: 64.0,
                     ),
                     const SizedBox(width: 16.0),
-                    Text(
+                    const Text(
                       'Mostly Sunny',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 24.0,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
@@ -73,9 +74,9 @@ class WeatherDetail extends StatelessWidget {
               itemCount: 7, // Replace with actual number of days
               itemBuilder: (BuildContext context, int index) {
                 return ListTile(
-                  leading: Icon(Icons.cloud),
+                  leading: const Icon(Icons.cloud),
                   title: Text('Day ${index + 1}'),
-                  subtitle: Text('XX°C'),
+                  subtitle: const Text('XX°C'),
                 );
               },
             ),

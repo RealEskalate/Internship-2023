@@ -21,7 +21,7 @@ class WeatherRemoteDataSourceImpl implements WeatherRemoteDataSource {
     final response = await client.get(Uri.parse(url));
     if (response.statusCode == 200) {
       final json = jsonDecode(response.body);
-      final data = json['data']['current_condition'][0];
+      final data = json['data'];
       final cityWeather = CityWeatherModel.fromJson(data);
       return cityWeather;
     } else {

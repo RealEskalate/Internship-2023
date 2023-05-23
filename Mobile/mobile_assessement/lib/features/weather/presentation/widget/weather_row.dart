@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class WeatherRow extends StatelessWidget {
+  
   final String cityName;
   final String countryName;
   final double temperature;

@@ -9,10 +9,11 @@ import 'package:mobile_assessement/features/weather/domain/usecases/get_city_wea
 import 'package:mobile_assessement/features/weather/domain/usecases/get_favorite_cities.dart';
 import 'package:mobile_assessement/features/weather/domain/usecases/remove_favorite_city.dart';
 import 'package:mobile_assessement/features/weather/presentation/bloc/bloc/weather_bloc_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 final sl = GetIt.instance;
 
-void init() {
+void init() async {
   // Registering the GetCityWeather use case as a lazy singleton
   sl.registerLazySingleton(() => GetCityWeather(repository: sl()));
   sl.registerLazySingleton(() => AddFavoriteCity(repository: sl()));
@@ -31,7 +32,10 @@ void init() {
   sl.registerLazySingleton<WeatherLocalDataSource>(() =>
       WeatherLocalDataSourceImpl(sharedPreferences: sl()));
 
-  // Registering the WeatherRepositoryImpl as a lazy singleton
+
+
+  final sharedPreferences = await SharedPreferences.getInstance();
+  sl.registerLazySingleton(() => sharedPreferences);
   
 
   // Registering the WeatherBloc as a factory
