@@ -13,7 +13,6 @@ function SingleDoctor() {
       /> */}
 
       
-      hi
     </div>
   );
 }
