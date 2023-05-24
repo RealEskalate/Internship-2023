@@ -31,7 +31,7 @@ const DoctorList = () => {
 
 
   return (
-    <div className="mt-10 flex flex-col">
+    <div className="mt-10 flex flex-col min-h-screen">
       <div className="flex items-center justify-center mr-2 rounded-full">
        <form onSubmit={handleSubmit}>
   <input

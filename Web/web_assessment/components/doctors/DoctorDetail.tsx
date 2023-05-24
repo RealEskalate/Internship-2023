@@ -7,8 +7,6 @@ import { useAppSelector } from '@/hooks/hooks';
 
 const DoctorDetail = () => {
   const { doctorId:id } = useAppSelector((state)=>state.doctorId)
-  const router = useRouter();
-  console.log(id);
 
   const { data: doctorProfile = [], isFetching } = useFetchDoctorProfileQuery(id);
   if (!doctorProfile || isFetching) {
@@ -24,23 +22,36 @@ const DoctorDetail = () => {
     );
   }
 
-  const { photo, fullName, summary, speciality, institutionID_list } = doctorProfile;
+  
 
+  const { photo, fullName, summary, speciality, institutionID_list } = doctorProfile;
+ console.log(institutionID_list)
   return (
     <div className="flex flex-col w-full h-full p-4 bg-white rounded-lg shadow-md">
-      <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full border-2 border-blue-500 bg-gradient-to-br from-blue-500 to-blue-600">
+      <div className="relative">
+        <div className="absolute w-full h-full bg-cover bg-center">
         <Image
-          className="object-cover h-full rounded-full"
-          src={photo}
-          alt={fullName}
-          width={100}
-          height={100}
-        />
+            className="object-cover h-full"
+            src="/images/Group 8823.png"
+            alt={fullName}
+            width={2000}
+            height={700}
+          />
+        </div>
+        <div className=" mt-24 relative z-10 w-full flex items-end justify-center  h-24">
+          <Image
+            className=" mt-10 object-cover h-full rounded-full border-4 border-blue-500"
+            src={photo}
+            alt={fullName}
+            width={100}
+            height={600}
+          />
+        </div>
       </div>
-      <h2 className="mb-2 text-xl font-semibold text-black">{fullName}</h2>
+      <h2 className="mt-10 mb-2 text-xl font-semibold text-black">{fullName}</h2>
       <p className="text-sm text-gray-700">{summary}</p>
       {speciality.length > 0 ? (
-        <p className="text-sm text-gray-300">{speciality[0].name}</p>
+        <p className="text-sm text-gray-800">{speciality[0].name}</p>
       ) : (
         <p className="text-sm text-gray-300">No speciality data available</p>
       )}
@@ -48,12 +59,14 @@ const DoctorDetail = () => {
         About:
       </h2>
       <p>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex, laborum quisquam hic perspiciatis fugiat beatae praesentium eligendi iusto accusamus voluptatem officiis eveniet perferendis enim quidem voluptates nihil nulla expedita quae?
+        {institutionID_list[0].lang.am.summary}
 
       </p>
      {institutionID_list.length > 0 ? (
   institutionID_list.map((institution:institutionID_list, index:number) => (
-    <p key={index} className="text-sm text-gray-700">{institution.institutionName}</p>
+    <div key={index} className="flex justify-start gap-24 mt-10">
+      <h1 className='font-bold'>Institution</h1>
+      <p className="text-sm text-gray-700">{ institution.institutionName}</p></div>
   ))
 ) : (
   <p className="text-sm text-gray-700">No institution data available</p>
