@@ -7,7 +7,7 @@ import {GrInstagram} from "react-icons/gr"
 
 function Footer() {
   return (
-    <div className = "bg-primary text-white pr-24 ">
+    <div className = "bg-primary text-white pr-24  bottom-0   w-full">
         <div className = " flex justify-between p-10">
         <div>
             <p className = "text-3xl font-bold">HakimHub</p>
@@ -39,7 +39,6 @@ function Footer() {
             <p>Term of use</p>
         </div>
         <div className = "flex justify-evenly gap-9">
-            {/* <SiFacebook></SiFacebook> */}
             <RiFacebookCircleFill></RiFacebookCircleFill>
             <FaLinkedinIn></FaLinkedinIn>
             <GrInstagram></GrInstagram>

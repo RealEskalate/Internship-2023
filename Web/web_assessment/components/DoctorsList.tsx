@@ -5,17 +5,11 @@ import { useRouter } from 'next/router';
 
 const DoctorsList: React.FC = () =>{
     const { data: doctors, error, isLoading } = useGetDoctorsQuery();
-    const [search, setSearch] = useState("")
     const router = useRouter();
 
     const handleCardClick = (id:string) => {
       router.push(`/doctordetail/${id}`);
     };
-    const searchHanlder = (name:string) =>{
-      const {data:searchResult , error, isLoading} = useSearchDoctorQuery(name)
-
-    }
-
 
 
     if (isLoading) {

@@ -6,8 +6,9 @@ import Footer from '@/components/Footer'
 
 export default function App({ Component, pageProps }: AppProps) {
   return<Provider store={store}>
-
-  <Component {...pageProps} />
-  <Footer/>
-  </Provider>
+      <div className='min-h-screen'>
+      <Component {...pageProps} />
+      </div>
+      <Footer/>
+      </Provider>
 }

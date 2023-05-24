@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   const [search_query, setSearch_query] = useState("")
   return (
-    <main className="">
+    <main className="min-h-screen'">
 
 
       <div>
