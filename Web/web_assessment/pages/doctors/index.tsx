@@ -2,12 +2,12 @@ import DoctorCard from '@/components/DoctorCard';
 import { useSearchDoctorsQuery } from '@/store/features/doctorsapi';
 import React, { ChangeEvent, useEffect, useState } from 'react'
 
-const page1 = () => {
+const DoctorsList:React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   
-  const { data: response } = useSearchDoctorsQuery(searchTerm);
+  const { data: response,isLoading } = useSearchDoctorsQuery(searchTerm);
   const doctors = response?.data || [];
-  console.log(doctors)
+  
   
   useEffect(() => {
     if (!searchTerm) {
@@ -23,20 +23,19 @@ const page1 = () => {
 
 
   return (
-    <div className = "min-h-screen  m-auto">
+    <div className = "bg-white  m-auto">
       <input
               type="search"
               id="search"
-              className="block w-1/2 m-auto px-4 mt-14 text-2xl  border-l-2 outline-none border-primary font-montserrat"
+              className="block rounded-full w-1/2 m-auto px-4 mt-14 text-2xl  border-2 outline-none border-primary font-montserrat"
               placeholder="Search by name or specialty"
               required
               value={searchTerm}
               onChange={handleSearchChange}
             />
       
-      <div className="grid grid-cols-1 gap-10 mt-10 mb-14 md:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 w-4/5 m-auto mt-10 mb-14 md:grid-cols-4">
           {doctors.map((item: string) => (
-            // <BlogCard key = "item" id={item} />
             <DoctorCard item = {item}/>
           ))}
       </div>
@@ -44,4 +43,4 @@ const page1 = () => {
   )
 }
 
-export default page1
+export default DoctorsList

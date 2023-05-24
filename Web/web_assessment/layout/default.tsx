@@ -6,7 +6,7 @@ import Footer from '@/components/layout/Footer'
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <div>
+    <div className = "bg-white">
       <Navbar/>
       <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
       <Footer/>
