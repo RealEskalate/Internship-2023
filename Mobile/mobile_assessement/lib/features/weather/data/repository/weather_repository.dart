@@ -22,23 +22,21 @@ class WeatherRepositoryImpl extends WeatherRepository {
   Future<Either<Failure, WeatherModel>> getWeatherForCity(String city) async {
     try {
       final weather = await remoteDataSource.getWeatherForCity(city);
+      print(weather);
       localDataSource.cacheWeatherData(weather);
       return Right(weather);
     } on ServerException {
-      try{
-
-      final cachedWeather = await localDataSource.getCachedWeatherData(city);
-      if (!cachedWeather.isNull) {
-        return Right(cachedWeather);
-      } 
-      } on CacheException{
+      try {
+        final cachedWeather = await localDataSource.getCachedWeatherData(city);
+        if (!cachedWeather.isNull) {
+          return Right(cachedWeather);
+        }
+      } on CacheException {
         return Left(CacheFailure());
       }
-      }
-        return Left(ServerFailure());
-      }
-    
-
+    }
+    return Left(ServerFailure());
+  }
 
   @override
   Future<Either<Failure, List<WeatherModel>>> getFavoriteWeather() async {
@@ -67,5 +65,3 @@ class WeatherRepositoryImpl extends WeatherRepository {
     await localDataSource.removeFavoriteCity(city);
   }
 }
-
-  

@@ -1,13 +1,13 @@
 class Weather {
-  final double temperature;
-  final double humidity;
-  final String description;
-  final String city;
+  final String? temperature;
+  final String? humidity;
+  final String? description;
+  final String? city;
 
   Weather({
-    required this.city,
-    required this.temperature,
-    required this.humidity,
-    required this.description,
+    this.city,
+    this.temperature,
+    this.humidity,
+    this.description,
   });
 }

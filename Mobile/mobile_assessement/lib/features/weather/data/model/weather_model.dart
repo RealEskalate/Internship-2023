@@ -1,7 +1,7 @@
 class WeatherModel {
   final String city;
-  final double temperature;
-  final double humidity;
+  final String temperature;
+  final String humidity;
   final String description;
 
   WeatherModel({
@@ -13,11 +13,10 @@ class WeatherModel {
 
   factory WeatherModel.fromJson(Map<String, dynamic> json) {
     return WeatherModel(
-      temperature: json['temperature'],
-      humidity: json['humidity'],
-      description: json['description'],
-      city: json['city']
-    );
+        temperature: json['current_condition'][0]['temp_C'],
+        humidity: json['current_condition'][0]['humidity'],
+        description: json['current_condition'][0]['weatherDesc'][0]['value'],
+        city: json['request'][0]['query']);
   }
 
   Map<String, dynamic> toJson() {
@@ -25,6 +24,7 @@ class WeatherModel {
       'temperature': temperature,
       'humidity': humidity,
       'description': description,
+      'city': city
     };
   }
 }

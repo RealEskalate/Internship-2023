@@ -22,4 +22,8 @@ class UpdateFavorite extends WeatherEvent {
   @override
   List<Object?> get props => [isFavorite];
 }
-class Submitted extends WeatherEvent{}
+
+class Submitted extends WeatherEvent {
+  dynamic weather;
+  Submitted({required this.weather});
+}
