@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_assessement/core/utils/constants/global_variables.dart';
-import 'package:mobile_assessement/features/city/presentation/screen/weather_city_list.dart';
+
+import '../screen/search_page.dart';
 
 class GetStartedButton extends StatelessWidget {
   const GetStartedButton({Key? key}) : super(key: key);

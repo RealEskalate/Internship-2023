@@ -3,23 +3,24 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'favourite_event.dart';
 import 'favourite_state.dart';
 
-class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
-  final AddCityToFavourites addCityToFavourites;
-  final RemoveCityFromFavourites removeCityFromFavourites;
+class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
+  List<String> _favoriteCities = [];
 
-  FavouritesBloc({
-    required this.addCityToFavourites,
-    required this.removeCityFromFavourites,
-  }) : super(FavouritesState.initial()) {
-    on<AddCityToFavourites>((event, emit) async {
-      emit(FavouritesState(cities: [...state.cities, event.city]));
+  FavoritesBloc() : super(FavoritesInitialState()) {
+    on<AddFavoriteCityEvent>((
+      AddFavoriteCityEvent event,
+      Emitter<FavoritesState> emit,
+    ) {
+      _favoriteCities.add(event.cityName);
+      emit(FavoritesUpdatedState(favoriteCities: _favoriteCities));
     });
 
-    on<RemoveCityFromFavourites>((event, emit) async {
-      emit(FavouritesState(
-          cities: state.cities
-              .where((city) => city.cityName != event.city.cityName)
-              .toList()));
+    on<RemoveFavoriteCityEvent>((
+      RemoveFavoriteCityEvent event,
+      Emitter<FavoritesState> emit,
+    ) {
+      _favoriteCities.remove(event.cityName);
+      emit(FavoritesUpdatedState(favoriteCities: _favoriteCities));
     });
   }
 }

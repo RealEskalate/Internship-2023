@@ -2,40 +2,32 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-import '../../../../core/error/exceptions.dart';
-import '../models/city_weather_model.dart';
+import '../../../../core/error/exception.dart';
+import '../models/city_model.dart';
 
-abstract class CityWeatherRemoteDataSource {
-  Future<CityWeatherModel> getCityWeather(String cityName);
+abstract class CityRemoteDataSource {
+  Future<CityModel> getCityWeather(String cityName);
 }
 
-class CityWeatherRemoteDataSourceImpl implements CityWeatherRemoteDataSource {
+class CityRemoteDataSourceImpl implements CityRemoteDataSource {
   final http.Client httpClient;
+  final String baseUrl =
+      'https://api.worldweatheronline.com/premium/v1/weather.ashx/';
 
-  CityWeatherRemoteDataSourceImpl({required this.httpClient});
+  CityRemoteDataSourceImpl({required this.httpClient});
 
   @override
-  Future<CityWeatherModel> getCityWeather(String cityName) async {
-    final apiKey = '7d197f528a0548e085e123715232205';
+  Future<CityModel> getCityWeather(String cityName) async {
     final response = await httpClient.get(
       Uri.parse(
-          'https://api.worldweatheronline.com/premium/v1/weather.ashx/?key=$apiKey&q=$cityName&format=json'),
+          '$baseUrl/?key=7d197f528a0548e085e123715232205&q=$cityName&format=JSON'),
     );
 
     if (response.statusCode == 200) {
-      final json = jsonDecode(response.body);
-      final data = json['data'];
-      final currentCondition = data['current_condition'][0];
-      final weather = data['weather'][0];
-      return CityWeatherModel(
-        cityName: data['request'][0]['query'],
-        oldestDate: weather['date'],
-        avgTempc: double.parse(weather['avgtempC']),
-        currentTempc: double.parse(currentCondition['temp_C']),
-        weatherDescription: currentCondition['weatherDesc'][0]['value'],
-        iconUrl: currentCondition['weatherIconUrl'][0]['value'],
-      );
+      final responseBody = json.decode(response.body);
+      return CityModel.fromJson(responseBody);
     } else {
+      // Handle error
       throw ServerException();
     }
   }

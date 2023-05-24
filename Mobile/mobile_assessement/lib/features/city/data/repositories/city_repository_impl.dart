@@ -1,28 +1,14 @@
-import 'package:dartz/dartz.dart';
-
-import '../../../../core/error/exception.dart';
-import '../../../../core/error/failures.dart';
-import '../../domain/entities/city.dart';
-import '../../domain/repositories/city_repository.dart';
+import '../../domain/entities/city_entity.dart';
+import '../../domain/repositories/get_city_weather.dart';
 import '../datasources/city_remote_datasources.dart';
 
-class CityWeatherRepositoryImpl implements CityWeatherRepository {
-  final CityWeatherRemoteDataSource remoteDataSource;
+class CityRepositoryImpl implements CityRepository {
+  final CityRemoteDataSource remoteDataSource;
 
-  CityWeatherRepositoryImpl({required this.remoteDataSource});
+  CityRepositoryImpl({required this.remoteDataSource});
 
   @override
-  Future<Either<Failure, CityWeather>> getCityWeather(String cityName) async {
-    try {
-      final cityWeatherModel = await remoteDataSource.getCityWeather(cityName);
-      final cityWeather = CityWeather(
-        cityName: cityWeatherModel.cityName,
-        oldestDate: cityWeatherModel.oldestDate,
-        avgTempc: cityWeatherModel.avgTempc,
-      );
-      return Right(cityWeather);
-    } on ServerException {
-      return Left(ServerFailure());
-    }
+  Future<City> getCityWeather(String cityName) async {
+    return await remoteDataSource.getCityWeather(cityName);
   }
 }

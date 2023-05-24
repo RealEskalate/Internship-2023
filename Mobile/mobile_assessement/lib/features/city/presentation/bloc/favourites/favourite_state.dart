@@ -1,11 +1,8 @@
-import 'package:mobile_assessement/features/city/domain/entities/city.dart';
+abstract class FavoritesState {}
 
-class FavouritesState {
-  final List<CityWeather> cities;
+class FavoritesInitialState extends FavoritesState {}
 
-  FavouritesState({required this.cities});
-
-  factory FavouritesState.initial() {
-    return FavouritesState(cities: []);
-  }
+class FavoritesUpdatedState extends FavoritesState {
+  final List<String> favoriteCities;
+  FavoritesUpdatedState({required this.favoriteCities});
 }

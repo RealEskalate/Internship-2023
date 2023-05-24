@@ -1,15 +1,11 @@
-import 'package:mobile_assessement/features/city/domain/entities/city.dart';
+abstract class FavoritesEvent {}
 
-abstract class FavouritesEvent {}
-
-class AddCityToFavourites extends FavouritesEvent {
-  final CityWeather city;
-
-  AddCityToFavourites({required this.city});
+class AddFavoriteCityEvent extends FavoritesEvent {
+  final String cityName;
+  AddFavoriteCityEvent({required this.cityName});
 }
 
-class RemoveCityFromFavourites extends FavouritesEvent {
-  final CityWeather city;
-
-  RemoveCityFromFavourites({required this.city});
+class RemoveFavoriteCityEvent extends FavoritesEvent {
+  final String cityName;
+  RemoveFavoriteCityEvent({required this.cityName});
 }
