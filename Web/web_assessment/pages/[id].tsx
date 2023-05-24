@@ -1,4 +1,6 @@
 import DoctorDetail from '@/components/doctor/DoctorDetail';
+import Footer from '@/components/layout/Footer';
+import Navbar from '@/components/layout/Navbar';
 import { useGetDoctorByIdQuery } from '@/store/doctor/doctors-api';
 import { useRouter } from 'next/router';
 
@@ -18,9 +20,13 @@ const DoctorDetailPage = () => {
 
   if (isSuccess) {
     return (
+      <div>
+        <Navbar />
       <div className="bg-white text-black flex items-center justify-center h-screen">
         {/* Render the DoctorDetail component with a key */}
         <DoctorDetail key={doctor._id} doctor={doctor} />
+      </div>
+      <Footer />
       </div>
     );
   }
