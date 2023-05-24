@@ -12,19 +12,19 @@ const Footer = (props: Props) => {
         <div className='flex gap-5'>
           <div className='space-y-3'>
             <div className='text-white font-bold'>Get Connected</div>
-            <div><IoIosArrowForward color='white' />{' '}For physicians</div>
-            <div><IoIosArrowForward color='white' />{' '}For Hospitals</div>
+            <div className='text-white'><IoIosArrowForward color='white' />{' '}For physicians</div>
+            <div className='text-white'><IoIosArrowForward color='white' />{' '}For Hospitals</div>
           </div>
           <div className='space-y-3'>
             <div className='text-white font-bold'>Actions</div>
-            <div><IoIosArrowForward color='white' />{' '}For a Doctor</div>
-            <div><IoIosArrowForward color='white' />{' '}For a Hospital</div>
+            <div className='text-white'><IoIosArrowForward color='white' />{' '}For a Doctor</div>
+            <div className='text-white'><IoIosArrowForward color='white' />{' '}For a Hospital</div>
           </div>
           <div className='space-y-3'>
             <div className='text-white font-bold'>Company</div>
-            <div><IoIosArrowForward color='white' />{' '}About Us</div>
-            <div><IoIosArrowForward />{' '}Career</div>
-            <div><IoIosArrowForward color='white' />{' '}Join Our Team</div>
+            <div className='text-white'><IoIosArrowForward color='white' />{' '}About Us</div>
+            <div className='text-white'><IoIosArrowForward />{' '}Career</div>
+            <div className='text-white'><IoIosArrowForward color='white' />{' '}Join Our Team</div>
           </div>
         </div>
       </div>
