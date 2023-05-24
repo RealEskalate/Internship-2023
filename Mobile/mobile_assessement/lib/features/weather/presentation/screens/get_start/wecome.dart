@@ -14,7 +14,7 @@ class WeatherPage extends StatelessWidget {
             UIConverter.getComponentHeight(context, 150),
             UIConverter.getComponentWidth(context, 32),
             UIConverter.getComponentHeight(context, 20)),
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -25,26 +25,14 @@ class WeatherPage extends StatelessWidget {
           ),
         ),
         child: Column(
-          // mainAxisAlignment: MainAxisAlignment.start,
-          // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Positioned(
-                width: 220,
-                height: 220,
-                left: 78,
-                top: 143,
-                child: Image.asset(logo)),
+            Image.asset(logo),
                 SizedBox(height: UIConverter.getComponentHeight(context, 50),),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: 
             [
-              Positioned(
-                height: 52,
-                left: 0,
-                right: MediaQuery.of(context).size.width * 0.457,
-                top: MediaQuery.of(context).size.height * 0.5 - 52 / 2 - 65,
-                child: Text(
+                const Text(
                   'Weather',
                   style: TextStyle(
                     fontFamily: 'Roboto',
@@ -54,15 +42,9 @@ class WeatherPage extends StatelessWidget {
                     color: Color(0xFFFFBA25),
                   ),
                 ),
-                
-              ),
+  
               SizedBox(height: UIConverter.getComponentHeight(context, 20),),
-              Positioned(
-                height: 42,
-                left: 0,
-                right: MediaQuery.of(context).size.width * 0.2583,
-                top: MediaQuery.of(context).size.height * 0.5 - 42 / 2 - 13,
-                child: Text(
+              const Text(
                   'Forecast App.',
                   style: TextStyle(
                     fontFamily: 'Roboto',
@@ -72,14 +54,9 @@ class WeatherPage extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-              ),
+              
               SizedBox(height: UIConverter.getComponentHeight(context,20),),
-              Positioned(
-                left: 0,
-                right: 0,
-                top: MediaQuery.of(context).size.height * 0.6703,
-                bottom: 0,
-                child: Text(
+              const Text(
                   'It\'s the newest weather app. It has a bunch of features and that includes most of the ones that every weather app has.',
                   style: TextStyle(
                     fontFamily: 'Roboto',
@@ -89,12 +66,13 @@ class WeatherPage extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-              ),
               SizedBox(height: UIConverter.getComponentHeight(context, 50),),
             ]),
             Center(
               child: Container(
+                width: UIConverter.getComponentWidth(context, 200),
                 decoration: BoxDecoration(
+                  
                   color: Color(0xFFFFBA25),
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -105,7 +83,7 @@ class WeatherPage extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => HomePage()),
                     );
                   },
-                  child: Text(
+                  child: const Text(
                     style: TextStyle(
                       fontFamily: 'Roboto',
                       fontWeight: FontWeight.w500,

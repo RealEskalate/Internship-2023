@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 
 import '../core/network/network_info.dart';
 import '../features/weather/data/datasources/weather_remote_datasource.dart';
+import '../features/weather/data/repositories/weather_repo_impl.dart';
 import '../features/weather/domain/repositories/weather_repo.dart';
 import '../features/weather/domain/usecases/get_fav_city.dart';
 import '../features/weather/domain/usecases/get_weather.dart';
@@ -22,7 +23,7 @@ Future<void> weatherInit() async {
 
   // Repository
   sl.registerLazySingleton<WeatherRepository>(
-    () =>WeatherRepositoryImpl(WeatherRemoteDataSource: sl(), networkInfo: sl()));
+    () =>WeatherRepositoryImpl(weatherRemoteDataSource: sl(), networkInfo: sl()));
   // Data sources
   sl.registerLazySingleton<WeatherRemoteDataSource>(
     () => WeatherRemoteDataSourceImpl(client: sl()),

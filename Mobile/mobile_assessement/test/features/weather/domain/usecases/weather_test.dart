@@ -3,10 +3,11 @@ import 'package:mobile_assessement/features/weather/domain/repositories/weather_
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mobile_assessement/features/weather/domain/usecases/get_fav_city.dart';
+import 'package:mockito/annotations.dart';
 
 @GenerateMocks([WeatherRepository])
 void main() {
-  late GetWeather usecase;
+  // late GetWeather usecase;
   // late MockWeatherRepository mockWeatherRepository;
 
   // setUp(() {
