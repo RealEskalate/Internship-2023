@@ -14,7 +14,7 @@ const Navbar = () => {
             height={64}
           />
         </div>
-        <h1 className="text-2xl font-semibold text-black">
+        <h1 className="text-2xl font-bold text-black">
           Hakim<span className="text-red-500">Hub</span>
         </h1>
       </div>

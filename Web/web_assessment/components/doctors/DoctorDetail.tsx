@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router';
 import { useFetchDoctorProfileQuery } from '@/store/features/doctors/doctor-api';
 import Image from 'next/image';
 import React from 'react';

@@ -33,13 +33,13 @@ const DoctorList = () => {
   return (
     <div className="mt-10 flex flex-col min-h-screen">
       <div className="flex items-center justify-center mr-2 rounded-full">
-       <form onSubmit={handleSubmit}>
+       <form onSubmit={handleSubmit} className="w-full mx-20">
   <input
     value={name}
     onChange={(e) => setName(e.target.value)}
-    className="w-full  px-24 h-10 text-sm mx-20 text-gray-700 placeholder-gray-800 border rounded-full focus:outline-none focus:border-primary"
+    className="w-full  px-8 h-10 text-sm mx-20 text-gray-700 placeholder-gray-200 border rounded-full focus:outline-none focus:border-primary"
     type="text"
-    placeholder="Search"
+    placeholder="Name, Specialty..."
   />
 </form>
       </div>
