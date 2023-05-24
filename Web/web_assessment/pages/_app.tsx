@@ -9,7 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
 
     <Provider store={store}>
-    <div className="max-w-screen-3xl">
+    <div className="max-w-screen-2xl mx-auto">
       <Header></Header>
       <Component {...pageProps} />
       <Footer></Footer>
