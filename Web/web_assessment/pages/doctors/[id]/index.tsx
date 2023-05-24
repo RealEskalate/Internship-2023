@@ -41,7 +41,7 @@ const DoctorProfile: React.FC = () => {
       content = (
         <div>
           <Image
-            className="rounded-full border-2 border-primary mx-auto"
+            className="rounded-full w-56 h-56 border-2 border-primary mx-auto object-contain"
             unoptimized
             src={doctor.photo}
             alt="doctor phot"
