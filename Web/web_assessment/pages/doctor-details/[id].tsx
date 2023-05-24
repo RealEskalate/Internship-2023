@@ -42,7 +42,7 @@ const DoctorDetails = () => {
             <Image
               src={photo}
               alt="profile-pic"
-              className="absolute top-3/4 left-1/2 right-1/2 inline object-cover self-center w-40 h-40 mr-2 rounded-full border-4 border-purple-600 "
+              className="absolute top-3/4 left-1/2 right-1/2 inline object-cover self-center w-40 h-40 mr-2 rounded-full border-4 border-primary"
               width={120}
               height={120}
             />
@@ -96,9 +96,7 @@ const DoctorDetails = () => {
               <h1 className="text-lg font-bold mb-12">Contact Info</h1>
               <div>
                 <MdCall className="inline mx-5" />
-                <h1 className="inline text-lg text-purple-700">
-                  Phone Number:
-                </h1>
+                <h1 className="inline text-lg text-primary">Phone Number:</h1>
               </div>
               <p className="ml-10">+25111763498</p>
             </section>
@@ -106,7 +104,7 @@ const DoctorDetails = () => {
             <section className="pb-12">
               <div>
                 <MdCall className="inline mx-5" />
-                <h1 className="inline text-lg text-purple-700">Email:</h1>
+                <h1 className="inline text-lg text-primary">Email:</h1>
               </div>
               <p className="ml-10">fasiltefera@stpaul.com</p>
             </section>

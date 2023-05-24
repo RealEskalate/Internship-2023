@@ -81,7 +81,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <section className="font-montserrat mt-auto text-primary-text text-sm bg-purple-600 flex flex-col gap-y-4 p-4 lg:text-base md:p-10 text-white">
+    <section className="font-montserrat mt-auto text-primary-text text-sm bg-primary flex flex-col gap-y-4 p-4 lg:text-base md:p-10 text-white">
       <div className="flex flex-col xl:flex-row items-center justify-between gap-4">
         <div className="flex flex-col items-center gap-4">
           <p className="font-bold text-3xl ">Hakim Hub</p>
