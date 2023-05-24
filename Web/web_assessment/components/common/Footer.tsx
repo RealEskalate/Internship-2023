@@ -50,11 +50,11 @@ const Footer = (props: Props) => {
         </div>
       </div>
       <div className='flex justify-between px-3'>
-        <div className='flex gap-10'>
+        <div className='flex py-2 gap-10'>
           <p className='text-white'>Privacy Policy</p>
           <p className='text-white'>Terms of Use</p>
         </div>
-        <div className='flex gap-5'>
+        <div className='flex  py-2 gap-5'>
           <BsFacebook color='white' />
           <BsLinkedin color='white' />
           <BsInstagram color='white' />
