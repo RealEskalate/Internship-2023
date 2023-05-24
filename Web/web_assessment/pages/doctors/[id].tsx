@@ -25,12 +25,12 @@ const DoctorProfile: React.FC = () => {
           <img className="h-32 w-32 rounded-full object-cover" src={doctor.photo} alt="Doctor Profile" />
         </div>
         <div className="mt-4">
-          <h3 className="text-lg font-medium text-gray-900">Dr. John Doe</h3>
+          <h3 className="text-lg font-medium text-gray-900">{doctor.fullName}</h3>
           <p className="text-gray-600">Specialist in Cardiology</p>
         </div>
         <div className="mt-4">
           <h4 className="text-gray-900 font-medium">About</h4>
-          <p className="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, diam vel tincidunt bibendum, velit sapien luctus velit, vel lacinia velit velit vel velit. Sed euismod, diam vel tincidunt bibendum, velit sapien luctus velit, vel lacinia velit velit vel velit.</p>
+          <p className="text-gray-600">{doctor.summary}</p>
         </div>
         <div className="mt-4">
           <h4 className="text-gray-900 font-medium">Education</h4>

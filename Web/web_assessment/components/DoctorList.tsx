@@ -16,7 +16,6 @@ const DoctorList: React.FC = () => {
 
   const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Call the search API with the current search term
     setSearchTerm(event.currentTarget.search.value);
   };
 
@@ -46,6 +45,7 @@ const DoctorList: React.FC = () => {
       </form>
       {isLoading && <div>Loading...</div>}
       {isError && <div>Error fetching search results</div>}
+      <div className = "">
       {Array.isArray(doctors) &&
         doctors.map((doctor: any) => (
           <DoctorCard
@@ -53,10 +53,12 @@ const DoctorList: React.FC = () => {
             id={doctor._id}
             photoUrl={doctor.photo}
             name={doctor.fullName}
-            specialty="pedrasan"
-            address="addis ababa"
+            specialty="CardioLogist"
+            address="Addis Ababa"
           />
         ))}
+
+      </div>
     </div>
   );
 };
