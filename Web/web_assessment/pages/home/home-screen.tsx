@@ -44,7 +44,7 @@ const HomeScreen = () => {
     return (
       <div>
         {/* Search bar */}
-        <form className="flex gap-4 justify-center mt-12">
+        <form className="flex gap-4 justify-center mt-4">
           <input
             type="text"
             className="border border-gray-300 text-gray-900 text-sm rounded-full block px-8 py-2.5 w-2/3"
