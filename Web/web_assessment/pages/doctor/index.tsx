@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import { useGetDoctorsQuery, useSearchDoctorsQuery} from '@/store/features/doctor/doctor-api';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const DoctorListPage: React.FC = () => {
-  const { data: doctors = {}, isLoading, isError } = useGetDoctorsQuery();
+  const { data: doctors = {}, isLoading, isError } = useGetDoctorsQuery('');
   const [searchQuery, setSearchQuery] = useState('');
+  
 
-  const { data: searchedDoctors } = useSearchDoctorsQuery({ keyword: searchQuery });
+  const { data: searchedDoctors } = useSearchDoctorsQuery(searchQuery);
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
   };
 
     const datas = doctors.data
+    console.log(datas)
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -37,7 +40,8 @@ const DoctorListPage: React.FC = () => {
       </div>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {(searchQuery ? searchedDoctors : datas)?.map((doctor:any) => (
-          <div key={doctor._id} className="bg-white p-4 rounded-lg ml-4 mr-4 shadow-2xl">
+          <Link href={`doctor/${doctor._id}`}>
+          <div key={doctor._id} className="bg-white p-4 rounded-lg ml-4 mr-4 shadow-2xl" >
             <div className="flex justify-center">
               <img src={doctor.photo} alt={doctor.message} className="w-24 h-24 rounded-full"  />
             </div>
@@ -48,6 +52,7 @@ const DoctorListPage: React.FC = () => {
             <p className="text-center"> {doctor.institutionID_list[0].institutionName} </p>
    
           </div>
+          </Link> 
         ))}
       </div>
     </div>
