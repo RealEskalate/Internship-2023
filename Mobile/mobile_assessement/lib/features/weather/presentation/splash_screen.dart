@@ -35,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             const Text(
               "Weather",
-              style: TextStyle(fontSize: 25, color: Color(0xFFFFBA25)),
+              style: TextStyle(fontSize: 30, color: Color(0xFFFFBA25)),
             ),
             SizedBox(
               height: 20,
@@ -43,14 +43,14 @@ class _SplashScreenState extends State<SplashScreen> {
             const Text(
               "Forecast App",
               style:
-                  TextStyle(fontSize: 25, color: Color.fromARGB(255, 14, 12, 12)),
+                  TextStyle(fontSize: 30, color: Color.fromARGB(255, 236, 232, 232)),
             ),
             SizedBox(
               height: 20,
             ),
             const Text(
               "It's the newest weather app. It has a bunch of features and that includes most of the ones that every weather app has.",
-              style: TextStyle(fontSize: 10, color: Color.fromARGB(255, 0, 0, 0)),
+              style: TextStyle(fontSize: 14, color: Color.fromARGB(255, 252, 252, 252)),
             ),
             SizedBox(
               height: 30,

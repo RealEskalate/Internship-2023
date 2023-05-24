@@ -1,19 +1,26 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mobile_assessement/features/weather/presentation/bloc/weather_bloc.dart';
 
 class CityOne {
   String name;
   double averageTemperature;
-  IconData weatherIcon;
+  String weatherIcon;
+  String weatherDescription;
 
-  CityOne({required this.name, required this.averageTemperature, required this.weatherIcon});
+  CityOne(
+      {required this.name,
+      required this.averageTemperature,
+      required this.weatherIcon,
+      required this.weatherDescription
+      });
 }
 
 class WeatherDay {
   String date;
   double minTemperature;
   double maxTemperature;
-  IconData weatherIcon;
+  String weatherIcon;
 
   WeatherDay({
     required this.date,
@@ -32,99 +39,112 @@ class WeatherDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Weather Details'),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  IconButton(
-                    icon: Icon(Icons.arrow_back),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+          
+          body: SafeArea(
+            child: SingleChildScrollView(
+          
+              child: Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Text(
-                          city.name,
-                          style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+                        IconButton(
+                          icon: Icon(Icons.arrow_back_ios),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
                         ),
-                        Text(
-                          'Date: ${DateTime.now().toString().substring(0, 10)}',
-                          style: TextStyle(fontSize: 16.0),
+                        SizedBox(width: 14,),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                city.name,
+                                style: TextStyle(
+                                    fontSize: 18.0, fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                ' ${DateTime.now().toString().substring(0, 10)}',
+                                style: TextStyle(fontSize: 16.0),
+                              ),
+                            ],
+                          ),
+                        ),
+                        IconButton(
+                          icon: Icon(Icons.favorite),
+                          onPressed: () {
+                            // Handle favorite button press
+                          },
                         ),
                       ],
                     ),
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.favorite),
-                    onPressed: () {
-                      // Handle favorite button press
-                    },
-                  ),
-                ],
-              ),
-              SizedBox(height: 16.0),
-              Image.asset(
-                "assets/images/rainy_lightning_windy_sunny.png", // Replace with your weather image asset
-                height: 100.0,
-                width: 100.0,
-              ),
-              SizedBox(height: 8.0),
-              Text(
-                'Weather Description', // Replace with your weather description
-                style: TextStyle(fontSize: 16.0),
-              ),
-              SizedBox(height: 16.0),
-              Text(
-                'Average Temperature: ${city.averageTemperature}°C',
-                style: TextStyle(fontSize: 16.0),
-              ),
-              SizedBox(height: 16.0),
-              Text(
-                'Weather Forecast',
-                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 16.0),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemCount: weatherForecast.length,
-                itemBuilder: (context, index) {
-                  final weatherDay = weatherForecast[index];
-                  return GestureDetector(
-                    child: Card(
-                      child: ListTile(
-                        title: Row(
-                          children: [
-                            Text(weatherDay.date),
-                            SizedBox(width: 8.0),
-                            Icon(weatherDay.weatherIcon),
-                          ],
+                    SizedBox(height: 16.0),
+                    Center(child:  Image(image: NetworkImage( city.weatherIcon,), width: 200, height: 200,),),
+                    // Image.asset(
+                    //   "assets/images/rainy_lightning_windy_sunny.png", // Replace with your weather image asset
+                    //   height: 100.0,
+                    //   width: 100.0,
+                    // ),
+                    SizedBox(height: 8.0),
+                    Text(
+                      city.weatherDescription, // Replace with your weather description
+                      style: TextStyle(fontSize: 24.0, color: Color(0XFF9F93FF)),
+                    ),
+                    SizedBox(height: 16.0),
+                    Text(
+                      '${city.averageTemperature}°C',
+                      style: TextStyle(fontSize: 72.0, color: Color(0XFF211772) ),
+                    ),
+                    SizedBox(height: 20.0),
+                    
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight:Radius.circular(20) 
                         ),
-                        subtitle: Text(
-                          'Min Temp: ${weatherDay.minTemperature}°C   Max Temp: ${weatherDay.maxTemperature}°C',
-                        ),
+                        color: Color(0XFF211772)
+                      ),
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        itemCount: weatherForecast.length,
+                        itemBuilder: (context, index) {
+                          final weatherDay = weatherForecast[index];
+                          return GestureDetector(
+                            child: Card(
+                              color: Color(0XFF211772),
+                              child: ListTile(
+                                title: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [ 
+                                    
+                                    Text(weatherDay.date.substring(0, 10), style: TextStyle(color: Color(0XFFFFFFFF)),),
+                                    SizedBox(width: 8.0),
+                                    
+                                    Text(
+                                  '${weatherDay.minTemperature}°C    ${weatherDay.maxTemperature}°C',
+                                style: TextStyle(color: Color(0XFFFFFFFF)),),
+                                Image(
+                                  image: NetworkImage(weatherDay.weatherIcon),
+                                  
+                                  ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          );
+                        },
                       ),
                     ),
-
-                    
-                  );
-                },
+                  ],
+                ),
               ),
-            ],
+            ),
           ),
-        ),
-      ),
-    );
+        );
   }
 }
 

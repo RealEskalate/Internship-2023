@@ -21,11 +21,7 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       emit(WeatherLoading());
 
       final failureOrWeather = await getWeather(event.city);
-      print("done");
-      print("wow");
-    
-
-      
+            
       emit(_fetchOrFailure(failureOrWeather));
         
     });
