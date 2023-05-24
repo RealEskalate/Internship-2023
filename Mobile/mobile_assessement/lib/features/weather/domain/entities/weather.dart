@@ -1,4 +1,5 @@
 class Weather {
+  final String averageTemp;
   final String minTemperature;
   final String maxTemperature;
   final String humidity;
@@ -9,5 +10,6 @@ class Weather {
     required this.maxTemperature,
     required this.humidity,
     required this.description,
+    required this.averageTemp,
   });
 }

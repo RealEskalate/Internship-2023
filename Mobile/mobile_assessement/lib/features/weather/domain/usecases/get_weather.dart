@@ -8,7 +8,6 @@ class GetWeather {
   GetWeather({required this.repository});
 
   Future<Either<Failure, Weather>> call(String cityName) async {
-    print("came here");
     return await repository.getWeather(cityName);
   }
 }

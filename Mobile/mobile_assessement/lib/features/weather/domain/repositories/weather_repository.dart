@@ -1,7 +1,6 @@
 import 'package:dartz/dartz.dart';
 
 import '../../../../core/errors/failures.dart';
-import '../entities/city.dart';
 import '../entities/weather.dart';
 
 abstract class WeatherRepository {
