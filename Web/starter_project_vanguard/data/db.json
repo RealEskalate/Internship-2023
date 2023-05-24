@@ -165,6 +165,7 @@
       }
     ]
   }
+<<<<<<< HEAD
   ],
   "team-members":
   [
@@ -291,4 +292,7 @@
     }
 ]
   
+=======
+]
+>>>>>>> cb48f84 (implement fetch from json-server for home page)
 }
