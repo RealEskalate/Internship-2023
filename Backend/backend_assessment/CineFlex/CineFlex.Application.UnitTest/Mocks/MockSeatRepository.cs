@@ -30,8 +30,8 @@ namespace CineFlex.Application.UnitTests.Mocks
 					 CinemaId = 44,
 				 },
 				 new Seat
-				 {   Id = 2,
-					 SeatNumber = 2,
+				 {   Id = 3,
+					 SeatNumber = 7,
 					 SeatType = "Regular",
 					 isAvailable = false,
 					 CinemaId = 44,
