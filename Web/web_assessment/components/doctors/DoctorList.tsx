@@ -35,7 +35,7 @@ const DoctorList: React.FC = () => {
     return <div>Error occurred while fetching doctors.</div>;
   }
 
-  const columns = 4; // Number of columns for doctors
+  const columns = 5; // Number of columns for doctors
 
   const chunkedDoctors = Array.from(
     { length: Math.ceil(doctors?.data?.length / columns) },
