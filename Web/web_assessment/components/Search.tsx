@@ -13,17 +13,17 @@ const Search = () => {
 
   return (
     <div>
-      <input type="text" className="w-full border border-2" value={keyword} onChange={handleSearch} />
-      {keyword && (
-        <div>
+      <input type="text" className="w-full  mx-auto border border-2 my-5 p-3 outline-none rounded-lg" placeholder='Name' value={keyword} onChange={handleSearch} />
+      {(
+        <div className='grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 mt-5 gap-3'>
           {data &&
-            data.data.map((item: any) => (
-              <Link key={item._id} href={`/detail/${item._id}`}>
+            data.data.map((doctor: any) => (
+              <Link key={doctor._id} href={`/detail/${doctor._id}`}>
                 <Card
-                  fullName={item.fullName}
-                  photo={item.photo}
-                  speciality={item.speciality[0].name}
-                  address={item.institutionID_list[0].institutionName}
+                  fullName={doctor.fullName}
+                  photo={doctor.photo}
+                  speciality={doctor.speciality[0].name}
+                  address={doctor.institutionID_list[0].institutionName}
                 />
               </Link>
             ))}

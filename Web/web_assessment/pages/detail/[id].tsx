@@ -7,25 +7,29 @@ import background from "@/public/img/detailbg.png";
 function DetailPage() {
   const router = useRouter();
   const { id } = router.query;
-
+  
   const {
     data: doctor,
     isLoading,
     isError,
   } = useFetchUserByIdQuery(id as string);
-  console.log(doctor);
   return (
     <div>
       <div className="flex flex-col p-5 gap-10">
         {doctor && (
           <>
-            <div>
+            <div >
+              <Image
+                  src={background}
+                  width={10000}
+                  height={0}
+                  alt="background image"/>
               <Image
                 src={doctor.photo}
                 alt={doctor.fullName}
-                width={100}
-                height={100}
-                className="mx-auto rounded-full"
+                width={110}
+                height={110}
+                className="mx-auto  -mt-12 rounded-full border border-5  border-[#6C63FF]"
               />
             </div>
             <div className="flex">
@@ -51,19 +55,31 @@ function DetailPage() {
               </p>
             </p>
             <div className="flex flex-col gap-4">
-              <p>Education</p>
+              <p className="font-bold text-xl">Education</p>
               <div className="flex justify-between">
                 <section>
                   {doctor.institutionID_list[0].institutionName}
                 </section>
-                <section></section>
+                <section>
+                2002-2010
+                </section>
               </div>
-              <p>Contact Info</p>
+              <p className="font-bold text-xl">Contact Info</p>
               <div className="flex justify-between">
                 <section>
-                  {doctor.institutionID_list[0].institutionName}
+                <span className="text-[#6C63FF] font-bold "> Phone Number </span> 
+                  <p>09 21 18 9076</p>
                 </section>
-                <section></section>
+                <section>
+                </section>
+              </div>
+              <div className="flex justify-between">
+                <section>
+                  <span className="text-[#6C63FF]  font-bold"> Email </span> 
+                  <p>thep@gmail.com</p>
+                </section>
+                <section>
+                </section>
               </div>
             </div>
           </>

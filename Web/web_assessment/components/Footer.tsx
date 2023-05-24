@@ -3,35 +3,33 @@ import {
   FaFacebook,
   FaInstagram,
   FaLinkedin,
-  FaTwitter,
   FaYoutube,
 } from 'react-icons/fa'
-import Image from 'next/image'
 
 const Footer: React.FC = () => {
   const linkItems: any = [
     {
       title: 'Get Connected',
       links: [
-        { name: 'For Physicians', path: '/' },
-        { name: 'For Hospitals', path: '/story' },
+        { name: '> For Physicians', path: '/' },
+        { name: '> For Hospitals', path: '/' },
         
       ],
     },
     {
       title: 'Actions',
       links: [
-        { name: 'Find a doctor', path: '/board' },
-        { name: 'Find a hospital', path: '/advisors' },
+        { name: '> Find a doctor', path: '/' },
+        { name: '> Find a hospital', path: '/' },
    
       ],
     },
     {
       title: 'Company',
       links: [
-        { name: 'About Us', path: '/recent-blogs' },
-        { name: 'Career', path: '/new-blog' },
-        { name: 'Join our team', path: '/new-blog' },
+        { name: '> About Us', path: '' },
+        { name: '> Career', path: '' },
+        { name: '> Join our team', path: '' },
 
       ],
     },
@@ -39,12 +37,12 @@ const Footer: React.FC = () => {
 
   const socialMedialinks = [
     {
-      icon: FaTwitter,
-      url: 'https://twitter.com/A2_SV',
-    },
-    {
       icon: FaFacebook,
       url: 'https://www.facebook.com/profile.php?id=100085473798621',
+    },
+    {
+      icon: FaInstagram,
+      url: 'https://www.instagram.com/a2sv_org',
     },
     {
       icon: FaYoutube,
@@ -54,10 +52,7 @@ const Footer: React.FC = () => {
       icon: FaLinkedin,
       url: 'https://www.linkedin.com/company/a2sv/mycompany/',
     },
-    {
-      icon: FaInstagram,
-      url: 'https://www.instagram.com/a2sv_org',
-    },
+    
   ]
 
   return (
@@ -78,9 +73,9 @@ const Footer: React.FC = () => {
             <div key={index} className="sm:pt-0 basis-1/5 self-start">
               <h3 className="font-semibold mb-6">{linkItem.title}</h3>
               <ul className="flex flex-col text-secondary-text space-y-4">
-                {linkItem.links.map(({ path, name }, index) => (
+                {linkItem.links.map(({ path, name }:{path:string, name:string}, index:any) => (
                   <li key={index}>
-                    <Link href={path}>{name}</Link>
+                    <p>{name}</p>
                   </li>
                 ))}
               </ul>
@@ -91,8 +86,8 @@ const Footer: React.FC = () => {
 
       <div className="md:border-t border-neutral-200 sm:flex mx-auto md:justify-between py-8">
         <p className="text-sm text-secondary-text py-4 sm:py-0 ">
-          <span className="text-xl px-1">&copy;</span> 2023 Africa to Silicon
-          Valley,Inc. All right reserved.
+          <span className="text-xl px-1 font-bold"></span> Privacy policy
+          <span className='ml-20'>Terms of use</span>
         </p>
 
         <div className="text-secondary-text flex align-middle justify-center space-x-6 text-xl">

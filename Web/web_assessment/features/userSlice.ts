@@ -18,7 +18,7 @@ export const userApi = createApi({
     }),
     fetchUserByKeyword: builder.query<any, string>({
       query: (keyword) => ({
-        url: `/search?keyword=${keyword}&institutions=false&articles=False`,
+        url: `/search?keyword=${keyword}&institutions=false&articles=False&size=40`,
         method: "POST"
       }),
     }),
