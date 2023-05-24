@@ -22,7 +22,7 @@ const Doctors: React.FC = () => {
   }
   return (
     <div className="flex flex-col items-center mx-2">
-      <div className="flex flex-wrap gap-4 items-center self-center">
+      <div className="flex flex-wrap gap-4 items-center self-center pl-16">
         {doctors.data.map((doctor: any, index: number) => (
           <DoctorCard
             key={index}
