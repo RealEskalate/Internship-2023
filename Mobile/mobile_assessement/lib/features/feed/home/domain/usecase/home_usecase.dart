@@ -13,9 +13,20 @@ class Search extends UseCase<Home, Params> {
     return await homeRepository.search(params.city);
   }
 }
+
 class Params {
   final String city;
 
   Params({required this.city});
-  
 }
+
+// class GetFav {
+//   final HomeRepository homeRepository;
+//   GetFav(this.homeRepository);
+//   @override
+//   Future<Either<Failure, List<Home>>> call() async {
+//     return await homeRepository.getFav();
+//   }
+
+// 
+// }

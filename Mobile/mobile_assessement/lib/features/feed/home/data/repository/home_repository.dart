@@ -9,6 +9,7 @@ class HomeRepositoryImpl implements HomeRepository {
   final HomeRemoteDataSource homeRemoteDataSource;
   HomeRepositoryImpl({required this.homeRemoteDataSource});
   @override
+
   Future<Either<Failure, Home>> search(String city) async {
     final response = await homeRemoteDataSource.search(city);
     try {
@@ -17,4 +18,9 @@ class HomeRepositoryImpl implements HomeRepository {
       return Left(ServerFailure());
     }
   }
+
+  // @override
+  // Future<Either<Failure, Home>> getFav() async{
+
+  // }
 }

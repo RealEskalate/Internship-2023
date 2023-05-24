@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'features/feed/detail/presentation/screen/home_detail.dart';
+import 'features/feed/home/presentation/screen/home_page.dart';
 import 'features/onboarding/presentation/screen/onboarding.dart';
 
 void main() {
@@ -14,6 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //

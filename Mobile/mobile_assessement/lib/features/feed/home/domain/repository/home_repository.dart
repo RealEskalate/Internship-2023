@@ -4,4 +4,5 @@ import 'package:dartz/dartz.dart';
 
 abstract class HomeRepository {
   Future<Either<Failure, Home>> search(String city);
+  // Future<Either<Failure, List<Home>>> getFav();
 }
