@@ -10,34 +10,33 @@ import '../bloc/bloc/weather_bloc.dart';
 class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final searchBloc = BlocProvider.of<WeatherBloc>(context);
-
     return Scaffold(
       appBar: AppBar(
-        title: Text('Search'),
+        title: Text('Search Page'),
       ),
       body: Center(
-        child: BlocBuilder<WeatherBloc, String>(
-          bloc: searchBloc,
-          builder: (context, state) {
-            return TextField(
-              controller: TextEditingController.fromValue(TextEditingValue(text: state)),
-              decoration: InputDecoration(
-                hintText: 'Search for something...',
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: 'Enter your search query',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
               ),
-              onSubmitted: (value) {
-                searchBloc.add(LoadWeatherEvent(city:value));
-              },
-            );
-          },
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text('Search'),
+            )
+          ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          searchBloc.add(searchBloc.state);
-        },
-        child: Icon(Icons.search),
       ),
     );
   }
 }
+  
