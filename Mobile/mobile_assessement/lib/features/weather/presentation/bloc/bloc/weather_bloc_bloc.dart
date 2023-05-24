@@ -17,15 +17,15 @@ part 'weather_bloc_state.dart';
 
 class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   final GetCityWeather getCityWeather;
-  final AddFavoriteCity addFavoriteCity;
-  final RemoveFavoriteCity removeFavoriteCity;
-  final GetFavoriteCities getFavoriteCities;
+  // final AddFavoriteCity addFavoriteCity;
+  // final RemoveFavoriteCity removeFavoriteCity;
+  // final GetFavoriteCities getFavoriteCities;
 
   WeatherBloc({
     required this.getCityWeather,
-    required this.addFavoriteCity,
-    required this.removeFavoriteCity,
-    required this.getFavoriteCities,
+    // required this.addFavoriteCity,
+    // required this.removeFavoriteCity,
+    // required this.getFavoriteCities,
   }) : super(InitialWeatherState()) {
 
     on<GetWeatherForCityEvent>((event, emit) async {
@@ -38,34 +38,34 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       ));
     });
 
-    on<AddFavoriteCityEvent>((event, emit) async {
-      await addFavoriteCity(event.cityName);
-      final favoriteCities = await getFavoriteCities(NoParams());
+    // on<AddFavoriteCityEvent>((event, emit) async {
+    //   await addFavoriteCity(event.cityName);
+    //   final favoriteCities = await getFavoriteCities(NoParams());
 
-      emit(favoriteCities.fold(
-        (failure) => WeatherError(message: _mapFailureToMessage(failure)),
-        (favoriteCitie) => FavoriteCitiesLoaded(favoriteCities: favoriteCitie),
-      ));
-    });
+    //   emit(favoriteCities.fold(
+    //     (failure) => WeatherError(message: _mapFailureToMessage(failure)),
+    //     (favoriteCitie) => FavoriteCitiesLoaded(favoriteCities: favoriteCitie),
+    //   ));
+    // });
 
-    on<RemoveFavoriteCityEvent>((event, emit) async {
-      await removeFavoriteCity(event.cityName);
-      final favoriteCities = await getFavoriteCities(NoParams());
+    // on<RemoveFavoriteCityEvent>((event, emit) async {
+    //   await removeFavoriteCity(event.cityName);
+    //   final favoriteCities = await getFavoriteCities(NoParams());
 
-       emit(favoriteCities.fold(
-        (failure) => WeatherError(message: _mapFailureToMessage(failure)),
-        (favoriteCitie) => FavoriteCitiesLoaded(favoriteCities: favoriteCitie),
-      ));
-    });
+    //    emit(favoriteCities.fold(
+    //     (failure) => WeatherError(message: _mapFailureToMessage(failure)),
+    //     (favoriteCitie) => FavoriteCitiesLoaded(favoriteCities: favoriteCitie),
+    //   ));
+    // });
 
-    on<GetFavoriteCitiesEvent>((event, emit) async {
-      final favoriteCities = await getFavoriteCities(NoParams());
+    // on<GetFavoriteCitiesEvent>((event, emit) async {
+    //   final favoriteCities = await getFavoriteCities(NoParams());
 
-      emit(favoriteCities.fold(
-        (failure) => WeatherError(message: _mapFailureToMessage(failure)),
-        (favoriteCitie) => FavoriteCitiesLoaded(favoriteCities: favoriteCitie),
-      ));
-    });
+    //   emit(favoriteCities.fold(
+    //     (failure) => WeatherError(message: _mapFailureToMessage(failure)),
+    //     (favoriteCitie) => FavoriteCitiesLoaded(favoriteCities: favoriteCitie),
+    //   ));
+    // });
   }
 
   String _mapFailureToMessage(Failure failure) {

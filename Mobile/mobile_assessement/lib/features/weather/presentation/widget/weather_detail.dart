@@ -2,17 +2,14 @@ import 'package:flutter/material.dart';
 
 class WeatherDetail extends StatelessWidget {
   final String cityName;
-  final String countryName;
-  final double temperature;
+  final String temperature;
   final String weatherDescription;
-
 
   const WeatherDetail({
     Key? key,
     required this.cityName,
-    required this.countryName,
     required this.temperature,
-  required this.weatherDescription,
+    required this.weatherDescription,
   }) : super(key: key);
 
   @override
@@ -31,7 +28,7 @@ class WeatherDetail extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '$cityName, $countryName',
+                  cityName,
                   style: const TextStyle(
                     fontSize: 24.0,
                     fontWeight: FontWeight.bold,
@@ -41,14 +38,17 @@ class WeatherDetail extends StatelessWidget {
                 const SizedBox(height: 16.0),
                 Row(
                   children: [
-                    const Icon(
-                      Icons.add,
-                      color: Colors.white,
-                      size: 64.0,
+                    Text(
+                      temperature,
+                      style: const TextStyle(
+                        fontSize: 64.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
                     ),
                     const SizedBox(width: 16.0),
-                    const Text(
-                      'Mostly Sunny',
+                    Text(
+                      weatherDescription,
                       style: TextStyle(
                         fontSize: 24.0,
                         fontWeight: FontWeight.bold,
@@ -56,15 +56,6 @@ class WeatherDetail extends StatelessWidget {
                       ),
                     ),
                   ],
-                ),
-                const SizedBox(height: 16.0),
-                Text(
-                  '${temperature.toStringAsFixed(0)}°C',
-                  style: const TextStyle(
-                    fontSize: 48.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
                 ),
               ],
             ),

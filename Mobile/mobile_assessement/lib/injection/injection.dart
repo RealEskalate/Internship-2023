@@ -41,9 +41,7 @@ void init() async {
   // Registering the WeatherBloc as a factory
   sl.registerFactory(() => WeatherBloc(
         getCityWeather: sl(),
-        addFavoriteCity: sl(),
-        removeFavoriteCity: sl(),
-        getFavoriteCities: sl(),
+
       ));
 
   // Registering the http client as a lazy singleton

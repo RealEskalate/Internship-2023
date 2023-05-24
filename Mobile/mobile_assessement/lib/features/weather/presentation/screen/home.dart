@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_assessement/features/weather/presentation/bloc/bloc/weather_bloc_bloc.dart';
-import 'package:mobile_assessement/features/weather/presentation/widget/waether_detail.dart';
+import 'package:mobile_assessement/features/weather/presentation/widget/weather_detail.dart';
 import 'package:mobile_assessement/features/weather/presentation/widget/weather_row.dart';
 import 'package:mobile_assessement/injection/injection.dart';
 
@@ -10,25 +10,25 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Weather App'),
+          title: const Text('Choose a city'),
+          backgroundColor: Color(0xFF3B7DE3),
         ),
         body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          const Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Text(
-              'Today',
-              style: TextStyle(
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: TextField(
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 hintText: 'Search for a city',
-                border: OutlineInputBorder(),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xFF3B7DE3)),
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                prefixIcon: Icon(Icons.search),
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 12, horizontal: 16),
               ),
               onSubmitted: (value) {
                 BlocProvider.of<WeatherBloc>(context)
@@ -47,17 +47,22 @@ class HomePage extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: BlocBuilder<WeatherBloc, WeatherState>(
-              builder: (context, state) {
-                if (state is WeatherLoaded) {
-                  final weather = state.weather;
-                  return WeatherDetail(
-                    cityName: weather.cityName,
-                    countryName: weather.countryName,
-                    temperature: weather.temperature,
-                    weatherDescription: weather.weatherDescription,
-                  );
+            child: BlocConsumer<WeatherBloc, WeatherState>(
+              listener: (context, state) {
+                if (state is WeatherLoaded){
+    Navigator.push(context, MaterialPageRoute(
+                                builder: (context) =>  WeatherDetail(
+
+                    cityName: state.weather.cityName,
+                  
+                    temperature: state.weather.temperature,
+                    weatherDescription: state.weather.weatherDescription,
+                  )));
+
                 }
+        },
+         
+              builder: (context, state) {
                 // if (state is FavoriteCitiesLoaded) {
                 //   return ListView.builder(
                 //     itemCount: state.favoriteCities.length,
@@ -86,7 +91,7 @@ class HomePage extends StatelessWidget {
                 //       );
                 //     },
                 //   );
-                else if (state is WeatherError) {
+                if (state is WeatherError) {
                   return Center(
                     child: Text(state.message),
                   );
@@ -97,7 +102,7 @@ class HomePage extends StatelessWidget {
                 }
               },
             ),
-          ),
-        ]));
+          
+       ) ]));
   }
 }

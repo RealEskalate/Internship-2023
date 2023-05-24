@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<WeatherBloc>(
-          create: (_) => sl<WeatherBloc>()..add(const GetFavoriteCitiesEvent()),
+          create: (_) => sl<WeatherBloc>(),
         ),
         // Add more BlocProviders here if needed
       ],
@@ -32,3 +32,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
