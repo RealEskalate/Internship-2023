@@ -1,19 +1,36 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { LoadingSpinner } from '@/components/common/LoadingSpinner'
 import { Pagination } from '@/components/common/Pagination'
 import DoctorCard from '@/components/doctor/DoctorCard'
 import { useSearchDoctorsQuery } from '@/store/doctors/doctors-api'
 
+function useDebounce(value: any, delay: number) {
+  const [debouncedValue, setDebouncedValue] = useState(value)
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value)
+    }, delay)
+
+    return () => {
+      clearTimeout(handler)
+    }
+  }, [value, delay])
+
+  return debouncedValue
+}
+
 const HomeScreen = () => {
   const [searchInput, setSearchInput] = useState('')
-  // const { data, isSuccess, isLoading, isError, error } = useGetAllDoctorsQuery()
+  const debouncedSearchInput = useDebounce(searchInput, 200)
+
   const {
     data: searchData,
     isSuccess: searchSuccess,
     isLoading: searchLoading,
     isError: searchError,
     error: searchErrorData,
-  } = useSearchDoctorsQuery(searchInput)
+  } = useSearchDoctorsQuery(debouncedSearchInput)
 
   const handleSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchInput(event.target.value)
