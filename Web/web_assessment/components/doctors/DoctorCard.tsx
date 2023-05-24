@@ -13,16 +13,16 @@ interface DoctorCardProps {
 
 const DoctorCard: React.FC<DoctorCardProps> = ({ doctor }) => {
   return (
-    // <Link href={`./detail/${doctor._id}`} passHref>
-      <Link href={`./doctor-detail`} passHref>
+    <Link href={`/detail/${doctor._id}`} passHref>
+      {/* <Link href={`./doctor-detail`} passHref> */}
       <div className="rounded-lg shadow-xl bg-white p-4 mt-9 mb-9">
         <div className="ml-20">
           <Image
             src={doctor.photo}
             alt={""}
-            width={50}
-            height={50}
-            className={`rounded-full object-cover `}
+            width={100}
+            height={100}
+            className={`rounded-full object-cover border-violet-800 border-2`}
           />
         </div>
         <div className="ml-11 mt-5">
