@@ -51,7 +51,7 @@ const DoctorsList = () => {
   return (
     <section>
       <div className="flex items-center">
-        <div className="flex space-x-1">
+        <div className="flex space-x-1 m-auto">
           <form onSubmit={handleSearch}>
             <input
               type="text"
@@ -65,7 +65,7 @@ const DoctorsList = () => {
       </div>
 
       {isLoading || isLoadingSearch ? (
-        <div>Loading </div>
+        <div className="my-auto">Loading... </div>
       ) : (
         <div className="flex flex-wrap gap-16">
           {doctors.map((doctor) => (

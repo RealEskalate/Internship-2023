@@ -3,9 +3,9 @@ import Link from "next/link";
 import { IconType } from "react-icons";
 import {
   AiFillLinkedin,
-  AiFillYoutube,
   AiOutlineInstagram,
   AiOutlineTwitter,
+  AiOutlineRight,
 } from "react-icons/ai";
 import { MdCopyright, MdOutlineFacebook } from "react-icons/md";
 
@@ -71,10 +71,6 @@ const Footer: React.FC = () => {
       to: "https://www.facebook.com/profile.php?id=100085473798621",
     },
     {
-      icon: AiFillYoutube,
-      to: "https://www.youtube.com/channel/UC70kFW6mFFGEjsucvNZk6-A",
-    },
-    {
       icon: AiFillLinkedin,
       to: "https://www.linkedin.com/company/a2sv/mycompany/",
     },
@@ -85,7 +81,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <section className="font-montserrat mt-auto text-primary-text text-sm bg-purple-600 flex flex-col gap-y-4 p-4 lg:text-base md:p-10">
+    <section className="font-montserrat mt-auto text-primary-text text-sm bg-purple-600 flex flex-col gap-y-4 p-4 lg:text-base md:p-10 text-white">
       <div className="flex flex-col xl:flex-row items-center justify-between gap-4">
         <div className="flex flex-col items-center gap-4">
           <p className="font-bold text-3xl ">Hakim Hub</p>
@@ -109,6 +105,7 @@ const Footer: React.FC = () => {
                       className="font-light text-secondary-text"
                       href={link_item.name}
                     >
+                      <AiOutlineRight className="mr-4 inline" />
                       {link_item.name}
                     </Link>
                   </li>
@@ -118,12 +115,12 @@ const Footer: React.FC = () => {
           ))}
         </div>
       </div>
-      <div className="flex flex-col items-center gap-y-4 md:flex-row justify-between text-secondary-text">
-        <p>
-          <MdCopyright className="inline mr-2" />
-          Hakim Hub, All right reserved
+      <div className="flex flex-col items-center gap-y-4 md:flex-row justify-between text-secondary-text pt-10 border-t-2 border-t-white pr-32">
+        <p className="flex gap-x-20">
+          <span>Privacy Policy</span>
+          <span>Terms of use</span>
         </p>
-        <div className="flex gap-4 text-2xl md:text-4xl ">
+        <div className="flex gap-20 text-2xl md:text-4xl ">
           {iconsData.map(({ icon: Icon, to }, index) => (
             <Link
               key={index}

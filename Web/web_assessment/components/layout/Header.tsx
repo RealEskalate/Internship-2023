@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Header = () => {
   return (
-    <div className="bg-white flex justify-between px-20">
+    <div className="bg-white flex justify-between px-20 pb-10">
       {/* logo */}
       <section className="flex gap-2">
         <Image
