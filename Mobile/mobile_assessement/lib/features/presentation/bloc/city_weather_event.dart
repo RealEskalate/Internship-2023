@@ -7,8 +7,9 @@ abstract class CityWeatherEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class GetStarted extends CityWeatherEvent {}
+class Getstarted extends CityWeatherEvent {}
 
+// ignore: must_be_immutable
 class SearchEvent extends CityWeatherEvent {
   String cityName;
   SearchEvent({required this.cityName});

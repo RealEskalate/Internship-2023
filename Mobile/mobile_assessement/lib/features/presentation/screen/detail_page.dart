@@ -12,6 +12,31 @@ class DetailPage extends StatefulWidget {
 class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return MaterialApp(
+      home: Scaffold(
+        body: Column(
+          children: [
+            SizedBox(
+              height: 10,
+            ),
+            Text("name of city"),
+            SizedBox(
+              height: 10,
+            ),
+            Image(
+              image: AssetImage("assets/images/image2.jpg"),
+            ),
+            Text("temprature"),
+            Text("% cel"),
+            Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30))),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
