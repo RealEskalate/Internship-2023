@@ -10,9 +10,10 @@ export interface DoctorDetail {
   speciality: Speciality[];
   experience_years: number;
   institutionID_list: Institution[];
+  education: any[];
   gender: string;
-  languages: any[],
-  birthday: string,
-  fullName: string,
-  title: string
+  languages: any[];
+  birthday: string;
+  fullName: string;
+  title: string;
 }
