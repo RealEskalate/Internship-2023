@@ -9,11 +9,13 @@ class HomePage extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<WeatherBloc, WeatherState>(
-      builder: (context, state) {
-        return Scaffold(
+    return Scaffold(
+      backgroundColor: Color(0xffF2F2F2),
           appBar: AppBar(
-            title: Text('Choose a city'),
+            elevation: 0,
+            foregroundColor:  Color(0xff3C2DB9),
+            backgroundColor: Color(0xffF2F2F2),
+            title: Text('Choose a city' ,),
             centerTitle: true,
           ),
           body: Column(
@@ -26,8 +28,10 @@ class HomePage extends StatelessWidget {
                       child: TextField(
                         controller: _searchController,
                         decoration: InputDecoration(
+
+                          fillColor: Colors.white,
                           hintText: 'Search',
-                          prefixIcon: Icon(Icons.search),
+                          prefixIcon: const Icon(Icons.search),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
@@ -35,42 +39,42 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(width: 10),
-                    ElevatedButton(
-                      child: Text('Search'),
-                      onPressed: () {
-                        String searchText = _searchController.text;
+                    
+                    BlocConsumer<WeatherBloc, WeatherState>(
+                      listener: (context, state) {
 
-                        (context).read<WeatherBloc>().add(GetWeatherEvent( city: searchText));
-                        // Do something with searchText
+                        if (state is WeatherLoaded){
+                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        DetailPage(weather: state.weather)));
+                        }
+
+                        
+                      },
+                      builder: (context, state) {
+
+                        return ElevatedButton(
+                                          child: Text('Search'),
+                                          style: ElevatedButton.styleFrom(backgroundColor: Color(0xffFFBA25),),
+                                          onPressed: () {
+                                            String searchText = _searchController.text;
+                                            (context).read<WeatherBloc>().add(GetWeatherEvent( city: searchText));
+                    
+                                            
+                                            // Do something with searchText
+                                          },
+                                        );
                       },
                     ),
                   ],
                 ),
               ),
-              state is WeatherLoaded
-                  ? ListTile(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    DetailPage(weather: state.weather)));
-                      },
-                      leading: Text(state.weather.cityName),
-                      trailing: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text('${state.weather.maxtemperature}°C'),
-                          SizedBox(height: 5),
-                          // Image.network(cities[index].photoUrl),
-                        ],
-                      ),
-                    )
-                  : Text("City not found"),
+             
             ],
           ),
         );
-      },
-    );
+      
   }
 }

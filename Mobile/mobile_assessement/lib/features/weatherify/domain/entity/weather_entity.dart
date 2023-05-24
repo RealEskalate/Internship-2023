@@ -6,6 +6,7 @@ class Weather  extends Equatable{
   final double mintemperature;
   final List<String> next7DaysTemps;
   final String date;
+  final String cloud;
 
    const Weather({
     required this.cityName,
@@ -13,6 +14,7 @@ class Weather  extends Equatable{
     required this.maxtemperature,
     required this.next7DaysTemps,
     required this.date,
+    required this.cloud,
     
   }): super();
   
@@ -22,6 +24,7 @@ class Weather  extends Equatable{
         mintemperature,
         maxtemperature,
         next7DaysTemps,
-        date
+        date,
+        cloud
       ];
 }

@@ -3,7 +3,6 @@ import 'package:mobile_assessement/features/weatherify/domain/entity/weather_ent
 
 class DetailPage extends StatelessWidget {
   final Weather weather;
-
   const DetailPage({super.key, required this.weather});
 
 
@@ -11,7 +10,8 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(weather.cityName),
+        title: Text(weather.cityName
+        ),
         actions: [
           IconButton(
             icon: Icon(Icons.favorite_border),
@@ -22,15 +22,14 @@ class DetailPage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.network(
-            'https://source.unsplash.com/random/800x600',
+          Image.network(weather.cloud,
             height: 200,
             width: double.infinity,
             fit: BoxFit.cover,
           ),
           SizedBox(height: 16),
           Text(
-            weather.maxtemperature as String,
+            weather.maxtemperature.toString(),
             style: TextStyle(fontSize: 20),
           ),
           SizedBox(height: 16),
@@ -40,14 +39,14 @@ class DetailPage extends StatelessWidget {
               itemBuilder: (context, index) {
                 return ListTile(
                   trailing: Image.network(
-                    'https://source.unsplash.com/random/100x100',
+                    weather.cloud,
                     fit: BoxFit.cover,
                   ),
                   title: Text(weather.date),
                   subtitle: Row(
                     children: [
-                      Text(weather.maxtemperature as String),
-                      Text(weather.mintemperature as String),
+                      Text(weather.mintemperature.toString()),
+                      Text(weather.maxtemperature.toString()),
                     ],
                   ),
                 );

@@ -15,10 +15,10 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       
     });
     on<GetWeatherEvent>((event, emit) async {
-      emit(WeatherLoading as WeatherState);
-      await getWeatherForCity(event.city);
+      emit(WeatherLoading());
+      final res = await getWeatherForCity(event.city);
 
-      emit(WeatherLoaded as WeatherState);
+      emit(res.fold((l) => WeatherInitial(), (r) => WeatherLoaded(r)));
 
 
     });

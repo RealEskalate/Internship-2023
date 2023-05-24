@@ -9,6 +9,7 @@ class WeatherModel extends Weather {
     required super.maxtemperature,
     required super.next7DaysTemps,
     required super.date,
+    required super.cloud
   }) : super();
 
   factory WeatherModel.fromJson(Map<String, dynamic> json) {
@@ -17,11 +18,13 @@ class WeatherModel extends Weather {
     DateTime parsedDate = DateTime.parse(json['data']['weather'][0]['date']);
     String formattedDate = DateFormat('E, MMM d').format(parsedDate); // format the date using DateFormat
     return WeatherModel(
-      cityName: json['data']['request'][0]['query'].toString(),
-      mintemperature: json['data']['weather'][0]['mintempC'],
-      maxtemperature: json['data']['weather'][0]['maxtempC'],
+      cityName: json['data']['request'][0]['query'],
+      mintemperature: double.parse(json['data']['weather'][0]['mintempC']),
+      maxtemperature: double.parse(json['data']['weather'][0]['maxtempC']),
       next7DaysTemps: next7DaysTemps,
-      date: formattedDate, // use the formatted date string
+      date: formattedDate, 
+      cloud: json['data']['current_condition'][0]['weatherIconUrl'][0]['value'],// use the formatted date string
     );
   }
 }
+

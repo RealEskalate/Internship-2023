@@ -15,7 +15,8 @@ class WeatherRepositoryImpl implements WeatherRepository {
   Future<Either<Failure, Weather>> getWeatherForCity(String city) async {
     try {
       final weather = await weatherApiClient.getWeather(city);
-      return Right(weather as Weather);
+  
+      return Right(weather);
     } on ServerException {
       return Left(ServerFailure());
     }
