@@ -63,7 +63,7 @@ export default function Home() {
         <BiSearch color='gray-300' className='-ml-10' />
       </div>
 
-      <div className='flex flex-wrap gap-5 max-w-7xl mx-auto mt-10 h-screen'>
+      <div className='flex flex-wrap gap-5 max-w-7xl mx-auto mt-10'>
         { doctors?.map((doctor:any, index:number) => (
           <Link href={`/${doctor._id}`}>
             <Doctor key={index} doctor={doctor}/>
