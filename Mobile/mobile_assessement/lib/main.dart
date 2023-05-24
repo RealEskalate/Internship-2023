@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mobile_assessement/features/weather_forcast/presentation/screens/search_city.dart';
 import 'features/weather_forcast/presentation/bloc/weather_bloc.dart';
+import 'features/weather_forcast/presentation/screens/search_city.dart';
 import 'injections.dart' as di;
 
 void main() async {
