@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { useFetchDoctorsQuery } from '../../lib/doctors-api';
+import { useFetchDoctorsQuery } from '../../api-slice/doctors-api';
 import DoctorDetails from '../../components/DoctorDetails';
 // import { DoctorDetails } from '../../types';
 

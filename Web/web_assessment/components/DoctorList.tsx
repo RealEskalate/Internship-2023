@@ -1,7 +1,7 @@
 // DoctorList.tsx
 
 import React, { useEffect } from 'react';
-import { useFetchDoctorsMutation } from '../lib/doctors-api';
+import { useFetchDoctorsMutation } from '../api-slice/doctors-api';
 import DoctorCard from './DoctorCard';
 
 const DoctorList: React.FC = () => {
