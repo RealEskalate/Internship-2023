@@ -3,6 +3,8 @@ import DoctorCard from '@/components/doctor/DoctorCard';
 import { Doctor } from "@/types/doctor";
 import { Pagination } from "@/components/common/Pagination";
 import { SearchForm } from "@/components/common/SearchForm";
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 
 
 
@@ -24,6 +26,7 @@ const DoctorsList = () => {
 
   return (
     <div>
+      <Navbar />
       <SearchForm />
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {doctors.map((doctor: Doctor) => (
@@ -31,6 +34,7 @@ const DoctorsList = () => {
       ))}
     </div>
     <Pagination numberOfPages={5} />
+    <Footer />
     </div>
     
   );

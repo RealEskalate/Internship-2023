@@ -2,7 +2,7 @@ import { AiOutlinePlus } from 'react-icons/ai';
 
 export const SearchForm = () => {
   return (
-    <form className="flex gap-4">
+    <form className="flex gap-4 w-full">
 
       {/* Search input */}
       <input type="text" className="border border-gray-300 text-gray-900 text-sm rounded-full block px-8 py-2.5 w-60" placeholder="Search..." />

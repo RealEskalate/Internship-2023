@@ -1,22 +1,33 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 
 interface PaginationProps {
-  numberOfPages: number
+  numberOfPages: number;
 }
 
 interface PaginationItemProps {
-  pageNumber: number
-  isCurrentPage: boolean
-  onPageClick: React.Dispatch<React.SetStateAction<number>>
+  pageNumber: number;
+  isCurrentPage: boolean;
+  onPageClick: (pageNumber: number) => void;
 }
 
 export const Pagination: React.FC<PaginationProps> = ({ numberOfPages }) => {
-  const [currentPage, setCurrentPage] = useState(1)
+  const [currentPage, setCurrentPage] = useState(1);
 
-  let paginationItems = []
+  const handlePageClick = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const paginationItems = [];
   for (let i = 1; i <= numberOfPages; i++) {
-    let paginationItem = <PaginationItem pageNumber={i} isCurrentPage={i == currentPage} onPageClick={setCurrentPage} key={i} />
-    paginationItems.push(paginationItem)
+    const paginationItem = (
+      <PaginationItem
+        key={i}
+        pageNumber={i}
+        isCurrentPage={i === currentPage}
+        onPageClick={handlePageClick}
+      />
+    );
+    paginationItems.push(paginationItem);
   }
 
   return (
@@ -25,16 +36,26 @@ export const Pagination: React.FC<PaginationProps> = ({ numberOfPages }) => {
         {paginationItems}
       </nav>
     </div>
-  )
-}
+  );
+};
 
-const PaginationItem: React.FC<PaginationItemProps> = ({ pageNumber, isCurrentPage, onPageClick }) => {
+const PaginationItem: React.FC<PaginationItemProps> = ({
+  pageNumber,
+  isCurrentPage,
+  onPageClick,
+}) => {
+  const handleClick = () => {
+    onPageClick(pageNumber);
+  };
+
   return (
     <button
-      className={`${"rounded h-8 w-8 " + (isCurrentPage ? "bg-primary text-white" : "bg-gray-200 text-black")}`}
-      onClick={() => { onPageClick(pageNumber) }}
+      className={`rounded h-8 w-8 ${
+        isCurrentPage ? "bg-primary text-white" : "bg-gray-200 text-black"
+      }`}
+      onClick={handleClick}
     >
       {pageNumber}
     </button>
-  )
-}
+  );
+};

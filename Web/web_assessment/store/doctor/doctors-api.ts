@@ -25,8 +25,7 @@ export const doctorsApi = createApi({
       transformResponse: (response: { data: Doctor[] }) => response.data,
     }),
     getDoctorById: builder.query<Doctor, string>({
-      query: (id) => `users/doctorProfile/${id}`,
-      transformResponse: (response: { data: Doctor }) => response.data,
+      query: (id) => `/users/doctorProfile/${id}`,
     }),
   }),
 });
