@@ -6,10 +6,13 @@ import Error from "../common/Error";
 import { Doctor } from "@/types/doctors";
 import Search from "../common/Search";
 import { useRouter } from "next/router";
+import Pagination from "../common/Pagination";
 
 const DoctorsList: React.FC = () => {
   const [keyWord, setKeyWord] = useState<string>("");
   const router = useRouter();
+  const [currentPage, setCurrentPage] = useState(1);
+  const doctorsPerPage = 10;
 
   let {
     data: response,
@@ -17,8 +20,8 @@ const DoctorsList: React.FC = () => {
     isSuccess,
     isError,
     error,
-  } = useGetDoctorsQuery(keyWord);
-
+  } = useGetDoctorsQuery({keyword: keyWord, institutions: false, articles: false, from: currentPage, size: doctorsPerPage});
+  
   let content;
   const openProfile = (id: string) => {
     router.push(`doctors/${id}`);
@@ -51,9 +54,9 @@ const DoctorsList: React.FC = () => {
           </div>
         </div>
       ) : isSuccess ? (
-        <div>
+        <div className="flex flex-col">
           <div className="justify-items-center items-center mx-auto gap-0 grid grid-cols-1 md:w-[90%] md:grid-cols-2 lg:grid-cols-4 ">
-            {response?.data?.map((doctor: Doctor, index: number) => {
+            {response!.data.map((doctor: Doctor, index: number) => {
               return (
                 <div key={index} onClick={() => openProfile(doctor._id)}>
                   <DoctorCard
@@ -66,7 +69,15 @@ const DoctorsList: React.FC = () => {
                 </div>
               );
             })}
+
+            
           </div>
+          <Pagination
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              itemsPerPage={doctorsPerPage}
+              totalItems={response!.totalCount}
+            ></Pagination>
         </div>
       ) : isError ? (
         <Error error={"error fetching data"}></Error>

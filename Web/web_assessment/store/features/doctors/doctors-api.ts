@@ -6,8 +6,8 @@ export const doctorsApi = createApi({
     reducerPath: 'doctors',
     baseQuery: fetchBaseQuery({baseUrl: backend_url}),
     endpoints: builder => ({
-        getDoctors: builder.query<Doctors, string>({
-            query: (keyWord) => ({url:`/search?keyword=${keyWord}&institutions=false&articles=False&`, method: 'POST'})
+        getDoctors: builder.query<Doctors, {}>({
+            query: (params) => ({url:`/search`,params, method: 'POST'})
         }),
         getDoctor: builder.query<Doctor, string>({
             query: (id) => ({url:`/users/doctorProfile/${id}`, method: 'GET'})

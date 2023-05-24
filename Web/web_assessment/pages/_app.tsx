@@ -1,3 +1,4 @@
+import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import { store } from "@/store";
 import "@/styles/globals.css";
@@ -11,6 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <div className="max-w-screen-3xl">
       <Header></Header>
       <Component {...pageProps} />
+      <Footer></Footer>
     </div>
     </Provider>
   );
