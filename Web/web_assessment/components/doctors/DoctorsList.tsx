@@ -27,6 +27,10 @@ const DoctorsList: React.FC = () => {
     router.push(`doctors/${id}`);
   };
 
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [keyWord])
+
   return (
     <div>
       <Search setKeyWord={setKeyWord} keyWord={keyWord}></Search>
