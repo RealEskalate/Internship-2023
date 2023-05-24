@@ -1,41 +1,42 @@
-import React, { useEffect } from "react";
-import { useGetDoctorsQuery } from "../../store/features/doctors/doctor-api";
+import React from "react";
+import Image from "next/image";
+import { Doctor } from "@/types/doctors/doctors-list";
+import { Router, useRouter } from "next/router";
 
-const DoctorsList = () => {
-  const { data: doctors = [], isLoading, isError } = useGetDoctorsQuery();
-  console.log(doctors);
-
-  useEffect(() => {}, []);
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (isError) {
-    return <div>Error while fetching doctors data.</div>;
-  }
-  const data = doctors.data;
+const DoctorCard: React.FC<Doctor> = ({
+  id,
+  name,
+  specialty,
+  photo,
+  institution,
+}) => {
+  const router = useRouter();
+  const handleClick = (id: number) => {
+    router.push(`/doctors/${id}`);
+  };
   return (
-    <div>
-      <h2>Doctor List</h2>
-      {data.map((doctor: any) => (
-        <div key={doctor.id} className="border rounded p-4 mb-4">
-          <div className="flex items-center mb-2">
-            <img
-              src={data.photoUrl}
-              alt="Doctor"
-              className="w-16 h-16 rounded-full mr-4"
-            />
-            <div>
-              <h3 className="text-lg font-bold">{data.name}</h3>
-              <p className="text-gray-500">{data.specialty}</p>
-            </div>
-          </div>
-          <p className="text-gray-600">Institution: {data.institutionName}</p>
-        </div>
-      ))}
+    <div
+      key={id}
+      onClick={() => handleClick(id)}
+      className="flex flex-col bg-white gap-1 items-center text-center drop-shadow-xl rounded-xl mx-4 w-72 h-56 py-2"
+    >
+      <div className="rounded-full">
+        <Image
+          src={photo}
+          alt="a2sv-logo"
+          className="rounded-full border-2"
+          width={80}
+          height={80}
+          unoptimized
+        />
+      </div>
+      <h3 className="text-lg font-semibold text-black">{name}</h3>
+      <div className="bg-blue-800 rounded-full px-2 text-white">
+        {specialty}
+      </div>
+      <p className="text-navbar-text text-sm">{institution}</p>
     </div>
   );
 };
 
-export default DoctorsList;
+export default DoctorCard;

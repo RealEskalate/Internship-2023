@@ -1,6 +1,7 @@
 export interface Doctor {
-  id: string;
+  id: number;
   name: string;
   specialty: string;
-  location: string;
+  photo: string;
+  institution: string;
 }
