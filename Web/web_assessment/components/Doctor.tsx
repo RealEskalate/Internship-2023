@@ -6,7 +6,7 @@ type DoctorProps = {
 
 const Doctor = ({doctor}: DoctorProps) => {
   return (
-    <div className='flex flex-col items-center rounded-lg shadow-lg p-3 gap-2'>
+    <div className='flex flex-col items-center rounded-lg shadow-xl p-5 gap-2'>
         <div className="relative w-48 h-48">
           <Image className="rounded-full border-4 border-blue-500" src={doctor.photo} fill={true} alt="profile picture"/>
         </div>
