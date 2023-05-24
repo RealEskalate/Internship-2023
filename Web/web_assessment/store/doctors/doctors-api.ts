@@ -6,15 +6,9 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 export const doctorsApi = createApi({
     baseQuery: fetchBaseQuery({baseUrl: BASE_URL}),
     endpoints: (builder) => ({
-        getDoctors: builder.mutation<DoctorDto, void>({
-            query: () => ({
-                url: 'search?institutions=false&articles=False',
-                method: 'POST',
-            }),
-        }),
-        search: builder.mutation<DoctorDto, string>({
-            query: (keyword) => ({
-                url: `search?keyword=${keyword}&institutions=false&articles=false`,
+        search: builder.mutation<DoctorDto, string[]>({
+            query: (args) => ({
+                url: `search?keyword=${args[0]}&institutions=false&articles=false&from=${args[1]}&size=${args[2]}`,
                 method: 'POST'
             })
         }),
@@ -28,4 +22,4 @@ export const doctorsApi = createApi({
 
 });
 
-export const {useGetDoctorsMutation, useSearchMutation, useFetchDoctorDetailsMutation} = doctorsApi;
+export const {useSearchMutation, useFetchDoctorDetailsMutation} = doctorsApi;

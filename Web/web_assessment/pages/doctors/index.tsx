@@ -9,32 +9,31 @@ const DoctorPage = () => {
     const [search, {data, isLoading, error}] = useSearchMutation();
     const [searchTerm, setSearchTerm] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 4;
+    const itemsPerPage = 10;
+    const indexOfLastDoctor = currentPage * itemsPerPage;
     const router = useRouter();
 
 
     useEffect(() => {
         const fetchDoctors = async () => {
-            const response = await search("");
-            if ('data' in response) {
-                const doctors = response.data; // Assuming the response contains the doctors data
-            }
+            const response = await search(["", currentPage.toString(), itemsPerPage.toString()]);
         };
 
         fetchDoctors().then(r => console.log(">> error occurred haile", r));
     }, [search]);
 
     const handleSearchChange = async (value: string) => {
-        await search(value);
+        await search([value, "1", itemsPerPage.toString()]);
     };
 
     const handleDetailPage = async (value: string) => {
         await router.push(`doctors/${value}`);
     }
 
-    const indexOfLastDoctor = currentPage * itemsPerPage;
-
-    const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+    const paginate = async (pageNumber: number) => {
+        setCurrentPage(pageNumber)
+        await search(["", pageNumber.toString(), itemsPerPage.toString()])
+    };
 
     return (
         <div className="flex flex-col items-center p-4">
@@ -62,7 +61,7 @@ const DoctorPage = () => {
                     <div className="mt-4">
                         <Pagination
                             itemsPerPage={itemsPerPage}
-                            totalItems={data.data.length}
+                            totalItems={data.totalCount}
                             paginate={paginate}
                             currentPage={currentPage}
                         />
