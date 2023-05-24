@@ -21,7 +21,7 @@ const DoctorCard: React.FC<Props> = ({ id, photoUrl, name, specialty, address })
       </div>
       <div className="p-4 flex flex-col justify-center items-center">
         <h2 className="text-xl font-bold">{name}</h2>
-        <div className='bg-'>
+        <div className='bg-blue-500 rounded max-width'>
         <p className="text-gray-600">{specialty}</p>
         </div>
         
