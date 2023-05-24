@@ -42,7 +42,7 @@ const DoctorDetails = () => {
             <Image
               src={photo}
               alt="profile-pic"
-              className="absolute top-3/4 left-1/2 right-1/2 inline object-cover self-center w-40 h-40 mr-2 rounded-full border-purple-600 "
+              className="absolute top-3/4 left-1/2 right-1/2 inline object-cover self-center w-40 h-40 mr-2 rounded-full border-4 border-purple-600 "
               width={120}
               height={120}
             />
@@ -76,7 +76,7 @@ const DoctorDetails = () => {
             {/* education */}
             <section>
               <h1 className="text-lg font-bold">Education</h1>
-              {Array(3)
+              {Array(2)
                 .fill(0)
                 .map((_, index) => (
                   <div className="flex justify-between mb-10" key={index}>

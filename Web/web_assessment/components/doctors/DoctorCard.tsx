@@ -13,7 +13,7 @@ const DoctorCard = ({
       <Image
         src={photo}
         alt="profile-pic"
-        className="inline object-cover self-center w-16 h-16 mr-2 rounded-full border-purple-600"
+        className="inline object-cover self-center w-16 h-16 mr-2 rounded-full border-4 border-purple-600"
         width={120}
         height={120}
       />
