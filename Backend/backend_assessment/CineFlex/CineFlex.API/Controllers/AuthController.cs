@@ -3,10 +3,7 @@ using MediatR;
 using AutoMapper;
 using CineFlex.Application.Contracts.Identity;
 using CineFlex.Application.Models.Identity;
-using CineFlex.Application.Responses;
-using CineFlex.Domain;
 using CineFlex.Application.Features.User.DTOs;
-using CineFlex.Application.Profiles;
 
 namespace CineFlex.API.Controllers;
 
@@ -29,28 +26,35 @@ public class AuthController : BaseApiController
     [Route("Login")]
     public async Task<ActionResult<LoginResponse>> Login([FromBody] LoginRequest request)
     {
-        var response = await _authService.Login(request);
-        return Ok(response);
+       var loginResponse = await _authService.Login(request);
+
+            if (loginResponse == null)
+                return Unauthorized();
+
+            return Ok(loginResponse);
         
     }
 
     [HttpPost]
     [Route("Register")]
-    public async Task<ActionResult<Result<RegistrationResponse>>> Register([FromBody] RegisterDto registerDto)
+    public async Task<ActionResult<RegistrationResponse>> Register([FromBody] RegisterDto registerDto)
     {
-          var user = _mapper.Map<RegistrationRequest>(registerDto);
+       if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-            try
-            {
-                _authService.Register(user);
-                return Ok("Registration successful!");
-            }
-            catch (Exception ex)
-            {
-                return BadRequest("Registration failed: " + ex.Message);
-            }
+        var registrationRequest = _mapper.Map<RegistrationRequest>(registerDto);
+        var registrationResponse = await _authService.Register(registrationRequest);
 
+        if (registrationResponse == null)
+            return BadRequest();
+
+        var responseDto = _mapper.Map<RegistrationResponse>(registrationResponse);
+
+        return Created("", responseDto);
     }
+        
+
+    
     [HttpDelete]
     [Route("Delete")]
 
@@ -59,4 +63,5 @@ public class AuthController : BaseApiController
         var response = await _authService.DeleteUser(email);
         return Ok(response);  
     }
+
 }

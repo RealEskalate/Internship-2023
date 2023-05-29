@@ -32,24 +32,14 @@ public class AuthService: IAuthService
     }
     
 
-    public async Task<Result<LoginResponse>> Login(LoginRequest request)
+    public async Task<LoginResponse> Login(LoginRequest request)
     {
-        Result<LoginResponse> result = new Result<LoginResponse>();
         var user = await _userManager.FindByEmailAsync(request.Email);
         if (user == null)
         {
-            result.Success = false;
-            result.Errors.Add($"User with given Email({request.Email}) doesn't exist");
-            return result;
+         throw new Exception($"User with given Email({request.Email}) doesn't exist");
         }
-
         var res = await _signInManager.PasswordSignInAsync(user.UserName, request.Password, false, lockoutOnFailure: false);
-        if(!res.Succeeded)
-        {
-            result.Success = false;
-            result.Errors.Add($"Incorrect password");
-            return result;
-        }
 
         JwtSecurityToken token = await GenerateToken(user);
 
@@ -61,8 +51,7 @@ public class AuthService: IAuthService
             Token = new JwtSecurityTokenHandler().WriteToken(token)
         };
     
-        result.Value = response;
-        return result;
+        return response;
     }
 
 
@@ -100,46 +89,68 @@ public class AuthService: IAuthService
         return token;
     }
 
-    public async Task<Result<RegistrationResponse>> Register(RegistrationRequest request)
+    public async Task<RegistrationResponse> Register(RegistrationRequest request)
     {
-        var result = new Result<RegistrationResponse>();
-        var existingUser = await _userManager.FindByEmailAsync(request.Email);
-        if(existingUser != null)
-        {
-            result.Success = false;
-            result.Errors.Add($"User with given Email({request.Email}) already exists");
-            return result;
-        }
-
-        var user = new AppUser{
-            UserName = request.UserName,
-            Email = request.Email,
-            EmailConfirmed = false
-        };
-
-        var createResult = await _userManager.CreateAsync(user, request.Password);
-
-        if(!createResult.Succeeded)
-        {
-            result.Success = false;
-            foreach(var Error in createResult.Errors)
+            var user = new AppUser
             {
-                result.Errors.Add(Error.Description);
-            }
-            return result;
-        }
+                Email = request.Email,
+                UserName = request.UserName
+            };
 
-        var createdUser = await _userManager.FindByNameAsync(request.UserName);
-        await _userManager.AddToRolesAsync(createdUser, request.Roles);
+            var result = await _userManager.CreateAsync(user, request.Password);
+
+            if (!result.Succeeded)
+                return null;
+
+            await _userManager.AddToRolesAsync(user, request.Roles);
+
+            var registrationResponse = new RegistrationResponse
+            {
+                UserId = user.Id,
+                Email = user.Email
+            };
+
+            return registrationResponse;
         
-        result.Success = true;
-        result.Value = new RegistrationResponse
-        {
-            UserId = createdUser.Id,
-            email = createdUser.Email
-        };
+        
+    //     var result = new Result<RegistrationResponse>();
+    //     var existingUser = await _userManager.FindByEmailAsync(request.Email);
+    //     if(existingUser != null)
+    //     {
+    //         result.Success = false;
+    //         result.Errors.Add($"User with given Email({request.Email}) already exists");
+    //         return result;
+    //     }
 
-        return result;
+    //     var user = new AppUser{
+    //         UserName = request.UserName,
+    //         Email = request.Email,
+    //         EmailConfirmed = false
+    //     };
+
+    //     var createResult = await _userManager.CreateAsync(user, request.Password);
+
+    //     if(!createResult.Succeeded)
+    //     {
+    //         result.Success = false;
+    //         foreach(var Error in createResult.Errors)
+    //         {
+    //             result.Errors.Add(Error.Description);
+    //         }
+    //         return result;
+    //     }
+
+    //     var createdUser = await _userManager.FindByNameAsync(request.UserName);
+    //     await _userManager.AddToRolesAsync(createdUser, request.Roles);
+        
+    //     result.Success = true;
+    //     result.Value = new RegistrationResponse
+    //     {
+    //         UserId = createdUser.Id,
+    //         email = createdUser.Email
+    //     };
+
+    //     return result;
     }
 
     public async Task<bool> DeleteUser(string Email)

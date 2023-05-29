@@ -3,6 +3,7 @@ using CineFlex.Application.Features.Seats.CQRS.Queries;
 using CineFlex.Application.Features.Seats.DTOs;
 using CineFlex.Application.Responses;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -19,6 +20,7 @@ public class SeatController : ControllerBase
         _mediator = mediator;
     }
 
+    [Authorize]
     [HttpGet]
     public async Task<ActionResult<List<SeatDto>>> Get()
     {
@@ -26,6 +28,7 @@ public class SeatController : ControllerBase
         return Ok(seats);
     }
 
+    [Authorize]
     [HttpGet("{id}")]
     public async Task<ActionResult<SeatDto>> Get(int id)
     {
@@ -33,6 +36,7 @@ public class SeatController : ControllerBase
         return Ok(seats);
     }
 
+    [Authorize(Roles = "Admin")]
     [HttpPost]
     public async Task<ActionResult<BaseCommandResponse<int>>> Post([FromBody] CreateSeatDto createSeatDto)
     {
@@ -41,6 +45,7 @@ public class SeatController : ControllerBase
         return Ok(repsonse);
     }
 
+    [Authorize(Roles = "Admin")]
     [HttpPut]
     public async Task<ActionResult> Put([FromBody] UpdateSeatDto seatDto)
     {
@@ -48,7 +53,8 @@ public class SeatController : ControllerBase
         await _mediator.Send(command);
         return NoContent();
     }
-
+    
+    [Authorize(Roles = "Admin")]
     [HttpDelete("{id}")]
     public async Task<ActionResult> Delete(int id)
     {

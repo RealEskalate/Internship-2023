@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using CineFlex.Application.Features.User.DTOs;
 using CineFlex.Application.Models.Identity;
 using CineFlex.Application.Features.Seats.DTOs;
+using CineFlex.Application.Features.MoviesBooking.DTOs;
 
 namespace CineFlex.Application.Profiles
 {
@@ -23,6 +24,12 @@ namespace CineFlex.Application.Profiles
             CreateMap<Movie, CreateMovieDto>().ReverseMap();
             CreateMap<Movie, UpdateMovieDto>().ReverseMap();
             #endregion Movie
+
+            #region MovieBooking Mappings
+            CreateMap<MovieBooking, MovieBookingDto>().ReverseMap();
+            CreateMap<MovieBooking, CreateMovieBookingDto>().ReverseMap();
+            CreateMap<MovieBooking, UpdateMovieBookingDto>().ReverseMap();
+            #endregion MovieBooking
 
             #region Cinema Mappings
             CreateMap<CinemaEntity, CreateCinemaDto>().ReverseMap();
@@ -38,6 +45,8 @@ namespace CineFlex.Application.Profiles
             #endregion Seat
 
             CreateMap<RegisterDto, RegistrationRequest>().ReverseMap();
+            CreateMap<RegisterDto, RegistrationResponse>().ReverseMap();
+
 
 
         }
