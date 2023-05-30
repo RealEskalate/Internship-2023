@@ -1,6 +1,7 @@
 ﻿using CineFlex.Application.Features.Movies.CQRS.Commands;
 using CineFlex.Application.Features.Movies.CQRS.Queries;
 using CineFlex.Application.Features.Movies.DTOs;
+using CineFlex.Domain;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -17,7 +18,7 @@ namespace CineFlex.API.Controllers
         {
             _mediator = mediator;
         }
-        [Authorize]
+        //[Authorize]
         [HttpGet]
         public async Task<ActionResult<List<MovieDto>>> Get()
         {
@@ -57,5 +58,23 @@ namespace CineFlex.API.Controllers
             var command = new DeleteMovieCommand { Id = id };
             return HandleResult(await _mediator.Send(command));
         }
+
+        [HttpGet("search")]
+        public async Task<IActionResult> SearchMovies([FromQuery] string title)
+        {
+            var query = new SearchMovieQuery { Title = title };
+            var movies = await _mediator.Send(query);
+            return Ok(movies);
+        }
+
+        [HttpGet("filter")]
+        public async Task<ActionResult<List<Movie>>> FilterMoviesByGenres([FromQuery] string genre)
+        {
+            var query = new  FilterMoviesByGenreQuery { Genre = genre };
+            var filteredMovies = await _mediator.Send(query);
+
+            return Ok(filteredMovies);
+        }
     }
+
 }

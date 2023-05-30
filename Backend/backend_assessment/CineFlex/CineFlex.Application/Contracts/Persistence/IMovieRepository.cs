@@ -10,6 +10,8 @@ namespace CineFlex.Application.Contracts.Persistence
 {
     public interface IMovieRepository : IGenericRepository<Movie>
     {
+    Task<List<Movie>> SearchMoviesAsync(string title);
+    Task<List<Movie>> FilterMoviesByGenre(string genre);
 
     }
 }

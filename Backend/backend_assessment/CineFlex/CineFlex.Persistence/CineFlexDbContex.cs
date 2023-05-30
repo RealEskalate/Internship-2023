@@ -37,6 +37,9 @@ namespace CineFlex.Persistence
                 .HasMany(mb => mb.Seats)
                 .WithOne(s => s.MovieBooking)
                 .HasForeignKey(s => s.MovieBookingId);
+
+          
+                
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
@@ -55,7 +58,7 @@ namespace CineFlex.Persistence
             return base.SaveChangesAsync(cancellationToken);
         }
         public DbSet<CinemaEntity> Cinemas { get; set; }
-
+        public DbSet<MovieBooking> MovieBookings { get; set; }
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Seat> Seats { get; set; }
 
