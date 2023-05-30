@@ -23,9 +23,7 @@ void main() {
       mockLocalDataSource = MockUserLocalDataSource();
       mockNetworkInfo = MockNetworkInfo();
       repository = UserRepositoryImpl(
-          remoteDataSource: mockRemoteDataSource,
-          localDataSource: mockLocalDataSource,
-          networkInfo: mockNetworkInfo);
+          remoteDataSource: mockRemoteDataSource);
     },
   );
   final tUser = UserModel(

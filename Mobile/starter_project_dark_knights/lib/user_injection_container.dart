@@ -12,8 +12,6 @@ import 'package:dark_knights/features/user_profile/domain/usecases/get_number_of
 import 'package:dark_knights/features/user_profile/domain/usecases/get_user.dart';
 import 'package:dark_knights/features/user_profile/presentation/bloc/user_profile_bloc.dart';
 import 'package:get_it/get_it.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:http/http.dart' as http;
 
 final sl = GetIt.instance;
 Future<void> userInjectionInit() async {
@@ -32,13 +30,9 @@ Future<void> userInjectionInit() async {
 //Repository
 
   sl.registerLazySingleton<UserRepository>(() => UserRepositoryImpl(
-      remoteDataSource: sl(), localDataSource: sl(), networkInfo: sl()));
+        remoteDataSource: sl(),
+      ));
 //Data sources
   sl.registerLazySingleton<UserRemoteDataSource>(
       () => UserRemoteDataSourceImpl(client: sl()));
-
-// ignore: non_constant_identifier_names
-  final sharedPreferences = await SharedPreferences.getInstance();
-  sl.registerLazySingleton(() => sharedPreferences);
-  sl.registerLazySingleton(() => http.Client());
 }

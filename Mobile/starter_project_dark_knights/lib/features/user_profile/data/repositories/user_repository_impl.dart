@@ -9,13 +9,10 @@ import 'package:dartz/dartz.dart';
 
 class UserRepositoryImpl implements UserRepository {
   final UserRemoteDataSource remoteDataSource;
-  final UserLocalDataSource localDataSource;
-  final NetworkInfo networkInfo;
 
-  UserRepositoryImpl(
-      {required this.remoteDataSource,
-      required this.localDataSource,
-      required this.networkInfo});
+  UserRepositoryImpl({
+    required this.remoteDataSource,
+  });
 
   @override
   Future<Either<Failure, UserEntity>> createUser(UserEntity user) async {

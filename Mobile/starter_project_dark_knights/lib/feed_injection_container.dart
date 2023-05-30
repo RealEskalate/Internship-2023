@@ -30,8 +30,4 @@ Future<void> feedInjectionInit() async {
   sl.registerLazySingleton<FeedRemoteDataSource>(
       () => FeedRemoteDataSourceImplementation(client: sl()));
 
-// ignore: non_constant_identifier_names
-  final sharedPreferences = await SharedPreferences.getInstance();
-  sl.registerLazySingleton(() => sharedPreferences);
-  sl.registerLazySingleton(() => http.Client());
 }

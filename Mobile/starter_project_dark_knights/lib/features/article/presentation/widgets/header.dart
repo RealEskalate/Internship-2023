@@ -36,7 +36,7 @@ class Header extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               ArticleAuthorDetail(
-                authorName: userInfo.firstName + userInfo.lastName,
+                authorName: userInfo.firstName + " " + userInfo.lastName,
                 postedAt: "2m",
                 profileImageUrl: userInfo.image,
               ),

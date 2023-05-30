@@ -113,7 +113,7 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
   }
 
   @override
-   Future<List<UserModel>> getFollowing(String userId) async {
+  Future<List<UserModel>> getFollowing(String userId) async {
     final response = await client.get(
       Uri.parse("$uri/getFollowing/$userId"),
       headers: {
@@ -133,8 +133,7 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
     }
   }
 
-
-   @override
+  @override
   Future<int> getNumberOfFollowers(String userId) async {
     final response = await client.get(
       Uri.parse('$uri/getNumberOfFollowers/$userId'),
@@ -151,7 +150,7 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
     }
   }
 
- @override
+  @override
   Future<int> getNumberOfFollowing(String userId) async {
     final response = await client.get(
       Uri.parse('$uri/getNumberOfFollowing/$userId'),
@@ -168,12 +167,10 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
     }
   }
 
-
   @override
   Future<UserModel> getUser(String userId) async {
-    // TODO: implement getUser
     final response = await client.get(
-      Uri.parse('$uri/getUser/$userId'),
+      Uri.parse('https://mocki.io/v1/e8ad0494-9d9d-439e-8051-9ffe21314b4d'),
       headers: {'Content-Type': 'application/json'},
     );
     if (response.statusCode == 200) {
