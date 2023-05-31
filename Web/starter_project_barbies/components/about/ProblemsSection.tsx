@@ -31,14 +31,19 @@ const ProblemsSection: React.FC = () => {
 
   return (
     <div>
-      <div className="flex gap-24 justify-center items-center mt-16 flex-wrap">
+      <div
+        className="flex gap-24 justify-center items-center mt-16 flex-wrap"
+        test-id="problems-section"
+      >
         <div className="flex-initial order-2 md:order-1">
           <div className="font-bold text-center md:text-left lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl max-w-lg">
             The Problem We <span className="text-primary">Are Solving</span>
           </div>
-          {problemItemList?.map((problemItem, index) => (
-            <ItemCard key={index} item={problemItem} />
-          ))}
+          <div test-id="problems">
+            {problemItemList?.map((problemItem, index) => (
+              <ItemCard key={index} item={problemItem} />
+            ))}
+          </div>
         </div>
         <Image
           className="p-10 order-1"
@@ -60,9 +65,11 @@ const ProblemsSection: React.FC = () => {
           <div className="font-bold text-center md:text-left lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl max-w-lg">
             How We Are <span className="text-primary">Solving it</span>
           </div>
-          {solutionItemList?.map((solutionItem, index) => (
-            <ItemCard key={index} item={solutionItem} />
-          ))}
+          <div test-id="solutions">
+            {solutionItemList?.map((solutionItem, index) => (
+              <ItemCard key={index} item={solutionItem} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
