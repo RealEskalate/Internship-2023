@@ -7,11 +7,15 @@ using System.Threading.Tasks;
 
 namespace CineFlex.Application.Contracts.Persistence
 {
-    public interface IUnitOfWork : IDisposable
-    {
-        IMovieRepository MovieRepository { get; }
-        ICinemaRepository CinemaRepository { get; }
-        Task<int> Save();
-        
-    }
+	public interface IUnitOfWork : IDisposable
+	{
+		IMovieRepository MovieRepository { get; }
+		ICinemaRepository CinemaRepository { get; }
+		ISeatRepository SeatRepository { get; }
+		IPostRepository PostRepository { get; }
+
+ 
+		Task<int> Save();
+		
+	}
 }

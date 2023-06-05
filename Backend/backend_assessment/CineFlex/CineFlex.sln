@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CineFlex.Persistence", "Cin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CineFlex.API", "CineFlex.API\CineFlex.API.csproj", "{8D82F498-631C-450B-982F-E7333EB92D7C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CineFlex.Identity", "CineFlex.Identity\CineFlex.Identity.csproj", "{0271197B-56FE-466F-8606-6BC0178A726A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{8D82F498-631C-450B-982F-E7333EB92D7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D82F498-631C-450B-982F-E7333EB92D7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D82F498-631C-450B-982F-E7333EB92D7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0271197B-56FE-466F-8606-6BC0178A726A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0271197B-56FE-466F-8606-6BC0178A726A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0271197B-56FE-466F-8606-6BC0178A726A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0271197B-56FE-466F-8606-6BC0178A726A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
