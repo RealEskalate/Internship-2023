@@ -2,6 +2,7 @@ import HospitalCard from "./HospitalCard";
 import { usePostHospitalsQuery } from "@/store/features/hospitals-api";
 import { LoadingPage } from "../common/Loading";
 import Hospital from "@/type/hospital/hospital";
+import ErrorPage from "../common/Error";
 
 interface SearchProps {
   searchValue: string;
@@ -15,7 +16,9 @@ const HospitalList: React.FC<SearchProps> = ({searchValue}) => {
     return <LoadingPage />;
   }
   if (isError) {
-    return <div className="min-h-screen">Error ... </div>;
+    return <div className="min-h-screen">
+      <ErrorPage />
+    </div>;
   }
   return (
     <div className="p-44">

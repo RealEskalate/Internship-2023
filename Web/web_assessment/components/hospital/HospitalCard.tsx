@@ -18,7 +18,7 @@ const HospitalCard: React.FC<HospitalProps> = ({ hospital }) => {
             alt={""}
             width={300}
             height={300}
-            className="rounded-lg "
+            className="rounded-lg mr-8"
           />
         </div>
         <div className="flex flex-wrap w-2/3  self-center pt-4 pb-4">

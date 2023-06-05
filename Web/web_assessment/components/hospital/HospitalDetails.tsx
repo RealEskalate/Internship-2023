@@ -2,6 +2,7 @@ import { useGetHospitalDetailQuery } from "@/store/features/hospital-details-api
 import { useRouter } from "next/router";
 import { LoadingPage } from "../common/Loading";
 import { MockDetail } from "./HospitalDetailMock";
+import ErrorPage from "../common/Error";
 
 const HospitalDetails: React.FC = () => {
   const router = useRouter();
@@ -13,7 +14,7 @@ const HospitalDetails: React.FC = () => {
     return <LoadingPage />;
   }
   if (isError) {
-    return <MockDetail />;
+    return <ErrorPage />;
   }
   return (
     <div>
