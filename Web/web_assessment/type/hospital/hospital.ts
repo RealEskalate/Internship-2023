@@ -2,6 +2,7 @@ export default interface Hospital {
   _id: string,
     coverPhoto: string,
     photo: string,
+    emails:string[],
     services: Services[],
     institutionName: string,
     summary: string,
@@ -15,7 +16,8 @@ export default interface Hospital {
         zone: string,
         summary: string
       },
-      phoneNumbers: Number[],
+      phoneNumbers: string[],
+      status: string
       
 }
 

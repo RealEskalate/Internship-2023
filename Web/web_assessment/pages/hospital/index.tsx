@@ -1,15 +1,31 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import HospitalList from "@/components/hospital/HospitalList";
+import { usePostHospitalsQuery } from "@/store/features/hospitals-api";
+import Hospital from "@/type/hospital/hospital";
+import { LoadingPage } from "@/components/common/Loading";
+import HospitalCard from "@/components/hospital/HospitalCard";
 
-const inter = Inter({ subsets: ["latin"] });
+interface SearchProps {
+  searchValue: string;
+}
 
-export default function Home() {
+const HospitalList: React.FC<SearchProps> = ({searchValue}) => {
+
+  const { data: hospitals, isLoading, isError } = usePostHospitalsQuery(searchValue);
+
+  if (isLoading) {
+    return <LoadingPage />;
+  }
+  if (isError) {
+    return <div className="min-h-screen">Error ... </div>;
+  }
   return (
-    <div className="min-h-screen bg-white ">
-      <div className="p-20">
-        <HospitalList />
-      </div>
+    <div className="p-44">
+      {hospitals.data.map((hospital: Hospital) => (
+        <div key={hospital._id} className="mb-8">
+          <HospitalCard hospital = {hospital} />
+        </div>
+      ))}
     </div>
   );
-}
+};
+
+export default HospitalList;

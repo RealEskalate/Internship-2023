@@ -1,11 +1,24 @@
-import Image from "next/image";
-import Link from "next/link";
+import { useGetHospitalDetailQuery } from "@/store/features/hospital-details-api";
+import { useRouter } from "next/router";
+import { LoadingPage } from "../common/Loading";
+import { MockDetail } from "./HospitalDetailMock";
 
 const HospitalDetails: React.FC = () => {
+  const router = useRouter();
+  const { id } = router.query;
+
+  const { data: hospital, isLoading, isError } = useGetHospitalDetailQuery(id);
+
+  if (isLoading) {
+    return <LoadingPage />;
+  }
+  if (isError) {
+    return <MockDetail />;
+  }
   return (
     <div>
-      <div>Photo</div>
-      <div>Name</div>
+      <div>Region</div>
+      <div>NAME</div>
       <div>tags</div>
       <div>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis dolore

@@ -1,15 +1,15 @@
-import Image from "next/image";
-import Link from "next/link";
 import HospitalCard from "./HospitalCard";
 import { usePostHospitalsQuery } from "@/store/features/hospitals-api";
 import { LoadingPage } from "../common/Loading";
 import Hospital from "@/type/hospital/hospital";
 
+interface SearchProps {
+  searchValue: string;
+}
 
+const HospitalList: React.FC<SearchProps> = ({searchValue}) => {
 
-const HospitalList: React.FC = () => {
-
-  const { data: hospitals, isLoading, isError } = usePostHospitalsQuery("");
+  const { data: hospitals, isLoading, isError } = usePostHospitalsQuery(searchValue);
 
   if (isLoading) {
     return <LoadingPage />;
