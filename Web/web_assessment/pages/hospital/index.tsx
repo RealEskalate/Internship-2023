@@ -15,6 +15,7 @@ const HospitalList: React.FC<SearchProps> = ({searchValue}) => {
     return <LoadingPage />;
   }
   if (isError) {
+    console.log(isError)
     return <div className="min-h-screen">Error ... </div>;
   }
   return (
