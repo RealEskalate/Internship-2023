@@ -16,7 +16,7 @@ namespace CineFlex.Persistence.Repositories
 
 		private ICinemaRepository _cinemaRepository;
 		private ISeatRepository _seatRepository;
-
+		private IPostRepository _postRepository;
 		public UnitOfWork(CineFlexDbContex context)
 		{
 			_context = context;
@@ -48,6 +48,15 @@ namespace CineFlex.Persistence.Repositories
 				if (_seatRepository == null)
 					_seatRepository = new SeatRepository(_context);
 				return _seatRepository;
+			} 
+		}
+		public IPostRepository PostRepository
+		{
+			get
+			{
+				if (_postRepository == null)
+					_postRepository = new PostRepository(_context);
+				return _postRepository;
 			} 
 		}
 
