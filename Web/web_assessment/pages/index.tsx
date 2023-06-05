@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   const [searchValue, setSearchValue] = useState("");
 
-  const handleSearchChange = (event: any) => {
+  const handleSearchChange = (event) => {
     setSearchValue(event.target.value);
   };
 

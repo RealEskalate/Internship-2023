@@ -1,32 +1,31 @@
-import { usePostHospitalsQuery } from "@/store/features/hospitals-api";
-import Hospital from "@/type/hospital/hospital";
-import { LoadingPage } from "@/components/common/Loading";
-import HospitalCard from "@/components/hospital/HospitalCard";
+import React, { useState } from "react";
+import Image from "next/image";
+import { Inter } from "next/font/google";
+import HospitalList from "@/components/hospital/HospitalList";
 
-interface SearchProps {
-  searchValue: string;
-}
+const inter = Inter({ subsets: ["latin"] });
 
-const HospitalList: React.FC<SearchProps> = ({searchValue}) => {
+export default function HospitalListPage() {
+  const [searchValue, setSearchValue] = useState("");
 
-  const { data: hospitals, isLoading, isError } = usePostHospitalsQuery(searchValue);
+  const handleSearchChange = (event: any) => {
+    setSearchValue(event.target.value);
+  };
 
-  if (isLoading) {
-    return <LoadingPage />;
-  }
-  if (isError) {
-    console.log(isError)
-    return <div className="min-h-screen">Error ... </div>;
-  }
   return (
-    <div className="p-44">
-      {hospitals.data.map((hospital: Hospital) => (
-        <div key={hospital._id} className="mb-8">
-          <HospitalCard hospital = {hospital} />
-        </div>
-      ))}
+    <div className="min-h-screen bg-white">
+      <div className="bg-white">
+        <input
+          type="text"
+          placeholder="Search"
+          value={searchValue}
+          onChange={handleSearchChange}
+          className="w-2/3 h-10 mt-10 ml-40 pl-[20px] border-2"
+        />
+      </div>
+      <div>
+        <HospitalList searchValue={searchValue} />
+      </div>
     </div>
   );
-};
-
-export default HospitalList;
+}
