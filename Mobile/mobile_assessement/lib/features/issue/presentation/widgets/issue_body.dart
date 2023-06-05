@@ -20,7 +20,26 @@ class IssueBody extends StatelessWidget {
 
             ],
           ),
-        )
+        ),
+        Container(
+      padding: EdgeInsets.only(left: 16,right: 16,top: 16,bottom: 7),
+      child: Text(
+        'The point of using Lorem Ipl distribution em Ipsum as their default model text,',
+        style: TextStyle(
+          fontSize: 16.0,
+          color: Colors.black,
+          fontWeight: FontWeight.w900,
+        ),
+      ),),
+        Container(
+      padding: EdgeInsets.all(16.0),
+      child: Text(
+        'The point of using p publishing packages and wedel text, and a search for ll uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).',
+        style: TextStyle(
+          fontSize: 16.0,
+          color: Colors.black,
+        ),
+      ),)
       ],
     );
   }
