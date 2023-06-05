@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import HospitalCard from "./HospitalCard";
-import { usePostHospitalsQuery } from "@/ssttore/features/hospitals-api";
+import { usePostHospitalsQuery } from "@/store/features/hospitals-api";
 import { LoadingPage } from "../common/Loading";
-import Hospital from "@/ttype/hospital/hospital";
+import Hospital from "@/type/hospital/hospital";
 
 
 
