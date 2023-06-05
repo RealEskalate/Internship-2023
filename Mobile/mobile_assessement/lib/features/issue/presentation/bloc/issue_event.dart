@@ -1,4 +1,10 @@
-part of 'issue_bloc.dart';
+import 'package:equatable/equatable.dart';
 
-@immutable
-abstract class IssueEvent {}
+abstract class IssueEvent extends Equatable {
+  const IssueEvent();
+
+  @override
+  List<Object> get props => [];
+}
+
+class IssueRequested extends IssueEvent {}

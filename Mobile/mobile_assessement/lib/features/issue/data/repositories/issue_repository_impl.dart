@@ -4,7 +4,7 @@ import 'package:mobile_assessement/features/issue/data/models/issue_model.dart';
 
 import '../data_sources/issue_local_data_source.dart';
 import '../data_sources/issue_remote_data_source.dart';
-import '../models/issue_model.dart';
+
 import '../../domain/repositories/issue_repository.dart';
 
 class IssueRepositoryImpl implements IssueRepository {
@@ -18,8 +18,9 @@ class IssueRepositoryImpl implements IssueRepository {
 
   @override
   Future<Issue> getIssue() async {
-    final issue = await localDataSource.getIssue();
+    Future<Issue> issue = (await localDataSource.getIssue()) as Future<Issue>;
 
+    // ignore: unnecessary_null_comparison
     if (issue != null) {
       return issue;
     } else {
