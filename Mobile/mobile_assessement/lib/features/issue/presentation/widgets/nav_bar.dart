@@ -12,25 +12,25 @@ class NavBar extends StatelessWidget {
             Expanded(
               child: Container(
                 // color: Colors.grey,
-                child: Center(child: Text('For You')),
+                child: Center(child: Text('For You',style: TextStyle(fontSize: 17),)),
               ),
             ),
             Expanded(
               child: Container(
                 // color: Colors.grey,
-                child: Center(child: Text('Scholarships')),
+                child: Center(child: Text('Scholarships',style: TextStyle(fontSize: 17),)),
               ),
             ),
             Expanded(
               child: Container(
                 // color: Colors.grey,
-                child: Center(child: Text('Resources')),
+                child: Center(child: Text('Resources',style: TextStyle(fontSize: 17),)),
               ),
             ),
             Expanded(
               child: Container(
                 // color: Colors.grey,
-                child: Center(child: Text('Cumpus Life')),
+                child: Center(child: Text('Cumpus Life',style: TextStyle(fontSize: 17),)),
               ),
             ),
           ],

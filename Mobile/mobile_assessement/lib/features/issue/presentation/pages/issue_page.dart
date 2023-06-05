@@ -15,14 +15,17 @@ class IssuePage extends StatelessWidget {
         body: ListView(
           children: [
             UpperBar(),
-            SizedBox(height: 15,),
+            SizedBox(
+              height: 15,
+            ),
             NavBar(),
-            SizedBox(height: 15,),
+            SizedBox(
+              height: 40,
+            ),
             IssueBody(),
-
           ],
         ),
       ),
-    ) ;
+    );
   }
 }
