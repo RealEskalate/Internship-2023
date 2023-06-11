@@ -16,6 +16,7 @@ namespace CineFlex.Domain
         public string Password { get; set; }
         public string Role { get; set; }
         public string UserId { get; set; }
+        public ICollection<Post> Posts { get; set; }
 
     }
 }

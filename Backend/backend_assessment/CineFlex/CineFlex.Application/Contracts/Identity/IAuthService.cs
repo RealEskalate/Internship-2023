@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CineFlex.Application.Models.Identity;
+using CineFlex.Application.Responses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
