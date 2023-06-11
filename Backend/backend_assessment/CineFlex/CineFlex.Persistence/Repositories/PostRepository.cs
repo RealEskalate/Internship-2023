@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CineFlex.Persistence.Models
+namespace CineFlex.Persistence.Repositories
 {
-    internal class ApplicationUser
+    internal class PostRepository
     {
     }
 }
