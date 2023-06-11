@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CineFlex.Application.Features.Posts.DTOs;
 
 namespace CineFlex.Application.Profiles
 {
@@ -26,6 +27,11 @@ namespace CineFlex.Application.Profiles
             CreateMap<CinemaEntity, CreateCinemaDto>().ReverseMap();
             CreateMap<CinemaEntity, CinemaDto>().ReverseMap();
             CreateMap<CinemaEntity, UpdateCinemaDto>().ReverseMap();
+
+            CreateMap<Post, PostDto>().ReverseMap();
+            CreateMap<Post, IPostDto>().ReverseMap();
+            CreateMap<Post, CreatePostDto>().ReverseMap();
+            CreateMap<Post, UpdatePostDto>().ReverseMap();
         }
     }
 }
