@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Contracts\Identity\" />
+	<Folder Include="Contracts\Identity\" />
     <Folder Include="Features\_Indices\CQRS\Commands\" />
     <Folder Include="Features\_Indices\CQRS\Handlers\" />
     <Folder Include="Features\_Indices\CQRS\Queries\" />
