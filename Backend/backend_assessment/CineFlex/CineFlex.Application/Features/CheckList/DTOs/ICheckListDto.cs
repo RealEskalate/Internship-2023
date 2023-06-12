@@ -4,16 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CineFlex.Domain.Common
+namespace CineFlex.Application.Features.CheckList.DTOs
 {
-    public abstract class BaseDomainEntity
+    public interface ICheckListDto
     {
-        public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-
-        public DateTime DateCreated { get; set; }
-        public DateTime LastModifiedDate { get; set; }
-
+        public int TaskID { get; set; }
+        public bool Status { get; set; }
     }
 }
