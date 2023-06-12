@@ -17,15 +17,15 @@ namespace CineFlex.Application.Profiles
         {
             #region Movie Mappings
 
-            CreateMap<Movie, MovieDto>().ReverseMap();
-            CreateMap<Movie, CreateMovieDto>().ReverseMap();
+            CreateMap<TaskCheckListEntity, TaskCheckListDto>().ReverseMap();
+            CreateMap<TaskCheckListEntity, CreateTaskCheckListDto>().ReverseMap();
 
-            CreateMap<Movie, UpdateMovieDto>().ReverseMap();
+            CreateMap<TaskCheckListEntity, UpdateTaskCheckListDto>().ReverseMap();
 
             #endregion Movie
-            CreateMap<CinemaEntity, CreateCinemaDto>().ReverseMap();
-            CreateMap<CinemaEntity, CinemaDto>().ReverseMap();
-            CreateMap<CinemaEntity, UpdateCinemaDto>().ReverseMap();
+            CreateMap<TaskEntity, CreateTaskDto>().ReverseMap();
+            CreateMap<TaskEntity, TaskDto>().ReverseMap();
+            CreateMap<TaskEntity, UpdateTaskDto>().ReverseMap();
         }
     }
 }
