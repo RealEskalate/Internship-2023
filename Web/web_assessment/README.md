@@ -1,38 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Web Test Guideline
+### Introduction
+Welcome to the web test for assessing candidates during the hiring process. In this test, candidates will be required to build a web application that interacts with a RESTful JSON API and demonstrates their proficiency in React, state management, and code quality. Candidates are expected to follow the instructions provided below to complete the test successfully.
+### Task
+Build a web application that interacts with the JSON API provided at the endpoint: https://v2.jokeapi.dev/joke
+### API Endpoint Details
+Details can be found here https://v2.jokeapi.dev
+### Requirements
+1. Using *React or Next*, build a web application that queries the provided endpoint.
+2. Implement visually *appealing* and *intuitive*, user interface.
+3. *Create a page that displays a list of jokes*, When no specific filter is selected, show a random set of 20 jokes
+4. Display *loading* and *error* states and other important status messages users many want to see.
+5. Use either *Redux* or *Redux Toolkit* for state management. Save the fetched results in the store and render them appropriately.
+6. Use a UI library (Ex. Material UI, TailwindCSS ...)
+### Optional
+1. Implement *unit testing* for at least *one component*
+2. Implement *unit testing* on your *state management*.
+3. Add a loading state
+### Submission
+1. Add your code in the web folder.
+2. You should create a branch with *[yourname].web_test* on this repository.
+3. You should create a *pull request* from your branch to the main branch.
+4. The pull request should include a *detailed description* of the changes made and the features implemented.
+5. You should also include a *screenshot* of the application within the pull request description.
 
-## Getting Started
 
-First, run the development server:
+Message Adona Tesfaye
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
