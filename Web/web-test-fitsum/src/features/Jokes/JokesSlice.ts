@@ -6,7 +6,7 @@ interface stateType {
 }
 
 const initialState: stateType = {
-    numberOfItems: 5,
+    numberOfItems: 20,
     searchKeyword: undefined
 }
 
