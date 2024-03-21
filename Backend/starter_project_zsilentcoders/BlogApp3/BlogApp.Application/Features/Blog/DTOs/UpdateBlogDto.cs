@@ -1,0 +1,12 @@
+namespace BlogApp.Application.Features.Blog.DTOs;
+
+public class UpdateBlogDto
+{
+
+    public int Id { get; set; }
+    public string? Title { get; set; } = "";
+    public string? ThumbnailImage { get; set; } = "";
+    public string? Content { get; set; } = "";
+    public bool Publish { get; set; }
+
+}

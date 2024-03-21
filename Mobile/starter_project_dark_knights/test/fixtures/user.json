@@ -1,0 +1,10 @@
+{
+    "id": "1",
+    "password": "test",
+    "image": "image",
+    "username": "username",
+    "firstName": "firstName",
+    "lastName": "lastName",
+    "occupation": "occupation",
+    "selfDescription": "selfDescription"
+  }

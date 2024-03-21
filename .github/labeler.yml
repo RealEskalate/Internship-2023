@@ -1,0 +1,11 @@
+repo:
+- '*'
+
+'@team/mobile':
+- 'Mobile/**/*'
+
+'@team/web':
+- 'Web/**/*'
+
+'@team/backend':
+- 'Backend/**/*'

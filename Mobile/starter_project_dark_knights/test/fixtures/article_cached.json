@@ -1,0 +1,14 @@
+[
+    {
+        "id": "1",
+        "title": "Article 1",
+        "subtitle": "article 1",
+        "description": "This is article 1",
+        "postedBy": "user121",
+        "publishedDate": "2023-05-11T16:00:00",
+        "tag": "Art",
+        "imageUrl": "https://www.google.com/url?sa=i&url",
+        "likeCount": 213,
+        "timeEstimate": 30
+    }
+]
