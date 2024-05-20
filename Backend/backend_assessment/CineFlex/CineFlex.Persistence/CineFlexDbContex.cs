@@ -43,6 +43,7 @@ namespace CineFlex.Persistence
         public DbSet<CinemaEntity> Cinemas { get; set; }
 
         public DbSet<Movie> Movies { get; set; }
+        public DbSet<Post> Posts { get; set; }
 
     }
 }
