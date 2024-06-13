@@ -18,11 +18,18 @@ namespace CineFlex.Persistence
         {
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
             AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(CineFlexDbContex).Assembly);
+
+            modelBuilder.Entity<TaskEntity>()
+        .HasMany(t => t.TaskCheckLists)
+        .WithOne(tc => tc.TaskEntity)
+        .HasForeignKey(tc => tc.Id);
+
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
@@ -40,9 +47,9 @@ namespace CineFlex.Persistence
 
             return base.SaveChangesAsync(cancellationToken);
         }
-        public DbSet<CinemaEntity> Cinemas { get; set; }
+        public DbSet<TaskEntity> Tasks { get; set; }
 
-        public DbSet<Movie> Movies { get; set; }
+        public DbSet<TaskCheckListEntity> TaskCheckLists { get; set; }
 
     }
 }

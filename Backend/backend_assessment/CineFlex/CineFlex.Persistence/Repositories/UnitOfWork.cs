@@ -12,30 +12,30 @@ namespace CineFlex.Persistence.Repositories
     public class UnitOfWork : IUnitOfWork
     {
         private readonly CineFlexDbContex _context;
-        private IMovieRepository _MovieRepository;
+        private ITaskCheckListRepository _TaskCheckListRepository;
 
-        private ICinemaRepository _cinemaRepository;
+        private ITaskRepository _TaskRepository;
         public UnitOfWork(CineFlexDbContex context)
         {
             _context = context;
         }
 
-        public IMovieRepository MovieRepository
+        public ITaskCheckListRepository TaskCheckListRepository
         {
             get
             {
-                if (_MovieRepository == null)
-                    _MovieRepository = new MovieRepository(_context);
-                return _MovieRepository;
+                if (_TaskCheckListRepository == null)
+                    _TaskCheckListRepository = new TaskCheckListRepository(_context);
+                return _TaskCheckListRepository;
             }
         }
-        public ICinemaRepository CinemaRepository
+        public ITaskRepository TaskRepository
         {
             get
             {
-                if (_cinemaRepository == null)
-                    _cinemaRepository = new CinemaRepository(_context);
-                return _cinemaRepository;
+                if (_TaskRepository == null)
+                    _TaskRepository = new TaskRepository(_context);
+                return _TaskRepository;
             }
         }
 

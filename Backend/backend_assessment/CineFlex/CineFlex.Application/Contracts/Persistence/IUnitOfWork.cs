@@ -9,8 +9,8 @@ namespace CineFlex.Application.Contracts.Persistence
 {
     public interface IUnitOfWork : IDisposable
     {
-        IMovieRepository MovieRepository { get; }
-        ICinemaRepository CinemaRepository { get; }
+        ITaskCheckListRepository TaskCheckListRepository { get; }
+        ITaskRepository TaskRepository  { get; }
         Task<int> Save();
         
     }
