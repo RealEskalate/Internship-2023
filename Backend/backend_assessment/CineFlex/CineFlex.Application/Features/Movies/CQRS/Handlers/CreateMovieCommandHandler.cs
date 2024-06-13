@@ -31,14 +31,11 @@ namespace CineFlex.Application.Features.Movies.CQRS.Handlers
             var validator = new CreateMovieDtoValidator();
             var validationResult = await validator.ValidateAsync(request.MovieDto);
 
-            
-
             if (validationResult.IsValid == false)
             {
                 response.Success = false;
                 response.Message = "Movie Creation Failed";
                 response.Errors = validationResult.Errors.Select(e => e.ErrorMessage).ToList();
-
             }
             else
             {

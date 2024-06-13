@@ -1,4 +1,5 @@
 using CineFlex.Application;
+using CineFlex.Domain;
 using CineFlex.Persistence;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Identity;
@@ -12,6 +13,12 @@ builder.Services.AddHttpContextAccessor();
 AddSwaggerDoc(builder.Services);
 builder.Services.AddControllers();
 
+// builder.Services.AddIdentity<User, IdentityRole>(options =>
+//     {
+//         options.User.RequireUniqueEmail = true;
+//         options.SignIn.RequireConfirmedAccount = false;
+//     })
+//     .AddEntityFrameworkStores<CineFlexDbContex>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

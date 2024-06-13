@@ -34,6 +34,7 @@ namespace CineFlex.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateMovieDto createMovie)
         {
+            // TODO: 
             var command = new CreateMovieCommand { MovieDto = createMovie };
             return HandleResult(await _mediator.Send(command));
         }
@@ -41,8 +42,6 @@ namespace CineFlex.API.Controllers
         [HttpPut]
         public async Task<IActionResult> Put([FromBody] UpdateMovieDto movieDto)
         {
-
-
             var command = new UpdateMovieCommand { MovieDto = movieDto };
             return HandleResult(await _mediator.Send(command));
         }

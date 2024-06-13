@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CineFlex.Domain
 {
-    public class CinemaEntity:BaseDomainEntity
+    public class CinemaEntity: BaseDomainEntity
     {
         public string Name { get; set; }
         public string Location { get; set; }
