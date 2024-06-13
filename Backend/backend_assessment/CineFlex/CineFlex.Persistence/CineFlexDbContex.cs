@@ -22,6 +22,12 @@ namespace CineFlex.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<CinemaEntity>()
+            .HasMany(c => c.Seats)
+            .WithOne(s => s.Cinema)
+            .HasForeignKey(c => c.CinemaId)
+            .OnDelete(DeleteBehavior.Cascade);
+
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(CineFlexDbContex).Assembly);
         }
 
@@ -41,8 +47,9 @@ namespace CineFlex.Persistence
             return base.SaveChangesAsync(cancellationToken);
         }
         public DbSet<CinemaEntity> Cinemas { get; set; }
-
         public DbSet<Movie> Movies { get; set; }
+        public DbSet<Seat> Seats { get; set; }
+        public DbSet<MovieBooking> MovieBookings { get; set; }
 
     }
 }

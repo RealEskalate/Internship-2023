@@ -10,7 +10,13 @@ namespace CineFlex.Application.Contracts.Persistence
     public interface IUnitOfWork : IDisposable
     {
         IMovieRepository MovieRepository { get; }
+        
         ICinemaRepository CinemaRepository { get; }
+
+        IMovieBookingRepository MovieBookingRepository { get; }
+
+        ISeatRepository SeatRepository {get; }
+        
         Task<int> Save();
         
     }
