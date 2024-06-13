@@ -2,13 +2,24 @@ using CineFlex.Application;
 using CineFlex.Persistence;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Identity;
+using CineFlex.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    // Default Password settings.
+    options.Password.RequireDigit = true;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequiredLength = 8;
+    options.Password.RequiredUniqueChars = 1;
+});
 // Add services
 builder.Services.ConfigureApplicationServices();
 builder.Services.ConfigurePersistenceServices(builder.Configuration);
 builder.Services.AddHttpContextAccessor();
+builder.Services.ConfigureIdentityServices(builder.Configuration);
 AddSwaggerDoc(builder.Services);
 builder.Services.AddControllers();
 

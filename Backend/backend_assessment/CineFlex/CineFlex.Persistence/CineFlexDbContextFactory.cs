@@ -15,7 +15,7 @@ namespace CineFlex.Persistence
         public CineFlexDbContex CreateDbContext(string[] args)
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
-                 .SetBasePath(Directory.GetCurrentDirectory())
+                 .SetBasePath(Directory.GetCurrentDirectory() + "../../CineFlex.API")
                  .AddJsonFile("appsettings.json")
                  .Build();
 
