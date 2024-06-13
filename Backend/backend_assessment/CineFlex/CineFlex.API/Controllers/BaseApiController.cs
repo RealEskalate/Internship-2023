@@ -12,18 +12,16 @@ namespace CineFlex.API.Controllers
 
         protected IMediator Mediator => _mediatr ??= HttpContext.RequestServices.GetService<IMediator>();
 
-        protected ActionResult HandleResult<T>(BaseCommandResponse<T> result)
+        protected ActionResult HandleResult<T>(Result<T> result)
         {
             if (result == null)
-                return NotFound(new BaseCommandResponse<int> { Success = false, Message = "Data not found" });
-
-            if (result.Success && result.Value != null)
-                return Ok(result);
-            if (result.Success && result.Value == null)
                 return NotFound(result);
-
-
-            return BadRequest(result);
+            else if (result.Success && result.Value != null)
+                return Ok(result);
+            else if (result.Success && result.Value == null)
+                return NotFound(result);
+            else
+                return BadRequest(result);
         }
 
     }
