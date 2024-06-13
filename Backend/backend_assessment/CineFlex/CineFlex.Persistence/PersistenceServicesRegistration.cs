@@ -11,15 +11,18 @@ using System.Threading.Tasks;
 
 namespace CineFlex.Persistence
 {
-    public static class PersistenceServicesRegistration
-    {
-        public static IServiceCollection ConfigurePersistenceServices(this IServiceCollection services, IConfiguration configuration)
-        {
-            services.AddDbContext<CineFlexDbContex>(opt =>
-            opt.UseNpgsql(configuration.GetConnectionString("CineFlexConnectionString")));
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<ICinemaRepository, CinemaRepository>();
-            return services;
-        }
-    }
+	public static class PersistenceServicesRegistration
+	{
+		public static IServiceCollection ConfigurePersistenceServices(this IServiceCollection services, IConfiguration configuration)
+		{
+			services.AddDbContext<CineFlexDbContex>(opt =>
+			opt.UseNpgsql(configuration.GetConnectionString("CineFlexConnectionString")));
+			services.AddScoped<IUnitOfWork, UnitOfWork>();
+			services.AddScoped<ICinemaRepository, CinemaRepository>();
+			services.AddScoped<ISeatRepository, SeatRepository>(); 
+			services.AddScoped<IPostRepository, PostRepository>(); 
+
+			return services;
+		}
+	}
 }
