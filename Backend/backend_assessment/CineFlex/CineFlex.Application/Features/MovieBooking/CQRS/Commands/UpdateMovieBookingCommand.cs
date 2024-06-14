@@ -1,0 +1,17 @@
+using CineFlex.Application.Features.MovieBookings.DTO;
+using CineFlex.Application.Responses;
+using MediatR;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CineFlex.Application.Features.MovieBookings.CQRS.Commands
+{
+    public class UpdateMovieBookingCommand:IRequest<BaseCommandResponse<Unit>>
+    {
+        public UpdateMovieBookingDto updateMovieBookingDto { get; set; }
+        public int Id { get; set; }
+    }
+}
