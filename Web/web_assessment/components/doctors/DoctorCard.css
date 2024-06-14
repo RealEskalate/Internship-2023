@@ -1,0 +1,13 @@
+.doctor-card {
+    margin-bottom: 1rem;
+  }
+  
+  .doctor-grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .doctor-column {
+    flex: 1 0 25%;
+    padding: 0 0.5rem;
+  }
