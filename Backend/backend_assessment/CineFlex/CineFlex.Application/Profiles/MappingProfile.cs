@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using CineFlex.Application.Features.Movies.DTOs;
-using CineFlex.Application.Features.Cinema.DTO;
-using CineFlex.Application.Features.Cinema.Dtos;
+using CineFlex.Application.Features.CheckList.DTOs;
+using CineFlex.Application.Features.Task.DTO;
+using CineFlex.Application.Features.Task.Dtos;
 using CineFlex.Domain;
 using System;
 using System.Collections.Generic;
@@ -15,17 +15,17 @@ namespace CineFlex.Application.Profiles
     {
         public MappingProfile()
         {
-            #region Movie Mappings
+            #region 
 
-            CreateMap<Movie, MovieDto>().ReverseMap();
-            CreateMap<Movie, CreateMovieDto>().ReverseMap();
+            CreateMap<CheckList, CheckListDto>().ReverseMap();
+            CreateMap<CheckList, CreateCheckListDto>().ReverseMap();
 
-            CreateMap<Movie, UpdateMovieDto>().ReverseMap();
+            CreateMap<CheckList, UpdateCheckListDto>().ReverseMap();
 
-            #endregion Movie
-            CreateMap<CinemaEntity, CreateCinemaDto>().ReverseMap();
-            CreateMap<CinemaEntity, CinemaDto>().ReverseMap();
-            CreateMap<CinemaEntity, UpdateCinemaDto>().ReverseMap();
+            #endregion
+            CreateMap<Domain.TaskEntity, CreateTaskDto>().ReverseMap();
+            CreateMap<Domain.TaskEntity, TaskDto>().ReverseMap();
+            CreateMap<Domain.TaskEntity, UpdateTaskDto>().ReverseMap();
         }
     }
 }
