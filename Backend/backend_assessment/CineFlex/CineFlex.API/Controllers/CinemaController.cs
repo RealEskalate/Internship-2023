@@ -16,7 +16,7 @@ namespace CineFlex.API.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet("GetAll")]
+        [HttpGet]
         public async Task<ActionResult<List<CinemaDto>>> Get()
         {
             return HandleResult(await _mediator.Send(new GetCinemaListQuery()));

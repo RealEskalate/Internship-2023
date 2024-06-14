@@ -1,11 +1,7 @@
 ﻿using CineFlex.Application.Contracts.Persistence;
-using CineFlex.Persistence;
-using CineFlex.Persistence.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CineFlex.Domain;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CineFlex.Persistence.Repositories
 {
@@ -15,9 +11,14 @@ namespace CineFlex.Persistence.Repositories
         private IMovieRepository _MovieRepository;
 
         private ICinemaRepository _cinemaRepository;
-        public UnitOfWork(CineFlexDbContex context)
+        private ISeatRepository _seatRepository;
+        private IBookingRepository _bookingRepository;
+        private IServiceProvider _services;
+        private UserManager<AppUser> _userManager;
+        public UnitOfWork(CineFlexDbContex context,IServiceProvider services)
         {
             _context = context;
+            _services = services;
         }
 
         public IMovieRepository MovieRepository
@@ -27,6 +28,16 @@ namespace CineFlex.Persistence.Repositories
                 if (_MovieRepository == null)
                     _MovieRepository = new MovieRepository(_context);
                 return _MovieRepository;
+            }
+        }
+
+        public ISeatRepository SeatRepository
+        {
+            get
+            {
+                if (_seatRepository == null)
+                    _seatRepository = new SeatRepository(_context);
+                return _seatRepository;
             }
         }
         public ICinemaRepository CinemaRepository
@@ -39,7 +50,26 @@ namespace CineFlex.Persistence.Repositories
             }
         }
 
+        public IBookingRepository BookingRepository
+        {
+            get
+            {
+                if (_bookingRepository == null)
+                    _bookingRepository = new BookingRepository(_context);
+                return _bookingRepository;
+            }
+        }
 
+        public UserManager<AppUser> UserManager
+        {
+            get
+            {
+                if (_userManager == null)
+                    _userManager = _services.GetService<UserManager<AppUser>>();
+
+                return _userManager;
+            }
+        }
         public void Dispose()
         {
             _context.Dispose();
