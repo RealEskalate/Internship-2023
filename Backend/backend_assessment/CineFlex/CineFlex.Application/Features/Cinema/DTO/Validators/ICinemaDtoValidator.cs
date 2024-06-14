@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CineFlex.Application.Features.Cinema.DTO.Validators
 {
-    public class ICinemaDtoValidator:AbstractValidator<ICinemaDto>
+    public class ICinemaDtoValidator : AbstractValidator<ICinemaDto>
     {
         public ICinemaDtoValidator()
         {
@@ -29,5 +29,5 @@ namespace CineFlex.Application.Features.Cinema.DTO.Validators
 
         }
     }
-    }
+}
 

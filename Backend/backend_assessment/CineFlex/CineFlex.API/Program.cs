@@ -2,10 +2,29 @@ using CineFlex.Application;
 using CineFlex.Persistence;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Identity;
+using CineFlex.API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+
+
+builder.Services.AddAuthentication()
+    .AddCookie("Identity.Application", options =>
+    {
+        // Configure cookie options if needed
+    })
+    .AddCookie("Identity.External", options =>
+    {
+        // Configure cookie options if needed
+    })
+    .AddCookie("Identity.TwoFactorUserId", options =>
+    {
+        // Configure cookie options if needed
+    });
+
 // Add services
+builder.Services.AddIdentityServices(builder.Configuration);
 builder.Services.ConfigureApplicationServices();
 builder.Services.ConfigurePersistenceServices(builder.Configuration);
 builder.Services.AddHttpContextAccessor();
