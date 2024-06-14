@@ -1,29 +1,30 @@
-﻿using CineFlex.Application.Responses;
-using MediatR;
+﻿using MediatR;
+using System.Net;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CineFlex.API.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
     public class BaseApiController : ControllerBase
     {
-        private IMediator _mediatr;
+        protected readonly IMediator _mediator;
 
-        protected IMediator Mediator => _mediatr ??= HttpContext.RequestServices.GetService<IMediator>();
-
-        protected ActionResult HandleResult<T>(BaseCommandResponse<T> result)
+        public BaseApiController(IMediator mediator)
         {
-            if (result == null)
-                return NotFound(new BaseCommandResponse<int> { Success = false, Message = "Data not found" });
+            _mediator = mediator;
+        }
 
-            if (result.Success && result.Value != null)
-                return Ok(result);
-            if (result.Success && result.Value == null)
-                return NotFound(result);
+        public ActionResult getResponse<T>(HttpStatusCode status, T? payload){
 
-
-            return BadRequest(result);
+            if(status == HttpStatusCode.Created){
+                return Created("", payload);
+            }else if(status == HttpStatusCode.BadRequest){
+                return BadRequest(payload);
+            }else if(status == HttpStatusCode.OK){
+                return Ok(payload);
+            }else if(status == HttpStatusCode.NotFound){
+                return NotFound();
+            }
+            return NoContent();
         }
 
     }

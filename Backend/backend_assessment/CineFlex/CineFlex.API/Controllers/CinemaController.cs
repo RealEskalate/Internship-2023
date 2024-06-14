@@ -1,53 +1,70 @@
-﻿using CineFlex.Application.Features.Cinema.CQRS.Commands;
-using CineFlex.Application.Features.Cinema.CQRS.Queries;
-using CineFlex.Application.Features.Cinema.DTO;
-using CineFlex.Application.Features.Cinema.Dtos;
+﻿using System.Net;
+using CineFlex.Application.Features.Cinemas.CQRS.Commands;
+using CineFlex.Application.Features.Cinemas.CQRS.Queries;
+using CineFlex.Application.Features.Cinemas.DTO;
+using CineFlex.Application.Features.Cinemas.Dtos;
+using CineFlex.Application.Responses;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CineFlex.API.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
+    [Authorize]
     public class CinemaController: BaseApiController
     {
-        private readonly IMediator _mediator;
-
-        public CinemaController(IMediator mediator)
+        public CinemaController(IMediator mediator): base(mediator)
         {
-            _mediator = mediator;
         }
 
         [HttpGet("GetAll")]
-        public async Task<ActionResult<List<CinemaDto>>> Get()
+        [Authorize(Roles = "User, Admin")]
+        public async Task<ActionResult<BaseCommandResponse<List<CinemaDto>>>> Get()
         {
-            return HandleResult(await _mediator.Send(new GetCinemaListQuery()));
+            var result = await _mediator.Send(new GetCinemaListQuery());
+            
+            var status = result.Success ? HttpStatusCode.OK: HttpStatusCode.NotFound;
+            return getResponse<BaseCommandResponse<List<CinemaDto>>>(status, result);
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "User, Admin")]
         public async Task<ActionResult<CinemaDto>> Get(int id)
         {
-             return HandleResult(await _mediator.Send(new GetCinemaQuery { Id = id }));
+            var result = await _mediator.Send(new GetCinemaQuery { Id = id });
+            
+            var status = result.Success ? HttpStatusCode.OK: HttpStatusCode.NotFound;
+            return getResponse<BaseCommandResponse<CinemaDto>>(status, result);
         }
         [HttpPost("CreateCinema")]
-        public async Task<ActionResult> Post([FromBody] CreateCinemaDto createCinemaDto)
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult<BaseCommandResponse<int>>> Post([FromBody] CreateCinemaDto createCinemaDto)
         {
-            var command = new CreateCinemaCommand { CinemaDto = createCinemaDto };
-            return HandleResult(await _mediator.Send(command));
+            var result = await _mediator.Send(new CreateCinemaCommand { CinemaDto = createCinemaDto });
+            
+            var status = result.Success ? HttpStatusCode.Created: HttpStatusCode.BadRequest;
+            return getResponse<BaseCommandResponse<int>>(status, result);
         }
         [HttpPut("UpdateCinema")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Put([FromBody] UpdateCinemaDto updateCinemaDto)
         {
-            var command = new UpdateCinemaCommand { updateCinemaDto = updateCinemaDto };
-            await _mediator.Send(command);
-            return NoContent();
+            var result = await _mediator.Send(new UpdateCinemaCommand { updateCinemaDto = updateCinemaDto });
+            
+            var status = result.Success ? HttpStatusCode.NoContent: HttpStatusCode.BadRequest;
+            return getResponse<BaseCommandResponse<Unit>>(status, result);
         }
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
-        {
-            var command = new DeleteCinemaCommand { Id = id };
-            await _mediator.Send(command);
-            return NoContent();
+        {   
+            var result = await _mediator.Send(new DeleteCinemaCommand { Id = id });
+            
+            var status = result.Success ? HttpStatusCode.OK: HttpStatusCode.BadRequest;
+            return getResponse<BaseCommandResponse<Unit>>(status, result);
+            
         }
-
     }
 }
 
