@@ -2,6 +2,7 @@
 using CineFlex.Application.Features.Movies.CQRS.Queries;
 using CineFlex.Application.Features.Movies.DTOs;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
@@ -9,6 +10,7 @@ namespace CineFlex.API.Controllers
 {
     [Route("api/[Controller]")]
     [ApiController]
+    [Authorize]
     public class MovieController : BaseApiController
     {
         private readonly IMediator _mediator;
@@ -17,6 +19,7 @@ namespace CineFlex.API.Controllers
         {
             _mediator = mediator;
         }
+
 
         [HttpGet]
         public async Task<ActionResult<List<MovieDto>>> Get()
@@ -30,6 +33,8 @@ namespace CineFlex.API.Controllers
             return HandleResult(await _mediator.Send(new GetMovieDetailQuery { Id = id }));
 
         }
+
+        [Authorize(Roles = "Admin")] //
 
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateMovieDto createMovie)
@@ -46,6 +51,7 @@ namespace CineFlex.API.Controllers
             var command = new UpdateMovieCommand { MovieDto = movieDto };
             return HandleResult(await _mediator.Send(command));
         }
+        [Authorize(Roles = "Admin")] //
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)

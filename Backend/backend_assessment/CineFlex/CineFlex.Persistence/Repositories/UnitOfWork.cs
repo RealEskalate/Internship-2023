@@ -15,6 +15,7 @@ namespace CineFlex.Persistence.Repositories
         private IMovieRepository _MovieRepository;
 
         private ICinemaRepository _cinemaRepository;
+        private IBookingRepository  _bookingRepository;
         public UnitOfWork(CineFlexDbContex context)
         {
             _context = context;
@@ -39,7 +40,15 @@ namespace CineFlex.Persistence.Repositories
             }
         }
 
-
+public IBookingRepository BookingRepository
+        {
+            get
+            {
+                if (_bookingRepository == null)
+                    _bookingRepository = new BookingRepository (_context);
+                return _bookingRepository;
+            }
+        }
         public void Dispose()
         {
             _context.Dispose();

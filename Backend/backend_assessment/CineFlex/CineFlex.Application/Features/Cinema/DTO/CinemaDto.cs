@@ -12,5 +12,7 @@ namespace CineFlex.Application.Features.Cinema.Dtos
         public string Name { get; set; }
         public string Location { get; set; }
         public string ContactInformation { get; set; }
+         public int row {get;set;}
+    public int col {get;set;}
     }
 }
