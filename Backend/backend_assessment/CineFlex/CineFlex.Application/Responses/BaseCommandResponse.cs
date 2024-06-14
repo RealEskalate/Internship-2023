@@ -12,5 +12,10 @@ namespace CineFlex.Application.Responses
         public string Message { get; set; }
         public T? Value { get; set; }
         public List<string> Errors { get; set; }
+
+        public void ShouldBe<T1>()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

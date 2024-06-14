@@ -14,7 +14,10 @@ namespace CineFlex.Persistence.Repositories
         private readonly CineFlexDbContex _context;
         private IMovieRepository _MovieRepository;
 
+
         private ICinemaRepository _cinemaRepository;
+
+        private IPostRepository _postRepository;
         public UnitOfWork(CineFlexDbContex context)
         {
             _context = context;
@@ -36,6 +39,11 @@ namespace CineFlex.Persistence.Repositories
                 if (_cinemaRepository == null)
                     _cinemaRepository = new CinemaRepository(_context);
                 return _cinemaRepository;
+            }
+        }
+        public IPostRepository PostRepository{
+            get{
+                return _postRepository??=new PostRepository(_context);
             }
         }
 

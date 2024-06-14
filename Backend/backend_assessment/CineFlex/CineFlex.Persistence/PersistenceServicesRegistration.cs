@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CineFlex.Application.Contracts.Persistence;
+using CineFlex.Persistence.Repositories;
 
 namespace CineFlex.Persistence
 {
@@ -19,6 +21,7 @@ namespace CineFlex.Persistence
             opt.UseNpgsql(configuration.GetConnectionString("CineFlexConnectionString")));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ICinemaRepository, CinemaRepository>();
+            services.AddScoped<IPostRepository,PostRepository>();
             return services;
         }
     }
