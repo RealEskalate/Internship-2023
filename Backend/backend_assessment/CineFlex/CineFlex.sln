@@ -7,15 +7,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7B1B95A0-9DB
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F5977BC8-191D-48B9-8833-80091338052F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CineFlex.Domain", "CineFlex.Domain\CineFlex.Domain.csproj", "{50EEE1CA-423A-4F8C-8AEB-8F21104E48F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CineFlex.Domain", "CineFlex.Domain\CineFlex.Domain.csproj", "{50EEE1CA-423A-4F8C-8AEB-8F21104E48F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CineFlex.Application.UnitTest", "CineFlex.Application.UnitTest\CineFlex.Application.UnitTest.csproj", "{6C23CA30-5F1B-4733-9298-0221D22BC142}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CineFlex.Application.UnitTest", "CineFlex.Application.UnitTest\CineFlex.Application.UnitTest.csproj", "{6C23CA30-5F1B-4733-9298-0221D22BC142}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CineFlex.Application", "CineFlex.Application\CineFlex.Application.csproj", "{104F9AAF-4CC1-4578-9061-146FF1315A64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CineFlex.Application", "CineFlex.Application\CineFlex.Application.csproj", "{104F9AAF-4CC1-4578-9061-146FF1315A64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CineFlex.Persistence", "CineFlex.Persistence\CineFlex.Persistence.csproj", "{37F60AFF-7E17-4EC3-A20A-042C6F59F1D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CineFlex.Persistence", "CineFlex.Persistence\CineFlex.Persistence.csproj", "{37F60AFF-7E17-4EC3-A20A-042C6F59F1D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CineFlex.API", "CineFlex.API\CineFlex.API.csproj", "{8D82F498-631C-450B-982F-E7333EB92D7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CineFlex.API", "CineFlex.API\CineFlex.API.csproj", "{8D82F498-631C-450B-982F-E7333EB92D7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{5C2D4B2B-8998-4505-8735-67F7FF3C24F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{8D82F498-631C-450B-982F-E7333EB92D7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D82F498-631C-450B-982F-E7333EB92D7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D82F498-631C-450B-982F-E7333EB92D7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C2D4B2B-8998-4505-8735-67F7FF3C24F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C2D4B2B-8998-4505-8735-67F7FF3C24F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C2D4B2B-8998-4505-8735-67F7FF3C24F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C2D4B2B-8998-4505-8735-67F7FF3C24F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{104F9AAF-4CC1-4578-9061-146FF1315A64} = {7B1B95A0-9DBB-4C5D-82E6-3895BCF66EE8}
 		{37F60AFF-7E17-4EC3-A20A-042C6F59F1D9} = {7B1B95A0-9DBB-4C5D-82E6-3895BCF66EE8}
 		{8D82F498-631C-450B-982F-E7333EB92D7C} = {7B1B95A0-9DBB-4C5D-82E6-3895BCF66EE8}
+		{5C2D4B2B-8998-4505-8735-67F7FF3C24F6} = {7B1B95A0-9DBB-4C5D-82E6-3895BCF66EE8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {30B8E19C-B56E-4DDD-8243-978C779E3BD4}

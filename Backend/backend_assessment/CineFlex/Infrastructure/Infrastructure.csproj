@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Authorization" Version="7.0.5" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.16" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.30.1" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CineFlex.Application.UnitTest\CineFlex.Application.UnitTest.csproj" />
+    <ProjectReference Include="..\CineFlex.Domain\CineFlex.Domain.csproj" />
+    <ProjectReference Include="..\CineFlex.Persistence\CineFlex.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>

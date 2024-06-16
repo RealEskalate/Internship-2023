@@ -53,5 +53,15 @@ namespace CineFlex.API.Controllers
             var command = new DeleteMovieCommand { Id = id };
             return HandleResult(await _mediator.Send(command));
         }
+
+
+        [HttpPost("Book")]
+
+        public async Task<IActionResult> PostBook([FromBody] BookDto bookDto)
+        {
+            var command = new BookMovieCommand { BookDto = bookDto };
+            return HandleResult(await _mediator.Send(command));
+        }
+
     }
 }
