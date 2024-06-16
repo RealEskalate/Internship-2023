@@ -12,5 +12,7 @@ namespace CineFlex.Domain
         public string Name { get; set; }
         public string Location { get; set; }
         public string ContactInformation { get; set; }
+        public List<MovieBooking> MovieBookings { get; set; } // Relationship with MovieBooking
+
     }
 }
