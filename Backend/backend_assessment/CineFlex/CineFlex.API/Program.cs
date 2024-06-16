@@ -2,6 +2,11 @@ using CineFlex.Application;
 using CineFlex.Persistence;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using CineFlex.API.Extensions;
+using CineFlex.Application.Contracts.Persistence;
+using CineFlex.Infrastructure.Security;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +16,13 @@ builder.Services.ConfigurePersistenceServices(builder.Configuration);
 builder.Services.AddHttpContextAccessor();
 AddSwaggerDoc(builder.Services);
 builder.Services.AddControllers();
+
+builder.Services.AddControllers(opt =>  {
+    var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+    opt.Filters.Add(new AuthorizeFilter(policy));
+});
+
+builder.Services.AddIdentityServices(builder.Configuration);
 
 
 builder.Services.AddEndpointsApiExplorer();
@@ -24,6 +36,9 @@ builder.Services.AddCors(o =>
         .AllowAnyHeader());
 });
 
+builder.Services.AddScoped<IUserAccessor, UserAccessor>();
+
+
 var app = builder.Build();
 
 
@@ -35,6 +50,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors("CorsPolicy");
 app.UseAuthentication();
+
+app.UseAuthentication();
+
 app.UseSwagger();
 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CineFlex.Api v1"));
 app.UseHttpsRedirection();

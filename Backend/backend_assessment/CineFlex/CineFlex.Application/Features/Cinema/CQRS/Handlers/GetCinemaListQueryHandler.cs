@@ -46,5 +46,5 @@ namespace CineFlex.Application.Features.Cinema.CQRS.Handlers
             }
         }
     }
-    }
+}
 
