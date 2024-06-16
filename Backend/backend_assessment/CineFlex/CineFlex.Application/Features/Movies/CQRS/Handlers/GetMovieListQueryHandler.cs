@@ -5,36 +5,35 @@ using CineFlex.Application.Features.Movies.DTOs;
 using CineFlex.Application.Responses;
 using CineFlex.Domain;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CineFlex.Application.Features.Movies.CQRS.Handlers
+namespace CineFlex.Application.Features.Movies.CQRS.Handlers;
+
+public class GetMovieListQueryHandler : IRequestHandler<GetMovieListQuery, BaseCommandResponse<List<MovieDto>>>
 {
-    public class GetMovieListQueryHandler : IRequestHandler<GetMovieListQuery, BaseCommandResponse<List<MovieDto>>>
+    private readonly IMapper _mapper;
+    private readonly IUnitOfWork _unitOfWork;
+
+    public GetMovieListQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
     {
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IMapper _mapper;
+        _unitOfWork = unitOfWork;
+        _mapper = mapper;
+    }
 
-        public GetMovieListQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
-        {
-            _unitOfWork = unitOfWork;
-            _mapper = mapper;
-        }
+    public async Task<BaseCommandResponse<List<MovieDto>>> Handle(GetMovieListQuery request,
+        CancellationToken cancellationToken)
+    {
+        var response = new BaseCommandResponse<List<MovieDto>>();
+        IReadOnlyList<Movie> movies = new List<Movie>();
 
-        public async Task<BaseCommandResponse<List<MovieDto>>> Handle(GetMovieListQuery request, CancellationToken cancellationToken)
-        {
+        if (request.query == null)
+            movies = await _unitOfWork.MovieRepository.GetAll();
+        else
+            movies = await _unitOfWork.MovieRepository.GetMoviesByTitle(request.query);
 
-            var response = new BaseCommandResponse<List<MovieDto>>();
-            var movies = await _unitOfWork.MovieRepository.GetAll();
+        response.Success = true;
+        response.Message = "Movies retrieval Successful";
+        response.Value = _mapper.Map<List<MovieDto>>(movies);
 
-            response.Success = true;
-            response.Message = "Movies retrieval Successful";
-            response.Value = _mapper.Map<List<MovieDto>>(movies);
-
-            return response;
-        }
+        return response;
     }
 }

@@ -3,60 +3,51 @@ using CineFlex.Application.Contracts.Persistence;
 using CineFlex.Application.Features.Cinema.CQRS.Commands;
 using CineFlex.Application.Responses;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CineFlex.Application.Features.Cinema.CQRS.Handlers
+namespace CineFlex.Application.Features.Cinema.CQRS.Handlers;
+
+public class DeleteCommandHandler : IRequestHandler<DeleteCinemaCommand, BaseCommandResponse<Unit>>
 {
-    public class DeleteCommandHandler: IRequestHandler<DeleteCinemaCommand, BaseCommandResponse<Unit>>
+    private readonly IMapper _mapper;
+    private readonly IUnitOfWork _unitOfWork;
+
+    public DeleteCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
     {
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IMapper _mapper;
+        _unitOfWork = unitOfWork;
+        _mapper = mapper;
+    }
 
-        public DeleteCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+    public async Task<BaseCommandResponse<Unit>> Handle(DeleteCinemaCommand request,
+        CancellationToken cancellationToken)
+    {
+        var response = new BaseCommandResponse<Unit>();
+
+        var cinema = await _unitOfWork.CinemaRepository.Get(request.Id);
+
+        if (cinema is null)
         {
-            _unitOfWork = unitOfWork;
-            _mapper = mapper;
+            response.Success = false;
+            response.Message = "Delete Failed";
         }
-
-        public async Task<BaseCommandResponse<Unit>> Handle(DeleteCinemaCommand request, CancellationToken cancellationToken)
+        else
         {
-            var response = new BaseCommandResponse<Unit>();
+            await _unitOfWork.CinemaRepository.Delete(cinema);
 
-            var cinema = await _unitOfWork.CinemaRepository.Get(request.Id);
 
-            if (cinema is null)
+            if (await _unitOfWork.Save() > 0)
+            {
+                response.Success = true;
+                response.Message = "Delete Successful";
+                response.Value = Unit.Value;
+            }
+            else
             {
                 response.Success = false;
                 response.Message = "Delete Failed";
             }
-            else
-            {
-
-                await _unitOfWork.CinemaRepository.Delete(cinema);
-
-
-                if (await _unitOfWork.Save() > 0)
-                {
-                    response.Success = true;
-                    response.Message = "Delete Successful";
-                    response.Value = Unit.Value;
-                }
-                else
-                {
-                    response.Success = false;
-                    response.Message = "Delete Failed";
-                }
-            }
-
-
-
-            return response;
         }
+
+
+        return response;
     }
 }
-    
-

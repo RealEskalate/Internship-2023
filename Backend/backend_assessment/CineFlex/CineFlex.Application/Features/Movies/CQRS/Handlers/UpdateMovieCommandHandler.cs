@@ -4,70 +4,61 @@ using CineFlex.Application.Features.Movies.CQRS.Commands;
 using CineFlex.Application.Features.Movies.DTOs.Validators;
 using CineFlex.Application.Responses;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CineFlex.Application.Features.Movies.CQRS.Handlers
+namespace CineFlex.Application.Features.Movies.CQRS.Handlers;
+
+public class UpdateMovieCommandHandler : IRequestHandler<UpdateMovieCommand, BaseCommandResponse<Unit>>
 {
-    public class UpdateMovieCommandHandler : IRequestHandler<UpdateMovieCommand, BaseCommandResponse<Unit>>
+    private readonly IMapper _mapper;
+    private readonly IUnitOfWork _unitOfWork;
+
+    public UpdateMovieCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
     {
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IMapper _mapper;
+        _unitOfWork = unitOfWork;
+        _mapper = mapper;
+    }
 
-        public UpdateMovieCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+    public async Task<BaseCommandResponse<Unit>> Handle(UpdateMovieCommand request, CancellationToken cancellationToken)
+    {
+        var response = new BaseCommandResponse<Unit>();
+
+
+        var validator = new UpdateMovieDtoValidator();
+        var validationResult = await validator.ValidateAsync(request.MovieDto);
+
+        if (validationResult.IsValid == false)
         {
-            _unitOfWork = unitOfWork;
-            _mapper = mapper;
+            response.Success = false;
+            response.Message = "Update Failed";
+            response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
         }
-
-        public async Task<BaseCommandResponse<Unit>> Handle(UpdateMovieCommand request, CancellationToken cancellationToken)
+        else
         {
+            var movie = await _unitOfWork.MovieRepository.Get(request.MovieDto.Id);
 
-            var response = new BaseCommandResponse<Unit>();
-
-
-            var validator = new UpdateMovieDtoValidator();
-            var validationResult = await validator.ValidateAsync(request.MovieDto);
-
-            if (validationResult.IsValid == false)
+            if (movie == null)
             {
                 response.Success = false;
                 response.Message = "Update Failed";
-                response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
+                return response;
+            }
+
+            _mapper.Map(request.MovieDto, movie);
+
+            await _unitOfWork.MovieRepository.Update(movie);
+            if (await _unitOfWork.Save() > 0)
+            {
+                response.Success = true;
+                response.Message = "Updated Successful";
+                response.Value = Unit.Value;
             }
             else
             {
-
-                var movie = await _unitOfWork.MovieRepository.Get(request.MovieDto.Id);
-
-                if (movie == null)
-                {
-                    response.Success = false;
-                    response.Message = "Update Failed";
-                    return response;
-                }
-
-                _mapper.Map(request.MovieDto, movie);
-
-                await _unitOfWork.MovieRepository.Update(movie);
-                if (await _unitOfWork.Save() > 0)
-                {
-                    response.Success = true;
-                    response.Message = "Updated Successful";
-                    response.Value = Unit.Value;
-                }
-                else
-                {
-                    response.Success = false;
-                    response.Message = "Update Failed";
-                }
+                response.Success = false;
+                response.Message = "Update Failed";
             }
-
-            return response;
-
         }
+
+        return response;
     }
 }
