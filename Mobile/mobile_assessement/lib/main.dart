@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
+import 'features/issue/presentation/pages/issue_page.dart';
+
 void main() {
-  runApp(const MyApp());
+  runApp(const IssuePage());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  
 
   // This widget is the root of your application.
   @override
