@@ -2,7 +2,10 @@ import Image from 'next/image'
 
 const HeroSection: React.FC = () => {
   return (
-    <div className="flex justify-center gap-10 flex-wrap">
+    <div
+      className="flex justify-center gap-10 flex-wrap"
+      test-id="hero-section"
+    >
       <div className="flex flex-col justify-center">
         <div className="font-bold md:text-2xl sm:text-xl lg:text-3xl xl:text-4xl p-3">
           <span className="text-primary">Africa </span>to Silicon Valley

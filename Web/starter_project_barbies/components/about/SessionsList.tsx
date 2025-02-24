@@ -10,7 +10,10 @@ const SessionCard: React.FC<SessionCardProps> = ({
   session: { name, icon, description },
 }) => {
   return (
-    <div className="rounded-lg border-gray-200 border-2 px-10 py-5">
+    <div
+      className="rounded-lg border-gray-200 border-2 px-10 py-5"
+      test-id="session-card"
+    >
       <Image
         className="my-5"
         src={`/img/about/sessions/${icon}`}
@@ -26,8 +29,9 @@ const SessionCard: React.FC<SessionCardProps> = ({
 
 const SessionsList: React.FC = () => {
   const { data: sessions, isLoading, error } = useGetSessionsQuery()
+  console.log(sessions)
   return (
-    <div>
+    <div test-id="sessions-section">
       <div className="font-bold lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl text-center mx-auto mb-10">
         A2SV <span className="text-primary ">Sessions</span>
       </div>

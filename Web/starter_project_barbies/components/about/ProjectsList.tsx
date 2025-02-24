@@ -18,6 +18,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       className={`flex flex-wrap justify-around ${
         reverseFlex ? 'flex-row-reverse' : ''
       }`}
+      test-id="project-card"
     >
       <Image
         className="flex-initial"
@@ -53,11 +54,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 const ProjectsList: React.FC = () => {
   const { data: projects, isLoading, error } = useGetProjectsQuery()
   return (
-    <div>
+    <div test-id="projects-section">
       <div className="font-bold lg:text-5xl md:text-4xl sm:text-3xl xs:text-2xl text-center mx-auto mb-12">
         Social <span className="text-primary">Projects</span>
       </div>
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-5" test-id="projects">
         {projects?.map((project, index) => (
           <ProjectCard
             key={index}
